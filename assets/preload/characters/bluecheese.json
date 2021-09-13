@@ -59,11 +59,11 @@
 	"no_antialiasing": false,
 	"image": "characters/Cheese_Assets",
 	"position": [
-		0,
-		0
+		226.5,
+		250.15
 	],
 	"healthicon": "bluecheese",
-	"flip_x": true,
+	"flip_x": false,
 	"healthbar_colors": [
 		125,
 		214,

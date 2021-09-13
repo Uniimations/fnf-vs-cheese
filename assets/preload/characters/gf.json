@@ -190,8 +190,8 @@
 	"no_antialiasing": false,
 	"image": "characters/GF_assets",
 	"position": [
-		0,
-		0
+		1602.1,
+		409.45
 	],
 	"healthicon": "gf",
 	"flip_x": false,

@@ -554,6 +554,36 @@ class PlayState extends MusicBeatState
 					add(bg);
 				}
 
+			case 'restaurante':
+				curStage = 'restaurante';
+
+				defaultCamZoom = 0.8;
+
+				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
+				add(bg);
+
+				var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
+				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+				stageFront.updateHitbox();
+				add(stageFront);
+
+				if(!ClientPrefs.lowQuality) {
+					var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
+					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
+					stageLight.updateHitbox();
+					add(stageLight);
+					var stageLight:BGSprite = new BGSprite('stage_light', 1225, -100, 0.9, 0.9);
+					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
+					stageLight.updateHitbox();
+					stageLight.flipX = true;
+					add(stageLight);
+
+					var stageCurtains:BGSprite = new BGSprite('stagecurtains', -500, -300, 1.3, 1.3);
+					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+					stageCurtains.updateHitbox();
+					add(stageCurtains);
+				}
+
 			default:
 				defaultCamZoom = 0.9;
 				curStage = 'stage';
@@ -629,6 +659,11 @@ class PlayState extends MusicBeatState
 				BF_Y += 220;
 				GF_X += 180;
 				GF_Y += 300;
+			/*case 'restaurante':
+				boyfriend.setPosition(1168.2, 711.5);
+				dad.setPosition(226.5, 250.15);
+				gf.setPosition(1602.1, 409.45);*/
+			//i wish psych engine could do this either that or im dumb :(
 		}
 
 		gf = new Character(GF_X, GF_Y, gfVersion);
