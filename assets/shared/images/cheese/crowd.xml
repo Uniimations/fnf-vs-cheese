@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="crowd.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="front boppers0000" x="0" y="0" width="2355" height="606"/>
+	<SubTexture name="front boppers0001" x="0" y="0" width="2355" height="606"/>
+	<SubTexture name="front boppers0002" x="0" y="606" width="2349" height="606" frameX="-3" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0003" x="0" y="606" width="2349" height="606" frameX="-3" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0004" x="0" y="1212" width="2328" height="606" frameX="-14" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0005" x="0" y="1212" width="2328" height="606" frameX="-14" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0006" x="0" y="1818" width="2311" height="606" frameX="-23" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0007" x="0" y="1818" width="2311" height="606" frameX="-23" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0008" x="0" y="2424" width="2306" height="606" frameX="-25" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0009" x="0" y="2424" width="2306" height="606" frameX="-25" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0010" x="0" y="3030" width="2306" height="606" frameX="-25" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0011" x="0" y="3030" width="2306" height="606" frameX="-25" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0012" x="0" y="3030" width="2306" height="606" frameX="-25" frameY="0" frameWidth="2355" frameHeight="606"/>
+	<SubTexture name="front boppers0013" x="0" y="3030" width="2306" height="606" frameX="-25" frameY="0" frameWidth="2355" frameHeight="606"/>
+</TextureAtlas>
