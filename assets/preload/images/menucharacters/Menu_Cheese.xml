@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Menu_Cheese.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Cheese Idle Menui0000" x="0" y="0" width="145" height="384" frameX="0" frameY="-3" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0001" x="0" y="0" width="145" height="384" frameX="0" frameY="-3" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0002" x="145" y="0" width="145" height="385" frameX="0" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0003" x="145" y="0" width="145" height="385" frameX="0" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0004" x="290" y="0" width="143" height="385" frameX="-1" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0005" x="290" y="0" width="143" height="385" frameX="-1" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0006" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0007" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0008" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0009" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0010" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0011" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0012" x="571" y="0" width="137" height="387" frameX="-7" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0013" x="571" y="0" width="137" height="387" frameX="-7" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0014" x="708" y="0" width="133" height="385" frameX="-12" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0015" x="708" y="0" width="133" height="385" frameX="-12" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0016" x="841" y="0" width="134" height="385" frameX="-11" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0017" x="841" y="0" width="134" height="385" frameX="-11" frameY="-2" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0018" x="0" y="387" width="135" height="387" frameX="-9" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0019" x="0" y="387" width="135" height="387" frameX="-9" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0020" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0021" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0022" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0023" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0024" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0025" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0026" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0027" x="433" y="0" width="138" height="387" frameX="-6" frameY="0" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0028" x="135" y="387" width="139" height="386" frameX="-5" frameY="-1" frameWidth="145" frameHeight="387"/>
+	<SubTexture name="Cheese Idle Menui0029" x="135" y="387" width="139" height="386" frameX="-5" frameY="-1" frameWidth="145" frameHeight="387"/>
+</TextureAtlas>

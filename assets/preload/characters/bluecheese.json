@@ -54,13 +54,68 @@
 			"anim": "singDOWN",
 			"indices": [],
 			"name": "cheese down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "freestyle",
+			"fps": 30,
+			"name": "cheese freestyle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "pog",
+			"fps": 30,
+			"name": "cheese pog",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "keychange",
+			"loop": false,
+			"name": "cheese keychange"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "cultured",
+			"loop": false,
+			"name": "cheese cultured"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [],
+			"fps": 30,
+			"anim": "yo",
+			"loop": false,
+			"name": "cheese yo"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Cheese_Assets",
 	"position": [
-		226.5,
-		250.15
+		470,
+		140
 	],
 	"healthicon": "bluecheese",
 	"flip_x": false,
@@ -70,8 +125,8 @@
 		255
 	],
 	"camera_position": [
-		0,
-		0
+		20,
+		173
 	],
 	"sing_duration": 4,
 	"scale": 1

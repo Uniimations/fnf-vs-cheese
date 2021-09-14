@@ -85,13 +85,6 @@ class FreeplayState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		for (i in 1...WeekData.songsNames.length) {
-			#if !debug
-			if (StoryMenuState.weekUnlocked[i])
-			#end
-				addWeek(WeekData.songsNames[i], i, songsHeads[i-1]);
-		}
-
 		// LOAD MUSIC
 
 		// LOAD CHARACTERS

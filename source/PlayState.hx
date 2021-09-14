@@ -180,6 +180,10 @@ class PlayState extends MusicBeatState
 	var santa:BGSprite;
 	var heyTimer:Float;
 
+	var boppers:BGSprite;
+	var counter:BGSprite;
+	var frontBoppers:BGSprite;
+
 	var bgGirls:BackgroundGirls;
 	var wiggleShit:WiggleEffect = new WiggleEffect();
 	var bgGhouls:BGSprite;
@@ -554,34 +558,41 @@ class PlayState extends MusicBeatState
 					add(bg);
 				}
 
-			case 'restaurante':
+			case 'restaurante' | 'milkshake' | 'cultured':
 				curStage = 'restaurante';
 
-				defaultCamZoom = 0.8;
-
-				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
-				add(bg);
-
-				var stageFront:BGSprite = new BGSprite('stagefront', -650, 600, 0.9, 0.9);
-				stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
-				stageFront.updateHitbox();
-				add(stageFront);
+				defaultCamZoom = 0.60;
 
 				if(!ClientPrefs.lowQuality) {
-					var stageLight:BGSprite = new BGSprite('stage_light', -125, -100, 0.9, 0.9);
-					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
-					stageLight.updateHitbox();
-					add(stageLight);
-					var stageLight:BGSprite = new BGSprite('stage_light', 1225, -100, 0.9, 0.9);
-					stageLight.setGraphicSize(Std.int(stageLight.width * 1.1));
-					stageLight.updateHitbox();
-					stageLight.flipX = true;
-					add(stageLight);
+				    var floor:BGSprite = new BGSprite('cheese/floor', -1262.95, -138.7, 1, 1);
+				    floor.updateHitbox();
+				    add(floor);
 
-					var stageCurtains:BGSprite = new BGSprite('stagecurtains', -500, -300, 1.3, 1.3);
-					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
-					stageCurtains.updateHitbox();
-					add(stageCurtains);
+				    var tableA:BGSprite = new BGSprite('cheese/tableA', 1918.1, 282.15, 1, 1);
+				    tableA.updateHitbox();
+				    add(tableA);
+
+				    //1664.95, 581.65 | PosX, PosY
+				    var tableB:BGSprite = new BGSprite('cheese/tableB', 1664.95, 581.65, 1, 1);
+				    tableB.updateHitbox();
+				    add(tableB);
+
+					boppers = new BGSprite('cheese/boppers', 1276.65, 123.45, 1, 1, ['boppers']);
+					boppers.updateHitbox();
+				    add(boppers);
+
+				    var suzuki:BGSprite = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+					suzuki.updateHitbox();
+				    add(suzuki);
+
+					counter = new BGSprite('cheese/counter', 230.25, 403.6, 1, 1, ['counter bop']);
+					counter.updateHitbox();
+
+					frontBoppers = new BGSprite('cheese/front_boppers', 72.55, 967.85, 1, 1, ['front boppers']);
+					frontBoppers.updateHitbox();
+				} else {
+					var lowquality:BGSprite = new BGSprite('cheese/background_lq', -326.15, -303.3, 0.8, 0.9);
+				    add(lowquality);
 				}
 
 			default:
@@ -715,6 +726,10 @@ class PlayState extends MusicBeatState
 			add(limo);
 
 		add(dadGroup);
+
+		if (!ClientPrefs.lowQuality && curStage == 'restaurante')
+			add(counter);
+
 		add(boyfriendGroup);
 
 		foregroundGroup = new FlxTypedGroup<FlxSprite>();
@@ -723,6 +738,9 @@ class PlayState extends MusicBeatState
 		if(curStage == 'spooky') {
 			add(halloweenWhite);
 		}
+
+		if (!ClientPrefs.lowQuality && curStage == 'restaurante')
+			add(frontBoppers);
 
 		var lowercaseSong:String = SONG.song.toLowerCase();
 		var file:String = Paths.txt(lowercaseSong + '/' + lowercaseSong + 'Dialogue');
@@ -1208,6 +1226,10 @@ class PlayState extends MusicBeatState
 		
 						bottomBoppers.dance(true);
 						santa.dance(true);
+					case 'restaurante':
+						if(!ClientPrefs.lowQuality)
+							boppers.dance(true);
+						    counter.dance(true);
 				}
 
 				switch (swagCounter)
@@ -3610,6 +3632,15 @@ class PlayState extends MusicBeatState
 					trainCooldown = FlxG.random.int(-4, 0);
 					trainStart();
 				}
+			case 'restaurante':
+				if(!ClientPrefs.lowQuality) {
+					//why tf did i copy the mall code??
+					if(heyTimer <= 0) boppers.dance(true);
+				    boppers.dance(true);
+					if(heyTimer <= 0) counter.dance(true);
+				    counter.dance(true);
+				}
+
 		}
 
 		if (curStage == 'spooky' && FlxG.random.bool(10) && curBeat > lightningStrikeBeat + lightningOffset)

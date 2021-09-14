@@ -53,6 +53,10 @@ class MenuCharacter extends FlxSprite
 			case 'senpai':
 				frames = Paths.getSparrowAtlas('menucharacters/Menu_Senpai');
 				animation.addByPrefix('idle', "M Senpai Idle", 24);
+
+			case 'bluecheese':
+				frames = Paths.getSparrowAtlas('menucharacters/Menu_Cheese');
+				animation.addByPrefix('idle', "Cheese Idle Menui", 24);
 		}
 		animation.play('idle');
 		updateHitbox();
@@ -78,6 +82,10 @@ class MenuCharacter extends FlxSprite
 
 			case 'senpai':
 				offset.set(60, -70);
+
+			case 'bluecheese':
+				offset.set(0, 10);
+
 		}
 	}
 }

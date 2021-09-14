@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="suzuki_door.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="DOOR0000" x="0" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0001" x="357" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0002" x="714" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0003" x="1071" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0004" x="1428" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0005" x="1785" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0006" x="2142" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0007" x="2499" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0008" x="2856" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0009" x="3213" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0010" x="3570" y="0" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0011" x="0" y="521" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0012" x="357" y="521" width="357" height="523" frameX="0" frameY="-2" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0013" x="714" y="521" width="357" height="523" frameX="0" frameY="-2" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0014" x="1071" y="521" width="357" height="523" frameX="0" frameY="-2" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0015" x="1428" y="521" width="357" height="525"/>
+	<SubTexture name="DOOR0016" x="1785" y="521" width="357" height="525"/>
+	<SubTexture name="DOOR0017" x="2142" y="521" width="357" height="525"/>
+	<SubTexture name="DOOR0018" x="2499" y="521" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0019" x="2856" y="521" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0020" x="3213" y="521" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0021" x="3570" y="521" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0022" x="0" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0023" x="357" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0024" x="714" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0025" x="1071" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0026" x="1428" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0027" x="1785" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0028" x="2142" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0029" x="2499" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0030" x="2856" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0031" x="3213" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0032" x="3570" y="1046" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0033" x="0" y="1567" width="357" height="523" frameX="0" frameY="-2" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0034" x="357" y="1567" width="357" height="523" frameX="0" frameY="-2" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0035" x="714" y="1567" width="357" height="523" frameX="0" frameY="-2" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0036" x="1071" y="1567" width="357" height="525"/>
+	<SubTexture name="DOOR0037" x="1428" y="1567" width="357" height="525"/>
+	<SubTexture name="DOOR0038" x="1785" y="1567" width="357" height="525"/>
+	<SubTexture name="DOOR0039" x="2142" y="1567" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0040" x="2499" y="1567" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+	<SubTexture name="DOOR0041" x="2856" y="1567" width="357" height="521" frameX="0" frameY="-4" frameWidth="357" frameHeight="525"/>
+</TextureAtlas>

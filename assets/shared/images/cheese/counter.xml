@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="counter.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="counter bop0000" x="0" y="0" width="1356" height="662"/>
+	<SubTexture name="counter bop0001" x="1356" y="0" width="1356" height="662"/>
+	<SubTexture name="counter bop0002" x="2712" y="0" width="1348" height="662" frameX="-4" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0003" x="0" y="662" width="1348" height="662" frameX="-4" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0004" x="1348" y="662" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0005" x="2690" y="662" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0006" x="0" y="1324" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0007" x="1342" y="1324" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0008" x="2684" y="1324" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0009" x="0" y="1986" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0010" x="1342" y="1986" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0011" x="2684" y="1986" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0012" x="0" y="2648" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0013" x="1342" y="2648" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+</TextureAtlas>
