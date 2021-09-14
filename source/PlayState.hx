@@ -1230,6 +1230,7 @@ class PlayState extends MusicBeatState
 						if(!ClientPrefs.lowQuality)
 							boppers.dance(true);
 						    counter.dance(true);
+							frontBoppers.dance(true);
 				}
 
 				switch (swagCounter)
@@ -3635,10 +3636,11 @@ class PlayState extends MusicBeatState
 			case 'restaurante':
 				if(!ClientPrefs.lowQuality) {
 					//why tf did i copy the mall code??
+					//i dont think i need this lol ill keep it anyway
 					if(heyTimer <= 0) boppers.dance(true);
 				    boppers.dance(true);
-					if(heyTimer <= 0) counter.dance(true);
 				    counter.dance(true);
+					frontBoppers.dance(true);
 				}
 
 		}
