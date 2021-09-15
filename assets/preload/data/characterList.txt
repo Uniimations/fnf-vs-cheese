@@ -1,25 +1,14 @@
+---------------
+Player 1
+---------------
 bf
+bf-alt
+---------------
+Player 2
+---------------
 dad
-gf
 bluecheese
-bluecheese-2
-bluecheese-3
-----------------
-spooky
-pico
-mom
-mom-car
-bf-car
-gf-car
-parents-christmas
-monster-christmas
-bf-christmas
-gf-christmas
-monster
-bf-pixel
-gf-pixel
-senpai
-senpai-angry
-spirit
-bf-pixel-opponent
-pico-player
+---------------
+Miscellaneous
+---------------
+gf

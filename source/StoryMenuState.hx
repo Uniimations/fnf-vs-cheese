@@ -38,35 +38,23 @@ class StoryMenuState extends MusicBeatState
 	//It works like this:
 	// ['Left character', 'Center character', 'Right character']
 	var weekCharacters:Array<Dynamic> = [
-		['dad', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf']
+		['null-man', 'bf', 'gf'],
+		['bluecheese', 'bf', 'gf'],
+		['dad', 'bf', 'gf']
 	];
 
 	//The week's name, displayed on top-right
 	var weekNames:Array<String> = [
 		"",
-		"Daddy Dearest",
-		"Spooky Month",
-		"PICO",
-		"MOMMY MUST MURDER",
-		"RED SNOW",
-		"hating simulator ft. moawling"
+		"Restaurante De Fromage Bleu",
+		"Self Insert"
 	];
 
 	//Background asset name, the background files are stored on assets/preload/menubackgrounds/
 	var weekBackground:Array<String> = [
 		'stage',		
 		'stage',
-		'halloween',
-		'philly',
-		'limo',
-		'christmas',
-		'school'
+		'stage'
 	];
 	
 	var scoreText:FlxText;

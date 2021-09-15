@@ -34,27 +34,11 @@ class MenuCharacter extends FlxSprite
 				frames = Paths.getSparrowAtlas('menucharacters/Menu_Dad');
 				animation.addByPrefix('idle', "M Dad Idle", 24);
 
-			case 'spooky':
-				frames = Paths.getSparrowAtlas('menucharacters/Menu_Spooky_Kids');
-				animation.addByPrefix('idle', "M Spooky Kids Idle", 24);
-
-			case 'pico':
-				frames = Paths.getSparrowAtlas('menucharacters/Menu_Pico');
-				animation.addByPrefix('idle', "M Pico Idle", 24);
-
-			case 'mom':
-				frames = Paths.getSparrowAtlas('menucharacters/Menu_Mom');
-				animation.addByPrefix('idle', "M Mom Idle", 24);
-
-			case 'parents-christmas':
-				frames = Paths.getSparrowAtlas('menucharacters/Menu_Parents');
-				animation.addByPrefix('idle', "M Parents Idle", 24);
-
-			case 'senpai':
-				frames = Paths.getSparrowAtlas('menucharacters/Menu_Senpai');
-				animation.addByPrefix('idle', "M Senpai Idle", 24);
-
 			case 'bluecheese':
+				frames = Paths.getSparrowAtlas('menucharacters/Menu_Cheese');
+				animation.addByPrefix('idle', "Cheese Idle Menui", 24);
+
+			case 'null-man':
 				frames = Paths.getSparrowAtlas('menucharacters/Menu_Cheese');
 				animation.addByPrefix('idle', "Cheese Idle Menui", 24);
 		}
@@ -64,28 +48,19 @@ class MenuCharacter extends FlxSprite
 		switch(character) {
 			case 'bf':
 				offset.set(15, -40);
+				visible = true;
 
 			case 'gf':
 				offset.set(0, -25);
-
-			case 'spooky':
-				offset.set(0, -80);
-
-			case 'pico':
-				offset.set(0, -120);
-
-			case 'mom':
-				offset.set(0, 10);
-
-			case 'parents-christmas':
-				offset.set(110, 10);
-
-			case 'senpai':
-				offset.set(60, -70);
+				visible = true;
 
 			case 'bluecheese':
 				offset.set(0, 10);
+				visible = true;
 
+			case 'null-man':
+				offset.set(0, 0);
+				visible = false;
 		}
 	}
 }
