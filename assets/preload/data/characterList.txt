@@ -1,3 +1,4 @@
+null character
 ---------------
 Player 1
 ---------------
@@ -12,3 +13,4 @@ bluecheese
 Miscellaneous
 ---------------
 gf
+bf-menu

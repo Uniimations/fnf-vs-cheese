@@ -28,11 +28,7 @@ class StoryMenuState extends MusicBeatState
 	public static var weekUnlocked:Array<Bool> = [
 		true,	//Tutorial
 		true,	//Week 1
-		true,	//Week 2
-		true,	//Week 3
-		true,	//Week 4
-		true,	//Week 5
-		true	//Week 6
+		true	//Week 2
 	];
 
 	//It works like this:
@@ -53,8 +49,8 @@ class StoryMenuState extends MusicBeatState
 	//Background asset name, the background files are stored on assets/preload/menubackgrounds/
 	var weekBackground:Array<String> = [
 		'stage',		
-		'stage',
-		'stage'
+		'restaurante',
+		'restaurante'
 	];
 	
 	var scoreText:FlxText;

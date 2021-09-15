@@ -664,7 +664,9 @@ class PreferencesSubstate extends MusicBeatSubstate
 	private static var curSelected:Int = 0;
 	static var unselectableOptions:Array<String> = [
 		'GRAPHICS',
-		'GAMEPLAY'
+		'GAMEPLAY',
+		'APPEARANCE',
+		'MOD SPECIFIC'
 	];
 	static var noCheckbox:Array<String> = [
 		'Framerate',
@@ -672,6 +674,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 	];
 
 	static var options:Array<String> = [
+		//GRAPHICS CATEGORY
 		'GRAPHICS',
 		'Low Quality',
 		'Anti-Aliasing',
@@ -679,11 +682,14 @@ class PreferencesSubstate extends MusicBeatSubstate
 		#if !html5
 		'Framerate', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
+		//GAMEPLAY CATEGORY
 		'GAMEPLAY',
 		'Downscroll',
 		'Middlescroll',
 		'Ghost Tapping',
 		'Note Delay',
+		//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
+		'APPEARANCE',
 		'Note Splashes',
 		'Hide HUD',
 		'Hide Song Length',
@@ -692,6 +698,11 @@ class PreferencesSubstate extends MusicBeatSubstate
 		#if !mobile
 		,'FPS Counter'
 		#end
+		//MOD SPECIFIC CATEGORY WHERE WE GET FUNKY AND fun ni lol!!!
+		, 'MOD SPECIFIC',
+		'New Boyfriend Skin',
+		'Shitish Mode'
+
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -872,6 +883,12 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 					case 'Hide Song Length':
 						ClientPrefs.hideTime = !ClientPrefs.hideTime;
+
+					case 'New Boyfriend Skin':
+						ClientPrefs.bfreskin = !ClientPrefs.bfreskin;
+
+					case 'Shitish Mode':
+						ClientPrefs.shitish = !ClientPrefs.shitish;
 				}
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				reloadValues();
@@ -965,6 +982,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 				daText = "If checked, hides most HUD elements.";
 			case 'Hide Song Length':
 				daText = "If checked, the bar showing how much time is left\nwill be hidden.";
+			case 'New Boyfriend Skin':
+				daText = "If unchecked, bf will have the normal skin\ninstead of the usual remastered one.";
+			case 'Shitish Mode':
+				daText = "'it's not british, it's shitish, anyway-'\nIf checked, the dialogue and story will be funny\n(best played after finishing story mode)";
 		}
 		descText.text = daText;
 
@@ -1001,7 +1022,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 		if(options[curSelected] == 'Anti-Aliasing') {
 			if(showCharacter == null) {
-				showCharacter = new Character(840, 170, 'bf', true);
+				showCharacter = new Character(840, 170, 'bf-menu', true);
 				showCharacter.setGraphicSize(Std.int(showCharacter.width * 0.8));
 				showCharacter.updateHitbox();
 				showCharacter.dance();
@@ -1048,6 +1069,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.imagesPersist;
 					case 'Hide Song Length':
 						daValue = ClientPrefs.hideTime;
+					case 'New Boyfriend Skin':
+						daValue = ClientPrefs.bfreskin;
+					case 'Shitish Mode':
+						daValue = ClientPrefs.shitish;
 				}
 				checkbox.daValue = daValue;
 			}

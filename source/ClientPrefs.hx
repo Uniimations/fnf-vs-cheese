@@ -25,6 +25,8 @@ class ClientPrefs {
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var hideTime:Bool = false;
+	public static var bfreskin:Bool = true;
+	public static var shitish:Bool = false;
 
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left
@@ -80,6 +82,8 @@ class ClientPrefs {
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.hideTime = hideTime;
+		FlxG.save.data.bfreskin = bfreskin;
+		FlxG.save.data.shitish = shitish;
 
 		var achieves:Array<String> = [];
 		for (i in 0...Achievements.achievementsUnlocked.length) {
@@ -160,6 +164,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideTime != null) {
 			hideTime = FlxG.save.data.hideTime;
+		}
+		if(FlxG.save.data.bfreskin != null) {
+			bfreskin = FlxG.save.data.bfreskin;
+		}
+		if(FlxG.save.data.shitish != null) {
+			shitish = FlxG.save.data.shitish;
 		}
 
 		var save:FlxSave = new FlxSave();

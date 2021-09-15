@@ -563,6 +563,9 @@ class PlayState extends MusicBeatState
 
 				defaultCamZoom = 0.60;
 
+				var lowquality:BGSprite = new BGSprite('cheese/background_lq', -326.15, -303.3, 0.8, 0.9);
+				    add(lowquality);
+
 				if(!ClientPrefs.lowQuality) {
 				    var floor:BGSprite = new BGSprite('cheese/floor', -1262.95, -138.7, 1, 1);
 				    floor.updateHitbox();
@@ -590,9 +593,6 @@ class PlayState extends MusicBeatState
 
 					frontBoppers = new BGSprite('cheese/front_boppers', 72.55, 967.85, 1, 1, ['front boppers']);
 					frontBoppers.updateHitbox();
-				} else {
-					var lowquality:BGSprite = new BGSprite('cheese/background_lq', -326.15, -303.3, 0.8, 0.9);
-				    add(lowquality);
 				}
 
 			default:
@@ -641,6 +641,23 @@ class PlayState extends MusicBeatState
 					gfVersion = 'gf';
 			}
 			SONG.player3 = gfVersion; //Fix for the Chart Editor
+		}
+
+		//DUDE IT WORKS ADJLJAFHJDFAHJSDFHJK
+		var bfVersion:String = SONG.player1;
+		if(!ClientPrefs.bfreskin) {
+			{
+				switch (curStage)
+				{
+					case 'restaurante':
+						bfVersion = 'bf-alt';
+					case 'week2phase1':
+						bfVersion = 'bf';
+					default:
+					    bfVersion = 'bf';
+			    }
+			}
+			SONG.player1 = bfVersion; //Fix for the Chart Editor????
 		}
 
 		boyfriendGroup = new FlxTypedGroup<Boyfriend>();
