@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="BOYFRIEND_Dialogue.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bfportrait10000" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10001" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10002" x="1280" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10003" x="1280" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10004" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10005" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10006" x="3840" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10007" x="3840" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10008" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10009" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10010" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10011" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10012" x="6400" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10013" x="6400" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10014" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10015" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10016" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10017" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10018" x="3840" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10019" x="3840" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10020" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10021" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10022" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10023" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10024" x="6400" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10025" x="6400" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10026" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10027" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10028" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10029" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait10030" x="3840" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10031" x="3840" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10032" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10033" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10034" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait10035" x="5120" y="0" width="1280" height="720"/>
+	<SubTexture name="bfportrait20000" x="3840" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait20001" x="3840" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait20002" x="5120" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait20003" x="5120" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait20004" x="6400" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait20005" x="6400" y="720" width="1280" height="720"/>
+	<SubTexture name="bfportrait20006" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20007" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20008" x="1280" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20009" x="1280" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20010" x="2560" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20011" x="2560" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20012" x="3840" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20013" x="3840" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20014" x="5120" y="1440" width="1280" height="720"/>
+	<SubTexture name="bfportrait20015" x="5120" y="1440" width="1280" height="720"/>
+</TextureAtlas>
