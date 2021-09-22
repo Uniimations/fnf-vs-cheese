@@ -299,7 +299,7 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase())
 		{
-			case 'restaurante' | 'milkshake' | 'cultured' | 'guns':
+			case 'restaurante' | 'restaurante-ex' | 'milkshake' | 'cultured' | 'guns':
 				curStage = 'restaurante';
 
 				defaultCamZoom = 0.60;
@@ -536,9 +536,7 @@ class PlayState extends MusicBeatState
 			if (curStage.startsWith('restaurante')) {
 			    add(counter);
 			}
-		}
 
-		if (!ClientPrefs.fuckyouavi) {
 			add(boyfriendGroup);
 
 		    foregroundGroup = new FlxTypedGroup<FlxSprite>();
@@ -1062,7 +1060,11 @@ class PlayState extends MusicBeatState
 		previousFrameTime = FlxG.game.ticks;
 		lastReportedPlayheadPosition = 0;
 
-		FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
+		if (CoolUtil.difficultyString() == 'EX') {
+			FlxG.sound.playMusic(Paths.instex(PlayState.SONG.song), 1, false);
+		} else {
+			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 1, false);
+		}
 		FlxG.sound.music.onComplete = finishSong;
 		vocals.play();
 
@@ -1097,10 +1099,15 @@ class PlayState extends MusicBeatState
 
 		curSong = songData.song;
 
-		if (SONG.needsVoices)
-			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
-		else
+		if (SONG.needsVoices) {
+			if (CoolUtil.difficultyString() == 'EX') {
+				vocals = new FlxSound().loadEmbedded(Paths.voicesex(PlayState.SONG.song));
+			} else {
+				vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
+			}
+		} else {
 			vocals = new FlxSound();
+		}
 
 		FlxG.sound.list.add(vocals);
 		FlxG.sound.list.add(new FlxSound().loadEmbedded(Paths.inst(PlayState.SONG.song)));

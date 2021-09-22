@@ -115,9 +115,19 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
 	}
 
+	inline static public function voicesex(song:String)
+	{
+		return 'songs:assets/songs/${song.toLowerCase()}/VoicesEX.$SOUND_EXT';
+	}
+
 	inline static public function inst(song:String)
 	{
 		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
+	}
+
+	inline static public function instex(song:String)
+	{
+		return 'songs:assets/songs/${song.toLowerCase()}/InstEX.$SOUND_EXT';
 	}
 
 	inline static public function image(key:String, ?library:String):Dynamic
