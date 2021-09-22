@@ -1,4 +1,5 @@
 export/
 .vscode/
+sourcePSYCH/
+assets/exclude/
 APIStuff.hx
-sourcePSYCH

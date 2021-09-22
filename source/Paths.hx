@@ -189,6 +189,21 @@ class Paths
 		#end
 	}
 
+	inline static public function getMenuSA(key:String, ?library:String)
+		{
+			#if MODS_ALLOWED
+			var imageLoaded:FlxGraphic = addCustomGraphic(key);
+			var xmlExists:Bool = false;
+			if(FileSystem.exists(modsXml(key))) {
+				xmlExists = true;
+			}
+	
+			return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image('menucharacters/Menu_$key', library)), (xmlExists ? File.getContent(modsXml(key)) : file('images/menucharacters/Menu_$key.xml', library)));
+			#else
+			return FlxAtlasFrames.fromSparrow(image('menucharacters/Menu_$key', library), file('images/menucharacters/Menu_$key.xml', library));
+			#end
+		}
+
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{
 		#if MODS_ALLOWED

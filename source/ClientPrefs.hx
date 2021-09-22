@@ -25,8 +25,15 @@ class ClientPrefs {
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var hideTime:Bool = false;
+
 	public static var bfreskin:Bool = true;
 	public static var shitish:Bool = false;
+	public static var missSounds:Bool = true;
+	public static var bgDim:Bool = false;
+	public static var fuckyouavi:Bool = false;
+
+	//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
+	public static var scrollspeed:Float = 1;
 
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left
@@ -82,8 +89,15 @@ class ClientPrefs {
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.hideTime = hideTime;
+
 		FlxG.save.data.bfreskin = bfreskin;
 		FlxG.save.data.shitish = shitish;
+		FlxG.save.data.missSounds = missSounds;
+		FlxG.save.data.bgDim = bgDim;
+		FlxG.save.data.fuckyouavi = fuckyouavi;
+
+		//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
+		FlxG.save.data.scrollspeed = scrollspeed;
 
 		var achieves:Array<String> = [];
 		for (i in 0...Achievements.achievementsUnlocked.length) {
@@ -170,6 +184,20 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.shitish != null) {
 			shitish = FlxG.save.data.shitish;
+		}
+		if(FlxG.save.data.missSounds != null) {
+			missSounds = FlxG.save.data.missSounds;
+		}
+		if(FlxG.save.data.bgDim != null) {
+			bgDim = FlxG.save.data.bgDim;
+		}
+		if(FlxG.save.data.fuckyouavi != null) {
+			fuckyouavi = FlxG.save.data.fuckyouavi;
+		}
+
+		//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
+		if(FlxG.save.data.scrollspeed != null) {
+			scrollspeed = FlxG.save.data.scrollspeed;
 		}
 
 		var save:FlxSave = new FlxSave();

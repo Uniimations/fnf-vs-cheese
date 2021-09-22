@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="gf_cheer.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="gfportrait40000" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="gfportrait40001" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="gfportrait40002" x="1280" y="0" width="1280" height="720"/>
+	<SubTexture name="gfportrait40003" x="1280" y="0" width="1280" height="720"/>
+	<SubTexture name="gfportrait40004" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="gfportrait40005" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="gfportrait40006" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40007" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40008" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40009" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40010" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40011" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40012" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40013" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40014" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40015" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40016" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40017" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40018" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40019" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40020" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40021" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40022" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40023" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40024" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40025" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40026" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40027" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40028" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40029" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40030" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40031" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40032" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="gfportrait40033" x="0" y="720" width="1280" height="720"/>
+</TextureAtlas>

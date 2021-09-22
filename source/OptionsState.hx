@@ -34,6 +34,7 @@ class OptionsState extends MusicBeatState
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
+	
 
 	override function create() {
 		#if desktop
@@ -41,7 +42,7 @@ class OptionsState extends MusicBeatState
 		#end
 
 		menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		menuBG.color = 0xFFea71fd;
+		menuBG.color = 0xFF8E3058;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
@@ -71,6 +72,11 @@ class OptionsState extends MusicBeatState
 
 	override function update(elapsed:Float) {
 		super.update(elapsed);
+
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
 
 		if (controls.UI_UP_P) {
 			changeSelection(-1);
@@ -185,6 +191,10 @@ class NotesSubstate extends MusicBeatSubstate
 	var changingNote:Bool = false;
 	var hsvTextOffsets:Array<Float> = [240, 90];
 	override function update(elapsed:Float) {
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
 		if(changingNote) {
 			if(holdTime < 0.5) {
 				if(controls.UI_LEFT_P) {
@@ -662,6 +672,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 class PreferencesSubstate extends MusicBeatSubstate
 {
 	private static var curSelected:Int = 0;
+
 	static var unselectableOptions:Array<String> = [
 		'GRAPHICS',
 		'GAMEPLAY',
@@ -676,8 +687,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 	static var options:Array<String> = [
 		//GRAPHICS CATEGORY
 		'GRAPHICS',
-		'Low Quality',
-		'Anti-Aliasing',
+		'High Quality',
 		'Persistent Cached Data',
 		#if !html5
 		'Framerate', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
@@ -700,9 +710,11 @@ class PreferencesSubstate extends MusicBeatSubstate
 		#end
 		//MOD SPECIFIC CATEGORY WHERE WE GET FUNKY AND fun ni lol!!!
 		, 'MOD SPECIFIC',
+		'Background Dim',
+		'Miss Sounds',
 		'New Boyfriend Skin',
+		'Optimized Mode',
 		'Shitish Mode'
-
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -714,6 +726,8 @@ class PreferencesSubstate extends MusicBeatSubstate
 	private var characterLayer:FlxTypedGroup<Character>;
 	private var showCharacter:Character = null;
 	private var descText:FlxText;
+
+	private var menuBar:FlxSprite;
 
 	public function new()
 	{
@@ -767,6 +781,13 @@ class PreferencesSubstate extends MusicBeatSubstate
 			}
 		}
 
+		menuBar = new FlxSprite().loadGraphic(Paths.image('blackBar'));
+	    menuBar.updateHitbox();
+	    menuBar.screenCenter();
+	    menuBar.antialiasing = ClientPrefs.globalAntialiasing;
+	    add(menuBar);
+		menuBar.visible = true;
+
 		descText = new FlxText(50, 600, 1180, "", 32);
 		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		descText.scrollFactor.set();
@@ -787,6 +808,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
 		if (controls.UI_UP_P)
 		{
 			changeSelection(-1);
@@ -813,9 +838,11 @@ class PreferencesSubstate extends MusicBeatSubstate
 				showCharacter.alpha = 0;
 			}
 			descText.alpha = 0;
+			menuBar.visible = false;
 			close();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
+
 
 		var usesCheckbox = true;
 		for (i in 0...noCheckbox.length) {
@@ -833,10 +860,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 						if(Main.fpsVar != null)
 							Main.fpsVar.visible = ClientPrefs.showFPS;
 
-					case 'Low Quality':
-						ClientPrefs.lowQuality = !ClientPrefs.lowQuality;
+					/*case 'Low Quality':
+						ClientPrefs.lowQuality = !ClientPrefs.lowQuality;*/
 
-					case 'Anti-Aliasing':
+					case 'High Quality':
 						ClientPrefs.globalAntialiasing = !ClientPrefs.globalAntialiasing;
 						showCharacter.antialiasing = ClientPrefs.globalAntialiasing;
 						for (item in grpOptions) {
@@ -889,6 +916,15 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 					case 'Shitish Mode':
 						ClientPrefs.shitish = !ClientPrefs.shitish;
+
+					case 'Miss Sounds':
+						ClientPrefs.missSounds = !ClientPrefs.missSounds;
+
+					case 'Background Dim':
+						ClientPrefs.bgDim = !ClientPrefs.bgDim;
+
+					case 'Optimized Mode':
+					    ClientPrefs.fuckyouavi = !ClientPrefs.fuckyouavi;
 				}
 				FlxG.sound.play(Paths.sound('scrollMenu'));
 				reloadValues();
@@ -940,6 +976,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 	
 	function changeSelection(change:Int = 0)
 	{
+
 		do {
 			curSelected += change;
 			if (curSelected < 0)
@@ -951,19 +988,19 @@ class PreferencesSubstate extends MusicBeatSubstate
 		var daText:String = '';
 		switch(options[curSelected]) {
 			case 'Framerate':
-				daText = "Pretty self explanatory, isn't it?\nDefault value is 60.";
+				daText = "Frames per second of the game.\nDefault value is 60, max is 240.";
 			case 'Note Delay':
-				daText = "Changes how late a note is spawned.\nUseful for preventing audio lag from wireless earphones.";
+				daText = "Changes how late a note is spawned.\nUseful for preventing audio lag from wireless earphones.\n(recommended is 70, 140 if you're using wireless earphones.)";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
-			case 'Low Quality':
-				daText = "If checked, disables some background details,\ndecreases loading times and improves performance.";
+			/*case 'Low Quality':
+				daText = "If checked, this hides the background,\ndecreases loading times and improves performance.\n(use this if you're on a low end device like a laptop.)";*/
 			case 'Persistent Cached Data':
 				daText = "If checked, images loaded will stay in memory\nuntil the game is closed, this increases memory usage,\nbut basically makes reloading times instant.";
-			case 'Anti-Aliasing':
+			case 'High Quality':
 				daText = "If unchecked, disables anti-aliasing, increases performance\nat the cost of the graphics not looking as smooth.";
 			case 'Downscroll':
-				daText = "If checked, notes go Down instead of Up, simple enough.";
+				daText = "If checked, notes go Down instead of Up\nuse this if you're a REAL rhythm gamer B)";
 			case 'Middlescroll':
 				daText = "If checked, hides Opponent's notes and your notes get centered.";
 			case 'Ghost Tapping':
@@ -975,9 +1012,9 @@ class PreferencesSubstate extends MusicBeatSubstate
 			case 'Note Splashes':
 				daText = "If unchecked, hitting \"Sick!\" notes won't show particles.";
 			case 'Flashing Lights':
-				daText = "Uncheck this if you're sensitive to flashing lights!";
+				daText = "Uncheck this if you're sensitive to flashing lights or bright colors.";
 			case 'Camera Zooms':
-				daText = "If unchecked, the camera won't zoom in on a beat hit.";
+				daText = "If unchecked, the camera won't zoom to the beat.";
 			case 'Hide HUD':
 				daText = "If checked, hides most HUD elements.";
 			case 'Hide Song Length':
@@ -985,7 +1022,13 @@ class PreferencesSubstate extends MusicBeatSubstate
 			case 'New Boyfriend Skin':
 				daText = "If unchecked, bf will have the normal skin\ninstead of the usual remastered one.";
 			case 'Shitish Mode':
-				daText = "'it's not british, it's shitish, anyway-'\nIf checked, the dialogue and story will be funny\n(best played after finishing story mode)";
+				daText = '"it\'s not british, it\'s shitish, anyway-"\nIf checked, the dialogue and story will be FUNNY!!!!\n(recommended to turn this on after completing normal story)';
+			case 'Miss Sounds':
+				daText = "If unchecked, miss sounds won't play\nand vocals keep playing when you miss a note.";
+			case 'Background Dim':
+			    daText = "If checked, dims the background down with a black tint.";
+			case 'Optimized Mode':
+				daText = "If checked, hides the background and characters.\nOnly notes and UI will be visible.";
 		}
 		descText.text = daText;
 
@@ -1013,16 +1056,16 @@ class PreferencesSubstate extends MusicBeatSubstate
 		for (i in 0...grpTexts.members.length) {
 			var text:AttachedText = grpTexts.members[i];
 			if(text != null) {
-				text.alpha = 0.6;
+				text.alpha = 0.4;
 				if(textNumber[i] == curSelected) {
 					text.alpha = 1;
 				}
 			}
 		}
 
-		if(options[curSelected] == 'Anti-Aliasing') {
+		if(options[curSelected] == 'High Quality') {
 			if(showCharacter == null) {
-				showCharacter = new Character(840, 170, 'bf-menu', true);
+				showCharacter = new Character(840, 170, 'bf-menu', true); //i used another character because it looked weird with lighting
 				showCharacter.setGraphicSize(Std.int(showCharacter.width * 0.8));
 				showCharacter.updateHitbox();
 				showCharacter.dance();
@@ -1043,9 +1086,9 @@ class PreferencesSubstate extends MusicBeatSubstate
 				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
-					case 'Low Quality':
-						daValue = ClientPrefs.lowQuality;
-					case 'Anti-Aliasing':
+					/*case 'Low Quality':
+						daValue = ClientPrefs.lowQuality;*/
+					case 'High Quality':
 						daValue = ClientPrefs.globalAntialiasing;
 					case 'Note Splashes':
 						daValue = ClientPrefs.noteSplashes;
@@ -1073,6 +1116,12 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.bfreskin;
 					case 'Shitish Mode':
 						daValue = ClientPrefs.shitish;
+					case 'Miss Sounds':
+						daValue = ClientPrefs.missSounds;
+					case 'Background Dim':
+						daValue = ClientPrefs.bgDim;
+					case 'Optimized Mode':
+						daValue = ClientPrefs.fuckyouavi;
 				}
 				checkbox.daValue = daValue;
 			}

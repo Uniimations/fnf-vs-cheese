@@ -193,4 +193,42 @@
 	<SubTexture name="cheeseportrait50035" x="3840" y="5760" width="1280" height="720"/>
 	<SubTexture name="cheeseportrait50036" x="0" y="5760" width="1280" height="720"/>
 	<SubTexture name="cheeseportrait50037" x="0" y="5760" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60000" x="5120" y="5760" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60001" x="5120" y="5760" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60002" x="6400" y="5760" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60003" x="6400" y="5760" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60004" x="0" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60005" x="0" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60006" x="1280" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60007" x="1280" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60008" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60009" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60010" x="3840" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60011" x="3840" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60012" x="5120" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60013" x="5120" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60014" x="6400" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60015" x="6400" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60016" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60017" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60018" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60019" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60020" x="0" y="7200" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60021" x="0" y="7200" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60022" x="5120" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60023" x="5120" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60024" x="6400" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60025" x="6400" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60026" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60027" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60028" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60029" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60030" x="0" y="7200" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60031" x="0" y="7200" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60032" x="5120" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60033" x="5120" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60034" x="6400" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60035" x="6400" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60036" x="2560" y="6480" width="1280" height="720"/>
+	<SubTexture name="cheeseportrait60037" x="2560" y="6480" width="1280" height="720"/>
 </TextureAtlas>

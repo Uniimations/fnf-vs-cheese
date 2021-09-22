@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cheese_dance.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cheese menu pog0000" x="0" y="0" width="362" height="669" frameX="0" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0001" x="0" y="0" width="362" height="669" frameX="0" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0002" x="362" y="0" width="362" height="669" frameX="0" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0003" x="362" y="0" width="362" height="669" frameX="0" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0004" x="724" y="0" width="359" height="669" frameX="-3" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0005" x="724" y="0" width="359" height="669" frameX="-3" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0006" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0007" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0008" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0009" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0010" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0011" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0012" x="1438" y="0" width="353" height="669" frameX="-9" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0013" x="1438" y="0" width="353" height="669" frameX="-9" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0014" x="0" y="670" width="344" height="668" frameX="-18" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0015" x="0" y="670" width="344" height="668" frameX="-18" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0016" x="344" y="670" width="345" height="668" frameX="-17" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0017" x="344" y="670" width="345" height="668" frameX="-17" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0018" x="689" y="670" width="349" height="669" frameX="-13" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0019" x="689" y="670" width="349" height="669" frameX="-13" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0020" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0021" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0022" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0023" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0024" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0025" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0026" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0027" x="1083" y="0" width="355" height="670" frameX="-7" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0028" x="1038" y="670" width="356" height="670" frameX="-6" frameY="0" frameWidth="362" frameHeight="670"/>
+	<SubTexture name="cheese menu pog0029" x="1038" y="670" width="356" height="670" frameX="-6" frameY="0" frameWidth="362" frameHeight="670"/>
+</TextureAtlas>

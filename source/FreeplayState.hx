@@ -12,6 +12,8 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import flixel.effects.FlxFlicker;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
@@ -59,17 +61,12 @@ class FreeplayState extends MusicBeatState
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
-		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
+		var initSonglist = CoolUtil.coolTextFile(Paths.txt('songList'));
 		for (i in 0...initSonglist.length)
 		{
 			var songArray:Array<String> = initSonglist[i].split(":");
 			addSong(songArray[0], 0, songArray[1]);
 			songs[songs.length-1].color = Std.parseInt(songArray[2]);
-		}
-		var colorsList = CoolUtil.coolTextFile(Paths.txt('freeplayColors'));
-		for (i in 0...colorsList.length)
-		{
-			coolColors.push(Std.parseInt(colorsList[i]));
 		}
 
 		/* 
@@ -195,6 +192,11 @@ class FreeplayState extends MusicBeatState
 	private static var vocals:FlxSound = null;
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
 		if (FlxG.sound.music.volume < 0.7)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
@@ -260,14 +262,26 @@ class FreeplayState extends MusicBeatState
 		}
 		else #end if (accepted)
 		{
+			//modified this a bit to be cooler B)
+			if(ClientPrefs.flashing) {
+				FlxG.camera.flash(FlxColor.WHITE, 1);
+			}
+
+			//so that the game doesnt crash, THANKS ASH :D
+			if (FlxG.sound.music != null) {
+				FlxG.sound.music.fadeOut(1.5, 0);
+			}
+
+			FlxG.sound.play(Paths.sound('confirmMenu'), 0.6);
+			//FlxFlicker.flicker(songArray, 1, 0.06, false, false, function(flick:FlxFlicker){});
+
 			var songLowercase:String = songs[curSelected].songName.toLowerCase();
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
 			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
 				poop = songLowercase;
 				curDifficulty = 1;
-				trace('Couldnt find file');
 			}
-			trace(poop);
+			trace('poop');
 
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
 			PlayState.isStoryMode = false;
@@ -278,11 +292,12 @@ class FreeplayState extends MusicBeatState
 			if(colorTween != null) {
 				colorTween.cancel();
 			}
-			LoadingState.loadAndSwitchState(new PlayState());
 
-			FlxG.sound.music.volume = 0;
-					
-			destroyFreeplayVocals();
+			new FlxTimer().start(1.2, function(tmr:FlxTimer) {
+				LoadingState.loadAndSwitchState(new PlayState());
+				FlxG.sound.music.volume = 0;
+				destroyFreeplayVocals();
+			});
 		}
 		else if(controls.RESET)
 		{

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="counter_menu.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="counter menu0000" x="0" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0001" x="0" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0002" x="1286" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0003" x="1286" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0004" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0005" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0006" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0007" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0008" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0009" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0010" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0011" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0012" x="2572" y="0" width="1286" height="730"/>
+	<SubTexture name="counter menu0013" x="2572" y="0" width="1286" height="730"/>
+</TextureAtlas>

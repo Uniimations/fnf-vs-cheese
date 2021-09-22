@@ -22,8 +22,32 @@ class CreditsState extends MusicBeatState
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private var iconArray:Array<AttachedSprite> = [];
+	public static var menuBar:FlxSprite;
+
+	//I DONT WANNA TALK ABOUT THIS PLEASE :wah:
+	//i messed up everything because i put a lot of text
+	//sorry to the people looking at this shit its so messyyyyyy
+	//hhhghnnghhsd
 
 	private static var creditsStuff:Array<Dynamic> = [ //Name - Icon name - Description - Link - BG Color
+		['Mod Creator'],
+		['Uniimations', 'new/unii', '"I did literally everything"\nArt, Animation, Music, Charting, Programming, Story, Writing, Voice Clips, Voice Acting', 'https://youtube.com/uniimations', 0xFFD82967],
+		[''],
+		['Discord Server', 'discord', 'Join my discord server!\nI talk there a lot :]', 'https://discord.gg/gZYrEKbzCd', 0xFF6475F3],
+		[''],
+		['The Boyz'],
+		['Avinera',	'new/avinera', '"uhuhuhuhuh sans uhuhuhuhuhuh"\nMusic for menu\'s, Week 2 Writing, Voice clips, Voice acting.', 'https://youtube.com/avinera', 0xFF735FB3],
+		['BlueCheese', 'new/cheese', '"There\'s a new Whitty video! oh fuck- there\'s a new Grian video!" Week 1 writing, Voice Clips, Voice acting, Character Design', 'https://youtube.com/bluecheese', 0xFF5E7BDD],
+		['OiSuzuki', 'new/suzuki', '"I hate Friday Night Funkin."\nVoice Clips, Voice acting, Character Design', 'https://www.youtube.com/channel/UCA538hKV5s9cXhzW36rXsnw', 0xFFD61E56],
+		['Dansilot', 'new/dani', '"Las Vegas."\nVoice Clips, Voice acting, Character Design', 'https://www.youtube.com/channel/UC8tNRrCufSfWP1tXDL5wYLQ', 0xFFD61E56],
+		['Arsen Infinity', 'new/arsen', '"I\'M LAGGING!"\nVoice Clips, Voice acting, Character Design', 'https://www.youtube.com/c/Arsen_Infinity', 0xFF41D99A],
+		[''],
+		['Extra Credits'],
+		['Potionion', 'new/potion', '"My gender is fuck you. My pronouns are fuck/off"\nBackground Artist', 'https://twitter.com/Potionion', 0xFF6D566C],
+		['Joey Animations', 'new/joey', '"Look at that floor, oh my God it\'s so good"\nBackground Arist (floor!)', 'https://www.youtube.com/channel/UCRLsZwUPm7Ax4ZZ3lgM77Ng',	0xFF4871F5],
+		['Ash',	'new/ash', '"There are 3 modders I simp for, one of them is Unii"\nHelped me with programming.', 'https://twitter.com/ash__i_guess_',	0xFFFFFFFF],
+		['dude0216', 'new/dude', '"fefe"\nmade Cultured rechart.', 'https://www.youtube.com/channel/UCiGJubAsma0AWVozQUIoCJA', 0xFF7F26B8],
+		[''],
 		['Psych Engine Team'],
 		['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',					'https://twitter.com/Shadow_Mario_',	0xFFFFDD33],
 		['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',				'https://twitter.com/river_oaken',		0xFFC30085],
@@ -81,6 +105,13 @@ class CreditsState extends MusicBeatState
 			}
 		}
 
+		menuBar = new FlxSprite().loadGraphic(Paths.image('blackBar'));
+	    menuBar.setGraphicSize(Std.int(bg.width * 1.1));
+	    menuBar.updateHitbox();
+	    menuBar.screenCenter();
+	    menuBar.antialiasing = ClientPrefs.globalAntialiasing;
+	    add(menuBar);
+
 		descText = new FlxText(50, 600, 1180, "", 32);
 		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		descText.scrollFactor.set();
@@ -95,6 +126,11 @@ class CreditsState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
 		if (FlxG.sound.music.volume < 0.7)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
@@ -158,7 +194,7 @@ class CreditsState extends MusicBeatState
 			bullShit++;
 
 			if(!unselectableCheck(bullShit-1)) {
-				item.alpha = 0.6;
+				item.alpha = 0.3;
 				if (item.targetY == 0) {
 					item.alpha = 1;
 				}

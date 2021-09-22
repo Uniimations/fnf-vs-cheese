@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="OiSuzuki.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="suzukiportrait0000" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0001" x="0" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0002" x="1280" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0003" x="1280" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0004" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0005" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0006" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0007" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0008" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0009" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0010" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0011" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0012" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0013" x="0" y="1440" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0014" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0015" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0016" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0017" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0018" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0019" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0020" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0021" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0022" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0023" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0024" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0025" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0026" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0027" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0028" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0029" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0030" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0031" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0032" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0033" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0034" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0035" x="2560" y="0" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0036" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0037" x="0" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0038" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0039" x="1280" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0040" x="2560" y="720" width="1280" height="720"/>
+	<SubTexture name="suzukiportrait0041" x="2560" y="720" width="1280" height="720"/>
+</TextureAtlas>

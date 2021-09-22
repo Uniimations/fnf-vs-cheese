@@ -7,7 +7,7 @@ class WeekData {
 	public static var songsNames:Array<Dynamic> = [
 		['Tutorial'],								//Tutorial, this one isn't added to Freeplay, instead it is added from assets/preload/freeplaySonglist.txt
 		['Restaurante', 'Milkshake', 'Cultured'],	//Week 1
-		['Wifi', 'Casual-Duel', 'Dynamic-Duo']		//Week 2
+		['Wifi']		                            //Week 2
 	];
 
 	// Custom week number, used for your week's score not being overwritten by a new vanilla week when the game updates

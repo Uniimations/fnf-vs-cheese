@@ -12,6 +12,8 @@ import flixel.text.FlxText;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
+import flixel.util.FlxTimer;
+import Controls;
 
 class PauseSubState extends MusicBeatSubstate
 {
@@ -125,6 +127,11 @@ class PauseSubState extends MusicBeatSubstate
 		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
 
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
 		if (upP)
 		{
 			changeSelection(-1);
@@ -154,10 +161,25 @@ class PauseSubState extends MusicBeatSubstate
 			switch (daSelected)
 			{
 				case "Resume":
-					close();
+					menuItems = ['Resumed Game'];
+					regenMenu();
+					if(ClientPrefs.flashing) {
+						FlxG.camera.flash(FlxColor.WHITE, 0.7);
+					}
+					FlxG.sound.play(Paths.sound('confirmMenu'), 0.6);
+
+					new FlxTimer().start(1.2, function(tmr:FlxTimer) {
+						close();
+					});
+					trace('shit goes flashy bro');
 				case 'Change Difficulty':
 					menuItems = difficultyChoices;
 					regenMenu();
+					/*if (controls.BACK) {
+						FlxG.sound.play(Paths.sound('cancelMenu'));
+						menuItems = menuItemsOG;
+					    regenMenu();
+					}*/
 				case 'Toggle Practice Mode':
 					PlayState.practiceMode = !PlayState.practiceMode;
 					PlayState.usedPractice = true;
@@ -181,7 +203,6 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.usedPractice = false;
 					PlayState.changedDifficulty = false;
 					PlayState.cpuControlled = false;
-
 				case 'BACK':
 					menuItems = menuItemsOG;
 					regenMenu();

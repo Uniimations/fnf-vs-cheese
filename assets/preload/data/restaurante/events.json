@@ -195,6 +195,13 @@
 						"Play Animation",
 						"pog",
 						"0"
+					],
+					[
+						39500,
+						-1,
+						"Hey!",
+						"3",
+						""
 					]
 				],
 				"bpm": 0,
@@ -350,6 +357,23 @@
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						74000,
+						-1,
+						"Hey!",
+						"0",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false

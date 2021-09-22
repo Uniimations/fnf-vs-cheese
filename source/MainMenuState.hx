@@ -24,6 +24,7 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.3.2'; //This is also used for Discord RPC
+	public static var cheeseVersion:String = '1.2.0';
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -32,12 +33,19 @@ class MainMenuState extends MusicBeatState
 	
 	var optionShit:Array<String> = ['story_mode', 'freeplay', #if ACHIEVEMENTS_ALLOWED 'awards', #end 'credits', 'options'];
 
-	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
+	var targetX:Int;
+	public static var prevCharacter:Int = 99;
+	private var character:Character = null;
+
+	var bounce:Bool = false;
+	var counter:FlxSprite;
 
 	override function create()
 	{
+		Conductor.changeBPM(80);
+		persistentUpdate = true;
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -57,7 +65,30 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = persistentDraw = true;
 
 		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('menuBG'));
+
+		var random = FlxG.random.int(0,2);
+		if (random == prevCharacter) {
+			random++;
+			if (random > 2) 
+				random = 0;
+		}
+
+		//RANDOM CHARACTER GENERATOR
+		//Note: Add more characters
+		switch (random) {
+			case 0:
+				character = new Character(-30, 30, 'bf-alt', false); //bf-alt is the original bf skin without looking up at cheese
+			case 1:
+				character = new Character(-86, 10, 'bluecheese', false);
+			case 2:
+				character = new Character(-9, -109, 'arsen', false);
+		}
+		prevCharacter = random;
+		character.debugMode = true;
+		character.scale.set(0.8, 0.8);
+		character.scrollFactor.set(0, yScroll);
+
+		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/menu_bg'));
 		bg.scrollFactor.set(0, yScroll);
 		bg.setGraphicSize(Std.int(bg.width * 1.175));
 		bg.updateHitbox();
@@ -65,21 +96,32 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
+		var wall:FlxSprite = new FlxSprite(-80, 0);
+		wall.frames = Paths.getSparrowAtlas('mainmenu/wall_menu');
+		wall.scrollFactor.set(0, yScroll);
+		wall.animation.addByPrefix('smoke', "wall menu", 24);
+		wall.setGraphicSize(Std.int(bg.width * 1.175));
+		wall.updateHitbox();
+		wall.screenCenter();
+		wall.antialiasing = ClientPrefs.globalAntialiasing;
+		add(wall);
+		wall.animation.play('smoke');
+		add(character);
+
+		counter = new FlxSprite(-80, 0);
+		counter.frames = Paths.getSparrowAtlas('mainmenu/counter_menu');
+		counter.scrollFactor.set(0, yScroll);
+		counter.animation.addByIndices('bouncy', 'counter menu', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "", 24, false);
+		counter.setGraphicSize(Std.int(bg.width * 1.175));
+		counter.updateHitbox();
+		counter.screenCenter();
+		counter.antialiasing = ClientPrefs.globalAntialiasing;
+		add(counter);
+
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 		add(camFollowPos);
-
-		magenta = new FlxSprite(-80).loadGraphic(Paths.image('menuDesat'));
-		magenta.scrollFactor.set(0, yScroll);
-		magenta.setGraphicSize(Std.int(magenta.width * 1.175));
-		magenta.updateHitbox();
-		magenta.screenCenter();
-		magenta.visible = false;
-		magenta.antialiasing = ClientPrefs.globalAntialiasing;
-		magenta.color = 0xFFfd719b;
-		add(magenta);
-		// magenta.scrollFactor.set();
 
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
@@ -109,7 +151,9 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		//VERSION NUMBER
+		//if youre gonna do this actually make a string at the top instead of what i did
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "VS Cheese v" + cheeseVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -145,10 +189,18 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
+
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
 
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 5.6, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
@@ -175,52 +227,43 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				if (optionShit[curSelected] == 'donate')
-				{
-					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
-				}
-				else
-				{
-					selectedSomethin = true;
-					FlxG.sound.play(Paths.sound('confirmMenu'));
+				selectedSomethin = true;
+				FlxG.sound.play(Paths.sound('confirmMenu'));
 
-					if(ClientPrefs.flashing) FlxFlicker.flicker(magenta, 1.1, 0.15, false);
-
-					menuItems.forEach(function(spr:FlxSprite)
+				menuItems.forEach(function(spr:FlxSprite)
+				{
+					if (curSelected != spr.ID)
 					{
-						if (curSelected != spr.ID)
-						{
-							FlxTween.tween(spr, {alpha: 0}, 0.4, {
-								ease: FlxEase.quadOut,
-								onComplete: function(twn:FlxTween)
-								{
-									spr.kill();
-								}
-							});
-						}
-						else
-						{
-							FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+						FlxTween.tween(spr, {alpha: 0}, 0.4, {
+							ease: FlxEase.quadOut,
+							onComplete: function(twn:FlxTween)
 							{
-								var daChoice:String = optionShit[curSelected];
+								spr.kill();
+							}
+						});
+					}
+					else
+					{
+						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+						{
+							var daChoice:String = optionShit[curSelected];
 
-								switch (daChoice)
-								{
-									case 'story_mode':
-										MusicBeatState.switchState(new StoryMenuState());
-									case 'freeplay':
-										MusicBeatState.switchState(new FreeplayState());
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
-									case 'credits':
-										MusicBeatState.switchState(new CreditsState());
-									case 'options':
-										MusicBeatState.switchState(new OptionsState());
-								}
-							});
-						}
-					});
-				}
+							switch (daChoice)
+							{
+								case 'story_mode':
+									MusicBeatState.switchState(new StoryMenuState());
+								case 'freeplay':
+									MusicBeatState.switchState(new FreeplayState());
+								case 'awards':
+									MusicBeatState.switchState(new AchievementsMenuState());
+								case 'credits':
+									MusicBeatState.switchState(new CreditsState());
+								case 'options':
+									MusicBeatState.switchState(new OptionsState());
+							}
+						});
+					}
+				});
 			}
 		}
 
@@ -229,6 +272,7 @@ class MainMenuState extends MusicBeatState
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.screenCenter(X);
+			spr.x += 250;
 		});
 	}
 
@@ -256,5 +300,14 @@ class MainMenuState extends MusicBeatState
 				FlxG.log.add(spr.frameWidth);
 			}
 		});
+	}
+
+	override function beatHit()
+	{
+		super.beatHit();
+
+		counter.animation.play('bouncy', true);
+
+		character.animation.play('idle', true);
 	}
 }

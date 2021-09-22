@@ -1,0 +1,7 @@
+WARNING tutorial broken:face:0xFF535353
+Tutorial:suzuki-fp:0xFFDE3F52
+Restaurante:bluecheese-fp:0xFF5BB1D8
+Milkshake:bluecheese-fp:0xFF5BB1D8
+Cultured:bluecheese-fp:0xFF5BB1D8
+Wifi:arsen-fp:0xFF35BC91
+Guns:face:0xFF535353

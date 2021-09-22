@@ -28,15 +28,15 @@ class StoryMenuState extends MusicBeatState
 	public static var weekUnlocked:Array<Bool> = [
 		true,	//Tutorial
 		true,	//Week 1
-		true	//Week 2
+		true    //Week 2
 	];
 
 	//It works like this:
 	// ['Left character', 'Center character', 'Right character']
 	var weekCharacters:Array<Dynamic> = [
-		['null-man', 'bf', 'gf'],
+		['null-boy', 'bf', 'gf'],
 		['bluecheese', 'bf', 'gf'],
-		['dad', 'bf', 'gf']
+		['null-boy', 'bf-dark', 'null-boy']
 	];
 
 	//The week's name, displayed on top-right
@@ -48,7 +48,7 @@ class StoryMenuState extends MusicBeatState
 
 	//Background asset name, the background files are stored on assets/preload/menubackgrounds/
 	var weekBackground:Array<String> = [
-		'stage',		
+		'restaurante',		
 		'restaurante',
 		'restaurante'
 	];
@@ -209,6 +209,10 @@ class StoryMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
@@ -308,6 +312,12 @@ class StoryMenuState extends MusicBeatState
 			if(diffic == null) diffic = '';
 
 			PlayState.storyDifficulty = curDifficulty;
+			switch (StringTools.replace(PlayState.storyPlaylist[0]," ", "-").toLowerCase()) {
+				case 'wifi':
+					PlayState.cutsceneShit = true;
+					trace ('bitch mode on!!!');
+					trace ('wifi cutscene initialized');
+			}
 
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 			PlayState.storyWeek = curWeek;

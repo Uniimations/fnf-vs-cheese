@@ -1,4 +1,0 @@
-Tutorial:gf:0xFFC91C75
-Restaurante:bluecheese:0xFF7DD6FF
-Milkshake:bluecheese:0xFF7DD6FF
-Cultured:bluecheese:0xFF7DD6FF

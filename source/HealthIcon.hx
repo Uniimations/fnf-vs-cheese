@@ -8,7 +8,7 @@ using StringTools;
 class HealthIcon extends FlxSprite
 {
 	public var sprTracker:FlxSprite;
-	private var isOldIcon:Bool = false;
+	private var isSus:Bool = false;
 	private var isPlayer:Bool = false;
 	private var char:String = '';
 
@@ -18,7 +18,7 @@ class HealthIcon extends FlxSprite
 	public function new(char:String = 'bf', isPlayer:Bool = false)
 	{
 		super();
-		isOldIcon = (char == 'bf-old');
+		isSus = (char == 'sus');
 		this.isPlayer = isPlayer;
 		changeIcon(char);
 		scrollFactor.set();
@@ -32,9 +32,9 @@ class HealthIcon extends FlxSprite
 			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
 	}
 
-	public function swapOldIcon() {
-		if(isOldIcon = !isOldIcon) changeIcon('bf-old');
-		else changeIcon('bf');
+	public function sussyTime() {
+		if(isSus = !isSus) changeIcon('sus');
+		else changeIcon(char);
 	}
 
 	public function changeIcon(char:String) {
