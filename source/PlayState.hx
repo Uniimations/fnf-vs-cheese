@@ -1125,13 +1125,24 @@ class PlayState extends MusicBeatState
 		var daBeats:Int = 0; // Not exactly representative of 'daBeats' lol, just how much it has looped
 
 		var songName:String = SONG.song.toLowerCase();
-		var file:String = Paths.json(songName + '/events');
+		var file:String;
+		if (CoolUtil.difficultyString() == 'EX') {
+			file = Paths.json(songName + '/eventsex');
+		} else {
+			file = Paths.json(songName + "/events");
+		}
 		#if sys
 		if (sys.FileSystem.exists(file)) {
 		#else
 		if (OpenFlAssets.exists(file)) {
 		#end
-			var eventsData:Array<SwagSection> = Song.loadFromJson('events', songName).notes;
+		//SEX DIFFICULTY!
+			var eventsData:Array<SwagSection>;
+			if (CoolUtil.difficultyString() == 'EX') {
+				eventsData = Song.loadFromJson('eventsex', songName).notes;
+			} else {
+				eventsData = Song.loadFromJson('events', songName).notes;
+			}
 			for (section in eventsData)
 			{
 				for (songNotes in section.sectionNotes)

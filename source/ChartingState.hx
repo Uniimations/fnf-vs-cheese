@@ -70,6 +70,8 @@ class ChartingState extends MusicBeatState
 		['Change Character', "Value 1: Character to change\nValue 2: New character's name\n\nOn Value 1, Boyfriend is 0,\nDad is 1 and Girlfriend is 2"]
 	];
 
+	var dfc:CoolUtil;
+
 	var _file:FileReference;
 
 	var UI_box:FlxUITabMenu;
@@ -722,7 +724,13 @@ class ChartingState extends MusicBeatState
 			// vocals.stop();
 		}
 
-		var file:String = Paths.voices(currentSongName);
+		var file:String;
+
+		if (CoolUtil.difficultyString() == 'EX') {
+			file = Paths.voicesex(currentSongName);
+		} else {
+			file = Paths.voices(currentSongName);
+		}
 		vocals = new FlxSound();
 		if (OpenFlAssets.exists(file)) {
 			vocals.loadEmbedded(file);
@@ -735,7 +743,11 @@ class ChartingState extends MusicBeatState
 	}
 
 	function generateSong() {
-		FlxG.sound.playMusic(Paths.inst(currentSongName), 0.6, false);
+		if (CoolUtil.difficultyString() == 'EX') {
+			FlxG.sound.playMusic(Paths.instex(currentSongName), 0.6, false);
+		} else {
+			FlxG.sound.playMusic(Paths.inst(currentSongName), 0.6, false);
+		}
 		if (instVolume != null) FlxG.sound.music.volume = instVolume.value;
 		if (check_mute_inst != null && check_mute_inst.checked) FlxG.sound.music.volume = 0;
 
