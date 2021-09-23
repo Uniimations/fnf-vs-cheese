@@ -906,6 +906,9 @@ class ChartingState extends MusicBeatState
 	var colorSine:Float = 0;
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.F11) {
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
 		curStep = recalculateSteps();
 
 		if(FlxG.sound.music.time < 0) {
@@ -1826,6 +1829,9 @@ class AttachedFlxText extends FlxText
 	{
 		super.update(elapsed);
 
+		if (FlxG.keys.justPressed.F11) {
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
 		if (sprTracker != null) {
 			setPosition(sprTracker.x + xAdd, sprTracker.y + yAdd);
 			angle = sprTracker.angle;

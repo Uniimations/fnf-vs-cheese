@@ -5,13 +5,17 @@ Player 1
 bf
 bf-alt
 arsen
+ex-bf
 ---------------
 Player 2
 ---------------
 dad
 bluecheese
+ex-bluecheese
 ---------------
 Miscellaneous
 ---------------
 gf
 bf-menu
+ex-gf
+ex-death

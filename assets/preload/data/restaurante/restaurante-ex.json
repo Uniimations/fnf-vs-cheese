@@ -1,9 +1,9 @@
 {
 	"song": {
 		"sectionLengths": [],
-		"player1": "bf",
+		"player1": "ex-bf",
 		"gfVersion": "gf",
-		"player2": "bluecheese",
+		"player2": "ex-bluecheese",
 		"notes": [
 			{
 				"typeOfSection": 0,
@@ -779,49 +779,49 @@
 					],
 					[
 						23913.0434782609,
-						0,
-						0,
-						0
-					],
-					[
-						24021.7391304348,
-						0,
+						3,
 						0,
 						0
 					],
 					[
 						23967.3913043478,
-						3,
+						2,
+						0,
+						0
+					],
+					[
+						24021.7391304348,
+						1,
 						0,
 						0
 					],
 					[
 						24076.0869565217,
-						3,
+						0,
 						0,
 						0
 					],
 					[
 						24130.4347826087,
-						0,
+						3,
 						0,
 						0
 					],
 					[
 						24184.7826086956,
-						1,
+						2,
 						0,
 						0
 					],
 					[
 						24239.1304347826,
-						0,
+						1,
 						0,
 						0
 					],
 					[
 						24293.4782608696,
-						1,
+						0,
 						0,
 						0
 					]
@@ -1108,49 +1108,49 @@
 					],
 					[
 						30869.5652173913,
-						0,
+						3,
 						0,
 						0
 					],
 					[
 						30923.9130434783,
-						3,
+						2,
 						0,
 						0
 					],
 					[
 						30978.2608695652,
-						0,
+						1,
 						0,
 						0
 					],
 					[
 						31032.6086956522,
-						3,
+						0,
 						0,
 						0
 					],
 					[
 						31086.9565217391,
-						0,
+						3,
 						0,
 						0
 					],
 					[
 						31141.3043478261,
-						1,
+						2,
 						0,
 						0
 					],
 					[
 						31195.652173913,
-						0,
+						1,
 						0,
 						0
 					],
 					[
 						31250,
-						1,
+						0,
 						0,
 						0
 					]
@@ -1306,13 +1306,6 @@
 						33043.4782608696,
 						1,
 						0
-					],
-					[
-						33260.8695652174,
-						-1,
-						"Play Animation",
-						"freestyle",
-						"0"
 					]
 				],
 				"lengthInSteps": 16,
@@ -1615,16 +1608,6 @@
 						326.086956521739
 					],
 					[
-						42173.9130434783,
-						3,
-						326.086956521739
-					],
-					[
-						42608.6956521739,
-						1,
-						326.086956521739
-					],
-					[
 						43043.4782608696,
 						0,
 						0
@@ -1632,6 +1615,30 @@
 					[
 						43260.8695652174,
 						1,
+						0
+					],
+					[
+						42826.0869565217,
+						2,
+						163.04347826087,
+						0
+					],
+					[
+						42608.6956521739,
+						1,
+						380.434782608696,
+						0
+					],
+					[
+						42391.3043478261,
+						2,
+						163.04347826087,
+						0
+					],
+					[
+						42173.9130434783,
+						3,
+						380.434782608696,
 						0
 					]
 				],
@@ -1643,11 +1650,6 @@
 			{
 				"typeOfSection": 0,
 				"sectionNotes": [
-					[
-						43913.0434782609,
-						3,
-						326.086956521739
-					],
 					[
 						44347.8260869565,
 						0,
@@ -1672,6 +1674,18 @@
 						44782.6086956522,
 						2,
 						380.434782608696
+					],
+					[
+						43913.0434782609,
+						3,
+						380.434782608696,
+						0
+					],
+					[
+						44130.4347826087,
+						2,
+						163.04347826087,
+						0
 					]
 				],
 				"lengthInSteps": 16,
@@ -1750,13 +1764,6 @@
 						46956.5217391304,
 						6,
 						380.434782608696
-					],
-					[
-						46956.5217391304,
-						-1,
-						"Play Animation",
-						"pog",
-						"0"
 					]
 				],
 				"lengthInSteps": 16,
@@ -1837,6 +1844,12 @@
 						50000,
 						3,
 						380.434782608696,
+						0
+					],
+					[
+						48695.652173913,
+						0,
+						0,
 						0
 					]
 				],
@@ -1960,15 +1973,15 @@
 						0
 					],
 					[
-						51086.9565217391,
-						5,
-						217.391304347826,
-						0
-					],
-					[
 						50434.7826086956,
 						4,
 						869.565217391304,
+						0
+					],
+					[
+						51086.9565217391,
+						5,
+						217.391304347826,
 						0
 					]
 				],
@@ -3610,6 +3623,12 @@
 						7,
 						380.434782608696,
 						0
+					],
+					[
+						90434.7826086956,
+						4,
+						0,
+						0
 					]
 				],
 				"lengthInSteps": 16,
@@ -3726,21 +3745,21 @@
 						326
 					],
 					[
-						92717.3913043478,
-						1,
+						93043.4782608696,
+						2,
 						326.086956521739,
+						0
+					],
+					[
+						92826.0869565217,
+						1,
+						217.391304347826,
 						0
 					],
 					[
 						92173.9130434782,
 						0,
 						869.565217391304,
-						0
-					],
-					[
-						93043.4782608696,
-						2,
-						326.086956521739,
 						0
 					]
 				],
@@ -4303,14 +4322,28 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						104347,
+						104347.826086956,
 						4,
-						815
+						1141.30434782609,
+						0
 					],
 					[
-						104347,
+						104347.826086956,
 						3,
-						815
+						1141.30434782609,
+						0
+					],
+					[
+						104347.826086956,
+						5,
+						0,
+						0
+					],
+					[
+						104347.826086956,
+						2,
+						0,
+						0
 					]
 				],
 				"lengthInSteps": 16,
@@ -4478,6 +4511,96 @@
 			},
 			{
 				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"bpm": 138,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"bpm": 138,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"bpm": 138,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 138
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 138
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 138
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 138
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 138,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 138,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 138,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
@@ -4504,13 +4627,13 @@
 				"mustHitSection": true
 			}
 		],
-		"player3": "gf",
+		"player3": "ex-gf",
 		"song": "Restaurante",
 		"validScore": true,
 		"stage": "stage",
 		"sections": 0,
 		"needsVoices": true,
-		"speed": 2.7,
+		"speed": 2.6,
 		"bpm": 138
 	}
 }

@@ -388,6 +388,7 @@ class DialogueBox extends FlxSpriteGroup
 		};
 
 		dialogueEnded = false;
+
 		switch (curCharacter)
 		{
 			case 'cheese':

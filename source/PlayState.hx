@@ -62,7 +62,7 @@ class PlayState extends MusicBeatState
 		['Good', 0.8], //From 70% to 79%
 		['Great', 0.9], //From 80% to 89%
 		['Sick!', 1], //From 90% to 99%
-		['Perfect!! (MFC)', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Perfect!! (MFC', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	]; 
 
 	//event variables
@@ -1689,20 +1689,12 @@ class PlayState extends MusicBeatState
 				persistentDraw = true;
 				paused = true;
 
-				// 1 / 1000 chance for Gitaroo Man easter egg
-				if (FlxG.random.bool(0.1))
-				{
-					// gitaroo man easter egg
-					MusicBeatState.switchState(new GitarooPause());
+				if(FlxG.sound.music != null) {
+					FlxG.sound.music.pause();
+					vocals.pause();
 				}
-				else {
-					if(FlxG.sound.music != null) {
-						FlxG.sound.music.pause();
-						vocals.pause();
-					}
-					openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-				}
-			
+				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+
 				#if desktop
 				DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", iconP2.getCharacter());
 				#end
@@ -2955,10 +2947,12 @@ class PlayState extends MusicBeatState
 		if (!boyfriend.stunned)
 		{
 			health -= 0.04;
-			if (combo > 5 && gf.animOffsets.exists('sad'))
+			//gf doesnt have sad animation because im dumb
+
+			/*if (combo > 5 && gf.animOffsets.exists('sad'))
 			{
 				gf.playAnim('sad');
-			}
+			}*/
 			combo = 0;
 
 			if(!practiceMode) songScore -= 10;
