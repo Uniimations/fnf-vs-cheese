@@ -4,6 +4,7 @@ Player 1
 ---------------
 bf
 bf-alt
+bluecheese-kitchen
 arsen
 ex-bf
 ---------------
@@ -11,6 +12,7 @@ Player 2
 ---------------
 dad
 bluecheese
+gf-oisuzuki-kitchen
 ex-bluecheese
 ---------------
 Miscellaneous

@@ -123,8 +123,8 @@
 	"no_antialiasing": false,
 	"image": "characters/DADDY_DEAREST",
 	"position": [
-		0,
-		0
+		370,
+		175
 	],
 	"healthicon": "dad",
 	"flip_x": false,

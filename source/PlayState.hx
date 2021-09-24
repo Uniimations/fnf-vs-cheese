@@ -53,16 +53,17 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck!', 0.2], //From 0% to 19%
-		['Shit', 0.4], //From 20% to 39%
-		['Bad', 0.5], //From 40% to 49%
-		['Bruh', 0.6], //From 50% to 59%
-		['Meh', 0.69], //From 60% to 68%
-		['Nice', 0.7], //69%
-		['Good', 0.8], //From 70% to 79%
-		['Great', 0.9], //From 80% to 89%
-		['Sick!', 1], //From 90% to 99%
-		['Perfect!! (MFC', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		//i made the bracket part of the rating so that it displays MFC correctly
+		['git gud, kid (', 0.2], //From 0% to 19%
+		['AWFUL ! (', 0.4], //From 20% to 39%
+		['AWFUL ! (', 0.5], //From 40% to 49%
+		['AWFUL ! (', 0.6], //From 50% to 59%
+		['BAD ! (', 0.69], //From 60% to 68%
+		['NICE !(', 0.7], //69%
+		['BAD ! (', 0.8], //From 70% to 79%
+		['GOOD ! (', 0.9], //From 80% to 89%
+		['COOL ! (', 1], //From 90% to 99%
+		['COOL ! (MFC ', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	]; 
 
 	//event variables
@@ -299,6 +300,20 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase())
 		{
+			case 'tutorial':
+				curStage = 'restauranteKitchen';
+
+				defaultCamZoom = 0.9;
+
+				counter = new BGSprite('cheese/kitchen/table_sketch', 371, 709, 1, 1);
+				counter.updateHitbox();
+
+				var bg:BGSprite = new BGSprite('cheese/kitchen/wall_sketch', -190.5, -206.55, 1, 1);
+				bg.updateHitbox();
+
+				if (!ClientPrefs.fuckyouavi) {
+					add(bg);
+				}
 			case 'restaurante' | 'milkshake' | 'cultured' | 'guns':
 				curStage = 'restaurante';
 
@@ -451,6 +466,8 @@ class PlayState extends MusicBeatState
 						bfType = 'bf-alt';
 					case 'ex-bf':
 					    bfType = 'ex-bf';
+					case 'bluecheese-kitchen':
+						bfType = 'bluecheese-kitchen';
 					case 'arsen':
 						bfType = 'arsen';
 					default:
@@ -517,7 +534,6 @@ class PlayState extends MusicBeatState
 		camPos.y += gf.cameraPosition[1];
 
 		if(dad.curCharacter.startsWith('gf')) {
-			dad.setPosition(GF_X, GF_Y);
 			gf.visible = false;
 			if (isStoryMode)
 			{
@@ -546,17 +562,35 @@ class PlayState extends MusicBeatState
 
 		    add(dadGroup);
 
+			if (curStage == 'restauranteKitchen') {
+				add(boyfriendGroup);
+			}
+
 			if (curStage.startsWith('restaurante')) {
 			    add(counter);
 			}
 
-			add(boyfriendGroup);
+			switch (curStage)
+			{
+				case 'restauranteKitchen':
+					gf.visible = false;
+				default:
+					add(boyfriendGroup);
+			}
 
-		    foregroundGroup = new FlxTypedGroup<FlxSprite>();
-	 	    add(foregroundGroup);
+		    /*foregroundGroup = new FlxTypedGroup<FlxSprite>();
+	 	    add(foregroundGroup);*/
 
-			if (curStage.startsWith('restaurante')) {
-				add(frontBoppers);
+			//only adds fronboppers to backgrounds with a crowd
+			switch (curStage)
+			{
+				case 'restaurante' | 'restauranteArsen':
+					add(frontBoppers);
+				case 'restauranteKitchen':
+					//do nothing just adding this cause cool B)
+					//why tf did i put this here
+				default:
+					//still do nothing LOL!!! trolled.
 			}
 		}
 
@@ -840,9 +874,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 	function startCharacterPos(char:Character, ?gfCheck:Bool = false) {
-		if(gfCheck && char.curCharacter.startsWith('gf')) { //IF DAD IS GIRLFRIEND, HE GOES TO HER POSITION
-			char.setPosition(GF_X, GF_Y);
-		}
 		char.x += char.positionArray[0];
 		char.y += char.positionArray[1];
 	}
@@ -1683,9 +1714,9 @@ class PlayState extends MusicBeatState
 		versionshit.text = SONG.song + ' - ' + CoolUtil.difficultyStuff[storyDifficulty][0] + ' | VS Cheese v' + MainMenuState.cheeseVersion;
 
 		if(ratingString == '?') {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString;
+			scoreTxt.text = "Score: " + songScore + " | Misses: " + songMisses + " | U rappin': " + ratingString;
 		} else {
-			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + ' (' + Math.floor(ratingPercent * 100) + '%)';
+			scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Rating: ' + ratingString + '' + Math.floor(ratingPercent * 100) + '%)';
 		}
 
 		if(cpuControlled) {
@@ -2168,7 +2199,8 @@ class PlayState extends MusicBeatState
 				if(Math.isNaN(time) || time <= 0) time = 0.6;
 
 				if(value != 0) {
-					if(dad.curCharacter == 'gf') { //Tutorial GF is actually Dad! The GF is an imposter!! ding ding ding ding ding ding ding, dindinding, end my suffering
+					//edited this for kitchen tutorial
+					if (dad.curCharacter.startsWith('gf')) { //Tutorial GF is actually Dad! The GF is an imposter!! ding ding ding ding ding ding ding, dindinding, end my suffering
 						dad.playAnim('cheer', true);
 						dad.specialAnim = true;
 						dad.heyTimer = time;
