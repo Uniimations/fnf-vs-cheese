@@ -299,10 +299,12 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.song.toLowerCase())
 		{
-			case 'restaurante' | 'restaurante-ex' | 'milkshake' | 'cultured' | 'guns':
+			case 'restaurante' | 'milkshake' | 'cultured' | 'guns':
 				curStage = 'restaurante';
 
 				defaultCamZoom = 0.60;
+
+				var suzuki:BGSprite;
 
 				var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
 				floor.updateHitbox();
@@ -316,16 +318,24 @@ class PlayState extends MusicBeatState
 				boppers = new BGSprite('cheese/char/boppers', 1265.6, 127.6, 1, 1, ['boppers']);
 				boppers.updateHitbox();
 
-				var suzuki:BGSprite = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-				suzuki.updateHitbox();
+				if (CoolUtil.difficultyString() == 'EX') {
+					suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+				} else {
+					suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+				}
 
 				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
 				counter.updateHitbox();
 
-				frontBoppers = new BGSprite('cheese/char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
-				frontBoppers.updateHitbox();
+				if (CoolUtil.difficultyString() == 'EX') {
+					frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+				} else {
+					frontBoppers = new BGSprite('cheese/char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+				}
 
 				if(!ClientPrefs.fuckyouavi) {
+					suzuki.updateHitbox();
+					frontBoppers.updateHitbox();
 					add(floor);
 				    add(tableA);
 				    add(tableB);
@@ -433,15 +443,18 @@ class PlayState extends MusicBeatState
 		var bfType:String = SONG.player1;
 		if(!ClientPrefs.bfreskin) {
 			{
-				switch (curStage)
+				//BFTYPE IS NOW PER CHARACTER AND NOT PER STAGE, WORKS BETTER
+				switch (PlayState.SONG.player1)
 				{
-					case 'restaurante':
+					//bf alt is og bf
+					case 'bf':
 						bfType = 'bf-alt';
-					//fix for turning old bf skin off
-					case 'restauranteArsen':
+					case 'ex-bf':
+					    bfType = 'ex-bf';
+					case 'arsen':
 						bfType = 'arsen';
 					default:
-					    bfType = 'bf';
+					    bfType = 'bf-alt';
 			    }
 			}
 			SONG.player1 = bfType;

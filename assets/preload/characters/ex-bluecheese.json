@@ -65,9 +65,9 @@
 	"healthicon": "bluecheese-ex",
 	"flip_x": false,
 	"healthbar_colors": [
-		255,
-		106,
-		152
+		221,
+		129,
+		84
 	],
 	"camera_position": [
 		20,

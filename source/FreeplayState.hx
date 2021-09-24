@@ -152,7 +152,7 @@ class FreeplayState extends MusicBeatState
 		textBG.alpha = 0.6;
 		add(textBG);
 		#if PRELOAD_ALL
-		var leText:String = "Press SPACE to listen to this Song / Press RESET to Reset your Score and Accuracy.";
+		var leText:String = "Press P to listen to this Song / Press RESET to Reset your Score and Accuracy.";
 		#else
 		var leText:String = "Press RESET to Reset your Score and Accuracy.";
 		#end
@@ -188,7 +188,6 @@ class FreeplayState extends MusicBeatState
 		}
 	}
 
-	var instPlaying:Int = -1;
 	private static var vocals:FlxSound = null;
 	override function update(elapsed:Float)
 	{
@@ -216,7 +215,7 @@ class FreeplayState extends MusicBeatState
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
-		var space = FlxG.keys.justPressed.SPACE;
+		var PP = FlxG.keys.justPressed.P;
 
 		if (upP)
 		{
@@ -242,23 +241,31 @@ class FreeplayState extends MusicBeatState
 		}
 
 		#if PRELOAD_ALL
-		if(space && instPlaying != curSelected)
+		//pp as in p player not PP!!!
+		if(PP)
 		{
 			destroyFreeplayVocals();
 			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
 			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
 			if (PlayState.SONG.needsVoices)
-				vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
+				if (curDifficulty == 2) {
+					vocals = new FlxSound().loadEmbedded(Paths.voicesex(PlayState.SONG.song));
+				} else {
+					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
+				}
 			else
 				vocals = new FlxSound();
 
 			FlxG.sound.list.add(vocals);
-			FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
+			if (curDifficulty == 2) {
+				FlxG.sound.playMusic(Paths.instex(PlayState.SONG.song), 0.7);
+			} else {
+				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
+			}
 			vocals.play();
 			vocals.persist = true;
 			vocals.looped = true;
 			vocals.volume = 0.7;
-			instPlaying = curSelected;
 		}
 		else #end if (accepted)
 		{
