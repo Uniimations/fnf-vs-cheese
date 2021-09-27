@@ -303,7 +303,7 @@ class PlayState extends MusicBeatState
 			case 'tutorial':
 				curStage = 'restauranteKitchen';
 
-				defaultCamZoom = 0.9;
+				defaultCamZoom = 0.85;
 
 				counter = new BGSprite('cheese/kitchen/table_sketch', 371, 709, 1, 1);
 				counter.updateHitbox();
@@ -314,6 +314,7 @@ class PlayState extends MusicBeatState
 				if (!ClientPrefs.fuckyouavi) {
 					add(bg);
 				}
+			//guns is left from rechart easter egg
 			case 'restaurante' | 'milkshake' | 'cultured' | 'guns':
 				curStage = 'restaurante';
 
@@ -359,6 +360,55 @@ class PlayState extends MusicBeatState
 				}
 			case 'wifi':
 				curStage = 'restauranteArsen';
+
+				defaultCamZoom = 0.60;
+
+				var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+				floor.updateHitbox();
+
+				stickmin = new BGSprite('cheese/char/stickmin', 1855.55, 49.9, 1, 1, ['henry']);
+				stickmin.updateHitbox();
+
+				var tableA:BGSprite = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+				tableA.updateHitbox();
+
+				var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+				tableB.updateHitbox();
+
+				var cream:BGSprite = new BGSprite('cheese/char/cream_table', 1288.6, 237.8, 1, 1);
+				cream.updateHitbox();
+
+				joey = new BGSprite('cheese/char/joey_new', 1975.35, 115.35, 1, 1, ['joey']);
+				joey.updateHitbox();
+
+				crystal = new BGSprite('cheese/char/crystal_bop', 2199.8, 340.2, 1, 1, ['crystal bop']);
+				crystal.updateHitbox();
+
+				ralsei = new BGSprite('cheese/char/ralsei_bop', 2059.45, 469.55, 1, 1, ['ralsei bop']);
+				ralsei.updateHitbox();
+
+				var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
+				wall.updateHitbox();
+
+				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+				counter.updateHitbox();
+
+				frontBoppers = new BGSprite('cheese/char/crowdindie', 254.15, 823.45, 1, 1, ['crowdindie']);
+				frontBoppers.updateHitbox();
+
+				if(!ClientPrefs.fuckyouavi) {
+					add(floor);
+					add(stickmin);
+				    add(tableA);
+				    add(tableB);
+					add(cream);
+					add(joey);
+					add(crystal);
+					add(ralsei);
+					add(wall);
+				}
+			case 'casual-duel':
+				curStage = 'restauranteDansilot';
 
 				defaultCamZoom = 0.60;
 
@@ -543,18 +593,15 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		//REALLY SHITTY LAYERING STUFF
+		//AND CASES BECAUSE IM DUMB
+		//foreground and background groups whats that???!?!?!
 		switch(curStage)
 		{
-			case 'restauranteArsen':
+			case 'restaurante':
+				gf.visible = true;
+			default:
 				gf.visible = false;
-
-			case 'limo':
-				resetFastCar();
-				add(fastCar);
-			
-			case 'schoolEvil':
-				var evilTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
-				add(evilTrail);
 		}
 
 		if (!ClientPrefs.fuckyouavi) {
@@ -570,12 +617,8 @@ class PlayState extends MusicBeatState
 			    add(counter);
 			}
 
-			switch (curStage)
-			{
-				case 'restauranteKitchen':
-					gf.visible = false;
-				default:
-					add(boyfriendGroup);
+			if (!curStage.endsWith('Kitchen')) {
+			    add(boyfriendGroup);
 			}
 
 		    /*foregroundGroup = new FlxTypedGroup<FlxSprite>();
@@ -584,13 +627,10 @@ class PlayState extends MusicBeatState
 			//only adds fronboppers to backgrounds with a crowd
 			switch (curStage)
 			{
-				case 'restaurante' | 'restauranteArsen':
-					add(frontBoppers);
 				case 'restauranteKitchen':
-					//do nothing just adding this cause cool B)
-					//why tf did i put this here
+					//do literally nothing
 				default:
-					//still do nothing LOL!!! trolled.
+					add(frontBoppers);
 			}
 		}
 
@@ -1001,7 +1041,7 @@ class PlayState extends MusicBeatState
 						    counter.dance(true);
 							frontBoppers.dance(true);
 						}
-					case 'restauranteArsen':
+					case 'restauranteArsen' | 'restauranteDansilot':
 						if(!ClientPrefs.fuckyouavi) {
 							stickmin.dance(true);
 							joey.dance(true);
@@ -3467,7 +3507,7 @@ class PlayState extends MusicBeatState
 				    counter.dance(true);
 					frontBoppers.dance(true);
 				}
-			case 'restauranteArsen':
+			case 'restauranteArsen' | 'restauranteDansilot':
 				if(!ClientPrefs.fuckyouavi) {
 					stickmin.dance(true);
 					joey.dance(true);

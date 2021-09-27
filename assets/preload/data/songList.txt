@@ -1,7 +1,7 @@
-WARNING tutorial broken:face:0xFF535353
 Tutorial:suzuki-fp:0xFFDE3F52
-Restaurante:bluecheese-fp:0xFF5BB1D8
-Milkshake:bluecheese-fp:0xFF5BB1D8
-Cultured:bluecheese-fp:0xFF5BB1D8
+Restaurante:bluecheese:0xFF5BB1D8
+Milkshake:bluecheese-tired:0xFF5663C4
+Cultured:bluecheese:0xFF3D2E66
 Wifi:arsen-fp:0xFF35BC91
-Guns:face:0xFF535353
+Casual-Duel:dansilot-fp:0xFFB75290
+Guns:bluecheese:0xFF5BB1D8

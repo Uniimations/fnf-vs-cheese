@@ -3,17 +3,14 @@ package;
 #if desktop
 import Discord.DiscordClient;
 #end
-import flash.text.TextField;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import flixel.effects.FlxFlicker;
 import flixel.tweens.FlxTween;
 import lime.utils.Assets;
 import flixel.system.FlxSound;
@@ -53,6 +50,7 @@ class FreeplayState extends MusicBeatState
 	private var iconArray:Array<HealthIcon> = [];
 	public static var coolColors:Array<Int> = [];
 
+	private var songArray:Array<String> = [];
 	var bg:FlxSprite;
 	var intendedColor:Int;
 	var colorTween:FlxTween;
@@ -64,7 +62,7 @@ class FreeplayState extends MusicBeatState
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('songList'));
 		for (i in 0...initSonglist.length)
 		{
-			var songArray:Array<String> = initSonglist[i].split(":");
+			songArray = initSonglist[i].split(":");
 			addSong(songArray[0], 0, songArray[1]);
 			songs[songs.length-1].color = Std.parseInt(songArray[2]);
 		}
@@ -269,18 +267,17 @@ class FreeplayState extends MusicBeatState
 		}
 		else #end if (accepted)
 		{
-			//modified this a bit to be cooler B)
+			/*//modified this a bit to be cooler B)
 			if(ClientPrefs.flashing) {
-				FlxG.camera.flash(FlxColor.WHITE, 1);
+				FlxG.camera.flash(FlxColor.WHITE, 2);
 			}
 
 			//so that the game doesnt crash, THANKS ASH :D
 			if (FlxG.sound.music != null) {
-				FlxG.sound.music.fadeOut(1.5, 0);
+				FlxG.sound.music.fadeOut(2.5, 0);
 			}
 
-			FlxG.sound.play(Paths.sound('confirmMenu'), 0.6);
-			//FlxFlicker.flicker(songArray, 1, 0.06, false, false, function(flick:FlxFlicker){});
+			FlxG.sound.play(Paths.sound('confirmMenu'), 0.2);*/
 
 			var songLowercase:String = songs[curSelected].songName.toLowerCase();
 			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
@@ -288,23 +285,22 @@ class FreeplayState extends MusicBeatState
 				poop = songLowercase;
 				curDifficulty = 1;
 			}
-			trace('poop');
+			trace('LOADING FREEPLAY SONG');
 
 			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.storyWeek = songs[curSelected].week;
-			trace('CURRENT WEEK: ' + WeekData.getCurrentWeekNumber());
+			//trace('CURRENT WEEK: ' + WeekData.getCurrentWeekNumber());
+			//added new shit here so it tells me wtf im doing
+			trace ('CURRENT SONG: ' + songLowercase + 'CURRENT DIFFICULTY: ' + PlayState.storyDifficulty);
 			if(colorTween != null) {
 				colorTween.cancel();
 			}
-
-			new FlxTimer().start(1.2, function(tmr:FlxTimer) {
-				LoadingState.loadAndSwitchState(new PlayState());
-				FlxG.sound.music.volume = 0;
-				destroyFreeplayVocals();
-			});
+			LoadingState.loadAndSwitchState(new PlayState());
+			FlxG.sound.music.volume = 0;
+			destroyFreeplayVocals();
 		}
 		else if(controls.RESET)
 		{
@@ -333,7 +329,7 @@ class FreeplayState extends MusicBeatState
 		if (curDifficulty < 0)
 			curDifficulty = 2;
 		if (curDifficulty > 2)
-			curDifficulty = 0;
+			curDifficulty = 0; //this is dumb ^ why didnt i just edit this
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);

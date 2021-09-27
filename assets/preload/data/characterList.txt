@@ -6,12 +6,16 @@ bf
 bf-alt
 bluecheese-kitchen
 arsen
+dansilot
+avinera
+uniimations
 ex-bf
 ---------------
 Player 2
 ---------------
 dad
 bluecheese
+bluecheese-tired
 gf-oisuzuki-kitchen
 ex-bluecheese
 ---------------

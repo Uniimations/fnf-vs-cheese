@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "dani idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				30,
+				-29
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "dani left0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-64,
+				-25
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "dani down0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				18,
+				-30
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "dani up0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-55,
+				7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "dani right0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				30,
+				-29
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "dani left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-64,
+				-25
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "dani down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				18,
+				-30
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "dani up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-55,
+				7
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "dani right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/DANSILOT",
+	"position": [
+		789,
+		273
+	],
+	"healthicon": "dansilot",
+	"flip_x": true,
+	"healthbar_colors": [
+		218,
+		106,
+		151
+	],
+	"camera_position": [
+		100,
+		40
+	],
+	"sing_duration": 4,
+	"scale": 1
+}
