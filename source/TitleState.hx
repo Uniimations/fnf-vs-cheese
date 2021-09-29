@@ -70,6 +70,12 @@ class TitleState extends MusicBeatState
 			}
 		}
 		//Gonna finish this later, probably
+		//WHAT THE FUCK DO YOU MEAN LATER SHADOW MARIO COME BACK :wah:
+		//actualy theres a new psych engine version so why am i complaining in an old repository lol
+		//to whoever's reading this how is your day??
+		//...i have 18 homeworks to do and im working on a friday night funkin mod
+		//
+		//not having fun :')
 		#end
 		FlxG.game.focusLostFramerate = 60;
 		FlxG.sound.muteKeys = muteKeys;

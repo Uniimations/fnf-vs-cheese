@@ -101,7 +101,7 @@ class Note extends FlxSprite
 				isPixel = true;
 
 			default:
-				frames = Paths.getSparrowAtlas('NOTE_assets');
+				frames = Paths.getSparrowAtlas('notes/NOTES_BF');
 				loadNoteAnims();
 				antialiasing = ClientPrefs.globalAntialiasing;
 		}
@@ -186,7 +186,7 @@ class Note extends FlxSprite
 	function reloadNote(?prefix:String = '', ?suffix:String = '') {
 		var skin:String = PlayState.SONG.arrowSkin;
 		if(skin == null || skin.length < 1) {
-			skin = 'NOTE_assets';
+			skin = 'notes/NOTES_BF';
 		}
 
 		var animName:String = null;

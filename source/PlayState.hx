@@ -1400,13 +1400,7 @@ class PlayState extends MusicBeatState
 					}
 
 				default:
-					var skin:String = 'NOTE_assets';
-
-					/*if (player == 0)
-						skin = 'NOTES_BLUECHEESE';
-					else
-						skin = 'NOTE_assets';*/
-
+					var skin:String = 'notes/NOTES_BF';
 					if(SONG.arrowSkin != null && SONG.arrowSkin.length > 1) skin = SONG.arrowSkin;
 
 					babyArrow.frames = Paths.getSparrowAtlas(skin);

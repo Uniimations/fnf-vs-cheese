@@ -1,7 +1,7 @@
-Tutorial:suzuki-fp:0xFFDE3F52
-Restaurante:bluecheese:0xFF5BB1D8
-Milkshake:bluecheese-tired:0xFF5663C4
-Cultured:bluecheese:0xFF3D2E66
-Wifi:arsen-fp:0xFF35BC91
-Casual-Duel:dansilot-fp:0xFFB75290
-Guns:bluecheese:0xFF5BB1D8
+Tutorial:suzuki:0xFF8B3551
+Restaurante:bluecheese:0xFF1B699B
+Milkshake:bluecheese-tired:0xFF1B699B
+Cultured:bluecheese:0xFF1B699B
+Wifi:arsen-fp:0xFF348569
+Casual-Duel:dansilot-fp:0xFF822D49
+Guns:bluecheese:0xFF1B699B

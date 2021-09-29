@@ -243,8 +243,8 @@ class FreeplayState extends MusicBeatState
 		if(PP)
 		{
 			destroyFreeplayVocals();
-			var poop:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
-			PlayState.SONG = Song.loadFromJson(poop, songs[curSelected].songName.toLowerCase());
+			var ass:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
+			PlayState.SONG = Song.loadFromJson(ass, songs[curSelected].songName.toLowerCase());
 			if (PlayState.SONG.needsVoices)
 				if (curDifficulty == 2) {
 					vocals = new FlxSound().loadEmbedded(Paths.voicesex(PlayState.SONG.song));
@@ -280,21 +280,21 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.2);*/
 
 			var songLowercase:String = songs[curSelected].songName.toLowerCase();
-			var poop:String = Highscore.formatSong(songLowercase, curDifficulty);
-			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + poop))) {
-				poop = songLowercase;
+			var ass:String = Highscore.formatSong(songLowercase, curDifficulty);
+			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + ass))) {
+				ass = songLowercase;
 				curDifficulty = 1;
 			}
-			trace('LOADING FREEPLAY SONG');
+			trace ('ass initialized');
+			trace ('LOADING FREEPLAY SONG');
 
-			PlayState.SONG = Song.loadFromJson(poop, songLowercase);
+			PlayState.SONG = Song.loadFromJson(ass, songLowercase);
 			PlayState.isStoryMode = false;
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.storyWeek = songs[curSelected].week;
 			//trace('CURRENT WEEK: ' + WeekData.getCurrentWeekNumber());
-			//added new shit here so it tells me wtf im doing
-			trace ('CURRENT SONG: ' + songLowercase + 'CURRENT DIFFICULTY: ' + PlayState.storyDifficulty);
+			trace ('CURRENT SONG: ' + songLowercase + ' | CURRENT DIFFICULTY: ' + PlayState.storyDifficulty + ' | CURRENT WEEK: ' + WeekData.getCurrentWeekNumber()); //added new shit here so it tells me wtf im doing
 			if(colorTween != null) {
 				colorTween.cancel();
 			}

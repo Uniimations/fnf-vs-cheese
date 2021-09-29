@@ -21,17 +21,23 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	public function new(x:Float, y:Float, camX:Float, camY:Float)
 	{
+		//BF DEATH SKIN, TYPE CHARACTER NAME
 		var daBf:String = '';
 		switch (PlayState.SONG.player1) {
 			case 'ex-bf':
 				daBf = 'ex-death';
 			case 'arsen':
-				//doesnt exist yet lol
-				//charPrefix = 'arsen';
-				daBf = 'ex-death';
-				//JUST TESTING LOL
+				daBf = 'arsen-death';
 			default:
 				daBf = 'bf';
+		}
+
+		//BF DEATH SOUND REPLACEMENT, TYPE SOUND PREFIX
+		switch (PlayState.SONG.player1) {
+			case 'arsen':
+				charPrefix = 'arsen';
+			default:
+				charPrefix = 'fnf';
 		}
 
 		super();
@@ -43,8 +49,8 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		camFollow = new FlxPoint(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y);
 
-		//charPrefix is for the 
-		FlxG.sound.play(Paths.sound('lose/' + charPrefix + 'fnf_loss_sfx'));
+		//charPrefix is for the custom character death sfx
+		FlxG.sound.play(Paths.sound('lose/' + charPrefix + '_loss_sfx'));
 		Conductor.changeBPM(100);
 		// FlxG.camera.followLerp = 1;
 		// FlxG.camera.focusOn(FlxPoint.get(FlxG.width / 2, FlxG.height / 2));
