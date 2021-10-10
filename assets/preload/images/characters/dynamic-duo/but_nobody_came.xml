@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="but_nobody_came.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="fuck you0000" x="0" y="0" width="255" height="237" frameX="0" frameY="-9" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0001" x="0" y="0" width="255" height="237" frameX="0" frameY="-9" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0002" x="0" y="0" width="255" height="237" frameX="0" frameY="-9" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0003" x="255" y="0" width="255" height="237" frameX="0" frameY="0" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0004" x="255" y="0" width="255" height="237" frameX="0" frameY="0" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0005" x="255" y="0" width="255" height="237" frameX="0" frameY="0" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0006" x="255" y="0" width="255" height="237" frameX="0" frameY="0" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0007" x="255" y="0" width="255" height="237" frameX="0" frameY="-11" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0008" x="255" y="0" width="255" height="237" frameX="0" frameY="-11" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0009" x="255" y="0" width="255" height="237" frameX="0" frameY="-11" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0010" x="255" y="0" width="255" height="237" frameX="0" frameY="-11" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0011" x="255" y="0" width="255" height="237" frameX="0" frameY="-11" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0012" x="255" y="0" width="255" height="237" frameX="0" frameY="-11" frameWidth="255" frameHeight="249"/>
+	<SubTexture name="fuck you0013" x="255" y="0" width="255" height="237" frameX="0" frameY="-11" frameWidth="255" frameHeight="249"/>
+</TextureAtlas>

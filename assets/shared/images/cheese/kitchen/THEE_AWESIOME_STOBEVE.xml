@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="THEE_AWESIOME_STOBEVE.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="THEE AWESIOME STOBEVE0000" x="0" y="0" width="534" height="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0001" x="0" y="0" width="534" height="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0002" x="0" y="0" width="534" height="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0003" x="534" y="0" width="534" height="573" frameX="0" frameY="-37" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0004" x="534" y="0" width="534" height="573" frameX="0" frameY="-37" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0005" x="534" y="0" width="534" height="573" frameX="0" frameY="-37" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0006" x="1068" y="0" width="534" height="596" frameX="0" frameY="-14" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0007" x="1068" y="0" width="534" height="596" frameX="0" frameY="-14" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0008" x="1068" y="0" width="534" height="596" frameX="0" frameY="-14" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0009" x="0" y="610" width="534" height="606" frameX="0" frameY="-4" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0010" x="0" y="610" width="534" height="606" frameX="0" frameY="-4" frameWidth="534" frameHeight="610"/>
+	<SubTexture name="THEE AWESIOME STOBEVE0011" x="0" y="610" width="534" height="606" frameX="0" frameY="-4" frameWidth="534" frameHeight="610"/>
+</TextureAtlas>

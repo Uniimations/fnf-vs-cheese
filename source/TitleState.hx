@@ -144,27 +144,7 @@ class TitleState extends MusicBeatState
 	{
 		if (!initialized)
 		{
-			/*var diamond:FlxGraphic = FlxGraphic.fromClass(GraphicTransTileDiamond);
-			diamond.persist = true;
-			diamond.destroyOnNoUse = false;
-
-			FlxTransitionableState.defaultTransIn = new TransitionData(FADE, FlxColor.BLACK, 1, new FlxPoint(0, -1), {asset: diamond, width: 32, height: 32},
-				new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
-			FlxTransitionableState.defaultTransOut = new TransitionData(FADE, FlxColor.BLACK, 0.7, new FlxPoint(0, 1),
-				{asset: diamond, width: 32, height: 32}, new FlxRect(-300, -300, FlxG.width * 1.8, FlxG.height * 1.8));
-				
-			transIn = FlxTransitionableState.defaultTransIn;
-			transOut = FlxTransitionableState.defaultTransOut;*/
-
-			// HAD TO MODIFY SOME BACKEND SHIT
-			// IF THIS PR IS HERE IF ITS ACCEPTED UR GOOD TO GO
-			// https://github.com/HaxeFlixel/flixel-addons/pull/348
-
-			// var music:FlxSound = new FlxSound();
-			// music.loadStream(Paths.music('freakyMenu'));
-			// FlxG.sound.list.add(music);
-			// music.play();
-
+			//got rid of old code cause stinky
 			if(FlxG.sound.music == null) {
 				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 
@@ -172,13 +152,10 @@ class TitleState extends MusicBeatState
 			}
 		}
 
-		Conductor.changeBPM(80);
+		Conductor.changeBPM(120);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		// bg.antialiasing = ClientPrefs.globalAntialiasing;
-		// bg.setGraphicSize(Std.int(bg.width * 0.6));
-		// bg.updateHitbox();
 		add(bg);
 
 		yellow = new FlxSprite().loadGraphic(Paths.image('intro/BG'));
@@ -193,6 +170,7 @@ class TitleState extends MusicBeatState
 		cheese.antialiasing = ClientPrefs.globalAntialiasing;
 		add(cheese);
 
+		//dont mind this shitty code please
 		logoBl = new FlxSprite(-200, -260);
 		logoBl.frames = Paths.getSparrowAtlas('intro/logoBumpin');
 		logoBl.animation.addByIndices('bump1', 'logo bumpin', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
@@ -286,12 +264,13 @@ class TitleState extends MusicBeatState
 	{
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
-		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
 		Timer += 1;
 		gradientBar.updateHitbox();
 		gradientBar.y = FlxG.height - gradientBar.height;
 
+		//SORRY IF THIS GETS ANNOYING I WAS TESTING SHIT!!!
+		//i forgor to remove :skull:
 		if (FlxG.keys.justPressed.F)
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
@@ -337,14 +316,12 @@ class TitleState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
 
 			transitioning = true;
-			// FlxG.sound.music.stop();
 
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
 				MusicBeatState.switchState(new MainMenuState());
 				closedState = true;
 			});
-			// FlxG.sound.play(Paths.music('titleShoot'), 0.7);
 		}
 
 		if (pressedEnter && !skippedIntro)
@@ -394,6 +371,7 @@ class TitleState extends MusicBeatState
 
 		danceLeft = !danceLeft;
 
+		//really shit way to force the logo to bump but it works so whatever
 		if (danceLeft)
 			logoBl.animation.play('bump2');
 		else
@@ -404,65 +382,38 @@ class TitleState extends MusicBeatState
 		else
 			cheese.animation.play('danceLeft');
 
+		FlxG.log.add(curBeat);
+		FlxTween.tween(FlxG.camera, {zoom:1.02}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
+
 		if(!closedState) {
 			switch (curBeat)
 			{
-				case 2:
-					createCoolText(['Uniimations'], 45);
-					addMoreText('Avinera', 45);
-					addMoreText('Bluecheese', 45);
-					addMoreText('Present', 45);
 				case 4:
-					deleteCoolText();
-					createCoolText(['A mod for'], 5);
+					createCoolText(['Uniimations'], 45);
+				case 5:
+					addMoreText('Avinera', 45);
 				case 6:
-					logoSpr.visible = true;
+					addMoreText('Bluecheese', 45);
+				case 7:
+					addMoreText('Present', 45);
 				case 8:
-					logoSpr.visible = false;
+					curWacky = FlxG.random.getObject(getIntroTextShit());
 					deleteCoolText();
-					createCoolText(["If youre a"], 45);
+					createCoolText([curWacky[0]], 45);
 				case 9:
-					addMoreText('Friday Night Funkin fan', 45);
+					addMoreText(curWacky[1], 45);
 				case 10:
+					curWacky = FlxG.random.getObject(getIntroTextShit());
 					deleteCoolText();
-					createCoolText(["You definitely want"], 45);
+					createCoolText([curWacky[0]], 45);
 				case 11:
-					addMoreText('The full ass', 45);
+					addMoreText(curWacky[1], 45);
 				case 12:
-					curWacky = FlxG.random.getObject(getIntroTextShit());
 					deleteCoolText();
-					createCoolText([curWacky[0]], 45);
-				case 13:
-					addMoreText(curWacky[1], 45);
-				case 14:
-					curWacky = FlxG.random.getObject(getIntroTextShit());
-					deleteCoolText();
-					createCoolText([curWacky[0]], 45);
-				case 15:
-					addMoreText(curWacky[1], 45);
+					FlxTween.tween(FNF_Logo, {y: 120, x: 210}, 0.68, {ease: FlxEase.backOut});
+			    case 15:
+					FlxTween.tween(FNF_SUBTEXT, {y: 48, x: 403}, 0.68, {ease: FlxEase.backOut});
 				case 16:
-					curWacky = FlxG.random.getObject(getIntroTextShit());
-					deleteCoolText();
-					createCoolText([curWacky[0]], 45);
-				case 17:
-					addMoreText(curWacky[1], 45);
-				case 18:
-					curWacky = FlxG.random.getObject(getIntroTextShit());
-					deleteCoolText();
-					createCoolText([curWacky[0]], 45);
-				case 19:
-					addMoreText(curWacky[1], 45);
-				case 20:
-					deleteCoolText();
-					createCoolText(['Here comes'], 45);
-				case 21:
-					addMoreText('the FBI', 45);
-				case 22:
-				deleteCoolText();
-				FlxTween.tween(FNF_Logo, {y: 120, x: 210}, 0.8, {ease: FlxEase.backOut});
-			    case 23:
-				FlxTween.tween(FNF_SUBTEXT, {y: 48, x: 403}, 0.85, {ease: FlxEase.backOut});
-				case 24:
 					skipIntro();
 			}
 		}
@@ -475,11 +426,12 @@ class TitleState extends MusicBeatState
 		if (!skippedIntro)
 		{
 			remove(logoSpr);
-			//remove(ngSpr);
 			remove(FNF_Logo);
 			remove(FNF_SUBTEXT);
 
 			FlxG.camera.flash(FlxColor.WHITE, 4);
+			//SOME AWESOME TWEENING I DID WOAAAHH IM PROUD OF MYSELF FOR THIS PRAISE ME NOW.
+			//i wasnt being serious sorry
 			FlxTween.tween(logoBl, {'scale.x': 0.49, 'scale.y': 0.49, x: -200, y: -200}, 1.3, {ease: FlxEase.expoInOut, startDelay: 1.3});
             FlxTween.tween(cheese, {'scale.x': 1, 'scale.y': 1, x: 720, y: 80}, 2.3, {ease: FlxEase.expoInOut, startDelay: 0.9});
 			remove(credGroup);

@@ -315,6 +315,7 @@ class StoryMenuState extends MusicBeatState
 			switch (StringTools.replace(PlayState.storyPlaylist[0]," ", "-").toLowerCase()) {
 				case 'wifi':
 					PlayState.cutsceneShit = true;
+					//i fucking hate this
 					trace ('bitch mode on!!!');
 					trace ('wifi cutscene initialized');
 			}

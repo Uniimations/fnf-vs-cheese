@@ -1,5 +1,6 @@
 package;
 
+import Song.SwagSong;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -67,14 +68,6 @@ class FreeplayState extends MusicBeatState
 			songs[songs.length-1].color = Std.parseInt(songArray[2]);
 		}
 
-		/* 
-			if (FlxG.sound.music != null)
-			{
-				if (!FlxG.sound.music.playing)
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-			}
-		 */
-
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
@@ -126,8 +119,6 @@ class FreeplayState extends MusicBeatState
 		intendedColor = bg.color;
 		changeSelection();
 		changeDiff();
-
-		var swag:Alphabet = new Alphabet(1, 0, "swag");
 
 		// JUST DOIN THIS SHIT FOR TESTING!!!
 		/* 
@@ -213,7 +204,31 @@ class FreeplayState extends MusicBeatState
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
-		var PP = FlxG.keys.justPressed.P;
+		var PP = FlxG.keys.justPressed.P; //it says it's unused but it is used if you preload all
+
+		var songLowercase:String = songs[curSelected].songName.toLowerCase();
+
+		//flash and shake function
+		function changeShit():Void
+		{
+			FlxG.camera.shake(0.001, 0.1, function()
+			{
+				FlxG.camera.shake(0.002, 0.1, function()
+				{
+					FlxG.camera.shake(0.005, 0.05, function()
+					{
+						if (ClientPrefs.flashing) {
+							FlxG.camera.flash(FlxColor.WHITE, 0.5);
+						}
+						FlxG.camera.shake(0.002, 0.1, function() {
+							FlxG.camera.shake(0.001, 0.1, function(){
+								
+							});
+						});
+					});
+				});
+			});
+		}
 
 		if (upP)
 		{
@@ -224,10 +239,74 @@ class FreeplayState extends MusicBeatState
 			changeSelection(1);
 		}
 
-		if (controls.UI_LEFT_P)
+		/*if (controls.UI_LEFT_P)
 			changeDiff(-1);
 		if (controls.UI_RIGHT_P)
-			changeDiff(1);
+			changeDiff(1);*/
+
+		//completely rewrote the code for this! I'm proud of myself
+		//difficulty dependencies
+		if (controls.UI_LEFT_P)
+		{
+			switch (songLowercase)
+			{
+				case 'restaurante' | 'milkshake': //SONGS WITH EX DIFFICULTY
+					{
+						if (curDifficulty == 0 || curDifficulty == 2)
+							{
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+									{
+										changeShit();
+									}, 2);
+									new FlxTimer().start(0.4, function(tmr:FlxTimer)
+									{
+										changeDiff(-1);
+									});
+							}
+						else
+							{
+								FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+								changeDiff(-1);
+							}
+					}
+				case 'manager-strike-back':
+					FlxG.sound.play(Paths.sound('cancelMenu'), 0.6); //manager strike back doesn't change
+				default:
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+					changeDiff(-1);
+			}
+		}
+
+		if (controls.UI_RIGHT_P)
+		{
+			switch (songLowercase)
+			{
+				case 'restaurante' | 'milkshake': //SONGS WITH EX DIFFICULTY
+					{
+						if (curDifficulty == 1 || curDifficulty == 2)
+							{
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+									{
+										changeShit();
+									}, 2);
+									new FlxTimer().start(0.4, function(tmr:FlxTimer)
+									{
+										changeDiff(1);
+									});
+							}
+						else
+							{
+								FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+								changeDiff(1);
+							}
+					}
+				case 'manager-strike-back':
+					FlxG.sound.play(Paths.sound('cancelMenu'), 0.6); //manager strike back doesn't change
+				default:
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+					changeDiff(1);
+			}
+		}
 
 		if (controls.BACK)
 		{
@@ -267,18 +346,6 @@ class FreeplayState extends MusicBeatState
 		}
 		else #end if (accepted)
 		{
-			/*//modified this a bit to be cooler B)
-			if(ClientPrefs.flashing) {
-				FlxG.camera.flash(FlxColor.WHITE, 2);
-			}
-
-			//so that the game doesnt crash, THANKS ASH :D
-			if (FlxG.sound.music != null) {
-				FlxG.sound.music.fadeOut(2.5, 0);
-			}
-
-			FlxG.sound.play(Paths.sound('confirmMenu'), 0.2);*/
-
 			var songLowercase:String = songs[curSelected].songName.toLowerCase();
 			var ass:String = Highscore.formatSong(songLowercase, curDifficulty);
 			if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + ass))) {
@@ -293,8 +360,22 @@ class FreeplayState extends MusicBeatState
 			PlayState.storyDifficulty = curDifficulty;
 
 			PlayState.storyWeek = songs[curSelected].week;
+
+			//for defining names of the difficulties
+			var curDifName:String = '';
+
+			switch (curDifficulty) {
+				case 0:
+					curDifName = 'Easy';
+				case 1:
+					curDifName = 'Hard';
+				case 2:
+					curDifName = 'EX';
+				case 3:
+					curDifName = 'UNFAIR';
+			}
 			//trace('CURRENT WEEK: ' + WeekData.getCurrentWeekNumber());
-			trace ('CURRENT SONG: ' + songLowercase + ' | CURRENT DIFFICULTY: ' + PlayState.storyDifficulty + ' | CURRENT WEEK: ' + WeekData.getCurrentWeekNumber()); //added new shit here so it tells me wtf im doing
+			trace ('CURRENT SONG: ' + songLowercase + ' | CURRENT DIFFICULTY: ' + curDifName + ' | DIFFICULTY INT: ' + curDifficulty); //added new shit here so it tells me wtf im doing
 			if(colorTween != null) {
 				colorTween.cancel();
 			}
@@ -305,7 +386,7 @@ class FreeplayState extends MusicBeatState
 		else if(controls.RESET)
 		{
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
-			FlxG.sound.play(Paths.sound('scrollMenu'));
+			FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 		}
 		super.update(elapsed);
 	}
@@ -320,16 +401,29 @@ class FreeplayState extends MusicBeatState
 
 	function changeDiff(change:Int = 0)
 	{
+		var songLowercase:String = songs[curSelected].songName.toLowerCase();
+		var curNumberStart:Int = 0;
+		var curNumberEnd:Int;
+
 		curDifficulty += change;
 
-		/*if (curDifficulty < 0)
-			curDifficulty = CoolUtil.difficultyStuff.length-1;
-		if (curDifficulty >= CoolUtil.difficultyStuff.length)
-			curDifficulty = 0;*/
-		if (curDifficulty < 0)
-			curDifficulty = 2;
-		if (curDifficulty > 2)
-			curDifficulty = 0; //this is dumb ^ why didnt i just edit this
+		//MADE THIS CODE A LOT CLEANER!!!
+		//difficulty dependencies
+		switch (songLowercase)
+		{
+			case 'restaurante' | 'milkshake':
+				curNumberEnd = 2;
+			case 'manager-strike-back':
+				curNumberStart = 3;
+				curNumberEnd = 3;
+			default:
+				curNumberEnd = 1;
+		}
+
+		if (curDifficulty < curNumberStart)
+			curDifficulty = curNumberEnd;
+		if (curDifficulty > curNumberEnd)
+			curDifficulty = curNumberStart;
 
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
@@ -337,13 +431,13 @@ class FreeplayState extends MusicBeatState
 		#end
 
 		PlayState.storyDifficulty = curDifficulty;
-		diffText.text = '< ' + CoolUtil.difficultyString() + ' >';
+		diffText.text = 'Difficulty: < ' + CoolUtil.difficultyString() + ' >';
 		positionHighscore();
 	}
 
 	function changeSelection(change:Int = 0)
 	{
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 
 		curSelected += change;
 

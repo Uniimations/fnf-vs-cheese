@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Sink.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Sink0000" x="0" y="0" width="870" height="637"/>
+	<SubTexture name="Sink0001" x="0" y="0" width="870" height="637"/>
+	<SubTexture name="Sink0002" x="0" y="0" width="870" height="637"/>
+	<SubTexture name="Sink0003" x="870" y="0" width="870" height="637"/>
+	<SubTexture name="Sink0004" x="1740" y="0" width="870" height="637"/>
+	<SubTexture name="Sink0005" x="2610" y="0" width="870" height="637"/>
+	<SubTexture name="Sink0006" x="0" y="637" width="870" height="637"/>
+	<SubTexture name="Sink0007" x="870" y="637" width="870" height="637"/>
+	<SubTexture name="Sink0008" x="1740" y="637" width="870" height="637"/>
+	<SubTexture name="Sink0009" x="2610" y="637" width="870" height="637"/>
+	<SubTexture name="Sink0010" x="2610" y="637" width="870" height="637"/>
+	<SubTexture name="Sink0011" x="0" y="1274" width="870" height="637"/>
+	<SubTexture name="Sink0012" x="870" y="1274" width="870" height="637"/>
+	<SubTexture name="Sink0013" x="1740" y="1274" width="870" height="637"/>
+	<SubTexture name="Sink0014" x="2610" y="1274" width="870" height="637"/>
+	<SubTexture name="Sink0015" x="0" y="0" width="870" height="637"/>
+	<SubTexture name="Sink0016" x="0" y="1911" width="870" height="637"/>
+	<SubTexture name="Sink0017" x="870" y="1911" width="870" height="637"/>
+	<SubTexture name="Sink0018" x="1740" y="1911" width="870" height="637"/>
+	<SubTexture name="Sink0019" x="2610" y="1911" width="870" height="637"/>
+</TextureAtlas>

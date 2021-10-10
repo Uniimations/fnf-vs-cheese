@@ -41,16 +41,20 @@ class Note extends FlxSprite
 	private function set_noteType(value:Int):Int {
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
-				case 3: //Hurt note
-					reloadNote('HURT');
+				case 3: //DODGE NOTE
+					reloadNote('dodge');
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
-
+				case 4: //DEATH NOTE
+					reloadNote('death');
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
 				default:
-					colorSwap.hue = ClientPrefs.arrowHSV[noteData % 4][0] / 360;
-					colorSwap.saturation = ClientPrefs.arrowHSV[noteData % 4][1] / 100;
-					colorSwap.brightness = ClientPrefs.arrowHSV[noteData % 4][2] / 100;
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
 			}
 			noteType = value;
 		}
@@ -58,6 +62,7 @@ class Note extends FlxSprite
 	}
 
 	var isPixel:Bool = false;
+	var daSong:String = PlayState.SONG.song.toLowerCase();
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false)
 	{
 		super();
@@ -69,7 +74,11 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 		this.inEditor = inEditor;
 
-		x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
+		if (daSong == 'manager-strike-back') {
+			x += (ClientPrefs.shit ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
+		} else {
+			x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
+		}
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
 		this.strumTime = strumTime;
@@ -101,7 +110,7 @@ class Note extends FlxSprite
 				isPixel = true;
 
 			default:
-				frames = Paths.getSparrowAtlas('notes/NOTES_BF');
+				frames = Paths.getSparrowAtlas('NOTE_assets');
 				loadNoteAnims();
 				antialiasing = ClientPrefs.globalAntialiasing;
 		}
@@ -110,9 +119,9 @@ class Note extends FlxSprite
 			colorSwap = new ColorSwap();
 			shader = colorSwap.shader;
 			
-			colorSwap.hue = ClientPrefs.arrowHSV[noteData % 4][0] / 360;
-			colorSwap.saturation = ClientPrefs.arrowHSV[noteData % 4][1] / 100;
-			colorSwap.brightness = ClientPrefs.arrowHSV[noteData % 4][2] / 100;
+			colorSwap.hue = 0;
+			colorSwap.saturation = 0;
+			colorSwap.brightness = 0;
 
 			x += swagWidth * (noteData % 4);
 			if(!isSustainNote) { //Doing this 'if' check to fix the warnings on Senpai songs
@@ -186,7 +195,7 @@ class Note extends FlxSprite
 	function reloadNote(?prefix:String = '', ?suffix:String = '') {
 		var skin:String = PlayState.SONG.arrowSkin;
 		if(skin == null || skin.length < 1) {
-			skin = 'notes/NOTES_BF';
+			skin = 'NOTE_assets';
 		}
 
 		var animName:String = null;

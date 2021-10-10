@@ -121,9 +121,9 @@
 		82
 	],
 	"camera_position": [
-		10,
-		20
+		123,
+		-70
 	],
-	"sing_duration": 8.5,
+	"sing_duration": 6,
 	"scale": 1
 }

@@ -1,0 +1,5 @@
+the suffix "fp" just means freeplay. These are seperate icons used for freeplay since
+they don't get flipped.
+
+this is also true for manager strike back, in manager strike back suzuki has no icon.
+But in freeplay he has one. The losing icon is for resetting score.

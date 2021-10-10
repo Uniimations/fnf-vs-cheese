@@ -26,6 +26,7 @@ class ClientPrefs {
 	public static var ghostTapping:Bool = true;
 	public static var hideTime:Bool = false;
 
+	public static var shit:Bool = true;
 	public static var bfreskin:Bool = true;
 	public static var shitish:Bool = false;
 	public static var missSounds:Bool = true;
@@ -90,6 +91,7 @@ class ClientPrefs {
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.hideTime = hideTime;
 
+		FlxG.save.data.shit = shit;
 		FlxG.save.data.bfreskin = bfreskin;
 		FlxG.save.data.shitish = shitish;
 		FlxG.save.data.missSounds = missSounds;
@@ -178,6 +180,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideTime != null) {
 			hideTime = FlxG.save.data.hideTime;
+		}
+		if(FlxG.save.data.shit != null) {
+			shit = FlxG.save.data.shit;
 		}
 		if(FlxG.save.data.bfreskin != null) {
 			bfreskin = FlxG.save.data.bfreskin;

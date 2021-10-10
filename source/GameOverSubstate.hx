@@ -17,7 +17,8 @@ class GameOverSubstate extends MusicBeatSubstate
 	var camFollowPos:FlxObject;
 	var updateCamera:Bool = false;
 
-	var charPrefix:String = "";
+	var charPrefix:String = '';
+	var songSuffix:String = '';
 
 	public function new(x:Float, y:Float, camX:Float, camY:Float)
 	{
@@ -28,14 +29,19 @@ class GameOverSubstate extends MusicBeatSubstate
 				daBf = 'ex-death';
 			case 'arsen':
 				daBf = 'arsen-death';
+			case 'undertale-bf':
+				daBf = 'undertale-death';
 			default:
 				daBf = 'bf';
 		}
 
-		//BF DEATH SOUND REPLACEMENT, TYPE SOUND PREFIX
+		//BF DEATH SOUND REPLACEMENT, TYPE SOUND PREFIX OR SONG SUFFIX
 		switch (PlayState.SONG.player1) {
 			case 'arsen':
 				charPrefix = 'arsen';
+			case 'undertale-bf':
+				songSuffix = 'UT';
+				charPrefix = 'UT';
 			default:
 				charPrefix = 'fnf';
 		}
@@ -59,8 +65,6 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		bf.playAnim('firstDeath');
 
-		var exclude:Array<Int> = [];
-
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		camFollowPos.setPosition(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
 		add(camFollowPos);
@@ -68,6 +72,11 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
 		super.update(elapsed);
 
 		if(updateCamera) {
@@ -82,16 +91,21 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		if (controls.BACK)
 		{
-			FlxG.sound.music.stop();
+			FlxG.sound.music.fadeOut(1.5, 0);
 			PlayState.deathCounter = 0;
 			PlayState.seenCutscene = false;
 
-			if (PlayState.isStoryMode)
-				MusicBeatState.switchState(new StoryMenuState());
-			else
-				MusicBeatState.switchState(new FreeplayState());
-
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			new FlxTimer().start(0.6, function(tmr:FlxTimer)
+				{
+					FlxG.camera.fade(FlxColor.BLACK, 1.5, false, function()
+					{
+						if (PlayState.isStoryMode)
+							MusicBeatState.switchState(new StoryMenuState());
+						else
+							MusicBeatState.switchState(new FreeplayState());
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					});
+				});
 		}
 
 		if (bf.animation.curAnim.name == 'firstDeath')
@@ -126,7 +140,15 @@ class GameOverSubstate extends MusicBeatSubstate
 
 	function coolStartDeath(?volume:Float = 1):Void
 	{
-		FlxG.sound.playMusic(Paths.music('gameOver'), volume);
+		if (PlayState.SONG.song.toLowerCase() == 'manager-strike-back') {
+			FlxG.sound.playMusic(Paths.music('gameOver' + songSuffix), 0);
+			FlxG.sound.music.fadeIn(7, 0, 0.8);
+			//sound file key/path, minimum int, maximum int
+			//this is just a reminder for myself cuz im dumb
+			FlxG.sound.play(Paths.soundRandom('suzuki/suzuki', 1, 17));
+		} else {
+			FlxG.sound.playMusic(Paths.music('gameOver' + songSuffix), volume);
+		}
 	}
 
 	function endBullshit():Void
@@ -136,9 +158,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			isEnding = true;
 			bf.playAnim('deathConfirm', true);
 			FlxG.sound.music.stop();
-			FlxG.sound.play(Paths.music('gameOverEnd'));
+			FlxG.sound.play(Paths.music('gameOverEnd' + songSuffix));
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
+				FlxG.sound.music.fadeOut(1.5, 0);
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
 					LoadingState.loadAndSwitchState(new PlayState());

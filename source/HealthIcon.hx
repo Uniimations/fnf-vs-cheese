@@ -32,9 +32,9 @@ class HealthIcon extends FlxSprite
 			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
 	}
 
+	//sussy function!!!
 	public function sussyTime() {
 		if(isSus = !isSus) changeIcon('sus');
-		else changeIcon(char);
 	}
 
 	public function changeIcon(char:String) {
@@ -44,7 +44,7 @@ class HealthIcon extends FlxSprite
 			var file:Dynamic = Paths.image(name);
 
 			loadGraphic(file, true, 150, 150);
-			animation.add(char, [0, 1], 0, false, isPlayer);
+			animation.add(char, [0, 1, 2], 0, false, isPlayer); //3rd animation is for bf EX winning anim
 			animation.play(char);
 			this.char = char;
 

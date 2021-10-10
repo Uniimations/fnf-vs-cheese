@@ -108,18 +108,4 @@
 	<SubTexture name="arsen button press0031" x="617" y="4305" width="617" height="861"/>
 	<SubTexture name="arsen button press0032" x="617" y="4305" width="617" height="861"/>
 	<SubTexture name="arsen button press0033" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen idle0000" x="1234" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0001" x="1234" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0002" x="1646" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0003" x="1646" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0004" x="2058" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0005" x="2058" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0006" x="2470" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0007" x="2470" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0008" x="2882" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0009" x="2882" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0010" x="2882" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0011" x="2882" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0012" x="2882" y="4305" width="412" height="831"/>
-	<SubTexture name="arsen idle0013" x="2882" y="4305" width="412" height="831"/>
 </TextureAtlas>

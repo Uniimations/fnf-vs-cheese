@@ -117,17 +117,17 @@
 		320,
 		304
 	],
-	"healthicon": "bf",
+	"healthicon": "bluecheese-player",
 	"flip_x": true,
 	"healthbar_colors": [
-		49,
-		176,
-		209
+		125,
+		162,
+		255
 	],
 	"camera_position": [
-		70,
-		-45
+		-102,
+		-86
 	],
-	"sing_duration": 8.5,
+	"sing_duration": 6,
 	"scale": 1
 }

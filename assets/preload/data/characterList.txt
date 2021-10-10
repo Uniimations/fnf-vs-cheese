@@ -10,6 +10,7 @@ dansilot
 avinera
 uniimations
 ex-bf
+undertale-bf
 ---------------
 Player 2
 ---------------
@@ -18,10 +19,14 @@ bluecheese
 bluecheese-tired
 gf-oisuzuki-kitchen
 ex-bluecheese
+undertale-oisuzuki
 ---------------
 Miscellaneous
 ---------------
 gf
 bf-menu
+oisuzuki
 ex-gf
 ex-death
+arsen-death
+undertale-death

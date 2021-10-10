@@ -45,7 +45,7 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		Conductor.changeBPM(80);
+		Conductor.changeBPM(120);
 		persistentUpdate = true;
 		#if desktop
 		// Updating Discord Rich Presence
@@ -75,14 +75,14 @@ class MainMenuState extends MusicBeatState
 		}
 
 		//RANDOM CHARACTER GENERATOR
-		//Note: Add more characters
 		switch (random) {
+			//placeholder for the new menu
 			case 0:
-				character = new Character(-30, 30, 'bf-alt', false); //bf-alt is the original bf skin without looking up at cheese
+				character = new Character(-86, 10, 'bluecheese', false);
 			case 1:
 				character = new Character(-86, 10, 'bluecheese', false);
 			case 2:
-				character = new Character(-9, -109, 'arsen', false);
+				character = new Character(-86, 10, 'bluecheese', false);
 		}
 		prevCharacter = random;
 		character.debugMode = true;

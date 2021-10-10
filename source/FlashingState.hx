@@ -25,11 +25,11 @@ class FlashingState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 			"WARNING!\n
-			This Mod contains some flashing lights!\n
+			This Mod contains mild flashing lights!\n
 			Press ENTER to disable them or go to the Options Menu\n
-			If you are sensitive to flashing lights or bight colors\n
-			Press ESCAPE to keep this them on.\n
-			You've been warned!",
+			if you are very sensitive to flashing lights or bight colors.\n
+			I suggest you keep them on since they're very mild.\n
+			Press ESCAPE to keep this them on.",
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);

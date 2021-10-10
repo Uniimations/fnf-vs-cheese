@@ -20,8 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Toggle Practice Mode', 'Botplay', 'Exit to menu'];
-	var difficultyChoices = [];
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', #if debug'God Mode',#end 'Botplay', 'Exit to menu'];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -32,12 +31,6 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		super();
 		menuItems = menuItemsOG;
-
-		for (i in 0...CoolUtil.difficultyStuff.length) {
-			var diff:String = '' + CoolUtil.difficultyStuff[i][0];
-			difficultyChoices.push(diff);
-		}
-		difficultyChoices.push('BACK');
 
 		pauseMusic = new FlxSound().loadEmbedded(Paths.music('breakfast'), true, true);
 		pauseMusic.volume = 0;
@@ -71,7 +64,7 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
-		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
+		practiceText = new FlxText(20, 15 + 101, 0, "GOD MODE ON", 32);
 		practiceText.scrollFactor.set();
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
@@ -79,7 +72,7 @@ class PauseSubState extends MusicBeatSubstate
 		practiceText.visible = PlayState.practiceMode;
 		add(practiceText);
 
-		botplayText = new FlxText(20, FlxG.height - 40, 0, "BOTPLAY", 32);
+		botplayText = new FlxText(20, FlxG.height - 40, 0, "FUCK YOU!!!", 32);
 		botplayText.scrollFactor.set();
 		botplayText.setFormat(Paths.font('vcr.ttf'), 32);
 		botplayText.x = FlxG.width - (botplayText.width + 20);
@@ -144,19 +137,6 @@ class PauseSubState extends MusicBeatSubstate
 		if (accepted)
 		{
 			var daSelected:String = menuItems[curSelected];
-			for (i in 0...difficultyChoices.length-1) {
-				if(difficultyChoices[i] == daSelected) {
-					var name:String = PlayState.SONG.song.toLowerCase();
-					var poop = Highscore.formatSong(name, curSelected);
-					PlayState.SONG = Song.loadFromJson(poop, name);
-					PlayState.storyDifficulty = curSelected;
-					MusicBeatState.resetState();
-					FlxG.sound.music.volume = 0;
-					PlayState.changedDifficulty = true;
-					PlayState.cpuControlled = false;
-					return;
-				}
-			} 
 
 			switch (daSelected)
 			{
@@ -172,15 +152,7 @@ class PauseSubState extends MusicBeatSubstate
 						close();
 					});
 					trace('shit goes flashy bro');
-				case 'Change Difficulty':
-					menuItems = difficultyChoices;
-					regenMenu();
-					/*if (controls.BACK) {
-						FlxG.sound.play(Paths.sound('cancelMenu'));
-						menuItems = menuItemsOG;
-					    regenMenu();
-					}*/
-				case 'Toggle Practice Mode':
+				case 'God Mode':
 					PlayState.practiceMode = !PlayState.practiceMode;
 					PlayState.usedPractice = true;
 					practiceText.visible = PlayState.practiceMode;
