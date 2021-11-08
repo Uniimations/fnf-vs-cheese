@@ -129,6 +129,7 @@
 		621
 	],
 	"healthicon": "bf",
+	"noteskin": "NOTES_UNDERTALE",
 	"flip_x": true,
 	"healthbar_colors": [
 		255,

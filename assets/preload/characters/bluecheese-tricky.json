@@ -1,0 +1,149 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				1,
+				24
+			],
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "cheese left"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				1,
+				16
+			],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "cheese right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				91,
+				40
+			],
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "cheese up"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				1,
+				0
+			],
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "cheese down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				1,
+				20
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "cheese idle dance",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				1,
+				20
+			],
+			"anim": "idle-loop",
+			"fps": 24,
+			"name": "cheese idle dance",
+			"indices": [
+				9,
+				10,
+				11,
+				12
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				1,
+				18
+			],
+			"anim": "littleMan",
+			"fps": 24,
+			"name": "cheese summon lil boy",
+			"indices": []
+		},
+		{
+			"offsets": [
+				91,
+				40
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "cheese up"
+		},
+		{
+			"offsets": [
+				91,
+				40
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "cheese up"
+		},
+		{
+			"offsets": [
+				91,
+				40
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "cheese up"
+		},
+		{
+			"offsets": [
+				91,
+				40
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "cheese up"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ex/tricky_better",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "bluecheese-tricky",
+	"flip_x": false,
+	"healthbar_colors": [
+		225,
+		0,
+		0
+	],
+	"camera_position": [
+		20,
+		173
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

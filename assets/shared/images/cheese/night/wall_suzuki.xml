@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="wall_suzuki.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="wall0000" x="0" y="0" width="1795" height="994"/>
+	<SubTexture name="wall0001" x="1795" y="0" width="1795" height="994"/>
+	<SubTexture name="wall0002" x="3590" y="0" width="1795" height="994"/>
+	<SubTexture name="wall0003" x="5385" y="0" width="1795" height="994"/>
+	<SubTexture name="wall0004" x="0" y="994" width="1795" height="994"/>
+	<SubTexture name="wall0005" x="1795" y="994" width="1795" height="994"/>
+	<SubTexture name="wall0006" x="3590" y="994" width="1795" height="994"/>
+	<SubTexture name="wall0007" x="5385" y="994" width="1795" height="994"/>
+	<SubTexture name="wall0008" x="0" y="1988" width="1795" height="994"/>
+	<SubTexture name="wall0009" x="1795" y="1988" width="1795" height="994"/>
+	<SubTexture name="wall0010" x="3590" y="1988" width="1795" height="994"/>
+	<SubTexture name="wall0011" x="5385" y="1988" width="1795" height="994"/>
+	<SubTexture name="wall0012" x="0" y="2982" width="1795" height="994"/>
+	<SubTexture name="wall0013" x="1795" y="2982" width="1795" height="994"/>
+	<SubTexture name="wall0014" x="3590" y="2982" width="1795" height="994"/>
+	<SubTexture name="wall0015" x="5385" y="2982" width="1795" height="994"/>
+	<SubTexture name="wall0016" x="0" y="3976" width="1795" height="994"/>
+	<SubTexture name="wall0017" x="1795" y="3976" width="1795" height="994"/>
+	<SubTexture name="wall0018" x="3590" y="3976" width="1795" height="994"/>
+	<SubTexture name="wall0019" x="5385" y="3976" width="1795" height="994"/>
+	<SubTexture name="wall0020" x="0" y="4970" width="1795" height="994"/>
+</TextureAtlas>

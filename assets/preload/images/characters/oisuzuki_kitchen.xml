@@ -22,70 +22,204 @@
 	<SubTexture name="pose left0003" x="2802" y="0" width="467" height="464"/>
 	<SubTexture name="pose left0004" x="3269" y="0" width="467" height="464"/>
 	<SubTexture name="pose left0005" x="3269" y="0" width="467" height="464"/>
-	<SubTexture name="pose left0006" x="0" y="464" width="467" height="464"/>
-	<SubTexture name="pose left0007" x="0" y="464" width="467" height="464"/>
-	<SubTexture name="pose left0008" x="467" y="464" width="467" height="464"/>
-	<SubTexture name="pose left0009" x="467" y="464" width="467" height="464"/>
-	<SubTexture name="pose left0010" x="934" y="464" width="467" height="464"/>
-	<SubTexture name="pose left0011" x="934" y="464" width="467" height="464"/>
-	<SubTexture name="pose left0012" x="934" y="464" width="467" height="464"/>
-	<SubTexture name="pose left0013" x="934" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0000" x="1401" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0001" x="1401" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0002" x="1868" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0003" x="1868" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0004" x="2335" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0005" x="2335" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0006" x="2802" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0007" x="2802" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0008" x="3269" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0009" x="3269" y="464" width="467" height="464"/>
-	<SubTexture name="pose right0010" x="0" y="928" width="467" height="464"/>
-	<SubTexture name="pose right0011" x="0" y="928" width="467" height="464"/>
-	<SubTexture name="pose right0012" x="0" y="928" width="467" height="464"/>
-	<SubTexture name="pose right0013" x="0" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0000" x="467" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0001" x="467" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0002" x="934" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0003" x="934" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0004" x="1401" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0005" x="1401" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0006" x="1868" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0007" x="1868" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0008" x="2335" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0009" x="2335" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0010" x="2335" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0011" x="2335" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0012" x="2335" y="928" width="467" height="464"/>
-	<SubTexture name="pose up0013" x="2335" y="928" width="467" height="464"/>
-	<SubTexture name="suzuki idle0000" x="2802" y="928" width="467" height="464"/>
-	<SubTexture name="suzuki idle0001" x="2802" y="928" width="467" height="464"/>
-	<SubTexture name="suzuki idle0002" x="3269" y="928" width="467" height="464"/>
-	<SubTexture name="suzuki idle0003" x="3269" y="928" width="467" height="464"/>
-	<SubTexture name="suzuki idle0004" x="0" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0005" x="0" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0006" x="467" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0007" x="934" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0008" x="934" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0009" x="934" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0010" x="1401" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0011" x="1401" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0012" x="1401" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0013" x="1868" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0014" x="1868" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0015" x="2335" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0016" x="2335" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0017" x="2802" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0018" x="2802" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0019" x="3269" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0020" x="3269" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0021" x="0" y="1856" width="467" height="464"/>
-	<SubTexture name="suzuki idle0022" x="467" y="1856" width="467" height="464"/>
-	<SubTexture name="suzuki idle0023" x="467" y="1856" width="467" height="464"/>
-	<SubTexture name="suzuki idle0024" x="467" y="1856" width="467" height="464"/>
-	<SubTexture name="suzuki idle0025" x="1401" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0026" x="1401" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0027" x="1401" y="1392" width="467" height="464"/>
-	<SubTexture name="suzuki idle0028" x="934" y="1856" width="467" height="464"/>
-	<SubTexture name="suzuki idle0029" x="934" y="1856" width="467" height="464"/>
+	<SubTexture name="pose left0006" x="3736" y="0" width="467" height="464"/>
+	<SubTexture name="pose left0007" x="3736" y="0" width="467" height="464"/>
+	<SubTexture name="pose left0008" x="4203" y="0" width="467" height="464"/>
+	<SubTexture name="pose left0009" x="4203" y="0" width="467" height="464"/>
+	<SubTexture name="pose left0010" x="4670" y="0" width="467" height="464"/>
+	<SubTexture name="pose left0011" x="4670" y="0" width="467" height="464"/>
+	<SubTexture name="pose left0012" x="4670" y="0" width="467" height="464"/>
+	<SubTexture name="pose left0013" x="4670" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0000" x="5137" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0001" x="5137" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0002" x="5604" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0003" x="5604" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0004" x="6071" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0005" x="6071" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0006" x="6538" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0007" x="6538" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0008" x="7005" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0009" x="7005" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0010" x="7472" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0011" x="7472" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0012" x="7472" y="0" width="467" height="464"/>
+	<SubTexture name="pose right0013" x="7472" y="0" width="467" height="464"/>
+	<SubTexture name="pose up0000" x="0" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0001" x="0" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0002" x="467" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0003" x="467" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0004" x="934" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0005" x="934" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0006" x="1401" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0007" x="1401" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0008" x="1868" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0009" x="1868" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0010" x="1868" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0011" x="1868" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0012" x="1868" y="464" width="467" height="464"/>
+	<SubTexture name="pose up0013" x="1868" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0000" x="2335" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0001" x="2335" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0002" x="2802" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0003" x="2802" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0004" x="3269" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0005" x="3269" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0006" x="3736" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0007" x="3736" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0008" x="4203" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0009" x="4203" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0010" x="4670" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0011" x="4670" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0012" x="5137" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0013" x="5137" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0014" x="5604" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0015" x="5604" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0016" x="6071" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0017" x="6071" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0018" x="6538" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0019" x="6538" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0020" x="7005" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0021" x="7005" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0022" x="7472" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0023" x="7472" y="464" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0024" x="0" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0025" x="0" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0026" x="467" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0027" x="467" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0028" x="934" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0029" x="934" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0030" x="1401" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0031" x="1401" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0032" x="1868" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0033" x="1868" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0034" x="2335" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0035" x="2335" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0036" x="2802" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0037" x="2802" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0038" x="3269" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0039" x="3269" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0040" x="3736" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0041" x="3736" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0042" x="2335" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0043" x="2335" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0044" x="4203" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0045" x="4203" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0046" x="4670" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0047" x="4670" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0048" x="5137" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0049" x="5137" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0050" x="5604" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0051" x="5604" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0052" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0053" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0054" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0055" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0056" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0057" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0058" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0059" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0060" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0061" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0062" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0063" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0064" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0065" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0066" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0067" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0068" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0069" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0070" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0071" x="6071" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0072" x="6538" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0073" x="6538" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0074" x="7005" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0075" x="7005" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0076" x="7472" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0077" x="7472" y="928" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0078" x="0" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0079" x="0" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0080" x="467" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0081" x="467" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0082" x="934" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0083" x="934" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0084" x="1401" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0085" x="1401" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0086" x="1868" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0087" x="1868" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0088" x="2335" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0089" x="2335" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0090" x="2802" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0091" x="2802" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0092" x="3269" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0093" x="3269" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0094" x="3736" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0095" x="3736" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0096" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0097" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0098" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0099" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0100" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0101" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0102" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0103" x="4203" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0104" x="4670" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0105" x="4670" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0106" x="5137" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0107" x="5137" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0108" x="5604" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0109" x="5604" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0110" x="6071" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0111" x="6071" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0112" x="6538" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0113" x="6538" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0114" x="7005" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0115" x="7005" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0116" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0117" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0118" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0119" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0120" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0121" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0122" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0123" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0124" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0125" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0126" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0127" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0128" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0129" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0130" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0131" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0132" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki arrow keys0133" x="7472" y="1392" width="467" height="464"/>
+	<SubTexture name="suzuki idle0000" x="0" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0001" x="0" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0002" x="467" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0003" x="467" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0004" x="934" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0005" x="934" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0006" x="1401" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0007" x="1868" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0008" x="1868" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0009" x="1868" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0010" x="2335" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0011" x="2335" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0012" x="2335" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0013" x="2802" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0014" x="2802" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0015" x="3269" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0016" x="3269" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0017" x="3736" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0018" x="3736" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0019" x="4203" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0020" x="4203" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0021" x="4670" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0022" x="5137" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0023" x="5137" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0024" x="5137" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0025" x="5604" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0026" x="5604" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0027" x="5604" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0028" x="6071" y="1856" width="467" height="464"/>
+	<SubTexture name="suzuki idle0029" x="6071" y="1856" width="467" height="464"/>
 </TextureAtlas>

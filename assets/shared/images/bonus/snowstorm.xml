@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="snowstorm.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="funny snowsto0000" x="0" y="0" width="952" height="463" frameX="-22" frameY="-43" frameWidth="974" frameHeight="551"/>
+	<SubTexture name="funny snowsto0001" x="952" y="0" width="952" height="463" frameX="-22" frameY="-43" frameWidth="974" frameHeight="551"/>
+	<SubTexture name="funny snowsto0002" x="0" y="463" width="955" height="502" frameX="-19" frameY="-42" frameWidth="974" frameHeight="551"/>
+	<SubTexture name="funny snowsto0003" x="955" y="463" width="955" height="502" frameX="-19" frameY="-42" frameWidth="974" frameHeight="551"/>
+	<SubTexture name="funny snowsto0004" x="0" y="965" width="974" height="551"/>
+	<SubTexture name="funny snowsto0005" x="974" y="965" width="974" height="551"/>
+</TextureAtlas>

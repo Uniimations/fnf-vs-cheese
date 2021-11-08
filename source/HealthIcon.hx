@@ -33,8 +33,9 @@ class HealthIcon extends FlxSprite
 	}
 
 	//sussy function!!!
-	public function sussyTime() {
-		if(isSus = !isSus) changeIcon('sus');
+	public function sussyTime():Void
+	{
+		changeIcon('sus');
 	}
 
 	public function changeIcon(char:String) {
@@ -42,9 +43,37 @@ class HealthIcon extends FlxSprite
 			var name:String = 'icons/icon-' + char;
 			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-face'; //Prevents crash from missing icon
 			var file:Dynamic = Paths.image(name);
+			var idleSpr:Int; //idle icon sprite
+			var losingSpr:Int; //losing icon sprite
+			var winningSpr:Int; //winnning icon sprite
+
+			// ALL ICON SORTING CODE!!!
+			switch (char) // NOTE: CHAR IS NOT FOR curCharacter IT IS FOR THE ICON NAME!!!
+			{
+				case 'bluecheese-ex' | 'bf-ex':  //ex winning icons
+					idleSpr = 0;
+					losingSpr = 1;
+					winningSpr = 2;
+				case 'bluecheese-spamton' | 'bluecheese-hex' | 'bluecheese-whitty' | 'bluecheese-tricky' | 'bluecheese-little-man': //reskin icons are out of order because I'm dumb
+					idleSpr = 1;
+					losingSpr = 0;
+					winningSpr = 1;
+				case 'bob' | 'bosip': //bob and bosip icons out of order because AMOR is dumb >:(
+					idleSpr = 0;
+					losingSpr = 2;
+					winningSpr = 1;
+				case 'dad' | 'bluecheese-garcello': //static icons
+					idleSpr = 0;
+					losingSpr = 0;
+					winningSpr = 0;
+				default:
+					idleSpr = 0;
+					losingSpr = 1;
+					winningSpr = 0;
+			}
 
 			loadGraphic(file, true, 150, 150);
-			animation.add(char, [0, 1, 2], 0, false, isPlayer); //3rd animation is for bf EX winning anim
+			animation.add(char, [idleSpr, losingSpr, winningSpr], 0, false, isPlayer);
 			animation.play(char);
 			this.char = char;
 

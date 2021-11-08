@@ -1,0 +1,94 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				1
+			],
+			"loop": false,
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "cheese left",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				1
+			],
+			"loop": false,
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "cheese right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				1
+			],
+			"loop": false,
+			"anim": "singUP",
+			"fps": 24,
+			"name": "cheese up",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				1
+			],
+			"loop": false,
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "cheese down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				8
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "cheese idle dance",
+			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				8
+			],
+			"anim": "idle-loop",
+			"fps": 24,
+			"name": "cheese idle dance",
+			"indices": [
+				10,
+				11,
+				12,
+				13
+			]
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ex/whitty_new",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "bluecheese-whitty",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		55,
+		33
+	],
+	"camera_position": [
+		20,
+		173
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

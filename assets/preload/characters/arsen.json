@@ -107,6 +107,7 @@
 		200
 	],
 	"healthicon": "arsen",
+	"noteskin": "NOTES_ARSEN",
 	"flip_x": true,
 	"healthbar_colors": [
 		73,

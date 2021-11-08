@@ -1,0 +1,78 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				144,
+				110
+			],
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "cheese idle"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				92,
+				121
+			],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "cheese right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				123,
+				152
+			],
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "cheese up"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				150,
+				89
+			],
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "cheese down"
+		},
+		{
+			"offsets": [
+				165,
+				107
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "cheese left"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ex/spamton_COOL",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "bluecheese-spamton",
+	"flip_x": false,
+	"healthbar_colors": [
+		225,
+		255,
+		255
+	],
+	"camera_position": [
+		20,
+		173
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

@@ -54,61 +54,6 @@
 			"anim": "singDOWN",
 			"indices": [],
 			"name": "cheese down"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "freestyle",
-			"fps": 30,
-			"name": "cheese freestyle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "pog",
-			"fps": 30,
-			"name": "cheese pog",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"indices": [],
-			"fps": 30,
-			"anim": "keychange",
-			"loop": false,
-			"name": "cheese keychange"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"indices": [],
-			"fps": 30,
-			"anim": "cultured",
-			"loop": false,
-			"name": "cheese cultured"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"indices": [],
-			"fps": 30,
-			"anim": "yo",
-			"loop": false,
-			"name": "cheese yo"
 		}
 	],
 	"no_antialiasing": false,
@@ -118,6 +63,7 @@
 		140
 	],
 	"healthicon": "bluecheese-tired",
+	"noteskin": "NOTES_BLUECHEESE",
 	"flip_x": false,
 	"healthbar_colors": [
 		125,

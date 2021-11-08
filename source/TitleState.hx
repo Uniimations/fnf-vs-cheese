@@ -33,16 +33,18 @@ using StringTools;
 
 class TitleState extends MusicBeatState
 {
+	public static var isDebug:Bool = false;
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
 
 	static var initialized:Bool = false;
 
+	private var canDoShit:Bool = false;
+
 	var blackScreen:FlxSprite;
 	var gradientBar:FlxSprite = new FlxSprite(0,0).makeGraphic(FlxG.width, 1, 0xFFAA00AA);
 	var credGroup:FlxGroup;
-	var credTextShit:Alphabet;
 	var textGroup:FlxGroup;
 	var logoSpr:FlxSprite;
 	var FNF_Logo:FlxSprite;
@@ -56,6 +58,9 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+		#if debug
+		isDebug = true;
+		#end
 		#if (polymod && !html5)
 		if (sys.FileSystem.exists('mods/')) {
 			var folders:Array<String> = [];
@@ -90,26 +95,9 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
-		FlxG.save.bind('funkin', 'ninjamuffin99');
-		ClientPrefs.loadPrefs();
+		FlxG.save.bind('funkin', 'vscheese');
+		loadData();
 
-		Highscore.load();
-
-		if (FlxG.save.data.weekUnlocked != null)
-		{
-			// FIX LATER!!!
-			// WEEK UNLOCK PROGRESSION!!
-			// StoryMenuState.weekUnlocked = FlxG.save.data.weekUnlocked;
-
-			if (StoryMenuState.weekUnlocked.length < 4)
-				StoryMenuState.weekUnlocked.insert(0, true);
-
-			// QUICK PATCH OOPS!
-			if (!StoryMenuState.weekUnlocked[0])
-				StoryMenuState.weekUnlocked[0] = true;
-		}
-
-		FlxG.mouse.visible = false;
 		#if FREEPLAY
 		MusicBeatState.switchState(new FreeplayState());
 		#elseif CHARTING
@@ -129,6 +117,7 @@ class TitleState extends MusicBeatState
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
 				startIntro();
+				canDoShit = true;
 			});
 		}
 		#end
@@ -202,13 +191,6 @@ class TitleState extends MusicBeatState
 		add(gradientBar);
 		FlxTween.tween(gradientBar, {'scale.y': 1.3}, 4, {ease: FlxEase.quadInOut});
 
-		credTextShit = new Alphabet(0, 0, "", true);
-		credTextShit.screenCenter();
-
-		// credTextShit.alignment = CENTER;
-
-		credTextShit.visible = false;
-
 		logoSpr = new FlxSprite(0, FlxG.height * 0.4).loadGraphic(Paths.image('intro/oglogo'));
 		add(logoSpr);
 		logoSpr.visible = false;
@@ -233,14 +215,10 @@ class TitleState extends MusicBeatState
 		FNF_SUBTEXT.x = -1500;
 		FNF_SUBTEXT.y = 300;
 
-		FlxTween.tween(credTextShit, {y: credTextShit.y + 20}, 2.9, {ease: FlxEase.quadInOut, type: PINGPONG});
-
 		if (initialized)
 			skipIntro();
 		else
 			initialized = true;
-
-		// credGroup.add(credTextShit);
 	}
 
 	function getIntroTextShit():Array<Array<String>>
@@ -283,7 +261,13 @@ class TitleState extends MusicBeatState
 			trace('F11 FULLSCREEN');
 		}
 
-		var pressedEnter:Bool = FlxG.keys.justPressed.ENTER;
+		var pressedEnter:Bool;
+
+		if (canDoShit == true) {
+			pressedEnter = controls.ACCEPT;
+		} else {
+			pressedEnter = false;
+		}
 
 		#if mobile
 		for (touch in FlxG.touches.list)
@@ -312,15 +296,24 @@ class TitleState extends MusicBeatState
 		{
 			if(titleText != null) titleText.animation.play('press');
 
-			FlxG.camera.flash(FlxColor.WHITE, 1);
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+			//FlxTween.tween(FlxG.camera, {y:1111}, 2, {ease: FlxEase.expoInOut});
+			FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
+			trace('wacky shit!');
 
-			transitioning = true;
-
-			new FlxTimer().start(1, function(tmr:FlxTimer)
+			new FlxTimer().start(1.5, function(tmr:FlxTimer)
 			{
-				MusicBeatState.switchState(new MainMenuState());
+				#if web
+				MusicBeatState.switchState(new PiracySubState());
+				trace('anti piracy log = true');
+				trace('access denied');
 				closedState = true;
+				#else
+				MusicBeatState.switchState(new MainMenuState());
+				trace('anti piracy log = false');
+				trace('access granted');
+				closedState = true;
+				#end
 			});
 		}
 
@@ -332,24 +325,26 @@ class TitleState extends MusicBeatState
 		super.update(elapsed);
 	}
 
-	function createCoolText(textArray:Array<String>, ?offset:Float = 0)
+	function createCoolText(textArray:Array<String>, ?yOffset:Float = 0, ?xOffset:Float = 0)
 	{
 		for (i in 0...textArray.length)
 		{
 			var money:Alphabet = new Alphabet(0, 0, textArray[i], true, false);
 			money.screenCenter(X);
-			money.y += (i * 60) + 200 + offset;
+			money.y += (i * 60) + 200 + yOffset;
+			money.x += (textGroup.length * 5) + 5 + xOffset;
 			credGroup.add(money);
 			textGroup.add(money);
 		}
 	}
 
-	function addMoreText(text:String, ?offset:Float = 0)
+	function addMoreText(text:String, ?yOffset:Float = 0, ?xOffset:Float = 0)
 	{
 		if(textGroup != null) {
 			var coolText:Alphabet = new Alphabet(0, 0, text, true, false);
 			coolText.screenCenter(X);
-			coolText.y += (textGroup.length * 60) + 200 + offset;
+			coolText.y += (textGroup.length * 60) + 200 + yOffset;
+			coolText.x += (textGroup.length * 5) + 5 + xOffset;
 			credGroup.add(coolText);
 			textGroup.add(coolText);
 		}
@@ -389,13 +384,15 @@ class TitleState extends MusicBeatState
 			switch (curBeat)
 			{
 				case 4:
-					createCoolText(['Uniimations'], 45);
+					createCoolText(['Uniimations'], 20);
 				case 5:
-					addMoreText('Avinera', 45);
+					addMoreText('Avinera', 20);
+					addMoreText('Potionion', 20);
 				case 6:
-					addMoreText('Bluecheese', 45);
+					addMoreText('Bluecheese', 20);
+					addMoreText('& The Boyz', 20);
 				case 7:
-					addMoreText('Present', 45);
+					addMoreText('Present', 20);
 				case 8:
 					curWacky = FlxG.random.getObject(getIntroTextShit());
 					deleteCoolText();
@@ -410,10 +407,23 @@ class TitleState extends MusicBeatState
 					addMoreText(curWacky[1], 45);
 				case 12:
 					deleteCoolText();
-					FlxTween.tween(FNF_Logo, {y: 120, x: 210}, 0.68, {ease: FlxEase.backOut});
-			    case 15:
-					FlxTween.tween(FNF_SUBTEXT, {y: 48, x: 403}, 0.68, {ease: FlxEase.backOut});
+				case 13:
+					createCoolText(['getting'], 45);
+				case 15:
+					addMoreText('Freaky', 45);
 				case 16:
+					addMoreText('on a', 45);
+				case 17:
+					addMoreText('Friday', 45);
+				case 18:
+					deleteCoolText();
+					createCoolText(['Night'], 2, 200);
+					FlxTween.tween(FNF_Logo, {y: 120, x: 210}, 0.68, {ease: FlxEase.backOut});
+			    case 19:
+					addMoreText('Yeah', 20, 100);
+					FlxTween.tween(FNF_SUBTEXT, {y: 48, x: 403}, 0.68, {ease: FlxEase.backOut});
+				case 20:
+					deleteCoolText();
 					skipIntro();
 			}
 		}
@@ -425,13 +435,15 @@ class TitleState extends MusicBeatState
 	{
 		if (!skippedIntro)
 		{
+			if (FlxG.mouse.visible = true) FlxG.mouse.visible = false; //makes sure the mouse is invisible
 			remove(logoSpr);
 			remove(FNF_Logo);
 			remove(FNF_SUBTEXT);
 
-			FlxG.camera.flash(FlxColor.WHITE, 4);
+			FlxG.camera.flash(FlxColor.WHITE, 2);
 			//SOME AWESOME TWEENING I DID WOAAAHH IM PROUD OF MYSELF FOR THIS PRAISE ME NOW.
 			//i wasnt being serious sorry
+			//wtf past me??? ^
 			FlxTween.tween(logoBl, {'scale.x': 0.49, 'scale.y': 0.49, x: -200, y: -200}, 1.3, {ease: FlxEase.expoInOut, startDelay: 1.3});
             FlxTween.tween(cheese, {'scale.x': 1, 'scale.y': 1, x: 720, y: 80}, 2.3, {ease: FlxEase.expoInOut, startDelay: 0.9});
 			remove(credGroup);
@@ -440,4 +452,12 @@ class TitleState extends MusicBeatState
 			skippedIntro = true;
 		}
 	}
+
+	private function loadData():Void
+		{
+			ClientPrefs.loadPrefs();
+			Highscore.load();
+			ResetTools.resetData();
+			FlxG.mouse.visible = false;
+		}
 }

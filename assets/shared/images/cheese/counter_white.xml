@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="counter_white.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="COUNTER WHITE0000" x="0" y="0" width="1356" height="662"/>
+	<SubTexture name="COUNTER WHITE0001" x="0" y="0" width="1356" height="662"/>
+	<SubTexture name="COUNTER WHITE0002" x="0" y="662" width="1348" height="662" frameX="-4" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0003" x="0" y="662" width="1348" height="662" frameX="-4" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0004" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0005" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0006" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0007" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0008" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0009" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0010" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0011" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0012" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="COUNTER WHITE0013" x="0" y="1324" width="1343" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+</TextureAtlas>

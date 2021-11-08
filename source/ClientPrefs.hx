@@ -30,11 +30,11 @@ class ClientPrefs {
 	public static var bfreskin:Bool = true;
 	public static var shitish:Bool = false;
 	public static var missSounds:Bool = true;
-	public static var bgDim:Bool = false;
+	public static var bgDim:Float = 0;
 	public static var fuckyouavi:Bool = false;
 
 	//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
-	public static var scrollspeed:Float = 1;
+	//public static var scrollspeed:Float = 1;
 
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left
@@ -99,7 +99,7 @@ class ClientPrefs {
 		FlxG.save.data.fuckyouavi = fuckyouavi;
 
 		//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
-		FlxG.save.data.scrollspeed = scrollspeed;
+		//FlxG.save.data.scrollspeed = scrollspeed;
 
 		var achieves:Array<String> = [];
 		for (i in 0...Achievements.achievementsUnlocked.length) {
@@ -112,7 +112,7 @@ class ClientPrefs {
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();
-		save.bind('controls', 'ninjamuffin99'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
+		save.bind('controls', 'vscheese'); //Placing this in a separate save so that it can be manually deleted without removing your Score and stuff
 		save.data.customControls = lastControls;
 		save.flush();
 		FlxG.log.add("Settings saved!");
@@ -201,12 +201,12 @@ class ClientPrefs {
 		}
 
 		//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
-		if(FlxG.save.data.scrollspeed != null) {
+		/*if(FlxG.save.data.scrollspeed != null) {
 			scrollspeed = FlxG.save.data.scrollspeed;
-		}
+		}*/
 
 		var save:FlxSave = new FlxSave();
-		save.bind('controls', 'ninjamuffin99');
+		save.bind('controls', 'vscheese');
 		if(save != null && save.data.customControls != null) {
 			reloadControls(save.data.customControls);
 		}

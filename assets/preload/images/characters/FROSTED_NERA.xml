@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="FROSTED_NERA.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="IDLE DANCE AVINERA0000" x="0" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0001" x="647" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0002" x="1294" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0003" x="1941" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0004" x="2588" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0005" x="3235" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0006" x="3882" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0007" x="4529" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0008" x="5176" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0009" x="5823" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0010" x="6470" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0011" x="7117" y="0" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0012" x="0" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0013" x="647" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0014" x="1294" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0015" x="1941" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0016" x="2588" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0017" x="3235" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0018" x="3882" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0019" x="4529" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0020" x="5176" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0021" x="5823" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0022" x="6470" y="960" width="647" height="960"/>
+	<SubTexture name="IDLE DANCE AVINERA0023" x="7117" y="960" width="647" height="960"/>
+	<SubTexture name="avi down0000" x="0" y="1920" width="645" height="955" frameX="0" frameY="0" frameWidth="645" frameHeight="956"/>
+	<SubTexture name="avi down0001" x="645" y="1920" width="645" height="955" frameX="0" frameY="0" frameWidth="645" frameHeight="956"/>
+	<SubTexture name="avi down0002" x="1290" y="1920" width="645" height="956"/>
+	<SubTexture name="avi down0003" x="1935" y="1920" width="645" height="956"/>
+	<SubTexture name="avi down0004" x="2580" y="1920" width="645" height="956"/>
+	<SubTexture name="avi down0005" x="3225" y="1920" width="645" height="956"/>
+	<SubTexture name="avi left0000" x="3870" y="1920" width="645" height="955"/>
+	<SubTexture name="avi left0001" x="4515" y="1920" width="645" height="955"/>
+	<SubTexture name="avi left0002" x="5160" y="1920" width="645" height="955"/>
+	<SubTexture name="avi left0003" x="5805" y="1920" width="645" height="955"/>
+	<SubTexture name="avi left0004" x="6450" y="1920" width="645" height="955"/>
+	<SubTexture name="avi left0005" x="7095" y="1920" width="645" height="955"/>
+	<SubTexture name="avi up0000" x="0" y="2876" width="645" height="958"/>
+	<SubTexture name="avi up0001" x="645" y="2876" width="645" height="958"/>
+	<SubTexture name="avi up0002" x="1290" y="2876" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
+	<SubTexture name="avi up0003" x="1935" y="2876" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
+	<SubTexture name="avi up0004" x="2580" y="2876" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
+	<SubTexture name="avi up0005" x="3225" y="2876" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
+	<SubTexture name="avinera rigth0000" x="3870" y="2876" width="647" height="957"/>
+	<SubTexture name="avinera rigth0001" x="4517" y="2876" width="647" height="957"/>
+	<SubTexture name="avinera rigth0002" x="5164" y="2876" width="647" height="957"/>
+	<SubTexture name="avinera rigth0003" x="5811" y="2876" width="647" height="957"/>
+	<SubTexture name="avinera rigth0004" x="6458" y="2876" width="647" height="957"/>
+	<SubTexture name="avinera rigth0005" x="7105" y="2876" width="647" height="957"/>
+</TextureAtlas>

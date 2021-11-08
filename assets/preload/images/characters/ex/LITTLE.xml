@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="LITTLE.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="LIL CHEESE DOWN0000" x="0" y="0" width="101" height="113" frameX="0" frameY="-2" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0001" x="0" y="0" width="101" height="113" frameX="0" frameY="-2" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0002" x="101" y="0" width="101" height="114" frameX="0" frameY="-1" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0003" x="101" y="0" width="101" height="114" frameX="0" frameY="-1" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0004" x="202" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0005" x="202" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0006" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0007" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0008" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0009" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0010" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0011" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0012" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE DOWN0013" x="302" y="0" width="100" height="115" frameX="-1" frameY="0" frameWidth="101" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE IDLE0000" x="402" y="0" width="99" height="107" frameX="0" frameY="-9" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0001" x="402" y="0" width="99" height="107" frameX="0" frameY="-9" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0002" x="501" y="0" width="90" height="115" frameX="-9" frameY="-1" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0003" x="501" y="0" width="90" height="115" frameX="-9" frameY="-1" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0004" x="591" y="0" width="88" height="116" frameX="-10" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0005" x="591" y="0" width="88" height="116" frameX="-10" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0006" x="679" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0007" x="679" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0008" x="767" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0009" x="767" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0010" x="767" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0011" x="767" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0012" x="767" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE IDLE0013" x="767" y="0" width="88" height="116" frameX="-9" frameY="0" frameWidth="99" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0000" x="855" y="0" width="90" height="115" frameX="0" frameY="-1" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0001" x="855" y="0" width="90" height="115" frameX="0" frameY="-1" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0002" x="0" y="116" width="90" height="114" frameX="-1" frameY="-2" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0003" x="0" y="116" width="90" height="114" frameX="-1" frameY="-2" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0004" x="90" y="116" width="89" height="115" frameX="-3" frameY="-1" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0005" x="90" y="116" width="89" height="115" frameX="-3" frameY="-1" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0006" x="179" y="116" width="89" height="116" frameX="-2" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0007" x="179" y="116" width="89" height="116" frameX="-2" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0008" x="268" y="116" width="89" height="116" frameX="-2" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0009" x="268" y="116" width="89" height="116" frameX="-2" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0010" x="357" y="116" width="90" height="116" frameX="-1" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0011" x="357" y="116" width="90" height="116" frameX="-1" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0012" x="357" y="116" width="90" height="116" frameX="-1" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE LEFT0013" x="357" y="116" width="90" height="116" frameX="-1" frameY="0" frameWidth="92" frameHeight="116"/>
+	<SubTexture name="LIL CHEESE RIGHT0000" x="447" y="116" width="103" height="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0001" x="447" y="116" width="103" height="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0002" x="550" y="116" width="102" height="113" frameX="0" frameY="-2" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0003" x="550" y="116" width="102" height="113" frameX="0" frameY="-2" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0004" x="652" y="116" width="100" height="114" frameX="0" frameY="-1" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0005" x="652" y="116" width="100" height="114" frameX="0" frameY="-1" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0006" x="752" y="116" width="99" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0007" x="752" y="116" width="99" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0008" x="851" y="116" width="100" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0009" x="851" y="116" width="100" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0010" x="0" y="232" width="100" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0011" x="0" y="232" width="100" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0012" x="0" y="232" width="100" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE RIGHT0013" x="0" y="232" width="100" height="115" frameX="0" frameY="0" frameWidth="103" frameHeight="115"/>
+	<SubTexture name="LIL CHEESE UP0000" x="100" y="232" width="74" height="120" frameX="0" frameY="0" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0001" x="100" y="232" width="74" height="120" frameX="0" frameY="0" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0002" x="174" y="232" width="74" height="119" frameX="0" frameY="-1" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0003" x="174" y="232" width="74" height="119" frameX="0" frameY="-1" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0004" x="248" y="232" width="75" height="118" frameX="0" frameY="-2" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0005" x="248" y="232" width="75" height="118" frameX="0" frameY="-2" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0006" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0007" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0008" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0009" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0010" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0011" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0012" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE UP0013" x="323" y="232" width="75" height="116" frameX="0" frameY="-4" frameWidth="75" frameHeight="120"/>
+	<SubTexture name="LIL CHEESE sit idle0000" x="398" y="232" width="76" height="95" frameX="0" frameY="-5" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0001" x="398" y="232" width="76" height="95" frameX="0" frameY="-5" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0002" x="474" y="232" width="75" height="95" frameX="0" frameY="-5" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0003" x="474" y="232" width="75" height="95" frameX="0" frameY="-5" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0004" x="549" y="232" width="74" height="99" frameX="-1" frameY="-1" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0005" x="549" y="232" width="74" height="99" frameX="-1" frameY="-1" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0006" x="623" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0007" x="623" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0008" x="697" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0009" x="697" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0010" x="697" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0011" x="697" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0012" x="697" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="LIL CHEESE sit idle0013" x="697" y="232" width="74" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+</TextureAtlas>

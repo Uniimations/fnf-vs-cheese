@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tricky_better.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="LIL CHEESE IDLE0000" x="0" y="0" width="162" height="151" frameX="0" frameY="-9" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0001" x="0" y="0" width="162" height="151" frameX="0" frameY="-9" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0002" x="162" y="0" width="154" height="160" frameX="-5" frameY="-1" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0003" x="162" y="0" width="154" height="160" frameX="-5" frameY="-1" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0004" x="316" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0005" x="316" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0006" x="469" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0007" x="469" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0008" x="622" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0009" x="622" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0010" x="622" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0011" x="622" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0012" x="622" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="LIL CHEESE IDLE0013" x="622" y="0" width="153" height="161" frameX="-6" frameY="0" frameWidth="162" frameHeight="161"/>
+	<SubTexture name="cheese down0000" x="775" y="0" width="625" height="425"/>
+	<SubTexture name="cheese down0001" x="775" y="0" width="625" height="425"/>
+	<SubTexture name="cheese down0002" x="1400" y="0" width="625" height="425"/>
+	<SubTexture name="cheese down0003" x="1400" y="0" width="625" height="425"/>
+	<SubTexture name="cheese down0004" x="2025" y="0" width="625" height="425"/>
+	<SubTexture name="cheese down0005" x="2025" y="0" width="625" height="425"/>
+	<SubTexture name="cheese idle dance0000" x="2650" y="0" width="625" height="431" frameX="0" frameY="-5" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0001" x="3275" y="0" width="625" height="430" frameX="0" frameY="-6" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0002" x="0" y="431" width="625" height="430" frameX="0" frameY="-6" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0003" x="625" y="431" width="625" height="429" frameX="0" frameY="-7" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0004" x="1250" y="431" width="625" height="426" frameX="0" frameY="-10" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0005" x="1875" y="431" width="625" height="425" frameX="0" frameY="-11" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0006" x="2500" y="431" width="625" height="431" frameX="0" frameY="-5" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0007" x="3125" y="431" width="625" height="436"/>
+	<SubTexture name="cheese idle dance0008" x="0" y="867" width="625" height="426" frameX="0" frameY="-10" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0009" x="625" y="867" width="625" height="433" frameX="0" frameY="-3" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0010" x="1250" y="867" width="625" height="431" frameX="0" frameY="-5" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0011" x="1875" y="867" width="625" height="436"/>
+	<SubTexture name="cheese idle dance0012" x="0" y="867" width="625" height="426" frameX="0" frameY="-10" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese idle dance0013" x="625" y="867" width="625" height="433" frameX="0" frameY="-3" frameWidth="625" frameHeight="436"/>
+	<SubTexture name="cheese left0000" x="2500" y="867" width="625" height="438" frameX="0" frameY="-2" frameWidth="625" frameHeight="440"/>
+	<SubTexture name="cheese left0001" x="2500" y="867" width="625" height="438" frameX="0" frameY="-2" frameWidth="625" frameHeight="440"/>
+	<SubTexture name="cheese left0002" x="3125" y="867" width="625" height="440"/>
+	<SubTexture name="cheese left0003" x="3125" y="867" width="625" height="440"/>
+	<SubTexture name="cheese left0004" x="0" y="1307" width="625" height="440"/>
+	<SubTexture name="cheese left0005" x="0" y="1307" width="625" height="440"/>
+	<SubTexture name="cheese right0000" x="625" y="1307" width="625" height="431" frameX="0" frameY="-1" frameWidth="625" frameHeight="432"/>
+	<SubTexture name="cheese right0001" x="625" y="1307" width="625" height="431" frameX="0" frameY="-1" frameWidth="625" frameHeight="432"/>
+	<SubTexture name="cheese right0002" x="1250" y="1307" width="625" height="432"/>
+	<SubTexture name="cheese right0003" x="1250" y="1307" width="625" height="432"/>
+	<SubTexture name="cheese right0004" x="1875" y="1307" width="625" height="432"/>
+	<SubTexture name="cheese right0005" x="1875" y="1307" width="625" height="432"/>
+	<SubTexture name="cheese summon lil boy0000" x="2500" y="1307" width="625" height="434" frameX="0" frameY="0" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0001" x="2500" y="1307" width="625" height="434" frameX="0" frameY="0" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0002" x="3125" y="1307" width="625" height="460" frameX="0" frameY="0" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0003" x="0" y="1767" width="625" height="434" frameX="0" frameY="0" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0004" x="625" y="1767" width="625" height="427" frameX="0" frameY="-7" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0005" x="625" y="1767" width="625" height="427" frameX="0" frameY="-7" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0006" x="1250" y="1767" width="625" height="430" frameX="0" frameY="-4" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0007" x="1250" y="1767" width="625" height="430" frameX="0" frameY="-4" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0008" x="1875" y="1767" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0009" x="1875" y="1767" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0010" x="2500" y="1767" width="625" height="487" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0011" x="2500" y="1767" width="625" height="487" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0012" x="3125" y="1767" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0013" x="3125" y="1767" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0014" x="0" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0015" x="0" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0016" x="625" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0017" x="625" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0018" x="1250" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0019" x="1250" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0020" x="1875" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0021" x="1875" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0022" x="2500" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0023" x="2500" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0024" x="3125" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0025" x="3125" y="2254" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0026" x="0" y="2685" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese summon lil boy0027" x="0" y="2685" width="625" height="431" frameX="0" frameY="-3" frameWidth="625" frameHeight="490"/>
+	<SubTexture name="cheese up0000" x="625" y="2685" width="711" height="456" frameX="-4" frameY="0" frameWidth="715" frameHeight="456"/>
+	<SubTexture name="cheese up0001" x="625" y="2685" width="711" height="456" frameX="-4" frameY="0" frameWidth="715" frameHeight="456"/>
+	<SubTexture name="cheese up0002" x="1336" y="2685" width="715" height="455" frameX="0" frameY="-1" frameWidth="715" frameHeight="456"/>
+	<SubTexture name="cheese up0003" x="1336" y="2685" width="715" height="455" frameX="0" frameY="-1" frameWidth="715" frameHeight="456"/>
+	<SubTexture name="cheese up0004" x="2051" y="2685" width="715" height="454" frameX="0" frameY="-2" frameWidth="715" frameHeight="456"/>
+	<SubTexture name="cheese up0005" x="2051" y="2685" width="715" height="454" frameX="0" frameY="-2" frameWidth="715" frameHeight="456"/>
+</TextureAtlas>

@@ -107,6 +107,7 @@
 		273
 	],
 	"healthicon": "dansilot",
+	"noteskin": "NOTES_DANSILOT",
 	"flip_x": true,
 	"healthbar_colors": [
 		218,

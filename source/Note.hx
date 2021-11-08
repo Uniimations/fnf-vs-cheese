@@ -51,6 +51,11 @@ class Note extends FlxSprite
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
+				case 5: //LITTLE MAN NOTE
+					reloadNote('little');
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
 				default:
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
@@ -74,7 +79,7 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 		this.inEditor = inEditor;
 
-		if (daSong == 'manager-strike-back') {
+		if (daSong == 'manager-strike-back' || daSong == 'tutorial') {
 			x += (ClientPrefs.shit ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
 		} else {
 			x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;

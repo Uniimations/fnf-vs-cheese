@@ -1,65 +1,69 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "cheer",
-			"fps": 24,
-			"name": "pose up",
-			"indices": []
+			"indices": [],
+			"name": "pose up"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "pose left",
-			"indices": []
+			"indices": [],
+			"name": "pose left"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "singDOWN",
-			"fps": 24,
-			"name": "pose down",
-			"indices": []
+			"indices": [],
+			"name": "pose down"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "pose up",
-			"indices": []
+			"indices": [],
+			"name": "pose up"
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "pose right",
-			"indices": []
-		},
-		{
 			"offsets": [
 				0,
 				0
 			],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "pose right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "suzuki idle",
 			"indices": [
 				30,
 				0,
@@ -75,17 +79,17 @@
 				10,
 				11,
 				12
-			],
-			"fps": 24,
-			"anim": "danceLeft",
-			"loop": false,
-			"name": "suzuki idle"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"anim": "danceRight",
+			"fps": 24,
+			"name": "suzuki idle",
 			"indices": [
 				15,
 				16,
@@ -100,11 +104,18 @@
 				25,
 				26,
 				27
+			]
+		},
+		{
+			"offsets": [
+				0,
+				0
 			],
+			"indices": [],
 			"fps": 24,
-			"anim": "danceRight",
+			"anim": "arrowKeys",
 			"loop": false,
-			"name": "suzuki idle"
+			"name": "suzuki arrow keys"
 		}
 	],
 	"no_antialiasing": false,
@@ -114,6 +125,7 @@
 		230
 	],
 	"healthicon": "suzuki",
+	"noteskin": "NOTES_ALT",
 	"flip_x": false,
 	"healthbar_colors": [
 		222,

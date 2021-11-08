@@ -194,6 +194,7 @@
 		230
 	],
 	"healthicon": "gf",
+	"noteskin": "NOTES_ALT",
 	"flip_x": false,
 	"healthbar_colors": [
 		165,

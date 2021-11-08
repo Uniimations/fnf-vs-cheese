@@ -1,0 +1,147 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				-5,
+				-3
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "remastered idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				12,
+				-6
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-10,
+				-50
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-29,
+				27
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-38,
+				-7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				12,
+				24
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-11,
+				-19
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-29,
+				27
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				21
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-3,
+				5
+			],
+			"anim": "hey",
+			"fps": 24,
+			"name": "original idle dance",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-5,
+				-3
+			],
+			"indices": [
+				12,
+				13
+			],
+			"fps": 24,
+			"anim": "idle-alt",
+			"loop": true,
+			"name": "remastered idle dance"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/BOYFRIEND_MENU",
+	"position": [
+		0,
+		350
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		70,
+		-45
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

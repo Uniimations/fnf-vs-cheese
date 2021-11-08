@@ -4,6 +4,7 @@ package;
 import Discord.DiscordClient;
 #end
 import flash.text.TextField;
+import flash.system.System;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
@@ -30,24 +31,30 @@ using StringTools;
 // TO DO: Redo the menu creation system for not being as dumb
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Controls', 'Preferences'];
+	var options:Array<String> = ['KEYBINDS', 'SETTINGS'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
+	public static var menuBlackShit:FlxSprite;
 	public static var menuBG:FlxSprite;
-	
 
 	override function create() {
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		menuBG.color = 0xFF8E3058;
+		menuBG = new FlxSprite().loadGraphic(Paths.image('settingsmenu/menuOptions'));
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
 		add(menuBG);
+
+		menuBlackShit = new FlxSprite().loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE'));
+		menuBlackShit.setGraphicSize(Std.int(menuBlackShit.width * 1.1));
+	    menuBlackShit.updateHitbox();
+	    menuBlackShit.screenCenter();
+		menuBlackShit.alpha = ClientPrefs.bgDim;
+		add(menuBlackShit);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -57,8 +64,10 @@ class OptionsState extends MusicBeatState
 			var optionText:Alphabet = new Alphabet(0, 0, options[i], true, false);
 			optionText.screenCenter();
 			optionText.y += (100 * (i - (options.length / 2))) + 50;
+
 			grpOptions.add(optionText);
 		}
+
 		changeSelection();
 
 		super.create();
@@ -96,10 +105,10 @@ class OptionsState extends MusicBeatState
 			}
 
 			switch(options[curSelected]) {
-				case 'Controls':
+				case 'KEYBINDS':
 					openSubState(new ControlsSubstate());
 
-				case 'Preferences':
+				case 'SETTINGS':
 					openSubState(new PreferencesSubstate());
 			}
 		}
@@ -118,7 +127,7 @@ class OptionsState extends MusicBeatState
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
-			item.alpha = 0.6;
+			item.alpha = 0.2;
 			if (item.targetY == 0) {
 				item.alpha = 1;
 			}
@@ -145,6 +154,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 		ClientPrefs.keyBinds[6][1],
 		ClientPrefs.keyBinds[7][1],
 		'',
+		'MISCELLANEOUS',
 		ClientPrefs.keyBinds[8][1],
 		ClientPrefs.keyBinds[9][1],
 		ClientPrefs.keyBinds[10][1],
@@ -231,7 +241,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 					rebindingKey = getSelectedKey();
 					if(rebindingKey > -1) {
 						grpInputs[rebindingKey].visible = false;
-						FlxG.sound.play(Paths.sound('scrollMenu'));
+						buttonSound();
 					} else {
 						FlxG.log.warn('Error! No input found/badly configured');
 						FlxG.sound.play(Paths.sound('cancelMenu'));
@@ -256,7 +266,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 			bindingTime += elapsed;
 			if(bindingTime > 5) {
 				grpInputs[rebindingKey].visible = true;
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				buttonSound();
 				rebindingKey = -1;
 				bindingTime = 0;
 			}
@@ -280,7 +290,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 		var bullShit:Int = 0;
 
 		for (i in 0...grpInputs.length) {
-			grpInputs[i].alpha = 0.6;
+			grpInputs[i].alpha = 0.4;
 		}
 
 		for (item in grpOptions.members) {
@@ -288,7 +298,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 			bullShit++;
 
 			if(!unselectableCheck(bullShit-1)) {
-				item.alpha = 0.6;
+				item.alpha = 0.4;
 				if (item.targetY == 0) {
 					item.alpha = 1;
 					for (i in 0...grpInputs.length) {
@@ -299,20 +309,20 @@ class ControlsSubstate extends MusicBeatSubstate {
 				}
 			}
 		}
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		buttonSound();
 	}
 
 	function changeAlt() {
 		curAlt = !curAlt;
 		for (i in 0...grpInputs.length) {
 			if(grpInputs[i].sprTracker == grpOptions.members[curSelected]) {
-				grpInputs[i].alpha = 0.6;
+				grpInputs[i].alpha = 0.4;
 				if(grpInputs[i].isAlt == curAlt) {
 					grpInputs[i].alpha = 1;
 				}
 			}
 		}
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		buttonSound();
 	}
 
 	private function unselectableCheck(num:Int, ?checkDefaultKey:Bool = false):Bool {
@@ -369,7 +379,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 
 		var bullShit:Int = 0;
 		for (i in 0...grpInputs.length) {
-			grpInputs[i].alpha = 0.6;
+			grpInputs[i].alpha = 0.4;
 		}
 
 		for (item in grpOptions.members) {
@@ -377,7 +387,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 			bullShit++;
 
 			if(!unselectableCheck(bullShit-1)) {
-				item.alpha = 0.6;
+				item.alpha = 0.4;
 				if (item.targetY == 0) {
 					item.alpha = 1;
 					for (i in 0...grpInputs.length) {
@@ -388,6 +398,10 @@ class ControlsSubstate extends MusicBeatSubstate {
 				}
 			}
 		}
+	}
+
+	private function buttonSound():Void {
+		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 }
 
@@ -401,18 +415,21 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'GRAPHICS',
 		'GAMEPLAY',
 		'APPEARANCE',
-		'MOD SPECIFIC'
+		'MISCELLANEOUS'
 	];
 	static var noCheckbox:Array<String> = [
 		'Framerate',
-		'Note Delay'
+		'Note Delay',
+		'Erase Save Data',
+		'Background Dim'
 	];
 
 	static var options:Array<String> = [
 		//GRAPHICS CATEGORY
 		'GRAPHICS',
 		'High Quality',
-		'Persistent Cached Data',
+		'Flashing Lights',
+		'Background Dim',
 		#if !html5
 		'Framerate', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
@@ -421,24 +438,24 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Downscroll',
 		'Middlescroll',
 		'Ghost Tapping',
+		'Miss Sounds',
 		'Note Delay',
 		//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
 		'APPEARANCE',
+		#if !mobile
+		'FPS Counter',
+		#end
 		'Note Splashes',
 		'Hide HUD',
 		'Hide Song Length',
-		'Flashing Lights',
-		'Camera Zooms'
-		#if !mobile
-		,'FPS Counter'
-		#end
-		//MOD SPECIFIC CATEGORY WHERE WE GET FUNKY AND fun ni lol!!!
-		, 'MOD SPECIFIC',
-		'Background Dim',
-		'Miss Sounds',
 		'New Boyfriend Skin',
+		//MOD SPECIFIC CATEGORY WHERE WE GET FUNKY AND fun ni lol!!!
+		//unii from 11/1/2021 here wtf were you on past unii
+		'MISCELLANEOUS',
+		'Constant Data Cached',
 		'Optimized Mode',
-		'Shitish Mode'
+		'Erase Save Data',
+		//'Shitish Mode'
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
@@ -448,10 +465,14 @@ class PreferencesSubstate extends MusicBeatSubstate
 	private var textNumber:Array<Int> = [];
 
 	private var characterLayer:FlxTypedGroup<Character>;
-	private var showCharacter:Character = null;
+	private var CharacterBoyfriend:Character;
 	private var descText:FlxText;
 
-	private var menuBar:FlxSprite;
+	private var arrows:FlxSprite;
+	private var boyfriendNormal:String;
+	private var boyfriendRemaster:String;
+	private var boyfriendX:Int;
+	private var boyfriendY:Int;
 
 	public function new()
 	{
@@ -464,6 +485,12 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 		grpTexts = new FlxTypedGroup<AttachedText>();
 		add(grpTexts);
+
+		//BOYFRIEND INFORMATION BECAUSE I AM LAZY
+		boyfriendNormal = 'bf-menu';
+		boyfriendRemaster = 'bf-menu-remaster';
+		boyfriendX = 900;
+		boyfriendY = 302;
 
 		for (i in 0...options.length)
 		{
@@ -505,12 +532,18 @@ class PreferencesSubstate extends MusicBeatSubstate
 			}
 		}
 
-		menuBar = new FlxSprite().loadGraphic(Paths.image('blackBar'));
-	    menuBar.updateHitbox();
-	    menuBar.screenCenter();
-	    menuBar.antialiasing = ClientPrefs.globalAntialiasing;
-	    add(menuBar);
-		menuBar.visible = true;
+		if (ClientPrefs.downScroll) {
+			newArrows('downscroll_notes');
+		} else {
+			newArrows('upscroll_notes');
+		}
+
+		if (!ClientPrefs.fuckyouavi) {
+			if (ClientPrefs.bfreskin)
+				newBoyfriend(boyfriendRemaster);
+			else
+				newBoyfriend(boyfriendNormal);
+		}
 
 		descText = new FlxText(50, 600, 1180, "", 32);
 		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -558,11 +591,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 					spr.alpha = 0;
 				}
 			}
-			if(showCharacter != null) {
-				showCharacter.alpha = 0;
-			}
 			descText.alpha = 0;
-			menuBar.visible = false;
 			close();
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
@@ -584,12 +613,11 @@ class PreferencesSubstate extends MusicBeatSubstate
 						if(Main.fpsVar != null)
 							Main.fpsVar.visible = ClientPrefs.showFPS;
 
-					/*case 'Low Quality':
-						ClientPrefs.lowQuality = !ClientPrefs.lowQuality;*/
-
 					case 'High Quality':
 						ClientPrefs.globalAntialiasing = !ClientPrefs.globalAntialiasing;
-						showCharacter.antialiasing = ClientPrefs.globalAntialiasing;
+						OptionsState.menuBG.antialiasing = ClientPrefs.globalAntialiasing;
+						CharacterBoyfriend.antialiasing = ClientPrefs.globalAntialiasing;
+						arrows.antialiasing = ClientPrefs.globalAntialiasing;
 						for (item in grpOptions) {
 							item.antialiasing = ClientPrefs.globalAntialiasing;
 						}
@@ -599,7 +627,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 								spr.antialiasing = ClientPrefs.globalAntialiasing;
 							}
 						}
-						OptionsState.menuBG.antialiasing = ClientPrefs.globalAntialiasing;
 
 					case 'Note Splashes':
 						ClientPrefs.noteSplashes = !ClientPrefs.noteSplashes;
@@ -615,6 +642,11 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 					case 'Downscroll':
 						ClientPrefs.downScroll = !ClientPrefs.downScroll;
+						if (ClientPrefs.downScroll) {
+							newArrows('downscroll_notes');
+						} else {
+							newArrows('upscroll_notes');
+						}
 
 					case 'Middlescroll':
 						ClientPrefs.middleScroll = !ClientPrefs.middleScroll;
@@ -622,13 +654,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 					case 'Ghost Tapping':
 						ClientPrefs.ghostTapping = !ClientPrefs.ghostTapping;
 
-					case 'Camera Zooms':
-						ClientPrefs.camZooms = !ClientPrefs.camZooms;
-
 					case 'Hide HUD':
 						ClientPrefs.hideHud = !ClientPrefs.hideHud;
 
-					case 'Persistent Cached Data':
+					case 'Constant Data Cached':
 						ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;
 						FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
@@ -637,26 +666,41 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 					case 'New Boyfriend Skin':
 						ClientPrefs.bfreskin = !ClientPrefs.bfreskin;
+						if (!ClientPrefs.fuckyouavi) {
+							if (!ClientPrefs.bfreskin) newBoyfriend(boyfriendNormal);
+							else newBoyfriend(boyfriendRemaster);
+						}
 
-					case 'Shitish Mode':
-						ClientPrefs.shitish = !ClientPrefs.shitish;
+					/*case 'Shitish Mode':
+						ClientPrefs.shitish = !ClientPrefs.shitish;*/
 
 					case 'Miss Sounds':
 						ClientPrefs.missSounds = !ClientPrefs.missSounds;
 
-					case 'Background Dim':
-						ClientPrefs.bgDim = !ClientPrefs.bgDim;
-
 					case 'Optimized Mode':
 					    ClientPrefs.fuckyouavi = !ClientPrefs.fuckyouavi;
+						if (ClientPrefs.fuckyouavi && CharacterBoyfriend != null) {
+							killBoyfriend();
+							OptionsState.menuBG.alpha = 0.2;
+							OptionsState.menuBlackShit.visible = false;
+						} else if (CharacterBoyfriend != null) {
+							if (!ClientPrefs.bfreskin) newBoyfriend(boyfriendNormal);
+							else newBoyfriend(boyfriendRemaster);
+							OptionsState.menuBG.alpha = 1;
+							OptionsState.menuBlackShit.visible = true;
+						}
 				}
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				buttonSound();
 				reloadValues();
 			}
+		} else if (controls.ACCEPT && options[curSelected] == 'Erase Save Data') {
+				FlxG.save.erase();
+				System.exit(0);
 		} else {
 			if(controls.UI_LEFT || controls.UI_RIGHT) {
 				var add:Int = controls.UI_LEFT ? -1 : 1;
-				if(holdTime > 0.5 || controls.UI_LEFT_P || controls.UI_RIGHT_P)
+				if (options[curSelected] != 'Background Dim' && holdTime > 0.5 || controls.UI_LEFT_P || controls.UI_RIGHT_P)
+
 				switch(options[curSelected]) {
 					case 'Framerate':
 						ClientPrefs.framerate += add;
@@ -678,18 +722,27 @@ class PreferencesSubstate extends MusicBeatSubstate
 						ClientPrefs.noteOffset += add * mult;
 						if(ClientPrefs.noteOffset < 0) ClientPrefs.noteOffset = 0;
 						else if(ClientPrefs.noteOffset > 500) ClientPrefs.noteOffset = 500;
+					case 'Background Dim':
+						ClientPrefs.bgDim += add * 0.1;
+						OptionsState.menuBlackShit.alpha = ClientPrefs.bgDim;
+
+						//Opacity set
+						if(OptionsState.menuBlackShit.alpha > 0.9) OptionsState.menuBlackShit.alpha = 0.9;
+						if(ClientPrefs.bgDim < 0.01) ClientPrefs.bgDim = 0;
+						else if(ClientPrefs.bgDim > 0.9) ClientPrefs.bgDim = 0.9;
 				}
 				reloadValues();
 
-				if(holdTime <= 0) FlxG.sound.play(Paths.sound('scrollMenu'));
+				if (options[curSelected] != 'Background Dim' || options[curSelected] != 'Erase Save Data')
+					if(holdTime <= 0) buttonSound();
 				holdTime += elapsed;
 			} else {
 				holdTime = 0;
 			}
 		}
 
-		if(showCharacter != null && showCharacter.animation.curAnim.finished) {
-			showCharacter.dance();
+		if(!ClientPrefs.fuckyouavi && CharacterBoyfriend != null && CharacterBoyfriend.animation.curAnim.finished) {
+			CharacterBoyfriend.dance();
 		}
 
 		if(nextAccept > 0) {
@@ -700,7 +753,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 	
 	function changeSelection(change:Int = 0)
 	{
-
 		do {
 			curSelected += change;
 			if (curSelected < 0)
@@ -710,23 +762,21 @@ class PreferencesSubstate extends MusicBeatSubstate
 		} while(unselectableCheck(curSelected));
 
 		var daText:String = '';
-		switch(options[curSelected]) {
+		switch(options[curSelected]) { //DESCRIPTIONS
 			case 'Framerate':
-				daText = "Frames per second of the game.\nDefault value is 60, max is 240.";
+				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT.";
 			case 'Note Delay':
-				daText = "Changes how late a note is spawned.\nUseful for preventing audio lag from wireless earphones.\n(recommended is 70, 140 if you're using wireless earphones.)";
+				daText = "Changes how late a note is spawned.\nUseful for preventing audio lag and input latency.\nAdjust with LEFT and RIGHT.)";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
-			/*case 'Low Quality':
-				daText = "If checked, this hides the background,\ndecreases loading times and improves performance.\n(use this if you're on a low end device like a laptop.)";*/
-			case 'Persistent Cached Data':
-				daText = "If checked, images loaded will stay in memory\nuntil the game is closed, this increases memory usage,\nbut basically makes reloading times instant.";
+			case 'Constant Data Cached':
+				daText = "TURN THIS ON IF YOU HAVE ANY LOADING PROBLEMS!\nIf checked, images loaded will stay in memory\nuntil the game is closed, makes loading times faster.";
 			case 'High Quality':
 				daText = "If unchecked, disables anti-aliasing, increases performance\nat the cost of the graphics not looking as smooth.";
 			case 'Downscroll':
-				daText = "If checked, notes go Down instead of Up\nuse this if you're a REAL rhythm gamer B)";
+				daText = "If checked, notes go downward instead of upward.";
 			case 'Middlescroll':
-				daText = "If checked, hides Opponent's notes and your notes get centered.";
+				daText = "If checked, Your notes get centered similar to most 4k games.";
 			case 'Ghost Tapping':
 				daText = "If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.";
 			case 'Swearing':
@@ -734,25 +784,27 @@ class PreferencesSubstate extends MusicBeatSubstate
 			case 'Violence':
 				daText = "If unchecked, you won't get disgusted as frequently.";
 			case 'Note Splashes':
-				daText = "If unchecked, hitting \"Sick!\" notes won't show particles.";
+				daText = "If unchecked, hitting a \"Sick!\" rating won't\nshow particles.";
 			case 'Flashing Lights':
-				daText = "Uncheck this if you're sensitive to flashing lights or bright colors.";
-			case 'Camera Zooms':
-				daText = "If unchecked, the camera won't zoom to the beat.";
+				daText = "Uncheck this if you're sensitive to flashing lights.";
 			case 'Hide HUD':
-				daText = "If checked, hides most HUD elements.";
+				daText = "If checked, hides your HUD.";
 			case 'Hide Song Length':
 				daText = "If checked, the bar showing how much time is left\nwill be hidden.";
 			case 'New Boyfriend Skin':
-				daText = "If unchecked, bf will have the normal skin\ninstead of the usual remastered one.";
-			case 'Shitish Mode':
-				daText = '"it\'s not british, it\'s shitish, anyway-"\nIf checked, the dialogue and story will be FUNNY!!!!\n(recommended to turn this on after completing normal story)';
+				daText = "If unchecked, bf will have the normal skin\ninstead of the default \"remastered\" one.";
+			/*case 'Shitish Mode':
+				daText = '"it\'s not british, it\'s shitish, anyway-"\n
+				If checked, the dialogue and story will be FUNNY!!!!\n
+				(recommended to turn this on after completing normal story)';*/
 			case 'Miss Sounds':
-				daText = "If unchecked, miss sounds won't play\nand vocals keep playing when you miss a note.";
+				daText = "If unchecked, miss sounds won't play\nand vocals won't be muted when you miss a note.";
 			case 'Background Dim':
-			    daText = "If checked, dims the background down with a black tint.";
+			    daText = "Dims the background down with a black tint.\nAdjust opacity with LEFT and RIGHT.";
 			case 'Optimized Mode':
 				daText = "If checked, hides the background and characters.\nOnly notes and UI will be visible.";
+			case 'Erase Save Data':
+				daText = "WARNING: THIS WILL CLOSE THE GAME!\nPress ACCEPT to clear your VS Cheese save data.";
 		}
 		descText.text = daText;
 
@@ -763,7 +815,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			bullShit++;
 
 			if(!unselectableCheck(bullShit-1)) {
-				item.alpha = 0.6;
+				item.alpha = 0.2;
 				if (item.targetY == 0) {
 					item.alpha = 1;
 				}
@@ -780,26 +832,13 @@ class PreferencesSubstate extends MusicBeatSubstate
 		for (i in 0...grpTexts.members.length) {
 			var text:AttachedText = grpTexts.members[i];
 			if(text != null) {
-				text.alpha = 0.4;
+				text.alpha = 0.2;
 				if(textNumber[i] == curSelected) {
 					text.alpha = 1;
 				}
 			}
 		}
-
-		if(options[curSelected] == 'High Quality') {
-			if(showCharacter == null) {
-				showCharacter = new Character(840, 170, 'bf-menu', true); //i used another character because it looked weird with lighting
-				showCharacter.setGraphicSize(Std.int(showCharacter.width * 0.8));
-				showCharacter.updateHitbox();
-				showCharacter.dance();
-				characterLayer.add(showCharacter);
-			}
-		} else if(showCharacter != null) {
-			characterLayer.clear();
-			showCharacter = null;
-		}
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		buttonSound();
 	}
 
 	function reloadValues() {
@@ -810,8 +849,6 @@ class PreferencesSubstate extends MusicBeatSubstate
 				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
-					/*case 'Low Quality':
-						daValue = ClientPrefs.lowQuality;*/
 					case 'High Quality':
 						daValue = ClientPrefs.globalAntialiasing;
 					case 'Note Splashes':
@@ -828,22 +865,18 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.cursing;
 					case 'Violence':
 						daValue = ClientPrefs.violence;
-					case 'Camera Zooms':
-						daValue = ClientPrefs.camZooms;
 					case 'Hide HUD':
 						daValue = ClientPrefs.hideHud;
-					case 'Persistent Cached Data':
+					case 'Constant Data Cached':
 						daValue = ClientPrefs.imagesPersist;
 					case 'Hide Song Length':
 						daValue = ClientPrefs.hideTime;
 					case 'New Boyfriend Skin':
 						daValue = ClientPrefs.bfreskin;
-					case 'Shitish Mode':
-						daValue = ClientPrefs.shitish;
+					/*case 'Shitish Mode':
+						daValue = ClientPrefs.shitish;*/
 					case 'Miss Sounds':
 						daValue = ClientPrefs.missSounds;
-					case 'Background Dim':
-						daValue = ClientPrefs.bgDim;
 					case 'Optimized Mode':
 						daValue = ClientPrefs.fuckyouavi;
 				}
@@ -859,6 +892,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daText = '' + ClientPrefs.framerate;
 					case 'Note Delay':
 						daText = ClientPrefs.noteOffset + 'ms';
+					case 'Background Dim':
+						daText = Math.round(ClientPrefs.bgDim * 100) + '%';
+					case 'Erase Save Data':
+						daText = '';
 				}
 				var lastTracker:FlxSprite = text.sprTracker;
 				text.sprTracker = null;
@@ -875,5 +912,37 @@ class PreferencesSubstate extends MusicBeatSubstate
 			}
 		}
 		return options[num] == '';
+	}
+
+	private function newBoyfriend(character:String) {
+		if (CharacterBoyfriend != null) {
+			characterLayer.remove(CharacterBoyfriend);
+		}
+		CharacterBoyfriend = new Character(boyfriendX, boyfriendY, character, true);
+		CharacterBoyfriend.setGraphicSize(Std.int(CharacterBoyfriend.width * 0.8));
+		CharacterBoyfriend.updateHitbox();
+		CharacterBoyfriend.dance();
+		characterLayer.add(CharacterBoyfriend);
+	}
+
+	private function killBoyfriend():Void {
+		if (CharacterBoyfriend != null)
+			characterLayer.remove(CharacterBoyfriend);
+	}
+
+	private function newArrows(scrollPref:String) {
+		if (arrows != null) {
+			remove(arrows);
+		}
+		arrows = new FlxSprite().loadGraphic(Paths.image('settingsmenu/' + scrollPref));
+		arrows.setGraphicSize(Std.int(arrows.width * 1.1));
+		arrows.updateHitbox();
+		arrows.screenCenter();
+		arrows.antialiasing = ClientPrefs.globalAntialiasing;
+		add(arrows);
+	}
+
+	private function buttonSound():Void {
+		FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 }

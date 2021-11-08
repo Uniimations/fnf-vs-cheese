@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "LIL CHEESE IDLE"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				6,
+				0
+			],
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "LIL CHEESE LEFT"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-9,
+				-1
+			],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "LIL CHEESE RIGHT"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				6,
+				-8
+			],
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "LIL CHEESE DOWN"
+		},
+		{
+			"offsets": [
+				-16,
+				4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "LIL CHEESE UP"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				-22
+			],
+			"anim": "idle-sit",
+			"fps": 24,
+			"name": "LIL CHEESE sit idle",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ex/LITTLE",
+	"position": [
+		807,
+		385
+	],
+	"healthicon": "bluecheese-little-man",
+	"flip_x": false,
+	"healthbar_colors": [
+		225,
+		255,
+		255
+	],
+	"camera_position": [
+		0,
+		200
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

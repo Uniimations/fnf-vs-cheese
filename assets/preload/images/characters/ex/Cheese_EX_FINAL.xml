@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Cheese_EX_FINAL.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cheese big shot0000" x="1875" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0001" x="1875" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0002" x="2500" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0003" x="2500" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0004" x="3125" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0005" x="3125" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0006" x="3750" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0007" x="3750" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0008" x="4375" y="416" width="625" height="483" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0009" x="4375" y="416" width="625" height="483" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0010" x="5000" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0011" x="5000" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0012" x="5625" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0013" x="5625" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0014" x="6250" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0015" x="6250" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0016" x="6875" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0017" x="6875" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0018" x="7500" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0019" x="7500" y="416" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0020" x="0" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0021" x="0" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0022" x="625" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0023" x="625" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0024" x="1250" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0025" x="1250" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0026" x="1875" y="899" width="625" height="573" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0027" x="1875" y="899" width="625" height="573" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0028" x="2500" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0029" x="2500" y="899" width="625" height="416" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0030" x="3125" y="899" width="625" height="565" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0031" x="3125" y="899" width="625" height="565" frameX="-147" frameY="-654" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0032" x="3750" y="899" width="759" height="1070" frameX="-13" frameY="0" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0033" x="3750" y="899" width="759" height="1070" frameX="-13" frameY="0" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0034" x="4509" y="899" width="764" height="850" frameX="-8" frameY="-311" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0035" x="4509" y="899" width="764" height="850" frameX="-8" frameY="-311" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0036" x="5273" y="899" width="768" height="759" frameX="-4" frameY="-311" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0037" x="5273" y="899" width="768" height="759" frameX="-4" frameY="-311" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0038" x="6041" y="899" width="757" height="929" frameX="-15" frameY="-310" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0039" x="6041" y="899" width="757" height="929" frameX="-15" frameY="-310" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0040" x="6798" y="899" width="756" height="931" frameX="-16" frameY="-311" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0041" x="6798" y="899" width="756" height="931" frameX="-16" frameY="-311" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0042" x="0" y="1969" width="770" height="889" frameX="-2" frameY="-292" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0043" x="0" y="1969" width="770" height="889" frameX="-2" frameY="-292" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0044" x="770" y="1969" width="772" height="873" frameX="0" frameY="-287" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0045" x="770" y="1969" width="772" height="873" frameX="0" frameY="-287" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0046" x="1542" y="1969" width="772" height="864" frameX="0" frameY="-294" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0047" x="1542" y="1969" width="772" height="864" frameX="0" frameY="-294" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0048" x="2314" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0049" x="2314" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0050" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0051" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0052" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0053" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0054" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0055" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0056" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0057" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0058" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0059" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0060" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese big shot0061" x="3086" y="1969" width="772" height="610" frameX="0" frameY="-548" frameWidth="772" frameHeight="1242"/>
+	<SubTexture name="cheese change up0000" x="3858" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0001" x="3858" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0002" x="4483" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0003" x="4483" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0004" x="5108" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0005" x="5108" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0006" x="5733" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0007" x="5733" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0008" x="6358" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0009" x="6983" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0010" x="6983" y="1969" width="625" height="416"/>
+	<SubTexture name="cheese change up0011" x="0" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0012" x="625" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0013" x="1250" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0014" x="1875" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0015" x="2500" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0016" x="3125" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0017" x="3750" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0018" x="4375" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0019" x="5000" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0020" x="5625" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0021" x="6250" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0022" x="6875" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0023" x="7500" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0024" x="7500" y="2858" width="625" height="416"/>
+	<SubTexture name="cheese change up0025" x="0" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0026" x="0" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0027" x="625" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0028" x="625" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0029" x="1250" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0030" x="1250" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0031" x="1875" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0032" x="1875" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0033" x="1875" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese change up0034" x="1875" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0000" x="2500" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0001" x="2500" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0002" x="3125" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0003" x="3125" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0004" x="3750" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0005" x="3750" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0006" x="4375" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0007" x="4375" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0008" x="5000" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0009" x="5000" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0010" x="5625" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0011" x="6250" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0012" x="6875" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0013" x="7500" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0014" x="0" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0015" x="625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0016" x="1250" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0017" x="1875" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0018" x="2500" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0019" x="2500" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0020" x="3125" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0021" x="3125" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0022" x="3750" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0023" x="3750" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0024" x="4375" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0025" x="4375" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0026" x="5000" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0027" x="5000" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0028" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0029" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0030" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0031" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0032" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0033" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0034" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0035" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0036" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0037" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0038" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0039" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0040" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0041" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0042" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0043" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0044" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0045" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0046" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0047" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0048" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese cultured yet0049" x="5625" y="3690" width="625" height="416"/>
+	<SubTexture name="cheese down0000" x="0" y="0" width="625" height="416"/>
+	<SubTexture name="cheese down0001" x="0" y="0" width="625" height="416"/>
+	<SubTexture name="cheese down0002" x="625" y="0" width="625" height="416"/>
+	<SubTexture name="cheese down0003" x="625" y="0" width="625" height="416"/>
+	<SubTexture name="cheese down0004" x="1250" y="0" width="625" height="416"/>
+	<SubTexture name="cheese down0005" x="1250" y="0" width="625" height="416"/>
+	<SubTexture name="cheese freestyle time0000" x="6250" y="3690" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0001" x="6250" y="3690" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0002" x="6875" y="3690" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0003" x="6875" y="3690" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0004" x="7500" y="3690" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0005" x="7500" y="3690" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0006" x="0" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0007" x="0" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0008" x="625" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0009" x="625" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0010" x="1250" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0011" x="1250" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0012" x="1875" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0013" x="1875" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0014" x="2500" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0015" x="2500" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0016" x="3125" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0017" x="3125" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0018" x="3750" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0019" x="4375" y="4106" width="625" height="416" frameX="-10" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0020" x="5000" y="4106" width="635" height="416"/>
+	<SubTexture name="cheese freestyle time0021" x="5635" y="4106" width="635" height="416"/>
+	<SubTexture name="cheese freestyle time0022" x="6270" y="4106" width="632" height="416" frameX="-3" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0023" x="6270" y="4106" width="632" height="416" frameX="-3" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0024" x="6902" y="4106" width="631" height="416" frameX="-4" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0025" x="6902" y="4106" width="631" height="416" frameX="-4" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0026" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0027" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0028" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0029" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0030" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0031" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0032" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0033" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0034" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0035" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0036" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0037" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0038" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0039" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0040" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0041" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0042" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese freestyle time0043" x="7533" y="4106" width="630" height="416" frameX="-5" frameY="0" frameWidth="635" frameHeight="416"/>
+	<SubTexture name="cheese idle dance0000" x="2500" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0001" x="2500" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0002" x="1875" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0003" x="1875" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0004" x="2500" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0005" x="2500" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0006" x="3125" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0007" x="3125" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0008" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0009" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0010" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0011" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0012" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese idle dance0013" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0000" x="2500" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese keep0001" x="2500" y="3274" width="625" height="416"/>
+	<SubTexture name="cheese keep0002" x="1875" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0003" x="1875" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0004" x="2500" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0005" x="2500" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0006" x="3125" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0007" x="3125" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0008" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0009" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0010" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0011" x="3750" y="0" width="625" height="416"/>
+	<SubTexture name="cheese keep0012" x="0" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0013" x="0" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0014" x="625" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0015" x="625" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0016" x="1250" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0017" x="1250" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0018" x="1875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0019" x="1875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0020" x="2500" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0021" x="2500" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0022" x="3125" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0023" x="3125" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0024" x="3750" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0025" x="3750" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0026" x="4375" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0027" x="4375" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0028" x="5000" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0029" x="5000" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0030" x="5625" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0031" x="5625" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0032" x="6250" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0033" x="6250" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0034" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0035" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0036" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0037" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0038" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0039" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0040" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0041" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese keep0042" x="6875" y="4522" width="625" height="416"/>
+	<SubTexture name="cheese left0000" x="4375" y="0" width="625" height="416"/>
+	<SubTexture name="cheese left0001" x="4375" y="0" width="625" height="416"/>
+	<SubTexture name="cheese left0002" x="5000" y="0" width="625" height="416"/>
+	<SubTexture name="cheese left0003" x="5000" y="0" width="625" height="416"/>
+	<SubTexture name="cheese left0004" x="5625" y="0" width="625" height="416"/>
+	<SubTexture name="cheese left0005" x="5625" y="0" width="625" height="416"/>
+	<SubTexture name="cheese right0000" x="6250" y="0" width="625" height="416"/>
+	<SubTexture name="cheese right0001" x="6250" y="0" width="625" height="416"/>
+	<SubTexture name="cheese right0002" x="6875" y="0" width="625" height="416"/>
+	<SubTexture name="cheese right0003" x="6875" y="0" width="625" height="416"/>
+	<SubTexture name="cheese right0004" x="7500" y="0" width="625" height="416"/>
+	<SubTexture name="cheese right0005" x="7500" y="0" width="625" height="416"/>
+	<SubTexture name="cheese timedrop0000" x="7500" y="4522" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0001" x="0" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0002" x="7500" y="4522" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0003" x="0" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0004" x="7500" y="4522" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0005" x="7500" y="4522" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0006" x="625" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0007" x="625" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0008" x="1250" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0009" x="1250" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0010" x="1875" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0011" x="1875" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0012" x="2500" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0013" x="2500" y="4938" width="625" height="416" frameX="0" frameY="-1" frameWidth="625" frameHeight="417"/>
+	<SubTexture name="cheese timedrop0014" x="3125" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0015" x="3125" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0016" x="3750" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0017" x="3750" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0018" x="4375" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0019" x="4375" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0020" x="5000" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0021" x="5000" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0022" x="5625" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0023" x="5625" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0024" x="6250" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0025" x="6250" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0026" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0027" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0028" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0029" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0030" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0031" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0032" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0033" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese timedrop0034" x="6875" y="4938" width="625" height="417"/>
+	<SubTexture name="cheese up0000" x="0" y="416" width="625" height="416"/>
+	<SubTexture name="cheese up0001" x="0" y="416" width="625" height="416"/>
+	<SubTexture name="cheese up0002" x="625" y="416" width="625" height="416"/>
+	<SubTexture name="cheese up0003" x="625" y="416" width="625" height="416"/>
+	<SubTexture name="cheese up0004" x="1250" y="416" width="625" height="416"/>
+	<SubTexture name="cheese up0005" x="1250" y="416" width="625" height="416"/>
+</TextureAtlas>

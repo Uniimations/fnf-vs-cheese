@@ -118,6 +118,7 @@
 		80
 	],
 	"healthicon": "suzuki",
+	"noteskin": "NOTES_ALT",
 	"flip_x": false,
 	"healthbar_colors": [
 		222,

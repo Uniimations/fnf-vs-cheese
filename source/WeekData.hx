@@ -1,13 +1,28 @@
 package;
 
 class WeekData {
-	//Song names, used on both Story Mode and Freplay
-	//Go to FreeplayState.hx and add the head icons
-	//Go to StoryMenuState.hx and add the characters/backgrounds
+	#if web
 	public static var songsNames:Array<Dynamic> = [
-		['Tutorial'],								//Tutorial, this one isn't added to Freeplay, instead it is added from assets/preload/freeplaySonglist.txt
-		['Restaurante', 'Milkshake', 'Cultured'],	//Week 1
-		['Wifi']		                            //Week 2
+		['Kbhgames'],
+		['Kbhgames', 'Kbhgames', 'Kbhgames'],
+		['Kbhgames', 'Kbhgames'],
+		['Kbhgames'],
+		['Kbhgames']
+	];
+	#else
+	public static var songsNames:Array<Dynamic> = [
+		['Tutorial'],
+		['Restaurante', 'Milkshake', 'Cultured'],
+		['Wifi', 'Casual-Duel'],
+		['Bob-And-Bosip'],
+		['Manager-Strike-Back']
+	];
+	#end
+
+	//seperate names for bonus tracks
+	public static var bonusNames:Array<Dynamic> = [
+		['frosted'],
+		['snooze']					//placeholder name for unii song
 	];
 
 	// Custom week number, used for your week's score not being overwritten by a new vanilla week when the game updates
@@ -16,7 +31,9 @@ class WeekData {
 	public static var weekNumber:Array<Dynamic> = [
 		null,	//Tutorial
 		null,	//Week 1
-		null	//Week 2
+		null,	//Week 2
+		null,	//Bob and Bosip
+		null	//Manager Strike Back
 	];
 
 	//Tells which assets directory should it load
@@ -27,9 +44,11 @@ class WeekData {
 	//Oh yeah, quick reminder that files inside the folder that ends with _high are only loaded
 	//if you have the Low Quality option disabled on "Preferences"
 	public static var loadDirectory:Array<String> = [
-		'tutorial', //Tutorial loads "tutorial" folder on assets/
+		null,   //Tutorial
 		null,	//Week 1
 		null,	//Week 2
+		null,	//Bob and Bosip
+		null	//Manager Strike Back
 	];
 
 	//The only use for this is to display a different name for the Week when you're on the score reset menu.
@@ -40,6 +59,8 @@ class WeekData {
 		"Tutorial",
 		null,	//Week 1
 		null,	//Week 2
+		"Bob and Bosip",
+		"Bonus Week"
 	];
 
 

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="boppers.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="TABLE BOP FIXED0000" x="0" y="0" width="767" height="740" frameX="0" frameY="-10" frameWidth="767" frameHeight="750"/>
+	<SubTexture name="TABLE BOP FIXED0001" x="767" y="0" width="767" height="740" frameX="0" frameY="-10" frameWidth="767" frameHeight="750"/>
+	<SubTexture name="TABLE BOP FIXED0002" x="1534" y="0" width="767" height="739" frameX="0" frameY="-11" frameWidth="767" frameHeight="750"/>
+	<SubTexture name="TABLE BOP FIXED0003" x="2301" y="0" width="767" height="739" frameX="0" frameY="-11" frameWidth="767" frameHeight="750"/>
+	<SubTexture name="TABLE BOP FIXED0004" x="3068" y="0" width="767" height="741" frameX="0" frameY="-9" frameWidth="767" frameHeight="750"/>
+	<SubTexture name="TABLE BOP FIXED0005" x="0" y="741" width="767" height="741" frameX="0" frameY="-9" frameWidth="767" frameHeight="750"/>
+	<SubTexture name="TABLE BOP FIXED0006" x="767" y="741" width="767" height="750"/>
+	<SubTexture name="TABLE BOP FIXED0007" x="1534" y="741" width="767" height="750"/>
+	<SubTexture name="TABLE BOP FIXED0008" x="2301" y="741" width="767" height="750"/>
+	<SubTexture name="TABLE BOP FIXED0009" x="3068" y="741" width="767" height="750"/>
+	<SubTexture name="TABLE BOP FIXED0010" x="0" y="1491" width="767" height="750"/>
+	<SubTexture name="TABLE BOP FIXED0011" x="767" y="1491" width="767" height="750"/>
+	<SubTexture name="TABLE BOP FIXED0012" x="1534" y="1491" width="767" height="750"/>
+	<SubTexture name="TABLE BOP FIXED0013" x="2301" y="1491" width="767" height="750"/>
+	<SubTexture name="cheese bop0000" x="3068" y="1491" width="459" height="489" frameX="-1" frameY="-4" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0001" x="3527" y="1491" width="459" height="489" frameX="-1" frameY="-4" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0002" x="0" y="2241" width="460" height="489" frameX="0" frameY="-4" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0003" x="460" y="2241" width="460" height="489" frameX="0" frameY="-4" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0004" x="920" y="2241" width="459" height="489" frameX="-1" frameY="-4" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0005" x="1379" y="2241" width="459" height="489" frameX="-1" frameY="-4" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0006" x="1838" y="2241" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0007" x="2289" y="2241" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0008" x="2740" y="2241" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0009" x="3191" y="2241" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0010" x="3642" y="2241" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0011" x="0" y="2734" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0012" x="451" y="2734" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+	<SubTexture name="cheese bop0013" x="902" y="2734" width="451" height="493" frameX="-9" frameY="0" frameWidth="460" frameHeight="493"/>
+</TextureAtlas>

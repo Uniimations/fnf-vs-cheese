@@ -118,6 +118,7 @@
 		304
 	],
 	"healthicon": "bluecheese-player",
+	"noteskin": "NOTES_BLUECHEESE",
 	"flip_x": true,
 	"healthbar_colors": [
 		125,

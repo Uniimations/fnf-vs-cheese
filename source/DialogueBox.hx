@@ -54,17 +54,20 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		super();
 
-		switch (PlayState.SONG.song.toLowerCase())
+		if (PlayState.isStoryMode)
 		{
-			case 'restaurante':
-				FlxG.sound.playMusic(Paths.music('dialogue/is_that_french'), 0);
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			case 'milkshake':
-				FlxG.sound.playMusic(Paths.music('dialogue/the_tea'), 0);
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			case 'cultured':
-				FlxG.sound.playMusic(Paths.music('dialogue/objection'), 0);
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
+			switch (PlayState.SONG.song.toLowerCase())
+			{
+				case 'restaurante':
+					FlxG.sound.playMusic(Paths.music('dialogue/is_that_french'), 0);
+					FlxG.sound.music.fadeIn();
+				case 'milkshake':
+					FlxG.sound.playMusic(Paths.music('dialogue/the_tea'), 0);
+					FlxG.sound.music.fadeIn();
+				case 'cultured':
+					FlxG.sound.playMusic(Paths.music('dialogue/objection'), 0);
+					FlxG.sound.music.fadeIn();
+			}
 		}
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFF000000);
@@ -178,7 +181,7 @@ class DialogueBox extends FlxSpriteGroup
 		add(portraitGF);
 		portraitGF.visible = false;
 
-		if (PlayState.SONG.song.toLowerCase() == 'cultured'){
+		if (PlayState.SONG.song.toLowerCase() == 'cultured') {
 			portraitGF = new FlxSprite(0, 0);
 		    portraitGF.frames = Paths.getSparrowAtlas('dialogue/gf_cheer');
 		    portraitGF.animation.addByPrefix('enter', 'gfportrait4', 24, false);
@@ -230,18 +233,16 @@ class DialogueBox extends FlxSpriteGroup
 
 		dropText = new FlxText(242, 502, Std.int(FlxG.width * 0.6), "", 32);
 		dropText.font = 'Pixel Arial 11 Bold';
-		dropText.color = 0xFFD89494;
+		dropText.color = 0xFF5851B1;
 		add(dropText);
 
-		swagDialogue = new FlxTypeText(240, 500, Std.int(FlxG.width * 0.6), "", 32);
+		swagDialogue = new FlxTypeText(239, 499, Std.int(FlxG.width * 0.6), "", 32);
 		swagDialogue.font = 'Pixel Arial 11 Bold';
-		swagDialogue.color = 0xFF3F2021;
+		swagDialogue.color = 0xFF6C83D6;
 		swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0.6)];
 		add(swagDialogue);
 
 		dialogue = new Alphabet(0, 80, "", false, true);
-		// dialogue.x = 90;
-		// add(dialogue);
 	}
 
 	var dialogueOpened:Bool = false;
@@ -250,15 +251,8 @@ class DialogueBox extends FlxSpriteGroup
 
 	override function update(elapsed:Float)
 	{
-		// HARD CODING CUZ IM STUPDI
-		if (PlayState.SONG.song.toLowerCase() == 'roses')
-			portraitLeft.visible = false;
-		if (PlayState.SONG.song.toLowerCase() == 'thorns')
-		{
-			portraitLeft.visible = false;
-			swagDialogue.color = FlxColor.WHITE;
-			dropText.color = FlxColor.BLACK;
-		}
+		var storyMode:Bool = PlayState.isStoryMode;
+		var songLC:String = PlayState.SONG.song.toLowerCase();
 
 		dropText.text = swagDialogue.text;
 
@@ -289,7 +283,7 @@ class DialogueBox extends FlxSpriteGroup
 						isEnding = true;
 						FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
 
-						if (PlayState.SONG.song.toLowerCase() == 'restaurante' || PlayState.SONG.song.toLowerCase() == 'milkshake' || PlayState.SONG.song.toLowerCase() == 'cultured')
+						if (songLC == 'restaurante' || songLC == 'milkshake' || songLC == 'cultured')
 							FlxG.sound.music.fadeOut(1.5, 0);
 
 						new FlxTimer().start(0.2, function(tmr:FlxTimer)
@@ -326,9 +320,8 @@ class DialogueBox extends FlxSpriteGroup
 					FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
 				}
 			}
-			else if (dialogueStarted)
+			else if (dialogueStarted) //finish dialogue
 			{
-				FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
 				swagDialogue.skip();
 			}
 		}
@@ -338,8 +331,9 @@ class DialogueBox extends FlxSpriteGroup
 			isEnding = true;
 			FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
 
-			if (PlayState.SONG.song.toLowerCase() == 'restaurante' || PlayState.SONG.song.toLowerCase() == 'milkshake' || PlayState.SONG.song.toLowerCase() == 'cultured')
-			FlxG.sound.music.fadeOut(1.5, 0);
+			if (storyMode)
+				if (songLC == 'restaurante' || songLC == 'milkshake' || songLC == 'cultured')
+					FlxG.sound.music.fadeOut(1.5, 0);
 
 			new FlxTimer().start(0.2, function(tmr:FlxTimer)
 			{
@@ -367,7 +361,6 @@ class DialogueBox extends FlxSpriteGroup
 				kill();
 			});
 	    }
-
 		super.update(elapsed);
 	}
 
@@ -376,11 +369,7 @@ class DialogueBox extends FlxSpriteGroup
 	function startDialogue():Void
 	{
 		cleanDialog();
-		// var theDialog:Alphabet = new Alphabet(0, 70, dialogueList[0], false, true);
-		// dialogue = theDialog;
-		// add(theDialog);
 
-		// swagDialogue.text = ;
 		swagDialogue.resetText(dialogueList[0]);
 		swagDialogue.start(0.04, true);
 		swagDialogue.completeCallback = function() {
@@ -405,9 +394,9 @@ class DialogueBox extends FlxSpriteGroup
 				if (!portraitLeft.visible)
 				{
 					portraitLeft.visible = true;
-					//if (PlayState.SONG.song.toLowerCase() == 'senpai') portraitLeft.visible = true;
 					portraitLeft.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0.6)];
+					recolorText(0xFF6C83D6, 0xFF5851B1);
 				}
 			case 'cheese2':
 				portraitLeft.visible = false;
@@ -426,6 +415,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitLeft2.visible = true;
 					portraitLeft2.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0.6)];
+					recolorText(0xFF6C83D6, 0xFF5851B1);
 				}
 			case 'cheese3':
 				portraitLeft.visible = false;
@@ -444,6 +434,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitLeft3.visible = true;
 					portraitLeft3.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0.6)];
+					recolorText(0xFF6C83D6, 0xFF5851B1);
 				}
 			case 'cheese4':
 				portraitLeft.visible = false;
@@ -462,6 +453,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitLeft4.visible = true;
 					portraitLeft4.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0.6)];
+					recolorText(0xFF6C83D6, 0xFF5851B1);
 				}
 			case 'cheese5':
 				portraitLeft.visible = false;
@@ -484,6 +476,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitLeft5.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0.6)];
 					FlxG.sound.play(Paths.sound('dialogue/objection'));
+					recolorText(0xFF6C83D6, 0xFF5851B1);
 				}
 			case 'cheese6':
 				portraitLeft.visible = false;
@@ -502,6 +495,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitLeft6.visible = true;
 					portraitLeft6.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0.6)];
+					recolorText(0xFF6C83D6, 0xFF5851B1);
 				}
 			case 'bf':
 				portraitLeft.visible = false;
@@ -520,6 +514,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitRight.visible = true;
 					portraitRight.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/boyfriendText'), 0.6)];
+					recolorText(0xFF49C3BF, 0xFF397A92);
 				}
 			case 'bfhey':
 				portraitLeft.visible = false;
@@ -538,6 +533,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitRight2.visible = true;
 					portraitRight2.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/boyfriendText'), 0.6)];
+					recolorText(0xFF49C3BF, 0xFF397A92);
 				}
 			case 'gf':
 				portraitLeft.visible = false;
@@ -556,6 +552,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitGF.visible = true;
 					portraitGF.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/gfText'), 0.6)];
+					recolorText(0xFFE75C5C, 0xFF813644);
 				}
 			case 'gf2':
 				portraitLeft.visible = false;
@@ -574,6 +571,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitGF2.visible = true;
 					portraitGF2.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/gfText'), 0.6)];
+					recolorText(0xFFE75C5C, 0xFF813644);
 				}
 			case 'gf3':
 				portraitLeft.visible = false;
@@ -592,6 +590,7 @@ class DialogueBox extends FlxSpriteGroup
 					portraitGF3.visible = true;
 					portraitGF3.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/gfText'), 0.6)];
+					recolorText(0xFFE75C5C, 0xFF813644);
 				}
 			case 'suzuki':
 				portraitLeft.visible = false;
@@ -610,6 +609,7 @@ class DialogueBox extends FlxSpriteGroup
 					//if (PlayState.SONG.song.toLowerCase() == 'senpai') portraitLeft.visible = true;
 					suzuki.animation.play('enter');
 					swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/suzukiText'), 0.6)];
+					recolorText(0xFFA14040, 0xFF5D212C);
 				}
 			case 'blank':
 				portraitLeft.visible = false;
@@ -624,10 +624,17 @@ class DialogueBox extends FlxSpriteGroup
 				portraitGF3.visible = false;
 				suzuki.visible = false;
 				swagDialogue.sounds = [FlxG.sound.load(Paths.sound('dialogue/bluecheeseText'), 0)];
+				recolorText(0xFF484071, 0xFF2A1B3A);
 		}
 		if(nextDialogueThing != null) {
 			nextDialogueThing();
 		}
+	}
+
+	function recolorText(backColor:Int, mainColor:Int)
+	{
+		backColor = dropText.color;
+		mainColor = swagDialogue.color;
 	}
 
 	function cleanDialog():Void

@@ -106,27 +106,11 @@ class VideoState extends MusicBeatState
 		} else {
 			GlobalVideo.get().play();
 		}
-		
-		/*if (useSound)
-		{*/
-			//vidSound = FlxG.sound.play(leSource.replace(".webm", ".ogg"));
-		
-			/*new FlxTimer().start(0.1, function(tmr:FlxTimer)
-			{*/
-				vidSound.time = vidSound.length * soundMultiplier;
-				/*new FlxTimer().start(1.2, function(tmr:FlxTimer)
-				{
-					if (useSound)
-					{
-						vidSound.time = vidSound.length * soundMultiplier;
-					}
-				}, 0);*/
-				doShit = true;
-			//}, 1);
-		//}
-		
-		if (autoPause && FlxG.sound.music != null && FlxG.sound.music.playing)
-		{
+
+		vidSound.time = vidSound.length * soundMultiplier;
+		doShit = true;
+
+		if (autoPause && FlxG.sound.music != null && FlxG.sound.music.playing) {
 			musicPaused = true;
 			FlxG.sound.music.pause();
 		}
@@ -140,6 +124,7 @@ class VideoState extends MusicBeatState
 		if (FlxG.keys.justPressed.F11) {
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
+
 		if (useSound)
 		{
 			var wasFuckingHit = GlobalVideo.get().webm.wasHitOnce;
@@ -178,20 +163,17 @@ class VideoState extends MusicBeatState
 			prevSoundMultiplier = soundMultiplier;
 			}
 		}
-		
-		if (notDone)
-		{
+
+		if (notDone) {
 			FlxG.sound.music.volume = 0;
 		}
 		GlobalVideo.get().update(elapsed);
 
-		if (controls.RESET)
-		{
+		if (controls.RESET) {
 			GlobalVideo.get().restart();
 		}
-		
-		if(PlayerSettings.player1.controls.ACCEPT)
-		{
+
+		if(PlayerSettings.player1.controls.ACCEPT) {
 			txt.text = pauseText;
 			trace("PRESSED PAUSE");
 			GlobalVideo.get().togglePause();
@@ -203,16 +185,14 @@ class VideoState extends MusicBeatState
 				txt.text = defaultText;
 			}
 		}
-		
-		if (PlayerSettings.player1.controls.BACK || GlobalVideo.get().ended || GlobalVideo.get().stopped)
-		{
+
+		if (PlayerSettings.player1.controls.BACK || GlobalVideo.get().ended || GlobalVideo.get().stopped) {
 			txt.visible = false;
 			GlobalVideo.get().hide();
 			GlobalVideo.get().stop();
 		}
-		
-		if (PlayerSettings.player1.controls.BACK || GlobalVideo.get().ended)
-		{
+
+		if (PlayerSettings.player1.controls.BACK || GlobalVideo.get().ended) {
 			notDone = false;
 			FlxG.sound.music.volume = fuckingVolume;
 			txt.text = pauseText;
@@ -224,12 +204,11 @@ class VideoState extends MusicBeatState
 			FlxG.autoPause = true;
 			FlxG.switchState(transClass);
 		}
-		
-		if (GlobalVideo.get().played || GlobalVideo.get().restarted)
-		{
+
+		if (GlobalVideo.get().played || GlobalVideo.get().restarted) {
 			GlobalVideo.get().show();
 		}
-		
+
 		GlobalVideo.get().restarted = false;
 		GlobalVideo.get().played = false;
 		GlobalVideo.get().stopped = false;

@@ -34,8 +34,8 @@ class NoteSplash extends FlxSprite
 			if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) skin = PlayState.SONG.splashSkin;
 
 			switch(noteType) {
-				case 3 | 4: //DODGE/DEATH NOTE SPLASH
-					loadAnims('DODGE' + skin); //death note splashes arent actually used, this is just in case the game tries to load them
+				case 3 | 4 | 5: //CUSTOM NOTE SPLASH
+					loadAnims('DODGE' + skin); //all expect dodge note splashes arent actually used, this is just in case the game tries to load them
 				default:
 					loadAnims(skin);
 			}

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="littleNOTE_assets.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="blue0000" x="0" y="0" width="157" height="154"/>
+	<SubTexture name="blue hold end0000" x="157" y="0" width="50" height="64"/>
+	<SubTexture name="blue hold piece0000" x="207" y="0" width="50" height="44"/>
+	<SubTexture name="down confirm0000" x="0" y="157" width="238" height="235"/>
+	<SubTexture name="down confirm0001" x="238" y="157" width="238" height="235"/>
+	<SubTexture name="down confirm0002" x="476" y="157" width="220" height="217" frameX="-6" frameY="-12" frameWidth="238" frameHeight="235"/>
+	<SubTexture name="down confirm0003" x="476" y="157" width="220" height="217" frameX="-6" frameY="-12" frameWidth="238" frameHeight="235"/>
+	<SubTexture name="green0000" x="257" y="0" width="157" height="154"/>
+	<SubTexture name="green hold end0000" x="414" y="0" width="50" height="64"/>
+	<SubTexture name="green hold piece0000" x="464" y="0" width="50" height="44"/>
+	<SubTexture name="left confirm0000" x="696" y="157" width="227" height="231"/>
+	<SubTexture name="left confirm0001" x="0" y="392" width="217" height="221" frameX="-5" frameY="-5" frameWidth="227" frameHeight="231"/>
+	<SubTexture name="left confirm0002" x="217" y="392" width="224" height="228" frameX="-2" frameY="-1" frameWidth="227" frameHeight="231"/>
+	<SubTexture name="left confirm0003" x="217" y="392" width="224" height="228" frameX="-2" frameY="-1" frameWidth="227" frameHeight="231"/>
+	<SubTexture name="pruple end hold0000" x="514" y="0" width="50" height="64"/>
+	<SubTexture name="purple0000" x="564" y="0" width="154" height="157"/>
+	<SubTexture name="purple hold piece0000" x="718" y="0" width="50" height="44"/>
+	<SubTexture name="red0000" x="768" y="0" width="154" height="157"/>
+	<SubTexture name="red hold end0000" x="922" y="0" width="50" height="64"/>
+	<SubTexture name="red hold piece0000" x="972" y="0" width="50" height="44"/>
+	<SubTexture name="right confirm0000" x="441" y="392" width="223" height="226" frameX="-1" frameY="-3" frameWidth="226" frameHeight="230"/>
+	<SubTexture name="right confirm0001" x="664" y="392" width="223" height="226" frameX="-1" frameY="-3" frameWidth="226" frameHeight="230"/>
+	<SubTexture name="right confirm0002" x="0" y="620" width="226" height="230"/>
+	<SubTexture name="right confirm0003" x="0" y="620" width="226" height="230"/>
+</TextureAtlas>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="campaign_menu_UI_assets.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrow left0000" x="0" y="0" width="37" height="69"/>
+	<SubTexture name="arrow left0001" x="0" y="0" width="37" height="69"/>
+	<SubTexture name="arrow left0002" x="37" y="0" width="37" height="67" frameX="0" frameY="-1" frameWidth="37" frameHeight="69"/>
+	<SubTexture name="arrow left0003" x="37" y="0" width="37" height="67" frameX="0" frameY="-1" frameWidth="37" frameHeight="69"/>
+	<SubTexture name="arrow push left0000" x="74" y="0" width="55" height="77" frameX="0" frameY="-1" frameWidth="56" frameHeight="79"/>
+	<SubTexture name="arrow push left0001" x="74" y="0" width="55" height="77" frameX="0" frameY="-1" frameWidth="56" frameHeight="79"/>
+	<SubTexture name="arrow push left0002" x="129" y="0" width="56" height="79"/>
+	<SubTexture name="arrow push left0003" x="129" y="0" width="56" height="79"/>
+	<SubTexture name="arrow push right0000" x="185" y="0" width="52" height="73" frameX="-1" frameY="-2" frameWidth="55" frameHeight="77"/>
+	<SubTexture name="arrow push right0001" x="185" y="0" width="52" height="73" frameX="-1" frameY="-2" frameWidth="55" frameHeight="77"/>
+	<SubTexture name="arrow push right0002" x="0" y="79" width="55" height="77"/>
+	<SubTexture name="arrow push right0003" x="0" y="79" width="55" height="77"/>
+	<SubTexture name="arrow right0000" x="55" y="79" width="36" height="67" frameX="-1" frameY="-1" frameWidth="37" frameHeight="69"/>
+	<SubTexture name="arrow right0001" x="55" y="79" width="36" height="67" frameX="-1" frameY="-1" frameWidth="37" frameHeight="69"/>
+	<SubTexture name="arrow right0002" x="91" y="79" width="36" height="69" frameX="0" frameY="0" frameWidth="37" frameHeight="69"/>
+	<SubTexture name="arrow right0003" x="91" y="79" width="36" height="69" frameX="0" frameY="0" frameWidth="37" frameHeight="69"/>
+	<SubTexture name="lock0000" x="127" y="79" width="67" height="93"/>
+</TextureAtlas>

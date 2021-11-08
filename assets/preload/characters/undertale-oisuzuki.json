@@ -1,68 +1,89 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "idle",
-			"indices": [],
-			"name": "suzuki ut idle"
+			"fps": 24,
+			"name": "suzuki ut idle",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "suzuki ut left"
+			"fps": 24,
+			"name": "suzuki ut left",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "suzuki ut left"
+			"fps": 24,
+			"name": "suzuki ut right",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singUP",
-			"indices": [],
-			"name": "suzuki ut left"
+			"fps": 24,
+			"name": "suzuki ut up",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "suzuki ut left"
+			"fps": 24,
+			"name": "suzuki ut down",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [
+				9,
+				10,
+				11,
+				12,
+				13,
+				14,
+				15,
+				16
+			],
+			"fps": 24,
+			"anim": "singUP-loop",
+			"loop": true,
+			"name": "suzuki ut up"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/undertale/oisuzuki",
+	"image": "characters/undertale/oisuzuki_LATEST",
 	"position": [
 		-90,
 		360
 	],
 	"healthicon": "dad",
+	"noteskin": "NOTES_ALT",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,

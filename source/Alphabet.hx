@@ -355,7 +355,7 @@ class AlphaCharacter extends FlxSprite
 
 	public static var numbers:String = "1234567890";
 
-	public static var symbols:String = "|~#$%()*+-:;<=>@[]^_.,'!?";
+	public static var symbols:String = "|~#$%()*+-:;<=>@[]^_.,'!?&"; //STUPID FUCKING & SYMBOL
 
 	public var row:Int = 0;
 
@@ -403,6 +403,8 @@ class AlphaCharacter extends FlxSprite
 				animation.addByPrefix(letter, 'bold (', 24);
 			case ")":
 				animation.addByPrefix(letter, 'bold )', 24);
+			case "&":
+				animation.addByPrefix(letter, 'bold &', 24); //STUPID FUCKING & SYMBOL
 			default:
 				animation.addByPrefix(letter, 'bold ' + letter, 24);
 		}
@@ -470,6 +472,8 @@ class AlphaCharacter extends FlxSprite
 				animation.addByPrefix(letter, 'exclamation point', 24);
 			case ",":
 				animation.addByPrefix(letter, 'comma', 24);
+			case "&":
+				animation.addByPrefix(letter, 'bold &', 24); //STUPID FUCKING & SYMBOL
 			default:
 				animation.addByPrefix(letter, letter, 24);
 		}

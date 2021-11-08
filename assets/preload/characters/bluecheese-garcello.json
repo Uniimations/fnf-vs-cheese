@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"anim": "idle",
+			"fps": 24,
+			"name": "cheese idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "cheese left",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "cheese right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				4
+			],
+			"loop": false,
+			"anim": "singUP",
+			"fps": 24,
+			"name": "cheese up",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "cheese down",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"anim": "tightBars",
+			"fps": 24,
+			"name": "cheese tight bar",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/ex/garcello",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "bluecheese-garcello",
+	"noteskin": "NOTES_BLUECHEESE",
+	"flip_x": false,
+	"healthbar_colors": [
+		99,
+		255,
+		146
+	],
+	"camera_position": [
+		20,
+		173
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

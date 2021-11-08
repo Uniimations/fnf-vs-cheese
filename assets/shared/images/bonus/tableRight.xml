@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="tableRight.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="tableRight0000" x="0" y="0" width="553" height="626"/>
+	<SubTexture name="tableRight0001" x="553" y="0" width="553" height="626"/>
+	<SubTexture name="tableRight0002" x="1106" y="0" width="553" height="626"/>
+	<SubTexture name="tableRight0003" x="1659" y="0" width="553" height="626"/>
+	<SubTexture name="tableRight0004" x="2212" y="0" width="553" height="626"/>
+	<SubTexture name="tableRight0005" x="2765" y="0" width="553" height="626"/>
+	<SubTexture name="tableRight0006" x="3318" y="0" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+	<SubTexture name="tableRight0007" x="0" y="626" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+	<SubTexture name="tableRight0008" x="553" y="626" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+	<SubTexture name="tableRight0009" x="1106" y="626" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+	<SubTexture name="tableRight0010" x="1659" y="626" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+	<SubTexture name="tableRight0011" x="2212" y="626" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+	<SubTexture name="tableRight0012" x="2765" y="626" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+	<SubTexture name="tableRight0013" x="3318" y="626" width="553" height="625" frameX="0" frameY="-1" frameWidth="553" frameHeight="626"/>
+</TextureAtlas>

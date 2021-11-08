@@ -148,15 +148,17 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
-		versionShit.scrollFactor.set();
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion + " modified by Uniimations", 12);
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.scrollFactor.set();
+		versionShit.borderSize = 1.25;
 		add(versionShit);
 		//VERSION NUMBER
 		//if youre gonna do this actually make a string at the top instead of what i did
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "VS Cheese v" + cheeseVersion, 12);
-		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.scrollFactor.set();
+		versionShit.borderSize = 1.25;
 		add(versionShit);
 
 		// NG.core.calls.event.logEvent('swag').send();
@@ -231,6 +233,9 @@ class MainMenuState extends MusicBeatState
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
+				//COOL TWEENS!
+				FlxTween.tween(FlxG.camera, { zoom: 5}, 3, { ease: FlxEase.expoInOut });
+
 				menuItems.forEach(function(spr:FlxSprite)
 				{
 					if (curSelected != spr.ID)
@@ -245,6 +250,7 @@ class MainMenuState extends MusicBeatState
 					}
 					else
 					{
+						FlxTween.tween(FlxG.camera, { angle: 40}, 3, { ease: FlxEase.expoInOut });
 						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
 						{
 							var daChoice:String = optionShit[curSelected];
@@ -308,7 +314,6 @@ class MainMenuState extends MusicBeatState
 		super.beatHit();
 
 		counter.animation.play('bouncy', true);
-
 		character.animation.play('idle', true);
 	}
 }
