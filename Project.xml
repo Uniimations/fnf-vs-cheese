@@ -49,7 +49,7 @@
 	<define name="ACHIEVEMENTS_ALLOWED" unless='windows' />
 	
 	<!--UNIIMATIONS ENGINE CUSTOMIZATION -->
-	<define name="PLAYTEST_BUILD" if="windows" />
+	<define name="PLAYTEST_BUILD" if="desktop" />
 	<!--WHAT???
 	-->
 	
