@@ -1,0 +1,70 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-5,
+				209
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "BF KILL"
+		},
+		{
+			"offsets": [
+				-5,
+				209
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "BF KILL"
+		},
+		{
+			"offsets": [
+				-30,
+				205
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "BF WAKE UP"
+		},
+		{
+			"offsets": [
+				-5,
+				209
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [
+				58,
+				59
+			],
+			"name": "BF KILL"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/deaths/FROSTED",
+	"position": [
+		-200,
+		230
+	],
+	"healthicon": "bf",
+	"flip_x": true,
+	"healthbar_colors": [
+		49,
+		176,
+		209
+	],
+	"camera_position": [
+		0,
+		-290
+	],
+	"sing_duration": 4,
+	"scale": 0.9
+}

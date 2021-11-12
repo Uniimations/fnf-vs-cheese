@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cheese_head.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cheese head intro0000" x="0" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0001" x="496" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0002" x="992" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0003" x="1488" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0004" x="1984" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0005" x="2480" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0006" x="2976" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0007" x="3472" y="0" width="496" height="410"/>
+	<SubTexture name="cheese head intro0008" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0009" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0010" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0011" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0012" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0013" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0014" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0015" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0016" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0017" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0018" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head intro0019" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head loop idle0000" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head loop idle0001" x="0" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head loop idle0002" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head loop idle0003" x="496" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0000" x="992" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0001" x="992" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0002" x="1488" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0003" x="1488" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0004" x="1984" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0005" x="1984" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0006" x="2480" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0007" x="2480" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0008" x="2976" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0009" x="2976" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0010" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0011" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0012" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0013" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0014" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0015" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0016" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0017" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0018" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0019" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0020" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0021" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0022" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0023" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0024" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0025" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0026" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0027" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0028" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting0029" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0000" x="992" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0001" x="992" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0002" x="1488" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0003" x="1488" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0004" x="1984" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0005" x="1984" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0006" x="2480" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0007" x="2480" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0008" x="2976" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0009" x="2976" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0010" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0011" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0012" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0013" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0014" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0015" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0016" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0017" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0018" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0019" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0020" x="3472" y="410" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0021" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0022" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0023" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0024" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0025" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0026" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0027" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0028" x="0" y="820" width="496" height="410"/>
+	<SubTexture name="cheese head petting jumpscare0029" x="0" y="820" width="496" height="410"/>
+</TextureAtlas>

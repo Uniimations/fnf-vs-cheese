@@ -38,6 +38,11 @@ class Note extends FlxSprite
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
 
+	public var hitHealth:Float = 0.023;
+	public var missHealth:Float = 0.0475;
+
+	public var hitCausesMiss:Bool = false;
+
 	private function set_noteType(value:Int):Int {
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
@@ -46,11 +51,13 @@ class Note extends FlxSprite
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
+					hitCausesMiss = true;
 				case 4: //DEATH NOTE
 					reloadNote('death');
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
+					hitCausesMiss = true;
 				case 5: //LITTLE MAN NOTE
 					reloadNote('little');
 					colorSwap.hue = 0;

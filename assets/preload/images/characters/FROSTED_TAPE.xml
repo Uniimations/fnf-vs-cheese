@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="FROSTED_TAPE.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="tape click0000" x="0" y="0" width="376" height="883" frameX="-7" frameY="-17" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0001" x="376" y="0" width="376" height="883" frameX="-7" frameY="-17" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0002" x="752" y="0" width="371" height="881" frameX="-10" frameY="-19" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0003" x="1123" y="0" width="371" height="881" frameX="-10" frameY="-19" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0004" x="1494" y="0" width="374" height="885" frameX="-5" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0005" x="1868" y="0" width="374" height="885" frameX="-5" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0006" x="2242" y="0" width="393" height="885" frameX="-2" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0007" x="2635" y="0" width="406" height="885" frameX="-2" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0008" x="3041" y="0" width="408" height="885" frameX="0" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0009" x="3449" y="0" width="408" height="885" frameX="0" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0010" x="3857" y="0" width="408" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0011" x="4265" y="0" width="408" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0012" x="4673" y="0" width="407" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0013" x="5080" y="0" width="407" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0014" x="5487" y="0" width="407" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0015" x="5894" y="0" width="407" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0016" x="6301" y="0" width="407" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0017" x="6708" y="0" width="407" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0018" x="7115" y="0" width="410" height="885" frameX="0" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0019" x="7525" y="0" width="410" height="885" frameX="0" frameY="-15" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0020" x="0" y="886" width="405" height="883" frameX="-10" frameY="-17" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0021" x="405" y="886" width="405" height="883" frameX="-10" frameY="-17" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0022" x="810" y="886" width="410" height="884" frameX="-5" frameY="-16" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0023" x="1220" y="886" width="410" height="892" frameX="-5" frameY="-8" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0024" x="1630" y="886" width="412" height="897" frameX="-2" frameY="-3" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0025" x="2042" y="886" width="412" height="897" frameX="-2" frameY="-3" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0026" x="2454" y="886" width="414" height="899" frameX="0" frameY="-1" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0027" x="2868" y="886" width="414" height="899" frameX="0" frameY="-1" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0028" x="3282" y="886" width="414" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0029" x="3696" y="886" width="414" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0030" x="4110" y="886" width="409" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0031" x="4519" y="886" width="409" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0032" x="4928" y="886" width="404" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0033" x="5332" y="886" width="404" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0034" x="5736" y="886" width="404" height="886" frameX="0" frameY="-14" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0035" x="6140" y="886" width="365" height="879" frameX="-13" frameY="-20" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0036" x="6505" y="886" width="365" height="879" frameX="-13" frameY="-20" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0037" x="6870" y="886" width="374" height="896" frameX="-4" frameY="-4" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0038" x="7244" y="886" width="374" height="896" frameX="-4" frameY="-4" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0039" x="7618" y="886" width="408" height="899" frameX="-2" frameY="-1" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0040" x="0" y="1786" width="408" height="899" frameX="-2" frameY="-1" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0041" x="408" y="1786" width="410" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0042" x="818" y="1786" width="410" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0043" x="1228" y="1786" width="410" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0044" x="1638" y="1786" width="410" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0045" x="2048" y="1786" width="419" height="900"/>
+	<SubTexture name="tape click0046" x="2467" y="1786" width="419" height="900"/>
+	<SubTexture name="tape click0047" x="2886" y="1786" width="419" height="900"/>
+	<SubTexture name="tape click0048" x="3305" y="1786" width="419" height="900"/>
+	<SubTexture name="tape click0049" x="3724" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0050" x="4142" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0051" x="4560" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0052" x="4978" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0053" x="5396" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0054" x="5814" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0055" x="6232" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0056" x="6650" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0057" x="7068" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0058" x="7486" y="1786" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0059" x="0" y="2686" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0060" x="418" y="2686" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+	<SubTexture name="tape click0061" x="836" y="2686" width="418" height="900" frameX="0" frameY="0" frameWidth="419" frameHeight="900"/>
+</TextureAtlas>

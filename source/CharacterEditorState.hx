@@ -1009,6 +1009,7 @@ class CharacterEditorState extends MusicBeatState
 			"scale": char.jsonScale,
 			"sing_duration": char.singDuration,
 			"healthicon": char.healthIcon,
+			"noteskin": "NOTE_assets",
 		
 			"position":	char.positionArray,
 			"camera_position": char.cameraPosition,

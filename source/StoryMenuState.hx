@@ -59,6 +59,7 @@ class StoryMenuState extends MusicBeatState
 		false,  //Week 2
 		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
+		true, 	//debug
 	];
 
 	var weekDebugItems:Array<Bool> = [
@@ -67,6 +68,7 @@ class StoryMenuState extends MusicBeatState
 		true,   //Week 2
 		false, 	//Bob and Bosip
 		true, 	//Manager Strike Back
+		true, 	//debug
 	];
 
 	var weekTutorialItems:Array<Bool> = [
@@ -75,6 +77,7 @@ class StoryMenuState extends MusicBeatState
 		false,  //Week 2
 		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
+		true, 	//debug
 	];
 
 	var weekCulturedItems:Array<Bool> = [
@@ -83,6 +86,7 @@ class StoryMenuState extends MusicBeatState
 		true,   //Week 2
 		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
+		true, 	//debug
 	];
 
 	var weekBonusItems:Array<Bool> = [
@@ -91,6 +95,7 @@ class StoryMenuState extends MusicBeatState
 		true,  //Week 2
 		false, 	//Bob and Bosip
 		true, 	//Manager Strike Back
+		true, 	//debug
 	];
 
 	var scoreText:FlxText;
@@ -287,6 +292,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
+
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
 
@@ -365,42 +371,71 @@ class StoryMenuState extends MusicBeatState
 	{
 		if (curWeek >= weekUnlockedItems.length || weekUnlockedItems[curWeek])
 		{
-			if (stopspamming == false)
+			switch (curWeek)
 			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				case 5:
+					if (stopspamming == false)
+						{
+							FlxG.sound.play(Paths.sound('confirmMenu'));
+							FlxG.camera.flash(FlxColor.WHITE, 1);
+							stopspamming = true;
 
-				FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
+							new FlxTimer().start(0.4, function(tmr:FlxTimer)
+							{
+								stopspamming = false;
+								if (FlxG.save.data.beatTutorial == null || FlxG.save.data.beatTutorial == false) {
+									FlxG.save.data.beatTutorial = true;
+								}
+								if (FlxG.save.data.beatCulturedWeek == null || FlxG.save.data.beatCulturedWeek == false) {
+									FlxG.save.data.beatCulturedWeek = true;
+								}
+								if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == false) {
+									FlxG.save.data.beatWeekEnding = true;
+								}
+								if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
+									FlxG.save.data.beatBonus = true;
+								}
+							});
+						}
 
-				grpWeekText.members[curWeek].startFlashing();
-				stopspamming = true;
+				default:
+					if (stopspamming == false)
+						{
+							FlxG.sound.play(Paths.sound('confirmMenu'));
+
+							FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
+
+							grpWeekText.members[curWeek].startFlashing();
+							stopspamming = true;
+						}
+
+						// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
+						var songArray:Array<String> = [];
+						var leWeek:Array<Dynamic> = WeekData.songsNames[curWeek];
+						for (i in 0...leWeek.length) {
+							songArray.push(leWeek[i]);
+						}
+
+						// I'm a motherfucking genious
+						PlayState.storyPlaylist = songArray;
+						PlayState.isStoryMode = true;
+						selectedWeek = true;
+
+						var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
+						if(diffic == null) diffic = '';
+
+						PlayState.storyDifficulty = curDifficulty;
+
+						PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+						PlayState.storyWeek = curWeek;
+						PlayState.campaignScore = 0;
+						PlayState.campaignMisses = 0;
+
+						//MP4 INTRO CUTSCENES
+						#if windows
+						addMP4Intro('wifi', 2);
+						#end
 			}
-
-			// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
-			var songArray:Array<String> = [];
-			var leWeek:Array<Dynamic> = WeekData.songsNames[curWeek];
-			for (i in 0...leWeek.length) {
-				songArray.push(leWeek[i]);
-			}
-
-			// I'm a motherfucking genious
-			PlayState.storyPlaylist = songArray;
-			PlayState.isStoryMode = true;
-			selectedWeek = true;
-
-			var diffic = CoolUtil.difficultyStuff[curDifficulty][1];
-			if(diffic == null) diffic = '';
-
-			PlayState.storyDifficulty = curDifficulty;
-
-			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
-			PlayState.storyWeek = curWeek;
-			PlayState.campaignScore = 0;
-			PlayState.campaignMisses = 0;
-
-			//MP4 INTRO CUTSCENES
-			#if windows
-			addMP4Intro('wifi', 2);
-			#end
 		}
 	}
 

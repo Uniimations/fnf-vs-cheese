@@ -21,8 +21,8 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', #if PLAYTEST_BUILD'Skip Song',#end #if debug'God Mode', 'Botplay',#end 'Exit to menu'];
-	var menuItemsPRESSED:Array<String> = ['Resume ', 'Restart Song', #if PLAYTEST_BUILD'Skip Song',#end #if debug'God Mode', 'Botplay',#end 'Exit to menu']; //extra space on 'Resume' for bug fix
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', #if debug'Skip Song', 'God Mode', 'Botplay',#end 'Exit to menu'];
+	var menuItemsPRESSED:Array<String> = ['Resume ', 'Restart Song', #if debug'Skip Song', 'God Mode', 'Botplay',#end 'Exit to menu']; //extra space on 'Resume' for bug fix
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -43,9 +43,9 @@ class PauseSubState extends MusicBeatSubstate
 		menuItems = menuItemsOG;
 		canDoStuff = true;
 
-		pauseMusic = new FlxSound().loadEmbedded(Paths.music('breakfast'), true, true);
-		pauseMusic.volume = 0;
-		pauseMusic.play(false, FlxG.random.int(0, Std.int(pauseMusic.length / 2)));
+		pauseMusic = new FlxSound().loadEmbedded(Paths.music('distant'), true, true);
+		pauseMusic.volume = 0.9;
+		pauseMusic.play(false);
 
 		FlxG.sound.list.add(pauseMusic);
 
@@ -122,9 +122,6 @@ class PauseSubState extends MusicBeatSubstate
 
 	override function update(elapsed:Float)
 	{
-		if (pauseMusic.volume < 0.5)
-			pauseMusic.volume += 0.01 * elapsed;
-
 		super.update(elapsed);
 
 		var upP = controls.UI_UP_P;

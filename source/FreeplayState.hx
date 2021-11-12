@@ -30,8 +30,8 @@ class FreeplayState extends MusicBeatState
 	];
 
 	static var bonusIcons:Array<Dynamic> = [
-		['dad'],							//frosted
-		['dad']								//snooze
+		['avinera'],						//frosted
+		['dad']								//alter ego
 	];
 
 	var songs:Array<SongMetadata> = [];
@@ -93,16 +93,17 @@ class FreeplayState extends MusicBeatState
 			{
 				if (FlxG.save.data.beatCulturedWeek)
 					{
-						addWeek(WeekData.songsNames[1], 1, songIcons[0]); //unlocked week 1 songs
+						addWeek(WeekData.songsNames[1], 1, songIcons[0]); // unlocked week 1 songs
 					}
 	
 				if (FlxG.save.data.beatWeekEnding)
 					{
-						addWeek(WeekData.songsNames[2], 2, songIcons[1]); //unlocked week 2 songs
+						addWeek(WeekData.songsNames[2], 2, songIcons[1]); // unlocked week 2 songs
 					}
-				if (FlxG.save.data.beatBonus)
+				if (FlxG.save.data.beatBonus) // unlocked bonus songs
 					{
-						addWeek(WeekData.songsNames[4], 4, songIcons[3]); //unlocked bonus songs
+						addWeek(WeekData.songsNames[4], 4, songIcons[3]);
+						addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
 					}
 			}
 
@@ -248,14 +249,16 @@ class FreeplayState extends MusicBeatState
 			{
 				case 'tutorial':
 					{
-						new FlxTimer().start(0.1, function(tmr:FlxTimer)
+						if (FlxG.save.data.beatBonus) {
+							new FlxTimer().start(0.1, function(tmr:FlxTimer)
 							{
 								changeShit();
 							}, 2);
-						new FlxTimer().start(0.4, function(tmr:FlxTimer)
+							new FlxTimer().start(0.4, function(tmr:FlxTimer)
 							{
 								changeSelection(-1);
 							});
+						}
 					}
 				case 'restaurante': //SONGS WITH EX DIFFICULTY
 					{
@@ -486,14 +489,14 @@ class FreeplayState extends MusicBeatState
 							}
 						else
 							{
-								FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+								FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
 								changeDiff(-1);
 							}
 					}
 				case 'manager-strike-back'  | 'frosted':
 					FlxG.sound.play(Paths.sound('cancelMenu'), 0.6); //manager strike back doesn't change
 				default:
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+					FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
 					changeDiff(-1);
 			}
 		}
@@ -548,14 +551,14 @@ class FreeplayState extends MusicBeatState
 							}
 						else
 							{
-								FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+								FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
 								changeDiff(1);
 							}
 					}
 				case 'manager-strike-back' | 'frosted':
 					FlxG.sound.play(Paths.sound('cancelMenu'), 0.6); //manager strike back doesn't change
 				default:
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+					FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
 					changeDiff(1);
 			}
 		}
@@ -688,7 +691,7 @@ class FreeplayState extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+		FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
 
 		curSelected += change;
 

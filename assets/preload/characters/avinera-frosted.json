@@ -1,24 +1,25 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "IDLE DANCE AVINERA"
+			"fps": 24,
+			"name": "IDLE DANCE AVINERA",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "idle-loop",
+			"fps": 24,
+			"name": "IDLE DANCE AVINERA",
 			"indices": [
 				17,
 				18,
@@ -28,52 +29,73 @@
 				22,
 				23,
 				24
-			],
-			"name": "IDLE DANCE AVINERA"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "avi left"
+			"fps": 24,
+			"name": "avi left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "avi down"
+			"fps": 24,
+			"name": "avi down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "avi up"
+			"fps": 24,
+			"name": "avi up",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "avinera rigth",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-118,
+				-50
+			],
 			"loop": false,
 			"fps": 24,
-			"anim": "singRIGHT",
+			"anim": "LOL",
 			"indices": [],
-			"name": "avinera rigth"
+			"name": "laugh note"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-118,
+				-50
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "laugh note",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -82,17 +104,18 @@
 		-220,
 		-310
 	],
-	"healthicon": "bluecheese",
+	"healthicon": "avinera",
 	"flip_x": false,
 	"healthbar_colors": [
-		125,
-		214,
-		255
+		134,
+		102,
+		178
 	],
 	"camera_position": [
 		40,
 		-40
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 0.9
 }

@@ -7,7 +7,6 @@ import flixel.graphics.FlxGraphic;
 import Controls;
 
 class ClientPrefs {
-	//TO DO: Redo ClientPrefs in a way that isn't too stupid
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
@@ -26,15 +25,20 @@ class ClientPrefs {
 	public static var ghostTapping:Bool = true;
 	public static var hideTime:Bool = false;
 
+	// EXTRA MOD SPECIFIC OPTIONS
 	public static var shit:Bool = true;
 	public static var bfreskin:Bool = true;
 	public static var shitish:Bool = false;
 	public static var missSounds:Bool = true;
 	public static var bgDim:Float = 0;
 	public static var fuckyouavi:Bool = false;
+	public static var resetDeath:Bool = true;
+	public static var comboShown:Bool = true;
 
-	//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
-	//public static var scrollspeed:Float = 1;
+	// EXTRA EFFECTS OPTIONS
+	public static var specialEffects:Bool = true;
+	public static var cameraShake:Bool = true;
+	public static var camZoomOut:Bool = true;
 
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left
@@ -97,9 +101,12 @@ class ClientPrefs {
 		FlxG.save.data.missSounds = missSounds;
 		FlxG.save.data.bgDim = bgDim;
 		FlxG.save.data.fuckyouavi = fuckyouavi;
+		FlxG.save.data.resetDeath = resetDeath;
+		FlxG.save.data.comboShown = comboShown;
 
-		//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
-		//FlxG.save.data.scrollspeed = scrollspeed;
+		FlxG.save.data.specialEffects = specialEffects;
+		FlxG.save.data.cameraShake = cameraShake;
+		FlxG.save.data.camZoomOut = camZoomOut;
 
 		var achieves:Array<String> = [];
 		for (i in 0...Achievements.achievementsUnlocked.length) {
@@ -181,6 +188,7 @@ class ClientPrefs {
 		if(FlxG.save.data.hideTime != null) {
 			hideTime = FlxG.save.data.hideTime;
 		}
+
 		if(FlxG.save.data.shit != null) {
 			shit = FlxG.save.data.shit;
 		}
@@ -199,11 +207,22 @@ class ClientPrefs {
 		if(FlxG.save.data.fuckyouavi != null) {
 			fuckyouavi = FlxG.save.data.fuckyouavi;
 		}
+		if(FlxG.save.data.resetDeath != null) {
+			resetDeath = FlxG.save.data.resetDeath;
+		}
+		if(FlxG.save.data.comboShown != null) {
+			comboShown = FlxG.save.data.comboShown;
+		}
 
-		//I WAS TRYING TO CODE IN SCROLLSPEDD AND FAILED :wah:
-		/*if(FlxG.save.data.scrollspeed != null) {
-			scrollspeed = FlxG.save.data.scrollspeed;
-		}*/
+		if(FlxG.save.data.specialEffects != null) {
+			specialEffects = FlxG.save.data.specialEffects;
+		}
+		if(FlxG.save.data.cameraShake != null) {
+			cameraShake = FlxG.save.data.cameraShake;
+		}
+		if(FlxG.save.data.camZoomOut != null) {
+			camZoomOut = FlxG.save.data.camZoomOut;
+		}
 
 		var save:FlxSave = new FlxSave();
 		save.bind('controls', 'vscheese');

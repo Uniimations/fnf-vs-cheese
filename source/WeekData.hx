@@ -16,13 +16,16 @@ class WeekData {
 		['Wifi', 'Casual-Duel'],
 		['Bob-And-Bosip'],
 		['Manager-Strike-Back']
+		#if PLAYTEST_BUILD
+		,['UNLOCK', 'ALL', 'SONGS']
+		#end
 	];
 	#end
 
 	//seperate names for bonus tracks
 	public static var bonusNames:Array<Dynamic> = [
-		['frosted'],
-		['snooze']					//placeholder name for unii song
+		['Frosted'],
+		['Alter-Ego']
 	];
 
 	// Custom week number, used for your week's score not being overwritten by a new vanilla week when the game updates
@@ -34,21 +37,20 @@ class WeekData {
 		null,	//Week 2
 		null,	//Bob and Bosip
 		null	//Manager Strike Back
+		#if PLAYTEST_BUILD
+		,null
+		#end
 	];
 
-	//Tells which assets directory should it load
-	//Reminder that you have to add the directories on Project.xml too or they won't be compiled!!!
-	//Just copy week6/week6_high mentions and rename it to whatever your week will be named
-	//It ain't that hard, i guess
-
-	//Oh yeah, quick reminder that files inside the folder that ends with _high are only loaded
-	//if you have the Low Quality option disabled on "Preferences"
 	public static var loadDirectory:Array<String> = [
 		null,   //Tutorial
 		null,	//Week 1
 		null,	//Week 2
 		null,	//Bob and Bosip
 		null	//Manager Strike Back
+		#if PLAYTEST_BUILD
+		,null
+		#end
 	];
 
 	//The only use for this is to display a different name for the Week when you're on the score reset menu.
@@ -61,6 +63,9 @@ class WeekData {
 		null,	//Week 2
 		"Bob and Bosip",
 		"Bonus Week"
+		#if PLAYTEST_BUILD
+		,"I EDITED THE CODE FOR THIS MUAHAUHAHAHHAHA BROKEN DISCORD RPC!!111!!1! DISCORD RPC!!!11!1!" //ur not supposed to be able to play this loloololl
+		#end
 	];
 
 

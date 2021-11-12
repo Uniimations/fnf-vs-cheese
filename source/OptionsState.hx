@@ -28,7 +28,6 @@ import Controls;
 
 using StringTools;
 
-// TO DO: Redo the menu creation system for not being as dumb
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = ['KEYBINDS', 'SETTINGS'];
@@ -415,13 +414,15 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'GRAPHICS',
 		'GAMEPLAY',
 		'APPEARANCE',
+		'CAMERA EFFECTS',
 		'MISCELLANEOUS'
 	];
 	static var noCheckbox:Array<String> = [
 		'Framerate',
 		'Note Delay',
 		'Erase Save Data',
-		'Background Dim'
+		'Background Dim',
+		'Rating Pop Up Position'
 	];
 
 	static var options:Array<String> = [
@@ -433,13 +434,17 @@ class PreferencesSubstate extends MusicBeatSubstate
 		#if !html5
 		'Framerate', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
+
 		//GAMEPLAY CATEGORY
 		'GAMEPLAY',
 		'Downscroll',
 		'Middlescroll',
 		'Ghost Tapping',
 		'Miss Sounds',
+		'RESET to Game Over',
+		'Rating Pop Up Position',
 		'Note Delay',
+
 		//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
 		'APPEARANCE',
 		#if !mobile
@@ -448,7 +453,15 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Note Splashes',
 		'Hide HUD',
 		'Hide Song Length',
+		'Hide Rating Pop Up',
 		'New Boyfriend Skin',
+
+		//CAMERA EFFECTS CATEGORY FOR EVENT STUFF
+		'CAMERA EFFECTS',
+		'Special Effects',
+		'Camera Movement',
+		'Zoom In And Out',
+
 		//MOD SPECIFIC CATEGORY WHERE WE GET FUNKY AND fun ni lol!!!
 		//unii from 11/1/2021 here wtf were you on past unii
 		'MISCELLANEOUS',
@@ -538,7 +551,9 @@ class PreferencesSubstate extends MusicBeatSubstate
 			newArrows('upscroll_notes');
 		}
 
-		if (!ClientPrefs.fuckyouavi) {
+		if (ClientPrefs.fuckyouavi) {
+			OptionsState.menuBG.alpha = 0.2;
+		} else {
 			if (ClientPrefs.bfreskin)
 				newBoyfriend(boyfriendRemaster);
 			else
@@ -668,7 +683,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 						ClientPrefs.bfreskin = !ClientPrefs.bfreskin;
 						if (!ClientPrefs.fuckyouavi) {
 							if (!ClientPrefs.bfreskin) newBoyfriend(boyfriendNormal);
-							else newBoyfriend(boyfriendRemaster);
+							else if (ClientPrefs.bfreskin) newBoyfriend(boyfriendRemaster);
 						}
 
 					/*case 'Shitish Mode':
@@ -679,23 +694,54 @@ class PreferencesSubstate extends MusicBeatSubstate
 
 					case 'Optimized Mode':
 					    ClientPrefs.fuckyouavi = !ClientPrefs.fuckyouavi;
-						if (ClientPrefs.fuckyouavi && CharacterBoyfriend != null) {
-							killBoyfriend();
+						if (ClientPrefs.fuckyouavi)
+						{
+							if (CharacterBoyfriend != null)
+							{
+								killBoyfriend();
+							}
 							OptionsState.menuBG.alpha = 0.2;
 							OptionsState.menuBlackShit.visible = false;
-						} else if (CharacterBoyfriend != null) {
+						}
+						else
+						{
 							if (!ClientPrefs.bfreskin) newBoyfriend(boyfriendNormal);
-							else newBoyfriend(boyfriendRemaster);
+							else if (ClientPrefs.bfreskin) newBoyfriend(boyfriendRemaster);
 							OptionsState.menuBG.alpha = 1;
 							OptionsState.menuBlackShit.visible = true;
 						}
+
+					case 'RESET to Game Over':
+						ClientPrefs.resetDeath = !ClientPrefs.resetDeath;
+
+					case 'Hide Rating Pop Up':
+						ClientPrefs.comboShown = !ClientPrefs.comboShown;
+
+					case 'Special Effects':
+						ClientPrefs.specialEffects = !ClientPrefs.specialEffects;
+
+					case 'Camera Movement':
+						ClientPrefs.cameraShake = !ClientPrefs.cameraShake;
+
+					case 'Zoom In And Out':
+						ClientPrefs.camZoomOut = !ClientPrefs.camZoomOut;
+
 				}
 				buttonSound();
 				reloadValues();
 			}
-		} else if (controls.ACCEPT && options[curSelected] == 'Erase Save Data') {
-				FlxG.save.erase();
-				System.exit(0);
+			// wow this looks like shit! anyways...
+		} else if (controls.ACCEPT) {
+			switch (options[curSelected])
+			{
+				case 'Erase Save Data':
+					ResetTools.resetData();
+					FlxG.save.erase();
+					System.exit(0);
+				case 'Rating Pop Up Position':
+					FlxG.sound.play(Paths.sound('confirmMenu'));
+					FlxG.switchState(new RatingPopUpMenuState());
+			}
 		} else {
 			if(controls.UI_LEFT || controls.UI_RIGHT) {
 				var add:Int = controls.UI_LEFT ? -1 : 1;
@@ -733,7 +779,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 				}
 				reloadValues();
 
-				if (options[curSelected] != 'Background Dim' || options[curSelected] != 'Erase Save Data')
+				if (options[curSelected] != 'Background Dim' || options[curSelected] != 'Erase Save Data' || options[curSelected] != 'Rating Pop Up Position')
 					if(holdTime <= 0) buttonSound();
 				holdTime += elapsed;
 			} else {
@@ -750,7 +796,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		}
 		super.update(elapsed);
 	}
-	
+
 	function changeSelection(change:Int = 0)
 	{
 		do {
@@ -762,11 +808,14 @@ class PreferencesSubstate extends MusicBeatSubstate
 		} while(unselectableCheck(curSelected));
 
 		var daText:String = '';
-		switch(options[curSelected]) { //DESCRIPTIONS
+
+		//DESCRIPTIONS
+
+		switch(options[curSelected]) {
 			case 'Framerate':
-				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT.";
+				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.";
 			case 'Note Delay':
-				daText = "Changes how late a note is spawned.\nUseful for preventing audio lag and input latency.\nAdjust with LEFT and RIGHT.)";
+				daText = "Changes how late a note is spawned.\nUseful for preventing audio lag and input latency.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
 			case 'Constant Data Cached':
@@ -784,7 +833,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 			case 'Violence':
 				daText = "If unchecked, you won't get disgusted as frequently.";
 			case 'Note Splashes':
-				daText = "If unchecked, hitting a \"Sick!\" rating won't\nshow particles.";
+				daText = "If unchecked, hitting \"Perfect!\" won't\nshow particles.";
 			case 'Flashing Lights':
 				daText = "Uncheck this if you're sensitive to flashing lights.";
 			case 'Hide HUD':
@@ -800,11 +849,23 @@ class PreferencesSubstate extends MusicBeatSubstate
 			case 'Miss Sounds':
 				daText = "If unchecked, miss sounds won't play\nand vocals won't be muted when you miss a note.";
 			case 'Background Dim':
-			    daText = "Dims the background down with a black tint.\nAdjust opacity with LEFT and RIGHT.";
+			    daText = "Dims the background down with a black tint.\nAdjust opacity with LEFT and RIGHT keys.";
 			case 'Optimized Mode':
-				daText = "If checked, hides the background and characters.\nOnly notes and UI will be visible.";
+				daText = "If checked, hides ALL STAGE ELEMENTS.\nOnly notes and HUD will be visible.";
 			case 'Erase Save Data':
-				daText = "WARNING: THIS WILL CLOSE THE GAME!\nPress ACCEPT to clear your VS Cheese save data.";
+				daText = "WARNING: THIS WILL CLOSE THE GAME!\nPress your ACCEPT key to clear your VS Cheese save data.";
+			case 'Rating Pop Up Position':
+				daText = "Press ACCEPT to move around your rating pop up.\nRating pop ups are the \"Sick\", \"Good\", etc...";
+			case 'RESET to Game Over':
+				daText = "Toggle pressing your RESET key to game over.";
+			case 'Hide Rating Pop Up':
+				daText = "If checked, the rating pop up showing your combo\nwill be hidden.";
+			case 'Special Effects':
+				daText = "If unchecked, color changing and mechanic indicator effects\nwill be turned off in songs with camera effects.";
+			case 'Camera Movement':
+				daText = "If unchecked, won't shake and won't move as much in\nsongs with camera effects.";
+			case 'Zoom In And Out':
+				daText = "If unchecked, camera will not change zoom amount in\nsongs with camera effects.";
 		}
 		descText.text = daText;
 
@@ -879,6 +940,16 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.missSounds;
 					case 'Optimized Mode':
 						daValue = ClientPrefs.fuckyouavi;
+					case 'RESET to Game Over':
+						daValue = ClientPrefs.resetDeath;
+					case 'Hide Rating Pop Up':
+						daValue = ClientPrefs.comboShown;
+					case 'Special Effects':
+						daValue = ClientPrefs.specialEffects;
+					case 'Camera Movement':
+						daValue = ClientPrefs.cameraShake;
+					case 'Zoom In And Out':
+						daValue = ClientPrefs.camZoomOut;
 				}
 				checkbox.daValue = daValue;
 			}
@@ -895,6 +966,8 @@ class PreferencesSubstate extends MusicBeatSubstate
 					case 'Background Dim':
 						daText = Math.round(ClientPrefs.bgDim * 100) + '%';
 					case 'Erase Save Data':
+						daText = '';
+					case 'Rating Pop Up Position':
 						daText = '';
 				}
 				var lastTracker:FlxSprite = text.sprTracker;

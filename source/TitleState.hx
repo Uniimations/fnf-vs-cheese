@@ -189,7 +189,7 @@ class TitleState extends MusicBeatState
 		gradientBar.scale.y = 0;
 		gradientBar.updateHitbox();
 		add(gradientBar);
-		FlxTween.tween(gradientBar, {'scale.y': 1.3}, 4, {ease: FlxEase.quadInOut});
+		FlxTween.tween(gradientBar, {'scale.y': 1.3}, 8, {ease: FlxEase.quadInOut}); // long gradient tween
 
 		logoSpr = new FlxSprite(0, FlxG.height * 0.4).loadGraphic(Paths.image('intro/oglogo'));
 		add(logoSpr);
@@ -295,8 +295,8 @@ class TitleState extends MusicBeatState
 		if (pressedEnter && !transitioning && skippedIntro)
 		{
 			if(titleText != null) titleText.animation.play('press');
-
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+
 			//FlxTween.tween(FlxG.camera, {y:1111}, 2, {ease: FlxEase.expoInOut});
 			FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
 			trace('wacky shit!');
@@ -315,6 +315,7 @@ class TitleState extends MusicBeatState
 				closedState = true;
 				#end
 			});
+			canDoShit = false;
 		}
 
 		if (pressedEnter && !skippedIntro)
@@ -454,10 +455,10 @@ class TitleState extends MusicBeatState
 	}
 
 	private function loadData():Void
-		{
-			ClientPrefs.loadPrefs();
-			Highscore.load();
-			ResetTools.resetData();
-			FlxG.mouse.visible = false;
-		}
+	{
+		ClientPrefs.loadPrefs();
+		Highscore.load();
+		ResetTools.resetData();
+		FlxG.mouse.visible = false;
+	}
 }

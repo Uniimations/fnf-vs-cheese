@@ -1,7 +1,6 @@
 package;
 
 import flixel.FlxSprite;
-import flixel.graphics.frames.FlxAtlasFrames;
 
 class CheckboxThingie extends FlxSprite
 {
@@ -10,9 +9,9 @@ class CheckboxThingie extends FlxSprite
 	public function new(x:Float = 0, y:Float = 0, ?checked = false) {
 		super(x, y);
 
-		frames = Paths.getSparrowAtlas('checkboxThingie');
-		animation.addByPrefix("static", "Check Box unselected", 24, false);
-		animation.addByPrefix("checked", "Check Box selecting animation", 24, false);
+		frames = Paths.getSparrowAtlas('checkboxThingieCheeseEdition');
+		animation.addByPrefix("static", "cheese checkbox", 24, false);
+		animation.addByPrefix("checked", "cheese checked box", 24, false);
 		antialiasing = ClientPrefs.globalAntialiasing;
 		setGraphicSize(Std.int(0.6 * width));
 		updateHitbox();
@@ -20,18 +19,8 @@ class CheckboxThingie extends FlxSprite
 	}
 
 	override function update(elapsed:Float) {
-		/*switch (animation.curAnim.name) {
-			case "checked":
-				offset.set(17, 70);
-			case "static":
-				offset.set(0, 0);
-		}*/
-
 		if (sprTracker != null)
 			setPosition(sprTracker.x - 130, sprTracker.y + 30);
-
-		/*if (sprTracker != null)
-			setPosition(sprTracker.x - 100, sprTracker.y + 5);*/
 
 		super.update(elapsed);
 	}
@@ -40,11 +29,9 @@ class CheckboxThingie extends FlxSprite
 		if(value) {
 			if(animation.curAnim.name != 'checked') {
 				animation.play('checked', true);
-				//offset.set(17, 70);
 			}
 		} else {
 			animation.play("static");
-			//offset.set(0, 0);
 		}
 		return value;
 	}

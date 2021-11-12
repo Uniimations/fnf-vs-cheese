@@ -5,6 +5,8 @@ Player 1
 bf
 bf-alt
 bf-sans
+bf-small
+bf-small-alt
 bluecheese-kitchen
 arsen
 dansilot
@@ -22,16 +24,13 @@ bluecheese-hex
 bluecheese-whitty
 bluecheese-tricky
 bluecheese-little-man
-gf-oisuzuki-kitchen
 ex-bluecheese
 undertale-oisuzuki
 ---------------
-Miscellaneous
+Player 3
 ---------------
+gf-oisuzuki-kitchen
 gf
 ex-gf
 ex-gf-take-over
-bf-menu
 oisuzuki
-bob
-bosip
