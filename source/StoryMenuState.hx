@@ -434,6 +434,12 @@ class StoryMenuState extends MusicBeatState
 						//MP4 INTRO CUTSCENES
 						#if windows
 						addMP4Intro('wifi', 2);
+						#else
+						new FlxTimer().start(1, function(tmr:FlxTimer)
+							{
+								LoadingState.loadAndSwitchState(new PlayState(), true);
+								FreeplayState.destroyFreeplayVocals();
+							});
 						#end
 			}
 		}

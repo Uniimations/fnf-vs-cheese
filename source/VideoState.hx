@@ -46,7 +46,9 @@ class VideoState extends MusicBeatState
 		#if !html5
 		if (frameSkipLimit != -1 && GlobalVideo.isWebm)
 		{
-			//GlobalVideo.getWebm().webm.SKIP_STEP_LIMIT = frameSkipLimit;	
+			#if !mac
+			GlobalVideo.getWebm().webm.SKIP_STEP_LIMIT = frameSkipLimit;
+			#end	
 		}
 		#end
 	}
