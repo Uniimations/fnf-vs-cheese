@@ -25,13 +25,8 @@ class CoolUtil
 		return difficultyStuff[PlayState.storyDifficulty][0].toUpperCase();
 	}
 
-	// im pretty sure it works like this:
-	// the number is how close it is to the strumline
-	// and the number and everything below that is what
-	// counts as the timing.
-
-	// this means that 16ms+ is perfect according to this hypothesis.
 	public static var timingWindows:Array<Dynamic> = [];
+	public static var spriteOffsets:Array<Dynamic> = [];
 
 	public static function boundTo(value:Float, min:Float, max:Float):Float {
 		var newValue:Float = value;

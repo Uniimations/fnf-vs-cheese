@@ -52,13 +52,13 @@ class RatingPopUpMenuState extends MusicBeatState
 		textBG.alpha = 0.6;
         textBG.scrollFactor.set();
 
-		text = new FlxText(textBG.x, textBG.y + 4, FlxG.width, "Drag rating pop up, RESET to reset, BACK to go back.", 18);
-		text.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, LEFT);
+		text = new FlxText(textBG.x, textBG.y + 4, FlxG.width, "", 18);
+		text.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		text.scrollFactor.set();
+        text.borderSize = 1.25;
 
-        previewTxt = new FlxText(400, 75, FlxG.width - 800, "", 32);
-		previewTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-        previewTxt.text = "v GAMEPLAY PREVIEW v";
+        previewTxt = new FlxText(10, 20, FlxG.width - 800, "", 32);
+		previewTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		previewTxt.scrollFactor.set();
 		previewTxt.borderSize = 1.25;
 
@@ -108,15 +108,30 @@ class RatingPopUpMenuState extends MusicBeatState
 		FlxG.camera.focusOn(camFollow.getPosition());
 
         if (ClientPrefs.downScroll) {
-            //strumLine.y = FlxG.height - 165;
+			newArrows('downscroll');
+            arrows.y += 122;
+		} else {
+			newArrows('upscroll');
+		}
+
+        if (ClientPrefs.middleScroll) {
+            arrows.x -= 402;
+        } else {
+            arrows.x -= 69; //nice
+            FlxG.log.add('nice');
         }
+
+        text.text = "Drag rating pop up, RESET to reset, BACK to go back.";
+        previewTxt.text = "GAMEPLAY PREVIEW v";
 
         add(textBG);
         add(text);
         add(previewTxt);
-        trace('loaded all text?');
+        //trace('loaded all text?');
 
         perfect.cameras = [camHUD];
+        arrows.cameras = [camHUD];
+
         textBG.cameras = [camHUD];
         text.cameras = [camHUD];
         previewTxt.cameras = [camHUD];
@@ -140,6 +155,9 @@ class RatingPopUpMenuState extends MusicBeatState
 
         super.update(elapsed);
 
+        previewSine += 180 * elapsed;
+        previewTxt.alpha = 1 - Math.sin((Math.PI * previewSine) / 180);
+
         FlxG.camera.zoom = FlxMath.lerp(0.9, FlxG.camera.zoom, 0.95);
         camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, 0.95);
 
@@ -154,15 +172,23 @@ class RatingPopUpMenuState extends MusicBeatState
             FlxG.save.data.changedHitX = perfect.x;
             FlxG.save.data.changedHitY = perfect.y;
             FlxG.save.data.changedHit = true;
+            FlxG.sound.play(Paths.sound('scrollMenu'));
         }
+
+        if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
 
         if (controls.RESET)
         {
+            FlxG.sound.play(Paths.sound('cancelMenu'));
             perfect.x = defaultX;
             perfect.y = defaultY;
             FlxG.save.data.changedHitX = perfect.x;
             FlxG.save.data.changedHitY = perfect.y;
             FlxG.save.data.changedHit = false;
+            trace('RESET RATING POP UP POSITION');
         }
 
         if (controls.BACK)
@@ -170,6 +196,7 @@ class RatingPopUpMenuState extends MusicBeatState
             FlxG.mouse.visible = false;
             FlxG.sound.play(Paths.sound('cancelMenu'));
             MusicBeatState.switchState(new OptionsState());
+            trace('WENT BACK TO OPTIONS!!!');
         }
     }
 
@@ -190,12 +217,14 @@ class RatingPopUpMenuState extends MusicBeatState
     {
         super.beatHit();
 
-        bf.playAnim('idle');
+        bf.dance();
         dad.dance();
 
-        FlxG.camera.zoom += 0.015;
-        camHUD.zoom += 0.010;
+        if (FlxG.camera.zoom < 1.35 && curBeat % 4 == 0) {
+			FlxG.camera.zoom += 0.030;
+            camHUD.zoom += 0.015;
+		}
 
-        trace('beat');
+        FlxG.log.add('beat');
     }
 }

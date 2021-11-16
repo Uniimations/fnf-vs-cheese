@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arsen_hand.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arsen computer hand0000" x="0" y="0" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0001" x="0" y="0" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0002" x="203" y="0" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0003" x="203" y="0" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0004" x="0" y="81" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0005" x="0" y="81" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0006" x="203" y="81" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0007" x="203" y="81" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0008" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0009" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0010" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0011" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0012" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0013" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0014" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0015" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0016" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0017" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0018" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0019" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0020" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0021" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0022" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0023" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0024" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0025" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0026" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0027" x="0" y="162" width="203" height="81"/>
+	<SubTexture name="arsen computer hand0028" x="0" y="162" width="203" height="81"/>
+</TextureAtlas>

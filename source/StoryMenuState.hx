@@ -29,7 +29,10 @@ class StoryMenuState extends MusicBeatState
 		"Restaurante De Fromage Bleu",
 		"Self Insert",
 		"Bob And Bosip",
-		"Bonus Week"
+		"Bonus Week",
+
+		"Unlock Weeks",
+		"Lock Weeks"
 	];
 
 	//main image back display
@@ -37,6 +40,9 @@ class StoryMenuState extends MusicBeatState
 		'tutorial_fixed',		
 		'week1',
 		'placeholder',
+		'placeholder',
+		'placeholder',
+
 		'placeholder',
 		'placeholder'
 	];
@@ -47,7 +53,10 @@ class StoryMenuState extends MusicBeatState
 		['week1'],
 		['week2'],
 		['bobAndBosip'],
-		['managerStrikeBack']
+		['managerStrikeBack'],
+
+		['unlock'],
+		['lock']
 	];
 
 	public var animOffsets:Map<String, Array<Dynamic>>;
@@ -59,6 +68,8 @@ class StoryMenuState extends MusicBeatState
 		false,  //Week 2
 		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
+
+		true, 	//debug
 		true, 	//debug
 	];
 
@@ -68,6 +79,8 @@ class StoryMenuState extends MusicBeatState
 		true,   //Week 2
 		false, 	//Bob and Bosip
 		true, 	//Manager Strike Back
+
+		true, 	//debug
 		true, 	//debug
 	];
 
@@ -77,6 +90,8 @@ class StoryMenuState extends MusicBeatState
 		false,  //Week 2
 		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
+
+		true, 	//debug
 		true, 	//debug
 	];
 
@@ -86,6 +101,8 @@ class StoryMenuState extends MusicBeatState
 		true,   //Week 2
 		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
+
+		true, 	//debug
 		true, 	//debug
 	];
 
@@ -95,6 +112,8 @@ class StoryMenuState extends MusicBeatState
 		true,  //Week 2
 		false, 	//Bob and Bosip
 		true, 	//Manager Strike Back
+
+		true, 	//debug
 		true, 	//debug
 	];
 
@@ -395,6 +414,37 @@ class StoryMenuState extends MusicBeatState
 								if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
 									FlxG.save.data.beatBonus = true;
 								}
+								if (FlxG.save.data.diedTwiceFrosted == null || FlxG.save.data.diedTwiceFrosted == false) {
+									FlxG.save.data.diedTwiceFrosted = true;
+								}
+							});
+						}
+
+				case 6:
+					if (stopspamming == false)
+						{
+							FlxG.sound.play(Paths.sound('confirmMenu'));
+							FlxG.camera.flash(FlxColor.WHITE, 1);
+							stopspamming = true;
+
+							new FlxTimer().start(0.4, function(tmr:FlxTimer)
+							{
+								stopspamming = false;
+								if (FlxG.save.data.beatTutorial == null || FlxG.save.data.beatTutorial == true) {
+									FlxG.save.data.beatTutorial = false;
+								}
+								if (FlxG.save.data.beatCulturedWeek == null || FlxG.save.data.beatCulturedWeek == true) {
+									FlxG.save.data.beatCulturedWeek = false;
+								}
+								if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == true) {
+									FlxG.save.data.beatWeekEnding = false;
+								}
+								if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == true) {
+									FlxG.save.data.beatBonus = false;
+								}
+								if (FlxG.save.data.diedTwiceFrosted == null || FlxG.save.data.diedTwiceFrosted == true) {
+									FlxG.save.data.diedTwiceFrosted = false;
+								}
 							});
 						}
 
@@ -403,20 +453,18 @@ class StoryMenuState extends MusicBeatState
 						{
 							FlxG.sound.play(Paths.sound('confirmMenu'));
 
-							FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
+							FlxTween.tween(FlxG.camera, {y: FlxG.height * 0.5}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.3});
 
 							grpWeekText.members[curWeek].startFlashing();
 							stopspamming = true;
 						}
 
-						// We can't use Dynamic Array .copy() because that crashes HTML5, here's a workaround.
 						var songArray:Array<String> = [];
 						var leWeek:Array<Dynamic> = WeekData.songsNames[curWeek];
 						for (i in 0...leWeek.length) {
 							songArray.push(leWeek[i]);
 						}
 
-						// I'm a motherfucking genious
 						PlayState.storyPlaylist = songArray;
 						PlayState.isStoryMode = true;
 						selectedWeek = true;

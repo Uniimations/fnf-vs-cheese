@@ -2,33 +2,33 @@
 <TextureAtlas imagePath="arsen_computer.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="arsen computer idle0000" x="0" y="0" width="408" height="553" frameX="0" frameY="0" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0001" x="0" y="0" width="408" height="553" frameX="0" frameY="0" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0002" x="408" y="0" width="407" height="549" frameX="0" frameY="-4" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0003" x="408" y="0" width="407" height="549" frameX="0" frameY="-4" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0004" x="815" y="0" width="417" height="550" frameX="-4" frameY="-3" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0005" x="815" y="0" width="417" height="550" frameX="-4" frameY="-3" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0006" x="1232" y="0" width="423" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0007" x="1232" y="0" width="423" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0008" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0009" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0010" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0011" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0012" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0013" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0014" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0015" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0016" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0017" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0018" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0019" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0020" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0021" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0022" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0023" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0024" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0025" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0026" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0027" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
-	<SubTexture name="arsen computer idle0028" x="0" y="553" width="425" height="547" frameX="-4" frameY="-6" frameWidth="429" frameHeight="553"/>
+	<SubTexture name="arsen computer idle0000" x="0" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0001" x="0" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0002" x="352" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0003" x="352" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0004" x="704" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0005" x="704" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0006" x="1056" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0007" x="1056" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0008" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0009" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0010" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0011" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0012" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0013" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0014" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0015" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0016" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0017" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0018" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0019" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0020" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0021" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0022" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0023" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0024" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0025" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0026" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0027" x="1408" y="0" width="352" height="553"/>
+	<SubTexture name="arsen computer idle0028" x="1408" y="0" width="352" height="553"/>
 </TextureAtlas>

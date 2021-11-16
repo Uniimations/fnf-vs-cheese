@@ -33,7 +33,7 @@ class ClientPrefs {
 	public static var bgDim:Float = 0;
 	public static var fuckyouavi:Bool = false;
 	public static var resetDeath:Bool = true;
-	public static var comboShown:Bool = true;
+	public static var comboShown:Bool = false;
 
 	// EXTRA EFFECTS OPTIONS
 	public static var specialEffects:Bool = true;

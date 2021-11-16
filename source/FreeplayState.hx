@@ -48,14 +48,23 @@ class FreeplayState extends MusicBeatState
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
 
-	private var grpSongs:FlxTypedGroup<Alphabet>;
+	private var grpSongs:FlxTypedGroup<AlphabetVCR>;
 	private var curPlaying:Bool = false;
 
 	private var iconArray:Array<HealthIcon> = [];
 	public static var coolColors:Array<Int> = [];
 
 	private var songArray:Array<String> = [];
-	var bg:FlxSprite;
+
+	var grpRoomBack:FlxTypedGroup<FlxSprite>;
+	var grpArsen:FlxTypedGroup<FlxSprite>;
+
+	var roomBack:FlxSprite;
+	var roomComputer:FlxSprite;
+	var Arsen:FlxSprite;
+	var ArsenHand:FlxSprite;
+
+	var pcLight:FlxSprite;
 	var intendedColor:Int;
 	var exColor:Int = 0xFF502378;
 	var colorTween:FlxTween;
@@ -64,6 +73,7 @@ class FreeplayState extends MusicBeatState
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
+
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplayUnlockedTRACKS')); //tracks that are unlocked on default
 		for (i in 0...initSonglist.length)
 		{
@@ -111,15 +121,73 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		add(bg);
+		var offsetsTxt;
+		var file:String = ('assets/images/freeplay/arsen_computer_offsets.txt'); // txt for arsen offsets
+		if (OpenFlAssets.exists(file))
+		{
+			offsetsTxt = CoolUtil.coolTextFile(file);
 
-		grpSongs = new FlxTypedGroup<Alphabet>();
+			for (i in 0...offsetsTxt.length)
+				{
+					CoolUtil.spriteOffsets.push(Std.parseFloat(offsetsTxt[i]));
+				}
+			//trace('loaded arsen offsets file');
+		}
+		else // crash prevention
+		{
+			CoolUtil.spriteOffsets = [
+				[0],
+				[0],
+				[0],
+				[0],
+				[0],
+				[0],
+			];
+			//trace('failed to load txt file');
+			//trace('arsen offsets set to 0, 0');
+		}
+
+		roomBack = new FlxSprite().loadGraphic(Paths.image('freeplay/FREEPLAY_BG'));
+		roomBack.antialiasing = ClientPrefs.globalAntialiasing;
+
+		pcLight = new FlxSprite().loadGraphic(Paths.image('freeplay/light_gray_scale'));
+		pcLight.antialiasing = ClientPrefs.globalAntialiasing;
+
+		roomComputer = new FlxSprite().loadGraphic(Paths.image('freeplay/FREEPLAY_PC'));
+		roomComputer.antialiasing = ClientPrefs.globalAntialiasing;
+
+		grpArsen = new FlxTypedGroup<FlxSprite>();
+
+		//Arsen = new FlxSprite(CoolUtil.spriteOffsets[1], CoolUtil.spriteOffsets[2]);
+		Arsen = new FlxSprite(632, 202);
+		Arsen.frames = Paths.getSparrowAtlas('freeplay/arsen_computer');
+		Arsen.animation.addByPrefix('idleBop', 'arsen computer idle', 24, false);
+		Arsen.antialiasing = ClientPrefs.globalAntialiasing;
+		grpArsen.add(Arsen);
+
+		//ArsenHand = new FlxSprite(CoolUtil.spriteOffsets[4], CoolUtil.spriteOffsets[5]);
+		ArsenHand = new FlxSprite(562, 594);
+		ArsenHand.frames = Paths.getSparrowAtlas('freeplay/arsen_hand');
+		ArsenHand.animation.addByPrefix('idleBop', 'arsen computer hand', 24, false);
+		ArsenHand.antialiasing = ClientPrefs.globalAntialiasing;
+		grpArsen.add(ArsenHand);
+
+		// ALL LAYERING
+
+		add(roomBack);
+
+		add(grpArsen);
+
+		add(pcLight);
+		add(roomComputer);
+		//add(grpRoomBack);
+
+		grpSongs = new FlxTypedGroup<AlphabetVCR>();
 		add(grpSongs);
 
 		for (i in 0...songs.length)
 		{
-			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
+			var songText:AlphabetVCR = new AlphabetVCR(0, (70 * i) + 30, songs[i].songName, true, false);
 			songText.isMenuItem = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
@@ -144,23 +212,23 @@ class FreeplayState extends MusicBeatState
 
 		add(scoreText);
 
-		bg.color = songs[curSelected].color;
-		intendedColor = bg.color;
+		pcLight.color = songs[curSelected].color;
+		intendedColor = pcLight.color;
 		changeSelection();
 		changeDiff();
 
 		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 26).makeGraphic(FlxG.width, 26, 0xFF000000);
 		textBG.alpha = 0.6;
 		add(textBG);
-		#if PRELOAD_ALL
-		var leText:String = "Press P to listen to this Song / Press RESET to Reset your Score and Accuracy.";
-		#else
+
 		var leText:String = "Press RESET to Reset your Score and Accuracy.";
-		#end
 		var text:FlxText = new FlxText(textBG.x, textBG.y + 4, FlxG.width, leText, 18);
-		text.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, RIGHT);
+		text.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, LEFT);
 		text.scrollFactor.set();
 		add(text);
+
+		Conductor.changeBPM(120);
+
 		super.create();
 	}
 
@@ -177,7 +245,7 @@ class FreeplayState extends MusicBeatState
 	public function addWeek(songs:Array<String>, weekNum:Int, ?songCharacters:Array<String>)
 	{
 		if (songCharacters == null)
-			songCharacters = ['bf'];
+			songCharacters = ['face'];
 
 		var num:Int = 0;
 		for (song in songs)
@@ -190,8 +258,12 @@ class FreeplayState extends MusicBeatState
 	}
 
 	private static var vocals:FlxSound = null;
+
 	override function update(elapsed:Float)
 	{
+		if (FlxG.sound.music != null)
+			Conductor.songPosition = FlxG.sound.music.time;
+
 		if (FlxG.keys.justPressed.F11)
 		{
 			FlxG.fullscreen = !FlxG.fullscreen;
@@ -201,6 +273,9 @@ class FreeplayState extends MusicBeatState
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
+
+		//SET CAMZOOM
+		FlxG.camera.zoom = FlxMath.lerp(1, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 24, 0, 1)));
 		lerpRating = FlxMath.lerp(lerpRating, intendedRating, CoolUtil.boundTo(elapsed * 12, 0, 1));
@@ -275,7 +350,7 @@ class FreeplayState extends MusicBeatState
 											colorTween.cancel();
 										}
 										intendedColor = 0xFF8B3551;
-										colorTween = FlxTween.color(bg, 1, bg.color, 0xFF8B3551, {
+										colorTween = FlxTween.color(pcLight, 1, pcLight.color, 0xFF8B3551, {
 											onComplete: function(twn:FlxTween) {
 												colorTween = null;
 											}
@@ -295,7 +370,7 @@ class FreeplayState extends MusicBeatState
 								colorTween.cancel();
 							}
 							intendedColor = exColor;
-							colorTween = FlxTween.color(bg, 1, bg.color, exColor, {
+							colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
 								onComplete: function(twn:FlxTween) {
 									colorTween = null;
 								}
@@ -310,7 +385,7 @@ class FreeplayState extends MusicBeatState
 								colorTween.cancel();
 							}
 							intendedColor = exColor;
-							colorTween = FlxTween.color(bg, 1, bg.color, exColor, {
+							colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
 								onComplete: function(twn:FlxTween) {
 									colorTween = null;
 								}
@@ -348,7 +423,7 @@ class FreeplayState extends MusicBeatState
 									colorTween.cancel();
 								}
 								intendedColor = exColor;
-								colorTween = FlxTween.color(bg, 1, bg.color, exColor, {
+								colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
 									onComplete: function(twn:FlxTween) {
 										colorTween = null;
 									}
@@ -364,7 +439,7 @@ class FreeplayState extends MusicBeatState
 									colorTween.cancel();
 								}
 								intendedColor = exColor;
-								colorTween = FlxTween.color(bg, 1, bg.color, exColor, {
+								colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
 									onComplete: function(twn:FlxTween) {
 										colorTween = null;
 									}
@@ -390,7 +465,7 @@ class FreeplayState extends MusicBeatState
 											colorTween.cancel();
 										}
 										intendedColor = newColor;
-										colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
+										colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
 											onComplete: function(twn:FlxTween) {
 												colorTween = null;
 											}
@@ -438,6 +513,7 @@ class FreeplayState extends MusicBeatState
 			changeDiff(1);*/
 
 		//completely rewrote the code for this! I'm proud of myself
+
 		//difficulty dependencies
 		if (controls.UI_LEFT_P)
 		{
@@ -459,7 +535,7 @@ class FreeplayState extends MusicBeatState
 												colorTween.cancel();
 											}
 											intendedColor = exColor;
-											colorTween = FlxTween.color(bg, 1, bg.color, exColor, {
+											colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
 												onComplete: function(twn:FlxTween) {
 													colorTween = null;
 												}
@@ -480,7 +556,7 @@ class FreeplayState extends MusicBeatState
 											colorTween.cancel();
 										}
 										intendedColor = newColor;
-										colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
+										colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
 											onComplete: function(twn:FlxTween) {
 												colorTween = null;
 											}
@@ -489,14 +565,14 @@ class FreeplayState extends MusicBeatState
 							}
 						else
 							{
-								FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
+								FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 								changeDiff(-1);
 							}
 					}
 				case 'manager-strike-back'  | 'frosted':
 					FlxG.sound.play(Paths.sound('cancelMenu'), 0.6); //manager strike back doesn't change
 				default:
-					FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 					changeDiff(-1);
 			}
 		}
@@ -521,7 +597,7 @@ class FreeplayState extends MusicBeatState
 												colorTween.cancel();
 											}
 											intendedColor = exColor;
-											colorTween = FlxTween.color(bg, 1, bg.color, exColor, {
+											colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
 												onComplete: function(twn:FlxTween) {
 													colorTween = null;
 												}
@@ -542,7 +618,7 @@ class FreeplayState extends MusicBeatState
 											colorTween.cancel();
 										}
 										intendedColor = newColor;
-										colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
+										colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
 											onComplete: function(twn:FlxTween) {
 												colorTween = null;
 											}
@@ -551,14 +627,14 @@ class FreeplayState extends MusicBeatState
 							}
 						else
 							{
-								FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
+								FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 								changeDiff(1);
 							}
 					}
 				case 'manager-strike-back' | 'frosted':
 					FlxG.sound.play(Paths.sound('cancelMenu'), 0.6); //manager strike back doesn't change
 				default:
-					FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 					changeDiff(1);
 			}
 		}
@@ -572,34 +648,7 @@ class FreeplayState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
-		#if PRELOAD_ALL
-		//pp as in p player not PP!!!
-		if(PP)
-		{
-			destroyFreeplayVocals();
-			var ass:String = Highscore.formatSong(songs[curSelected].songName.toLowerCase(), curDifficulty);
-			PlayState.SONG = Song.loadFromJson(ass, songs[curSelected].songName.toLowerCase());
-			if (PlayState.SONG.needsVoices)
-				if (curDifficulty == 2) {
-					vocals = new FlxSound().loadEmbedded(Paths.voicesex(PlayState.SONG.song));
-				} else {
-					vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song));
-				}
-			else
-				vocals = new FlxSound();
-
-			FlxG.sound.list.add(vocals);
-			if (curDifficulty == 2) {
-				FlxG.sound.playMusic(Paths.instex(PlayState.SONG.song), 0.7);
-			} else {
-				FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song), 0.7);
-			}
-			vocals.play();
-			vocals.persist = true;
-			vocals.looped = true;
-			vocals.volume = 0.7;
-		}
-		else #end if (accepted)
+		if (accepted)
 		{
 			var songLowercase:String = songs[curSelected].songName.toLowerCase();
 			var ass:String = Highscore.formatSong(songLowercase, curDifficulty);
@@ -692,6 +741,7 @@ class FreeplayState extends MusicBeatState
 	function changeSelection(change:Int = 0)
 	{
 		FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
+		ArsenHand.animation.play('idleBop', true);
 
 		curSelected += change;
 
@@ -706,7 +756,7 @@ class FreeplayState extends MusicBeatState
 				colorTween.cancel();
 			}
 			intendedColor = newColor;
-			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
+			colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
 				onComplete: function(twn:FlxTween) {
 					colorTween = null;
 				}
@@ -734,13 +784,11 @@ class FreeplayState extends MusicBeatState
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
+			item.alpha = 0.45;
 
 			if (item.targetY == 0)
 			{
 				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
 			}
 		}
 		changeDiff();
@@ -754,6 +802,21 @@ class FreeplayState extends MusicBeatState
 		diffText.x = Std.int(scoreBG.x + (scoreBG.width / 2));
 		diffText.x -= diffText.width / 2;
 	}
+
+	//BEAT HIT SHIT!
+	override function beatHit()
+    {
+        super.beatHit();
+
+        if (curBeat % 2 == 0)
+			Arsen.animation.play('idleBop', true);
+
+		if (FlxG.camera.zoom < 1.35 && curBeat % 4 == 0) {
+			FlxG.camera.zoom += 0.030;
+		}
+
+        FlxG.log.add('beat');
+    }
 }
 
 class SongMetadata

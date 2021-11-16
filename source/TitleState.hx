@@ -318,6 +318,39 @@ class TitleState extends MusicBeatState
 			canDoShit = false;
 		}
 
+		if (TitleState.isDebug && !transitioning && skippedIntro)
+		{
+			if (FlxG.keys.justPressed.F1)
+			{
+				MusicBeatState.switchState(new MainMenuState());
+			}
+
+			if (FlxG.keys.justPressed.F2)
+			{
+				MusicBeatState.switchState(new StoryMenuState());
+			}
+
+			if (FlxG.keys.justPressed.F3)
+			{
+				MusicBeatState.switchState(new FreeplayState());
+			}
+
+			if (FlxG.keys.justPressed.F4)
+			{
+				MusicBeatState.switchState(new CreditsState());
+			}
+
+			if (FlxG.keys.justPressed.F5)
+			{
+				MusicBeatState.switchState(new OptionsState());
+			}
+
+			if (FlxG.keys.justPressed.F6)
+			{
+				MusicBeatState.switchState(new RatingPopUpMenuState());
+			}
+		}
+
 		if (pressedEnter && !skippedIntro)
 		{
 			skipIntro();

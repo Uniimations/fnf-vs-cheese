@@ -17,6 +17,9 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.app.Application;
+import flash.system.System;
+import flixel.util.FlxTimer;
+import openfl.utils.Assets as OpenFlAssets;
 import Achievements;
 
 using StringTools;
@@ -24,24 +27,27 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.3.2'; //This is also used for Discord RPC
-	public static var cheeseVersion:String = '1.2.0'; //VERSION NUMBER FOR VS CHEESE ONLY CHANGE WHEN NEEDED/UPDATED 
-	//note: first version was 1.1.0 and im making it 2.0 since this is an overhaul of everything
+	public static var cheeseVersion:String = '1.2.0'; //VERSION NUMBER FOR VS CHEESE ONLY CHANGE WHEN NEEDED/UPDATED
 	public static var curSelected:Int = 0;
+	public var defaultCamZoom:Float = 0.9;
+	
+	var CheeseVersionShit:FlxText;
+	var versionShit:FlxText;
+
+	var wallBack:FlxSprite;
+	var wallGlow:FlxSprite;
+	var cheeseScrunkly:FlxSprite;
+	private var grpBACKGROUND:FlxTypedGroup<FlxSprite>;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
+	private var camHUD:FlxCamera;
 	
 	var optionShit:Array<String> = ['story_mode', 'freeplay', #if ACHIEVEMENTS_ALLOWED 'awards', #end 'credits', 'options'];
 
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
-	var targetX:Int;
-	public static var prevCharacter:Int = 99;
-	private var character:Character = null;
-
-	var bounce:Bool = false;
-	var counter:FlxSprite;
 
 	override function create()
 	{
@@ -55,9 +61,12 @@ class MainMenuState extends MusicBeatState
 		camGame = new FlxCamera();
 		camAchievement = new FlxCamera();
 		camAchievement.bgColor.alpha = 0;
+		camHUD = new FlxCamera();
+		camHUD.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camAchievement);
+		FlxG.cameras.add(camHUD);
 		FlxCamera.defaultCameras = [camGame];
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -65,59 +74,64 @@ class MainMenuState extends MusicBeatState
 
 		persistentUpdate = persistentDraw = true;
 
-		var yScroll:Float = Math.max(0.25 - (0.05 * (optionShit.length - 4)), 0.1);
+		defaultCamZoom = 0.80;
 
-		var random = FlxG.random.int(0,2);
-		if (random == prevCharacter) {
-			random++;
-			if (random > 2) 
-				random = 0;
+		var yScroll:Float = Math.max(0.12 - (0.02 * (optionShit.length - 2.5)), 0.1);
+
+		// BACKGROUND VARIABLES
+
+		// OFFSETS
+		/*
+		var offsetsTxt;
+		var file:String = ('assets/images/mainmenu/menuOffsets.txt'); // txt for arsen offsets
+		if (OpenFlAssets.exists(file))
+		{
+			offsetsTxt = CoolUtil.coolTextFile(file);
+
+			for (i in 0...offsetsTxt.length)
+				{
+					CoolUtil.spriteOffsets.push(Std.parseFloat(offsetsTxt[i]));
+				}
+			trace('loaded main menu offset txt');
 		}
-
-		//RANDOM CHARACTER GENERATOR
-		switch (random) {
-			//placeholder for the new menu
-			case 0:
-				character = new Character(-86, 10, 'bluecheese', false);
-			case 1:
-				character = new Character(-86, 10, 'bluecheese', false);
-			case 2:
-				character = new Character(-86, 10, 'bluecheese', false);
+		else // crash prevention
+		{
+			CoolUtil.spriteOffsets = [
+				['Empty String'],
+				[0],
+				[0]
+			];
+			trace('failed to load txt file');
+			trace('all offsets set to 0, 0');
 		}
-		prevCharacter = random;
-		character.debugMode = true;
-		character.scale.set(0.8, 0.8);
-		character.scrollFactor.set(0, yScroll);
+		*/
 
-		var bg:FlxSprite = new FlxSprite(-80).loadGraphic(Paths.image('mainmenu/menu_bg'));
-		bg.scrollFactor.set(0, yScroll);
-		bg.setGraphicSize(Std.int(bg.width * 1.175));
-		bg.updateHitbox();
-		bg.screenCenter();
-		bg.antialiasing = ClientPrefs.globalAntialiasing;
-		add(bg);
+		//WallGroup = new FlxTypedGroup<FlxSprite>();
 
-		var wall:FlxSprite = new FlxSprite(-80, 0);
-		wall.frames = Paths.getSparrowAtlas('mainmenu/wall_menu');
-		wall.scrollFactor.set(0, yScroll);
-		wall.animation.addByPrefix('smoke', "wall menu", 24);
-		wall.setGraphicSize(Std.int(bg.width * 1.175));
-		wall.updateHitbox();
-		wall.screenCenter();
-		wall.antialiasing = ClientPrefs.globalAntialiasing;
-		add(wall);
-		wall.animation.play('smoke');
-		add(character);
+		wallBack = new FlxSprite(0, 0);
+		wallBack.loadGraphic(Paths.image('mainmenu/wall_back'));
+		wallBack.scrollFactor.set(0, yScroll);
+		wallBack.antialiasing = ClientPrefs.globalAntialiasing;
+		add(wallBack);
 
-		counter = new FlxSprite(-80, 0);
-		counter.frames = Paths.getSparrowAtlas('mainmenu/counter_menu');
-		counter.scrollFactor.set(0, yScroll);
-		counter.animation.addByIndices('bouncy', 'counter menu', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "", 24, false);
-		counter.setGraphicSize(Std.int(bg.width * 1.175));
-		counter.updateHitbox();
-		counter.screenCenter();
-		counter.antialiasing = ClientPrefs.globalAntialiasing;
-		add(counter);
+		//cheeseScrunkly = new FlxSprite(CoolUtil.spriteOffsets[1], CoolUtil.spriteOffsets[2]);
+		cheeseScrunkly = new FlxSprite(410, 400);
+		cheeseScrunkly.frames = Paths.getSparrowAtlas('mainmenu/cheese_head');
+		cheeseScrunkly.scrollFactor.set(0, yScroll);
+
+		// ADD CHEESE ANIMS
+		cheeseScrunkly.animation.addByPrefix('intro', 'cheese head intro', 24, false);
+		cheeseScrunkly.animation.addByPrefix('idleLoop', 'cheese head loop idle', true);
+		cheeseScrunkly.animation.addByPrefix('headpat', 'cheese head petting0', 24, false);
+		cheeseScrunkly.animation.addByPrefix('headpatScary', 'cheese head petting jumpscare0', 24, false);
+
+		cheeseScrunkly.antialiasing = ClientPrefs.globalAntialiasing;
+		cheeseScrunkly.updateHitbox();
+		add(cheeseScrunkly);
+
+		wallGlow = new FlxSprite(0, 0);
+		wallGlow.loadGraphic(Paths.image('mainmenu/glow_effect'));
+		wallGlow.antialiasing = ClientPrefs.globalAntialiasing;
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
@@ -127,7 +141,7 @@ class MainMenuState extends MusicBeatState
 		menuItems = new FlxTypedGroup<FlxSprite>();
 		add(menuItems);
 
-		for (i in 0...optionShit.length)
+		for (i in 0...optionShit.length) //woa this is long
 		{
 			var offset:Float = 108 - (Math.max(optionShit.length, 4) - 4) * 80;
 			var menuItem:FlxSprite = new FlxSprite(0, (i * 140)  + offset);
@@ -142,26 +156,72 @@ class MainMenuState extends MusicBeatState
 			if(optionShit.length < 6) scr = 0;
 			menuItem.scrollFactor.set(0, scr);
 			menuItem.antialiasing = ClientPrefs.globalAntialiasing;
-			//menuItem.setGraphicSize(Std.int(menuItem.width * 0.58));
 			menuItem.updateHitbox();
+			menuItem.cameras = [camHUD];
 		}
 
 		FlxG.camera.follow(camFollowPos, null, 1);
+		FlxG.camera.zoom = defaultCamZoom;
+		//MENU ITEM ZOOM
+		camHUD.zoom -= 0.25;
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion + " modified by Uniimations", 12);
+		versionShit = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion + " modified by Uniimations", 12);
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionShit.scrollFactor.set();
 		versionShit.borderSize = 1.25;
+		versionShit.alpha = 0;
 		add(versionShit);
+
 		//VERSION NUMBER
-		//if youre gonna do this actually make a string at the top instead of what i did
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "VS Cheese v" + cheeseVersion, 12);
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionShit.scrollFactor.set();
-		versionShit.borderSize = 1.25;
-		add(versionShit);
+		CheeseVersionShit = new FlxText(12, FlxG.height - 24, 0, "VS Cheese v" + cheeseVersion, 12);
+		CheeseVersionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		CheeseVersionShit.borderSize = 1.25;
+		CheeseVersionShit.alpha = 0;
+		add(CheeseVersionShit);
 
-		// NG.core.calls.event.logEvent('swag').send();
+		versionShit.cameras = [camAchievement];
+		CheeseVersionShit.cameras = [camAchievement];
+
+		menuItems.forEach(function(spr:FlxSprite)
+		{
+			spr.alpha = 0;
+			spr.y -= 180;
+		});
+
+		new FlxTimer().start(0.25, function(tmr: FlxTimer)
+		{
+			defaultCamZoom = 1.12;
+		});
+
+		//plays after loading (i hope)
+		new FlxTimer().start(0.55, function(tmr: FlxTimer)
+		{
+			cheeseScrunkly.animation.play('intro', true);
+
+			menuItems.forEach(function(spr:FlxSprite)
+			{
+				FlxTween.tween(spr, {alpha: 1}, 0.5, {
+					ease: FlxEase.quadOut,
+				});
+			});
+
+			if (versionShit != null && versionShit.alpha != 1)
+			{
+				PlayState.phillyBlackTween = FlxTween.tween(versionShit, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut,
+					onComplete: function(twn:FlxTween) {
+						PlayState.phillyBlackTween = null;
+					}
+				});
+			}
+
+			if (CheeseVersionShit != null && CheeseVersionShit.alpha != 1)
+			{
+				PlayState.phillyBlackTween = FlxTween.tween(CheeseVersionShit, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut,
+					onComplete: function(twn:FlxTween) {
+						PlayState.phillyBlackTween = null;
+					}
+				});
+			}
+		});
 
 		changeItem();
 
@@ -176,6 +236,8 @@ class MainMenuState extends MusicBeatState
 		#end
 
 		super.create();
+
+		FlxG.mouse.visible = true;
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
@@ -205,8 +267,22 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 
+		//SET CAMZOOM
+		FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
+
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 5.6, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
+
+		var jumpscareChance:Int;
+		jumpscareChance = FlxG.random.int(1, 10);
+
+		if (FlxG.mouse.overlaps(cheeseScrunkly) && FlxG.mouse.pressed)
+        {
+            if (jumpscareChance == 1)
+				cheeseScrunkly.animation.play('headpatScary', true);
+			else
+				cheeseScrunkly.animation.play('headpat', true);
+        }
 
 		if (!selectedSomethin)
 		{
@@ -224,20 +300,23 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.BACK)
 			{
+				FlxG.mouse.visible = false;
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new TitleState());
 			}
 
 			if (controls.ACCEPT)
 			{
+				FlxG.mouse.visible = false;
 				selectedSomethin = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'));
-
-				//COOL TWEENS!
-				FlxTween.tween(FlxG.camera, { zoom: 5}, 3, { ease: FlxEase.expoInOut });
+				//FlxTween.tween(FlxG.camera, { zoom: 5}, 3, { ease: FlxEase.expoInOut });
 
 				menuItems.forEach(function(spr:FlxSprite)
 				{
+					//idk lol
+					FlxTween.tween(FlxG.camera, { zoom: 5}, 0.9, { ease: FlxEase.expoIn });
+					FlxTween.tween(wallBack, { angle: 50}, 0.9, { ease: FlxEase.expoIn });
 					if (curSelected != spr.ID)
 					{
 						FlxTween.tween(spr, {alpha: 0}, 0.4, {
@@ -250,8 +329,8 @@ class MainMenuState extends MusicBeatState
 					}
 					else
 					{
-						FlxTween.tween(FlxG.camera, { angle: 40}, 3, { ease: FlxEase.expoInOut });
-						FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker)
+						//FlxTween.tween(FlxG.camera, { angle: 40}, 3, { ease: FlxEase.expoInOut });
+						FlxFlicker.flicker(spr, 0.85, 0.06, false, false, function(flick:FlxFlicker)
 						{
 							var daChoice:String = optionShit[curSelected];
 
@@ -270,16 +349,42 @@ class MainMenuState extends MusicBeatState
 							}
 						});
 					}
+					if (versionShit != null && versionShit.alpha != 0)
+					{
+						PlayState.phillyBlackTween = FlxTween.tween(versionShit, {alpha: 0}, 0.4, {ease: FlxEase.quadInOut,
+							onComplete: function(twn:FlxTween) {
+								PlayState.phillyBlackTween = null;
+							}
+						});
+					}
+					if (CheeseVersionShit != null && CheeseVersionShit.alpha != 0)
+					{
+						PlayState.phillyBlackTween = FlxTween.tween(CheeseVersionShit, {alpha: 0}, 0.4, {ease: FlxEase.quadInOut,
+							onComplete: function(twn:FlxTween) {
+								PlayState.phillyBlackTween = null;
+							}
+						});
+					}
 				});
+			}
+		}
+
+		if (cheeseScrunkly.animation.curAnim != null)
+		{
+			if (cheeseScrunkly.animation.curAnim.name == 'intro' && cheeseScrunkly.animation.curAnim.finished || cheeseScrunkly.animation.curAnim.name == 'headpat' && cheeseScrunkly.animation.curAnim.finished || 
+			cheeseScrunkly.animation.curAnim.name == 'headpatScary' && cheeseScrunkly.animation.curAnim.finished)
+			{
+				cheeseScrunkly.animation.play('idleLoop');
 			}
 		}
 
 		super.update(elapsed);
 
+		// POSITIONING OF MENU ITEMS
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.screenCenter(X);
-			spr.x += 250;
+			//spr.x += 250;
 		});
 	}
 
@@ -307,13 +412,19 @@ class MainMenuState extends MusicBeatState
 				FlxG.log.add(spr.frameWidth);
 			}
 		});
+
+		FlxG.camera.zoom += 0.030;
 	}
 
+	/*
+	* NO BEAT HIT FUNCTION!
 	override function beatHit()
 	{
 		super.beatHit();
 
-		counter.animation.play('bouncy', true);
-		character.animation.play('idle', true);
+		if (FlxG.camera.zoom < 1.35 && curBeat % 4 == 0) {
+			FlxG.camera.zoom += 0.030;
+		}
 	}
+	*/
 }

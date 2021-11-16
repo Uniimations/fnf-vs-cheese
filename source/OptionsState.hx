@@ -459,7 +459,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		//CAMERA EFFECTS CATEGORY FOR EVENT STUFF
 		'CAMERA EFFECTS',
 		'Special Effects',
-		'Camera Movement',
+		'Camera Shake',
 		'Zoom In And Out',
 
 		//MOD SPECIFIC CATEGORY WHERE WE GET FUNKY AND fun ni lol!!!
@@ -720,7 +720,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 					case 'Special Effects':
 						ClientPrefs.specialEffects = !ClientPrefs.specialEffects;
 
-					case 'Camera Movement':
+					case 'Camera Shake':
 						ClientPrefs.cameraShake = !ClientPrefs.cameraShake;
 
 					case 'Zoom In And Out':
@@ -862,7 +862,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 				daText = "If checked, the rating pop up showing your combo\nwill be hidden.";
 			case 'Special Effects':
 				daText = "If unchecked, color changing and mechanic indicator effects\nwill be turned off in songs with camera effects.";
-			case 'Camera Movement':
+			case 'Camera Shake':
 				daText = "If unchecked, won't shake and won't move as much in\nsongs with camera effects.";
 			case 'Zoom In And Out':
 				daText = "If unchecked, camera will not change zoom amount in\nsongs with camera effects.";
@@ -946,7 +946,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.comboShown;
 					case 'Special Effects':
 						daValue = ClientPrefs.specialEffects;
-					case 'Camera Movement':
+					case 'Camera Shake':
 						daValue = ClientPrefs.cameraShake;
 					case 'Zoom In And Out':
 						daValue = ClientPrefs.camZoomOut;

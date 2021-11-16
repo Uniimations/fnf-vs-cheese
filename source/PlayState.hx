@@ -53,7 +53,6 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		//i made the bracket part of the rating so that it displays MFC correctly
 		['cry about it', 0.2], //From 0% to 19%
 		['AWFUL !', 0.4], //From 20% to 39%
 		['AWFUL !', 0.5], //From 40% to 49%
@@ -332,6 +331,14 @@ class PlayState extends MusicBeatState
 		bfnoteMovementYoffset = 0;
 
 		// TIMING WINDOWS!!!
+
+		// im pretty sure it works like this:
+		// the number is how close it is to the strumline
+		// and the number and everything below that is what
+		// counts as the timing.
+
+		// this means that 16ms+ is perfect according to this hypothesis.
+		// (this might all be wrong because i dont fuckig understand lmao)
 
 		var timingTxt;
 		var file:String = (Paths.txt('timingWindows')); // txt for timing windows
@@ -751,6 +758,17 @@ class PlayState extends MusicBeatState
 			gf.visible = false;
 		}
 
+		//trail issue
+		if (dad.curCharacter == 'avinera-frosted') {
+			var freezeTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.69);
+			add(freezeTrail);
+			freezeTrail.alpha = 0;
+			if (freezePogging)
+				freezeTrail.alpha = 1;
+			else
+				freezeTrail.alpha = 0;
+		}
+
 		//REALLY SHITTY LAYERING STUFF
 		//AND CASES BECAUSE IM DUMB
 		//foreground and background groups whats that???!?!?!
@@ -1134,7 +1152,7 @@ class PlayState extends MusicBeatState
 				case 'restaurante' | 'milkshake' | 'cultured':
 					assEat(doof); // dialogue box
 				case 'wifi':
-					addwebmIntro('wifi'); // webm cutscene if mac
+					addwebmIntro('wifi/wifi'); // webm cutscene if mac
 				default:
 					startCountdown(); // normal countdown
 			}
@@ -1426,7 +1444,7 @@ class PlayState extends MusicBeatState
 			#if !windows
 			cutsceneShit = true;
 			if (cutsceneShit) {
-				var file:String = Paths.json('assets/videos/webm' + songPath + '/' + songPath + '.webm');
+				var file:String = Paths.json('assets/videos/webm/' + '.webm');
 				#if sys
 				if (sys.FileSystem.exists(file))
 				#else
@@ -2229,13 +2247,13 @@ class PlayState extends MusicBeatState
 				}
 			case 'frosted':
 				if(ratingString == '?') {
-					scoreTxt.text = "Score: " + songScore + " | Accuracy: 0" + "% | (" + rankString + ") | Deaths: " + deathCounter;
+					scoreTxt.text = "Score: " + songScore + " | Accuracy: 0" + "% | (N/A) | Deaths: " + deathCounter;
 				} else {
 					scoreTxt.text = "Score: " + songScore + " | Accuracy: " + Math.floor(ratingPercent * 100) + "% | (" + rankString + ") | Deaths: " + deathCounter;
 				}
 			default:
 				if(ratingString == '?') {
-					scoreTxt.text = "Score: " + songScore + " | Accuracy: 0" + "% | U rappin': " + ratingString + " | (" + rankString + ")";
+					scoreTxt.text = "Score: " + songScore + " | Accuracy: 0" + "% | U rappin': " + ratingString + " | (N/A)";
 				} else {
 					scoreTxt.text = "Score: " + songScore + " | Accuracy: " + Math.floor(ratingPercent * 100) + "% | U rappin': " + ratingString + " | (" + rankString + ")";
 				}
@@ -2592,16 +2610,17 @@ class PlayState extends MusicBeatState
 								}
 						}
 						if (isLittleMan)
+						{
 							littleMan.playAnim(animToPlay + altAnim, true);
-						else if (isGF)
+						}
+						if (isGF)
 							gf.playAnim(animToPlay + altAnim, true);
 						else if (isDad)
 							dad.playAnim(animToPlay + altAnim, true);
 						else
 							dad.playAnim(animToPlay + altAnim, true);
+							dad.holdTimer = 0;
 					}
-
-					dad.holdTimer = 0;
 
 					if (SONG.needsVoices)
 						vocals.volume = 1;
@@ -2985,6 +3004,7 @@ class PlayState extends MusicBeatState
 								{
 									case 0:
 										doFlash();
+										freezePogging = true;
 										snow.visible = true;
 		
 										freezeFadeTween(scoreTxt, 0, poggerLength);
@@ -2997,6 +3017,7 @@ class PlayState extends MusicBeatState
 											freezeFadeTween(freezeFade, 1, poggerLength);
 									case 1:
 										doFlash();
+										freezePogging = false;
 										snow.visible = false;
 		
 										freezeFadeTween(scoreTxt, 1, poggerLength);
@@ -3013,6 +3034,8 @@ class PlayState extends MusicBeatState
 												freezeFadeTween(redFade, 1, 2);
 										}
 									case 2:
+										if (freezePogging == true)
+											freezePogging = false;
 										freezeFadeTween(scoreTxt, 0, poggerLength);
 										freezeFadeTween(healthBar, 0, poggerLength);
 										freezeFadeTween(healthBarBG, 0, poggerLength);
@@ -3022,6 +3045,8 @@ class PlayState extends MusicBeatState
 										if (redFade.alpha != 1)
 											freezeFadeTween(freezeFade, 1, poggerLength);
 									case 3:
+										if (freezePogging == true)
+											freezePogging = false;
 										freezeFadeTween(scoreTxt, 1, poggerLength);
 										freezeFadeTween(healthBar, 1, poggerLength);
 										freezeFadeTween(healthBarBG, 1, poggerLength);
