@@ -196,6 +196,9 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.usedPractice = false;
 					PlayState.changedDifficulty = false;
 					PlayState.cpuControlled = false;
+
+					MainMenuState.cursed = false; // makes you not cursed
+
 					canDoStuff = true;
 				/*case 'BACK':
 					menuItems = menuItemsOG;

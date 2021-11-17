@@ -449,6 +449,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'APPEARANCE',
 		#if !mobile
 		'FPS Counter',
+		'Memory Counter',
 		#end
 		'Note Splashes',
 		'Hide HUD',
@@ -627,6 +628,11 @@ class PreferencesSubstate extends MusicBeatSubstate
 						ClientPrefs.showFPS = !ClientPrefs.showFPS;
 						if(Main.fpsVar != null)
 							Main.fpsVar.visible = ClientPrefs.showFPS;
+
+					case 'Memory Counter':
+						ClientPrefs.showMemory = !ClientPrefs.showMemory;
+						if (Main.memoryCounterVar != null)
+							Main.memoryCounterVar.visible = ClientPrefs.showMemory;
 
 					case 'High Quality':
 						ClientPrefs.globalAntialiasing = !ClientPrefs.globalAntialiasing;
@@ -818,6 +824,8 @@ class PreferencesSubstate extends MusicBeatSubstate
 				daText = "Changes how late a note is spawned.\nUseful for preventing audio lag and input latency.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
+			case 'Memory Counter':
+				daText = "If unchecked, hides the text showing memory usage.";
 			case 'Constant Data Cached':
 				daText = "TURN THIS ON IF YOU HAVE ANY LOADING PROBLEMS!\nIf checked, images loaded will stay in memory\nuntil the game is closed, makes loading times faster.";
 			case 'High Quality':
@@ -910,6 +918,8 @@ class PreferencesSubstate extends MusicBeatSubstate
 				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
+					case 'Memory Counter':
+						daValue = ClientPrefs.showMemory;
 					case 'High Quality':
 						daValue = ClientPrefs.globalAntialiasing;
 					case 'Note Splashes':

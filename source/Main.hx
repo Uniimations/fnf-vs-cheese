@@ -1,5 +1,8 @@
 package;
 
+import flixel.util.FlxColor;
+import haxe.display.FsPath;
+import openfl.display.Bitmap;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxState;
@@ -9,6 +12,7 @@ import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 
+
 class Main extends Sprite
 {
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
@@ -17,10 +21,14 @@ class Main extends Sprite
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
-	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
+	var startFullscreen:Bool = true; // Whether to start the game in fullscreen on desktop targets
 	public static var fpsVar:FPS;
+	public static var memoryCounterVar:MemoryCounter;
+	public static var watermarkCheese:Sprite;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
+
+	// stfu suck my nuts im gonna kill everything!!! -unii
 
 	public static function main():Void
 	{
@@ -92,11 +100,26 @@ class Main extends Sprite
 		GlobalVideo.setWebm(webmHandle);
 		#end
 
+		var bitmapData = Assets.getBitmapData("assets/images/watermark.png");
+
+		watermarkCheese = new Sprite();
+        watermarkCheese.addChild(new Bitmap(bitmapData)); //Sets the graphic of the sprite to a Bitmap object, which uses our embedded BitmapData class.
+		watermarkCheese.alpha = 0.2;
+        watermarkCheese.x = gameWidth - 10 - watermarkCheese.width;
+        watermarkCheese.y = gameHeight - 10 - watermarkCheese.height;
+        addChild(watermarkCheese);
+
 		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
+		}
+
+		memoryCounterVar = new MemoryCounter(10, 3, 0xffffff);
+		addChild(memoryCounterVar);
+		if(memoryCounterVar != null) {
+			memoryCounterVar.visible = ClientPrefs.showMemory;
 		}
 		#end
 

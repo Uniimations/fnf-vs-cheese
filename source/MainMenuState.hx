@@ -27,10 +27,14 @@ using StringTools;
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '0.3.2'; //This is also used for Discord RPC
-	public static var cheeseVersion:String = '1.2.0'; //VERSION NUMBER FOR VS CHEESE ONLY CHANGE WHEN NEEDED/UPDATED
+	public static var cheeseVersion:String = '2.0.0'; //VERSION NUMBER FOR VS CHEESE ONLY CHANGE WHEN NEEDED/UPDATED
 	public static var curSelected:Int = 0;
 	public var defaultCamZoom:Float = 0.9;
-	
+
+	public static var cursed:Bool = false;
+	private var jumpscareChance:Int;
+	private var cheesePats:Int;
+
 	var CheeseVersionShit:FlxText;
 	var versionShit:FlxText;
 
@@ -43,7 +47,7 @@ class MainMenuState extends MusicBeatState
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
 	private var camHUD:FlxCamera;
-	
+
 	var optionShit:Array<String> = ['story_mode', 'freeplay', #if ACHIEVEMENTS_ALLOWED 'awards', #end 'credits', 'options'];
 
 	var camFollow:FlxObject;
@@ -77,6 +81,8 @@ class MainMenuState extends MusicBeatState
 		defaultCamZoom = 0.80;
 
 		var yScroll:Float = Math.max(0.12 - (0.02 * (optionShit.length - 2.5)), 0.1);
+
+		cheesePats = 0;
 
 		// BACKGROUND VARIABLES
 
@@ -112,10 +118,11 @@ class MainMenuState extends MusicBeatState
 		wallBack.loadGraphic(Paths.image('mainmenu/wall_back'));
 		wallBack.scrollFactor.set(0, yScroll);
 		wallBack.antialiasing = ClientPrefs.globalAntialiasing;
-		add(wallBack);
+		if (!MainMenuState.cursed)
+			add(wallBack);
 
 		//cheeseScrunkly = new FlxSprite(CoolUtil.spriteOffsets[1], CoolUtil.spriteOffsets[2]);
-		cheeseScrunkly = new FlxSprite(410, 400);
+		cheeseScrunkly = new FlxSprite(402, 392); //adjusted offsets a TAAAAD bit
 		cheeseScrunkly.frames = Paths.getSparrowAtlas('mainmenu/cheese_head');
 		cheeseScrunkly.scrollFactor.set(0, yScroll);
 
@@ -123,7 +130,7 @@ class MainMenuState extends MusicBeatState
 		cheeseScrunkly.animation.addByPrefix('intro', 'cheese head intro', 24, false);
 		cheeseScrunkly.animation.addByPrefix('idleLoop', 'cheese head loop idle', true);
 		cheeseScrunkly.animation.addByPrefix('headpat', 'cheese head petting0', 24, false);
-		cheeseScrunkly.animation.addByPrefix('headpatScary', 'cheese head petting jumpscare0', 24, false);
+		cheeseScrunkly.animation.addByPrefix('headpatScary', 'JUMPSCARE', 24, true);
 
 		cheeseScrunkly.antialiasing = ClientPrefs.globalAntialiasing;
 		cheeseScrunkly.updateHitbox();
@@ -172,7 +179,7 @@ class MainMenuState extends MusicBeatState
 		add(versionShit);
 
 		//VERSION NUMBER
-		CheeseVersionShit = new FlxText(12, FlxG.height - 24, 0, "VS Cheese v" + cheeseVersion, 12);
+		CheeseVersionShit = new FlxText(12, FlxG.height - 24, 0, "VS Cheese v" + cheeseVersion /*#if debug + " Headpats: " + cheesePats #end*/, 12);
 		CheeseVersionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		CheeseVersionShit.borderSize = 1.25;
 		CheeseVersionShit.alpha = 0;
@@ -195,7 +202,10 @@ class MainMenuState extends MusicBeatState
 		//plays after loading (i hope)
 		new FlxTimer().start(0.55, function(tmr: FlxTimer)
 		{
-			cheeseScrunkly.animation.play('intro', true);
+			if (MainMenuState.cursed)
+				cheeseScrunkly.animation.play('headpatScary', true);
+			else
+				cheeseScrunkly.animation.play('intro', true);
 
 			menuItems.forEach(function(spr:FlxSprite)
 			{
@@ -267,23 +277,73 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 
-		//SET CAMZOOM
+		//SET CAM ZOOM
 		FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
 
+		//SET CAM POSITION
 		var lerpVal:Float = CoolUtil.boundTo(elapsed * 5.6, 0, 1);
 		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
-		var jumpscareChance:Int;
-		jumpscareChance = FlxG.random.int(1, 10);
+		//CHEESE HEAD PAT STUFF
 
-		if (FlxG.mouse.overlaps(cheeseScrunkly) && FlxG.mouse.pressed)
+		if (!MainMenuState.cursed && FlxG.mouse.overlaps(cheeseScrunkly) && FlxG.mouse.pressed)
         {
-            if (jumpscareChance == 1)
-				cheeseScrunkly.animation.play('headpatScary', true);
+            if (FlxG.random.bool(1))
+			{
+				trace('1% chance easter egg');
+				trace('you are now cursed.');
+				MainMenuState.cursed = true;
+				if (MainMenuState.cursed) {
+					cheeseScrunkly.animation.play('headpatScary', true);
+					FlxG.sound.music.fadeOut(1.5, 0);
+
+					new FlxTimer().start(0.30, function(tmr: FlxTimer)
+					{
+						// STUFF
+						defaultCamZoom = 0.80;
+						FlxG.sound.playMusic(Paths.music('freakyMenuDisturbing'), 0);
+						FlxG.sound.music.fadeIn(6, 0, 0.8);
+
+						// TWEENS
+						FlxTween.tween(wallBack, {alpha: 0}, 2, {
+							ease: FlxEase.quadOut,
+							onComplete: function(twn:FlxTween)
+							{
+								wallBack.kill();
+							}
+						});
+					});
+				}
+			}
 			else
-				cheeseScrunkly.animation.play('headpat', true);
+			{
+				//trace('easter egg passed!');
+				//trace('you\'re temporarily safe!');
+				if (!MainMenuState.cursed)
+					cheeseScrunkly.animation.play('headpat', true);
+			}
+
+			var daChoice:String = optionShit[curSelected];
+
+			switch (daChoice)
+			{
+				case 'story_mode':
+					changeItem(-1);
+				case 'freeplay':
+					changeItem(2);
+				case 'credits':
+					changeItem(1);
+				default:
+					//FlxG.sound.play(Paths.sound('fnafNoseHonk'));
+			}
+
+			//cheesePats++;
         }
 
+		if (!MainMenuState.cursed && FlxG.mouse.overlaps(cheeseScrunkly) && FlxG.mouse.justReleased)
+			FlxG.sound.play(Paths.sound('fnafNoseHonk')); //plays honk if youre not cursed :)
+
+		//MENU SELECTING INTERACTION
 		if (!selectedSomethin)
 		{
 			if (controls.UI_UP_P)
@@ -330,7 +390,7 @@ class MainMenuState extends MusicBeatState
 					else
 					{
 						//FlxTween.tween(FlxG.camera, { angle: 40}, 3, { ease: FlxEase.expoInOut });
-						FlxFlicker.flicker(spr, 0.85, 0.06, false, false, function(flick:FlxFlicker)
+						FlxFlicker.flicker(spr, 0.76, 0.06, false, false, function(flick:FlxFlicker)
 						{
 							var daChoice:String = optionShit[curSelected];
 
@@ -371,8 +431,7 @@ class MainMenuState extends MusicBeatState
 
 		if (cheeseScrunkly.animation.curAnim != null)
 		{
-			if (cheeseScrunkly.animation.curAnim.name == 'intro' && cheeseScrunkly.animation.curAnim.finished || cheeseScrunkly.animation.curAnim.name == 'headpat' && cheeseScrunkly.animation.curAnim.finished || 
-			cheeseScrunkly.animation.curAnim.name == 'headpatScary' && cheeseScrunkly.animation.curAnim.finished)
+			if (cheeseScrunkly.animation.curAnim.name == 'intro' && cheeseScrunkly.animation.curAnim.finished || cheeseScrunkly.animation.curAnim.name == 'headpat' && cheeseScrunkly.animation.curAnim.finished)
 			{
 				cheeseScrunkly.animation.play('idleLoop');
 			}

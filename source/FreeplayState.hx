@@ -121,6 +121,7 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
+		/*
 		var offsetsTxt;
 		var file:String = ('assets/images/freeplay/arsen_computer_offsets.txt'); // txt for arsen offsets
 		if (OpenFlAssets.exists(file))
@@ -131,7 +132,7 @@ class FreeplayState extends MusicBeatState
 				{
 					CoolUtil.spriteOffsets.push(Std.parseFloat(offsetsTxt[i]));
 				}
-			//trace('loaded arsen offsets file');
+			trace('loaded arsen offsets file');
 		}
 		else // crash prevention
 		{
@@ -143,9 +144,10 @@ class FreeplayState extends MusicBeatState
 				[0],
 				[0],
 			];
-			//trace('failed to load txt file');
-			//trace('arsen offsets set to 0, 0');
+			trace('failed to load txt file');
+			trace('arsen offsets set to 0, 0');
 		}
+		*/
 
 		roomBack = new FlxSprite().loadGraphic(Paths.image('freeplay/FREEPLAY_BG'));
 		roomBack.antialiasing = ClientPrefs.globalAntialiasing;
@@ -153,16 +155,27 @@ class FreeplayState extends MusicBeatState
 		pcLight = new FlxSprite().loadGraphic(Paths.image('freeplay/light_gray_scale'));
 		pcLight.antialiasing = ClientPrefs.globalAntialiasing;
 
-		roomComputer = new FlxSprite().loadGraphic(Paths.image('freeplay/FREEPLAY_PC'));
+		if (MainMenuState.cursed)
+			roomComputer = new FlxSprite().loadGraphic(Paths.image('freeplay/FREEPLAY_PC_EASTER_EGG'));
+		else
+			roomComputer = new FlxSprite().loadGraphic(Paths.image('freeplay/FREEPLAY_PC'));
 		roomComputer.antialiasing = ClientPrefs.globalAntialiasing;
 
 		grpArsen = new FlxTypedGroup<FlxSprite>();
 
 		//Arsen = new FlxSprite(CoolUtil.spriteOffsets[1], CoolUtil.spriteOffsets[2]);
-		Arsen = new FlxSprite(632, 202);
-		Arsen.frames = Paths.getSparrowAtlas('freeplay/arsen_computer');
-		Arsen.animation.addByPrefix('idleBop', 'arsen computer idle', 24, false);
-		Arsen.antialiasing = ClientPrefs.globalAntialiasing;
+		if (MainMenuState.cursed) {
+			Arsen = new FlxSprite(630, 198);
+			Arsen.frames = Paths.getSparrowAtlas('freeplay/arsen_computer_easter_egg');
+			Arsen.animation.addByPrefix('eyes', 'arsen computer bob', 24, true);
+			Arsen.antialiasing = ClientPrefs.globalAntialiasing;
+			Arsen.animation.play('eyes', true);
+		} else {
+			Arsen = new FlxSprite(632, 202);
+			Arsen.frames = Paths.getSparrowAtlas('freeplay/arsen_computer');
+			Arsen.animation.addByPrefix('idleBop', 'arsen computer idle', 24, false);
+			Arsen.antialiasing = ClientPrefs.globalAntialiasing;
+		}
 		grpArsen.add(Arsen);
 
 		//ArsenHand = new FlxSprite(CoolUtil.spriteOffsets[4], CoolUtil.spriteOffsets[5]);
@@ -808,11 +821,14 @@ class FreeplayState extends MusicBeatState
     {
         super.beatHit();
 
-        if (curBeat % 2 == 0)
-			Arsen.animation.play('idleBop', true);
+		//sorry for this lol
+        if (!MainMenuState.cursed) {
+			if (curBeat % 2 == 0)
+				Arsen.animation.play('idleBop', true);
 
-		if (FlxG.camera.zoom < 1.35 && curBeat % 4 == 0) {
-			FlxG.camera.zoom += 0.030;
+			if (FlxG.camera.zoom < 1.35 && curBeat % 4 == 0) {
+				FlxG.camera.zoom += 0.030;
+			}
 		}
 
         FlxG.log.add('beat');

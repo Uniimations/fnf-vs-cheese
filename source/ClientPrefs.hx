@@ -35,6 +35,8 @@ class ClientPrefs {
 	public static var resetDeath:Bool = true;
 	public static var comboShown:Bool = false;
 
+	public static var showMemory:Bool = true;
+
 	// EXTRA EFFECTS OPTIONS
 	public static var specialEffects:Bool = true;
 	public static var cameraShake:Bool = true;
@@ -103,6 +105,8 @@ class ClientPrefs {
 		FlxG.save.data.fuckyouavi = fuckyouavi;
 		FlxG.save.data.resetDeath = resetDeath;
 		FlxG.save.data.comboShown = comboShown;
+
+		FlxG.save.data.showMemory = showMemory;
 
 		FlxG.save.data.specialEffects = specialEffects;
 		FlxG.save.data.cameraShake = cameraShake;
@@ -189,6 +193,8 @@ class ClientPrefs {
 			hideTime = FlxG.save.data.hideTime;
 		}
 
+
+
 		if(FlxG.save.data.shit != null) {
 			shit = FlxG.save.data.shit;
 		}
@@ -213,6 +219,15 @@ class ClientPrefs {
 		if(FlxG.save.data.comboShown != null) {
 			comboShown = FlxG.save.data.comboShown;
 		}
+
+		if(FlxG.save.data.showMemory != null) {
+			showMemory = FlxG.save.data.showMemory;
+			if(Main.memoryCounterVar != null) {
+				Main.memoryCounterVar.visible = showMemory;
+			}
+		}
+
+
 
 		if(FlxG.save.data.specialEffects != null) {
 			specialEffects = FlxG.save.data.specialEffects;

@@ -17,7 +17,8 @@ class WeekData {
 		['Bob-And-Bosip'],
 		['Manager-Strike-Back']
 		#if PLAYTEST_BUILD
-		,['UNLOCK', 'ALL', 'SONGS']
+		,['UNLOCK', 'ALL', 'SONGS'],
+		['LOCK', 'ALL', 'SONGS']
 		#end
 	];
 	#end
@@ -38,7 +39,8 @@ class WeekData {
 		null,	//Bob and Bosip
 		null	//Manager Strike Back
 		#if PLAYTEST_BUILD
-		,null
+		,null,
+		null
 		#end
 	];
 
@@ -49,7 +51,8 @@ class WeekData {
 		null,	//Bob and Bosip
 		null	//Manager Strike Back
 		#if PLAYTEST_BUILD
-		,null
+		,null,
+		null
 		#end
 	];
 
@@ -64,7 +67,8 @@ class WeekData {
 		"Bob and Bosip",
 		"Bonus Week"
 		#if PLAYTEST_BUILD
-		,"I EDITED THE CODE FOR THIS MUAHAUHAHAHHAHA BROKEN DISCORD RPC!!111!!1! DISCORD RPC!!!11!1!" //ur not supposed to be able to play this loloololl
+		,"I EDITED THE CODE FOR THIS MUAHAUHAHAHHAHA BROKEN DISCORD RPC!!111!!1! DISCORD RPC!!!11!1!", //ur not supposed to be able to play this loloololl
+		"I EDITED THE CODE FOR THIS MUAHAUHAHAHHAHA BROKEN DISCORD RPC!!111!!1! DISCORD RPC!!!11!1!"   //ur not supposed to be able to play this loloololl
 		#end
 	];
 

@@ -104,7 +104,7 @@ class PlayState extends MusicBeatState
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
 
-	public var isDad:Bool = false;
+	public var isDad:Bool = true;
 	public var isLittleMan:Bool = false;
 	public var isGF:Bool = false;
 
@@ -152,6 +152,7 @@ class PlayState extends MusicBeatState
 
 	var botplaySine:Float = 0;
 	var botplayTxt:FlxText;
+	var frostedMisses:FlxText;
 
 	public var iconP1:HealthIcon;
 	public var iconP2:HealthIcon;
@@ -759,7 +760,16 @@ class PlayState extends MusicBeatState
 		}
 
 		//trail issue
+		//couldnt figure this one out can someone help me :(
+		/*
+		switch(curStage)
+		{
+			case 'frostedStage':
+				var freezeTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.069);
+				add(freezeTrail);
+		}
 		if (dad.curCharacter == 'avinera-frosted') {
+			
 			var freezeTrail = new FlxTrail(dad, null, 4, 24, 0.3, 0.69);
 			add(freezeTrail);
 			freezeTrail.alpha = 0;
@@ -768,6 +778,7 @@ class PlayState extends MusicBeatState
 			else
 				freezeTrail.alpha = 0;
 		}
+		*/
 
 		//REALLY SHITTY LAYERING STUFF
 		//AND CASES BECAUSE IM DUMB
@@ -1074,6 +1085,9 @@ class PlayState extends MusicBeatState
 		missesTxt.scrollFactor.set();
 		missesTxt.borderSize = 1.25;
 		missesTxt.visible = !ClientPrefs.hideHud;
+		if (curSong.toLowerCase() == 'frosted') {
+			missesTxt.alpha = 0;
+		}
 
 		add(infoTxt);
 		add(shitsTxt);
@@ -1091,6 +1105,19 @@ class PlayState extends MusicBeatState
 		add(botplayTxt);
 		if(ClientPrefs.downScroll) {
 			botplayTxt.y = timeBarBG.y - 78;
+		}
+
+		frostedMisses = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "MISSES: " + songMisses + "/10\nDEATHS: " + deathCounter, 32);
+		frostedMisses.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		frostedMisses.scrollFactor.set();
+		frostedMisses.borderSize = 1.25;
+		if (curSong.toLowerCase() == 'frosted')
+			add(frostedMisses);
+		if(ClientPrefs.downScroll) {
+			frostedMisses.y = timeBarBG.y - 78;
+		}
+		if (ClientPrefs.middleScroll) {
+			frostedMisses.x += 150;
 		}
 
 		blackscreenhud.cameras = [camHUD];
@@ -1116,6 +1143,9 @@ class PlayState extends MusicBeatState
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
 		botplayTxt.cameras = [camHUD];
+		if (curSong.toLowerCase() == 'frosted') {
+			frostedMisses.cameras = [camHUD];
+		}
 		timeBar.cameras = [camHUD];
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
@@ -2245,12 +2275,14 @@ class PlayState extends MusicBeatState
 				} else {
 					scoreTxt.text = "BF   LVL 19   Score: " + songScore + "   Accuracy: " + Math.floor(ratingPercent * 100) + "%   Deaths: " + deathCounter;
 				}
+			/*
 			case 'frosted':
 				if(ratingString == '?') {
 					scoreTxt.text = "Score: " + songScore + " | Accuracy: 0" + "% | (N/A) | Deaths: " + deathCounter;
 				} else {
 					scoreTxt.text = "Score: " + songScore + " | Accuracy: " + Math.floor(ratingPercent * 100) + "% | (" + rankString + ") | Deaths: " + deathCounter;
 				}
+			*/
 			default:
 				if(ratingString == '?') {
 					scoreTxt.text = "Score: " + songScore + " | Accuracy: 0" + "% | U rappin': " + ratingString + " | (N/A)";
@@ -2265,6 +2297,12 @@ class PlayState extends MusicBeatState
 		}
 		botplayTxt.visible = cpuControlled;
 
+		if (curSong.toLowerCase() == 'frosted') {
+			botplaySine += 180 * elapsed;
+			frostedMisses.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
+		}
+
+		// YOU CAN NOW PAUSE WITH THE PAUSE KEYBIND!!! (idk why this wasnt added sooner)
 		if (controls.PAUSE && startedCountdown && canPause)
 		{
 			var ret:Dynamic = callOnLuas('onPause', []);
@@ -2612,12 +2650,14 @@ class PlayState extends MusicBeatState
 						if (isLittleMan)
 						{
 							littleMan.playAnim(animToPlay + altAnim, true);
+							littleMan.holdTimer = 0;
 						}
 						if (isGF)
+						{
 							gf.playAnim(animToPlay + altAnim, true);
-						else if (isDad)
-							dad.playAnim(animToPlay + altAnim, true);
-						else
+							gf.holdTimer = 0;
+						}
+						if (isDad)
 							dad.playAnim(animToPlay + altAnim, true);
 							dad.holdTimer = 0;
 					}
@@ -2827,7 +2867,7 @@ class PlayState extends MusicBeatState
 		{
 			if (FlxG.keys.justPressed.EIGHT || FlxG.keys.justPressed.SEVEN && !endingSong)
 			{
-				loadSong(true, 'Anti-Cheat');
+				loadSong(true, 'Cultured');
 			}
 		}
 
@@ -3496,6 +3536,8 @@ class PlayState extends MusicBeatState
 			usedPractice = false;
 			changedDifficulty = false;
 			cpuControlled = false;
+
+			MainMenuState.cursed = false; // makes you not cursed
 		}
 	}
 
@@ -4536,6 +4578,7 @@ class PlayState extends MusicBeatState
 		if(spr != null) {
 			spr.playAnim('confirm', true);
 			spr.resetAnim = time;
+			/*
 			if (curDiff == 'EX') //HEALTH DRAIN FOR EX
 				{
 					switch (sng)
@@ -4556,6 +4599,7 @@ class PlayState extends MusicBeatState
 							}
 					}
 				}
+			*/
 		}
 	}
 
@@ -4615,6 +4659,10 @@ class PlayState extends MusicBeatState
 		sicksTxt.text = 'Sick: ' + sicks;
 		perfectsTxt.text = 'Perfect: ' + perfects;
 		missesTxt.text = 'Misses: ' + songMisses;
+
+		if (curSong.toLowerCase() == 'frosted') {
+			frostedMisses.text = "MISSES: " + songMisses + "/10\nDEATHS: " + deathCounter;
+		}
 	}
 
 	public function loadSong(?customSong:Bool, ?customPath:String):Void
@@ -4634,7 +4682,7 @@ class PlayState extends MusicBeatState
 		prevCamFollowPos = camFollowPos;
 
 		if (customSong)
-			PlayState.SONG = Song.loadFromJson(customPath);
+			PlayState.SONG = Song.loadFromJson(customPath.toLowerCase() + '-hard', customPath.toLowerCase());
 		else
 			PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + difficulty, PlayState.storyPlaylist[0]);
 
@@ -4701,6 +4749,8 @@ class PlayState extends MusicBeatState
 		usedPractice = false;
 		changedDifficulty = false;
 		cpuControlled = false;
+
+		MainMenuState.cursed = false; // makes you not cursed
 	}
 
 	#if ACHIEVEMENTS_ALLOWED

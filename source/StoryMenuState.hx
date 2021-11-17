@@ -70,7 +70,7 @@ class StoryMenuState extends MusicBeatState
 		false, 	//Manager Strike Back
 
 		true, 	//debug
-		true, 	//debug
+		true 	//debug
 	];
 
 	var weekDebugItems:Array<Bool> = [
@@ -81,7 +81,7 @@ class StoryMenuState extends MusicBeatState
 		true, 	//Manager Strike Back
 
 		true, 	//debug
-		true, 	//debug
+		true 	//debug
 	];
 
 	var weekTutorialItems:Array<Bool> = [
@@ -92,7 +92,7 @@ class StoryMenuState extends MusicBeatState
 		false, 	//Manager Strike Back
 
 		true, 	//debug
-		true, 	//debug
+		true 	//debug
 	];
 
 	var weekCulturedItems:Array<Bool> = [
@@ -103,7 +103,7 @@ class StoryMenuState extends MusicBeatState
 		false, 	//Manager Strike Back
 
 		true, 	//debug
-		true, 	//debug
+		true 	//debug
 	];
 
 	var weekBonusItems:Array<Bool> = [
@@ -114,7 +114,7 @@ class StoryMenuState extends MusicBeatState
 		true, 	//Manager Strike Back
 
 		true, 	//debug
-		true, 	//debug
+		true 	//debug
 	];
 
 	var scoreText:FlxText;
