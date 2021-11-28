@@ -96,6 +96,7 @@ class PlayState extends MusicBeatState
 	public static var storyPlaylist:Array<String> = [];
 	public static var storyDifficulty:Int = 1;
 	public static var cutsceneShit:Bool = false;
+	public static var skippedDialogue:Bool = false;
 
 	public var vocals:FlxSound;
 
@@ -146,7 +147,6 @@ class PlayState extends MusicBeatState
 	private var startingSong:Bool = false;
 	private var updateTime:Bool = false;
 	public static var practiceMode:Bool = false;
-	public static var usedPractice:Bool = false;
 	public static var changedDifficulty:Bool = false;
 	public static var cpuControlled:Bool = false;
 
@@ -341,6 +341,7 @@ class PlayState extends MusicBeatState
 		// this means that 16ms+ is perfect according to this hypothesis.
 		// (this might all be wrong because i dont fuckig understand lmao)
 
+		/*
 		var timingTxt;
 		var file:String = (Paths.txt('timingWindows')); // txt for timing windows
 		if (OpenFlAssets.exists(file))
@@ -364,6 +365,9 @@ class PlayState extends MusicBeatState
 			trace('failed to load txt file');
 			trace('timing windows set to default');
 		}
+		*/
+
+		// STFU PAST ME!! L + RATIO
 
 		#if desktop
 		storyDifficultyText = '' + CoolUtil.difficultyStuff[storyDifficulty][0];
@@ -421,60 +425,181 @@ class PlayState extends MusicBeatState
 					add(shelf);
 				}
 
+			// kinda sorry for this code but also kinda not... it works.
 			case 'restaurante' | 'milkshake' | 'cultured':
 				curStage = 'restaurante';
 
 				defaultCamZoom = 0.60;
 
+				// local variables stated here
+				var floor:BGSprite;
+				var tableA:BGSprite;
+				var tableB:BGSprite;
 				var suzuki:BGSprite;
-				var exPath:String = '';
-				var charPath:String = '';
 
-				if (CoolUtil.difficultyString() == 'EX') {
-					exPath = 'ex/';
-					charPath = '';
+				if (CoolUtil.difficultyString() == 'EX')
+				{
+					switch (SONG.song.toLowerCase())
+					{
+						case 'restaurante':
+							floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+							floor.updateHitbox();
+
+							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+							tableA.updateHitbox();
+
+							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+							tableB.updateHitbox();
+
+							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']); //add anim
+							boppers.updateHitbox();
+
+							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+
+							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+
+							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+							counter.updateHitbox();
+
+							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
+							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+							phillyBlack.alpha = 0.0;
+
+							phillyCounter = new BGSprite('cheese/counter_white', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
+							phillyCounter.alpha = 0.0;
+							phillyCounter.updateHitbox();
+
+						case 'milkshake':
+							floor = new BGSprite('cheese/sunset_floor', -377.9, -146.4, 1, 1);
+							floor.updateHitbox();
+
+							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+							tableA.updateHitbox();
+
+							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+							tableB.updateHitbox();
+
+							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']); //add anim
+							boppers.updateHitbox();
+
+							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+
+							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+
+							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+							counter.updateHitbox();
+
+							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
+							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+							phillyBlack.alpha = 0.0;
+
+							phillyCounter = new BGSprite('cheese/counter_white', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
+							phillyCounter.alpha = 0.0;
+							phillyCounter.updateHitbox();
+
+						case 'cultured':
+							floor = new BGSprite('cheese/night/floor', -377.9, -146.4, 1, 1);
+							floor.updateHitbox();
+
+							tableA = new BGSprite('cheese/night/tableA', 1966.5, 283.05, 1, 1);
+							tableA.updateHitbox();
+
+							tableB = new BGSprite('cheese/night/tableB', 1936.15, 568.5, 1, 1);
+							tableB.updateHitbox();
+
+							boppers = new BGSprite('cheese/night/boppers', 1287.3, 206.05, 1, 1, ['boppers']); //add anim
+							boppers.updateHitbox();
+
+							suzuki = new BGSprite('cheese/night/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+
+							frontBoppers = new BGSprite('cheese/night/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+
+							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+							counter.updateHitbox();
+
+							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
+							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+							phillyBlack.alpha = 0.0;
+
+							phillyCounter = new BGSprite('cheese/counter_white', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
+							phillyCounter.alpha = 0.0;
+							phillyCounter.updateHitbox();
+
+						default:
+							floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+							floor.updateHitbox();
+
+							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+							tableA.updateHitbox();
+
+							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+							tableB.updateHitbox();
+
+							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']); //add anim
+							boppers.updateHitbox();
+
+							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+
+							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+
+							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+							counter.updateHitbox();
+
+							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
+							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+							phillyBlack.alpha = 0.0;
+
+							phillyCounter = new BGSprite('cheese/counter_white', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
+							phillyCounter.alpha = 0.0;
+							phillyCounter.updateHitbox();
+					}
+
+					if(!ClientPrefs.fuckyouavi) {
+						suzuki.updateHitbox();
+						frontBoppers.updateHitbox();
+						add(floor);
+						add(tableA);
+						add(tableB);
+						add(boppers);
+						add(suzuki);
+						add(phillyBlack);
+					}
 				}
-				else {
-					exPath = '';
-					charPath = 'char/';
-				}
+				else
+				{
+					floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+					floor.updateHitbox();
 
-				var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
-				floor.updateHitbox();
+					tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+					tableA.updateHitbox();
 
-				var tableA:BGSprite = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-				tableA.updateHitbox();
+					tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+					tableB.updateHitbox();
 
-				var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-				tableB.updateHitbox();
+					boppers = new BGSprite('cheese/char/boppers', 1265.6, 127.6, 1, 1, ['boppers']); //add anim
+					boppers.updateHitbox();
 
-				boppers = new BGSprite('cheese/' + exPath + charPath + 'boppers', 1265.6, 127.6, 1, 1, ['boppers']); //add anim
-				boppers.updateHitbox();
+					suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
 
-				suzuki = new BGSprite('cheese/' + exPath + 'wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+					frontBoppers = new BGSprite('cheese/char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
 
-				frontBoppers = new BGSprite('cheese/' + exPath + charPath + 'front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+					counter.updateHitbox();
 
-				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
-				counter.updateHitbox();
+					phillyBlack = new BGSprite(null, -390, -190, 1, 1);
+					phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+					phillyBlack.alpha = 0.0;
 
-				phillyBlack = new BGSprite(null, -390, -190, 1, 1);
-				phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
-				phillyBlack.alpha = 0.0;
-
-				phillyCounter = new BGSprite('cheese/counter_white', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
-				phillyCounter.alpha = 0.0;
-				phillyCounter.updateHitbox();
-
-				if(!ClientPrefs.fuckyouavi) {
-					suzuki.updateHitbox();
-					frontBoppers.updateHitbox();
-					add(floor);
-				    add(tableA);
-				    add(tableB);
-				    add(boppers);
-				    add(suzuki);
-					add(phillyBlack);
+					if(!ClientPrefs.fuckyouavi) {
+						suzuki.updateHitbox();
+						frontBoppers.updateHitbox();
+						add(floor);
+						add(tableA);
+						add(tableB);
+						add(boppers);
+						add(suzuki);
+						add(phillyBlack);
+					}
 				}
 
 			case 'wifi':
@@ -1117,7 +1242,7 @@ class PlayState extends MusicBeatState
 			frostedMisses.y = timeBarBG.y - 78;
 		}
 		if (ClientPrefs.middleScroll) {
-			frostedMisses.x += 150;
+			frostedMisses.x += 302;
 		}
 
 		blackscreenhud.cameras = [camHUD];
@@ -1385,7 +1510,9 @@ class PlayState extends MusicBeatState
 							frontBoppers.dance(true);
 							if (curStage == 'restaurante') {
 								counter.dance(true);
-								phillyCounter.dance(true);
+								if (CoolUtil.difficultyString() == 'EX') {
+									phillyCounter.dance(true);
+								}
 							}
 						}
 					case 'restauranteArsen' | 'restauranteDansilot':
@@ -1487,7 +1614,7 @@ class PlayState extends MusicBeatState
 				else
 				{
 					LoadingState.loadAndSwitchState(new VideoState('assets/videos/webm/ass.webm', new PlayState())); //loads bob and bosip test cutscene if there is no cutscene path
-					trace('error: cutscene path not found');
+					trace('error: cutscene path:' + file + 'not found');
 					trace('loaded assets/videos/webm/ass.webm');
 				}
 				cutsceneShit = false;
@@ -1816,9 +1943,6 @@ class PlayState extends MusicBeatState
 			}
 			daBeats += 1;
 		}
-
-		// trace(unspawnNotes.length);
-		// playerCounter += 1;
 
 		unspawnNotes.sort(sortByShit);
 		if(eventNotes.length > 1) { //No need to sort if there's a single one or none at all
@@ -2921,7 +3045,7 @@ class PlayState extends MusicBeatState
 					gfSpeed = value;
 
 				case 'Poggers Lights':
-					if(ClientPrefs.specialEffects && curStage == 'restaurante' && CoolUtil.difficultyString() == 'EX') {
+					if(ClientPrefs.specialEffects && curStage == 'restaurante') {
 						var lightId:Int = Std.parseInt(value1);
 						if(Math.isNaN(lightId)) lightId = 0;
 	
@@ -2952,11 +3076,13 @@ class PlayState extends MusicBeatState
 										phillyBlackTween = null;
 									}
 								});
-								phillyBlackTween = FlxTween.tween(phillyCounter, {alpha: 1}, 1, {ease: FlxEase.quadInOut,
-									onComplete: function(twn:FlxTween) {
-										phillyBlackTween = null;
-									}
-								});
+								if (CoolUtil.difficultyString() == 'EX') {
+									phillyBlackTween = FlxTween.tween(phillyCounter, {alpha: 1}, 1, {ease: FlxEase.quadInOut,
+										onComplete: function(twn:FlxTween) {
+											phillyBlackTween = null;
+										}
+									});
+								}
 								phillyBlackTween = FlxTween.tween(frontBoppers, {alpha: 0}, 1, {ease: FlxEase.quadInOut,
 									onComplete: function(twn:FlxTween) {
 										phillyBlackTween = null;
@@ -2988,11 +3114,13 @@ class PlayState extends MusicBeatState
 										phillyBlackTween = null;
 									}
 								});
-								phillyBlackTween = FlxTween.tween(phillyCounter, {alpha: 0}, 1, {ease: FlxEase.quadInOut,
-									onComplete: function(twn:FlxTween) {
-										phillyBlackTween = null;
-									}
-								});
+								if (CoolUtil.difficultyString() == 'EX') {
+									phillyBlackTween = FlxTween.tween(phillyCounter, {alpha: 0}, 1, {ease: FlxEase.quadInOut,
+										onComplete: function(twn:FlxTween) {
+											phillyBlackTween = null;
+										}
+									});
+								}
 								phillyBlackTween = FlxTween.tween(frontBoppers, {alpha: 1}, 1, {ease: FlxEase.quadInOut,
 									onComplete: function(twn:FlxTween) {
 										phillyBlackTween = null;
@@ -3102,10 +3230,13 @@ class PlayState extends MusicBeatState
 										}
 								}
 							}
+						default:
+							phillyBlackTween = FlxTween.tween(value1, {alpha: poggerLength}, 1, {ease: FlxEase.quadInOut,
+								onComplete: function(twn:FlxTween) {
+									phillyBlackTween = null;
+								}
+							});
 					}
-
-				case 'Kill Henchmen':
-					killHenchmen();
 
 				case 'Add Camera Zoom':
 					if(FlxG.camera.zoom < 1.35) {
@@ -3473,7 +3604,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-
 	var transitioning = false;
 	function endSong():Void
 	{
@@ -3494,8 +3624,10 @@ class PlayState extends MusicBeatState
 		if(achievementObj != null) {
 			return;
 		} else {
-			var achieve:Int = checkForAchievement([1, 2, 3, 4]);
-			if(achieve > -1) {
+			var achieve:String = checkForAchievement(['tutorial_beat', 'week1_beat', 'restaurante_ex', 'milkshake_ex', 'cultured_ex', 'beat_chara', 'beat_sans', 'evil_woops',
+				'ur_bad', 'ur_good', 'hype', 'two_keys', 'toastie']);
+
+			if(achieve != null) {
 				startAchievement(achieve);
 				return;
 			}
@@ -3533,7 +3665,7 @@ class PlayState extends MusicBeatState
 			trace('WENT BACK TO FREEPLAY??');
 			MusicBeatState.switchState(new FreeplayState());
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
-			usedPractice = false;
+			skippedDialogue = false;
 			changedDifficulty = false;
 			cpuControlled = false;
 
@@ -3543,7 +3675,7 @@ class PlayState extends MusicBeatState
 
 	#if ACHIEVEMENTS_ALLOWED
 	var achievementObj:AchievementObject = null;
-	function startAchievement(achieve:Int) {
+	function startAchievement(achieve:String) {
 		achievementObj = new AchievementObject(achieve, camOther);
 		achievementObj.onFinish = achievementEnd;
 		add(achievementObj);
@@ -3589,28 +3721,28 @@ class PlayState extends MusicBeatState
 
 		var daRating:String = "perfect";
 
-		if (noteDiff > Conductor.safeZoneOffset * CoolUtil.timingWindows[0])
+		if (noteDiff > Conductor.safeZoneOffset * 0.75)
 		{
 			daRating = 'shit';
 			score = 50;
 			shits++;
 		}
 
-		else if (noteDiff > Conductor.safeZoneOffset * CoolUtil.timingWindows[1])
+		else if (noteDiff > Conductor.safeZoneOffset * 0.5)
 		{
 			daRating = 'bad';
 			score = 100;
 			bads++;
 		}
 
-		else if (noteDiff > Conductor.safeZoneOffset * CoolUtil.timingWindows[2])
+		else if (noteDiff > Conductor.safeZoneOffset * 0.25)
 		{
 			daRating = 'good';
 			score = 200;
 			goods++;
 		}
 
-		else if (noteDiff > Conductor.safeZoneOffset * CoolUtil.timingWindows[3])
+		else if (noteDiff > Conductor.safeZoneOffset * 0.15)
 		{
 			daRating = 'sick';
 			sicks++;
@@ -3856,6 +3988,13 @@ class PlayState extends MusicBeatState
 								keysPressed[i] = true;
 						}
 					}
+
+					#if ACHIEVEMENTS_ALLOWED
+					var achieve:String = checkForAchievement(['oversinging']);
+					if (achieve != null) {
+						startAchievement(achieve);
+					}
+					#end
 				} else if (boyfriend.holdTimer > Conductor.stepCrochet * 0.001 * boyfriend.singDuration && boyfriend.animation.curAnim.name.startsWith('sing')
 				&& !boyfriend.animation.curAnim.name.endsWith('miss'))
 					boyfriend.dance();
@@ -4248,20 +4387,6 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function killHenchmen():Void
-	{
-		if(!ClientPrefs.lowQuality && ClientPrefs.violence && curStage == 'limo') {
-			if(limoKillingState < 1) {
-				limoMetalPole.x = -400;
-				limoMetalPole.visible = true;
-				limoLight.visible = true;
-				limoCorpse.visible = false;
-				limoCorpseTwo.visible = false;
-				limoKillingState = 1;
-			}
-		}
-	}
-
 	function resetLimoKill():Void
 	{
 		if(curStage == 'limo') {
@@ -4509,7 +4634,9 @@ class PlayState extends MusicBeatState
 					frontBoppers.dance(true);
 					if (curStage == 'restaurante') {
 						counter.dance(true);
-						phillyCounter.dance(true);
+						if (CoolUtil.difficultyString() == 'EX') {
+							phillyCounter.dance(true);
+						}
 					}
 				}
 			case 'restauranteArsen' | 'restauranteDansilot':
@@ -4723,12 +4850,14 @@ class PlayState extends MusicBeatState
 				}
 				MusicBeatState.switchState(new StoryMenuState());
 			case 'casual-duel': //NOTE: Change to Avinera or Dynamic Duo song later
-				if (TitleState.isDebug) videoOutro('casual-duel', 'dani');
-
 				if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == false) {
 					FlxG.save.data.beatWeekEnding = true;
 					trace('beat week 2');
 				}
+				if (TitleState.isDebug)
+					videoOutro('casual-duel', 'dani');
+				else
+					MusicBeatState.switchState(new StoryMenuState());
 			case 'manager-strike-back':
 				if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
 					FlxG.save.data.beatBonus = true;
@@ -4746,7 +4875,7 @@ class PlayState extends MusicBeatState
 		}
 
 		FlxG.save.flush(); // SAVE DATA
-		usedPractice = false;
+		skippedDialogue = false;
 		changedDifficulty = false;
 		cpuControlled = false;
 
@@ -4754,34 +4883,95 @@ class PlayState extends MusicBeatState
 	}
 
 	#if ACHIEVEMENTS_ALLOWED
-	private function checkForAchievement(arrayIDs:Array<Int>):Int {
-		for (i in 0...arrayIDs.length) {
-			if(!Achievements.achievementsUnlocked[arrayIDs[i]][1]) {
-				switch(arrayIDs[i]) {
-					case 1:
-						if(curSong.toLowerCase() == 'cultured' && CoolUtil.difficultyString() == 'Hard') {
-							Achievements.unlockAchievement(arrayIDs[i]);
-							return arrayIDs[i];
+	private function checkForAchievement(achievesToCheck:Array<String>):String {
+		for (i in 0...achievesToCheck.length) {
+			var achievementName:String = achievesToCheck[i];
+			if(!Achievements.isAchievementUnlocked(achievementName)) {
+				var unlock:Bool = false;
+				switch(achievementName)
+				{
+					// CUSTOM ACHIEVEMENTS
+					case 'tutorial_beat':
+						if (isStoryMode && curSong.toLowerCase() == 'tutorial') {
+							unlock = true;
 						}
-					case 2:
-						if(curSong.toLowerCase() == 'restaurante' && songMisses < 1 && CoolUtil.difficultyString() == 'EX') {
-							Achievements.unlockAchievement(arrayIDs[i]);
-							return arrayIDs[i];
+					case 'week1_beat':
+						if(isStoryMode && WeekData.getCurrentWeekNumber() == 1 && storyPlaylist.length <= 1 && CoolUtil.difficultyString() == 'HARD') {
+							unlock = true;
 						}
-					case 3:
-						if(curSong.toLowerCase() == 'milkshake' && songMisses < 1 && CoolUtil.difficultyString() == 'EX') {
-							Achievements.unlockAchievement(arrayIDs[i]);
-							return arrayIDs[i];
+					case 'restaurante_ex':
+						if (curSong.toLowerCase() == 'restaurante' && CoolUtil.difficultyString() == 'EX') {
+							unlock = true;
 						}
-					case 4:
-						if(curSong.toLowerCase() == 'cultured' && songMisses < 1 && CoolUtil.difficultyString() == 'EX') {
-							Achievements.unlockAchievement(arrayIDs[i]);
-							return arrayIDs[i];
+					case 'milkshake_ex':
+						if (curSong.toLowerCase() == 'milkshake' && CoolUtil.difficultyString() == 'EX') {
+							unlock = true;
 						}
+					case 'cultured_ex':
+						if (curSong.toLowerCase() == 'cultured' && CoolUtil.difficultyString() == 'EX') {
+							unlock = true;
+						}
+					case 'beat_chara':
+						if (curSong.toLowerCase() == 'manager-strike-back') {
+							unlock = true;
+						}
+					case 'beat_sans':
+						if (curSong.toLowerCase() == 'frosted') {
+							unlock = true;
+						}
+
+					case 'evil_woops':
+						if (isStoryMode && WeekData.getCurrentWeekNumber() == 1 && !skippedDialogue) {
+							unlock = true;
+						}
+
+					// EXTRA ACHIEVEMENTS
+					case 'ur_bad':
+						if(ratingPercent < 0.2 && !practiceMode && !cpuControlled) {
+							unlock = true;
+						}
+					case 'ur_good':
+						if(ratingPercent >= 1 && !cpuControlled) {
+							unlock = true;
+						}
+					case 'roadkill_enthusiast':
+						if(Achievements.henchmenDeath >= 100) {
+							unlock = true;
+						}
+					case 'oversinging':
+						if(boyfriend.holdTimer >= 20) {
+							unlock = true;
+						}
+					case 'hype':
+						if(!boyfriendIdled) {
+							unlock = true;
+						}
+					case 'two_keys':
+						var howManyPresses:Int = 0;
+						for (j in 0...keysPressed.length) {
+							if(keysPressed[j]) howManyPresses++;
+						}
+
+						if(howManyPresses <= 2) {
+							unlock = true;
+						}
+					case 'toastie':
+						if(/*ClientPrefs.framerate <= 60 &&*/ ClientPrefs.lowQuality && !ClientPrefs.globalAntialiasing && !ClientPrefs.imagesPersist) {
+							unlock = true;
+						}
+					case 'debugger':
+						if(curSong.toLowerCase() == 'bob-and-bosip') {
+							unlock = true;
+						}
+				}
+
+				if(unlock) {
+					Achievements.unlockAchievement(achievementName);
+					return achievementName;
 				}
 			}
 		}
-		return -1;
+		return null;
 	}
 	#end
 

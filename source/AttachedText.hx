@@ -3,7 +3,8 @@ package;
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
 
-class AttachedText extends Alphabet
+//used in options only i think
+class AttachedText extends AlphabetWhite
 {
 	public var offsetX:Float = 0;
 	public var offsetY:Float = 0;

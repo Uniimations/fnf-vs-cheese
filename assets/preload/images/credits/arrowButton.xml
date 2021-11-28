@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arrowButton.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arrow0000" x="50" y="50" width="359" height="306"/>
+	<SubTexture name="intro arrow0000" x="459" y="50" width="359" height="306"/>
+	<SubTexture name="intro arrow0001" x="868" y="50" width="359" height="306"/>
+	<SubTexture name="intro arrow0002" x="1277" y="50" width="359" height="306"/>
+	<SubTexture name="intro arrow0003" x="1277" y="50" width="359" height="306"/>
+	<SubTexture name="intro arrow0004" x="50" y="406" width="359" height="306"/>
+	<SubTexture name="intro arrow0005" x="50" y="406" width="359" height="306"/>
+	<SubTexture name="intro arrow0006" x="459" y="406" width="359" height="306"/>
+	<SubTexture name="intro arrow0007" x="459" y="406" width="359" height="306"/>
+	<SubTexture name="intro arrow0008" x="50" y="50" width="359" height="306"/>
+	<SubTexture name="intro arrow0009" x="50" y="50" width="359" height="306"/>
+	<SubTexture name="press arrow0000" x="868" y="406" width="359" height="306"/>
+</TextureAtlas>

@@ -1,5 +1,6 @@
 package;
 
+import flixel.util.FlxTimer;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -12,6 +13,7 @@ import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
 import lime.utils.Assets;
 
 using StringTools;
@@ -23,42 +25,42 @@ class CreditsState extends MusicBeatState
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private var iconArray:Array<AttachedSprite> = [];
 
-	private static var creditsStuff:Array<Dynamic> = [ //Name - Icon name - Description - Link - BG Color
-		['Mod Creator'],
-		['Uniimations', 'new/unii', '"I did literally everything"\nArt, Animation, Music, Charting, Programming, Story, Writing, Voice Clips, Voice Acting', 'https://youtube.com/uniimations', 0xFF32091F],
+	private static var wholeAssCreditList:Array<Dynamic> = [ // LAYOUT: Name, Icon name, "Quote"\nDescription, Link
+		['We did a lot'],
+		['Uniimations', 		'unii', 			'"I did literally everything"\nSprite Artist, Graphic Designer, Animation, Music, Charting, Programming, Story, Writing, Voice Clips, Voice Acting',			'https://twitter.com/UniiAnimates'],
+		['potionion', 			'potionion', 		'"God I love Thorns."\nBackground Arist, Resprite Artist, "Perfect" pop up Artist, Character Design & Concept Art', 											'https://twitter.com/Potionion'],
+		['Avinera', 			'avinera', 			'"Aside from my huge c**ck, I\'m just an ordinary girl!"\nComposed Manager Strike Back & Frosted, Writing, Concepts/Ideas, Voice clips, Voice acting', 			'https://youtube.com/avinera'],
 		[''],
-		['Discord Server', 'discord', 'Join my discord server!\nI talk there a lot :]', 'https://discord.gg/gZYrEKbzCd', 0xFF080C1F],
+		['Extra Charters'],
+		['dude0216', 			'dude0216', 		'"fefe"\nCultured Hard difficulty chart', 			'https://www.youtube.com/channel/UCiGJubAsma0AWVozQUIoCJA'],
+		['Cerbera', 			'cerbera', 			'"swag"\nCultured EX difficulty chart', 			'https://www.youtube.com/c/Cerberaa'],
 		[''],
-		['The Boyz'],
-		['Avinera',	'new/avinera', '"uhuhuhuhuh sans uhuhuhuhuhuh"\nComposed Manager Strike Back, Voice clips, Voice acting, Character Design', 'https://youtube.com/avinera', 0xFF242833],
-		['BlueCheese', 'new/cheese', '"There\'s a new Whitty video! oh fuck- there\'s a new Grian video!" Week 1 writing, Voice Clips, Voice acting, Character Design', 'https://youtube.com/bluecheese', 0xFF061730],
-		['OiSuzuki', 'new/suzuki', '"I hate Friday Night Funkin."\nVoice Clips, Voice acting, Character Design', 'https://www.youtube.com/channel/UCA538hKV5s9cXhzW36rXsnw', 0xFF480D0D],
-		['Dansilot', 'new/dani', '"Las Vegas."\nVoice Clips, Voice acting, Character Design', 'https://www.youtube.com/channel/UC8tNRrCufSfWP1tXDL5wYLQ', 0xFF480D0D],
-		['Arsen Infinity', 'new/arsen', '"I\'M LAGGING!"\nVoice Clips, Voice acting, Character Design', 'https://www.youtube.com/c/Arsen_Infinity', 0xFF480D0D],
+		['Voice Actors'],
+		['BlueCheese', 			'bluecheese', 		'"Comedy skit!"\nWeek 1 Writing, Voice Clips, Voice acting\n& Character Design', 				'https://youtube.com/bluecheese'],
+		['OiSuzuki', 			'oisuzuki', 		'"I hate Friday Night Funkin."\nVoice Clips, Voice acting', 									'https://www.youtube.com/channel/UCA538hKV5s9cXhzW36rXsnw'],
+		['Dansilot', 			'dansilot', 		'"Las Vegas."\nVoice Clips, Voice acting', 														'https://www.youtube.com/channel/UC8tNRrCufSfWP1tXDL5wYLQ'],
+		['Arsen Infinity', 		'arsen', 			'"I\'M LAGGING!"\nVoice Clips, Voice acting', 													'https://www.youtube.com/c/Arsen_Infinity'],
 		[''],
-		['Extra Credits'],
-		['Potionion', 'new/potion', '"My gender is fuck you. My pronouns are fuck/off"\nBackground Artist', 'https://twitter.com/Potionion', 0xFF3D2B3C],
-		['Joey Animations', 'new/joey', '"Look at that floor, oh my God it\'s so good"\nBackground Arist (floor!)', 'https://www.youtube.com/channel/UCRLsZwUPm7Ax4ZZ3lgM77Ng',	0xFF0A1127],
-		//['Ash',	'new/ash', '"There are 3 modders I simp for, one of them is Unii"\nHelped me with programming.', 'https://twitter.com/ash__i_guess_',	0xFFFFFFFF],
-		['dude0216', 'new/dude', '"fefe"\nmade Cultured rechart.', 'https://www.youtube.com/channel/UCiGJubAsma0AWVozQUIoCJA', 0xFF27073E],
+		['Psych Engine Team'],
+		['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',					'https://twitter.com/Shadow_Mario_'],
+		['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',				'https://twitter.com/RiverOaken'],
 		[''],
-		/*['Psych Engine Team'],
-		['Shadow Mario',		'shadowmario',		'Main Programmer of Psych Engine',					'https://twitter.com/Shadow_Mario_',	0xFFFFDD33],
-		['RiverOaken',			'riveroaken',		'Main Artist/Animator of Psych Engine',				'https://twitter.com/river_oaken',		0xFFC30085],
-		[''],
-		['Special Thanks'],
-		['Keoiki',				'keoiki',			'Note Splash Animations',							'https://twitter.com/Keoiki_',			0xFFFFFFFF],
-		[''],
-		["Funkin' Crew"],
-		['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",				'https://twitter.com/ninja_muffin99',	0xFFF73838],
-		['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",					'https://twitter.com/PhantomArcade3K',	0xFFFFBB1B],
-		['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",					'https://twitter.com/evilsk8r',			0xFF53E52C],
-		['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",					'https://twitter.com/kawaisprite',		0xFF6475F3]*/
+		['People I stole from'],
+		['Verwex',				'verwex',			'Music Disc assets and some of\nthe Mic\'d Up Engine features',				'https://twitter.com/Vershift'],
+		['Kade Dev',			'kade',				'Some of the Kade Engine features',											'https://www.youtube.com/c/KadeDev'],
+		['Yoshubs',				'shubs',			'New Input System Programmer',												'https://twitter.com/yoshubs'],
+		['PolybiusProxy',		'polybiusproxy',	'.MP4 Video Loader Extension\nfor Windows',									'https://twitter.com/polybiusproxy'],
+		['GWebDev', 			'gwebdev', 			'.WebM Video Loader Extension\nfor Mac',									'https://github.com/GrowtopiaFli']
 	];
 
 	var bgBack:FlxSprite;
 	var bg:FlxSprite;
+	var blackBar:FlxSprite;
+	var descBox:FlxSprite;
 	var descText:FlxText;
+	var arrowSpr:FlxSprite;
+
+	var FlxGHeightDivided:Int = Math.round(FlxG.height / 2);
 	var intendedColor:Int;
 	var colorTween:FlxTween;
 
@@ -69,20 +71,28 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		bgBack = new FlxSprite().loadGraphic(Paths.image('menuCredits'));
+		bgBack = new FlxSprite().loadGraphic(Paths.image('credits/menuCredits'));
 		bgBack.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bgBack);
 
-		bg = new FlxSprite().loadGraphic(Paths.image('creditsOverlay'));
+		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		bg.alpha = 0.5;
 		add(bg);
+
+		blackBar = new FlxSprite().makeGraphic(FlxG.width, FlxG.height - FlxGHeightDivided, FlxColor.BLACK);
+		blackBar.screenCenter(Y);
+
+		descBox = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		descBox.y += 585;
+		descBox.alpha = 0.5;
 
 		grpOptions = new FlxTypedGroup<AlphabetWhite>();
 		add(grpOptions);
 
-		for (i in 0...creditsStuff.length)
+		for (i in 0...wholeAssCreditList.length)
 		{
 			var isSelectable:Bool = !unselectableCheck(i);
-			var optionText:AlphabetWhite = new AlphabetWhite(0, 70 * i, creditsStuff[i][0], !isSelectable, false);
+			var optionText:AlphabetWhite = new AlphabetWhite(0, 70 * i, wholeAssCreditList[i][0], !isSelectable, false);
 			optionText.isMenuItem = true;
 			optionText.screenCenter(X);
 			if(isSelectable) {
@@ -93,11 +103,13 @@ class CreditsState extends MusicBeatState
 			grpOptions.add(optionText);
 
 			if(isSelectable) {
-				var icon:AttachedSprite = new AttachedSprite('credits/' + creditsStuff[i][1]);
-				icon.xAdd = optionText.width + 10;
+				var icon:AttachedSprite;
+				icon = new AttachedSprite('credits/icons/' + wholeAssCreditList[i][1]);
+
+				icon.yAdd = 25;
+				icon.xAdd = optionText.width + 15;
 				icon.sprTracker = optionText;
-	
-				// using a FlxGroup is too much fuss!
+
 				iconArray.push(icon);
 				add(icon);
 			}
@@ -107,10 +119,41 @@ class CreditsState extends MusicBeatState
 		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		descText.scrollFactor.set();
 		descText.borderSize = 2.4;
+		add(descBox);
 		add(descText);
 
-		bg.color = creditsStuff[curSelected][4];
-		intendedColor = bg.color;
+		// OFFSETS
+		/*
+		var offsetsTxt;
+		var file:String = ('assets/images/credits/arrowButtonOffsets.txt'); // txt for arsen offsets
+
+		offsetsTxt = CoolUtil.coolTextFile(file);
+		for (i in 0...offsetsTxt.length)
+			{
+				CoolUtil.spriteOffsets.push(Std.parseFloat(offsetsTxt[i]));
+			}
+		trace('loaded main arrowButton offset txt');
+		*/
+
+		arrowSpr = new FlxSprite(40, 260);
+		arrowSpr.frames = Paths.getSparrowAtlas('credits/arrowButton');
+		arrowSpr.animation.addByPrefix('intro', 'intro arrow', 24, false);
+		arrowSpr.animation.addByIndices('normal', 'arrow', [0], '', 0, true);
+		arrowSpr.animation.addByIndices('pressed', 'press arrow', [0], '', 0, true);
+
+		arrowSpr.antialiasing = ClientPrefs.globalAntialiasing;
+		arrowSpr.scrollFactor.set();
+		arrowSpr.updateHitbox();
+		arrowSpr.alpha = 0;
+		add(arrowSpr);
+
+		new FlxTimer().start(0.5, function(tmr: FlxTimer)
+		{
+			arrowSpr.alpha = 1;
+			if (arrowSpr.alpha == 1)
+				arrowSpr.animation.play('intro');
+		});
+
 		changeSelection();
 		super.create();
 	}
@@ -148,8 +191,15 @@ class CreditsState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 		if(controls.ACCEPT) {
-			CoolUtil.browserLoad(creditsStuff[curSelected][3]);
+			arrowSpr.animation.play('pressed');
+			new FlxTimer().start(0.3, function(tmr: FlxTimer)
+			{
+				CoolUtil.browserLoad(wholeAssCreditList[curSelected][3]);
+			});
 		}
+
+		checkAnimFinish(arrowSpr, 'intro', 'normal');
+		checkAnimFinish(arrowSpr, 'pressed', 'normal');
 		super.update(elapsed);
 	}
 
@@ -159,23 +209,10 @@ class CreditsState extends MusicBeatState
 		do {
 			curSelected += change;
 			if (curSelected < 0)
-				curSelected = creditsStuff.length - 1;
-			if (curSelected >= creditsStuff.length)
+				curSelected = wholeAssCreditList.length - 1;
+			if (curSelected >= wholeAssCreditList.length)
 				curSelected = 0;
 		} while(unselectableCheck(curSelected));
-
-		var newColor:Int = creditsStuff[curSelected][4];
-		if(newColor != intendedColor) {
-			if(colorTween != null) {
-				colorTween.cancel();
-			}
-			intendedColor = newColor;
-			colorTween = FlxTween.color(bg, 1, bg.color, intendedColor, {
-				onComplete: function(twn:FlxTween) {
-					colorTween = null;
-				}
-			});
-		}
 
 		var bullShit:Int = 0;
 
@@ -191,10 +228,10 @@ class CreditsState extends MusicBeatState
 				}
 			}
 		}
-		descText.text = creditsStuff[curSelected][2];
+		descText.text = wholeAssCreditList[curSelected][2];
 	}
 
 	private function unselectableCheck(num:Int):Bool {
-		return creditsStuff[num].length <= 1;
+		return wholeAssCreditList[num].length <= 1;
 	}
 }

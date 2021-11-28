@@ -58,11 +58,6 @@ class Note extends FlxSprite
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
 					hitCausesMiss = true;
-				case 5: //LITTLE MAN NOTE
-					reloadNote('little');
-					colorSwap.hue = 0;
-					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;
 				default:
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;

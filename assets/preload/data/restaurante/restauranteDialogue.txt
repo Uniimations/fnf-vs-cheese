@@ -1,4 +1,4 @@
-:blank:Press X to skip dialogue, press Z to proceed.
+:blank:Press S to skip dialogue, press ACCEPT to proceed.
 :gf:This is my favorite restaurant.
 :gf2:I hope you like it!
 :cheese:Hello!

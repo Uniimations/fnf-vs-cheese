@@ -25,8 +25,8 @@ class CoolUtil
 		return difficultyStuff[PlayState.storyDifficulty][0].toUpperCase();
 	}
 
-	public static var timingWindows:Array<Dynamic> = [];
 	public static var spriteOffsets:Array<Dynamic> = [];
+	public static var timingWindows:Array<Dynamic> = [];
 
 	public static function boundTo(value:Float, min:Float, max:Float):Float {
 		var newValue:Float = value;

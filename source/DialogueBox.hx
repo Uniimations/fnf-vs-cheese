@@ -271,6 +271,7 @@ class DialogueBox extends FlxSpriteGroup
 			dialogueStarted = true;
 		}
 
+		// for some reason controls.ACCEPT doesn't work lmao???
 		if(PlayerSettings.player1.controls.ACCEPT)
 		{
 			if (dialogueEnded)
@@ -323,10 +324,12 @@ class DialogueBox extends FlxSpriteGroup
 			else if (dialogueStarted) //finish dialogue
 			{
 				swagDialogue.skip();
+				PlayState.skippedDialogue = true;
+				trace('lost woops achievement');
 			}
 		}
 
-		if (PlayerSettings.player1.controls.BACK)
+		if (FlxG.keys.justPressed.S)
 		{
 			isEnding = true;
 			FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
@@ -360,6 +363,9 @@ class DialogueBox extends FlxSpriteGroup
 				finishThing();
 				kill();
 			});
+
+			PlayState.skippedDialogue = true;
+			trace('lost woops achievement');
 	    }
 		super.update(elapsed);
 	}

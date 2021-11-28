@@ -107,6 +107,8 @@ class RatingPopUpMenuState extends MusicBeatState
 		FlxG.camera.zoom = 0.9;
 		FlxG.camera.focusOn(camFollow.getPosition());
 
+        //SCROLL STUFFFFFF
+
         if (ClientPrefs.downScroll) {
 			newArrows('downscroll');
             arrows.y += 122;

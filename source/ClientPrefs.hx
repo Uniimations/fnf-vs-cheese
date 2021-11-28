@@ -36,6 +36,7 @@ class ClientPrefs {
 	public static var comboShown:Bool = false;
 
 	public static var showMemory:Bool = true;
+	public static var showWatermark:Bool = true;
 
 	// EXTRA EFFECTS OPTIONS
 	public static var specialEffects:Bool = true;
@@ -107,19 +108,12 @@ class ClientPrefs {
 		FlxG.save.data.comboShown = comboShown;
 
 		FlxG.save.data.showMemory = showMemory;
+		FlxG.save.data.showWatermark = showWatermark;
 
 		FlxG.save.data.specialEffects = specialEffects;
 		FlxG.save.data.cameraShake = cameraShake;
 		FlxG.save.data.camZoomOut = camZoomOut;
 
-		var achieves:Array<String> = [];
-		for (i in 0...Achievements.achievementsUnlocked.length) {
-			if(Achievements.achievementsUnlocked[i][1]) {
-				achieves.push(Achievements.achievementsUnlocked[i][0]);
-			}
-		}
-		FlxG.save.data.achievementsUnlocked = achieves;
-		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();
@@ -226,6 +220,12 @@ class ClientPrefs {
 				Main.memoryCounterVar.visible = showMemory;
 			}
 		}
+		if(FlxG.save.data.showWatermark != null) {
+			showWatermark = FlxG.save.data.showWatermark;
+			if(Main.watermarkCheese != null) {
+				Main.watermarkCheese.visible = showWatermark;
+			}
+		}
 
 
 
@@ -237,6 +237,11 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.camZoomOut != null) {
 			camZoomOut = FlxG.save.data.camZoomOut;
+		}
+
+		// flixel automatically saves your volume! (from psych 4.2)
+		if(FlxG.save.data.volume != null) {
+			FlxG.sound.volume = FlxG.save.data.volume;
 		}
 
 		var save:FlxSave = new FlxSave();

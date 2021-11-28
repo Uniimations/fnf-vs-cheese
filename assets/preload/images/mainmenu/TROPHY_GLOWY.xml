@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="TROPHY_GLOWY.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="select trophy0000" x="50" y="50" width="486" height="409"/>
+	<SubTexture name="select trophy0001" x="50" y="50" width="486" height="409"/>
+	<SubTexture name="select trophy0002" x="586" y="50" width="486" height="409"/>
+	<SubTexture name="select trophy0003" x="586" y="50" width="486" height="409"/>
+	<SubTexture name="select trophy0004" x="1122" y="50" width="486" height="409"/>
+	<SubTexture name="select trophy0005" x="1122" y="50" width="486" height="409"/>
+	<SubTexture name="select trophy0006" x="50" y="509" width="486" height="409"/>
+	<SubTexture name="select trophy0007" x="50" y="509" width="486" height="409"/>
+	<SubTexture name="select trophy0008" x="586" y="509" width="486" height="409"/>
+	<SubTexture name="select trophy0009" x="586" y="509" width="486" height="409"/>
+	<SubTexture name="trophy0000" x="1122" y="509" width="486" height="409"/>
+	<SubTexture name="unselected trophy0000" x="50" y="968" width="486" height="409"/>
+</TextureAtlas>

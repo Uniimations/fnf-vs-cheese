@@ -168,7 +168,6 @@ class PauseSubState extends MusicBeatSubstate
 					trace('shit goes flashy bro');
 				case 'God Mode':
 					PlayState.practiceMode = !PlayState.practiceMode;
-					PlayState.usedPractice = true;
 					practiceText.visible = PlayState.practiceMode;
 					canDoStuff = true;
 				case "Restart Song":
@@ -181,7 +180,6 @@ class PauseSubState extends MusicBeatSubstate
 					FlxG.sound.music.play();
 				case 'Botplay':
 					PlayState.cpuControlled = !PlayState.cpuControlled;
-					PlayState.usedPractice = true;
 					botplayText.visible = PlayState.cpuControlled;
 					canDoStuff = true;
 				case "Exit to menu":
@@ -193,7 +191,6 @@ class PauseSubState extends MusicBeatSubstate
 						MusicBeatState.switchState(new FreeplayState());
 					}
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
-					PlayState.usedPractice = false;
 					PlayState.changedDifficulty = false;
 					PlayState.cpuControlled = false;
 

@@ -9,6 +9,7 @@ import flixel.FlxSprite;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
+import flixel.tweens.FlxEase;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
@@ -21,12 +22,11 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	//Character head icons for your songs
 	static var songIcons:Array<Dynamic> = [
-		['bluecheese'],						//Week 1
-		['arsen-fp', 'dansilot-fp'],		//Week 2
-		['bob'],							//Week 3
-		['suzuki-fp'],						//Week 4
+		['bluecheese', 'bluecheese-tired', 'bluecheese'],
+		['arsen-fp', 'dansilot-fp'],
+		['bob'],
+		['suzuki-fp'],
 	];
 
 	static var bonusIcons:Array<Dynamic> = [
@@ -69,6 +69,9 @@ class FreeplayState extends MusicBeatState
 	var exColor:Int = 0xFF502378;
 	var colorTween:FlxTween;
 
+	var disc:FlxSprite = new FlxSprite(1000, 730);
+	var discIcon:HealthIcon = new HealthIcon('suzuki');
+
 	override function create()
 	{
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -105,11 +108,12 @@ class FreeplayState extends MusicBeatState
 					{
 						addWeek(WeekData.songsNames[1], 1, songIcons[0]); // unlocked week 1 songs
 					}
-	
+
 				if (FlxG.save.data.beatWeekEnding)
 					{
 						addWeek(WeekData.songsNames[2], 2, songIcons[1]); // unlocked week 2 songs
 					}
+
 				if (FlxG.save.data.beatBonus) // unlocked bonus songs
 					{
 						addWeek(WeekData.songsNames[4], 4, songIcons[3]);
@@ -189,11 +193,18 @@ class FreeplayState extends MusicBeatState
 
 		add(roomBack);
 
-		add(grpArsen);
+		if (FlxG.save.data.beatCulturedWeek == true) {
+			add(grpArsen);
+		}
 
 		add(pcLight);
 		add(roomComputer);
 		//add(grpRoomBack);
+
+		disc.frames = Paths.getSparrowAtlas('freeplay/micd_up_discs');
+		disc.animation.addByPrefix('dad', 'bluecheese', 24);
+		disc.animation.play('dad');
+		add(disc);
 
 		grpSongs = new FlxTypedGroup<AlphabetVCR>();
 		add(grpSongs);
@@ -243,6 +254,13 @@ class FreeplayState extends MusicBeatState
 		Conductor.changeBPM(120);
 
 		super.create();
+
+		// TWEENS AFTER LOADING (probably)
+		new FlxTimer().start(0.50, function(tmr: FlxTimer)
+		{
+			disc.scale.x = 0;
+			FlxTween.tween(disc, { 'scale.x':1, y: -30, x: 1005}, 0.6, { ease: FlxEase.quartInOut});
+		});
 	}
 
 	override function closeSubState() {
@@ -337,7 +355,8 @@ class FreeplayState extends MusicBeatState
 			{
 				case 'tutorial':
 					{
-						if (FlxG.save.data.beatBonus) {
+						if (FlxG.save.data.beatBonus)
+						{
 							new FlxTimer().start(0.1, function(tmr:FlxTimer)
 							{
 								changeShit();
@@ -346,6 +365,10 @@ class FreeplayState extends MusicBeatState
 							{
 								changeSelection(-1);
 							});
+						}
+						else
+						{
+							changeSelection(-1);
 						}
 					}
 				case 'restaurante': //SONGS WITH EX DIFFICULTY
@@ -492,14 +515,21 @@ class FreeplayState extends MusicBeatState
 					}
 				case 'casual-duel':
 					{
-						new FlxTimer().start(0.1, function(tmr:FlxTimer)
-							{
-								changeShit();
-							}, 2);
-						new FlxTimer().start(0.4, function(tmr:FlxTimer)
-							{
-								changeSelection(1);
-							});
+						if (FlxG.save.data.beatWeekEnding)
+						{
+							new FlxTimer().start(0.1, function(tmr:FlxTimer)
+								{
+									changeShit();
+								}, 2);
+							new FlxTimer().start(0.4, function(tmr:FlxTimer)
+								{
+									changeSelection(1);
+								});
+						}
+						else
+						{
+							changeSelection(1);
+						}
 					}
 				case 'frosted':
 					{
@@ -659,6 +689,7 @@ class FreeplayState extends MusicBeatState
 			}
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			MusicBeatState.switchState(new MainMenuState());
+			FlxTween.tween(disc, { alpha:0, 'scale.x':0}, 0.2, { ease: FlxEase.quartInOut});
 		}
 
 		if (accepted)
@@ -671,6 +702,8 @@ class FreeplayState extends MusicBeatState
 			}
 			trace ('ass initialized');
 			trace ('LOADING FREEPLAY SONG');
+
+			FlxTween.tween(disc, { alpha:0, 'scale.x':0}, 0.2, { ease: FlxEase.quartInOut});
 
 			PlayState.SONG = Song.loadFromJson(ass, songLowercase);
 			PlayState.isStoryMode = false;
@@ -705,6 +738,9 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 		}
 		super.update(elapsed);
+
+		// MATH SPINNY SHIT!
+		disc.angle = disc.angle += 0.6 / (ClientPrefs.framerate / 60);
 	}
 
 	public static function destroyFreeplayVocals() {
@@ -724,6 +760,8 @@ class FreeplayState extends MusicBeatState
 		curDifficulty += change;
 
 		//MADE THIS CODE A LOT CLEANER!!!
+		//no it aint wtf past unii
+
 		//difficulty dependencies
 		switch (songLowercase)
 		{
@@ -805,6 +843,9 @@ class FreeplayState extends MusicBeatState
 			}
 		}
 		changeDiff();
+
+		disc.animation.addByPrefix(songs[curSelected].songCharacter, songs[curSelected].songCharacter + '0', 24); // 0 just in case it freaks out and flickers between similar animation names.
+		disc.animation.play(songs[curSelected].songCharacter);
 	}
 
 	private function positionHighscore() {
@@ -826,9 +867,14 @@ class FreeplayState extends MusicBeatState
 			if (curBeat % 2 == 0)
 				Arsen.animation.play('idleBop', true);
 
+			/*
 			if (FlxG.camera.zoom < 1.35 && curBeat % 4 == 0) {
 				FlxG.camera.zoom += 0.030;
 			}
+			*/
+
+			// from fnf creamed
+			FlxTween.tween(FlxG.camera, {zoom:1.02}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
 		}
 
         FlxG.log.add('beat');

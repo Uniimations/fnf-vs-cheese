@@ -102,13 +102,6 @@ class Main extends Sprite
 
 		var bitmapData = Assets.getBitmapData("assets/images/watermark.png");
 
-		watermarkCheese = new Sprite();
-        watermarkCheese.addChild(new Bitmap(bitmapData)); //Sets the graphic of the sprite to a Bitmap object, which uses our embedded BitmapData class.
-		watermarkCheese.alpha = 0.2;
-        watermarkCheese.x = gameWidth - 10 - watermarkCheese.width;
-        watermarkCheese.y = gameHeight - 10 - watermarkCheese.height;
-        addChild(watermarkCheese);
-
 		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
 		addChild(fpsVar);
@@ -116,16 +109,34 @@ class Main extends Sprite
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
 
-		memoryCounterVar = new MemoryCounter(10, 3, 0xffffff);
+		/*
+		memoryCounterVar = new MemoryCounter(10, 3, 0xFFFFFF);
 		addChild(memoryCounterVar);
 		if(memoryCounterVar != null) {
 			memoryCounterVar.visible = ClientPrefs.showMemory;
 		}
+		*/
 		#end
 
+		watermarkCheese = new Sprite();
+        watermarkCheese.addChild(new Bitmap(bitmapData));
+		watermarkCheese.alpha = 0.2;
+        #if mobile
+		watermarkCheese.x =  10;
+        watermarkCheese.y = 3;
+		#else
+		watermarkCheese.x =  fpsVar.x;
+        watermarkCheese.y = fpsVar.y + 25;
+		#end
+        addChild(watermarkCheese);
+		if(watermarkCheese != null) {
+			watermarkCheese.visible = ClientPrefs.showWatermark;
+		}
+
 		#if html5
-		FlxG.autoPause = false;
 		FlxG.mouse.visible = false;
 		#end
+
+		FlxG.autoPause = false;
 	}
 }

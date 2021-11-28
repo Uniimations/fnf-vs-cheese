@@ -234,7 +234,8 @@ class StoryMenuState extends MusicBeatState
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 40, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
 		leftArrow.animation.addByPrefix('leftIdle', "arrow left", 24, true);
-		leftArrow.animation.addByPrefix('leftPress', "arrow push left", 24, false);
+		//leftArrow.animation.addByPrefix('leftPress', "arrow push left", 24, false);
+		leftArrow.animation.addByIndices('leftPress', "arrow push left", [1], '', 24, false);
 		leftArrow.animation.play('leftIdle');
 		addOffset('leftIdle', 0, 0);
 		addOffset('leftPress', -10, 0);
@@ -244,7 +245,7 @@ class StoryMenuState extends MusicBeatState
 		sprDifficultyGroup = new FlxTypedGroup<FlxSprite>();
 
 		for (i in 0...CoolUtil.difficultyStuff.length) {
-			var sprDifficulty:FlxSprite = new FlxSprite(leftArrow.x + 20, leftArrow.y + 40).loadGraphic(Paths.image('menudifficulties/' + CoolUtil.difficultyStuff[i][0].toLowerCase()));
+			var sprDifficulty:FlxSprite = new FlxSprite(leftArrow.x + 20, leftArrow.y + 50).loadGraphic(Paths.image('menudifficulties/' + CoolUtil.difficultyStuff[i][0].toLowerCase()));
 			sprDifficulty.x += (308 - sprDifficulty.width) / 2;
 			sprDifficulty.ID = i;
 			sprDifficulty.antialiasing = ClientPrefs.globalAntialiasing;
@@ -257,7 +258,8 @@ class StoryMenuState extends MusicBeatState
 		rightArrow = new FlxSprite(leftArrow.x + 300, leftArrow.y);
 		rightArrow.frames = ui_tex;
 		rightArrow.animation.addByPrefix('rightIdle', "arrow right", 24, true);
-		rightArrow.animation.addByPrefix('rightPress', "arrow push right", 24, false);
+		//rightArrow.animation.addByPrefix('rightPress', "arrow push right", 24, false);
+		rightArrow.animation.addByIndices('rightPress', "arrow push right", [1], '', 24, false);
 		rightArrow.animation.play('rightIdle');
 		addOffset('rightIdle', 0, 0);
 		addOffset('rightPress', -15, 0);

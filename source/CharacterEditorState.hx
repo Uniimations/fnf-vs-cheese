@@ -210,6 +210,7 @@ class CharacterEditorState extends MusicBeatState
 				playerYDifference = 220;
 			}
 
+			/*
 			var bgSky:BGSprite = new BGSprite('weeb/weebSky', OFFSET_X - (playerXDifference / 2) - 300, 0 - playerYDifference, 0.1, 0.1);
 			bgLayer.add(bgSky);
 			bgSky.antialiasing = false;
@@ -242,7 +243,38 @@ class CharacterEditorState extends MusicBeatState
 			bgSchool.updateHitbox();
 			bgStreet.updateHitbox();
 			bgTrees.updateHitbox();
-			changeBGbutton.text = "Regular BG";
+			*/
+
+			var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+			floor.updateHitbox();
+
+			var tableA:BGSprite = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+			tableA.updateHitbox();
+
+			var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+			tableB.updateHitbox();
+
+			var boppers = new BGSprite('cheese/boppers', 1265.6, 127.6, 1, 1, ['boppers'], true);
+			boppers.updateHitbox();
+
+			var suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+			suzuki.updateHitbox();
+
+			var counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+			counter.updateHitbox();
+
+			var frontBoppers = new BGSprite('cheese/front_boppers', 67.5, 959.7, 1, 1, ['front boppers'], true);
+			frontBoppers.updateHitbox();
+
+			bgLayer.add(floor);
+			bgLayer.add(tableA);
+			bgLayer.add(tableB);
+			bgLayer.add(boppers);
+			bgLayer.add(suzuki);
+
+			bgLayer.add(counter);
+			bgLayer.add(frontBoppers);
+			changeBGbutton.text = "Stage Preview";
 		} else {
 			var bg:BGSprite = new BGSprite('stageback', -600 + OFFSET_X - playerXDifference, -300, 0.9, 0.9);
 			bgLayer.add(bg);
@@ -251,7 +283,7 @@ class CharacterEditorState extends MusicBeatState
 			stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
 			stageFront.updateHitbox();
 			bgLayer.add(stageFront);
-			changeBGbutton.text = "Pixel BG";
+			changeBGbutton.text = "Restaurant Preview";
 		}
 	}
 

@@ -129,11 +129,12 @@ class GameOverSubstate extends MusicBeatSubstate
 		}
 	}
 
+	//what the fuck?
 	override function beatHit()
 	{
 		super.beatHit();
 
-		//FlxG.log.add('beat');
+		FlxG.log.add('hhello i ma  bea t');
 	}
 
 	var isEnding:Bool = false;

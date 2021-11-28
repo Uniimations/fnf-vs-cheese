@@ -145,7 +145,6 @@ class AlphabetWhite extends FlxSpriteGroup
 				}
 				consecutiveSpaces = 0;
 
-				// var letter:AlphaCharacter = new AlphaCharacter(30 * loopNum, 0, textSize);
 				var letter:AlphaCharacterWhite = new AlphaCharacterWhite(xPos, 0, textSize);
 
 				if (isBold)
@@ -267,7 +266,6 @@ class AlphabetWhite extends FlxSpriteGroup
 				}
 				consecutiveSpaces = 0;
 
-				// var letter:AlphaCharacter = new AlphaCharacter(30 * loopNum, 0, textSize);
 				var letter:AlphaCharacterWhite = new AlphaCharacterWhite(xPos, 55 * yMulti, textSize);
 				letter.row = curRow;
 				if (isBold)

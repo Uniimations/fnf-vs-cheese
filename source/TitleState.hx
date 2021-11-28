@@ -34,10 +34,15 @@ using StringTools;
 class TitleState extends MusicBeatState
 {
 	public static var isDebug:Bool = false;
+	#if debug
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
-
+	#else
+	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO, FlxKey.F4];
+	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS, FlxKey.F7];
+	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS, FlxKey.F8];
+	#end
 	static var initialized:Bool = false;
 
 	private var canDoShit:Bool = false;
@@ -103,22 +108,45 @@ class TitleState extends MusicBeatState
 		#elseif CHARTING
 		MusicBeatState.switchState(new ChartingState());
 		#else
-		if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
-			FlxTransitionableState.skipNextTransIn = true;
-			FlxTransitionableState.skipNextTransOut = true;
-			MusicBeatState.switchState(new FlashingState());
-		} else {
-			#if desktop
-			DiscordClient.initialize();
-			Application.current.onExit.add (function (exitCode) {
-				DiscordClient.shutdown();
-			});
-			#end
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				startIntro();
-				canDoShit = true;
-			});
+		if (TitleState.isDebug) // for testing flash warning
+		{
+			if(!FlashingState.leftState) {
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				MusicBeatState.switchState(new FlashingState());
+			} else {
+				#if desktop
+				DiscordClient.initialize();
+				Application.current.onExit.add (function (exitCode) {
+					DiscordClient.shutdown();
+				});
+				#end
+				new FlxTimer().start(1, function(tmr:FlxTimer)
+				{
+					startIntro();
+					canDoShit = true;
+				});
+			}
+		}
+		else
+		{
+			if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				MusicBeatState.switchState(new FlashingState());
+			} else {
+				#if desktop
+				DiscordClient.initialize();
+				Application.current.onExit.add (function (exitCode) {
+					DiscordClient.shutdown();
+				});
+				#end
+				new FlxTimer().start(1, function(tmr:FlxTimer)
+				{
+					startIntro();
+					canDoShit = true;
+				});
+			}
 		}
 		#end
 	}
@@ -134,11 +162,8 @@ class TitleState extends MusicBeatState
 		if (!initialized)
 		{
 			//got rid of old code cause stinky
-			if(FlxG.sound.music == null) {
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-
-				FlxG.sound.music.fadeIn(4, 0, 0.7);
-			}
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			FlxG.sound.music.fadeIn(4, 0, 0.7);
 		}
 
 		Conductor.changeBPM(120);
@@ -414,7 +439,8 @@ class TitleState extends MusicBeatState
 		FlxG.log.add(curBeat);
 		FlxTween.tween(FlxG.camera, {zoom:1.02}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
 
-		if(!closedState) {
+		if(!closedState)
+		{
 			switch (curBeat)
 			{
 				case 4:

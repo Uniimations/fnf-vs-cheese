@@ -31,7 +31,7 @@ using StringTools;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = ['KEYBINDS', 'SETTINGS'];
-	private var grpOptions:FlxTypedGroup<Alphabet>;
+	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private static var curSelected:Int = 0;
 	public static var menuBlackShit:FlxSprite;
 	public static var menuBG:FlxSprite;
@@ -41,11 +41,19 @@ class OptionsState extends MusicBeatState
 		DiscordClient.changePresence("Options Menu", null);
 		#end
 
-		menuBG = new FlxSprite().loadGraphic(Paths.image('settingsmenu/menuOptions'));
+		menuBG = new FlxSprite(0, 0); // fix for wrong positions!
+
+		if (ClientPrefs.fuckyouavi)
+			//menuBG.loadGraphic(Paths.image('settingsmenu/menuOptionsDark'));
+			menuBG.loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE')); // load black dumbass
+		else
+			menuBG.loadGraphic(Paths.image('settingsmenu/menuOptions'));
+
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
+		menuBG.alpha = 0.85;
 		add(menuBG);
 
 		menuBlackShit = new FlxSprite().loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE'));
@@ -55,12 +63,12 @@ class OptionsState extends MusicBeatState
 		menuBlackShit.alpha = ClientPrefs.bgDim;
 		add(menuBlackShit);
 
-		grpOptions = new FlxTypedGroup<Alphabet>();
+		grpOptions = new FlxTypedGroup<AlphabetWhite>();
 		add(grpOptions);
 
 		for (i in 0...options.length)
 		{
-			var optionText:Alphabet = new Alphabet(0, 0, options[i], true, false);
+			var optionText:AlphabetWhite = new AlphabetWhite(0, 0, options[i], true, false);
 			optionText.screenCenter();
 			optionText.y += (100 * (i - (options.length / 2))) + 50;
 
@@ -161,7 +169,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 		'',
 		defaultKey];
 
-	private var grpOptions:FlxTypedGroup<Alphabet>;
+	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private var grpInputs:Array<AttachedText> = [];
 	private var controlArray:Array<FlxKey> = [];
 	var rebindingKey:Int = -1;
@@ -169,7 +177,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 
 	public function new() {
 		super();
-		grpOptions = new FlxTypedGroup<Alphabet>();
+		grpOptions = new FlxTypedGroup<AlphabetWhite>();
 		add(grpOptions);
 
 		controlArray = ClientPrefs.lastControls.copy();
@@ -180,7 +188,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 				isCentered = true;
 			}
 
-			var optionText:Alphabet = new Alphabet(0, (10 * i), optionShit[i], (!isCentered || isDefaultKey), false);
+			var optionText:AlphabetWhite = new AlphabetWhite(0, (10 * i), optionShit[i], (!isCentered || isDefaultKey), false);
 			optionText.isMenuItem = true;
 			if(isCentered) {
 				optionText.screenCenter(X);
@@ -216,7 +224,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 
 			if (controls.BACK) {
 				ClientPrefs.reloadControls(controlArray);
-				grpOptions.forEachAlive(function(spr:Alphabet) {
+				grpOptions.forEachAlive(function(spr:AlphabetWhite) {
 					spr.alpha = 0;
 				});
 				for (i in 0...grpInputs.length) {
@@ -347,7 +355,7 @@ class ControlsSubstate extends MusicBeatSubstate {
 		return -1;
 	}
 
-	private function addBindTexts(optionText:Alphabet) {
+	private function addBindTexts(optionText:AlphabetWhite) {
 		var text1 = new AttachedText(InputFormatter.getKeyName(controlArray[grpInputs.length]), 400, -55);
 		text1.setPosition(optionText.x + 400, optionText.y - 55);
 		text1.sprTracker = optionText;
@@ -449,8 +457,9 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'APPEARANCE',
 		#if !mobile
 		'FPS Counter',
-		'Memory Counter',
+		//'Memory Counter',
 		#end
+		'Watermark Icon',
 		'Note Splashes',
 		'Hide HUD',
 		'Hide Song Length',
@@ -466,13 +475,13 @@ class PreferencesSubstate extends MusicBeatSubstate
 		//MOD SPECIFIC CATEGORY WHERE WE GET FUNKY AND fun ni lol!!!
 		//unii from 11/1/2021 here wtf were you on past unii
 		'MISCELLANEOUS',
-		'Constant Data Cached',
+		'Memory Cache',
 		'Optimized Mode',
 		'Erase Save Data',
 		//'Shitish Mode'
 	];
 
-	private var grpOptions:FlxTypedGroup<Alphabet>;
+	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private var checkboxArray:Array<CheckboxThingie> = [];
 	private var checkboxNumber:Array<Int> = [];
 	private var grpTexts:FlxTypedGroup<AttachedText>;
@@ -494,7 +503,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		characterLayer = new FlxTypedGroup<Character>();
 		add(characterLayer);
 
-		grpOptions = new FlxTypedGroup<Alphabet>();
+		grpOptions = new FlxTypedGroup<AlphabetWhite>();
 		add(grpOptions);
 
 		grpTexts = new FlxTypedGroup<AttachedText>();
@@ -509,7 +518,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		for (i in 0...options.length)
 		{
 			var isCentered:Bool = unselectableCheck(i);
-			var optionText:Alphabet = new Alphabet(0, 70 * i, options[i], false, false);
+			var optionText:AlphabetWhite = new AlphabetWhite(0, 70 * i, options[i], false, false);
 			optionText.isMenuItem = true;
 			if(isCentered) {
 				optionText.screenCenter(X);
@@ -553,7 +562,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		}
 
 		if (ClientPrefs.fuckyouavi) {
-			OptionsState.menuBG.alpha = 0.2;
+			//do nothing
 		} else {
 			if (ClientPrefs.bfreskin)
 				newBoyfriend(boyfriendRemaster);
@@ -595,7 +604,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		}
 
 		if (controls.BACK) {
-			grpOptions.forEachAlive(function(spr:Alphabet) {
+			grpOptions.forEachAlive(function(spr:AlphabetWhite) {
 				spr.alpha = 0;
 			});
 			grpTexts.forEachAlive(function(spr:AttachedText) {
@@ -633,6 +642,11 @@ class PreferencesSubstate extends MusicBeatSubstate
 						ClientPrefs.showMemory = !ClientPrefs.showMemory;
 						if (Main.memoryCounterVar != null)
 							Main.memoryCounterVar.visible = ClientPrefs.showMemory;
+
+					case 'Watermark Icon':
+						ClientPrefs.showWatermark = !ClientPrefs.showWatermark;
+						if (Main.watermarkCheese != null)
+							Main.watermarkCheese.visible = ClientPrefs.showWatermark;
 
 					case 'High Quality':
 						ClientPrefs.globalAntialiasing = !ClientPrefs.globalAntialiasing;
@@ -678,7 +692,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 					case 'Hide HUD':
 						ClientPrefs.hideHud = !ClientPrefs.hideHud;
 
-					case 'Constant Data Cached':
+					case 'Memory Cache':
 						ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;
 						FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
@@ -706,14 +720,16 @@ class PreferencesSubstate extends MusicBeatSubstate
 							{
 								killBoyfriend();
 							}
-							OptionsState.menuBG.alpha = 0.2;
+							//OptionsState.menuBG.alpha = 0.2;
+							OptionsState.menuBG.loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE'));
 							OptionsState.menuBlackShit.visible = false;
 						}
 						else
 						{
 							if (!ClientPrefs.bfreskin) newBoyfriend(boyfriendNormal);
 							else if (ClientPrefs.bfreskin) newBoyfriend(boyfriendRemaster);
-							OptionsState.menuBG.alpha = 1;
+							//OptionsState.menuBG.alpha = 1;
+							OptionsState.menuBG.loadGraphic(Paths.image('settingsmenu/menuOptions'));
 							OptionsState.menuBlackShit.visible = true;
 						}
 
@@ -826,8 +842,10 @@ class PreferencesSubstate extends MusicBeatSubstate
 				daText = "If unchecked, hides FPS Counter.";
 			case 'Memory Counter':
 				daText = "If unchecked, hides the text showing memory usage.";
-			case 'Constant Data Cached':
-				daText = "TURN THIS ON IF YOU HAVE ANY LOADING PROBLEMS!\nIf checked, images loaded will stay in memory\nuntil the game is closed, makes loading times faster.";
+			case 'Watermark Icon':
+				daText = "If unchecked, hides the small transparent Cheese icon on the top left.";
+			case 'Memory Cache':
+				daText = "TURN THIS ON IF YOU HAVE ANY LOADING PROBLEMS!\nKeep images stored in memory at the extent of memory usage.";
 			case 'High Quality':
 				daText = "If unchecked, disables anti-aliasing, increases performance\nat the cost of the graphics not looking as smooth.";
 			case 'Downscroll':
@@ -920,6 +938,8 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.showFPS;
 					case 'Memory Counter':
 						daValue = ClientPrefs.showMemory;
+					case 'Watermark Icon':
+						daValue = ClientPrefs.showWatermark;
 					case 'High Quality':
 						daValue = ClientPrefs.globalAntialiasing;
 					case 'Note Splashes':
@@ -938,7 +958,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 						daValue = ClientPrefs.violence;
 					case 'Hide HUD':
 						daValue = ClientPrefs.hideHud;
-					case 'Constant Data Cached':
+					case 'Memory Cache':
 						daValue = ClientPrefs.imagesPersist;
 					case 'Hide Song Length':
 						daValue = ClientPrefs.hideTime;

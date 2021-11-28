@@ -118,4 +118,18 @@ class MusicBeatState extends FlxUIState
 	{
 		//do literally nothing dumbass
 	}
+
+	public function checkAnimFinish(object:FlxSprite, introAnim:String, idleAnim:String)
+	{
+		if (object.animation.curAnim != null)
+		{
+			if (object.animation.curAnim.name == introAnim && object.animation.curAnim.finished)
+			{
+				new FlxTimer().start(0.2, function(tmr: FlxTimer)
+				{
+					object.animation.play(idleAnim);
+				});
+			}
+		}
+	}
 }
