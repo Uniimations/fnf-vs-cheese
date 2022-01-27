@@ -43,11 +43,11 @@ class HealthIcon extends FlxSprite
 			var name:String = 'icons/icon-' + char;
 			if(!Paths.fileExists('images/' + name + '.png', IMAGE)) name = 'icons/icon-face'; //Prevents crash from missing icon
 			var file:Dynamic = Paths.image(name);
-			var idleSpr:Int; //idle icon sprite
-			var losingSpr:Int; //losing icon sprite
-			var winningSpr:Int; //winnning icon sprite
+			var idleSpr:Int = 0; //idle icon sprite
+			var losingSpr:Int = 1; //losing icon sprite
+			var winningSpr:Int = 0; //winnning icon sprite
 
-			// ALL ICON SORTING CODE!!!
+			// ALL ANIMATION ICON SORTING CODE!!!
 			switch (char) // NOTE: CHAR IS NOT FOR curCharacter IT IS FOR THE ICON NAME!!!
 			{
 				case 'bluecheese-ex' | 'bf-ex':  //ex winning icons
@@ -58,7 +58,7 @@ class HealthIcon extends FlxSprite
 					idleSpr = 1;
 					losingSpr = 0;
 					winningSpr = 1;
-				case 'bob' | 'bosip': //bob and bosip icons out of order because AMOR is dumb >:(
+				case 'bob' | 'bosip' | 'bob-and-bosip': //bob and bosip icons out of order because AMOR is dumb >:(
 					idleSpr = 0;
 					losingSpr = 2;
 					winningSpr = 1;

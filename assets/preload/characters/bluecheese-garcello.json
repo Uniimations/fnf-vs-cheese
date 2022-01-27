@@ -74,7 +74,6 @@
 		140
 	],
 	"healthicon": "bluecheese-garcello",
-	"noteskin": "NOTES_BLUECHEESE",
 	"flip_x": false,
 	"healthbar_colors": [
 		99,
@@ -82,9 +81,10 @@
 		146
 	],
 	"camera_position": [
-		20,
-		173
+		40,
+		183
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }

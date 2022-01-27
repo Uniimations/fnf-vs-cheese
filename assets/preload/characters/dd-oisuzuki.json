@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"fps": 24,
+			"anim": "danceLeft",
+			"loop": false,
+			"name": "suzuki idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"indices": [
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24,
+				25,
+				26,
+				27,
+				28,
+				29
+			],
+			"fps": 24,
+			"anim": "danceRight",
+			"loop": false,
+			"name": "suzuki idle"
+		},
+		{
+			"offsets": [
+				7,
+				4
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT",
+			"loop": false,
+			"name": "suzuki left"
+		},
+		{
+			"offsets": [
+				-21,
+				-30
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN",
+			"loop": false,
+			"name": "suzuki down"
+		},
+		{
+			"offsets": [
+				-7,
+				-8
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP",
+			"loop": false,
+			"name": "suzuki up"
+		},
+		{
+			"offsets": [
+				-49,
+				-18
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"loop": false,
+			"name": "suzuki right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/dynamic-duo-full/SUZUKI",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "dad",
+	"flip_x": false,
+	"healthbar_colors": [
+		175,
+		95,
+		255
+	],
+	"camera_position": [
+		-40,
+		83
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

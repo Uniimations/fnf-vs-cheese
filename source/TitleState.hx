@@ -108,45 +108,22 @@ class TitleState extends MusicBeatState
 		#elseif CHARTING
 		MusicBeatState.switchState(new ChartingState());
 		#else
-		if (TitleState.isDebug) // for testing flash warning
-		{
-			if(!FlashingState.leftState) {
-				FlxTransitionableState.skipNextTransIn = true;
-				FlxTransitionableState.skipNextTransOut = true;
-				MusicBeatState.switchState(new FlashingState());
-			} else {
-				#if desktop
-				DiscordClient.initialize();
-				Application.current.onExit.add (function (exitCode) {
-					DiscordClient.shutdown();
-				});
-				#end
-				new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
-					startIntro();
-					canDoShit = true;
-				});
-			}
-		}
-		else
-		{
-			if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
-				FlxTransitionableState.skipNextTransIn = true;
-				FlxTransitionableState.skipNextTransOut = true;
-				MusicBeatState.switchState(new FlashingState());
-			} else {
-				#if desktop
-				DiscordClient.initialize();
-				Application.current.onExit.add (function (exitCode) {
-					DiscordClient.shutdown();
-				});
-				#end
-				new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
-					startIntro();
-					canDoShit = true;
-				});
-			}
+		if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
+			FlxTransitionableState.skipNextTransIn = true;
+			FlxTransitionableState.skipNextTransOut = true;
+			MusicBeatState.switchState(new FlashingState());
+		} else {
+			#if desktop
+			DiscordClient.initialize();
+			Application.current.onExit.add (function (exitCode) {
+				DiscordClient.shutdown();
+			});
+			#end
+			new FlxTimer().start(1, function(tmr:FlxTimer)
+			{
+				startIntro();
+				canDoShit = true;
+			});
 		}
 		#end
 	}
@@ -162,8 +139,7 @@ class TitleState extends MusicBeatState
 		if (!initialized)
 		{
 			//got rid of old code cause stinky
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
-			FlxG.sound.music.fadeIn(4, 0, 0.7);
+			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 		}
 
 		Conductor.changeBPM(120);
@@ -343,8 +319,8 @@ class TitleState extends MusicBeatState
 			canDoShit = false;
 		}
 
-		if (TitleState.isDebug && !transitioning && skippedIntro)
-		{
+		#if debug
+		if (canDoShit) {
 			if (FlxG.keys.justPressed.F1)
 			{
 				MusicBeatState.switchState(new MainMenuState());
@@ -375,6 +351,7 @@ class TitleState extends MusicBeatState
 				MusicBeatState.switchState(new RatingPopUpMenuState());
 			}
 		}
+		#end
 
 		if (pressedEnter && !skippedIntro)
 		{
@@ -450,22 +427,17 @@ class TitleState extends MusicBeatState
 					addMoreText('Potionion', 20);
 				case 6:
 					addMoreText('Bluecheese', 20);
-					addMoreText('& The Boyz', 20);
-				case 7:
-					addMoreText('Present', 20);
-				case 8:
-					curWacky = FlxG.random.getObject(getIntroTextShit());
-					deleteCoolText();
-					createCoolText([curWacky[0]], 45);
-				case 9:
-					addMoreText(curWacky[1], 45);
-				case 10:
-					curWacky = FlxG.random.getObject(getIntroTextShit());
-					deleteCoolText();
-					createCoolText([curWacky[0]], 45);
-				case 11:
-					addMoreText(curWacky[1], 45);
-				case 12:
+					addMoreText('& Many more', 20);
+			}
+
+			createStartText(); // else if type beat im not proud of :(
+
+			switch (curBeat)
+			{
+				case 12: // you've seen the intro text
+					if (FlxG.save.data.seenIntro == null || FlxG.save.data.seenIntro == false) {
+						FlxG.save.data.seenIntro = true;
+					}
 					deleteCoolText();
 				case 13:
 					createCoolText(['getting'], 45);
@@ -495,12 +467,21 @@ class TitleState extends MusicBeatState
 	{
 		if (!skippedIntro)
 		{
-			if (FlxG.mouse.visible = true) FlxG.mouse.visible = false; //makes sure the mouse is invisible
+			if (FlxG.mouse.visible = true) FlxG.mouse.visible = false;
+			/*
+			makes sure the mouse is invisible (doesnt really matter since it becomes visible in main menu but... its not used in title screen)
+			**/
+
 			remove(logoSpr);
 			remove(FNF_Logo);
 			remove(FNF_SUBTEXT);
 
-			FlxG.camera.flash(FlxColor.WHITE, 2);
+			if (ClientPrefs.flashing) {
+				FlxG.camera.flash(FlxColor.WHITE, 2);
+			} else {
+				FlxG.camera.flash(FlxColor.BLACK, 0.6);
+			}
+
 			//SOME AWESOME TWEENING I DID WOAAAHH IM PROUD OF MYSELF FOR THIS PRAISE ME NOW.
 			//i wasnt being serious sorry
 			//wtf past me??? ^
@@ -510,6 +491,69 @@ class TitleState extends MusicBeatState
 			remove(gradientBar);
 			yellow.visible = true;
 			skippedIntro = true;
+		}
+	}
+
+	// this function is a bit of a mess... dont mind it
+	function createStartText():Void
+	{
+		#if TRAILER_BUILD
+		var isTrailer:Bool = true;
+		#else
+		var isTrailer:Bool = false;
+		#end
+		if (isTrailer) {
+			switch (curBeat)
+			{
+				case 7:
+				addMoreText('Are Proud', 20);
+				addMoreText('To Present', 20);
+				case 8:
+					deleteCoolText();
+					createCoolText(["If you're a"], 45);
+				case 9:
+					addMoreText('Friday Night Funkin fan', 45);
+				case 10:
+					deleteCoolText();
+					createCoolText(['You definitely want'], 45);
+				case 11:
+					addMoreText('the full ass', 45);
+			}
+		} else if (FlxG.save.data.seenIntro == false) {
+			switch (curBeat)
+			{
+				case 7:
+				addMoreText('Are Proud', 20);
+				addMoreText('To Present', 20);
+				case 8:
+					deleteCoolText();
+					createCoolText(["If you're a"], 45);
+				case 9:
+					addMoreText('Friday Night Funkin fan', 45);
+				case 10:
+					deleteCoolText();
+					createCoolText(['You definitely want'], 45);
+				case 11:
+					addMoreText('the full ass', 45);
+			}
+		} else {
+			switch (curBeat)
+			{
+				case 7:
+					addMoreText('Present', 20);
+				case 8:
+					curWacky = FlxG.random.getObject(getIntroTextShit());
+					deleteCoolText();
+					createCoolText([curWacky[0]], 45);
+				case 9:
+					addMoreText(curWacky[1], 45);
+				case 10:
+					curWacky = FlxG.random.getObject(getIntroTextShit());
+					deleteCoolText();
+					createCoolText([curWacky[0]], 45);
+				case 11:
+					addMoreText(curWacky[1], 45);
+			}
 		}
 	}
 

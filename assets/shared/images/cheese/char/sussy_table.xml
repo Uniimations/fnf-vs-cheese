@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="sussy_table.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="SUSSY TABLE0000" x="0" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0001" x="0" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0002" x="486" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0003" x="486" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0004" x="972" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0005" x="972" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0006" x="1458" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0007" x="1458" y="0" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0008" x="0" y="516" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0009" x="0" y="516" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0010" x="486" y="516" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0011" x="486" y="516" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0012" x="972" y="516" width="436" height="466"/>
+	<SubTexture name="SUSSY TABLE0013" x="972" y="516" width="436" height="466"/>
+</TextureAtlas>

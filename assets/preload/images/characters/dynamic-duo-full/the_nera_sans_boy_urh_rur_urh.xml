@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="the_nera_sans_boy_urh_rur_urh.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="AVI SING RIGHT0000" x="0" y="0" width="318" height="836"/>
+	<SubTexture name="AVI SING RIGHT0001" x="0" y="0" width="318" height="836"/>
+	<SubTexture name="AVI SING RIGHT0002" x="368" y="0" width="318" height="836"/>
+	<SubTexture name="AVI SING RIGHT0003" x="736" y="0" width="318" height="836"/>
+	<SubTexture name="avi down0000" x="1104" y="0" width="404" height="792"/>
+	<SubTexture name="avi down0001" x="1104" y="0" width="404" height="792"/>
+	<SubTexture name="avi down0002" x="1558" y="0" width="404" height="792"/>
+	<SubTexture name="avi down0003" x="2012" y="0" width="404" height="792"/>
+	<SubTexture name="avi left0000" x="2466" y="0" width="412" height="799"/>
+	<SubTexture name="avi left0001" x="2466" y="0" width="412" height="799"/>
+	<SubTexture name="avi left0002" x="2928" y="0" width="412" height="799"/>
+	<SubTexture name="avi left0003" x="3390" y="0" width="412" height="799"/>
+	<SubTexture name="avi miss0000" x="0" y="886" width="370" height="860"/>
+	<SubTexture name="avi miss0001" x="420" y="886" width="370" height="860"/>
+	<SubTexture name="avi miss0002" x="840" y="886" width="370" height="860"/>
+	<SubTexture name="avi miss0003" x="1260" y="886" width="370" height="860"/>
+	<SubTexture name="avi miss0004" x="1680" y="886" width="370" height="860"/>
+	<SubTexture name="avi miss0005" x="1260" y="886" width="370" height="860"/>
+	<SubTexture name="avi miss0006" x="1680" y="886" width="370" height="860"/>
+	<SubTexture name="avi miss0007" x="1260" y="886" width="370" height="860"/>
+	<SubTexture name="avi up guy0000" x="2100" y="886" width="382" height="855"/>
+	<SubTexture name="avi up guy0001" x="2100" y="886" width="382" height="855"/>
+	<SubTexture name="avi up guy0002" x="2532" y="886" width="382" height="855"/>
+	<SubTexture name="avi up guy0003" x="2964" y="886" width="382" height="855"/>
+	<SubTexture name="idle dance big guy0000" x="3396" y="886" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0001" x="3396" y="886" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0002" x="0" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0003" x="0" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0004" x="467" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0005" x="467" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0006" x="934" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0007" x="934" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0008" x="1401" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0009" x="1401" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0010" x="1401" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0011" x="1401" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0012" x="1401" y="1796" width="417" height="825"/>
+	<SubTexture name="idle dance big guy0013" x="1401" y="1796" width="417" height="825"/>
+</TextureAtlas>

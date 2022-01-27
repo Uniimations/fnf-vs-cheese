@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="fun_gang_latest.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="fungang boppy0000" x="0" y="0" width="469" height="486"/>
+	<SubTexture name="fungang boppy0001" x="0" y="0" width="469" height="486"/>
+	<SubTexture name="fungang boppy0002" x="469" y="0" width="469" height="486"/>
+	<SubTexture name="fungang boppy0003" x="469" y="0" width="469" height="486"/>
+	<SubTexture name="fungang boppy0004" x="0" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0005" x="0" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0006" x="469" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0007" x="469" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0008" x="469" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0009" x="469" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0010" x="469" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0011" x="469" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0012" x="469" y="486" width="469" height="486"/>
+	<SubTexture name="fungang boppy0013" x="469" y="486" width="469" height="486"/>
+</TextureAtlas>

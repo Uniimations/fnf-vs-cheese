@@ -3,6 +3,8 @@ package;
 import Conductor.BPMChangeEvent;
 import flixel.FlxG;
 import flixel.FlxSubState;
+import flixel.util.FlxTimer;
+import flixel.FlxSprite;
 
 class MusicBeatSubstate extends FlxSubState
 {
@@ -61,5 +63,16 @@ class MusicBeatSubstate extends FlxSubState
 	public function beatHit():Void
 	{
 		//do literally nothing dumbass
+	}
+
+	public function checkAnimFinish(object:FlxSprite, introAnim:String, idleAnim:String)
+	{
+		if (object.animation.curAnim != null)
+		{
+			if (object.animation.curAnim.name == introAnim && object.animation.curAnim.finished)
+			{
+				object.animation.play(idleAnim, true);
+			}
+		}
 	}
 }

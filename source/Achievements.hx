@@ -9,37 +9,64 @@ import flixel.text.FlxText;
 
 using StringTools;
 
-class Achievements {
-	public static var achievementsStuff:Array<Dynamic> = [ //Name, Description, Achievement save tag, Hidden achievement
+class Achievements
+{
+	// for achievements
+	public static var achievementsStuff:Array<Dynamic> = [
+		//Name, 						 Description, 			 							 Achievement save tag, 	 Hide?
+
 		["Freaky on a Friday Night",	"Play on a Friday... Night.",						'friday_night_play',	 true],
 
 		// VS CHEESE ACHIEVEMENTS
 
-		["Back To The Basics",			"Beat the Tutorial",								'tutorial_beat', 		false],
+		["Back to the Basics",			"Beat Tutorial and unlock the rest of the game.",	'tutorial_beat', 		false],
 		["Are You Cultured?", 			"Beat Week 1 on HARD.",								'week1_beat', 			false],
-		["The Boyz",					"Beat Week 2 on HARD.",								'week2_beat',			false],
-		// EX DIFFICULTY
-		["Freestyle Time!", 			"Beat Restaurante on EX difficulty",				'restaurante_ex',		false],
-		["Let's Change It Up!", 		"Beat Milkshake on EX difficulty.",					'milkshake_ex',		 	false],
-		["You're Not Cultured Yet!",	"Beat Cultured on EX difficulty.", 					'cultured_ex',			false],
+		["A Prequel?",					"Beat Week 2 on HARD.",								'week2_beat',			false],
+		["The Boyz",					"Sing with Unii and get the good ending to Week 2",	'dynamic_duo',			false],
+		["Something's Missing...",		"Say no to Unii and get the bad ending to Week 2.",	'below_zero',			false],
+		// VIP DIFFICULTY
+		["Freestyle Time!", 			"Beat Restaurante on VIP difficulty",				'restaurante_ex',		false],
+		["Let's Change It Up!", 		"Beat Milkshake on VIP difficulty.",				'milkshake_ex',		 	false],
+		["You're Not Cultured Yet!",	"Beat Cultured on VIP difficulty.", 				'cultured_ex',			false],
+		["Feeling the Swing", 			"Beat Mozzarella on HARD.",							'bnb_beat',				false],
 		// EXTRA ACHIEVEMENTS
-		["Megalomaniac", 				"Beat Manager Strike Back.",						'beat_chara',			 true],
-		["Let It Go",	 				"Beat Frosted.",									'beat_sans',			 true],
+		["Megalomaniac", 				"Beat Manager Strike Back without Pussy Mode.",		'beat_chara',			 true],
+		["Let It Go",	 				"Beat Frosted without Pussy Mode.",					'beat_sans',			 true],
+
+		["Dirty Cheater...",
+		"You cheated not only the game, but yourself. You didn't grow. You didn't improve. You took a shortcut and gained nothing.
+		You experienced a hollow victory. Nothing was risked and nothing was gained. It's sad that you don't know the difference.",
+		'beat_onion', true],
+
 		["awww the scrunkly",			"Headpat Cheese on the Main Menu.",					'scrunkly',				false],
 		["Evil woops",					"Don't skip dialogue AT ALL in any way.",			'evil_woops',			 true],
 
-		// OG
+		// OG RENAMED
 
-		["What a Funkin' Disaster!",	"Complete a Song with a rating lower than 20%.",	'ur_bad',				false],
-		["Perfectionist",				"Complete a Song with a rating of 100%.",			'ur_good',				false],
-		["Oversinging Much...?",		"Hold down a note for 20 seconds.",					'oversinging',			false],
-		["Hyperactive",					"Finish a Song without going Idle.",				'hype',					false],
-		["Just the Two of Us",			"Finish a Song pressing only two keys.",			'two_keys',				false],
-		["Toaster Gamer",				"Have you tried to run the game on a toaster?",		'toastie',				false]
+		["L + Ratio",					"Complete a Song with a rating lower than 20%.",	'ur_bad',				false],
+		["Marvelous",					"Complete a Song with a rating of 100%.",			'ur_good',				false],
+
+		["Long And Hard",
+		"Hold down a note for at least 5 seconds.\nThe name? don't know what you mean",
+		'oversinging', false],
+
+		["SCP-173",						"Don't blink.\n(Finish a Song without going Idle.)",'hype',					false],
+		["Dynamic Duo",					"Finish a Song pressing only two keys.",			'two_keys',				false],
+		["Mac User",					"Have you tried to run the game on a toaster?",		'toastie',				false]
 	];
+
+	// for unlocks/notifications
+	public static var notifStuff:Array<Dynamic> = [
+		//Header, 						 Subtitle,	 			 							 Save tag, 	 			Hide?
+		["Psst...", 					"You unlocked Week 1 in Story Mode!",				'unlock_week1',			true],
+		["Psst...", 					"You unlocked VIP difficulty in Freeplay!",			'unlock_ex',			true],
+		["Psst...", 					"You unlocked Week 2 in Story Mode!",				'unlock_week2',			true],
+		["Psst...", 					"You unlocked BONUS CONTENT in Story Mode!",		'unlock_bonus',			true],
+		["Psst...", 					"You unlocked BONUS SONGS in Freeplay!",			'unlock_endgame',		true],
+	];
+
 	public static var achievementsMap:Map<String, Bool> = new Map<String, Bool>();
 
-	public static var henchmenDeath:Int = 0;
 	public static function unlockAchievement(name:String):Void {
 		FlxG.log.add('Completed achievement "' + name +'"');
 		achievementsMap.set(name, true);
@@ -53,9 +80,19 @@ class Achievements {
 		return false;
 	}
 
-	public static function getAchievementIndex(name:String) {
-		for (i in 0...achievementsStuff.length) {
-			if(achievementsStuff[i][2] == name) {
+	public static function getAchievementIndex(name:String, ?type:String = 'achievement') {
+		var typeList:Array<Dynamic> = [];
+
+		switch (type)
+		{
+			case 'achievement':
+				typeList = achievementsStuff;
+			case 'notification':
+				typeList = notifStuff;
+		}
+
+		for (i in 0...typeList.length) {
+			if(typeList[i][2] == name) {
 				return i;
 			}
 		}
@@ -73,111 +110,7 @@ class Achievements {
 				achievementsMap.set(savedStuff[i], true);
 			}
 		}
-		if(henchmenDeath == 0 && FlxG.save.data.henchmenDeath != null) {
-			henchmenDeath = FlxG.save.data.henchmenDeath;
-		}
 
-		// I love balls
-	}
-}
-
-class AttachedAchievement extends FlxSprite {
-	public var sprTracker:FlxSprite;
-	private var tag:String;
-	public function new(x:Float = 0, y:Float = 0, name:String) {
-		super(x, y);
-
-		changeAchievement(name);
-		antialiasing = ClientPrefs.globalAntialiasing;
-	}
-
-	public function changeAchievement(tag:String) {
-		this.tag = tag;
-		reloadAchievementImage();
-	}
-
-	public function reloadAchievementImage() {
-		if(Achievements.isAchievementUnlocked(tag)) {
-			loadGraphic(Paths.image('achievementGrid'), true, 150, 150);
-			animation.add('icon', [Achievements.getAchievementIndex(tag)], 0, false, false);
-			animation.play('icon');
-		} else {
-			loadGraphic(Paths.image('lockedachievement'));
-		}
-		scale.set(0.7, 0.7);
-		updateHitbox();
-	}
-
-	override function update(elapsed:Float) {
-		if (sprTracker != null)
-			setPosition(sprTracker.x - 130, sprTracker.y + 25);
-
-		super.update(elapsed);
-	}
-}
-
-class AchievementObject extends FlxSpriteGroup {
-	public var onFinish:Void->Void = null;
-	var alphaTween:FlxTween;
-	public function new(name:String, ?camera:FlxCamera = null)
-	{
-		super(x, y);
-
-		var id:Int = Achievements.getAchievementIndex(name);
-		var achievementBG:FlxSprite = new FlxSprite(60, 50).makeGraphic(420, 120, FlxColor.BLACK);
-		achievementBG.scrollFactor.set();
-
-		var achievementIcon:FlxSprite = new FlxSprite(achievementBG.x + 10, achievementBG.y + 10).loadGraphic(Paths.image('achievementGrid'), true, 150, 150);
-		achievementIcon.animation.add('icon', [id], 0, false, false);
-		achievementIcon.animation.play('icon');
-		achievementIcon.scrollFactor.set();
-		achievementIcon.setGraphicSize(Std.int(achievementIcon.width * (2 / 3)));
-		achievementIcon.updateHitbox();
-		achievementIcon.antialiasing = ClientPrefs.globalAntialiasing;
-
-		var achievementName:FlxText = new FlxText(achievementIcon.x + achievementIcon.width + 20, achievementIcon.y + 16, 280, Achievements.achievementsStuff[id][0], 16);
-		achievementName.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
-		achievementName.scrollFactor.set();
-
-		var achievementText:FlxText = new FlxText(achievementName.x, achievementName.y + 32, 280, Achievements.achievementsStuff[id][1], 16);
-		achievementText.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT);
-		achievementText.scrollFactor.set();
-
-		add(achievementBG);
-		add(achievementName);
-		add(achievementText);
-		add(achievementIcon);
-
-		var cam:Array<FlxCamera> = FlxCamera.defaultCameras;
-		if(camera != null) {
-			cam = [camera];
-		}
-		alpha = 0;
-		achievementBG.cameras = cam;
-		achievementName.cameras = cam;
-		achievementText.cameras = cam;
-		achievementIcon.cameras = cam;
-		alphaTween = FlxTween.tween(this, {alpha: 1}, 0.5, {onComplete: function (twn:FlxTween) {
-			alphaTween = FlxTween.tween(this, {alpha: 0}, 0.5, {
-				startDelay: 2.5,
-				onComplete: function(twn:FlxTween) {
-					alphaTween = null;
-					remove(this);
-					if(onFinish != null) onFinish();
-				}
-			});
-		}});
-
-		// ACHIEVEMENT SAVING DATA (not in 4.2 for some reason)
-		if (FlxG.save.data.achievementsMap == null) {
-			FlxG.save.data.achievementsMap = Achievements.achievementsMap;
-		}
-	}
-
-	override function destroy() {
-		if(alphaTween != null) {
-			alphaTween.cancel();
-		}
-		super.destroy();
+		// DOESNT SAVE UNNECECARY STUFF >:(
 	}
 }

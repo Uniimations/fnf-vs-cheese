@@ -31,12 +31,12 @@ class AchievementsMenuState extends MusicBeatState
 		DiscordClient.changePresence("Achievements Menu", null);
 		#end
 
-		var menuBG:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuBGBlue'));
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.updateHitbox();
-		menuBG.screenCenter();
-		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
-		add(menuBG);
+		var newMenu:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		newMenu.setGraphicSize(Std.int(newMenu.width * 1.1));
+		newMenu.updateHitbox();
+		newMenu.screenCenter();
+		newMenu.antialiasing = ClientPrefs.globalAntialiasing;
+		add(newMenu);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
@@ -50,7 +50,7 @@ class AchievementsMenuState extends MusicBeatState
 
 		for (i in 0...options.length) {
 			var achieveName:String = Achievements.achievementsStuff[achievementIndex[i]][2];
-			var optionText:Alphabet = new Alphabet(0, (100 * i) + 210, Achievements.isAchievementUnlocked(achieveName) ? Achievements.achievementsStuff[achievementIndex[i]][0] : '?', false, false);
+			var optionText:Alphabet = new Alphabet(0, (100 * i) + 210, Achievements.isAchievementUnlocked(achieveName) ? Achievements.achievementsStuff[achievementIndex[i]][0] : '? - LOCKED', false, false);
 			optionText.isMenuItem = true;
 			optionText.x += 280;
 			optionText.xAdd = 200;
@@ -76,11 +76,18 @@ class AchievementsMenuState extends MusicBeatState
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
 		if (controls.UI_UP_P) {
 			changeSelection(-1);
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		if (controls.UI_DOWN_P) {
 			changeSelection(1);
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 
 		if (controls.BACK) {

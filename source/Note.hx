@@ -41,23 +41,28 @@ class Note extends FlxSprite
 	public var hitHealth:Float = 0.023;
 	public var missHealth:Float = 0.0475;
 
-	public var hitCausesMiss:Bool = false;
+	public var customFunctions:Bool = false;
 
 	private function set_noteType(value:Int):Int {
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
 				case 3: //DODGE NOTE
-					reloadNote('dodge');
+					reloadNote('dodge', '', true, 'NOTES_UNDERTALE');
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
-					hitCausesMiss = true;
+					customFunctions = true;
 				case 4: //DEATH NOTE
-					reloadNote('death');
+					reloadNote('death', '', true, 'NOTES_UNDERTALE');
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
 					colorSwap.brightness = 0;
-					hitCausesMiss = true;
+					customFunctions = true;
+				case 5: //DAD NOTE
+					reloadNote('noteskins/', UniiStringTools.noteSkinSuffix(PlayState.SONG.player2, 0), true);
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
 				default:
 					colorSwap.hue = 0;
 					colorSwap.saturation = 0;
@@ -199,10 +204,21 @@ class Note extends FlxSprite
 		if(!isPixel && noteData > -1) reloadNote();
 	}
 
-	function reloadNote(?prefix:String = '', ?suffix:String = '') {
-		var skin:String = PlayState.SONG.arrowSkin;
-		if(skin == null || skin.length < 1) {
-			skin = 'NOTE_assets';
+	// THIS FUNCTION IS KINDA DUMB NOW... please do this more organized dont copy my code LOL
+	function reloadNote(?prefix:String = '', ?suffix:String = '',  ?forceDadSkin:Bool = false, dadSkin:String = 'NOTE_assets') {
+		var jsonSkin:String = PlayState.SONG.arrowSkin;
+		var skin:String = 'NOTE_assets';
+
+		if (forceDadSkin)
+		{
+			skin = dadSkin;
+		}
+		else
+		{
+			if(jsonSkin != null && jsonSkin.length > 1)
+				skin = jsonSkin;
+			else
+				skin = 'NOTE_assets';
 		}
 
 		var animName:String = null;
@@ -225,7 +241,11 @@ class Note extends FlxSprite
 			}
 			loadPixelNoteAnims();
 		} else {
-			frames = Paths.getSparrowAtlas(blahblah);
+			// JUST IN CASE!!!
+			if (forceDadSkin)
+				frames = Paths.getSparrowAtlas(prefix + dadSkin + suffix);
+			else
+				frames = Paths.getSparrowAtlas(blahblah);
 			loadNoteAnims();
 		}
 		animation.play(animName, true);
@@ -282,30 +302,70 @@ class Note extends FlxSprite
 	{
 		super.update(elapsed);
 
-		if (mustPress)
+		switch (ClientPrefs.inputSystem)
 		{
-			// The * 0.5 is so that it's easier to hit them too late, instead of too early
-			if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-				&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
-				canBeHit = true;
-			else
-				canBeHit = false;
+			case "Kade Engine":
+				if (mustPress)
+				{
+					if (isSustainNote)
+					{
+						if (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * 1.5)
+							&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+							canBeHit = true;
+						else
+							canBeHit = false;
+					}
+					else
+					{
+						if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
+							&& strumTime < Conductor.songPosition + Conductor.safeZoneOffset)
+							canBeHit = true;
+						else
+							canBeHit = false;
+					}
 
-			if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
-				tooLate = true;
-		}
-		else
-		{
-			canBeHit = false;
+					if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset * Conductor.safeZoneOffset / 166 && !wasGoodHit)
+						tooLate = true;
+				}
+				else
+				{
+					canBeHit = false;
 
-			if (strumTime <= Conductor.songPosition)
-				wasGoodHit = true;
-		}
+					if (strumTime <= Conductor.songPosition)
+						wasGoodHit = true;
+				}
 
-		if (tooLate)
-		{
-			if (alpha > 0.3)
-				alpha = 0.3;
+				if (tooLate)
+				{
+					if (alpha > 0.3)
+						alpha = 0.3;
+				}
+			case "Psych Engine" | "Vanilla":
+				if (mustPress)
+				{
+					// The * 0.5 is so that it's easier to hit them too late, instead of too early
+					if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
+						&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+						canBeHit = true;
+					else
+						canBeHit = false;
+
+					if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
+						tooLate = true;
+				}
+				else
+				{
+					canBeHit = false;
+
+					if (strumTime <= Conductor.songPosition)
+						wasGoodHit = true;
+				}
+
+				if (tooLate)
+				{
+					if (alpha > 0.3)
+						alpha = 0.3;
+				}
 		}
 	}
 }

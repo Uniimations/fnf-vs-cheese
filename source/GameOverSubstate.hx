@@ -9,6 +9,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+import flixel.graphics.FlxGraphic;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
@@ -166,6 +167,7 @@ class GameOverSubstate extends MusicBeatSubstate
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
 					LoadingState.loadAndSwitchState(new PlayState());
+					FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 				});
 			});
 		}

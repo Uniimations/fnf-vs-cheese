@@ -6,6 +6,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
 import flixel.addons.transition.FlxTransitionableState;
+import flixel.effects.FlxFlicker;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.system.FlxSound;
@@ -14,6 +15,7 @@ import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
+import flixel.graphics.FlxGraphic;
 import Controls;
 
 class PauseSubState extends MusicBeatSubstate
@@ -21,13 +23,13 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', #if debug'Skip Song', 'God Mode', 'Botplay',#end 'Exit to menu'];
-	var menuItemsPRESSED:Array<String> = ['Resume ', 'Restart Song', #if debug'Skip Song', 'God Mode', 'Botplay',#end 'Exit to menu']; //extra space on 'Resume' for bug fix
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu'];
+	var menuItemsPRESSED:Array<String> = ['Resume ', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu']; //extra space on 'Resume' for bug fix
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
 	var practiceText:FlxText;
-	var botplayText:FlxText;
+	var warningText:FlxText;
 
 	var bg:FlxSprite;
 	var levelInfo:FlxText;
@@ -36,6 +38,17 @@ class PauseSubState extends MusicBeatSubstate
 	var songText:Alphabet;
 
 	var canDoStuff:Bool = true;
+	var loaded:Bool = false;
+	var finishedFading:Bool = false;
+
+	public var char:Character;
+	public var randomChance:Int = 0;
+	public var startNum:Int = 0;
+	public var endNum:Int = 2;
+
+	public var isBFchar:Bool = false;
+	public var hasNoPoses:Bool = false;
+	public var hasTwoDances:Bool = false;
 
 	public function new(x:Float, y:Float)
 	{
@@ -44,22 +57,172 @@ class PauseSubState extends MusicBeatSubstate
 		canDoStuff = true;
 
 		pauseMusic = new FlxSound().loadEmbedded(Paths.music('distant'), true, true);
-		pauseMusic.volume = 0.9;
+		pauseMusic.volume = 0.82;
 		pauseMusic.play(false);
 
 		FlxG.sound.list.add(pauseMusic);
 
 		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		bg.alpha = 0;
 		bg.scrollFactor.set();
 		add(bg);
 
-		levelInfo = new FlxText(20, 15, 0, "", 32);
-		levelInfo.text += PlayState.displaySongName;
-		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
-		levelInfo.updateHitbox();
-		add(levelInfo);
+		canDoStuff = true;
+		loaded = false;
+		finishedFading = false;
+
+		switch (PlayState.SONG.song.toLowerCase())
+		{
+			case 'tutorial' | 'manager-strike-back':
+				endNum = 1;
+			case 'mozzarella':
+				endNum = 4;
+			case 'frosted':
+				startNum = 1;
+				endNum = 3;
+			default:
+				startNum = 0;
+				endNum = 2;
+		}
+
+		randomChance = FlxG.random.int(startNum, endNum);
+
+		switch (PlayState.SONG.song.toLowerCase())
+		{
+			case 'tutorial':
+				switch (randomChance)
+				{
+					case 0:
+						newCharacter(740, 340, "bluecheese", false, true);
+					case 1:
+						newCharacter(838, 320, "gf-oisuzuki-kitchen", false, true);
+						hasTwoDances = true;
+				}
+			case 'restaurante' | 'milkshake' | 'cultured':
+				if (CoolUtil.difficultyString() == 'VIP')
+				{
+					if (PlayState.SONG.song.toLowerCase() == 'cultured') {
+						switch (randomChance)
+						{
+							case 0:
+								newCharacter(740, 390, "ex-bluecheese", false, true);
+							case 1:
+								newCharacter(822, 420, "ex-bf", true);
+							case 2:
+								newCharacter(630, 150, "ex-gf-take-over");
+								hasNoPoses = true;
+								hasTwoDances = true;
+						}
+					} else {
+						switch (randomChance)
+						{
+							case 0:
+								newCharacter(740, 390, "ex-bluecheese", false, true);
+							case 1:
+								newCharacter(822, 420, "ex-bf", true);
+							case 2:
+								newCharacter(630, 150, "ex-gf");
+								hasNoPoses = true;
+								hasTwoDances = true;
+						}
+					}
+				}
+				else
+				{
+					switch (randomChance)
+					{
+						case 0:
+							newCharacter(740, 340, "bluecheese", false, true);
+						case 1:
+							newCharacter(822, 420, "bf", true);
+						case 2:
+							newCharacter(630, 150, "gf");
+							hasNoPoses = true;
+							hasTwoDances = true;
+					}
+				}
+			case 'wifi':
+				switch (randomChance)
+				{
+					case 0:
+						newCharacter(740, 340, "bluecheese", false, true);
+					case 1:
+						newCharacter(850, 165, "arsen", true);
+					case 2:
+						newCharacter(820, 320, "oisuzuki", false, true);
+						hasNoPoses = true;
+						hasTwoDances = true;
+				}
+			case 'casual-duel':
+				switch (randomChance)
+				{
+					case 0:
+						newCharacter(740, 340, "bluecheese", false, true);
+					case 1:
+						newCharacter(822, 173, "dansilot", true);
+					case 2:
+						newCharacter(820, 320, "oisuzuki", false, true);
+						hasNoPoses = true;
+						hasTwoDances = true;
+				}
+			case 'mozzarella':
+				switch (randomChance)
+				{
+					case 0:
+						newCharacter(740, 340, "bluecheese", false, true);
+					case 1:
+						newCharacter(893, 150, "bob-unii-style", true);
+					case 2:
+						newCharacter(900, 180, "bosip-unii-style", true);
+					case 3:
+						newCharacter(910, 150, "bob", true);
+					case 4:
+						newCharacter(895, 165, "bosip", false, true);
+				}
+			case 'manager-strike-back':
+				switch (randomChance)
+				{
+					case 0:
+						newCharacter(753, 120, "undertale-oisuzuki", false, true);
+					case 1:
+						newCharacter(822, 420, "undertale-bf", true);
+				}
+			case 'frosted':
+				switch (randomChance)
+				{
+					case 1:
+						newCharacter(678, 112, "avinera-frosted-tape", false, true);
+						hasNoPoses = true;
+					case 2:
+						newCharacter(822, 420, "bf", true);
+					case 3:
+						newCharacter(822, 173, "dansilot", true);
+				}
+			default:
+				switch (randomChance)
+				{
+					case 0:
+						newCharacter(740, 340, "bluecheese", false, true);
+					case 1:
+						newCharacter(822, 420, "bf", true);
+					case 2:
+						newCharacter(630, 150, "gf");
+						hasNoPoses = true;
+						hasTwoDances = true;
+				}
+				trace('ERROR: missing song, default characters and chances.');
+		}
+
+		grpMenuShit = new FlxTypedGroup<Alphabet>();
+		add(grpMenuShit);
+
+		for (i in 0...menuItems.length)
+		{
+			songText = new Alphabet(0, (70 * i) + 30, menuItems[i], true, false);
+			songText.tweenType = "right trail";
+			songText.targetY = i;
+			songText.ID = i; //small fix for flash id's
+			grpMenuShit.add(songText);
+		}
 
 		levelDifficulty = new FlxText(20, 15 + 32, 0, "", 32);
 		levelDifficulty.text += CoolUtil.difficultyString();
@@ -68,14 +231,25 @@ class PauseSubState extends MusicBeatSubstate
 		levelDifficulty.updateHitbox();
 		add(levelDifficulty);
 
+		levelInfo = new FlxText(20, 15, 0, "", 32);
+		levelInfo.text += PlayState.displaySongName;
+		levelInfo.scrollFactor.set();
+		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
+		levelInfo.updateHitbox();
+		add(levelInfo);
+
 		blueballedTxt = new FlxText(20, 15 + 64, 0, "", 32);
-		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
+		blueballedTxt.text = "Deaths: " + PlayState.deathCounter;
 		blueballedTxt.scrollFactor.set();
 		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
-		practiceText = new FlxText(20, 15 + 101, 0, "GOD MODE ON", 32);
+		#if debug
+		practiceText = new FlxText(20, 15 + 101, 0, "YOU WILL NOW NEVER DIE", 32);
+		#else
+		practiceText = new FlxText(20, 15 + 101, 0, "stop messingn with the game, man :[", 32);
+		#end
 		practiceText.scrollFactor.set();
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
@@ -83,37 +257,27 @@ class PauseSubState extends MusicBeatSubstate
 		practiceText.visible = PlayState.practiceMode;
 		add(practiceText);
 
-		botplayText = new FlxText(20, FlxG.height - 40, 0, "FUCK YOU!!!", 32);
-		botplayText.scrollFactor.set();
-		botplayText.setFormat(Paths.font('vcr.ttf'), 32);
-		botplayText.x = FlxG.width - (botplayText.width + 20);
-		botplayText.updateHitbox();
-		botplayText.visible = PlayState.cpuControlled;
-		add(botplayText);
+		warningText = new FlxText(20, FlxG.height - 40, 0, "WARNING: Changing options will restart the song for changes to take place.", 32);
+		warningText.scrollFactor.set();
+		warningText.setFormat(Paths.font('vcr.ttf'), 24);
+		warningText.x = FlxG.width - (warningText.width + 20);
+		warningText.updateHitbox();
+		add(warningText);
 
+		bg.alpha = 0;
 		blueballedTxt.alpha = 0;
 		levelDifficulty.alpha = 0;
 		levelInfo.alpha = 0;
+		warningText.alpha = 0;
 
 		levelInfo.x = FlxG.width - (levelInfo.width + 20);
 		levelDifficulty.x = FlxG.width - (levelDifficulty.width + 20);
 		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
+		warningText.x = FlxG.width - (warningText.width + 20);
 
-		FlxTween.tween(bg, {alpha: 0.6}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-		FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
-		FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-
-		grpMenuShit = new FlxTypedGroup<Alphabet>();
-		add(grpMenuShit);
-
-		for (i in 0...menuItems.length)
-		{
-			songText = new Alphabet(0, (70 * i) + 30, menuItems[i], true, false);
-			songText.isMenuItem = true;
-			songText.targetY = i;
-			grpMenuShit.add(songText);
-		}
+		new FlxTimer().start(0.1, function(tmr:FlxTimer) {
+			tweenMenuShit('in');
+		});
 
 		changeSelection();
 
@@ -124,83 +288,114 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		super.update(elapsed);
 
-		var upP = controls.UI_UP_P;
-		var downP = controls.UI_DOWN_P;
-		var accepted = controls.ACCEPT;
+		var pressedUp = controls.UI_UP_P;
+		var pressedDown = controls.UI_DOWN_P;
+		var pressedACCEPT = controls.ACCEPT;
 
 		if (FlxG.keys.justPressed.F11)
 		{
-			canDoStuff = true;
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
 
-		if (upP)
+		if (pressedUp && canDoStuff)
 		{
-			if (canDoStuff)
-				changeSelection(-1);
-		}
-		if (downP)
-		{
-			if (canDoStuff)
-				changeSelection(1);
+			changeSelection(-1);
 		}
 
-		if (accepted)
+		if (pressedDown && canDoStuff)
+		{
+			changeSelection(1);
+		}
+
+		if (pressedACCEPT && canDoStuff)
 		{
 			var daSelected:String = menuItems[curSelected];
 
 			switch (daSelected)
 			{
 				case "Resume":
-					regenMenu();
-					coolSound();
 					canDoStuff = false;
 					menuItems = menuItemsPRESSED;
-					if(ClientPrefs.flashing) {
-						FlxG.camera.flash(FlxColor.WHITE, 0.7);
-					}
-					new FlxTimer().start(0.7, function(tmr:FlxTimer) {
-						tweenBack();
-						new FlxTimer().start(0.2, function(tmr:FlxTimer) {
-							close();
-						});
+					coolSound();
+					flickerSelected();
+					tweenMenuShit('back');
+
+					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
+						close();
 					});
+
 					trace('shit goes flashy bro');
-				case 'God Mode':
+
+				case "Restart Song":
+					canDoStuff = false;
+					coolSound();
+					flickerSelected();
+
+					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
+						MusicBeatState.resetState();
+						FlxG.sound.music.volume = 0;
+					});
+
+				case 'Options':
+					canDoStuff = false;
+					coolSound();
+					flickerSelected();
+
+					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
+						OptionsState.inPause = true;
+						MusicBeatState.switchState(new OptionsState());
+						FlxG.sound.playMusic(Paths.music('gameOver')); // music becomes unmuffled because its cool
+					});
+
+				case 'OP Mode':
+					canDoStuff = true;
+					coolSound();
+					FlxG.camera.flash(FlxColor.WHITE, 1);
 					PlayState.practiceMode = !PlayState.practiceMode;
 					practiceText.visible = PlayState.practiceMode;
-					canDoStuff = true;
-				case "Restart Song":
-					MusicBeatState.resetState();
-					FlxG.sound.music.volume = 0;
-					canDoStuff = true;
-				case 'Skip Song':
-					FlxG.sound.music.onComplete();
-					FlxG.sound.music.time = Conductor.songPosition;
-					FlxG.sound.music.play();
+
 				case 'Botplay':
-					PlayState.cpuControlled = !PlayState.cpuControlled;
-					botplayText.visible = PlayState.cpuControlled;
 					canDoStuff = true;
+					coolSound();
+					FlxG.camera.flash(FlxColor.WHITE, 1);
+					PlayState.cpuControlled = !PlayState.cpuControlled;
+
 				case "Exit to menu":
+					canDoStuff = false;
+					coolSound();
+					flickerSelected();
+
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
-					if(PlayState.isStoryMode) {
-						MusicBeatState.switchState(new StoryMenuState());
-					} else {
-						MusicBeatState.switchState(new FreeplayState());
-					}
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 					PlayState.changedDifficulty = false;
-					PlayState.cpuControlled = false;
+
+					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
+						if(PlayState.isStoryMode) {
+							MusicBeatState.switchState(new StoryMenuState());
+						} else {
+							MusicBeatState.switchState(new FreeplayState());
+						}
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					});
 
 					MainMenuState.cursed = false; // makes you not cursed
+					FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
-					canDoStuff = true;
 				/*case 'BACK':
 					menuItems = menuItemsOG;
 					regenMenu();*/
 			}
+		}
+
+		// checks if the first animation ended, then plays second animation on the crappy if statement
+
+		if (!hasNoPoses && !hasTwoDances && canDoStuff) {
+			checkAnimFinish(char, 'idle', 'idle');
+		}
+
+		if (hasTwoDances && canDoStuff) {
+			checkAnimFinish(char, 'danceLeft', 'danceRight');
+			checkAnimFinish(char, 'danceRight', 'danceLeft');
 		}
 	}
 
@@ -214,7 +409,7 @@ class PauseSubState extends MusicBeatSubstate
 	function changeSelection(change:Int = 0):Void
 	{
 		curSelected += change;
-		
+
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		if (curSelected < 0)
@@ -229,24 +424,23 @@ class PauseSubState extends MusicBeatSubstate
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
-			item.alpha = 0.6;
-			// item.setGraphicSize(Std.int(item.width * 0.8));
+			item.alpha = 0.2;
 
 			if (item.targetY == 0)
 			{
 				item.alpha = 1;
-				// item.setGraphicSize(Std.int(item.width));
 			}
 		}
 	}
 
-	function regenMenu():Void {
+	function regenMenu():Void
+	{
 		for (i in 0...grpMenuShit.members.length) {
 			this.grpMenuShit.remove(this.grpMenuShit.members[0], true);
 		}
 		for (i in 0...menuItems.length) {
 			var item = new Alphabet(0, 70 * i + 30, menuItems[i], true, false);
-			item.isMenuItem = true;
+			item.tweenType = "left trail";
 			item.targetY = i;
 			grpMenuShit.add(item);
 		}
@@ -254,15 +448,92 @@ class PauseSubState extends MusicBeatSubstate
 		changeSelection();
 	}
 
-	function coolSound() {
+	function coolSound():Void
+	{
+		if (!hasNoPoses) {
+			if (char.animOffsets.exists('hey'))
+				char.playAnim('hey', true);
+			else if (!hasTwoDances)
+				char.playAnim('idle', true);
+		}
+
 		FlxG.sound.play(Paths.sound('confirmMenu'), 0.6);
 	}
 
-	function tweenBack() {
-		FlxTween.tween(bg, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(songText, {alpha: 0}, 0.3, {ease: FlxEase.quartInOut});
-		FlxTween.tween(levelInfo, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(levelDifficulty, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut});
-		FlxTween.tween(blueballedTxt, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut});
+	function flickerSelected():Void
+	{
+		grpMenuShit.forEach(function(spr:Alphabet)
+		{
+			if (curSelected != spr.ID)
+				{
+					FlxTween.tween(spr, {alpha: 0}, 0.5, {
+						ease: FlxEase.quadOut,
+						onComplete: function(twn:FlxTween)
+						{
+							spr.kill();
+						}
+					});
+				}
+			else
+				{
+					FlxFlicker.flicker(spr, 1, 0.06, false, false, function(flick:FlxFlicker) {
+						loaded = false;
+						hasNoPoses = false;
+					});
+				}
+		});
+	}
+
+	function tweenMenuShit(backOrIn:String) // this function is a weird string code name thing but i dont really care if its bad
+	{
+		if (loaded)
+		{
+			switch (backOrIn)
+			{
+				case 'in' | 'intro':
+					FlxTween.tween(bg, {alpha: 0.8}, 0.4, {ease: FlxEase.quartInOut});
+					FlxTween.tween(char, {alpha: 0.8}, 0.4, {ease: FlxEase.quartInOut});
+					FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+					FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
+					FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+					FlxTween.tween(warningText, {alpha: 1, y: warningText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+					finishedFading = true;
+				case 'back' | 'out':
+					if (finishedFading)
+					{
+						FlxTween.tween(bg, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+						FlxTween.tween(char, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+						FlxTween.tween(levelInfo, {alpha: 0, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+						FlxTween.tween(levelDifficulty, {alpha: 0, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
+						FlxTween.tween(blueballedTxt, {alpha: 0, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+						FlxTween.tween(warningText, {alpha: 0, y: warningText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+						finishedFading = false;
+					}
+			}
+		}
+	}
+
+	function newCharacter(posX:Float, posY:Float, charName:String, ?isBoyfriend:Bool = false, ?flipPosX:Bool = false)
+	{
+		if (isBoyfriend)
+			char = new Boyfriend(posX, posY, charName);
+		else
+			char = new Character(posX, posY, charName);
+
+		char.scale.set(1.1, 1.1);
+		char.scrollFactor.set(0, 0);
+		char.alpha = 0;
+		add(char);
+
+		if (flipPosX)
+			char.flipX = true;
+		else
+			char.flipX = false;
+
+		isBFchar = isBoyfriend;
+		loaded = true;
+
+		trace(startNum + ' ,' + endNum);
+		trace('CHARACTER INFO: NAME: ' + charName + ' X: ' + posX + ' Y: ' + posY + ' FLIPPED: ' + flipPosX);
 	}
 }

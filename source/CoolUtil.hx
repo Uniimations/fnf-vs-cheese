@@ -5,6 +5,7 @@ import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
 import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
+import flixel.util.FlxColor;
 #if sys
 import sys.io.File;
 #end
@@ -16,7 +17,7 @@ class CoolUtil
 	public static var difficultyStuff:Array<Dynamic> = [
 		['Easy', '-easy'],
 		['Hard', '-hard'],
-		['EX', '-ex'],
+		['VIP', '-vip'],
 		['UNFAIR', '-hard']
 	];
 
@@ -24,6 +25,24 @@ class CoolUtil
 	{
 		return difficultyStuff[PlayState.storyDifficulty][0].toUpperCase();
 	}
+
+	// i was demonstrating something to   c e r b e r a
+	public var colorShit:Array<Dynamic> = [
+		FlxColor.BLACK,
+		FlxColor.BLACK,
+		FlxColor.BLACK,
+		FlxColor.BLACK,
+		FlxColor.BLACK,
+		FlxColor.BLACK,
+		FlxColor.WHITE,
+		FlxColor.BLACK,
+		FlxColor.WHITE,
+		FlxColor.WHITE,
+		FlxColor.WHITE,
+		'none',
+		FlxColor.BLACK,
+		FlxColor.WHITE
+	];
 
 	public static var spriteOffsets:Array<Dynamic> = [];
 	public static var timingWindows:Array<Dynamic> = [];

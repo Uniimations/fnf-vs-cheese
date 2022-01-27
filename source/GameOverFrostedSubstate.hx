@@ -120,14 +120,7 @@ class GameOverFrostedSubstate extends MusicBeatSubstate
 
 			if (bf.animation.curAnim.finished)
 			{
-				FlxG.sound.playMusic(Paths.music('gameOver'));
-				PlayState.phillyBlackTween = FlxTween.tween(frozenShit, {alpha: 1}, 1, {ease: FlxEase.quadInOut,
-					onComplete: function(twn:FlxTween) {
-						PlayState.phillyBlackTween = null;
-					}
-				});
-				bf.startedDeath = true;
-				trace('frozenShit fade');
+				startBullshit();
 			}
 		}
 
@@ -141,10 +134,43 @@ class GameOverFrostedSubstate extends MusicBeatSubstate
 	{
 		super.beatHit();
 
-		FlxG.log.add('beat');
+		FlxG.log.add('IM a FukCin BeAt!');
 	}
 
 	var isEnding:Bool = false;
+
+	function startBullshit():Void
+	{
+		FlxG.sound.playMusic(Paths.music('gameOver'), 0);
+
+		if (FlxG.save.data.diedTwiceFrosted)
+		{
+			if (FlxG.random.int(1, 5) == 5) {
+				FlxG.sound.play(Paths.soundRandom('avinera/rare', 1, 3));
+				FlxG.sound.music.fadeIn(7, 0, 0.6);
+				trace('YOU GOT RARE NERA');
+			}
+			else {
+				FlxG.sound.play(Paths.soundRandom('avinera/nera', 1, 8));
+				FlxG.sound.music.fadeIn(7, 0, 0.8);
+				trace('nera is talking now.');
+			}
+		}
+		else
+		{
+			FlxG.sound.play(Paths.sound('avinera/firstDeath'));
+			FlxG.sound.music.fadeIn(7, 0, 0.8);
+			trace('sound played: firstDeath');
+		}
+
+		PlayState.phillyBlackTween = FlxTween.tween(frozenShit, {alpha: 1}, 1, {ease: FlxEase.quadInOut,
+			onComplete: function(twn:FlxTween) {
+				PlayState.phillyBlackTween = null;
+			}
+		});
+		bf.startedDeath = true;
+		trace('frozenShit fade');
+	}
 
 	function endBullshit():Void
 	{

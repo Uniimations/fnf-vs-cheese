@@ -1,6 +1,6 @@
 null-character
 ---------------
-Player 1
+Player 1		[DAD]
 ---------------
 bf
 bf-alt
@@ -12,8 +12,10 @@ arsen
 dansilot
 ex-bf
 undertale-bf
+bob-unii-style
+bosip-unii-style
 ---------------
-Player 2
+Player 2		[BOYFRIEND]
 ---------------
 dad
 bluecheese
@@ -26,11 +28,19 @@ bluecheese-tricky
 bluecheese-little-man
 ex-bluecheese
 undertale-oisuzuki
+avinera-frosted
+ralsei
 ---------------
-Player 3
+Player 3		[GIRLFRIEND]
 ---------------
 gf-oisuzuki-kitchen
 gf
 ex-gf
 ex-gf-take-over
 oisuzuki
+---------------
+OTHER		[MISC]
+---------------
+bob-old
+bob
+bosip

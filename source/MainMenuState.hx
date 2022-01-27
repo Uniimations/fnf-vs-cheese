@@ -20,13 +20,15 @@ import lime.app.Application;
 import flash.system.System;
 import flixel.util.FlxTimer;
 import openfl.utils.Assets as OpenFlAssets;
-import Achievements;
 
 using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
 	// STRINGS AND MISC
+
+	public static var justExited:Bool = false;
+	public static var notifsSeen:Array<Dynamic> = [];
 
 	public static var psychEngineVersion:String = '0.3.2'; //This is also used for Discord RPC
 	public static var cheeseVersion:String = '2.0.0'; //VERSION NUMBER FOR VS CHEESE ONLY CHANGE WHEN NEEDED/UPDATED
@@ -40,6 +42,7 @@ class MainMenuState extends MusicBeatState
 
 	var trophy:FlxSprite;
 	var trophyFloat:Float = 0;
+	var floatAmount:Float = 0.05;
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	// STUFF
@@ -57,8 +60,8 @@ class MainMenuState extends MusicBeatState
 	private var grpBACKGROUND:FlxTypedGroup<FlxSprite>;
 
 	private var camGame:FlxCamera;
-	private var camAchievement:FlxCamera;
 	private var camHUD:FlxCamera;
+	private var camAchievement:FlxCamera;
 
 	var optionShit:Array<String> = ['story_mode', 'freeplay', 'credits', 'options'];
 
@@ -78,14 +81,14 @@ class MainMenuState extends MusicBeatState
 		persistentUpdate = true;
 
 		camGame = new FlxCamera();
-		camAchievement = new FlxCamera();
-		camAchievement.bgColor.alpha = 0;
 		camHUD = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
+		camAchievement = new FlxCamera();
+		camAchievement.bgColor.alpha = 0;
 
 		FlxG.cameras.reset(camGame);
-		FlxG.cameras.add(camAchievement);
 		FlxG.cameras.add(camHUD);
+		FlxG.cameras.add(camAchievement);
 		FlxCamera.defaultCameras = [camGame];
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -101,6 +104,13 @@ class MainMenuState extends MusicBeatState
 			modificationString = " | YOU CAN'T RUN.";
 		else
 			modificationString = " modified by Uniimations";
+
+		if (ClientPrefs.framerate < 120)
+			floatAmount = 0.20;
+		else if (ClientPrefs.framerate > 120 && ClientPrefs.framerate < 200)
+			floatAmount = 0.05;
+		else if (ClientPrefs.framerate > 200)
+			floatAmount = 0.01;
 
 		cheesePats = 0;
 
@@ -278,37 +288,73 @@ class MainMenuState extends MusicBeatState
 
 		changeItem();
 
-		#if ACHIEVEMENTS_ALLOWED
 		Achievements.loadAchievements();
-		var leDate = Date.now();
-		if (leDate.getDay() == 5 && leDate.getHours() >= 18) {
-			var achieveID:Int = Achievements.getAchievementIndex('friday_night_play');
+		var date = Date.now();
+		if (date.getDay() == 5 && date.getHours() >= 18) {
+			var achieveID:Int = Achievements.getAchievementIndex('friday_night_play', 'achievement');
 			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
 				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID][2], true);
-				giveFridayAchievement();
+
+				giveMenuAchievement('friday_night_play', 'achievement', 'ITS FUCKING FRIDAY BITCHES WOOOOOO!', 'confirmMenu');
 			}
 		}
-		#end
+
+		// its kinda bad to do all these checks for this but i cant figure out how to do arrays and loops properly so... this is the best way i tried
+		if (justExited && !FlxG.save.data.seenNotifs) {
+			Achievements.loadAchievements();
+
+			// BEAT TUTORIAL
+			if (FlxG.save.data.beatTutorial && !FlxG.save.data.beatCulturedWeek && !FlxG.save.data.beatWeekEnding && !FlxG.save.data.beatBonus)
+			{
+				giveMenuAchievement('unlock_week1', 'notification', 'unlocked week 1 notif', 'confirmMenu');
+			}
+
+			// BEAT WEEK 1
+			if (FlxG.save.data.beatTutorial && FlxG.save.data.beatCulturedWeek && !FlxG.save.data.beatWeekEnding && !FlxG.save.data.beatBonus)
+			{
+				giveMenuAchievement('unlock_ex', 'notification', 'YOIU HAVE UNLOCKED EX OR SMTH', 'confirmMenu');
+
+				new FlxTimer().start(1.1, function(tmr: FlxTimer) {
+					giveMenuAchievement('unlock_week2', 'notification', 'UNLOCKED WEEK 2', 'confirmMenu');
+				});
+			}
+
+			// BEAT WEEK 2
+			if (FlxG.save.data.beatTutorial && FlxG.save.data.beatCulturedWeek && FlxG.save.data.beatWeekEnding && !FlxG.save.data.beatBonus)
+			{
+				giveMenuAchievement('unlock_bonus', 'notification', 'you got the managwwr strike back!!!', 'confirmMenu');
+			}
+
+			// BEAT MANAGER STRIKE BACK
+			if (FlxG.save.data.beatTutorial && FlxG.save.data.beatCulturedWeek && FlxG.save.data.beatWeekEnding && FlxG.save.data.beatBonus)
+			{
+				giveMenuAchievement('unlock_endgame', 'notification', 'unlockkceddd endgame from anvengers..', 'confirmMenu');
+
+				#if !debug
+				if (FlxG.save.data.seenNotifs == null || FlxG.save.data.seenNotifs == false) {
+					FlxG.save.data.seenNotifs = true;
+				}
+				#end
+			}
+
+			new FlxTimer().start(3, function(tmr: FlxTimer) {
+				if (justExited) {
+					justExited = false;
+				}
+			});
+		}
 
 		super.create();
 
 		FlxG.mouse.visible = true;
 	}
 
-	#if ACHIEVEMENTS_ALLOWED
-	// Unlocks "Freaky on a Friday Night" achievement
-	function giveFridayAchievement() {
-		add(new AchievementObject('friday_night_play', camAchievement));
-		FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-		trace('ITS FUCKING FRIDAY BITCHES WOOOOOO!');
-	}
+	function giveMenuAchievement(achievement_id:String, Type:String = 'achievement', ?toTrace:String = '', ?customSound:String = 'confirmMenu', ?makeBG:Bool = true, ?customtimerLength:Float = 1) {
+		add(new AchievementObject(achievement_id, camAchievement, Type));
+		FlxG.sound.play(Paths.sound(customSound), 0.7);
 
-	function giveScrunklyAchievement() {
-		add(new AchievementObject('scrunkly', camAchievement));
-		FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
-		trace('double tap if youd scrunkly the when :pleading_face:');
+		trace(toTrace);
 	}
-	#end
 
 	var selectedSomethin:Bool = false;
 
@@ -327,7 +373,7 @@ class MainMenuState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 
-		trophyFloat += 0.05;
+		trophyFloat += floatAmount;
 
 		//SET CAM ZOOM
 		FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, CoolUtil.boundTo(1 - (elapsed * 3.125), 0, 1));
@@ -342,9 +388,9 @@ class MainMenuState extends MusicBeatState
         {
 			if (FlxG.save.data.petCheese)
 			{
-				if (FlxG.random.bool(1))
+				if (FlxG.random.bool(0.5)) //made more rare
 				{
-					trace('1% chance easter egg');
+					trace('0.5% chance easter egg');
 					trace('you are now cursed.');
 					MainMenuState.cursed = true;
 					if (MainMenuState.cursed) {
@@ -396,14 +442,8 @@ class MainMenuState extends MusicBeatState
 					changeItem(2);
 				case 'credits':
 					changeItem(1);
-				default:
-					//FlxG.sound.play(Paths.sound('fnafNoseHonk'));
 			}
-
-			//cheesePats++;
         }
-
-		//FlxG.sound.play(Paths.sound('scrollMenu'));
 
 		//plays honk if youre not cursed :)
 		if (!MainMenuState.cursed && FlxG.mouse.overlaps(cheeseScrunkly) && FlxG.mouse.justReleased) {
@@ -411,15 +451,14 @@ class MainMenuState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('fnafNoseHonk'));
 
 			// GIVES ACHIEVEMENT
-			#if ACHIEVEMENTS_ALLOWED
 			Achievements.loadAchievements();
 			var achieveID:Int = Achievements.getAchievementIndex('scrunkly');
 
-			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID][2])) { //It's a friday night. WEEEEEEEEEEEEEEEEEE
+			if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[achieveID][2])) {
 				Achievements.achievementsMap.set(Achievements.achievementsStuff[achieveID][2], true);
-				giveScrunklyAchievement();
+
+				giveMenuAchievement('scrunkly', 'achievement', 'double tap if youd scrunkly the when :pleading_face:', 'confirmMenu');
 			}
-			#end
 		}
 
 		// MENU SELECTING INTERACTION
@@ -487,13 +526,6 @@ class MainMenuState extends MusicBeatState
 				{
 					curTrophySelect = false;
 				}
-			}
-
-			if (controls.BACK)
-			{
-				FlxG.mouse.visible = false;
-				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new TitleState());
 			}
 
 			if (controls.ACCEPT)
@@ -564,7 +596,6 @@ class MainMenuState extends MusicBeatState
 				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
 				spr.offset.x = 0.15 * (spr.frameWidth / 2 + 180);
 				spr.offset.y = 0.15 * spr.frameHeight;
-				FlxG.log.add(spr.frameWidth);
 			}
 		});
 	}
@@ -574,11 +605,10 @@ class MainMenuState extends MusicBeatState
 		FlxG.sound.play(Paths.sound('confirmMenu'));
 		FlxG.mouse.visible = false;
 		selectedSomethin = true;
+		justExited = false;
 
-		//idk lol
 		FlxTween.tween(FlxG.camera, { zoom: 5}, 0.9, { ease: FlxEase.expoIn });
 		FlxTween.tween(wallBack, { angle: 50}, 0.9, { ease: FlxEase.expoIn });
-		//FlxTween.tween(FlxG.camera, { zoom: 5}, 3, { ease: FlxEase.expoInOut });
 
 		if (curTrophySelect)
 		{
@@ -632,6 +662,7 @@ class MainMenuState extends MusicBeatState
 					//FlxTween.tween(FlxG.camera, { angle: 40}, 3, { ease: FlxEase.expoInOut });
 					FlxFlicker.flicker(spr, 0.76, 0.06, false, false, function(flick:FlxFlicker)
 					{
+						
 						var daChoice:String = optionShit[curSelected];
 
 						switch (daChoice)

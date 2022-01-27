@@ -34,8 +34,11 @@ class ClientPrefs {
 	public static var fuckyouavi:Bool = false;
 	public static var resetDeath:Bool = true;
 	public static var comboShown:Bool = false;
+	public static var inputSystem:String = "Kade Engine";
 
-	public static var showMemory:Bool = true;
+	public static var poggersMode:Bool = false;
+	public static var pussyMode:Bool = false;
+
 	public static var showWatermark:Bool = true;
 
 	// EXTRA EFFECTS OPTIONS
@@ -106,14 +109,17 @@ class ClientPrefs {
 		FlxG.save.data.fuckyouavi = fuckyouavi;
 		FlxG.save.data.resetDeath = resetDeath;
 		FlxG.save.data.comboShown = comboShown;
+		FlxG.save.data.inputSystem = inputSystem;
 
-		FlxG.save.data.showMemory = showMemory;
+		FlxG.save.data.poggersMode = poggersMode;
+		FlxG.save.data.pussyMode = pussyMode;
+
 		FlxG.save.data.showWatermark = showWatermark;
 
 		FlxG.save.data.specialEffects = specialEffects;
 		FlxG.save.data.cameraShake = cameraShake;
 		FlxG.save.data.camZoomOut = camZoomOut;
-
+ 
 		FlxG.save.flush();
 
 		var save:FlxSave = new FlxSave();
@@ -213,13 +219,17 @@ class ClientPrefs {
 		if(FlxG.save.data.comboShown != null) {
 			comboShown = FlxG.save.data.comboShown;
 		}
-
-		if(FlxG.save.data.showMemory != null) {
-			showMemory = FlxG.save.data.showMemory;
-			if(Main.memoryCounterVar != null) {
-				Main.memoryCounterVar.visible = showMemory;
-			}
+		if(FlxG.save.data.inputSystem != null) {
+			inputSystem = FlxG.save.data.inputSystem;
 		}
+
+		if(FlxG.save.data.poggersMode != null) {
+			poggersMode = FlxG.save.data.poggersMode;
+		}
+		if(FlxG.save.data.pussyMode != null) {
+			pussyMode = FlxG.save.data.pussyMode;
+		}
+
 		if(FlxG.save.data.showWatermark != null) {
 			showWatermark = FlxG.save.data.showWatermark;
 			if(Main.watermarkCheese != null) {

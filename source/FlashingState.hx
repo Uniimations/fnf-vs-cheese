@@ -78,9 +78,12 @@ class FlashingState extends MusicBeatState
 				leftState = true;
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
-				ClientPrefs.imagesPersist = true;
+				ClientPrefs.flashing = true;
 				ClientPrefs.saveSettings();
 				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxTween.tween(warnText, {alpha: 0}, 1);
+
+				/*
 				FlxFlicker.flicker(warnText, 1, 0.1, false, true, function(flk:FlxFlicker) {
 					new FlxTimer().start(0.5, function (tmr:FlxTimer) {
 						
@@ -88,6 +91,8 @@ class FlashingState extends MusicBeatState
 				});
 
 				FlxG.camera.flash(FlxColor.WHITE, 0.5);
+
+				*/
 
 				FlxTween.tween(bg, {alpha: 0}, 1.5, {
 					onComplete: function (twn:FlxTween) {
@@ -99,7 +104,7 @@ class FlashingState extends MusicBeatState
 					}
 				});
 
-				FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
+				FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.3});
 				trace('wacky shit!');
 
 				new FlxTimer().start(1.8, function(tmr:FlxTimer)
@@ -107,7 +112,7 @@ class FlashingState extends MusicBeatState
 					MusicBeatState.switchState(new TitleState());
 				});
 
-				FlxG.log.add('warning ignored');
+				FlxG.log.add('warning ignored/flash enabled');
 			}
 
 			if (controls.BACK)
@@ -117,15 +122,10 @@ class FlashingState extends MusicBeatState
 				leftState = true;
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
-				ClientPrefs.imagesPersist = true;
 				ClientPrefs.flashing = false;
 				ClientPrefs.saveSettings();
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				FlxTween.tween(warnText, {alpha: 0}, 1, {
-					onComplete: function (twn:FlxTween) {
-						
-					}
-				});
+				FlxTween.tween(warnText, {alpha: 0}, 1);
 
 				FlxTween.tween(bg, {alpha: 0}, 1.5, {
 					onComplete: function (twn:FlxTween) {
@@ -137,7 +137,7 @@ class FlashingState extends MusicBeatState
 					}
 				});
 
-				FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
+				FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.2});
 				trace('wacky shit!');
 
 				new FlxTimer().start(1.8, function(tmr:FlxTimer)
@@ -163,6 +163,6 @@ class FlashingState extends MusicBeatState
 
 		FlxTween.tween(FlxG.camera, {zoom:1.02}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
 
-        FlxG.log.add('beat got hit like WOaH');
+        //FlxG.log.add('ayO its me beaT boy!');
     }
 }

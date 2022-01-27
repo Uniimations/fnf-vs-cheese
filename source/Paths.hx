@@ -121,7 +121,7 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
 	}
 
-	inline static public function voicesex(song:String)
+	inline static public function voices_vip(song:String)
 	{
 		return 'songs:assets/songs/${song.toLowerCase()}/VoicesEX.$SOUND_EXT';
 	}
@@ -131,7 +131,7 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
 	}
 
-	inline static public function instex(song:String)
+	inline static public function inst_vip(song:String)
 	{
 		return 'songs:assets/songs/${song.toLowerCase()}/InstEX.$SOUND_EXT';
 	}

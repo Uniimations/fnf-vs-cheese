@@ -53,28 +53,30 @@ class ChartingState extends MusicBeatState
 		'2 - Hey!',
 		'3 - Dodge Note',
 		'4 - Death Note',
-		'5 - Little Man'
+		'5 - Dad Note Skin'
 	];
 
 	private static var eventStuff:Array<Dynamic> =
 	[
-		['', "Nothing. Yep, that's right."],
+		['', "suck DEEZ NUTS, BITCH!"],
 		['Hey!', "Plays the \"Hey!\" animation from Bopeebo,\nValue 1: 0 = Only Boyfriend, 1 = Only Girlfriend,\nSomething else = Both.\nValue 2: Custom animation duration,\nleave it blank for 0.6s"],
 		['Alt Idle Animation', "Sets a speciied suffix after the idle animation name.\nYou can use this to trigger 'idle-alt' if you set\nValue 2 to -alt\n\nValue 1: Character to set (0 = Dad, 1 = BF, 2 = GF)\nValue 2: New suffix (Leave it blank to disable)"],
 		['Play Animation', "Plays an animation on a Character,\nonce the animation is completed,\nthe animation changes to Idle\n\nValue 1: Animation to play.\nValue 2: Character (0 = Dad, 1 = BF, 2 = GF)"],
 		['Change Character', "Value 1: Character to change\nValue 2: New character's name\n\nOn Value 1, Boyfriend is 0,\nDad is 1, and Girlfriend is 2"], //oxford comma :troll:
 		['Set GF Speed', "Sets GF head bopping speed,\nValue 1: 1 = Normal speed,\n2 = 1/2 speed, 4 = 1/4 speed etc.\nUsed on Fresh during the beatbox parts.\n\nWarning: Value must be integer!"],
 		['Add Camera Zoom', "Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."],
-		['Change CamZoom'],
-		['Set CamPog'],
+		['Change CamZoom', "Old CamZoom changing.\n0 to Reset.\nValue 1: 1-9"],
+		['Change NumZoom', "Camera zoom number\nValue 1: defaultCamZoom"],
+		['Set CamPog', "NOTE: You have to set it individually\nthere is no trigger for both\nValue 1:\n0: Reset\n1: dad\n2: bf"],
 		['Camera Follow Pos', "Value 1: X\nValue 2: Y\n\nThe camera won't change the follow point\nafter using this, for getting it back\nto normal, leave both values blank."],
 		['Screen Shake', "Value 1: Camera shake\nValue 2: HUD shake\n\nEvery value works as the following example: \"1, 0.1\".\nThe first number (1) is the duration.\nThe second number (0.05) is the intensity."],
-		['Flash'],
-		['Flash Color'],
+		['Flash', "Value 1: Duration/Length of flash."],
+		['Load Flash', "Value 1: Flash Color\nValue 2: Intensity\nAnything 1 or above will trigger intense flashes."],
+		['Flash Color', "Value 1: Flash Color\nValue 2: Intensity\nAnything 1 or above will trigger intense flashes."],
 		['Poggers Lights', "Value 1: 0 = Turn off, 1 = Blue, 2 = Green,\n3 = Pink, 4 = Red, 5 = Orange, Anything else = Random."],
-		['Poggers Fade'],
+		['Poggers Fade', "Value 1:\n0 = fade to 1\n1 = fade to 2\n2 = fade to 1 only\n3 = fade to 0 only"],
 		['Opponent Anim', "Used to decide if another character is using the opponents chart.\nValue 1: Character (0 = Default, 1 = Dad, 2 = Little Man, 3 = GF)\nValue 2: if camera focuses on Little Man"],
-		['Summon Lil Man']
+		['Summon Lil Man',  "Summons lil scrunkly on Cultured VIP."]
 	];
 
 	var dfc:CoolUtil;
@@ -148,10 +150,12 @@ class ChartingState extends MusicBeatState
 		DiscordClient.changePresence("Chart Editor", StringTools.replace(PlayState.SONG.song, '-', ' '));
 		#end
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		#if !UNII_CUSTOM_BUILD
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('settingsmenu/menuOptions'));
 		bg.scrollFactor.set();
-		bg.color = 0xFF222222;
+		bg.alpha = 0.4;
 		add(bg);
+		#end
 
 		gridLayer = new FlxTypedGroup<FlxSprite>();
 		add(gridLayer);
@@ -312,13 +316,13 @@ class ChartingState extends MusicBeatState
 			saveLevel();
 		});
 
-		var reloadSong:FlxButton = new FlxButton(saveButton.x + 90, saveButton.y, "Reload Audio", function()
+		var reloadSong:FlxButton = new FlxButton(saveButton.x + 90, saveButton.y, "Reload Song", function()
 		{
 			currentSongName = UI_songTitle.text.toLowerCase();
 			loadSong();
 		});
 
-		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload JSON", function()
+		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload HARD JSON", function()
 		{
 			loadJson(_song.song.toLowerCase());
 		});
@@ -331,8 +335,8 @@ class ChartingState extends MusicBeatState
 
 		var eventButtonName:String;
 		//shitty identifier for my shitty event code :thumbsup:
-		if (CoolUtil.difficultyString() == 'EX') {
-			eventButtonName = 'Load EX Events';
+		if (CoolUtil.difficultyString() == 'VIP') {
+			eventButtonName = 'Load VIP Events';
 		} else {
 			eventButtonName = 'Load Events';
 		}
@@ -340,13 +344,14 @@ class ChartingState extends MusicBeatState
 		{
 			var goodPath:String;
 			var coolJson:String;
-			if (CoolUtil.difficultyString() == 'EX') {
+			if (CoolUtil.difficultyString() == 'VIP') {
 				goodPath = '/eventsex';
 				coolJson = 'eventsex';
 			} else {
 				goodPath = '/events';
 				coolJson = 'events';
 			}
+			//var songName:String = Paths.formatToSongPath(_song.song);
 			var songName:String = _song.song.toLowerCase();
 			var file:String = Paths.json(songName + goodPath);
 			#if sys
@@ -355,8 +360,17 @@ class ChartingState extends MusicBeatState
 			if (OpenFlAssets.exists(file))
 			#end
 			{
-				PlayState.SONG = Song.loadFromJson(coolJson, songName);
-				MusicBeatState.resetState();
+				clearEvents();
+				var events:SwagSong = Song.loadFromJson(coolJson, songName);
+				for (sec in 0...events.notes.length) {
+					for (noteId in 0...events.notes[sec].sectionNotes.length) {
+						var note:Array<Dynamic> = events.notes[sec].sectionNotes[noteId];
+						if(note != null && note[1] < 0) {
+							_song.notes[sec].sectionNotes.push([note[0], note[1], note[2], note[3], note[4]]);
+						}
+					}
+				}
+				changeSection(curSection);
 			}
 		});
 
@@ -365,21 +379,11 @@ class ChartingState extends MusicBeatState
 			saveEvents();
 		});
 
-		var clear_events:FlxButton = new FlxButton(loadAutosaveBtn.x, 320, 'Clear events', function()
-			{
-				for (sec in 0..._song.notes.length) {
-					var count:Int = 0;
-					while(count < _song.notes[sec].sectionNotes.length) {
-						var note:Array<Dynamic> = _song.notes[sec].sectionNotes[count];
-						if(note != null && note[1] < 0) {
-							_song.notes[sec].sectionNotes.remove(note);
-						} else {
-							count++;
-						}
-					}
-				}
-				updateGrid();
-			});
+		var clear_events:FlxButton = new FlxButton(320, 310, 'Clear events', function()
+		{
+			clearEvents();
+		});
+
 		var clear_notes:FlxButton = new FlxButton(loadAutosaveBtn.x, clear_events.y + 20, 'Clear notes', function()
 			{
 				for (sec in 0..._song.notes.length) {
@@ -404,7 +408,29 @@ class ChartingState extends MusicBeatState
 		stepperSpeed.value = _song.speed;
 		stepperSpeed.name = 'song_speed';
 
-		var characters:Array<String> = CoolUtil.coolTextFile(Paths.txt('characterList'));
+		var characters:Array<String> = [];
+
+		#if sys
+		var charsLoaded:Map<String, Bool> = new Map();
+		var directories:Array<String> = [Paths.mods('characters/'), Paths.getPreloadPath('characters/')];
+		for (i in 0...directories.length) {
+			var directory:String = directories[i];
+			if(FileSystem.exists(directory)) {
+				for (file in FileSystem.readDirectory(directory)) {
+					var path = haxe.io.Path.join([directory, file]);
+					if (!sys.FileSystem.isDirectory(path) && file.endsWith('.json')) {
+						var charToCheck:String = file.substr(0, file.length - 5);
+						if(!charsLoaded.exists(charToCheck)) {
+							characters.push(charToCheck);
+							charsLoaded.set(charToCheck, true);
+						}
+					}
+				}
+			}
+		}
+		#else
+		characters = CoolUtil.coolTextFile(Paths.txt('characterList'));
+		#end
 
 		var player1DropDown = new FlxUIDropDownMenuCustom(10, stepperSpeed.y + 45, FlxUIDropDownMenuCustom.makeStrIdLabelArray(characters, true), function(character:String)
 		{
@@ -750,7 +776,7 @@ class ChartingState extends MusicBeatState
 		var file:String;
 
 		if (CoolUtil.difficultyString() == 'EX') {
-			file = Paths.voicesex(currentSongName);
+			file = Paths.voices_vip(currentSongName);
 		} else {
 			file = Paths.voices(currentSongName);
 		}
@@ -767,7 +793,7 @@ class ChartingState extends MusicBeatState
 
 	function generateSong() {
 		if (CoolUtil.difficultyString() == 'EX') {
-			FlxG.sound.playMusic(Paths.instex(currentSongName), 0.6, false);
+			FlxG.sound.playMusic(Paths.inst_vip(currentSongName), 0.6, false);
 		} else {
 			FlxG.sound.playMusic(Paths.inst(currentSongName), 0.6, false);
 		}
@@ -1729,6 +1755,21 @@ class ChartingState extends MusicBeatState
 			"song": _song
 		});
 		FlxG.save.flush();
+	}
+
+	function clearEvents() {
+		for (sec in 0..._song.notes.length) {
+			var count:Int = 0;
+			while(count < _song.notes[sec].sectionNotes.length) {
+				var note:Array<Dynamic> = _song.notes[sec].sectionNotes[count];
+				if(note != null && note[1] < 0) {
+					_song.notes[sec].sectionNotes.remove(note);
+				} else {
+					count++;
+				}
+			}
+		}
+		updateGrid();
 	}
 
 	private function saveLevel()

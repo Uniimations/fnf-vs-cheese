@@ -125,7 +125,7 @@ class MusicBeatState extends FlxUIState
 		{
 			if (object.animation.curAnim.name == introAnim && object.animation.curAnim.finished)
 			{
-				new FlxTimer().start(0.2, function(tmr: FlxTimer)
+				new FlxTimer().start(0.1, function(tmr: FlxTimer)
 				{
 					object.animation.play(idleAnim);
 				});

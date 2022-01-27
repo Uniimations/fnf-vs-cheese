@@ -170,11 +170,13 @@ class VideoState extends MusicBeatState
 		}
 		GlobalVideo.get().update(elapsed);
 
+		#if debug
 		if (controls.RESET) {
 			GlobalVideo.get().restart();
 		}
+		#end
 
-		if(PlayerSettings.player1.controls.ACCEPT) {
+		if(FlxG.keys.justPressed.ENTER) {
 			txt.text = pauseText;
 			trace("PRESSED PAUSE");
 			GlobalVideo.get().togglePause();
@@ -187,13 +189,13 @@ class VideoState extends MusicBeatState
 			}
 		}
 
-		if (PlayerSettings.player1.controls.BACK || GlobalVideo.get().ended || GlobalVideo.get().stopped) {
+		if (FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.S || GlobalVideo.get().ended || GlobalVideo.get().stopped) {
 			txt.visible = false;
 			GlobalVideo.get().hide();
 			GlobalVideo.get().stop();
 		}
 
-		if (PlayerSettings.player1.controls.BACK || GlobalVideo.get().ended) {
+		if (FlxG.keys.justPressed.ESCAPE || FlxG.keys.justPressed.S || GlobalVideo.get().ended) {
 			notDone = false;
 			FlxG.sound.music.volume = fuckingVolume;
 			txt.text = pauseText;

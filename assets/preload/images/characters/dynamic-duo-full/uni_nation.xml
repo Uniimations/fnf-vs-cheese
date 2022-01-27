@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="uni_nation.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="unii down0000" x="0" y="0" width="323" height="766"/>
+	<SubTexture name="unii down0001" x="0" y="0" width="323" height="766"/>
+	<SubTexture name="unii down0002" x="373" y="0" width="323" height="766"/>
+	<SubTexture name="unii down0003" x="373" y="0" width="323" height="766"/>
+	<SubTexture name="unii idle0000" x="746" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0001" x="746" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0002" x="1205" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0003" x="1205" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0004" x="1664" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0005" x="1664" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0006" x="2123" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0007" x="2123" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0008" x="2582" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0009" x="2582" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0010" x="2582" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0011" x="2582" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0012" x="2582" y="0" width="409" height="797"/>
+	<SubTexture name="unii idle0013" x="2582" y="0" width="409" height="797"/>
+	<SubTexture name="unii left0000" x="3041" y="0" width="341" height="784"/>
+	<SubTexture name="unii left0001" x="3041" y="0" width="341" height="784"/>
+	<SubTexture name="unii left0002" x="3432" y="0" width="341" height="784"/>
+	<SubTexture name="unii left0003" x="3432" y="0" width="341" height="784"/>
+	<SubTexture name="unii miss0000" x="0" y="847" width="362" height="776"/>
+	<SubTexture name="unii miss0001" x="412" y="847" width="362" height="776"/>
+	<SubTexture name="unii miss0002" x="824" y="847" width="362" height="776"/>
+	<SubTexture name="unii miss0003" x="1236" y="847" width="362" height="776"/>
+	<SubTexture name="unii miss0004" x="1648" y="847" width="362" height="776"/>
+	<SubTexture name="unii miss0005" x="1236" y="847" width="362" height="776"/>
+	<SubTexture name="unii miss0006" x="1648" y="847" width="362" height="776"/>
+	<SubTexture name="unii miss0007" x="1236" y="847" width="362" height="776"/>
+	<SubTexture name="unii right0000" x="2060" y="847" width="346" height="798"/>
+	<SubTexture name="unii right0001" x="2060" y="847" width="346" height="798"/>
+	<SubTexture name="unii right0002" x="2456" y="847" width="346" height="798"/>
+	<SubTexture name="unii right0003" x="2456" y="847" width="346" height="798"/>
+	<SubTexture name="unii up0000" x="2852" y="847" width="389" height="798"/>
+	<SubTexture name="unii up0001" x="2852" y="847" width="389" height="798"/>
+	<SubTexture name="unii up0002" x="3291" y="847" width="389" height="798"/>
+	<SubTexture name="unii up0003" x="3291" y="847" width="389" height="798"/>
+</TextureAtlas>

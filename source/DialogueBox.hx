@@ -54,7 +54,7 @@ class DialogueBox extends FlxSpriteGroup
 	{
 		super();
 
-		if (PlayState.isStoryMode)
+		if (PlayState.isStoryMode && PlayState.seenCutscene)
 		{
 			switch (PlayState.SONG.song.toLowerCase())
 			{

@@ -13,7 +13,7 @@
 		},
 		{
 			"offsets": [
-				0,
+				74,
 				0
 			],
 			"loop": false,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				0
+				45,
+				-51
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				0
+				-1,
+				29
 			],
 			"loop": false,
 			"fps": 24,
@@ -46,8 +46,8 @@
 		},
 		{
 			"offsets": [
-				0,
-				0
+				-24,
+				-8
 			],
 			"loop": false,
 			"fps": 24,
@@ -56,58 +56,24 @@
 			"name": "arsen right0"
 		},
 		{
-			"offsets": [
-				0,
-				0
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "arsen left miss"
-		},
-		{
 			"offsets": [
-				0,
-				0
+				23,
+				18
 			],
-			"loop": false,
+			"anim": "singGLOBALmiss",
 			"fps": 24,
-			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "arsen down miss"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUPmiss",
-			"indices": [],
-			"name": "arsen up miss"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "arsen right miss"
+			"name": "arsen miss",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/ARSEN_EXPRESSIVE",
 	"position": [
-		560,
-		200
+		620,
+		240
 	],
 	"healthicon": "arsen",
-	"noteskin": "NOTES_ARSEN",
 	"flip_x": true,
 	"healthbar_colors": [
 		73,
@@ -119,5 +85,6 @@
 		20
 	],
 	"sing_duration": 5,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }

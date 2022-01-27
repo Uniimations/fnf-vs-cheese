@@ -49,8 +49,14 @@
 	<define name="ACHIEVEMENTS_ALLOWED"/>
 	
 	<!--UNIIMATIONS ENGINE CUSTOMIZATION -->
-	<define name="PLAYTEST_BUILD" unless="debug" />
+	<define name="UNII_CUSTOM_BUILD" if="test build"/>
+	<define name="WINDOWS_BUILD" if="windows"/>
+	<define name="ALLOW_CHARACTER_EDITOR_JSONS"/>
+	<define name="PLAYTEST_BUILD" unless="UNII_CUSTOM_BUILD"/>
+	<define name="TRAILER_BUILD" if="UNII_CUSTOM_BUILD"/>
 	<!--WHAT???
+		
+		don't question it ok
 	-->
 	
 	<!-- <define name="PRELOAD_ALL" /> -->
@@ -71,7 +77,10 @@
 	<assets path="assets/songs"         library="songs"         exclude="*.mp3" unless="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.ogg" if="web"/>
 	<assets path="assets/shared"        library="shared"        exclude="*.mp3" unless="web"/>
-	
+
+	<!-- the funny folder -->
+	<assets path="assets/.FUNNY"		library=".FUNNY"/>
+
 	<assets path="assets/videos" exclude="*.ogg" if="web"/>
 	<assets path="assets/videos" exclude="*.mp3" unless="web"/>
 

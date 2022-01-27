@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "Bosip idle dance",
-			"indices": []
+			"indices": [],
+			"name": "Bosip idle dance"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				2,
-				-22
+				34,
+				-25
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "Bosip Sing Note RIGHT",
-			"indices": []
+			"indices": [],
+			"name": "Bosip Sing Note RIGHT"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				93,
-				38
+				-45,
+				40
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "Bosip Sing Note LEFT",
-			"indices": []
+			"indices": [],
+			"name": "Bosip Sing Note LEFT"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				70,
-				22
+				130,
+				32
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "Bosip Sing Note UP",
-			"indices": []
+			"indices": [],
+			"name": "Bosip Sing Note UP"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				41,
-				-21
+				-32,
+				-26
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Bosip Sing Note DOWN",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Bosip Sing Note DOWN"
 		}
 	],
 	"no_antialiasing": false,
@@ -63,7 +63,6 @@
 		62
 	],
 	"healthicon": "bosip",
-	"noteskin": "NOTES_BOSIP",
 	"flip_x": false,
 	"healthbar_colors": [
 		243,
@@ -75,5 +74,6 @@
 		43
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1.1
 }

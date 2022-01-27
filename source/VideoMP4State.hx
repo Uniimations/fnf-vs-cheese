@@ -22,21 +22,21 @@ import vlc.VlcBitmap;
 
 class VideoMP4State
 {
-	#if windows
+	#if WINDOWS_BUILD
+	public var bitmap:VlcBitmap;
+
 	public var finishCallback:Void->Void;
 	public var stateCallback:FlxState;
 
-	public var bitmap:VlcBitmap;
-
 	public var sprite:FlxSprite;
+	public var isPaused:Bool = false;
+	public var isVideo:Bool = false;
 
-	public function new()
-	{
-		//FlxG.autoPause = false;
+	public function new() {
+		
 	}
 
-	public function playMP4(path:String, ?repeat:Bool = false, ?outputTo:FlxSprite = null, ?isWindow:Bool = false, ?isFullscreen:Bool = false,
-			?midSong:Bool = false):Void
+	public function playMP4(path:String, ?repeat:Bool = false, ?outputTo:FlxSprite = null, ?isWindow:Bool = false, ?isFullscreen:Bool = false, ?midSong:Bool = false):Void
 	{
 		if (!midSong)
 		{
@@ -59,7 +59,7 @@ class VideoMP4State
 			bitmap.set_height(FlxG.stage.stageWidth / (16 / 9));
 		}
 
-		
+
 
 		bitmap.onVideoReady = onVLCVideoReady;
 		bitmap.onComplete = onVLCComplete;
@@ -100,25 +100,26 @@ class VideoMP4State
 		return pDir + fileName;
 	}
 
-	/////////////////////////////////////////////////////////////////////////////////////
-
 	function onVLCVideoReady()
 	{
-		trace("video loaded!");
+		trace("Video sprite loaded.");
 
 		if (sprite != null)
 			sprite.loadGraphic(bitmap.bitmapData);
+
+		isVideo = true;
 	}
 
 	public function onVLCComplete()
 	{
 		bitmap.stop();
+		isVideo = false;
 
 		// Clean player, just in case! Actually no.
 
 		FlxG.camera.fade(FlxColor.BLACK, 0, false);
 
-		trace("Video Cutscene End");
+		trace("Video Ended, HOPEFULLY NO ERRORS FROM HERE!");
 
 		new FlxTimer().start(0.3, function(tmr:FlxTimer)
 		{
@@ -143,6 +144,7 @@ class VideoMP4State
 	public function kill()
 	{
 		bitmap.stop();
+		isVideo = false;
 
 		if (finishCallback != null)
 		{
@@ -166,18 +168,44 @@ class VideoMP4State
 
 	function update(e:Event)
 	{
-		if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.SPACE)
+		if (isVideo)
 		{
-			if (bitmap.isPlaying)
+			// skip function
+			if (FlxG.keys.justPressed.S || FlxG.keys.justPressed.ESCAPE || PlayerSettings.player1.controls.BACK)
 			{
-				onVLCComplete();
+				trace("Trying to skip cutscene...");
+				if (bitmap.isPlaying)
+				{
+					onVLCComplete();
+				}
+			}
+
+			// pause function (pause is scuffed but...)
+			if (FlxG.keys.justPressed.ENTER || PlayerSettings.player1.controls.ACCEPT)
+			{
+				if (isPaused)
+				{
+					if(bitmap != null) {
+						bitmap.resume();
+						isPaused = false;
+						trace('Video resumed');
+					}
+				}
+				else
+				{
+					if(bitmap != null && bitmap.isPlaying) {
+						bitmap.pause();
+						isPaused = true;
+						trace('Video paused');
+					}
+				}
 			}
 		}
 
-		bitmap.volume = FlxG.sound.volume + 0.3; // shitty volume fix. then make it louder.
-
-		if (FlxG.sound.volume <= 0.1)
-			bitmap.volume = 0;
+		bitmap.volume = 0;
+		if(!FlxG.sound.muted && FlxG.sound.volume > 0.01) {
+			bitmap.volume = FlxG.sound.volume * 0.5 + 0.5;
+		}
 	}
 	#end
 }

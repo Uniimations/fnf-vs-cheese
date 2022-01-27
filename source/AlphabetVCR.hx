@@ -324,10 +324,12 @@ class AlphabetVCR extends FlxSpriteGroup
 
 	override function update(elapsed:Float)
 	{
-		if (isMenuItem)
+		if (isMenuItem) // I KNOW THIS LOOKS BAD BUT THIS IS FOR ME STEALING CODE FROM MIC'D UP SO SHUSH
 		{
 			var scaledY = FlxMath.remapToRange(targetY, 0, 1, 0, 1.3);
 
+			// regular
+			/*
 			var lerpVal:Float = CoolUtil.boundTo(elapsed * 9.6, 0, 1);
 			y = FlxMath.lerp(y, (scaledY * yMult) + (FlxG.height * 0.48) + yAdd, lerpVal);
 			if(forceX != Math.NEGATIVE_INFINITY) {
@@ -335,6 +337,36 @@ class AlphabetVCR extends FlxSpriteGroup
 			} else {
 				x = FlxMath.lerp(x, (targetY * 20) + 90 + xAdd, lerpVal);
 			}
+			*/
+
+			// c shape
+			y = FlxMath.lerp(y, (scaledY * 65) + (FlxG.height * 0.39), 0.16/(ClientPrefs.framerate/60));
+
+			x = FlxMath.lerp(x, Math.exp(scaledY * 0.8) * 70 + (FlxG.width * 0.1), 0.16/(ClientPrefs.framerate/60));
+
+			if (scaledY < 0)
+				x = FlxMath.lerp(x, Math.exp(scaledY * -0.8) * 70 + (FlxG.width * 0.1), 0.16/(ClientPrefs.framerate/60));
+
+			if (x > FlxG.width + 30)
+				x = FlxG.width + 30;
+
+			// center
+			/*
+			y = FlxMath.lerp(y, (scaledY * 120) + (FlxG.height * 0.5), 0.16/(ClientPrefs.framerate/60));
+			x = FlxMath.lerp(x, (targetY * 0) + 308, 0.16/(ClientPrefs.framerate/60));
+			*/
+
+			// d shape
+			/*
+			y = FlxMath.lerp(y, (scaledY * 90) + (FlxG.height * 0.45), 0.16/(ClientPrefs.framerate/60));
+	
+			x = FlxMath.lerp(x, Math.exp(scaledY * 0.8) * -70 + (FlxG.width * 0.35), 0.16/(ClientPrefs.framerate/60));
+			if (scaledY < 0)
+				x = FlxMath.lerp(x, Math.exp(scaledY * -0.8) * -70 + (FlxG.width * 0.35), 0.16/(ClientPrefs.framerate/60));
+
+			if (x < -900)
+				x = -900;
+			*/
 		}
 
 		super.update(elapsed);

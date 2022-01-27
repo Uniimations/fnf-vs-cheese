@@ -16,41 +16,42 @@ class ResetTools
 
 		// WEEK UNLOCK DATA
 
-		if (TitleState.isDebug)
-		{
-			if (FlxG.save.data.beatTutorial == null || FlxG.save.data.beatTutorial == false)
-				FlxG.save.data.beatTutorial = true;
-	
-			if (FlxG.save.data.beatCulturedWeek == null || FlxG.save.data.beatCulturedWeek == false)
-				FlxG.save.data.beatCulturedWeek = true;
-	
-			if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == false)
-				FlxG.save.data.beatWeekEnding = true;
-	
-			if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false)
-				FlxG.save.data.beatBonus = true;
-		}
-		else
-		{
-			if (FlxG.save.data.beatTutorial == null)
-				FlxG.save.data.beatTutorial = false;
-	
-			if (FlxG.save.data.beatCulturedWeek == null)
-				FlxG.save.data.beatCulturedWeek = false;
-	
-			if (FlxG.save.data.beatWeekEnding == null)
-				FlxG.save.data.beatWeekEnding = false;
-	
-			if (FlxG.save.data.beatBonus == null)
-				FlxG.save.data.beatBonus = false;
-		}
+		if (FlxG.save.data.beatTutorial == null)
+			FlxG.save.data.beatTutorial = false;
+
+		if (FlxG.save.data.beatCulturedWeek == null)
+			FlxG.save.data.beatCulturedWeek = false;
+
+		if (FlxG.save.data.beatWeekEnding == null)
+			FlxG.save.data.beatWeekEnding = false;
+
+		if (FlxG.save.data.beatNormalEnd == null)
+			FlxG.save.data.beatNormalEnd = false;
+
+		if (FlxG.save.data.beatAlternateEnd == null)
+			FlxG.save.data.beatAlternateEnd = false;
+
+		if (FlxG.save.data.BNB == null)
+			FlxG.save.data.BNB = false;
+
+		if (FlxG.save.data.beatBonus == null)
+			FlxG.save.data.beatBonus = false;
 
 		//MISC DATA
+
+		if (FlxG.save.data.seenIntro == null)
+			FlxG.save.data.seenIntro = false;
 
 		if (FlxG.save.data.diedTwiceFrosted == null)
 			FlxG.save.data.diedTwiceFrosted == false;
 
 		if (FlxG.save.data.petCheese == null)
 			FlxG.save.data.petCheese == false;
+
+		if (FlxG.save.data.skipTutorialDia == null)
+			FlxG.save.data.skipTutorialDia = false;
+
+		if (FlxG.save.data.seenNotifs == null)
+			FlxG.save.data.seenNotifs = false;
 	}
 }

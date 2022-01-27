@@ -1,4 +1,3 @@
-import OptionsState.ControlsSubstate;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
@@ -175,6 +174,7 @@ class RatingPopUpMenuState extends MusicBeatState
             FlxG.save.data.changedHitY = perfect.y;
             FlxG.save.data.changedHit = true;
             FlxG.sound.play(Paths.sound('scrollMenu'));
+            trace('X: ' + perfect.x + ', Y:'  + perfect.y);
         }
 
         if (FlxG.keys.justPressed.F11)

@@ -32,7 +32,7 @@ import Character;
 import flixel.system.debug.interaction.tools.Pointer.GraphicCursorCross;
 import lime.system.Clipboard;
 
-#if MODS_ALLOWED
+#if sys
 import sys.FileSystem;
 #end
 
@@ -44,6 +44,7 @@ using StringTools;
 class CharacterEditorState extends MusicBeatState
 {
 	var char:Character;
+	var ghostChar:Character;
 	var textAnim:FlxText;
 	var bgLayer:FlxTypedGroup<FlxSprite>;
 	var charLayer:FlxTypedGroup<Character>;
@@ -73,9 +74,25 @@ class CharacterEditorState extends MusicBeatState
 	var cameraFollowPointer:FlxSprite;
 	var healthBarBG:FlxSprite;
 
+	private var menuMusicChance:Int;
+
 	override function create()
 	{
-		FlxG.sound.music.stop();
+		//FlxG.sound.music.stop();
+
+		menuMusicChance = FlxG.random.int(0, 3);
+
+		switch (menuMusicChance) //lil menu music jingle to keep you   n o t   b o r e d .
+		{
+			case 0:
+				playMenuMusic('Restaurante');
+			case 1:
+				playMenuMusic('Milkshake');
+			case 2:
+				playMenuMusic('Cultured');
+			case 3:
+				playMenuMusic('Mozzarella');
+		}
 
 		camEditor = new FlxCamera();
 		camHUD = new FlxCamera();
@@ -254,7 +271,7 @@ class CharacterEditorState extends MusicBeatState
 			var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
 			tableB.updateHitbox();
 
-			var boppers = new BGSprite('cheese/boppers', 1265.6, 127.6, 1, 1, ['boppers'], true);
+			var boppers = new BGSprite('char/boppers', 1265.6, 127.6, 1, 1, ['boppers'], true);
 			boppers.updateHitbox();
 
 			var suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
@@ -263,7 +280,7 @@ class CharacterEditorState extends MusicBeatState
 			var counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
 			counter.updateHitbox();
 
-			var frontBoppers = new BGSprite('cheese/front_boppers', 67.5, 959.7, 1, 1, ['front boppers'], true);
+			var frontBoppers = new BGSprite('char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers'], true);
 			frontBoppers.updateHitbox();
 
 			bgLayer.add(floor);
@@ -359,6 +376,7 @@ class CharacterEditorState extends MusicBeatState
 			char.flipX = !char.flipX;
 			updatePointerPos();
 			reloadBGs();
+			ghostChar.flipX = char.flipX;
 		};
 
 		charDropDown = new FlxUIDropDownMenuCustom(10, 30, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(character:String)
@@ -430,6 +448,8 @@ class CharacterEditorState extends MusicBeatState
 			char.originalFlipX = !char.originalFlipX;
 			char.flipX = char.originalFlipX;
 			if(char.isPlayer) char.flipX = !char.flipX;
+
+			ghostChar.flipX = char.flipX;
 		};
 
 		noAntialiasingCheckBox = new FlxUICheckBox(flipXCheckBox.x, flipXCheckBox.y + 40, null, null, "No Antialiasing", 80);
@@ -481,6 +501,7 @@ class CharacterEditorState extends MusicBeatState
 		UI_characterbox.addGroup(tab_group);
 	}
 
+	var ghostDropDown:FlxUIDropDownMenuCustom;
 	var animationDropDown:FlxUIDropDownMenuCustom;
 	var animationInputText:FlxUIInputText;
 	var animationNameInputText:FlxUIInputText;
@@ -515,6 +536,17 @@ class CharacterEditorState extends MusicBeatState
 					animationIndicesInputText.text = indicesStr.substr(1, indicesStr.length - 2);
 					break;
 				}
+			}
+		});
+
+		ghostDropDown = new FlxUIDropDownMenuCustom(animationDropDown.x + 150, animationDropDown.y, FlxUIDropDownMenuCustom.makeStrIdLabelArray([''], true), function(pressed:String) {
+			var selectedAnimation:Int = Std.parseInt(pressed);
+			ghostChar.visible = false;
+			char.alpha = 1;
+			if(selectedAnimation > 0) {
+				ghostChar.visible = true;
+				ghostChar.playAnim(ghostChar.animationsArray[selectedAnimation-1].anim, true);
+				char.alpha = 0.85;
 			}
 		});
 
@@ -600,6 +632,7 @@ class CharacterEditorState extends MusicBeatState
 		});
 
 		tab_group.add(new FlxText(animationDropDown.x, animationDropDown.y - 18, 0, 'Animations:'));
+		tab_group.add(new FlxText(ghostDropDown.x, ghostDropDown.y - 18, 0, 'Animation Ghost:'));
 		tab_group.add(new FlxText(animationInputText.x, animationInputText.y - 18, 0, 'Animation name:'));
 		tab_group.add(new FlxText(animationNameFramerate.x, animationNameFramerate.y - 18, 0, 'Framerate:'));
 		tab_group.add(new FlxText(animationNameInputText.x, animationNameInputText.y - 18, 0, 'Animation on .XML/.TXT file:'));
@@ -612,6 +645,7 @@ class CharacterEditorState extends MusicBeatState
 		tab_group.add(animationLoopCheckBox);
 		tab_group.add(addUpdateButton);
 		tab_group.add(removeButton);
+		tab_group.add(ghostDropDown);
 		tab_group.add(animationDropDown);
 		UI_characterbox.addGroup(tab_group);
 	}
@@ -714,6 +748,8 @@ class CharacterEditorState extends MusicBeatState
 		} else {
 			char.dance();
 		}
+		ghostDropDown.selectedLabel = '';
+		reloadGhost();
 	}
 
 	function genBoyOffsets():Void
@@ -735,7 +771,7 @@ class CharacterEditorState extends MusicBeatState
 
 		textAnim.visible = true;
 		if(dumbTexts.length < 1) {
-			var text:FlxText = new FlxText(10, 38, 0, "ERROR! No animations found.", 15);
+			var text:FlxText = new FlxText(10, 38, 0, "ERROR! UNII IS A FUCKING DUMBASS! ...or youre using cheats LOL", 15);
 			text.scrollFactor.set();
 			text.color = FlxColor.RED;
 			dumbTexts.add(text);
@@ -745,10 +781,18 @@ class CharacterEditorState extends MusicBeatState
 
 	function loadChar(isDad:Bool, blahBlahBlah:Bool = true) {
 		charLayer.clear();
+		ghostChar = new Character(0, 0, daAnim, !isDad);
+		ghostChar.screenCenter();
+		ghostChar.debugMode = true;
+		ghostChar.alpha = 0.6;
+
 		char = new Character(0, 0, daAnim, !isDad);
 		char.screenCenter();
 		char.debugMode = true;
+
+		charLayer.add(ghostChar);
 		charLayer.add(char);
+
 		char.setPosition(char.positionArray[0] + OFFSET_X + 100, char.positionArray[1]);
 
 		/* THIS FUNCTION WAS USED TO PUT THE .TXT OFFSETS INTO THE .JSON
@@ -813,19 +857,54 @@ class CharacterEditorState extends MusicBeatState
 
 	function reloadAnimationDropDown() {
 		var anims:Array<String> = [];
+		var ghostAnims:Array<String> = [''];
 		for (anim in char.animationsArray) {
 			anims.push(anim.anim);
+			ghostAnims.push(anim.anim);
 		}
 		if(anims.length < 1) anims.push(''); //Prevents crash
 
 		animationDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(anims, true));
+		ghostDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(ghostAnims, true));
+		reloadGhost();
+	}
+
+	function reloadGhost() {
+		ghostChar.frames = char.frames;
+		for (anim in char.animationsArray) {
+			var animAnim:String = '' + anim.anim;
+			var animName:String = '' + anim.name;
+			var animFps:Int = anim.fps;
+			var animLoop:Bool = !!anim.loop; //Bruh
+			var animIndices:Array<Int> = anim.indices;
+			if(animIndices != null && animIndices.length > 0) {
+				ghostChar.animation.addByIndices(animAnim, animName, animIndices, "", animFps, animLoop);
+			} else {
+				ghostChar.animation.addByPrefix(animAnim, animName, animFps, animLoop);
+			}
+
+			if(anim.offsets != null && anim.offsets.length > 1) {
+				ghostChar.addOffset(anim.anim, anim.offsets[0], anim.offsets[1]);
+			}
+		}
+
+		char.alpha = 0.85;
+		ghostChar.visible = true;
+		if(ghostDropDown.selectedLabel == '') {
+			ghostChar.visible = false;
+			char.alpha = 1;
+		}
+		ghostChar.color = 0xFF666688;
+		
+		ghostChar.setGraphicSize(Std.int(ghostChar.width * char.jsonScale));
+		ghostChar.updateHitbox();
 	}
 
 	function reloadCharacterDropDown() {
-		var charsLoaded:Map<String, Bool> = new Map();
-
-		#if MODS_ALLOWED
 		characterList = [];
+
+		#if sys
+		var charsLoaded:Map<String, Bool> = new Map();
 		var directories:Array<String> = [Paths.mods('characters/'), Paths.getPreloadPath('characters/')];
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
@@ -842,8 +921,6 @@ class CharacterEditorState extends MusicBeatState
 				}
 			}
 		}
-		#else
-		characterList = CoolUtil.coolTextFile(Paths.txt('characterList'));
 		#end
 
 		charDropDown.setData(FlxUIDropDownMenuCustom.makeStrIdLabelArray(characterList, true));
@@ -912,9 +989,9 @@ class CharacterEditorState extends MusicBeatState
 
 			if (FlxG.keys.pressed.I || FlxG.keys.pressed.J || FlxG.keys.pressed.K || FlxG.keys.pressed.L)
 			{
-				var shiftMult:Int = 1;
+				var shiftMult:Int = 4;
 				if (FlxG.keys.pressed.SHIFT)
-					shiftMult = 4;
+					shiftMult = 8;
 
 				if (FlxG.keys.pressed.I)
 					camFollow.velocity.y = -90 * shiftMult;
@@ -973,14 +1050,19 @@ class CharacterEditorState extends MusicBeatState
 						if(i % 2 == 1) negaMult = -1;
 						char.animationsArray[curAnim].offsets[arrayVal] += negaMult * multiplier;
 						char.addOffset(char.animationsArray[curAnim].anim, char.animationsArray[curAnim].offsets[0], char.animationsArray[curAnim].offsets[1]);
+						ghostChar.addOffset(char.animationsArray[curAnim].anim, char.animationsArray[curAnim].offsets[0], char.animationsArray[curAnim].offsets[1]);
 
 						char.playAnim(char.animationsArray[curAnim].anim, false);
+						if(ghostChar.animation.curAnim != null && char.animation.curAnim != null && char.animation.curAnim.name == ghostChar.animation.curAnim.name) {
+							ghostChar.playAnim(char.animation.curAnim.name, false);
+						}
 						genBoyOffsets();
 					}
 				}
 			}
 		}
 		camMenu.zoom = FlxG.camera.zoom;
+		ghostChar.setPosition(char.x, char.y);
 		super.update(elapsed);
 	}
 
@@ -1071,5 +1153,10 @@ class CharacterEditorState extends MusicBeatState
 
 		var text:String = prefix + lime.system.Clipboard.text.replace('\n', '');
 		return text;
+	}
+
+	private function playMenuMusic(trackPlaying:String)
+	{
+		FlxG.sound.playMusic(Paths.inst(trackPlaying), 0.5);
 	}
 }

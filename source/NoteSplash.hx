@@ -35,13 +35,14 @@ class NoteSplash extends FlxSprite
 
 			switch(noteType) {
 				case 3 | 4 | 5: //CUSTOM NOTE SPLASH
-					loadAnims('DODGE' + skin); //all expect dodge note splashes arent actually used, this is just in case the game tries to load them
+					loadAnims('DODGE' + 'noteSplashesUT'); //all expect dodge note splashes arent actually used, this is just in case the game tries to load them
 				default:
 					loadAnims(skin);
 			}
 			lastNoteType = noteType;
 		}
 
+		/*
 		switch(noteType) {
 			case 3:
 				colorSwap.hue = 0;
@@ -53,6 +54,12 @@ class NoteSplash extends FlxSprite
 				colorSwap.saturation = 0;
 				colorSwap.brightness = 0;
 		}
+		*/
+
+		colorSwap.hue = 0;
+		colorSwap.saturation = 0;
+		colorSwap.brightness = 0;
+
 		offset.set(10, 10);
 
 		var animNum:Int = FlxG.random.int(1, 2);

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="crowdindie_big.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="crowdindie bop0000" x="0" y="0" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0001" x="0" y="0" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0002" x="0" y="676" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0003" x="0" y="676" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0004" x="0" y="1352" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0005" x="0" y="1352" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0006" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0007" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0008" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0009" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0010" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0011" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0012" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0013" x="0" y="2028" width="2329" height="626"/>
+</TextureAtlas>

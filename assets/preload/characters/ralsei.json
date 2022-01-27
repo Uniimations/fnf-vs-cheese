@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				913,
+				-92
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				-188,
+				-91
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
+			"offsets": [
+				-140,
+				652
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-140,
+				-91
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "ralsei/ralsei_with_fat_dart",
+	"position": [
+		380,
+		560
+	],
+	"healthicon": "ralsei",
+	"flip_x": false,
+	"healthbar_colors": [
+		55,
+		155,
+		80
+	],
+	"camera_position": [
+		100,
+		-300
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1.1
+}

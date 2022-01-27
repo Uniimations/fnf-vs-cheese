@@ -1,59 +1,59 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "idle",
-			"indices": [],
-			"name": "cheese idle"
+			"fps": 24,
+			"name": "cheese idle",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				14
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "cheese left"
+			"fps": 24,
+			"name": "cheese left",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				2
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "cheese right"
+			"fps": 24,
+			"name": "cheese right",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				21
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singUP",
-			"indices": [],
-			"name": "cheese up"
+			"fps": 24,
+			"name": "cheese up",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-4
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "cheese down"
+			"fps": 24,
+			"name": "cheese down",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -70,9 +70,10 @@
 		205
 	],
 	"camera_position": [
-		20,
+		40,
 		173
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }
