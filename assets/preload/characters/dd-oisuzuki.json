@@ -5,6 +5,9 @@
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
+			"anim": "danceLeft",
 			"indices": [
 				0,
 				1,
@@ -22,9 +25,6 @@
 				13,
 				14
 			],
-			"fps": 24,
-			"anim": "danceLeft",
-			"loop": false,
 			"name": "suzuki idle"
 		},
 		{
@@ -32,6 +32,9 @@
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
+			"anim": "danceRight",
 			"indices": [
 				15,
 				16,
@@ -49,9 +52,6 @@
 				28,
 				29
 			],
-			"fps": 24,
-			"anim": "danceRight",
-			"loop": false,
 			"name": "suzuki idle"
 		},
 		{
@@ -59,10 +59,10 @@
 				7,
 				4
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singLEFT",
-			"loop": false,
+			"indices": [],
 			"name": "suzuki left"
 		},
 		{
@@ -70,10 +70,10 @@
 				-21,
 				-30
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singDOWN",
-			"loop": false,
+			"indices": [],
 			"name": "suzuki down"
 		},
 		{
@@ -81,10 +81,10 @@
 				-7,
 				-8
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singUP",
-			"loop": false,
+			"indices": [],
 			"name": "suzuki up"
 		},
 		{
@@ -92,17 +92,17 @@
 				-49,
 				-18
 			],
-			"indices": [],
+			"loop": false,
 			"fps": 24,
 			"anim": "singRIGHT",
-			"loop": false,
+			"indices": [],
 			"name": "suzuki right"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/dynamic-duo-full/SUZUKI",
 	"position": [
-		470,
+		550,
 		140
 	],
 	"healthicon": "dad",

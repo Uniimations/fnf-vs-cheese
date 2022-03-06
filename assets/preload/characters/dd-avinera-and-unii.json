@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "idle dance big guy",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-26
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "avi left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-15,
+				-34
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "avi down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-33,
+				28
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "avi up guy",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-98,
+				11
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "AVI SING RIGHT",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-45,
+				35
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singGLOBALmiss",
+			"loop": false,
+			"name": "avi miss"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/dynamic-duo-full/the_nera_sans_boy_urh_rur_urh",
+	"position": [
+		470,
+		170
+	],
+	"healthicon": "uniinera",
+	"flip_x": true,
+	"healthbar_colors": [
+		175,
+		95,
+		175
+	],
+	"camera_position": [
+		-60,
+		-97
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

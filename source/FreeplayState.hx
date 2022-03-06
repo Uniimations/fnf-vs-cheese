@@ -27,7 +27,6 @@ class FreeplayState extends MusicBeatState
 	static var songIcons:Array<Dynamic> = [
 		['bluecheese', 'bluecheese-tired', 'bluecheese'],
 		['arsen-fp', 'dansilot-fp'],
-		['bob-and-bosip-fp'],
 		['suzuki-fp'],
 	];
 
@@ -107,9 +106,6 @@ class FreeplayState extends MusicBeatState
 
 		if (FlxG.save.data.beatWeekEnding)
 			addWeekByTag('week_2');
-
-		if (FlxG.save.data.beatBNB)
-			addWeekByTag('bob_and_bosip');
 
 		if (FlxG.save.data.beatBonus)
 			addWeekByTag('bonus_songs');
@@ -302,7 +298,6 @@ class FreeplayState extends MusicBeatState
 				addWeek(['Dynamic-Duo'], 2, ['uniinera']);
 				addWeek(['Below-Zero'], 2, ['avinera']);
 				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
-				addWeek(WeekData.songsNames[4], 4, songIcons[3]);
 				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
 			case 'week_1':
 				addWeek(WeekData.songsNames[1], 1, songIcons[0]);
@@ -312,16 +307,14 @@ class FreeplayState extends MusicBeatState
 					addWeek(['Dynamic-Duo'], 2, ['uniinera']);
 				if (FlxG.save.data.beatAlternateEnd)
 					addWeek(['Below-Zero'], 2, ['avinera']);
-			case 'bob_and_bosip':
-				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
 			case 'manager':
-				addWeek(WeekData.songsNames[4], 4, songIcons[3]);
+				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
 			case 'frozen':
 				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
 			case 'grammar_boy':
 				addWeek(WeekData.bonusNames[1], 1, bonusIcons[1]);
 			case 'bonus_songs':
-				addWeek(WeekData.songsNames[4], 4, songIcons[3]);
+				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
 				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
 		}
 	}
@@ -478,16 +471,6 @@ class FreeplayState extends MusicBeatState
 							forceColorChange(0xFFc852ff);
 							changeSelection(-1);
 						}
-					case 'mozzarella':
-						{
-							forcedColor = true;
-							if (FlxG.save.data.beatAlternateEnd)
-								forceColorChange(0xFF6260bd);
-							else
-								forceColorChange(0xFFc852ff);
-
-							changeSelection(-1);
-						}
 					case 'manager-strike-back':
 						{
 							if (curDifficulty == 3)
@@ -600,10 +583,6 @@ class FreeplayState extends MusicBeatState
 					case 'below-zero':
 						{
 							forcedColor = false;
-							changeSelection(1);
-						}
-					case 'mozzarella':
-						{
 							if (FlxG.save.data.beatBonus)
 							{
 								new FlxTimer().start(0.1, function(tmr:FlxTimer)

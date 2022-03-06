@@ -26,24 +26,6 @@ class CoolUtil
 		return difficultyStuff[PlayState.storyDifficulty][0].toUpperCase();
 	}
 
-	// i was demonstrating something to   c e r b e r a
-	public var colorShit:Array<Dynamic> = [
-		FlxColor.BLACK,
-		FlxColor.BLACK,
-		FlxColor.BLACK,
-		FlxColor.BLACK,
-		FlxColor.BLACK,
-		FlxColor.BLACK,
-		FlxColor.WHITE,
-		FlxColor.BLACK,
-		FlxColor.WHITE,
-		FlxColor.WHITE,
-		FlxColor.WHITE,
-		'none',
-		FlxColor.BLACK,
-		FlxColor.WHITE
-	];
-
 	public static var spriteOffsets:Array<Dynamic> = [];
 	public static var timingWindows:Array<Dynamic> = [];
 

@@ -48,26 +48,22 @@ class Note extends FlxSprite
 			switch(value) {
 				case 3: //DODGE NOTE
 					reloadNote('dodge', '', true, 'NOTES_UNDERTALE');
-					colorSwap.hue = 0;
-					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;
 					customFunctions = true;
+
 				case 4: //DEATH NOTE
 					reloadNote('death', '', true, 'NOTES_UNDERTALE');
-					colorSwap.hue = 0;
-					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;
 					customFunctions = true;
-				case 5: //DAD NOTE
+
+				case 5 | 6 | 8: //DAD NOTE
 					reloadNote('noteskins/', UniiStringTools.noteSkinSuffix(PlayState.SONG.player2, 0), true);
-					colorSwap.hue = 0;
-					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;
-				default:
-					colorSwap.hue = 0;
-					colorSwap.saturation = 0;
-					colorSwap.brightness = 0;
+
+				case 10 | 11 | 12: //NO SKIN
+					reloadNote('noteskins/', '', true, 'NOTE_comic');
 			}
+			colorSwap.hue = 0;
+			colorSwap.saturation = 0;
+			colorSwap.brightness = 0;
+
 			noteType = value;
 		}
 		return value;

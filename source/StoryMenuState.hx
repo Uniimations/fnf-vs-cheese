@@ -30,7 +30,6 @@ class StoryMenuState extends MusicBeatState
 		"How To Rap",
 		"Restaurante De Fromage Bleu",
 		"Self Insert",
-		"Bob And Bosip",
 		"Bonus Week",
 
 		"Unlock Weeks",
@@ -42,7 +41,6 @@ class StoryMenuState extends MusicBeatState
 		'tutorial',		
 		'week1',
 		'week2',
-		'boobiebullshit',
 		'heart',
 
 		'error',
@@ -54,7 +52,6 @@ class StoryMenuState extends MusicBeatState
 		['tutorial'],
 		['week_1'],
 		['week_2'],
-		['bob_and_bosip'],
 		['manager'],
 
 		['unlock'],
@@ -69,7 +66,6 @@ class StoryMenuState extends MusicBeatState
 		true,	//Tutorial
 		false,	//Week 1
 		false,  //Week 2
-		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
 
 		true, 	//debug
@@ -80,7 +76,6 @@ class StoryMenuState extends MusicBeatState
 		true,	//Tutorial
 		true,	//Week 1
 		true,   //Week 2
-		true, 	//Bob and Bosip
 		true, 	//Manager Strike Back
 
 		true, 	//debug
@@ -91,7 +86,6 @@ class StoryMenuState extends MusicBeatState
 		true,	//Tutorial
 		true,	//Week 1
 		false,  //Week 2
-		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
 
 		true, 	//debug
@@ -102,7 +96,6 @@ class StoryMenuState extends MusicBeatState
 		true,	//Tutorial
 		true,	//Week 1
 		true,   //Week 2
-		false, 	//Bob and Bosip
 		false, 	//Manager Strike Back
 
 		true, 	//debug
@@ -112,8 +105,7 @@ class StoryMenuState extends MusicBeatState
 	var weekBonusItems:Array<Bool> = [
 		true,	//Tutorial
 		true,	//Week 1
-		true,  //Week 2
-		true, 	//Bob and Bosip
+		true,  	//Week 2
 		true, 	//Manager Strike Back
 
 		true, 	//debug
@@ -325,7 +317,7 @@ class StoryMenuState extends MusicBeatState
 
 		scoreText.text = "HIGH SCORE:" + lerpScore;
 
-		if (curWeek == 5 || curWeek == 6) {
+		if (curWeek == 4 || curWeek == 5) {
 			sprDifficultyGroup.visible = false;
 			difficultySelectors.visible = false;
 		} else {
@@ -407,7 +399,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			switch (curWeek)
 			{
-				case 5:
+				case 4:
 					if (stopspamming == false)
 						{
 							FlxG.sound.play(Paths.sound('confirmMenu'));
@@ -426,6 +418,12 @@ class StoryMenuState extends MusicBeatState
 								if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == false) {
 									FlxG.save.data.beatWeekEnding = true;
 								}
+								if (FlxG.save.data.beatNormalEnd == null || FlxG.save.data.beatNormalEnd == false) {
+									FlxG.save.data.beatNormalEnd = true;
+								}
+								if (FlxG.save.data.beatAlternateEnd == null || FlxG.save.data.beatAlternateEnd == false) {
+									FlxG.save.data.beatAlternateEnd = true;
+								}
 								if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
 									FlxG.save.data.beatBonus = true;
 								}
@@ -438,7 +436,7 @@ class StoryMenuState extends MusicBeatState
 							});
 						}
 
-				case 6:
+				case 5:
 					if (stopspamming == false)
 						{
 							FlxG.sound.play(Paths.sound('confirmMenu'));
@@ -503,7 +501,7 @@ class StoryMenuState extends MusicBeatState
 
 						switch (curWeek)
 						{
-							case 4: // forces easy mode if pussy mode
+							case 3: // forces easy mode if pussy mode
 								if (ClientPrefs.pussyMode)
 									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-easy', PlayState.storyPlaylist[0].toLowerCase());
 								else
@@ -544,7 +542,7 @@ class StoryMenuState extends MusicBeatState
 		//difficulty dependencies
 		switch (daWeek)
 		{
-			case 4:
+			case 3:
 				curNumberStart = 3;
 				curNumberEnd = 3;
 			default:

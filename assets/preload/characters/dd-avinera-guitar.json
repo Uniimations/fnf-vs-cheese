@@ -1,0 +1,101 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle dance big guy"
+		},
+		{
+			"offsets": [
+				13,
+				-6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "avi left"
+		},
+		{
+			"offsets": [
+				-9,
+				-52
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "avi down"
+		},
+		{
+			"offsets": [
+				59,
+				62
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "avi up guy"
+		},
+		{
+			"offsets": [
+				-47,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "AVI SING RIGHT"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				5,
+				30
+			],
+			"anim": "singGLOBALmiss",
+			"fps": 24,
+			"name": "avi miss",
+			"indices": []
+		},
+		{
+			"offsets": [
+				58,
+				62
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "avi last strum"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/dynamic-duo-full/AVINER_GUITARA",
+	"position": [
+		540,
+		180
+	],
+	"healthicon": "uniinera",
+	"flip_x": true,
+	"healthbar_colors": [
+		175,
+		95,
+		175
+	],
+	"camera_position": [
+		-60,
+		-97
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

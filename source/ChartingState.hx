@@ -53,7 +53,15 @@ class ChartingState extends MusicBeatState
 		'2 - Hey!',
 		'3 - Dodge Note',
 		'4 - Death Note',
-		'5 - Dad Note Skin'
+		'5 - Dad Note Skin',
+		'6 - GF Note (Suzuki)',
+		'7 - Boyfriend2 Note (Unii)',
+		'8 - Force Dad',
+		'9 - Force Boyfriend',
+		'10 - Comic Arsen',
+		'11 - Comic Dani',
+		'12 - EVERYONE EXCEPT AVI',
+		'13 - No Animation'
 	];
 
 	private static var eventStuff:Array<Dynamic> =
@@ -76,7 +84,10 @@ class ChartingState extends MusicBeatState
 		['Poggers Lights', "Value 1: 0 = Turn off, 1 = Blue, 2 = Green,\n3 = Pink, 4 = Red, 5 = Orange, Anything else = Random."],
 		['Poggers Fade', "Value 1:\n0 = fade to 1\n1 = fade to 2\n2 = fade to 1 only\n3 = fade to 0 only"],
 		['Opponent Anim', "Used to decide if another character is using the opponents chart.\nValue 1: Character (0 = Default, 1 = Dad, 2 = Little Man, 3 = GF)\nValue 2: if camera focuses on Little Man"],
-		['Summon Lil Man',  "Summons lil scrunkly on Cultured VIP."]
+		['Summon Lil Man',  "Summons lil scrunkly on Cultured VIP."],
+		['Set Singer', "Set the singer in Dynamic Duo.\nValue 1: Boyfriend chart singer\nValue 2: Dad chart singer"],
+		['Comic Toggle', "Toggle the isArsen and isDani Bools.\nType true or false ONLY.\nValue 1: Arsen\nValue 2: Dani"],
+		['Comic Spawn', "Flashes camera and changes\nArsen and Dani alpha\nValue 1: Arsen\nValue 2: Dani"]
 	];
 
 	var dfc:CoolUtil;

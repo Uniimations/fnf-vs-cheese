@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="arsen_comic.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="arsenTriangle0000" x="0" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0001" x="0" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0002" x="722" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0003" x="722" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0004" x="1444" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0005" x="1444" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0006" x="2166" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0007" x="2166" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0008" x="2888" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0009" x="2888" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0010" x="2888" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0011" x="2888" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0012" x="2888" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle0013" x="2888" y="0" width="712" height="717"/>
+	<SubTexture name="arsenTriangle down0000" x="0" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0001" x="0" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0002" x="726" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0003" x="726" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0004" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0005" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0006" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0007" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0008" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0009" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0010" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0011" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0012" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle down0013" x="1452" y="727" width="716" height="686"/>
+	<SubTexture name="arsenTriangle left0000" x="2178" y="727" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0001" x="2178" y="727" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0002" x="2900" y="727" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0003" x="2900" y="727" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0004" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0005" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0006" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0007" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0008" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0009" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0010" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0011" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0012" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle left0013" x="0" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0000" x="722" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0001" x="722" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0002" x="1444" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0003" x="1444" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0004" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0005" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0006" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0007" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0008" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0009" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0010" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0011" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0012" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle right0013" x="2166" y="1423" width="712" height="663"/>
+	<SubTexture name="arsenTriangle up0000" x="2888" y="1423" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0001" x="2888" y="1423" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0002" x="0" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0003" x="0" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0004" x="722" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0005" x="722" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0006" x="1444" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0007" x="1444" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0008" x="1444" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0009" x="1444" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0010" x="1444" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0011" x="1444" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0012" x="1444" y="2102" width="712" height="669"/>
+	<SubTexture name="arsenTriangle up0013" x="1444" y="2102" width="712" height="669"/>
+</TextureAtlas>

@@ -13,8 +13,7 @@ class WeekData {
 	public static var songsNames:Array<Dynamic> = [
 		['Tutorial'],
 		['Restaurante', 'Milkshake', 'Cultured'],
-		['Wifi', 'Casual-Duel', ],
-		['Mozzarella'],
+		['Wifi', 'Casual-Duel'],
 		['Manager-Strike-Back']
 		#if PLAYTEST_BUILD
 		,['UNLOCK', 'ALL', 'SONGS'],
@@ -36,7 +35,6 @@ class WeekData {
 		null,	//Tutorial
 		null,	//Week 1
 		null,	//Week 2
-		null,	//Bob and Bosip
 		null	//Manager Strike Back
 		#if PLAYTEST_BUILD
 		,null,
@@ -48,7 +46,6 @@ class WeekData {
 		null,   //Tutorial
 		null,	//Week 1
 		null,	//Week 2
-		null,	//Bob and Bosip
 		null	//Manager Strike Back
 		#if PLAYTEST_BUILD
 		,null,
@@ -64,11 +61,10 @@ class WeekData {
 		"Tutorial",
 		null,	//Week 1
 		null,	//Week 2
-		"Bob and Bosip",
 		"Bonus Week"
 		#if PLAYTEST_BUILD
-		,"I EDITED THE CODE FOR THIS MUAHAUHAHAHHAHA BROKEN DISCORD RPC!!111!!1! DISCORD RPC!!!11!1!", //ur not supposed to be able to play this loloololl
-		"I EDITED THE CODE FOR THIS MUAHAUHAHAHHAHA BROKEN DISCORD RPC!!111!!1! DISCORD RPC!!!11!1!"   //ur not supposed to be able to play this loloololl
+		,"stop pressing the r button", //ur not supposed to be able to play this loloololl
+		"stop pressing the r button"   //ur not supposed to be able to play this loloololl
 		#end
 	];
 

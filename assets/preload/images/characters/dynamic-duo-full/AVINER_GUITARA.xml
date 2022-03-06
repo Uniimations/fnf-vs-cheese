@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="AVINER_GUITARA.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="AVI SING RIGHT0000" x="0" y="0" width="493" height="817"/>
+	<SubTexture name="AVI SING RIGHT0001" x="0" y="0" width="493" height="817"/>
+	<SubTexture name="AVI SING RIGHT0002" x="503" y="0" width="493" height="817"/>
+	<SubTexture name="AVI SING RIGHT0003" x="503" y="0" width="493" height="817"/>
+	<SubTexture name="AVI SING RIGHT0004" x="1006" y="0" width="493" height="817"/>
+	<SubTexture name="AVI SING RIGHT0005" x="1006" y="0" width="493" height="817"/>
+	<SubTexture name="avi down0000" x="1509" y="0" width="522" height="765"/>
+	<SubTexture name="avi down0001" x="1509" y="0" width="522" height="765"/>
+	<SubTexture name="avi down0002" x="2041" y="0" width="522" height="765"/>
+	<SubTexture name="avi down0003" x="2041" y="0" width="522" height="765"/>
+	<SubTexture name="avi down0004" x="2573" y="0" width="522" height="765"/>
+	<SubTexture name="avi down0005" x="2573" y="0" width="522" height="765"/>
+	<SubTexture name="avi last strum0000" x="3105" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0001" x="3105" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0002" x="3679" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0003" x="3679" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0004" x="4253" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0005" x="4253" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0006" x="4827" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0007" x="4827" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0008" x="5401" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0009" x="5401" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0010" x="5975" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0011" x="5975" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0012" x="6549" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0013" x="6549" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0014" x="7123" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0015" x="7123" y="0" width="564" height="880"/>
+	<SubTexture name="avi last strum0016" x="0" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0017" x="0" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0018" x="574" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0019" x="574" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0020" x="1148" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0021" x="1148" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0022" x="1722" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0023" x="1722" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0024" x="2296" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0025" x="2296" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0026" x="2870" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0027" x="2870" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0028" x="3444" y="890" width="564" height="880"/>
+	<SubTexture name="avi last strum0029" x="3444" y="890" width="564" height="880"/>
+	<SubTexture name="avi left0000" x="4018" y="890" width="490" height="811"/>
+	<SubTexture name="avi left0001" x="4018" y="890" width="490" height="811"/>
+	<SubTexture name="avi left0002" x="4518" y="890" width="490" height="811"/>
+	<SubTexture name="avi left0003" x="4518" y="890" width="490" height="811"/>
+	<SubTexture name="avi left0004" x="5018" y="890" width="490" height="811"/>
+	<SubTexture name="avi left0005" x="5018" y="890" width="490" height="811"/>
+	<SubTexture name="avi left0006" x="5518" y="890" width="490" height="811"/>
+	<SubTexture name="avi left0007" x="5518" y="890" width="490" height="811"/>
+	<SubTexture name="avi miss0000" x="6018" y="890" width="553" height="846"/>
+	<SubTexture name="avi miss0001" x="6581" y="890" width="553" height="846"/>
+	<SubTexture name="avi miss0002" x="7144" y="890" width="553" height="846"/>
+	<SubTexture name="avi miss0003" x="0" y="1780" width="553" height="846"/>
+	<SubTexture name="avi miss0004" x="563" y="1780" width="553" height="846"/>
+	<SubTexture name="avi miss0005" x="1126" y="1780" width="553" height="846"/>
+	<SubTexture name="avi miss0006" x="1689" y="1780" width="553" height="846"/>
+	<SubTexture name="avi miss0007" x="1126" y="1780" width="553" height="846"/>
+	<SubTexture name="avi miss0008" x="1689" y="1780" width="553" height="846"/>
+	<SubTexture name="avi up guy0000" x="2252" y="1780" width="560" height="880"/>
+	<SubTexture name="avi up guy0001" x="2252" y="1780" width="560" height="880"/>
+	<SubTexture name="avi up guy0002" x="2822" y="1780" width="560" height="880"/>
+	<SubTexture name="avi up guy0003" x="2822" y="1780" width="560" height="880"/>
+	<SubTexture name="avi up guy0004" x="3392" y="1780" width="560" height="880"/>
+	<SubTexture name="avi up guy0005" x="3392" y="1780" width="560" height="880"/>
+	<SubTexture name="idle dance big guy0000" x="3962" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0001" x="3962" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0002" x="4463" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0003" x="4463" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0004" x="4964" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0005" x="4964" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0006" x="5465" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0007" x="5465" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0008" x="5966" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0009" x="5966" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0010" x="5966" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0011" x="5966" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0012" x="5966" y="1780" width="491" height="817"/>
+	<SubTexture name="idle dance big guy0013" x="5966" y="1780" width="491" height="817"/>
+</TextureAtlas>

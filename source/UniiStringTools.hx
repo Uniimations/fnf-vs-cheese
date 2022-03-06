@@ -37,6 +37,8 @@ class UniiStringTools
                         note_skin_suffix = '_CHEESE';
                     case 'avinera-frosted-tape' | 'avinera-frosted':
                         note_skin_suffix = '_AVINERA';
+                    case 'bluecheese-and-suzuki':
+                        note_skin_suffix = '_SUZUCHEESE';
                     default:
                         note_skin_suffix = '';
                 }
@@ -45,8 +47,6 @@ class UniiStringTools
                 {
                     case 'bf' | 'bf-alt' | 'bf-small' | 'bf-small-alt':
                         note_skin_suffix = '_BF';
-                    case 'bob-unii-style':
-                        note_skin_suffix = '_BOB_AND_BOSIP';
                     case 'undertale-bf':
                         note_skin_suffix = '_UNDERTALE';
                     default:

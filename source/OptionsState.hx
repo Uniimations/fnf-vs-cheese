@@ -41,7 +41,8 @@ class OptionsState extends MusicBeatState
 	public static var menuBG:FlxSprite;
 	public static var inPause:Bool = false;
 
-	override function create() {
+	override function create()
+	{
 		#if desktop
 		DiscordClient.changePresence("Options Menu", null);
 		#end
