@@ -370,6 +370,13 @@
 						18365.8536585366,
 						1,
 						0
+					],
+					[
+						18676.8292682927,
+						-1,
+						"Set Singer",
+						"unii",
+						"suzuki"
 					]
 				],
 				"lengthInSteps": 16,
@@ -406,13 +413,6 @@
 						19317.0731707317,
 						0,
 						219.512195121951
-					],
-					[
-						18731.7073170732,
-						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
 					]
 				],
 				"lengthInSteps": 16,
@@ -1080,6 +1080,13 @@
 						34975.6097560976,
 						0,
 						0
+					],
+					[
+						35094.512195122,
+						-1,
+						"Set Singer",
+						"unii",
+						"cheese"
 					]
 				],
 				"lengthInSteps": 16,
@@ -1121,13 +1128,6 @@
 						36146.3414634146,
 						0,
 						0
-					],
-					[
-						35121.9512195122,
-						-1,
-						"Set Singer",
-						"unii",
-						"cheese"
 					]
 				],
 				"lengthInSteps": 16,
@@ -1521,6 +1521,13 @@
 						43756.0975609756,
 						2,
 						0
+					],
+					[
+						44456.7073170732,
+						-1,
+						"Set Singer",
+						"unii",
+						"cheese"
 					]
 				],
 				"lengthInSteps": 16,
@@ -1562,13 +1569,6 @@
 						44487.8048780488,
 						2,
 						219.512195121951
-					],
-					[
-						44487.8048780488,
-						-1,
-						"Set Singer",
-						"unii",
-						"cheese"
 					]
 				],
 				"lengthInSteps": 16,
@@ -1952,7 +1952,7 @@
 						219.512195121951
 					],
 					[
-						56780.487804878,
+						56756.7073170731,
 						-1,
 						"Set Singer",
 						"avinera",
@@ -2530,6 +2530,13 @@
 						69951.2195121951,
 						6,
 						219.512195121951
+					],
+					[
+						70221.9512195121,
+						-1,
+						"Set Singer",
+						"dynamic duo",
+						"suzuki"
 					]
 				],
 				"lengthInSteps": 16,
@@ -2576,13 +2583,6 @@
 						70536.5853658536,
 						2,
 						0
-					],
-					[
-						70243.9024390243,
-						-1,
-						"Set Singer",
-						"dynamic duo",
-						"suzuki"
 					],
 					[
 						70536.5853658536,
@@ -2658,6 +2658,13 @@
 						71853.6585365854,
 						2,
 						0
+					],
+					[
+						72546.9512195121,
+						-1,
+						"Set Singer",
+						"unii",
+						"suzuki"
 					]
 				],
 				"lengthInSteps": 16,
@@ -2704,13 +2711,6 @@
 						73170.731707317,
 						6,
 						512.19512195122
-					],
-					[
-						72585.3658536585,
-						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3172,6 +3172,13 @@
 						81804.8780487805,
 						3,
 						0
+					],
+					[
+						81905.487804878,
+						-1,
+						"Set Singer",
+						"unii",
+						"reset"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3213,13 +3220,6 @@
 						81951.219512195,
 						2,
 						219.512195121951
-					],
-					[
-						81951.219512195,
-						-1,
-						"Set Singer",
-						"unii",
-						"reset"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3301,13 +3301,6 @@
 						8
 					],
 					[
-						84292.6829268292,
-						-1,
-						"Set Singer",
-						"reset",
-						"reset"
-					],
-					[
 						84585.3658536584,
 						2,
 						0,
@@ -3342,6 +3335,13 @@
 						2,
 						0,
 						8
+					],
+					[
+						84292.6829268292,
+						-1,
+						"Set Singer",
+						"reset",
+						"reset"
 					]
 				],
 				"lengthInSteps": 16,
@@ -3983,6 +3983,13 @@
 						97170.731707317,
 						4,
 						1097.56097560976
+					],
+					[
+						98295.731707317,
+						-1,
+						"Set Singer",
+						"unii",
+						"cheese"
 					]
 				],
 				"lengthInSteps": 16,
@@ -4040,13 +4047,6 @@
 						99365.8536585365,
 						1,
 						0
-					],
-					[
-						98341.463414634,
-						-1,
-						"Set Singer",
-						"unii",
-						"cheese"
 					]
 				],
 				"lengthInSteps": 16,
@@ -4545,6 +4545,13 @@
 						108951.219512195,
 						1,
 						0
+					],
+					[
+						110006.707317073,
+						-1,
+						"Set Singer",
+						"avinera",
+						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -4600,13 +4607,6 @@
 						110487.804878049,
 						2,
 						0
-					],
-					[
-						110048.780487805,
-						-1,
-						"Set Singer",
-						"avinera",
-						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -4677,6 +4677,13 @@
 						112097.56097561,
 						2,
 						0
+					],
+					[
+						112357.317073171,
+						-1,
+						"Set Singer",
+						"unii",
+						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -4734,10 +4741,10 @@
 						0
 					],
 					[
-						112390.243902439,
+						113537.195121951,
 						-1,
 						"Set Singer",
-						"unii",
+						"avinera",
 						"suzuki"
 					]
 				],
@@ -4791,13 +4798,6 @@
 						114146.341463414,
 						2,
 						0
-					],
-					[
-						113560.975609756,
-						-1,
-						"Set Singer",
-						"avinera",
-						"suzuki"
 					]
 				],
 				"altAnim": false,
@@ -5032,6 +5032,13 @@
 						"Set Singer",
 						"unii",
 						"suzuki"
+					],
+					[
+						119389.024390244,
+						-1,
+						"Set Singer",
+						"avinera",
+						"cheese"
 					]
 				],
 				"typeOfSection": 0,
@@ -5084,11 +5091,11 @@
 						0
 					],
 					[
-						119414.634146341,
+						120563.414634146,
 						-1,
 						"Set Singer",
-						"avinera",
-						"cheese"
+						"unii",
+						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -5139,13 +5146,6 @@
 						121024.390243902,
 						5,
 						0
-					],
-					[
-						120585.365853658,
-						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -5375,6 +5375,13 @@
 						126292.682926829,
 						2,
 						0
+					],
+					[
+						126376.829268293,
+						-1,
+						"Set Singer",
+						"avinera",
+						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -5435,13 +5442,6 @@
 						127463.414634146,
 						2,
 						0
-					],
-					[
-						126439.024390244,
-						-1,
-						"Set Singer",
-						"avinera",
-						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -5532,6 +5532,13 @@
 						128707.317073171,
 						3,
 						0
+					],
+					[
+						128727.43902439,
+						-1,
+						"Set Singer",
+						"unii",
+						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -5612,13 +5619,6 @@
 						129804.87804878,
 						0,
 						0
-					],
-					[
-						128780.487804878,
-						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
 					],
 					[
 						129878.048780488,
@@ -6116,6 +6116,13 @@
 						138000,
 						1,
 						0
+					],
+					[
+						138131.707317073,
+						-1,
+						"Set Singer",
+						"unii",
+						"suzuki"
 					]
 				],
 				"typeOfSection": 0,
@@ -6171,13 +6178,6 @@
 						139170.731707317,
 						3,
 						0
-					],
-					[
-						138146.341463415,
-						-1,
-						"Set Singer",
-						"avinera",
-						"cheese"
 					]
 				],
 				"typeOfSection": 0,
@@ -7243,6 +7243,51 @@
 			},
 			{
 				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"bpm": 205,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 205
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 205
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 205
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 205
+			},
+			{
+				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
@@ -7255,10 +7300,10 @@
 		"player3": "dd-oisuzuki",
 		"splashSkin": "note-splash-skins/noteSplashes_UNIINERA",
 		"song": "Dynamic-Duo",
-		"arrowSkin": "noteskins/NOTE_assets_UNIINERA",
 		"stage": "stage",
-		"validScore": true,
+		"arrowSkin": "noteskins/NOTE_assets_UNIINERA",
 		"needsVoices": true,
+		"validScore": true,
 		"bpm": 205,
 		"speed": 2.8
 	}
