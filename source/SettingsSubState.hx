@@ -436,7 +436,7 @@ class SettingsSubState extends MusicBeatSubstate
 							{
 								ClientPrefs.framerate += add;
 								if(ClientPrefs.framerate < 60) ClientPrefs.framerate = 60;
-								else if(ClientPrefs.framerate > 360) ClientPrefs.framerate = 360;
+								else if(ClientPrefs.framerate > 330) ClientPrefs.framerate = 330;
 								FlxG.log.add('changed fps');
 
 								if(ClientPrefs.framerate > FlxG.drawFramerate) {
@@ -566,7 +566,7 @@ class SettingsSubState extends MusicBeatSubstate
 
 		switch(options[curSelected]) {
 			case 'Framerate':
-				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.";
+				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.\nWARNING: Setting your framerate above 250 may cause lag.";
 			case 'Note Offset':
 				daText = "Changes how late a note is spawned.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
