@@ -31,8 +31,7 @@ class FreeplayState extends MusicBeatState
 	];
 
 	static var bonusIcons:Array<Dynamic> = [
-		['avinera'],						//frosted
-		['dad']								//alter ego
+		['avinera', 'unii']
 	];
 
 	var songs:Array<SongMetadata> = [];
@@ -295,7 +294,7 @@ class FreeplayState extends MusicBeatState
 			case 'all_songs':
 				addWeek(WeekData.songsNames[1], 1, songIcons[0]);
 				addWeek(WeekData.songsNames[2], 2, songIcons[1]);
-				addWeek(['Dynamic-Duo'], 2, ['uniinera']);
+				addWeek(['Dynamic-Duo'], 2, ['uniinera-fp']);
 				addWeek(['Below-Zero'], 2, ['avinera']);
 				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
 				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
@@ -304,15 +303,11 @@ class FreeplayState extends MusicBeatState
 			case 'week_2':
 				addWeek(WeekData.songsNames[2], 2, songIcons[1]);
 				if (FlxG.save.data.beatNormalEnd)
-					addWeek(['Dynamic-Duo'], 2, ['uniinera']);
+					addWeek(['Dynamic-Duo'], 2, ['uniinera-fp']);
 				if (FlxG.save.data.beatAlternateEnd)
 					addWeek(['Below-Zero'], 2, ['avinera']);
 			case 'manager':
 				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
-			case 'frozen':
-				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
-			case 'grammar_boy':
-				addWeek(WeekData.bonusNames[1], 1, bonusIcons[1]);
 			case 'bonus_songs':
 				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
 				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
@@ -599,7 +594,7 @@ class FreeplayState extends MusicBeatState
 								changeSelection(1);
 							}
 						}
-					case 'frosted':
+					case 'alter-ego':
 						{
 							if (curDifficulty == 3)
 								{
@@ -675,7 +670,7 @@ class FreeplayState extends MusicBeatState
 									changeDiff(-1);
 								}
 						}
-					case 'manager-strike-back'  | 'frosted':
+					case 'manager-strike-back'  | 'frosted' | 'alter-ego':
 						FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
 					default:
 						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
@@ -737,7 +732,7 @@ class FreeplayState extends MusicBeatState
 									changeDiff(1);
 								}
 						}
-					case 'manager-strike-back' | 'frosted':
+					case 'manager-strike-back' | 'frosted' | 'alter-ego':
 						FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
 					default:
 						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
@@ -823,7 +818,7 @@ class FreeplayState extends MusicBeatState
 		{
 			case 'restaurante' | 'milkshake' | 'cultured':
 				curNumberEnd = 2;
-			case 'manager-strike-back' | 'frosted':
+			case 'manager-strike-back' | 'frosted' | 'alter-ego':
 				curNumberStart = 3;
 				curNumberEnd = 3;
 			default:

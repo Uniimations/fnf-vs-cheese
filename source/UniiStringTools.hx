@@ -39,6 +39,8 @@ class UniiStringTools
                         note_skin_suffix = '_AVINERA';
                     case 'bluecheese-and-suzuki':
                         note_skin_suffix = '_SUZUCHEESE';
+                    case 'unii':
+                        note_skin_suffix = '_UNII';
                     default:
                         note_skin_suffix = '';
                 }

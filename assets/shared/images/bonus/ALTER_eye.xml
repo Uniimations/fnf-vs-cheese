@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ALTER_eye.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="unii eye open0000" x="0" y="0" width="1351" height="857"/>
+	<SubTexture name="unii eye open0001" x="0" y="0" width="1351" height="857"/>
+	<SubTexture name="unii eye open0002" x="1361" y="0" width="1351" height="857"/>
+	<SubTexture name="unii eye open0003" x="1361" y="0" width="1351" height="857"/>
+	<SubTexture name="unii eye open0004" x="2722" y="0" width="1351" height="857"/>
+	<SubTexture name="unii eye open0005" x="0" y="867" width="1351" height="857"/>
+	<SubTexture name="unii eye open0006" x="0" y="867" width="1351" height="857"/>
+	<SubTexture name="unii eye open0007" x="1361" y="867" width="1351" height="857"/>
+	<SubTexture name="unii eye open0008" x="1361" y="867" width="1351" height="857"/>
+	<SubTexture name="unii eye open0009" x="2722" y="867" width="1351" height="857"/>
+	<SubTexture name="unii eye open0010" x="2722" y="867" width="1351" height="857"/>
+	<SubTexture name="unii eye open0011" x="0" y="1734" width="1351" height="857"/>
+	<SubTexture name="unii eye open0012" x="0" y="1734" width="1351" height="857"/>
+</TextureAtlas>

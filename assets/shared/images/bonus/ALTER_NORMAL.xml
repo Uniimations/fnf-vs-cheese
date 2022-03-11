@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ALTER_NORMAL.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="NORMAL0000" x="0" y="0" width="1889" height="1027"/>
+	<SubTexture name="NORMAL0001" x="0" y="0" width="1889" height="1027"/>
+	<SubTexture name="NORMAL0002" x="1899" y="0" width="1889" height="1027"/>
+	<SubTexture name="NORMAL0003" x="1899" y="0" width="1889" height="1027"/>
+	<SubTexture name="NORMAL0004" x="0" y="1037" width="1889" height="1027"/>
+	<SubTexture name="NORMAL0005" x="0" y="1037" width="1889" height="1027"/>
+	<SubTexture name="NORMAL0006" x="1899" y="1037" width="1889" height="1027"/>
+	<SubTexture name="NORMAL0007" x="1899" y="1037" width="1889" height="1027"/>
+</TextureAtlas>

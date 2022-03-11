@@ -1,0 +1,57 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "duo first die real"
+		},
+		{
+			"offsets": [
+				-1,
+				-9
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "duo retry loopin"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-1,
+				10
+			],
+			"anim": "deathConfirm",
+			"fps": 24,
+			"name": "duo confirmmm",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/deaths/the_DYNAMIC_DUO",
+	"position": [
+		490,
+		110
+	],
+	"healthicon": "uniinera",
+	"flip_x": true,
+	"healthbar_colors": [
+		175,
+		95,
+		175
+	],
+	"camera_position": [
+		-60,
+		-97
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

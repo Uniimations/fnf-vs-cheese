@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="MID_SONG.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="gotcha0000" x="0" y="0" width="523" height="324"/>
+	<SubTexture name="gotcha0001" x="0" y="0" width="523" height="324"/>
+	<SubTexture name="gotcha0002" x="533" y="0" width="523" height="324"/>
+	<SubTexture name="gotcha0003" x="533" y="0" width="523" height="324"/>
+	<SubTexture name="gotcha0004" x="1066" y="0" width="523" height="324"/>
+	<SubTexture name="gotcha0005" x="1066" y="0" width="523" height="324"/>
+	<SubTexture name="the thing0000" x="1599" y="0" width="1994" height="838"/>
+	<SubTexture name="the thing0001" x="1599" y="0" width="1994" height="838"/>
+	<SubTexture name="the thing0002" x="3603" y="0" width="1994" height="838"/>
+	<SubTexture name="the thing0003" x="3603" y="0" width="1994" height="838"/>
+	<SubTexture name="the thing0004" x="5607" y="0" width="1994" height="838"/>
+	<SubTexture name="the thing0005" x="0" y="848" width="1994" height="838"/>
+	<SubTexture name="the thing0006" x="2004" y="848" width="1994" height="838"/>
+	<SubTexture name="the thing0007" x="2004" y="848" width="1994" height="838"/>
+	<SubTexture name="the thing0008" x="4008" y="848" width="1994" height="838"/>
+	<SubTexture name="the thing0009" x="4008" y="848" width="1994" height="838"/>
+	<SubTexture name="the thing0010" x="6012" y="848" width="1994" height="838"/>
+	<SubTexture name="unii eye open0000" x="0" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0001" x="0" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0002" x="731" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0003" x="731" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0004" x="1462" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0005" x="2193" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0006" x="2193" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0007" x="2924" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0008" x="2924" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0009" x="3655" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0010" x="3655" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0011" x="4386" y="1696" width="721" height="653"/>
+	<SubTexture name="unii eye open0012" x="4386" y="1696" width="721" height="653"/>
+</TextureAtlas>

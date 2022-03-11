@@ -24,8 +24,7 @@ class WeekData {
 
 	//seperate names for bonus tracks
 	public static var bonusNames:Array<Dynamic> = [
-		['Frosted'],
-		['Alter-Ego']
+		['Frosted', 'Alter-Ego']
 	];
 
 	// Custom week number, used for your week's score not being overwritten by a new vanilla week when the game updates

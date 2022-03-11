@@ -30,6 +30,10 @@ class GameOverSubstate extends MusicBeatSubstate
 				daBf = 'ex-death';
 			case 'arsen':
 				daBf = 'arsen-death';
+			case 'dansilot':
+				daBf = 'dansilot-death';
+			case 'dd-avinera-and-unii' | 'dd-avinera-guitar':
+				daBf = 'dd-death';
 			case 'undertale-bf':
 				daBf = 'undertale-death';
 			default:
@@ -50,6 +54,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		super();
 
 		Conductor.songPosition = 0;
+
+		if (ClientPrefs.flashing) {
+			FlxG.camera.flash(FlxColor.WHITE, 0.5);
+		}
 
 		bf = new Boyfriend(x, y, daBf);
 		add(bf);

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ALTER_click.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="click fadew0000" x="0" y="0" width="724" height="227"/>
+	<SubTexture name="click fadew0001" x="0" y="0" width="724" height="227"/>
+	<SubTexture name="click fadew0002" x="734" y="0" width="724" height="227"/>
+	<SubTexture name="click fadew0003" x="734" y="0" width="724" height="227"/>
+	<SubTexture name="click fadew0004" x="0" y="237" width="724" height="227"/>
+	<SubTexture name="click fadew0005" x="734" y="237" width="724" height="227"/>
+	<SubTexture name="click fadew0006" x="0" y="474" width="724" height="227"/>
+	<SubTexture name="click fadew0007" x="734" y="474" width="724" height="227"/>
+	<SubTexture name="click fadew0008" x="0" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0009" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0010" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0011" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0012" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0013" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0014" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0015" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0016" x="734" y="711" width="724" height="227"/>
+	<SubTexture name="click fadew0017" x="734" y="711" width="724" height="227"/>
+</TextureAtlas>

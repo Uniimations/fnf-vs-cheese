@@ -1,6 +1,6 @@
 {
 	"song": {
-		"player1": "ex-bf",
+		"player1": "vip-bf",
 		"notes": [
 			{
 				"sectionNotes": [],
@@ -4457,8 +4457,8 @@
 				"mustHitSection": true
 			}
 		],
-		"player2": "ex-bluecheese",
-		"player3": "ex-gf",
+		"player2": "vip-bluecheese",
+		"player3": "vip-gf",
 		"song": "Milkshake",
 		"needsVoices": true,
 		"arrowSkin": "noteskins/NOTE_assets_EX",

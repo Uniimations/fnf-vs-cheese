@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "unii idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				9,
+				-9
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "unii left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-60,
+				-26
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "unii down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-13,
+				-43
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "unii right",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				84,
+				24
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "unii up",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/alter-ego/frownii",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "frownii",
+	"flip_x": false,
+	"healthbar_colors": [
+		40,
+		80,
+		155
+	],
+	"camera_position": [
+		80,
+		-20
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

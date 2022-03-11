@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ALTER_sound_wave.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="the thing0000" x="0" y="0" width="2446" height="1581"/>
+	<SubTexture name="the thing0001" x="0" y="0" width="2446" height="1581"/>
+	<SubTexture name="the thing0002" x="2456" y="0" width="2446" height="1581"/>
+	<SubTexture name="the thing0003" x="2456" y="0" width="2446" height="1581"/>
+	<SubTexture name="the thing0004" x="4912" y="0" width="2446" height="1581"/>
+	<SubTexture name="the thing0005" x="0" y="1591" width="2446" height="1581"/>
+	<SubTexture name="the thing0006" x="2456" y="1591" width="2446" height="1581"/>
+	<SubTexture name="the thing0007" x="2456" y="1591" width="2446" height="1581"/>
+	<SubTexture name="the thing0008" x="4912" y="1591" width="2446" height="1581"/>
+	<SubTexture name="the thing0009" x="4912" y="1591" width="2446" height="1581"/>
+	<SubTexture name="the thing0010" x="0" y="3182" width="2446" height="1581"/>
+</TextureAtlas>

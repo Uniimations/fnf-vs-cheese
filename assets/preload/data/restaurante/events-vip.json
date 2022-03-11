@@ -1,9 +1,9 @@
 {
 	"song": {
 		"speed": 2.6,
-		"player1": "ex-bf",
-		"player2": "ex-bluecheese",
-		"player3": "ex-gf",
+		"player1": "vip-bf",
+		"player2": "vip-bluecheese",
+		"player3": "vip-gf",
 		"notes": [
 			{
 				"lengthInSteps": 16,

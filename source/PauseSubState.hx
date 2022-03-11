@@ -23,8 +23,8 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu'];
-	var menuItemsPRESSED:Array<String> = ['Resume ', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu']; //extra space on 'Resume' for bug fix
+	var menuItemsOG:Array<String> = [];
+	var menuItemsPRESSED:Array<String> = [];
 	var curSelected:Int = 0;
 
 	var pauseMusic:FlxSound;
@@ -50,9 +50,20 @@ class PauseSubState extends MusicBeatSubstate
 	public var hasNoPoses:Bool = false;
 	public var hasTwoDances:Bool = false;
 
+	public static var psChartingMode:Bool = false;
+
 	public function new(x:Float, y:Float)
 	{
 		super();
+
+		if (psChartingMode) {
+			menuItemsOG = ['Charting mode on', 'Resume', 'Restart Song', 'Options', 'OP Mode', 'Botplay', 'Exit to menu'];
+			menuItemsPRESSED = ['Charting mode on', 'Resume ', 'Restart Song', 'Options', 'OP Mode', 'Botplay', 'Exit to menu'];
+		} else {
+			menuItemsOG = ['Resume', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu'];
+			menuItemsPRESSED = ['Resume ', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu']; //extra space on 'Resume' for bug fix
+		}
+
 		menuItems = menuItemsOG;
 		canDoStuff = true;
 
@@ -245,11 +256,14 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
+		/*
 		#if debug
 		practiceText = new FlxText(20, 15 + 101, 0, "YOU WILL NOW NEVER DIE", 32);
 		#else
 		practiceText = new FlxText(20, 15 + 101, 0, "stop messingn with the game, man :[", 32);
 		#end
+		*/
+		practiceText = new FlxText(20, 15 + 101, 0, "YOU WILL NOW NEVER DIE", 32);
 		practiceText.scrollFactor.set();
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
 		practiceText.x = FlxG.width - (practiceText.width + 20);

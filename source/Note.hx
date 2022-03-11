@@ -57,7 +57,7 @@ class Note extends FlxSprite
 				case 5 | 6 | 8: //DAD NOTE
 					reloadNote('noteskins/', UniiStringTools.noteSkinSuffix(PlayState.SONG.player2, 0), true);
 
-				case 10 | 11 | 12: //NO SKIN
+				case 10 | 11 | 12: //INVISIBLE
 					reloadNote('noteskins/', '', true, 'NOTE_comic');
 			}
 			colorSwap.hue = 0;

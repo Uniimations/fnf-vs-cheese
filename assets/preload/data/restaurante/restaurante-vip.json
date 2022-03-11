@@ -1,9 +1,9 @@
 {
 	"song": {
 		"sectionLengths": [],
-		"player1": "ex-bf",
-		"gfVersion": "gf",
-		"player2": "ex-bluecheese",
+		"player1": "vip-bf",
+		"player2": "vip-bluecheese",
+		"player3": "vip-gf",
 		"notes": [
 			{
 				"typeOfSection": 0,
@@ -4800,7 +4800,6 @@
 				"mustHitSection": true
 			}
 		],
-		"player3": "ex-gf",
 		"song": "Restaurante",
 		"validScore": true,
 		"stage": "stage",

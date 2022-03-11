@@ -1,0 +1,57 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "firstDeath",
+			"fps": 24,
+			"name": "DANI DIES",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "dani bop anim"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "dani retry press"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/deaths/DANSILOT",
+	"position": [
+		629,
+		133
+	],
+	"healthicon": "dansilot",
+	"flip_x": true,
+	"healthbar_colors": [
+		20,
+		80,
+		51
+	],
+	"camera_position": [
+		100,
+		40
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

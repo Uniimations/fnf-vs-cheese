@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="unii.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="alt down0000" x="0" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0001" x="0" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0002" x="350" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0003" x="350" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0004" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0005" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0006" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0007" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0008" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0009" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0010" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0011" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0012" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0013" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0014" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0015" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt down0016" x="700" y="0" width="340" height="724"/>
+	<SubTexture name="alt left0000" x="1050" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0001" x="1050" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0002" x="1427" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0003" x="1427" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0004" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0005" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0006" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0007" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0008" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0009" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0010" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0011" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0012" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt left0013" x="1804" y="0" width="367" height="790"/>
+	<SubTexture name="alt righth0000" x="2181" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0001" x="2181" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0002" x="2566" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0003" x="2566" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0004" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0005" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0006" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0007" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0008" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0009" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0010" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0011" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0012" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0013" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0014" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt righth0015" x="2951" y="0" width="375" height="741"/>
+	<SubTexture name="alt upp0000" x="3336" y="0" width="427" height="832"/>
+	<SubTexture name="alt upp0001" x="3336" y="0" width="427" height="832"/>
+	<SubTexture name="alt upp0002" x="0" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0003" x="0" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0004" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0005" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0006" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0007" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0008" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0009" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0010" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0011" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0012" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0013" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0014" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0015" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="alt upp0016" x="437" y="842" width="427" height="832"/>
+	<SubTexture name="unii down0000" x="874" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0001" x="874" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0002" x="1204" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0003" x="1204" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0004" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0005" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0006" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0007" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0008" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0009" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0010" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0011" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0012" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0013" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0014" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0015" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii down0016" x="1534" y="842" width="320" height="742"/>
+	<SubTexture name="unii idle dance0000" x="1864" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0001" x="1864" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0002" x="2233" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0003" x="2233" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0004" x="2602" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0005" x="2602" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0006" x="2971" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0007" x="2971" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0008" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0009" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0010" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0011" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0012" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0013" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0014" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0015" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0016" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0017" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0018" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0019" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0020" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0021" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0022" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0023" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0024" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0025" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0026" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii idle dance0027" x="3340" y="842" width="359" height="802"/>
+	<SubTexture name="unii left0000" x="3709" y="842" width="367" height="790"/>
+	<SubTexture name="unii left0001" x="3709" y="842" width="367" height="790"/>
+	<SubTexture name="unii left0002" x="0" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0003" x="0" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0004" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0005" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0006" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0007" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0008" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0009" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0010" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0011" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0012" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii left0013" x="377" y="1684" width="367" height="790"/>
+	<SubTexture name="unii right0000" x="754" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0001" x="754" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0002" x="1208" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0003" x="1208" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0004" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0005" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0006" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0007" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0008" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0009" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0010" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0011" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0012" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0013" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0014" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii right0015" x="1662" y="1684" width="444" height="759"/>
+	<SubTexture name="unii up0000" x="2116" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0001" x="2116" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0002" x="2553" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0003" x="2553" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0004" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0005" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0006" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0007" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0008" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0009" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0010" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0011" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0012" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0013" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0014" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0015" x="2990" y="1684" width="427" height="838"/>
+	<SubTexture name="unii up0016" x="2990" y="1684" width="427" height="838"/>
+</TextureAtlas>

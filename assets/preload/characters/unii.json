@@ -1,0 +1,123 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "unii idle"
+		},
+		{
+			"offsets": [
+				35,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "unii left"
+		},
+		{
+			"offsets": [
+				-58,
+				-52
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "unii down"
+		},
+		{
+			"offsets": [
+				-20,
+				-44
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "unii right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				35,
+				-11
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "alt left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-65,
+				-70
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "alt down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				96,
+				29
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "alt upp",
+			"indices": []
+		},
+		{
+			"offsets": [
+				96,
+				35
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "unii up"
+		},
+		{
+			"offsets": [
+				-78,
+				-62
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "alt righth"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/alter-ego/unii",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "unii",
+	"flip_x": false,
+	"healthbar_colors": [
+		175,
+		0,
+		95
+	],
+	"camera_position": [
+		80,
+		-20
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}
