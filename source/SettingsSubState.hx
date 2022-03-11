@@ -436,7 +436,7 @@ class SettingsSubState extends MusicBeatSubstate
 							{
 								ClientPrefs.framerate += add;
 								if(ClientPrefs.framerate < 60) ClientPrefs.framerate = 60;
-								else if(ClientPrefs.framerate > 240) ClientPrefs.framerate = 240;
+								else if(ClientPrefs.framerate > 360) ClientPrefs.framerate = 360;
 								FlxG.log.add('changed fps');
 
 								if(ClientPrefs.framerate > FlxG.drawFramerate) {
