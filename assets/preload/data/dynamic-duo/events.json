@@ -1417,10 +1417,10 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						138131.707317073,
+						138111.585365854,
 						-1,
 						"Set Singer",
-						"unii",
+						"avinera",
 						"suzuki"
 					]
 				],
@@ -1481,6 +1481,15 @@
 						"cheese"
 					]
 				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
