@@ -2446,6 +2446,7 @@ class PlayState extends MusicBeatState
 		}
 
 		FlxG.watch.addQuick("MY NUTS ARE FUCKING HANGING DUDE LOLOOLL HI SOURCE CODE GUY!", "");
+		FlxG.watch.addQuick("hi guys", "");
 		FlxG.watch.addQuick("beatShit", curBeat);
 		FlxG.watch.addQuick("stepShit", curStep);
 
