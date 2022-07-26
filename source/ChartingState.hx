@@ -61,7 +61,8 @@ class ChartingState extends MusicBeatState
 		'10 - Comic Arsen',
 		'11 - Comic Dani',
 		'12 - EVERYONE EXCEPT AVI',
-		'13 - No Animation'
+		'13 - NO ANIMATION',
+		'14 - toxicitii fire'
 	];
 
 	private static var eventStuff:Array<Dynamic> =

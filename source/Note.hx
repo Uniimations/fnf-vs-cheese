@@ -43,22 +43,31 @@ class Note extends FlxSprite
 
 	public var customFunctions:Bool = false;
 
+	public var xAdd:Float = 50;
+	public var yAdd:Float = 0; // doooont use this lol
+
+	public var burning:Bool = false;
+
 	private function set_noteType(value:Int):Int {
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
-				case 3: //DODGE NOTE
+				case 3: // DODGE NOTE
 					reloadNote('dodge', '', true, 'NOTES_UNDERTALE');
 					customFunctions = true;
 
-				case 4: //DEATH NOTE
+				case 4: // DEATH NOTE
 					reloadNote('death', '', true, 'NOTES_UNDERTALE');
 					customFunctions = true;
 
-				case 5 | 6 | 8: //DAD NOTE
+				case 5 | 6 | 8: // DAD NOTE
 					reloadNote('noteskins/', UniiStringTools.noteSkinSuffix(PlayState.SONG.player2, 0), true);
 
-				case 10 | 11 | 12: //INVISIBLE
+				case 10 | 11 | 12: // INVISIBLE
 					reloadNote('noteskins/', '', true, 'NOTE_comic');
+
+				case 14: // ALTER EGO FIRE NOTES
+					reloadNote('bonus/ALTER_', '', true, 'NOTE_FIRE');
+					customFunctions = true;
 			}
 			colorSwap.hue = 0;
 			colorSwap.saturation = 0;
@@ -79,16 +88,18 @@ class Note extends FlxSprite
 			prevNote = this;
 
 		this.prevNote = prevNote;
-		isSustainNote = sustainNote;
 		this.inEditor = inEditor;
+		isSustainNote = sustainNote;
 
-		if (daSong == 'manager-strike-back' || daSong == 'tutorial') {
-			x += (ClientPrefs.shit ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
-		} else {
-			x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
+		switch (daSong) {
+			case 'tutorial' | 'manager-strike-back':
+				x += (ClientPrefs.shit ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + xAdd;
+			default:
+				x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + xAdd;
 		}
+
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
-		y -= 2000;
+		y -= 2000 + yAdd;
 		this.strumTime = strumTime;
 		if(!inEditor) this.strumTime += ClientPrefs.noteOffset;
 
@@ -121,6 +132,10 @@ class Note extends FlxSprite
 				frames = Paths.getSparrowAtlas('NOTE_assets');
 				loadNoteAnims();
 				antialiasing = ClientPrefs.globalAntialiasing;
+
+				if (burning) {
+					x -= 300;
+				}
 		}
 
 		if(noteData > -1) {
@@ -148,8 +163,6 @@ class Note extends FlxSprite
 				animation.play(animToPlay + 'Scroll');
 			}
 		}
-
-		// trace(prevNote);
 
 		if (isSustainNote && prevNote != null)
 		{
@@ -193,7 +206,6 @@ class Note extends FlxSprite
 
 				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * PlayState.SONG.speed;
 				prevNote.updateHitbox();
-				// prevNote.setGraphicSize();
 			}
 		}
 

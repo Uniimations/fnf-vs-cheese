@@ -148,6 +148,9 @@ class PlayState extends MusicBeatState
 	private var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 	private var babyArrow:StrumNote;
 
+	public var FIRE_HITS:Int = 0;
+	public var FIRE_DRAIN:Float = 0;
+
 	private var camZooming:Bool = false;
 	private var curSong:String = "";
 
@@ -1821,9 +1824,10 @@ class PlayState extends MusicBeatState
 			}
 		}
 
-	function doFlash():Void
+	function doFlash(?newVal:Float = 1):Void
 		{
-			var flashValue:Int = 1;
+			var flashValue:Float = newVal;
+
 			if (ClientPrefs.flashing)
 				FlxG.camera.flash(FlxColor.WHITE, flashValue);
 			else
@@ -2774,8 +2778,10 @@ class PlayState extends MusicBeatState
 												trace("DODGE NOTE MECHANIC DEATH");
 												FlxG.log.add('dead');
 											}
-								    case 4: //for insta kill hit notes
+								    case 4 | 14: //for insta kill hit notes
 										//do nothing
+									case 13:
+										songMisses++;
 									default:
 										health -= 0.0475;
 										songMisses++;
@@ -4932,54 +4938,56 @@ class PlayState extends MusicBeatState
 	{
 		if (!note.wasGoodHit)
 		{
-			if(note.customFunctions == true) {
-				switch(note.noteType) {
+			if(note.customFunctions == true)
+			{
+				switch(note.noteType)
+				{
 					case 3: //DODGE NOTE BF ANIM/MECHANIC
-					if(!boyfriend.stunned)
-					{
-						if(!endingSong)
+						if(!boyfriend.stunned)
 						{
-							health -= 0.0404; //error 404 :scream:
-							FlxG.camera.shake(0.02, 0.1);
-							if(boyfriend.animation.getByName('hurt') != null) {
-								boyfriend.playAnim('hurt', true); //bf anim
-								boyfriend.specialAnim = true;
-							}
-						}
-					}
-
-					note.wasGoodHit = true;
-
-					if (!note.isSustainNote) //DODGE NOTE PRESSING ANIM
-					{
-						note.kill();
-						notes.remove(note, true);
-						note.destroy();
-						//fixed botplay stuff
-						if(cpuControlled) {
-							var time:Float = 0.15;
-							if(note.isSustainNote && !note.animation.curAnim.name.endsWith('end')) {
-								time += 0.15;
-							}
-							StrumPlayAnim(false, Std.int(Math.abs(note.noteData)) % 4, time);
-						} else {
-							playerStrums.forEach(function(spr:StrumNote)
+							if(!endingSong)
 							{
-								if (Math.abs(note.noteData) == spr.ID)
-								{
-									spr.playAnim('confirm', true);
+								health -= 0.0404; //error 404 :scream:
+								FlxG.camera.shake(0.02, 0.1);
+								if(boyfriend.animation.getByName('hurt') != null) {
+									boyfriend.playAnim('hurt', true); //bf anim
+									boyfriend.specialAnim = true;
 								}
-							});
+							}
 						}
-						spawnNoteSplashOnNote(note); //purple note splash since we cant do purple confirm
-					}
-					return;
-				case 4: //DEATH NOTE MECHANIC
-					if(cpuControlled) return;
 
-					if(!boyfriend.stunned)
+						note.wasGoodHit = true;
+
+						if (!note.isSustainNote) //DODGE NOTE PRESSING ANIM
+						{
+							note.kill();
+							notes.remove(note, true);
+							note.destroy();
+							//fixed botplay stuff
+							if(cpuControlled) {
+								var time:Float = 0.15;
+								if(note.isSustainNote && !note.animation.curAnim.name.endsWith('end')) {
+									time += 0.15;
+								}
+								StrumPlayAnim(false, Std.int(Math.abs(note.noteData)) % 4, time);
+							} else {
+								playerStrums.forEach(function(spr:StrumNote)
+								{
+									if (Math.abs(note.noteData) == spr.ID)
+									{
+										spr.playAnim('confirm', true);
+									}
+								});
+							}
+							spawnNoteSplashOnNote(note); //purple note splash since we cant do purple confirm
+						}
+						return;
+				case 4: //DEATH NOTE MECHANIC
+					if (cpuControlled) return;
+
+					if (!boyfriend.stunned)
 					{
-						if(!endingSong)
+						if (!endingSong)
 						    {
 								note.kill();
 								notes.remove(note, true);
@@ -4996,6 +5004,43 @@ class PlayState extends MusicBeatState
 								gameOver();
 					        }
 					    return;
+					}
+				case 14: //WIP FIRE DRAIN
+					if (cpuControlled) return;
+
+					FIRE_HITS += 1;
+
+					if (!boyfriend.stunned)
+					{
+						if (!endingSong)
+						{
+							note.kill();
+							notes.remove(note, true);
+							note.destroy();
+
+							playerStrums.forEach(function(spr:StrumNote)
+							{
+								if (Math.abs(note.noteData) == spr.ID)
+								{
+									spr.playAnim('confirm', true);
+								}
+							});
+							spawnNoteSplashOnNote(note);
+
+							switch (FIRE_HITS)
+							{
+								case 0:
+									//do nothing, u safe homie
+								case 1:
+									FIRE_DRAIN = 0.02;
+								case 2:
+									FIRE_DRAIN = 0.03;
+								case 3:
+									FIRE_DRAIN = 0.04;
+								default:
+									FIRE_DRAIN = 0.05;
+							}
+						}
 					}
 				}
 
@@ -5417,6 +5462,7 @@ class PlayState extends MusicBeatState
 			case 'alter-ego':
 				var boyfriendZoom:Float = 0.82;
 				var followCamPos:Bool = false;
+
 				switch (curBeat)
 				{
 					case 16:
@@ -5569,6 +5615,7 @@ class PlayState extends MusicBeatState
 						FlxG.camera.flash(FlxColor.WHITE, 2);
 						defaultCamZoom = 0.7;
 				}
+
 				//specifically curstep for all this stuff so it doesnt spam it on every step of every beat
 				switch (curStep)
 				{
@@ -5588,16 +5635,25 @@ class PlayState extends MusicBeatState
 						FlxTween.tween(phillyFade, {alpha: 0}, 1, {ease: FlxEase.quadInOut});
 						FlxTween.tween(boyfriend2, {alpha: 0}, 1, {ease: FlxEase.quadInOut});
 				}
-				if (followCamPos)
-				{
-					// this "function" handles the switching zoom stuff between sections!
-					var bf_focus:Bool = SONG.notes[Math.floor(curStep / 16)].mustHitSection;
 
-					if (bf_focus) {
-						defaultCamZoom = boyfriendZoom;
-					} else {
-						defaultCamZoom = staticCamZoom;
-					}
+				if (ClientPrefs.camZoomOut)
+				{
+					if (followCamPos)
+						{
+							// this "function" handles the switching zoom stuff between sections!
+							var bf_focus:Bool = SONG.notes[Math.floor(curStep / 16)].mustHitSection;
+
+							if (bf_focus) {
+								defaultCamZoom = boyfriendZoom;
+							} else {
+								defaultCamZoom = staticCamZoom;
+							}
+						}
+				}
+
+				if (curStep % 4 == 0)
+				{
+					health -= FIRE_DRAIN;
 				}
 		}
 	}

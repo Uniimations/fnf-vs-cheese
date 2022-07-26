@@ -28,7 +28,7 @@ class Achievements
 		["Freestyle Time!", 			"Beat Restaurante on VIP difficulty",				'restaurante_ex',		false],
 		["Let's Change It Up!", 		"Beat Milkshake on VIP difficulty.",				'milkshake_ex',		 	false],
 		["You're Not Cultured Yet!",	"Beat Cultured on VIP difficulty.", 				'cultured_ex',			false],
-		["Feeling the Swing", 			"Beat Mozzarella on HARD.",							'bnb_beat',				false],
+		["Feeling the Swing", 			"Beat Mozzarella on HARD.",							'bnb_beat',				 true],
 		// EXTRA ACHIEVEMENTS
 		["Megalomaniac", 				"Beat Manager Strike Back without Pussy Mode.",		'beat_chara',			 true],
 		["Let It Go",	 				"Beat Frosted without Pussy Mode.",					'beat_sans',			 true],

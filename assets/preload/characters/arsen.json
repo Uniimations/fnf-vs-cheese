@@ -1,70 +1,70 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "arsen idle"
+			"fps": 24,
+			"name": "arsen idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				74,
+				79,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "arsen left0"
-		},
-		{
-			"offsets": [
-				45,
-				-51
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [],
-			"name": "arsen down0"
+			"name": "arsen left0",
+			"indices": []
 		},
 		{
+			"loop": false,
+			"offsets": [
+				48,
+				-49
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "arsen down0",
+			"indices": []
+		},
+		{
+			"loop": false,
 			"offsets": [
 				-1,
 				29
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "arsen up0"
+			"fps": 24,
+			"name": "arsen up0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-24,
 				-8
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "arsen right0"
+			"fps": 24,
+			"name": "arsen right0",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				23,
 				18
 			],
-			"anim": "singGLOBALmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "arsen miss",
-			"indices": []
+			"anim": "singGLOBALmiss",
+			"indices": [],
+			"name": "arsen miss"
 		}
 	],
 	"no_antialiasing": false,

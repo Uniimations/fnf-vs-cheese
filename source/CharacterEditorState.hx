@@ -91,7 +91,7 @@ class CharacterEditorState extends MusicBeatState
 			case 2:
 				playMenuMusic('Cultured');
 			case 3:
-				playMenuMusic('Mozzarella');
+				playMenuMusic('Milkshake');
 		}
 
 		camEditor = new FlxCamera();
