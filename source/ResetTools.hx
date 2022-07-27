@@ -31,9 +31,6 @@ class ResetTools
 		if (FlxG.save.data.beatAlternateEnd == null)
 			FlxG.save.data.beatAlternateEnd = false;
 
-		if (FlxG.save.data.BNB == null)
-			FlxG.save.data.BNB = false;
-
 		if (FlxG.save.data.beatBonus == null)
 			FlxG.save.data.beatBonus = false;
 

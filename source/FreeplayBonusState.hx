@@ -81,13 +81,7 @@ class FreeplayBonusState extends MusicBeatState
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
-		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplayUnlockedTRACKS')); //tracks that are unlocked on default
-		for (i in 0...initSonglist.length)
-		{
-			songArray = initSonglist[i].split(":");
-			addSong(songArray[0], 0, songArray[1]);
-			songs[songs.length-1].color = Std.parseInt(songArray[2]);
-		}
+		var initSonglist = ['']; //tracks that are unlocked on default (NONE.. NO!!!! NO UNLOKCS BITCH I HATE YOU GRRRRGRRRR YEAH YOU BITCH I HATE YOU (unless ur diples ilysm <3))
 		var colorsList = CoolUtil.coolTextFile(Paths.txt('freeplayCOLORS')); //all bg colors stored in a convenient text file
 		for (i in 0...colorsList.length)
 		{
@@ -99,6 +93,9 @@ class FreeplayBonusState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
+		if (FlxG.save.data.beatCulturedWeek) {
+			addWeek(['CREAM-CHEESE'], 1, ['creamcheese']);
+		}
 		if (FlxG.save.data.beatWeekEnding) {
 			if (FlxG.save.data.beatNormalEnd)
 				addWeek(['Dynamic-Duo'], 2, ['uniinera-fp']);
@@ -740,7 +737,7 @@ class FreeplayBonusState extends MusicBeatState
 					colorTween.cancel();
 				}
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				MusicBeatState.switchState(new MainMenuState());
+				MusicBeatState.switchState(new FreeplayState());
 				FlxTween.tween(disc, { alpha:0, 'scale.x':0}, 0.2, { ease: FlxEase.quartInOut});
 			}
 
@@ -897,16 +894,7 @@ class FreeplayBonusState extends MusicBeatState
 		}
 		trace ('LOADING FREEPLAY SONG');
 
-		switch (songs[curSelected].songName.toLowerCase())
-		{
-			case 'manager-strike-back': // forces easy mode if pussy mode
-				if (ClientPrefs.pussyMode)
-					PlayState.SONG = Song.loadFromJson('manager-strike-back-easy', songLowercase);
-				else
-					PlayState.SONG = Song.loadFromJson(ass, songLowercase);
-			default:
-				PlayState.SONG = Song.loadFromJson(ass, songLowercase);
-		}
+		PlayState.SONG = Song.loadFromJson(ass, songLowercase);
 		PlayState.isStoryMode = false;
 		PlayState.storyDifficulty = curDifficulty;
 		PlayState.storyWeek = songs[curSelected].week;

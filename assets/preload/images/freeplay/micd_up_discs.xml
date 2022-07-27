@@ -3,21 +3,23 @@
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="arsen-fp0000" x="0" y="0" width="309" height="310"/>
-	<SubTexture name="arsen-fp0001" x="319" y="0" width="309" height="310"/>
-	<SubTexture name="avinera0000" x="638" y="0" width="309" height="310"/>
-	<SubTexture name="avinera0001" x="957" y="0" width="309" height="310"/>
-	<SubTexture name="bluecheese0000" x="1276" y="0" width="309" height="310"/>
-	<SubTexture name="bluecheese0001" x="1595" y="0" width="309" height="310"/>
-	<SubTexture name="bluecheese-tired0000" x="1276" y="0" width="309" height="310"/>
-	<SubTexture name="bluecheese-tired0001" x="1595" y="0" width="309" height="310"/>
-	<SubTexture name="dansilot-fp0000" x="0" y="320" width="309" height="310"/>
-	<SubTexture name="dansilot-fp0001" x="319" y="320" width="309" height="310"/>
-	<SubTexture name="suzuki0000" x="638" y="320" width="309" height="310"/>
-	<SubTexture name="suzuki0001" x="957" y="320" width="309" height="310"/>
-	<SubTexture name="suzuki-fp0000" x="1276" y="320" width="309" height="310"/>
-	<SubTexture name="suzuki-fp0001" x="1595" y="320" width="309" height="310"/>
-	<SubTexture name="unii0000" x="0" y="640" width="309" height="310"/>
-	<SubTexture name="unii0001" x="319" y="640" width="309" height="310"/>
-	<SubTexture name="uniinera-fp0000" x="638" y="640" width="309" height="310"/>
-	<SubTexture name="uniinera-fp0001" x="957" y="640" width="309" height="310"/>
+	<SubTexture name="arsen-fp0001" x="339" y="0" width="309" height="310"/>
+	<SubTexture name="avinera0000" x="678" y="0" width="309" height="310"/>
+	<SubTexture name="avinera0001" x="1017" y="0" width="309" height="310"/>
+	<SubTexture name="bluecheese0000" x="1356" y="0" width="309" height="310"/>
+	<SubTexture name="bluecheese0001" x="1695" y="0" width="309" height="310"/>
+	<SubTexture name="bluecheese-tired0000" x="1356" y="0" width="309" height="310"/>
+	<SubTexture name="bluecheese-tired0001" x="1695" y="0" width="309" height="310"/>
+	<SubTexture name="creamcheese0000" x="0" y="340" width="309" height="310"/>
+	<SubTexture name="creamcheese0001" x="339" y="340" width="309" height="310"/>
+	<SubTexture name="dansilot-fp0000" x="678" y="340" width="309" height="310"/>
+	<SubTexture name="dansilot-fp0001" x="1017" y="340" width="309" height="310"/>
+	<SubTexture name="suzuki0000" x="1356" y="340" width="309" height="310"/>
+	<SubTexture name="suzuki0001" x="1695" y="340" width="309" height="310"/>
+	<SubTexture name="suzuki-fp0000" x="0" y="680" width="309" height="310"/>
+	<SubTexture name="suzuki-fp0001" x="339" y="680" width="309" height="310"/>
+	<SubTexture name="unii0000" x="678" y="680" width="309" height="310"/>
+	<SubTexture name="unii0001" x="1017" y="680" width="309" height="310"/>
+	<SubTexture name="uniinera-fp0000" x="1356" y="680" width="309" height="310"/>
+	<SubTexture name="uniinera-fp0001" x="1695" y="680" width="309" height="310"/>
 </TextureAtlas>

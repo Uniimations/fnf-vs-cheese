@@ -272,6 +272,7 @@ class PlayState extends MusicBeatState
 	public var staticCamZoom:Float = 1.05; // used whenever the camera needs to be put back in place
 
 	// how big to stretch the pixel art assets
+	// shut up ninjamuffin99.
 	public static var daPixelZoom:Float = 6;
 
 	public var inCutscene:Bool = false;
@@ -443,7 +444,7 @@ class PlayState extends MusicBeatState
 				}
 
 			// kinda sorry for this code but also kinda not... it works.
-			case 'restaurante' | 'milkshake' | 'cultured':
+			case 'restaurante' | 'milkshake' | 'cultured' | 'cream-cheese':
 				curStage = 'restaurante';
 
 				defaultCamZoom = 0.60;
@@ -1650,7 +1651,7 @@ class PlayState extends MusicBeatState
 				}
 				else
 				{
-					LoadingState.loadAndSwitchState(new VideoState('assets/videos/webm/ass.webm', new PlayState())); //loads bob and bosip test cutscene if there is no cutscene path
+					LoadingState.loadAndSwitchState(new VideoState('assets/videos/webm/ass.webm', new PlayState())); //eat my ass. amoraltra.
 					trace('error: cutscene path:' + file + 'not found');
 					trace('loaded assets/videos/webm/ass.webm');
 				}
@@ -1860,7 +1861,7 @@ class PlayState extends MusicBeatState
 		vocals.play();
 
 		if(paused) {
-			//trace('Oopsie doopsie! Paused sound');
+			trace('Oopsie doopsie! Paused sound');
 			FlxG.sound.music.pause();
 			vocals.pause();
 		}
@@ -1983,6 +1984,7 @@ class PlayState extends MusicBeatState
 
 							sustainNote.mustPress = gottaHitNote;
 
+							// NOTE: REMEMBER THIS FOR WHEN U NEED TO DO ALTER EGO NOTE OFFSETS!! ! !  ! ! ! !  ! !!! !  ! !  cheesebone remind me to do this when its time.
 							if (sustainNote.mustPress)
 							{
 								sustainNote.x += FlxG.width / 2; // general offset
@@ -5913,10 +5915,11 @@ class PlayState extends MusicBeatState
 					trace('beat week 2');
 				}
 				FlxG.save.data.beatNormalEnd = true; //TAKE THNIS OUT AFTER ENDINGS HAVE BEEN PUT IN!!!
+				//SURE THING BUDDY!!! (my future self)
 			case 'mozzarella':
 				if (FlxG.save.data.beatBNB == null || FlxG.save.data.beatBNB == false) {
 					FlxG.save.data.beatBNB = true;
-					trace('beat mozzarella from bob and bosip (real)');
+					trace('beat mozzarella from bob and bosip (real)'); // i hate amoraltra.
 				}
 			case 'manager-strike-back':
 				if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
@@ -5924,13 +5927,20 @@ class PlayState extends MusicBeatState
 					trace('beat manager strike back');
 				}
 		}
-		switch (curSong.toLowerCase())
-		{
-			case 'casual-duel':
-				loadSong(true, 'Dynamic-Duo');
-			default:
-				backToMenu();
-				trace('exited song, transitioned to story mode');
+
+		if (PauseSubState.psChartingMode) {
+			new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+				MusicBeatState.switchState(new ChartingState());
+			});
+		} else {
+			switch (curSong.toLowerCase())
+			{
+				case 'casual-duel':
+					loadSong(true, 'Dynamic-Duo');
+				default:
+					backToMenu();
+					trace('exited song, transitioned to story mode');
+			}
 		}
 
 		if (SONG.validScore)
@@ -6310,37 +6320,39 @@ class PlayState extends MusicBeatState
 
 	public function gameOver():Void
 		{
-			if (!practiceMode) //helps me when im testing lol
-			{
-				var ret:Dynamic = callOnLuas('onGameOver', []);
-				var rank:Dynamic = callOnLuas('onGameOver', []);
-				if(ret != FunkinLua.Function_Stop && rank != FunkinLua.Function_Stop) {
-					boyfriend.stunned = true;
-					deathCounter++;
+			if (!practiceMode)
+				gameOverReal(); // IT DOESNT KMILL YOU!!! AND THIS WONT LAG THE GAME !!! NMUAUHHAHAHA
+		}
 
-					persistentUpdate = false;
-					persistentDraw = false;
-					paused = true;
-
-					vocals.stop();
-					FlxG.sound.music.stop();
-
-					if (curStage == 'frostedStage') // new class
-					{
-						openSubState(new GameOverFrostedSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y, camFollowPos.x, camFollowPos.y));
-					}
-					else // default class
-					{
-						openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y, camFollowPos.x, camFollowPos.y));
-					}
-
-					#if desktop
-					DiscordClient.changePresence("Game Over - " + detailsText, displaySongName + " (" + storyDifficultyText + ")", iconP2.getCharacter());
-					#end
-				}
-			} else {
+	public function gameOverReal():Void
+		{
+			var ret:Dynamic = callOnLuas('onGameOver', []);
+			var rank:Dynamic = callOnLuas('onGameOver', []);
+			if(ret != FunkinLua.Function_Stop && rank != FunkinLua.Function_Stop) {
+				boyfriend.stunned = true;
 				deathCounter++;
+
+				persistentUpdate = false;
+				persistentDraw = false;
+				paused = true;
+
+				vocals.stop();
+				FlxG.sound.music.stop();
+
+				if (curStage == 'frostedStage') // new class
+				{
+					openSubState(new GameOverFrostedSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y, camFollowPos.x, camFollowPos.y));
+				}
+				else // default class
+				{
+					openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y, camFollowPos.x, camFollowPos.y));
+				}
+
+				#if desktop
+				DiscordClient.changePresence("Game Over - " + detailsText, displaySongName + " (" + storyDifficultyText + ")", iconP2.getCharacter());
+				#end
 			}
+			deathCounter++;
 		}
 
 	// do NOT even ask
@@ -6355,3 +6367,4 @@ class PlayState extends MusicBeatState
 	var curLight:Int = 0;
 	var curLightEvent:Int = 0;
 }
+// woa. mod again. 7/27/2022 2:29 PM

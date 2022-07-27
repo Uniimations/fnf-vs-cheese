@@ -26,7 +26,7 @@
 			"loop": false,
 			"offsets": [
 				0,
-				-20
+				-14
 			],
 			"fps": 24,
 			"anim": "singRIGHT",
@@ -37,7 +37,7 @@
 			"loop": false,
 			"offsets": [
 				0,
-				-12
+				-23
 			],
 			"fps": 24,
 			"anim": "singUP",
@@ -54,6 +54,50 @@
 			"anim": "singDOWN",
 			"indices": [],
 			"name": "cheese down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-66
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "cream left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-47
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "cream down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-8
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "cream up",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "cream right-"
 		}
 	],
 	"no_antialiasing": false,
