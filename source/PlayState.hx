@@ -255,6 +255,8 @@ class PlayState extends MusicBeatState
 	public var sicks:Int = 0;
 	public var perfects:Int = 0;
 
+	public var rpcIcon:String = '';
+
 	var infoTxt:FlxText;
 	var shitsTxt:FlxText;
 	var badsTxt:FlxText;
@@ -1398,12 +1400,22 @@ class PlayState extends MusicBeatState
 		CoolUtil.precacheSound('missnote2');
 		CoolUtil.precacheSound('missnote3');
 
+        switch (SONG.song.toLowerCase()) //ARE YOU PROUD OF ME UNII
+        {
+            case 'wifi' | 'casual-duel' | 'dynamic-duo':
+                rpcIcon = iconP1.getCharacter();
+				trace(iconP1.getCharacter());
+            default:
+                rpcIcon = dad.healthIcon;
+        }
+
 		#if desktop
 		// Updating Discord Rich Presence.
-		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon);
+		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
 		#end
 		super.create();
 	}
+
 
 	public function reloadAllBarColors() {
 		var percentColor:Int;
@@ -1876,7 +1888,8 @@ class PlayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
-		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon, true, songLength);
+		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon, true, songLength);
+		trace(dad.healthIcon);
 		#end
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
@@ -2211,11 +2224,13 @@ class PlayState extends MusicBeatState
 			#if desktop
 			if (startTimer.finished)
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				trace(dad.healthIcon);
 			}
 			else
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon);
+				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				//trace(dad.healthIcon);
 			}
 			#end
 		}
@@ -2229,11 +2244,13 @@ class PlayState extends MusicBeatState
 		{
 			if (Conductor.songPosition > 0.0)
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				//trace(dad.healthIcon);
 			}
 			else
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon);
+				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				//trace(dad.healthIcon);
 			}
 		}
 		#end
@@ -2246,7 +2263,7 @@ class PlayState extends MusicBeatState
 		#if desktop
 		if (health > 0 && !paused)
 		{
-			DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon);
+			DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
 		}
 		#end
 
@@ -2359,7 +2376,7 @@ class PlayState extends MusicBeatState
 				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
 
 				#if desktop
-				DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon);
+				DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
 				#end
 			}
 		}
@@ -6349,7 +6366,8 @@ class PlayState extends MusicBeatState
 				}
 
 				#if desktop
-				DiscordClient.changePresence("Game Over - " + detailsText, displaySongName + " (" + storyDifficultyText + ")", dad.healthIcon);
+				DiscordClient.changePresence("Game Over - " + detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				//trace(dad.healthIcon);
 				#end
 			}
 			deathCounter++;

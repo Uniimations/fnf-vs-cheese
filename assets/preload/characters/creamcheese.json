@@ -1,103 +1,103 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "idle",
-			"indices": [],
-			"name": "cheese idle"
+			"fps": 24,
+			"name": "cheese idle",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-53
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "cheese left"
+			"fps": 24,
+			"name": "cheese left",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-14
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "cheese right"
+			"fps": 24,
+			"name": "cheese right",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-23
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singUP",
-			"indices": [],
-			"name": "cheese up"
+			"fps": 24,
+			"name": "cheese up",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-65
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "cheese down"
+			"fps": 24,
+			"name": "cheese down",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-66
 			],
-			"anim": "singLEFT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "cream left",
-			"indices": []
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "cream left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-47
 			],
-			"anim": "singDOWN-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "cream down",
-			"indices": []
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "cream down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-8
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "cream up",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "cream up"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-1
 			],
-			"indices": [],
-			"fps": 24,
 			"anim": "singRIGHT-alt",
-			"loop": false,
-			"name": "cream right-"
+			"fps": 24,
+			"name": "cream right-",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
@@ -106,7 +106,7 @@
 		470,
 		-80
 	],
-	"healthicon": "bluecheese",
+	"healthicon": "creamcheese",
 	"flip_x": false,
 	"healthbar_colors": [
 		125,
