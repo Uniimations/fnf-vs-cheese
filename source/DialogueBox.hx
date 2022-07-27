@@ -55,17 +55,20 @@ class DialogueBox extends FlxSpriteGroup
 		super();
 
 		// thsi is aweosme im like ghost oru ghost or
-		switch (PlayState.SONG.song.toLowerCase())
+		if (PlayState.isStoryMode)
 		{
-			case 'restaurante':
-				FlxG.sound.playMusic(Paths.music('dialogue/is_that_french'), 0);
-				FlxG.sound.music.fadeIn();
-			case 'milkshake':
-				FlxG.sound.playMusic(Paths.music('dialogue/the_tea'), 0);
-				FlxG.sound.music.fadeIn();
-			case 'cultured':
-				FlxG.sound.playMusic(Paths.music('dialogue/objection'), 0);
-				FlxG.sound.music.fadeIn();
+			switch (PlayState.SONG.song.toLowerCase())
+			{
+				case 'restaurante':
+					FlxG.sound.playMusic(Paths.music('dialogue/is_that_french'), 0);
+					FlxG.sound.music.fadeIn();
+				case 'milkshake':
+					FlxG.sound.playMusic(Paths.music('dialogue/the_tea'), 0);
+					FlxG.sound.music.fadeIn();
+				case 'cultured':
+					FlxG.sound.playMusic(Paths.music('dialogue/objection'), 0);
+					FlxG.sound.music.fadeIn();
+			}
 		}
 
 		bgFade = new FlxSprite(-200, -200).makeGraphic(Std.int(FlxG.width * 1.3), Std.int(FlxG.height * 1.3), 0xFF000000);

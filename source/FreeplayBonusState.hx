@@ -365,86 +365,6 @@ class FreeplayBonusState extends MusicBeatState
 			{
 				switch (songLowercase)
 				{
-					case 'tutorial':
-						{
-							if (FlxG.save.data.beatBonus)
-							{
-								new FlxTimer().start(0.1, function(tmr:FlxTimer)
-								{
-									changeShit();
-								}, 2);
-								new FlxTimer().start(0.4, function(tmr:FlxTimer)
-								{
-									changeSelection(-1);
-								});
-							}
-							else
-							{
-								changeSelection(-1);
-							}
-						}
-					case 'restaurante': //SONGS WITH VIP DIFFICULTY
-						{
-							if (curDifficulty == 2)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeSelection(-1); 
-											if(colorTween != null) {
-												colorTween.cancel();
-											}
-											intendedColor = 0xFF8B3551;
-											colorTween = FlxTween.color(pcLight, 1, pcLight.color, 0xFF8B3551, {
-												onComplete: function(twn:FlxTween) {
-													colorTween = null;
-												}
-											});
-										});
-								}
-							else
-								{
-									changeSelection(-1);
-								}
-						}
-					case 'milkshake':
-						{
-							changeSelection(-1);
-							if (curDifficulty == 2) {
-								if(colorTween != null) {
-									colorTween.cancel();
-								}
-								intendedColor = exColor;
-								colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-									onComplete: function(twn:FlxTween) {
-										colorTween = null;
-									}
-								});
-							}
-						}
-					case 'cultured':
-						{
-							changeSelection(-1);
-							if (curDifficulty == 2) {
-								if(colorTween != null) {
-									colorTween.cancel();
-								}
-								intendedColor = exColor;
-								colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-									onComplete: function(twn:FlxTween) {
-										colorTween = null;
-									}
-								});
-							}
-						}
-					case 'wifi':
-						{
-							forcedColor = false;
-							changeSelection(-1);
-						}
 					case 'dynamic-duo':
 						{
 							forcedColor = true;
@@ -457,20 +377,6 @@ class FreeplayBonusState extends MusicBeatState
 							forceColorChange(0xFFc852ff);
 							changeSelection(-1);
 						}
-					case 'manager-strike-back':
-						{
-							if (curDifficulty == 3)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeSelection(-1);
-										});
-								}
-						}
 					default:
 						changeSelection(-1);
 				}
@@ -480,81 +386,6 @@ class FreeplayBonusState extends MusicBeatState
 			{
 				switch (songLowercase)
 				{
-					case 'restaurante':
-						{
-							changeSelection(1);
-							if (curDifficulty ==  2)
-								{
-									if(colorTween != null) {
-										colorTween.cancel();
-									}
-									intendedColor = exColor;
-									colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-										onComplete: function(twn:FlxTween) {
-											colorTween = null;
-										}
-									});
-								}
-						}
-					case 'milkshake':
-						{
-							if (curDifficulty == 2 && !songLowercase.startsWith('restaurante'))
-								{
-									changeSelection(1);
-									if(colorTween != null) {
-										colorTween.cancel();
-									}
-									intendedColor = exColor;
-									colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-										onComplete: function(twn:FlxTween) {
-											colorTween = null;
-										}
-									});
-								}
-							else
-								{
-									changeSelection(1);
-								}
-						}
-					case 'cultured':
-						{
-							if (curDifficulty == 2 && !songLowercase.startsWith('milkshake'))
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeSelection(1);
-											if(colorTween != null) {
-												colorTween.cancel();
-											}
-											intendedColor = newColor;
-											colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
-												onComplete: function(twn:FlxTween) {
-													colorTween = null;
-												}
-											});
-										});
-								}
-							else
-								{
-									changeSelection(1);
-								}
-						}
-					case 'wifi':
-						{
-							forcedColor = true;
-							forceColorChange(0xFFff1f1f);
-							changeSelection(1);
-						}
-					case 'casual-duel':
-						{
-							forcedColor = true;
-							forceColorChange(0xFFc852ff);
-							changeSelection(1);
-						}
 					case 'dynamic-duo':
 						{
 							if (FlxG.save.data.beatAlternateEnd) {
@@ -585,20 +416,6 @@ class FreeplayBonusState extends MusicBeatState
 								changeSelection(1);
 							}
 						}
-					case 'alter-ego':
-						{
-							if (curDifficulty == 3)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeSelection(1);
-										});
-								}
-						}
 					default:
 						changeSelection(1);
 				}
@@ -609,126 +426,14 @@ class FreeplayBonusState extends MusicBeatState
 			//difficulty dependencies
 			if (controls.UI_LEFT_P)
 			{
-				switch (songLowercase)
-				{
-					case 'restaurante' | 'milkshake' | 'cultured': //SONGS WITH VIP DIFFICULTY
-						{
-							if (curDifficulty == 0)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(-1);
-											if (newColor == intendedColor && songs[curSelected].color != exColor) {
-												if(colorTween != null) {
-													colorTween.cancel();
-												}
-												intendedColor = exColor;
-												colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-													onComplete: function(twn:FlxTween) {
-														colorTween = null;
-													}
-												});
-											}
-										});
-								}
-							else if (curDifficulty == 2)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(-1);
-											if(colorTween != null) {
-												colorTween.cancel();
-											}
-											intendedColor = newColor;
-											colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
-												onComplete: function(twn:FlxTween) {
-													colorTween = null;
-												}
-											});
-										});
-								}
-							else
-								{
-									FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-									changeDiff(-1);
-								}
-						}
-					case 'manager-strike-back'  | 'frosted' | 'alter-ego':
-						FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
-					default:
-						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-						changeDiff(-1);
-				}
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+				changeDiff(-1);
 			}
 
 			if (controls.UI_RIGHT_P)
 			{
-				switch (songLowercase)
-				{
-					case 'restaurante' | 'milkshake' | 'cultured': //SONGS WITH VIP DIFFICULTY
-						{
-							if (curDifficulty == 1)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(1);
-											if (songs[curSelected].color == intendedColor && songs[curSelected].color != exColor) {
-												if(colorTween != null) {
-													colorTween.cancel();
-												}
-												intendedColor = exColor;
-												colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-													onComplete: function(twn:FlxTween) {
-														colorTween = null;
-													}
-												});
-											}
-										});
-								}
-							else if (curDifficulty == 2)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(1);
-											if(colorTween != null) {
-												colorTween.cancel();
-											}
-											intendedColor = newColor;
-											colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
-												onComplete: function(twn:FlxTween) {
-													colorTween = null;
-												}
-											});
-										});
-								}
-							else
-								{
-									FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-									changeDiff(1);
-								}
-						}
-					case 'manager-strike-back' | 'frosted' | 'alter-ego':
-						FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
-					default:
-						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-						changeDiff(1);
-				}
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+				changeDiff(1);
 			}
 
 			if (controls.BACK)

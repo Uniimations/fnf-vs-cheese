@@ -81,13 +81,6 @@ class FreeplayUnfairState extends MusicBeatState
 		transIn = FlxTransitionableState.defaultTransIn;
 		transOut = FlxTransitionableState.defaultTransOut;
 
-		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplayUnlockedTRACKS')); //tracks that are unlocked on default
-		for (i in 0...initSonglist.length)
-		{
-			songArray = initSonglist[i].split(":");
-			addSong(songArray[0], 0, songArray[1]);
-			songs[songs.length-1].color = Std.parseInt(songArray[2]);
-		}
 		var colorsList = CoolUtil.coolTextFile(Paths.txt('freeplayCOLORS')); //all bg colors stored in a convenient text file
 		for (i in 0...colorsList.length)
 		{
@@ -605,128 +598,9 @@ class FreeplayUnfairState extends MusicBeatState
 			//completely rewrote the code for this! I'm proud of myself
 
 			//difficulty dependencies
-			if (controls.UI_LEFT_P)
+			if (controls.UI_LEFT_P || controls.UI_RIGHT_P)
 			{
-				switch (songLowercase)
-				{
-					case 'restaurante' | 'milkshake' | 'cultured': //SONGS WITH VIP DIFFICULTY
-						{
-							if (curDifficulty == 0)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(-1);
-											if (newColor == intendedColor && songs[curSelected].color != exColor) {
-												if(colorTween != null) {
-													colorTween.cancel();
-												}
-												intendedColor = exColor;
-												colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-													onComplete: function(twn:FlxTween) {
-														colorTween = null;
-													}
-												});
-											}
-										});
-								}
-							else if (curDifficulty == 2)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(-1);
-											if(colorTween != null) {
-												colorTween.cancel();
-											}
-											intendedColor = newColor;
-											colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
-												onComplete: function(twn:FlxTween) {
-													colorTween = null;
-												}
-											});
-										});
-								}
-							else
-								{
-									FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-									changeDiff(-1);
-								}
-						}
-					case 'manager-strike-back'  | 'frosted' | 'alter-ego':
-						FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
-					default:
-						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-						changeDiff(-1);
-				}
-			}
-
-			if (controls.UI_RIGHT_P)
-			{
-				switch (songLowercase)
-				{
-					case 'restaurante' | 'milkshake' | 'cultured': //SONGS WITH VIP DIFFICULTY
-						{
-							if (curDifficulty == 1)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(1);
-											if (songs[curSelected].color == intendedColor && songs[curSelected].color != exColor) {
-												if(colorTween != null) {
-													colorTween.cancel();
-												}
-												intendedColor = exColor;
-												colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
-													onComplete: function(twn:FlxTween) {
-														colorTween = null;
-													}
-												});
-											}
-										});
-								}
-							else if (curDifficulty == 2)
-								{
-									new FlxTimer().start(0.1, function(tmr:FlxTimer)
-										{
-											changeShit();
-										}, 2);
-									new FlxTimer().start(0.4, function(tmr:FlxTimer)
-										{
-											changeDiff(1);
-											if(colorTween != null) {
-												colorTween.cancel();
-											}
-											intendedColor = newColor;
-											colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
-												onComplete: function(twn:FlxTween) {
-													colorTween = null;
-												}
-											});
-										});
-								}
-							else
-								{
-									FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-									changeDiff(1);
-								}
-						}
-					case 'manager-strike-back' | 'frosted' | 'alter-ego':
-						FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
-					default:
-						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
-						changeDiff(1);
-				}
+				FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
 			}
 
 			if (controls.BACK)
