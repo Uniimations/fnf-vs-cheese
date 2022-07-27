@@ -58,10 +58,6 @@ class HealthIcon extends FlxSprite
 					idleSpr = 1;
 					losingSpr = 0;
 					winningSpr = 1;
-				case 'bob' | 'bosip' | 'bob-and-bosip': //bob and bosip icons out of order because AMOR is dumb >:(
-					idleSpr = 0;
-					losingSpr = 2;
-					winningSpr = 1;
 				case 'dad' | 'bluecheese-garcello': //static icons
 					idleSpr = 0;
 					losingSpr = 0;

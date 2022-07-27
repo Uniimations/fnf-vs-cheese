@@ -485,6 +485,7 @@ class TitleState extends MusicBeatState
 			//SOME AWESOME TWEENING I DID WOAAAHH IM PROUD OF MYSELF FOR THIS PRAISE ME NOW.
 			//i wasnt being serious sorry
 			//wtf past me??? ^
+			//this is uniimation from 7 momnths later unii you were a fuicking asshole lmao you suck 
 			FlxTween.tween(logoBl, {'scale.x': 0.49, 'scale.y': 0.49, x: -200, y: -200}, 1.3, {ease: FlxEase.expoInOut, startDelay: 1.3});
             FlxTween.tween(cheese, {'scale.x': 1, 'scale.y': 1, x: 720, y: 80}, 2.3, {ease: FlxEase.expoInOut, startDelay: 0.9});
 			remove(credGroup);
