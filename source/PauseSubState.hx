@@ -115,11 +115,11 @@ class PauseSubState extends MusicBeatSubstate
 						switch (randomChance)
 						{
 							case 0:
-								newCharacter(740, 390, "ex-bluecheese", false, true);
+								newCharacter(740, 390, "vip-bluecheese", false, true);
 							case 1:
-								newCharacter(822, 420, "ex-bf", true);
+								newCharacter(822, 420, "vip-bf", true);
 							case 2:
-								newCharacter(630, 150, "ex-gf-take-over");
+								newCharacter(630, 150, "vip-gf-take-over");
 								hasNoPoses = true;
 								hasTwoDances = true;
 						}
@@ -127,11 +127,11 @@ class PauseSubState extends MusicBeatSubstate
 						switch (randomChance)
 						{
 							case 0:
-								newCharacter(740, 390, "ex-bluecheese", false, true);
+								newCharacter(740, 390, "vip-bluecheese", false, true);
 							case 1:
-								newCharacter(822, 420, "ex-bf", true);
+								newCharacter(822, 420, "vip-bf", true);
 							case 2:
-								newCharacter(630, 150, "ex-gf");
+								newCharacter(630, 150, "vip-gf");
 								hasNoPoses = true;
 								hasTwoDances = true;
 						}

@@ -1,6 +1,6 @@
 package;
 
-import FreeplayState.SongMetadata;
+import SongMetaData;
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -1396,7 +1396,7 @@ class PlayState extends MusicBeatState
 		CoolUtil.precacheSound('missnote1');
 		CoolUtil.precacheSound('missnote2');
 		CoolUtil.precacheSound('missnote3');
-		
+
 		#if desktop
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", iconP2.getCharacter());

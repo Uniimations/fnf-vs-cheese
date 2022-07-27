@@ -2,13 +2,13 @@ import flixel.FlxG;
 
 class UniiStringTools
 {
-    // FC TYPES
+    // FC TYPES - ALSO I CHANGED IT TO SFC NOW BECAYUSE PSYCH ENGINE OMGG
     public static function makePlayRanks(accuracy:Float, misses:Int, shits:Int, bads:Int, goods:Int, sicks:Int, perfectMarvelous:Int) // generate a letter ranking
     {
         var rankString:String = "N/A";
 
         if (misses == 0 && shits == 0 && bads == 0 && goods == 0 && sicks == 0 && perfectMarvelous >= 1)
-            rankString = 'MFC'; //no shits, bads, or sicks, only perfect
+            rankString = 'SFC'; //no shits, bads, or sicks, only perfect
         else if (misses == 0 && shits == 0 && bads == 0 && goods == 0 && sicks >= 1)
             rankString = 'SFC'; //no shits or bads, only sick and above
         else if (misses == 0 && shits == 0 && bads == 0 && goods >= 1)
