@@ -68,7 +68,7 @@ class CreditsState extends MusicBeatState
 	{
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Viewing Credits", null);
 		#end
 
 		bgBack = new FlxSprite().loadGraphic(Paths.image('credits/menuCredits'));

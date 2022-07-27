@@ -44,7 +44,7 @@ class FreeplayState extends MusicBeatState
 	override function create()
 	{
 		#if desktop
-		DiscordClient.changePresence("Options Menu", null);
+		DiscordClient.changePresence("Browsing Freeplay Menu", null);
 		#end
 
 		menuBG = new FlxSprite(0, 0); // fix for wrong positions!

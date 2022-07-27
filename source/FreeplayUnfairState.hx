@@ -89,7 +89,7 @@ class FreeplayUnfairState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("In the Menus", null);
+		DiscordClient.changePresence("Browsing UNFAIR Songs", null);
 		#end
 
 		addWeekByTag('bonus_songs');
