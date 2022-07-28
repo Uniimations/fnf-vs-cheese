@@ -360,6 +360,8 @@ class FreeplayWeekState extends MusicBeatState
 				{
 					case 'tutorial':
 						{
+							forcedColor = true;
+							forceColorChange(0xff1d7032);
 							changeSelection(-1);
 						}
 					case 'restaurante': //SONGS WITH VIP DIFFICULTY
@@ -500,23 +502,6 @@ class FreeplayWeekState extends MusicBeatState
 						{
 							forcedColor = true;
 							forceColorChange(0xff1d7032);
-							changeSelection(1);
-						}
-					case 'casual-duel':
-						{
-							forcedColor = true;
-							forceColorChange(0xFFc852ff);
-							changeSelection(1);
-						}
-					case 'dynamic-duo':
-						{
-							if (FlxG.save.data.beatAlternateEnd) {
-								forcedColor = true;
-								forceColorChange(0xFF6260bd);
-							} else {
-								forcedColor = false;
-							}
-
 							changeSelection(1);
 						}
 					default:

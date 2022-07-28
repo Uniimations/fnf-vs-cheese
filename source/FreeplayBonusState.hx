@@ -93,15 +93,9 @@ class FreeplayBonusState extends MusicBeatState
 		DiscordClient.changePresence("Browsing Bonus Songs", null);
 		#end
 
-		if (FlxG.save.data.beatCulturedWeek) {
-			addWeek(['CREAM-CHEESE'], 1, ['creamcheese']);
-		}
-		if (FlxG.save.data.beatWeekEnding) {
-			if (FlxG.save.data.beatNormalEnd)
-				addWeek(['Dynamic-Duo'], 2, ['uniinera-fp']);
-			if (FlxG.save.data.beatAlternateEnd)
-				addWeek(['Below-Zero'], 2, ['avinera']);
-		}
+		addWeek(['CREAM-CHEESE'], 1, ['creamcheese']);
+		addWeek(['Dyanmic-Duo'], 2, ['uniinera-fp']);
+		addWeek(['Below-Zero'], 2, ['avinera']);
 
 		// LOAD MUSIC
 
@@ -275,33 +269,6 @@ class FreeplayBonusState extends MusicBeatState
 
 			if (songCharacters.length != 1)
 				num++;
-		}
-	}
-
-	public function addWeekByTag(weekTag:String)
-	{
-		switch (weekTag)
-		{
-			case 'all_songs':
-				addWeek(WeekData.songsNames[1], 1, songIcons[0]);
-				addWeek(WeekData.songsNames[2], 2, songIcons[1]);
-				addWeek(['Dynamic-Duo'], 2, ['uniinera-fp']);
-				addWeek(['Below-Zero'], 2, ['avinera']);
-				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
-				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
-			case 'week_1':
-				addWeek(WeekData.songsNames[1], 1, songIcons[0]);
-			case 'week_2':
-				addWeek(WeekData.songsNames[2], 2, songIcons[1]);
-				if (FlxG.save.data.beatNormalEnd)
-					addWeek(['Dynamic-Duo'], 2, ['uniinera-fp']);
-				if (FlxG.save.data.beatAlternateEnd)
-					addWeek(['Below-Zero'], 2, ['avinera']);
-			case 'manager':
-				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
-			case 'bonus_songs':
-				addWeek(WeekData.songsNames[3], 3, songIcons[2]);
-				addWeek(WeekData.bonusNames[0], 0, bonusIcons[0]);
 		}
 	}
 
@@ -591,7 +558,15 @@ class FreeplayBonusState extends MusicBeatState
 		else
 			cantMove = true;
 
-		var songLowercase:String = songs[curSelected].songName.toLowerCase();
+		var songLowercase = '';
+		var realSong:String = songs[curSelected].songName.toLowerCase();
+
+		if (realSong == '') {
+			songLowercase = 'CREAM-CHEESE';
+		} else {
+			songLowercase = realSong;
+		}
+
 		var ass:String = Highscore.formatSong(songLowercase, curDifficulty);
 		if(!OpenFlAssets.exists(Paths.json(songLowercase + '/' + ass))) {
 			ass = songLowercase;

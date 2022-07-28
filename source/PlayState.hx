@@ -2773,7 +2773,9 @@ class PlayState extends MusicBeatState
 									}
 								});
 
-								switch(daNote.noteType) {
+								// MECHANIC NOTES
+								switch(daNote.noteType) 
+								{
 									case 3: //DODGE NOTE MECHANIC DEATH
 										if (!endingSong)
 											{
@@ -2833,6 +2835,7 @@ class PlayState extends MusicBeatState
 											if (freezeFade.alpha != 1)
 												freezeFadeTween(redFade, 1, 2);
 										}
+										popUpScore(daNote, true);
 										callOnLuas('noteMiss', [daNote.noteData, daNote.noteType]);
 								}
 							}
@@ -4077,7 +4080,7 @@ class PlayState extends MusicBeatState
 		eventNotes = [];
 	}
 
-	private function popUpScore(note:Note = null):Void
+	private function popUpScore(note:Note = null, ?missSpr:Bool = false):Void
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + 8); 
 
@@ -4094,38 +4097,43 @@ class PlayState extends MusicBeatState
 
 		var daRating:String = "perfect";
 
-		if (noteDiff > Conductor.safeZoneOffset * 0.69)
-		{
-			daRating = 'shit';
-			score = 50;
-			shits++;
-		}
+		if (missSpr) {
+			daRating = 'miss';
+			score = 0;
+		} else {
+			if (noteDiff > Conductor.safeZoneOffset * 0.69)
+			{
+				daRating = 'shit';
+				score = 50;
+				shits++;
+			}
 
-		else if (noteDiff > Conductor.safeZoneOffset * 0.5)
-		{
-			daRating = 'bad';
-			score = 100;
-			bads++;
-		}
+			else if (noteDiff > Conductor.safeZoneOffset * 0.5)
+			{
+				daRating = 'bad';
+				score = 100;
+				bads++;
+			}
 
-		else if (noteDiff > Conductor.safeZoneOffset * 0.30)
-		{
-			daRating = 'good';
-			score = 200;
-			goods++;
-		}
+			else if (noteDiff > Conductor.safeZoneOffset * 0.30)
+			{
+				daRating = 'good';
+				score = 200;
+				goods++;
+			}
 
-		else if (noteDiff > Conductor.safeZoneOffset * 0.20)
-		{
-			daRating = 'sick';
-			score = 300;
-			sicks++;
-		}
+			else if (noteDiff > Conductor.safeZoneOffset * 0.20)
+			{
+				daRating = 'sick';
+				score = 300;
+				sicks++;
+			}
 
-		if(daRating == 'perfect')
-		{
-			spawnNoteSplashOnNote(note);
-			perfects++;
+			if(daRating == 'perfect')
+			{
+				spawnNoteSplashOnNote(note);
+				perfects++;
+			}
 		}
 
 		songScore += score;
@@ -4167,18 +4175,10 @@ class PlayState extends MusicBeatState
 		comboSpr.velocity.x += FlxG.random.int(1, 10);
 		add(rating);
 
-		if (!curStage.startsWith('school'))
-		{
-			rating.setGraphicSize(Std.int(rating.width * 0.7));
-			rating.antialiasing = ClientPrefs.globalAntialiasing;
-			comboSpr.setGraphicSize(Std.int(comboSpr.width * 0.7));
-			comboSpr.antialiasing = ClientPrefs.globalAntialiasing;
-		}
-		else
-		{
-			rating.setGraphicSize(Std.int(rating.width * daPixelZoom * 0.7));
-			comboSpr.setGraphicSize(Std.int(comboSpr.width * daPixelZoom * 0.7));
-		}
+		rating.setGraphicSize(Std.int(rating.width * 0.7));
+		rating.antialiasing = ClientPrefs.globalAntialiasing;
+		comboSpr.setGraphicSize(Std.int(comboSpr.width * 0.7));
+		comboSpr.antialiasing = ClientPrefs.globalAntialiasing;
 
 		comboSpr.updateHitbox();
 		rating.updateHitbox();
