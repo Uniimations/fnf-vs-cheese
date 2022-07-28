@@ -241,6 +241,7 @@ class PlayState extends MusicBeatState
 	public var ghostMisses:Int = 0;
 	public var scoreTxt:FlxText;
 	public var versionShit:FlxText;
+	public var versionHeight:Float = 0;
 	public var blackscreenhud:FlxSprite;
 	public var whiteBox:FlxSprite;
 
@@ -1213,7 +1214,15 @@ class PlayState extends MusicBeatState
 		}
 		reloadAllBarColors();
 
-		versionShit = new FlxText(4,healthBarBG.y + 60,0, "", 16);
+		if(ClientPrefs.downScroll && ClientPrefs.showFPS){ //what ocd does to a mf
+			versionHeight = healthBarBG.y - 120;
+		} else if(ClientPrefs.downScroll){
+			versionHeight = healthBarBG.y - 135;
+		} else if (!ClientPrefs.downScroll){
+			versionHeight = healthBarBG.y;
+		}
+
+		versionShit = new FlxText(4,versionHeight + 60,0, "", 16); //versionHeight used to be healthBarBG.y fyi
 		versionShit.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		versionShit.scrollFactor.set();
 		versionShit.borderSize = 1.25;
