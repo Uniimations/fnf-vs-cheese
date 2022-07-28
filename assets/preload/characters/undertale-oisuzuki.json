@@ -1,65 +1,69 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "suzuki ut idle",
-			"indices": []
+			"indices": [],
+			"name": "suzuki ut idle"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "suzuki ut left",
-			"indices": []
+			"indices": [],
+			"name": "suzuki ut left"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "suzuki ut right",
-			"indices": []
+			"indices": [],
+			"name": "suzuki ut right"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
+			"fps": 24,
 			"anim": "singUP",
+			"indices": [],
+			"name": "suzuki ut up"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "suzuki ut down"
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "singUP-loop",
 			"fps": 24,
 			"name": "suzuki ut up",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"loop": false,
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "suzuki ut down",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
 			"indices": [
 				9,
 				10,
@@ -69,11 +73,7 @@
 				14,
 				15,
 				16
-			],
-			"fps": 24,
-			"anim": "singUP-loop",
-			"loop": true,
-			"name": "suzuki ut up"
+			]
 		}
 	],
 	"no_antialiasing": false,
@@ -82,8 +82,7 @@
 		-90,
 		360
 	],
-	"healthicon": "dad",
-	"noteskin": "NOTES_ALT",
+	"healthicon": "suzuki-fp",
 	"flip_x": false,
 	"healthbar_colors": [
 		255,
@@ -95,5 +94,6 @@
 		100
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }
