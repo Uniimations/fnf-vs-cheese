@@ -4124,10 +4124,13 @@ class PlayState extends MusicBeatState
 		var daRating:String = "perfect";
 
 		// weird code to check every time if its a miss lmao idk if this is good or not x)
-		if (missSpr) {
+		if (missSpr) 
+		{
 			daRating = 'miss';
-			score = 0;
-		} else {
+			combo = 0;
+		}
+		else
+		{
 			if (noteDiff > Conductor.safeZoneOffset * 0.69)
 			{
 				daRating = 'shit';
@@ -4142,14 +4145,14 @@ class PlayState extends MusicBeatState
 				bads++;
 			}
 
-			else if (noteDiff > Conductor.safeZoneOffset * 0.30)
+			else if (noteDiff > Conductor.safeZoneOffset * 0.35)
 			{
 				daRating = 'good';
 				score = 200;
 				goods++;
 			}
 
-			else if (noteDiff > Conductor.safeZoneOffset * 0.20)
+			else if (noteDiff > Conductor.safeZoneOffset * 0.25)
 			{
 				daRating = 'sick';
 				score = 300;
@@ -4161,11 +4164,10 @@ class PlayState extends MusicBeatState
 				spawnNoteSplashOnNote(note);
 				perfects++;
 			}
+			songScore += score;
+			songHits++;
+			RecalculateRating();
 		}
-
-		songScore += score;
-		songHits++;
-		RecalculateRating();
 
 		var pixelShitPart1:String = "";
 		var pixelShitPart2:String = '';
@@ -4213,46 +4215,48 @@ class PlayState extends MusicBeatState
 		comboSpr.cameras = [camHUD];
 		rating.cameras = [camHUD];
 
-		var seperatedScore:Array<Int> = [];
+		if (!missSpr) {
+			var seperatedScore:Array<Int> = [];
 
-		seperatedScore.push(Math.floor(combo / 100));
-		seperatedScore.push(Math.floor((combo - (seperatedScore[0] * 100)) / 10));
-		seperatedScore.push(combo % 10);
+			seperatedScore.push(Math.floor(combo / 100));
+			seperatedScore.push(Math.floor((combo - (seperatedScore[0] * 100)) / 10));
+			seperatedScore.push(combo % 10);
 
-		var daLoop:Int = 0;
-		for (i in seperatedScore)
-		{
-			var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
-			numScore.screenCenter();
-			numScore.x = rating.x + (43 * daLoop) - 78;
-			numScore.y = rating.y + 75;
+			var daLoop:Int = 0;
+			for (i in seperatedScore)
+			{
+				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
+				numScore.screenCenter();
+				numScore.x = rating.x + (43 * daLoop) - 78;
+				numScore.y = rating.y + 75;
 
-			numScore.antialiasing = ClientPrefs.globalAntialiasing;
-			numScore.setGraphicSize(Std.int(numScore.width * 0.5));
-			numScore.updateHitbox();
+				numScore.antialiasing = ClientPrefs.globalAntialiasing;
+				numScore.setGraphicSize(Std.int(numScore.width * 0.5));
+				numScore.updateHitbox();
 
-			numScore.acceleration.y = FlxG.random.int(200, 300);
-			numScore.velocity.y -= FlxG.random.int(140, 160);
-			numScore.velocity.x = FlxG.random.float(-5, 5);
-			numScore.visible = !ClientPrefs.comboShown;
+				numScore.acceleration.y = FlxG.random.int(200, 300);
+				numScore.velocity.y -= FlxG.random.int(140, 160);
+				numScore.velocity.x = FlxG.random.float(-5, 5);
+				numScore.visible = !ClientPrefs.comboShown;
 
-			numScore.cameras = [camHUD];
+				numScore.cameras = [camHUD];
 
-			if (combo >= 10 || combo == 0)
-				add(numScore);
+				if (combo >= 10 || combo == 0)
+					add(numScore);
 
-			FlxTween.tween(numScore, {alpha: 0}, 0.2, {
-				onComplete: function(tween:FlxTween)
-				{
-					numScore.destroy();
-				},
-				startDelay: Conductor.crochet * 0.002
-			});
+				FlxTween.tween(numScore, {alpha: 0}, 0.2, {
+					onComplete: function(tween:FlxTween)
+					{
+						numScore.destroy();
+					},
+					startDelay: Conductor.crochet * 0.002
+				});
 
-			daLoop++;
+				daLoop++;
+			}
+
+			coolText.text = Std.string(seperatedScore);
 		}
-
-		coolText.text = Std.string(seperatedScore);
 
 		FlxTween.tween(rating, {alpha: 0}, 0.2, {
 			startDelay: Conductor.crochet * 0.001

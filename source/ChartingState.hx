@@ -357,8 +357,8 @@ class ChartingState extends MusicBeatState
 			var goodPath:String;
 			var coolJson:String;
 			if (CoolUtil.difficultyString() == 'VIP') {
-				goodPath = '/eventsex';
-				coolJson = 'eventsex';
+				goodPath = '/events-vip';
+				coolJson = 'events-vip';
 			} else {
 				goodPath = '/events';
 				coolJson = 'events';
@@ -787,7 +787,7 @@ class ChartingState extends MusicBeatState
 
 		var file:String;
 
-		if (CoolUtil.difficultyString() == 'EX') {
+		if (CoolUtil.difficultyString() == 'VIP') {
 			file = Paths.voices_vip(currentSongName);
 		} else {
 			file = Paths.voices(currentSongName);
@@ -804,7 +804,7 @@ class ChartingState extends MusicBeatState
 	}
 
 	function generateSong() {
-		if (CoolUtil.difficultyString() == 'EX') {
+		if (CoolUtil.difficultyString() == 'VIP') {
 			FlxG.sound.playMusic(Paths.inst_vip(currentSongName), 0.6, false);
 		} else {
 			FlxG.sound.playMusic(Paths.inst(currentSongName), 0.6, false);
