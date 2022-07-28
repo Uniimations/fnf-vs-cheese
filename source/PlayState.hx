@@ -4155,7 +4155,7 @@ class PlayState extends MusicBeatState
 			else if (noteDiff > Conductor.safeZoneOffset * 0.25)
 			{
 				daRating = 'sick';
-				score = 300;
+				score = 325;
 				sicks++;
 			}
 

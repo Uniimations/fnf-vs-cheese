@@ -8,7 +8,7 @@ class UniiStringTools
         var rankString:String = "N/A";
 
         if (misses == 0 && shits == 0 && bads == 0 && goods == 0 && sicks == 0 && perfectMarvelous >= 1)
-            rankString = 'SFC'; //no shits, bads, or sicks, only perfect
+            rankString = 'PFC'; //no shits, bads, or sicks, only perfect
         else if (misses == 0 && shits == 0 && bads == 0 && goods == 0 && sicks >= 1)
             rankString = 'SFC'; //no shits or bads, only sick and above
         else if (misses == 0 && shits == 0 && bads == 0 && goods >= 1)

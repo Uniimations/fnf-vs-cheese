@@ -94,7 +94,7 @@ class FreeplayBonusState extends MusicBeatState
 		#end
 
 		addWeek(['CREAM-CHEESE'], 1, ['creamcheese']);
-		addWeek(['Dyanmic-Duo'], 2, ['uniinera-fp']);
+		addWeek(['Dynamic-Duo'], 2, ['uniinera-fp']);
 		addWeek(['Below-Zero'], 2, ['avinera']);
 
 		// LOAD MUSIC

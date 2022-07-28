@@ -1,70 +1,70 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "dani idle",
-			"indices": []
+			"indices": [],
+			"name": "dani idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-4,
-				-29
+				34,
+				-11
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "dani left0",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "dani left0"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-98,
+				-64,
+				-41
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "dani down0"
+		},
+		{
+			"offsets": [
+				16,
 				-23
 			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "dani down0",
-			"indices": []
-		},
-		{
 			"loop": false,
-			"offsets": [
-				-16,
-				-30
-			],
+			"fps": 24,
 			"anim": "singUP",
-			"fps": 24,
-			"name": "dani up0",
-			"indices": []
+			"indices": [],
+			"name": "dani up0"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-87,
-				8
+				-51,
+				6
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "dani right0",
-			"indices": []
+			"indices": [],
+			"name": "dani right0"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-49,
-				130
+				-19,
+				136
 			],
-			"anim": "singGLOBALmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "dani miss",
-			"indices": []
+			"anim": "singGLOBALmiss",
+			"indices": [],
+			"name": "dani miss"
 		}
 	],
 	"no_antialiasing": false,
