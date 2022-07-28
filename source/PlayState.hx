@@ -2852,7 +2852,7 @@ class PlayState extends MusicBeatState
 											if (freezeFade.alpha != 1)
 												freezeFadeTween(redFade, 1, 2);
 										}
-										popUpScore(daNote, true);
+										popUpScore(daNote, true); // NOTE MISS POPUP!!
 										callOnLuas('noteMiss', [daNote.noteData, daNote.noteType]);
 								}
 							}
@@ -4114,6 +4114,7 @@ class PlayState extends MusicBeatState
 
 		var daRating:String = "perfect";
 
+		// weird code to check every time if its a miss lmao idk if this is good or not x)
 		if (missSpr) {
 			daRating = 'miss';
 			score = 0;
