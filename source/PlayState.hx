@@ -2276,7 +2276,7 @@ class PlayState extends MusicBeatState
 		}
 		#end
 
-		//super.onFocusLost();
+		super.onFocusLost();
 	}
 
 	function resyncVocals():Void
