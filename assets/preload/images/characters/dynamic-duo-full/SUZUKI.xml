@@ -2,50 +2,58 @@
 <TextureAtlas imagePath="SUZUKI.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="suzuki down0000" x="0" y="0" width="313" height="368"/>
-	<SubTexture name="suzuki down0001" x="0" y="0" width="313" height="368"/>
-	<SubTexture name="suzuki down0002" x="363" y="0" width="313" height="368"/>
-	<SubTexture name="suzuki down0003" x="726" y="0" width="313" height="368"/>
-	<SubTexture name="suzuki idle0000" x="1089" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0001" x="1089" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0002" x="1475" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0003" x="1475" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0004" x="1861" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0005" x="1861" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0006" x="2247" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0007" x="2633" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0008" x="2633" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0009" x="2633" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0010" x="3019" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0011" x="3019" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0012" x="3019" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0013" x="3405" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0014" x="3405" y="0" width="336" height="377"/>
-	<SubTexture name="suzuki idle0015" x="0" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0016" x="0" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0017" x="386" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0018" x="386" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0019" x="772" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0020" x="772" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0021" x="1158" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0022" x="1544" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0023" x="1544" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0024" x="1544" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0025" x="1930" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0026" x="1930" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0027" x="1930" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0028" x="2316" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki idle0029" x="2316" y="427" width="336" height="377"/>
-	<SubTexture name="suzuki left0000" x="2702" y="427" width="313" height="381"/>
-	<SubTexture name="suzuki left0001" x="2702" y="427" width="313" height="381"/>
-	<SubTexture name="suzuki left0002" x="3065" y="427" width="313" height="381"/>
-	<SubTexture name="suzuki left0003" x="3428" y="427" width="313" height="381"/>
-	<SubTexture name="suzuki right0000" x="3791" y="427" width="303" height="360"/>
-	<SubTexture name="suzuki right0001" x="3791" y="427" width="303" height="360"/>
-	<SubTexture name="suzuki right0002" x="0" y="858" width="303" height="360"/>
-	<SubTexture name="suzuki right0003" x="353" y="858" width="303" height="360"/>
-	<SubTexture name="suzuki up0000" x="706" y="858" width="292" height="368"/>
-	<SubTexture name="suzuki up0001" x="706" y="858" width="292" height="368"/>
-	<SubTexture name="suzuki up0002" x="1048" y="858" width="292" height="368"/>
-	<SubTexture name="suzuki up0003" x="1048" y="858" width="292" height="368"/>
+	<SubTexture name="suzuki down0000" x="0" y="0" width="311" height="370" frameX="-2" frameY="-2" frameWidth="313" frameHeight="372"/>
+	<SubTexture name="suzuki down0001" x="0" y="0" width="311" height="370" frameX="-2" frameY="-2" frameWidth="313" frameHeight="372"/>
+	<SubTexture name="suzuki down0002" x="331" y="0" width="311" height="368" frameX="0" frameY="0" frameWidth="313" frameHeight="372"/>
+	<SubTexture name="suzuki down0003" x="331" y="0" width="311" height="368" frameX="0" frameY="0" frameWidth="313" frameHeight="372"/>
+	<SubTexture name="suzuki down0004" x="662" y="0" width="311" height="368" frameX="0" frameY="0" frameWidth="313" frameHeight="372"/>
+	<SubTexture name="suzuki down0005" x="662" y="0" width="311" height="368" frameX="0" frameY="0" frameWidth="313" frameHeight="372"/>
+	<SubTexture name="suzuki idle0000" x="993" y="0" width="289" height="357" frameX="-1" frameY="-20" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0001" x="993" y="0" width="289" height="357" frameX="-1" frameY="-20" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0002" x="1302" y="0" width="286" height="354" frameX="0" frameY="-23" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0003" x="1302" y="0" width="286" height="354" frameX="0" frameY="-23" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0004" x="1608" y="0" width="292" height="359" frameX="-1" frameY="-18" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0005" x="1608" y="0" width="292" height="359" frameX="-1" frameY="-18" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0006" x="0" y="390" width="297" height="367" frameX="-2" frameY="-10" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0007" x="317" y="390" width="305" height="375" frameX="-5" frameY="-2" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0008" x="317" y="390" width="305" height="375" frameX="-5" frameY="-2" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0009" x="317" y="390" width="305" height="375" frameX="-5" frameY="-2" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0010" x="642" y="390" width="305" height="376" frameX="-5" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0011" x="642" y="390" width="305" height="376" frameX="-5" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0012" x="642" y="390" width="305" height="376" frameX="-5" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0013" x="967" y="390" width="308" height="377" frameX="-7" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0014" x="967" y="390" width="308" height="377" frameX="-7" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0015" x="1295" y="390" width="314" height="376" frameX="-21" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0016" x="1295" y="390" width="314" height="376" frameX="-21" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0017" x="1629" y="390" width="314" height="376" frameX="-22" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0018" x="1629" y="390" width="314" height="376" frameX="-22" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0019" x="0" y="787" width="313" height="377" frameX="-19" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0020" x="0" y="787" width="313" height="377" frameX="-19" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0021" x="333" y="787" width="311" height="377" frameX="-14" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0022" x="664" y="787" width="307" height="377" frameX="-6" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0023" x="664" y="787" width="307" height="377" frameX="-6" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0024" x="664" y="787" width="307" height="377" frameX="-6" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0025" x="991" y="787" width="307" height="376" frameX="-5" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0026" x="991" y="787" width="307" height="376" frameX="-5" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0027" x="991" y="787" width="307" height="376" frameX="-5" frameY="-1" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0028" x="1318" y="787" width="306" height="377" frameX="-5" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki idle0029" x="1318" y="787" width="306" height="377" frameX="-5" frameY="0" frameWidth="336" frameHeight="377"/>
+	<SubTexture name="suzuki left0000" x="1644" y="787" width="311" height="379" frameX="-2" frameY="-2" frameWidth="313" frameHeight="381"/>
+	<SubTexture name="suzuki left0001" x="1644" y="787" width="311" height="379" frameX="-2" frameY="-2" frameWidth="313" frameHeight="381"/>
+	<SubTexture name="suzuki left0002" x="0" y="1186" width="311" height="381" frameX="-1" frameY="0" frameWidth="313" frameHeight="381"/>
+	<SubTexture name="suzuki left0003" x="0" y="1186" width="311" height="381" frameX="-1" frameY="0" frameWidth="313" frameHeight="381"/>
+	<SubTexture name="suzuki left0004" x="331" y="1186" width="311" height="380" frameX="0" frameY="-1" frameWidth="313" frameHeight="381"/>
+	<SubTexture name="suzuki left0005" x="331" y="1186" width="311" height="380" frameX="0" frameY="-1" frameWidth="313" frameHeight="381"/>
+	<SubTexture name="suzuki right0000" x="662" y="1186" width="300" height="359" frameX="-5" frameY="0" frameWidth="305" frameHeight="359"/>
+	<SubTexture name="suzuki right0001" x="662" y="1186" width="300" height="359" frameX="-5" frameY="0" frameWidth="305" frameHeight="359"/>
+	<SubTexture name="suzuki right0002" x="982" y="1186" width="299" height="359" frameX="0" frameY="0" frameWidth="305" frameHeight="359"/>
+	<SubTexture name="suzuki right0003" x="982" y="1186" width="299" height="359" frameX="0" frameY="0" frameWidth="305" frameHeight="359"/>
+	<SubTexture name="suzuki right0004" x="1301" y="1186" width="298" height="359" frameX="0" frameY="0" frameWidth="305" frameHeight="359"/>
+	<SubTexture name="suzuki right0005" x="1301" y="1186" width="298" height="359" frameX="0" frameY="0" frameWidth="305" frameHeight="359"/>
+	<SubTexture name="suzuki up0000" x="1619" y="1186" width="289" height="369" frameX="0" frameY="0" frameWidth="293" frameHeight="369"/>
+	<SubTexture name="suzuki up0001" x="1619" y="1186" width="289" height="369" frameX="0" frameY="0" frameWidth="293" frameHeight="369"/>
+	<SubTexture name="suzuki up0002" x="0" y="1587" width="291" height="368" frameX="-1" frameY="-1" frameWidth="293" frameHeight="369"/>
+	<SubTexture name="suzuki up0003" x="0" y="1587" width="291" height="368" frameX="-1" frameY="-1" frameWidth="293" frameHeight="369"/>
+	<SubTexture name="suzuki up0004" x="311" y="1587" width="292" height="369" frameX="-1" frameY="0" frameWidth="293" frameHeight="369"/>
+	<SubTexture name="suzuki up0005" x="311" y="1587" width="292" height="369" frameX="-1" frameY="0" frameWidth="293" frameHeight="369"/>
 </TextureAtlas>

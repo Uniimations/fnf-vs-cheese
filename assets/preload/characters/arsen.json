@@ -1,70 +1,114 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "arsen idle"
+			"fps": 24,
+			"name": "arsen idle",
+			"indices": []
 		},
 		{
-			"offsets": [
-				57,
-				-3
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				62,
+				-4
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "arsen left0"
+			"fps": 24,
+			"name": "arsen left0",
+			"indices": []
 		},
 		{
-			"offsets": [
-				19,
-				-55
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				18,
+				-57
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "arsen down0"
-		},
-		{
-			"offsets": [
-				-13,
-				29
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "arsen up0"
+			"name": "arsen down0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-14,
-				-11
+				31
 			],
-			"loop": false,
+			"anim": "singUP",
 			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "arsen right0"
+			"name": "arsen up0",
+			"indices": []
 		},
 		{
 			"loop": false,
+			"offsets": [
+				-15,
+				-11
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "arsen right0",
+			"indices": []
+		},
+		{
 			"offsets": [
 				13,
 				20
 			],
-			"anim": "singGLOBALmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "arsen miss",
-			"indices": []
+			"anim": "singGLOBALmiss",
+			"indices": [],
+			"name": "arsen miss"
+		},
+		{
+			"offsets": [
+				54,
+				-6
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "alt left"
+		},
+		{
+			"offsets": [
+				16,
+				-51
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "alt down"
+		},
+		{
+			"offsets": [
+				-8,
+				32
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "alt up"
+		},
+		{
+			"offsets": [
+				-10,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "alt right"
 		}
 	],
 	"no_antialiasing": false,

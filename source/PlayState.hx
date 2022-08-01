@@ -4014,8 +4014,6 @@ class PlayState extends MusicBeatState
 				'beat_sans',
 				'beat_onion',
 
-				'evil_woops',
-
 				'ur_bad',
 				'ur_good',
 				'oversinging',
@@ -5345,8 +5343,8 @@ class PlayState extends MusicBeatState
 							iconP2.changeIcon('bluecheese-ex');
 							reloadAllBarColors();
 					}
-					camZooming = true;
 				}
+				camZooming = true;
 
 			case 'dynamic-duo':
 				switch (curBeat)
@@ -5947,11 +5945,6 @@ class PlayState extends MusicBeatState
 				}
 				FlxG.save.data.beatNormalEnd = true; //TAKE THNIS OUT AFTER ENDINGS HAVE BEEN PUT IN!!!
 				//SURE THING BUDDY!!! (my future self)
-			case 'mozzarella':
-				if (FlxG.save.data.beatBNB == null || FlxG.save.data.beatBNB == false) {
-					FlxG.save.data.beatBNB = true;
-					trace('beat mozzarella from bob and bosip (real)'); // i hate amoraltra.
-				}
 			case 'manager-strike-back':
 				if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
 					FlxG.save.data.beatBonus = true;
@@ -5959,11 +5952,14 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (PauseSubState.psChartingMode) {
+		if (PauseSubState.psChartingMode)
+		{
 			new FlxTimer().start(0.5, function(tmr:FlxTimer) {
 				MusicBeatState.switchState(new ChartingState());
 			});
-		} else {
+		}
+		else
+		{
 			switch (curSong.toLowerCase())
 			{
 				case 'casual-duel':
@@ -6066,11 +6062,6 @@ class PlayState extends MusicBeatState
 
 					case 'beat_onion':
 						if (realSong == 'dirty-cheater') {
-							unlock = true;
-						}
-
-					case 'evil_woops':
-						if (isStoryMode && WeekData.getCurrentWeekNumber() == 1 && storyPlaylist.length <= 1 && !skippedDialogue && !FlxG.save.data.skipTutorialDia) {
 							unlock = true;
 						}
 

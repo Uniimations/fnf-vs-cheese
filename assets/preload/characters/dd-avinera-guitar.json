@@ -1,81 +1,81 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "idle dance big guy"
+			"fps": 24,
+			"name": "idle dance big guy",
+			"indices": []
 		},
 		{
-			"offsets": [
-				13,
-				-6
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				2,
+				-15
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "avi left"
+			"fps": 24,
+			"name": "avi left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-9,
-				-52
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-32,
+				-57
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "avi down"
+			"fps": 24,
+			"name": "avi down",
+			"indices": []
 		},
 		{
-			"offsets": [
-				59,
-				62
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				49,
+				71
+			],
 			"anim": "singUP",
-			"indices": [],
-			"name": "avi up guy"
+			"fps": 24,
+			"name": "avi up guy",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-47,
-				0
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-58,
+				6
+			],
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "AVI SING RIGHT"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				5,
-				30
-			],
-			"anim": "singGLOBALmiss",
 			"fps": 24,
-			"name": "avi miss",
+			"name": "AVI SING RIGHT",
 			"indices": []
 		},
 		{
 			"offsets": [
-				58,
-				62
+				-2,
+				16
 			],
-			"indices": [],
-			"fps": 24,
-			"anim": "singUP-alt",
 			"loop": false,
-			"name": "avi last strum"
+			"fps": 24,
+			"anim": "singGLOBALmiss",
+			"indices": [],
+			"name": "avi miss"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				50,
+				69
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "avi last strum",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,

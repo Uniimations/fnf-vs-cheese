@@ -13,46 +13,49 @@ class Achievements
 {
 	// for achievements
 	public static var achievementsStuff:Array<Dynamic> = [
-		//Name, 						 Description, 			 							 Achievement save tag, 	 Hide?
+		//Name, 						 Description, 			 																	 Achievement save tag, 	 Hide?
 
-		["Freaky on a Friday Night",	"Play on a Friday... Night.",						'friday_night_play',	 true],
+		["Freaky on a Friday Night",	"Play on a Friday... Night.",																'friday_night_play',	 true],
+		["Back To The Basics",			"Beat Tutorial and unlock the rest of the game.",											'tutorial_beat', 		false],
 
-		// VS CHEESE ACHIEVEMENTS
+		// WEEK 1!! :3
+		["Are You Cultured?", 			"Beat Week 1 on HARD.",																		'week1_beat', 			false],
+		["KEYCHANGE!!", 				"Beat the bonus songs for Week 1.",															'bonus_beat', 			false],
 
-		["Back to the Basics",			"Beat Tutorial and unlock the rest of the game.",	'tutorial_beat', 		false],
-		["Are You Cultured?", 			"Beat Week 1 on HARD.",								'week1_beat', 			false],
-		["A Prequel?",					"Beat Week 2 on HARD.",								'week2_beat',			false],
-		["The Boyz",					"Sing with Unii and get the good ending to Week 2",	'dynamic_duo',			false],
-		["Something's Missing...",		"Say no to Unii and get the bad ending to Week 2.",	'below_zero',			false],
+		// WEEK 2!!!!
+		["A Prequel?",					"Beat Week 2 on HARD.",																		'week2_beat',			false],
+		["The Boyz",					"Sing with Unii and get the true ending \nto Week 2",										'dynamic_duo',			false],
+		["Something's Missing...",		"Say no to Unii and get the below zero \nending to Week 2.",								'below_zero',			false],
+
 		// VIP DIFFICULTY
-		["Freestyle Time!", 			"Beat Restaurante on VIP difficulty",				'restaurante_ex',		false],
-		["Let's Change It Up!", 		"Beat Milkshake on VIP difficulty.",				'milkshake_ex',		 	false],
-		["You're Not Cultured Yet!",	"Beat Cultured on VIP difficulty.", 				'cultured_ex',			false],
-		["Feeling the Swing", 			"Beat Mozzarella on HARD.",							'bnb_beat',				 true],
+		["Freestyle Time!", 			"Beat Restaurante on VIP difficulty",														'restaurante_ex',		false],
+		["Let's Change It Up!", 		"Beat Milkshake on VIP difficulty.",														'milkshake_ex',		 	false],
+		["You're Not Cultured Yet!",	"Beat Cultured on VIP difficulty.", 														'cultured_ex',			false],
 		// EXTRA ACHIEVEMENTS
-		["Megalomaniac", 				"Beat Manager Strike Back without Pussy Mode.",		'beat_chara',			 true],
-		["Let It Go",	 				"Beat Frosted without Pussy Mode.",					'beat_sans',			 true],
+		["Megalomaniac", 				"Beat Manager Strike Back without Pussy Mode.",												'beat_chara',			 true],
+		["Let It Go",	 				"Beat Frosted without Pussy Mode.",															'beat_sans',			 true],
 
-		["Dirty Cheater...",
-		"You cheated not only the game, but yourself. You didn't grow. You didn't improve. You took a shortcut and gained nothing.
-		You experienced a hollow victory. Nothing was risked and nothing was gained. It's sad that you don't know the difference.",
-		'beat_onion', true],
+		["Fucking Cheater...",
+		"You cheated not only the game, but yourself. You didn't grow. You didn't improve. 
+		You took a shortcut and gained nothing. You experienced a hollow victory. Nothing was 
+		risked and nothing was gained. It's sad that you don't know the difference.", 												'beat_onion', 			true],
 
-		["awww the scrunkly",			"Headpat Cheese on the Main Menu.",					'scrunkly',				false],
-		["Evil woops",					"Don't skip dialogue AT ALL in any way.",			'evil_woops',			 true],
+		["awww the scrunkly <3",			"Headpat Cheese on the Main Menu.",														'scrunkly',				false], //i added a heart here fuck u lol it looks cute <33
+
+		["Bookworm",					"You're a fucking streamer aren't you?!\nDon't skip dialogue AT ALL in any way.",			'evil_woops',			false],
 
 		// OG RENAMED
 
-		["L + Ratio",					"Complete a Song with a rating lower than 20%.",	'ur_bad',				false],
-		["Marvelous",					"Complete a Song with a rating of 100%.",			'ur_good',				false],
+		["L + Ratio",					"Beat a Song with less than 20% accuracy.",													'ur_bad',				false],
+		["Marvelous",					"Beat a Song with a Full Combo with a 100% PFC.",											'ur_good',				false],
 
 		["Long And Hard",
-		"Hold down a note for at least 5 seconds.\nThe name? don't know what you mean",
+		"Hold down a note for at least 5 seconds. \nThe name? don't know what you mean...",
 		'oversinging', false],
 
-		["SCP-173",						"Don't blink.\n(Finish a Song without going Idle.)",'hype',					false],
-		["Dynamic Duo",					"Finish a Song pressing only two keys.",			'two_keys',				false],
-		["Mac User",					"Have you tried to run the game on a toaster?",		'toastie',				false]
+		["SCP-173",						"Don't blink.\n(Finish a Song without going Idle.)",										'hype',					false],
+		["Dynamic Duo",					"Finish a Song pressing only two keys.",													'two_keys',				false],
+		["Mac User",					"Have you tried to run the game on a toaster?",												'toastie',				false]
 	];
 
 	// for unlocks/notifications
