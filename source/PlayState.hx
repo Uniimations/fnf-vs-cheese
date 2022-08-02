@@ -399,15 +399,15 @@ class PlayState extends MusicBeatState
 			else if(WeekData.weekNumber[storyWeek] != null)
 				weekCustomName = 'Week ' + WeekData.weekNumber[storyWeek];
 
-			detailsText = "Story Mode: " + weekCustomName;
+			detailsText = "Story Mode: " + displaySongName + " (" + storyDifficultyText + ")";
 		}
 		else
 		{
-			detailsText = "Freeplay";
+			detailsText = "Freeplay - " + displaySongName + " (" + storyDifficultyText + ")";
 		}
 
 		// String for when the game is paused
-		detailsPausedText = "Paused - " + detailsText;
+		detailsPausedText = "Paused - " + "Freeplay";
 		#end
 
 		grpCustomTableBoppers = new FlxTypedGroup<BGSprite>();
@@ -1420,7 +1420,7 @@ class PlayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence.
-		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+		DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
 		#end
 		super.create();
 	}
@@ -1897,7 +1897,7 @@ class PlayState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
-		DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon, true, songLength);
+		DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength);
 		trace(dad.healthIcon);
 		#end
 		setOnLuas('songLength', songLength);
@@ -2233,12 +2233,12 @@ class PlayState extends MusicBeatState
 			#if desktop
 			if (startTimer.finished)
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
 				trace(dad.healthIcon);
 			}
 			else
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
 				//trace(dad.healthIcon);
 			}
 			#end
@@ -2253,12 +2253,12 @@ class PlayState extends MusicBeatState
 		{
 			if (Conductor.songPosition > 0.0)
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
 				//trace(dad.healthIcon);
 			}
 			else
 			{
-				DiscordClient.changePresence(detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
 				//trace(dad.healthIcon);
 			}
 		}
@@ -5309,6 +5309,11 @@ class PlayState extends MusicBeatState
 			return;
 		}
 
+		#if desktop
+		// Updating Discord Rich Presence.
+		DiscordClient.changePresence(detailsText,"(" + rankString + ") Misses: " + songMisses + " - " + "Combo: " + combo, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+		#end
+
 		lastStepHit = curStep;
 		setOnLuas('curStep', curStep);
 		callOnLuas('onStepHit', []);
@@ -6373,7 +6378,7 @@ class PlayState extends MusicBeatState
 				}
 
 				#if desktop
-				DiscordClient.changePresence("Game Over - " + detailsText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				DiscordClient.changePresence("Game Over", displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
 				//trace(dad.healthIcon);
 				#end
 			}
