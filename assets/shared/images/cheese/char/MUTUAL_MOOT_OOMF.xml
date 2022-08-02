@@ -2,18 +2,18 @@
 <TextureAtlas imagePath="MUTUAL_MOOT_OOMF.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="TWITTER BOPPERS0000" x="0" y="0" width="1456" height="936"/>
-	<SubTexture name="TWITTER BOPPERS0001" x="0" y="0" width="1456" height="936"/>
-	<SubTexture name="TWITTER BOPPERS0002" x="1476" y="0" width="1454" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0003" x="1476" y="0" width="1454" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0004" x="0" y="956" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0005" x="0" y="956" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0006" x="1471" y="956" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0007" x="1471" y="956" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0008" x="0" y="1912" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0009" x="0" y="1912" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0010" x="0" y="1912" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0011" x="0" y="1912" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0012" x="0" y="1912" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
-	<SubTexture name="TWITTER BOPPERS0013" x="0" y="1912" width="1451" height="936" frameX="0" frameY="0" frameWidth="1456" frameHeight="936"/>
+	<SubTexture name="TWITTER BOPPERS0000" x="0" y="0" width="1456" height="881" frameX="0" frameY="-9" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0001" x="1476" y="0" width="1456" height="881" frameX="0" frameY="-9" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0002" x="2952" y="0" width="1454" height="887" frameX="0" frameY="-3" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0003" x="4426" y="0" width="1454" height="887" frameX="0" frameY="-3" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0004" x="5900" y="0" width="1451" height="889" frameX="0" frameY="-1" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0005" x="0" y="909" width="1451" height="889" frameX="0" frameY="-1" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0006" x="1471" y="909" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0007" x="2942" y="909" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0008" x="4413" y="909" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0009" x="5884" y="909" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0010" x="0" y="1819" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0011" x="1471" y="1819" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0012" x="2942" y="1819" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
+	<SubTexture name="TWITTER BOPPERS0013" x="4413" y="1819" width="1451" height="890" frameX="0" frameY="0" frameWidth="1456" frameHeight="890"/>
 </TextureAtlas>
