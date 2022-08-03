@@ -34,7 +34,7 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	var options:Array<String> = ['WEEK SONGS', 'BONUS SONGS', 'UNFAIR SONGS'];
+	var options:Array<String> = ['STORY SONGS', 'BONUS SONGS', 'UNFAIR SONGS'];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private static var curSelected:Int = 0;
 	public var menuBG:FlxSprite;
@@ -48,19 +48,6 @@ class FreeplayState extends MusicBeatState
 		#if desktop
 		DiscordClient.changePresence("Browsing Freeplay Menu", null);
 		#end
-
-		grpOptions = new FlxTypedGroup<AlphabetWhite>();
-		add(grpOptions);
-
-		for (i in 0...options.length)
-		{
-			var optionText:AlphabetWhite = new AlphabetWhite(0, 0, options[i], true, false);
-			optionText.screenCenter();
-			optionText.y += (100 * (i - (options.length / 2))) + 50;
-			optionText.visible = false;
-
-			grpOptions.add(optionText);
-		}
 
 		storySpr = new FlxSprite(0, 0);
 		bonusSpr = new FlxSprite(0, 0);
@@ -92,8 +79,8 @@ class FreeplayState extends MusicBeatState
 	    unfairSpr.screenCenter();
 		add(unfairSpr);
 
-		categoryText = new FlxText(500, 4, 0, "< DIPLES >", 50);
-		categoryText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
+		categoryText = new FlxText(700, 30, 0, "< DIPLES >");
+		categoryText.setFormat(Paths.font("vcr.ttf"), 60, FlxColor.WHITE, RIGHT);
 		add(categoryText);
 
 		var Freeplay = new FlxSprite(0, 0);
@@ -104,7 +91,50 @@ class FreeplayState extends MusicBeatState
 		Freeplay.setGraphicSize(Std.int(Freeplay.width * 0.6));
 		add(Freeplay);
 
+		grpOptions = new FlxTypedGroup<AlphabetWhite>();
+		add(grpOptions);
+
+		for (i in 0...options.length)
+		{
+			var optionText:AlphabetWhite = new AlphabetWhite(0, 0, options[i], true, false);
+			optionText.screenCenter();
+			optionText.y += (100 * (i - (options.length / 2))) + 50;
+			optionText.visible = false;
+
+			grpOptions.add(optionText);
+		}
+
 		changeSelection();
+
+		switch(options[curSelected])
+		{
+			case 'STORY SONGS':
+				categoryText.text = "< STORY SONGS >";
+				storySpr.alpha = 1;
+				bonusSpr.alpha = 0.5;
+				unfairSpr.alpha = 0.5;
+				FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+
+			case 'BONUS SONGS':
+				categoryText.text = "< BONUS SONGS >";
+				storySpr.alpha = 0.5;
+				bonusSpr.alpha = 1;
+				unfairSpr.alpha = 0.5;
+				FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+
+			case 'UNFAIR SONGS':
+				categoryText.text = "< UNFAIR SONGS >";
+				storySpr.alpha = 0.5;
+				bonusSpr.alpha = 0.5;
+				unfairSpr.alpha = 1;
+				FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+		}
 
 		super.create();
 	}
@@ -115,7 +145,8 @@ class FreeplayState extends MusicBeatState
 		changeSelection();
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
 		super.update(elapsed);
 
 		if (FlxG.keys.justPressed.F11)
@@ -123,72 +154,72 @@ class FreeplayState extends MusicBeatState
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
 
-		if (controls.UI_UP_P)
+		if (controls.UI_LEFT_P)
 		{
 			switch(options[curSelected])
 			{
-				case 'WEEK SONGS':
+				case 'STORY SONGS':
 					categoryText.text = "< UNFAIR SONGS >";
 					storySpr.alpha = 0.5;
 					bonusSpr.alpha = 0.5;
 					unfairSpr.alpha = 1;
-					FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
+					FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 
 				case 'BONUS SONGS':
 					categoryText.text = "< STORY SONGS >";
 					storySpr.alpha = 1;
 					bonusSpr.alpha = 0.5;
 					unfairSpr.alpha = 0.5;
-					FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
+					FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 
 				case 'UNFAIR SONGS':
 					categoryText.text = "< BONUS SONGS >";
 					storySpr.alpha = 0.5;
 					bonusSpr.alpha = 1;
 					unfairSpr.alpha = 0.5;
-					FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
+					FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 			}
 			changeSelection(-1);
 		}
 
-		if (controls.UI_DOWN_P)
+		if (controls.UI_RIGHT_P)
 		{
-			changeSelection(1);
 			switch(options[curSelected])
 			{
-				case 'WEEK SONGS':
+				case 'STORY SONGS':
 					categoryText.text = "< BONUS SONGS >";
 					storySpr.alpha = 0.5;
 					bonusSpr.alpha = 1;
 					unfairSpr.alpha = 0.5;
-					FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
+					FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 
 				case 'BONUS SONGS':
 					categoryText.text = "< UNFAIR SONGS >";
 					storySpr.alpha = 0.5;
 					bonusSpr.alpha = 0.5;
 					unfairSpr.alpha = 1;
-					FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
+					FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 
 				case 'UNFAIR SONGS':
 					categoryText.text = "< STORY SONGS >";
 					storySpr.alpha = 1;
 					bonusSpr.alpha = 0.5;
 					unfairSpr.alpha = 0.5;
-					FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 1, {ease: FlxEase.expoInOut});
+					FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 			}
+			changeSelection(1);
 		}
 
 		if (controls.BACK) {
@@ -204,7 +235,7 @@ class FreeplayState extends MusicBeatState
 
 			switch(options[curSelected])
 			{
-				case 'WEEK SONGS':
+				case 'STORY SONGS':
 					MusicBeatState.switchState(new FreeplayWeekState());
 
 				case 'BONUS SONGS':
@@ -228,11 +259,6 @@ class FreeplayState extends MusicBeatState
 		for (item in grpOptions.members) {
 			item.targetY = bullShit - curSelected;
 			bullShit++;
-
-			item.alpha = 0.2;
-			if (item.targetY == 0) {
-				item.alpha = 1;
-			}
 		}
 	}
 

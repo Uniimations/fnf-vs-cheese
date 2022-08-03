@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DELTARUNE.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="kris bop0000" x="0" y="0" width="561" height="322" frameX="0" frameY="-3" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0001" x="0" y="0" width="561" height="322" frameX="0" frameY="-3" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0002" x="581" y="0" width="555" height="325" frameX="-3" frameY="-2" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0003" x="581" y="0" width="555" height="325" frameX="-3" frameY="-2" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0004" x="1156" y="0" width="554" height="327" frameX="-4" frameY="-1" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0005" x="1156" y="0" width="554" height="327" frameX="-4" frameY="-1" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0006" x="0" y="347" width="555" height="327" frameX="-4" frameY="-1" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0007" x="0" y="347" width="555" height="327" frameX="-4" frameY="-1" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0008" x="575" y="347" width="556" height="328" frameX="-4" frameY="0" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0009" x="575" y="347" width="556" height="328" frameX="-4" frameY="0" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0010" x="575" y="347" width="556" height="328" frameX="-4" frameY="0" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0011" x="575" y="347" width="556" height="328" frameX="-4" frameY="0" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0012" x="575" y="347" width="556" height="328" frameX="-4" frameY="0" frameWidth="561" frameHeight="328"/>
+	<SubTexture name="kris bop0013" x="575" y="347" width="556" height="328" frameX="-4" frameY="0" frameWidth="561" frameHeight="328"/>
+</TextureAtlas>

@@ -630,7 +630,7 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = 0.60;
 				staticCamZoom = 0.60;
 
-				var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+				var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
 				floor.updateHitbox();
 
 				var tSideMod:BGSprite = new BGSprite('cheese/t-side_mod', 1288.35, 279.9, 1, 1);
@@ -646,13 +646,13 @@ class PlayState extends MusicBeatState
 				stickmin.updateHitbox();
 				grpCustomTableBoppers.add(stickmin);
 
-				var joey = new BGSprite('cheese/char/joey_new', 1975.35, 115.35, 1, 1, ['joey']);
+				var joey = new BGSprite('cheese/char/joey_new', 1474.3, 222.25, 1, 1, ['joey']);
 				joey.updateHitbox();
 				grpCustomTableBoppers.add(joey);
 
-				var crystal = new BGSprite('cheese/char/crystal_bop', 2199.8, 340.2, 1, 1, ['crystal bop']);
-				crystal.updateHitbox();
-				grpCustomTableBoppers.add(crystal);
+				var circle = new BGSprite('cheese/char/circle_bop', 2199.8, 340.2, 1, 1, ['circle bop']);
+				circle.updateHitbox();
+				grpCustomTableBoppers.add(circle);
 
 				var ralsei = new BGSprite('cheese/char/ralsei_bop', 2059.45, 469.55, 1, 1, ['ralsei bop']);
 				ralsei.updateHitbox();
@@ -679,7 +679,7 @@ class PlayState extends MusicBeatState
 				defaultCamZoom = 0.60;
 				staticCamZoom = 0.60;
 
-				var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+				var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
 				floor.updateHitbox();
 
 				var tableForDeltarune:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
@@ -693,9 +693,9 @@ class PlayState extends MusicBeatState
 				sussyArgument.updateHitbox();
 				grpCustomTableBoppers.add(sussyArgument);
 
-				var ralseiAndKris = new BGSprite('cheese/char/kris_bop', 2059.45, 469.55, 1, 1, ['kris bop']);
-				ralseiAndKris.updateHitbox();
-				grpCustomTableBoppers.add(ralseiAndKris);
+				var deltaBop = new BGSprite('cheese/char/DELTARUNE', 1851.35, 468.8, 1, 1, ['kris bop']);
+				deltaBop.updateHitbox();
+				grpCustomTableBoppers.add(deltaBop);
 
 				var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
 				wall.updateHitbox();
@@ -725,14 +725,14 @@ class PlayState extends MusicBeatState
 				// local variables stated here
 				var floor:BGSprite;
 				var wall:BGSprite;
-				var twitterDotCom:BGSprite;
+				var dynamicBop:BGSprite;
 
 				floor = new BGSprite('cheese/floor_twitter', -377.9, -146.4, 1, 1);
 				floor.updateHitbox();
 
-				twitterDotCom = new BGSprite('cheese/char/MUTUAL_MOOT_OOMF', 1340.3, 9.75, 1, 1, ['TWITTER BOPPERS']);
-				twitterDotCom.updateHitbox();
-				grpCustomTableBoppers.add(twitterDotCom);
+				dynamicBop = new BGSprite('cheese/char/DYANMIC_BOPPER', 1340.3, 9.75, 1, 1, ['dynamic duo']);
+				dynamicBop.updateHitbox();
+				grpCustomTableBoppers.add(dynamicBop);
 
 				wall = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
 				wall.updateHitbox();

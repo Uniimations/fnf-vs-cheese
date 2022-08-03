@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="circle_bop.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="circle bop0000" x="0" y="0" width="76" height="98" frameX="0" frameY="-2" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0001" x="0" y="0" width="76" height="98" frameX="0" frameY="-2" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0002" x="96" y="0" width="74" height="99" frameX="-1" frameY="-1" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0003" x="96" y="0" width="74" height="99" frameX="-1" frameY="-1" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0004" x="0" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0005" x="0" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0006" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0007" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0008" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0009" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0010" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0011" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0012" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+	<SubTexture name="circle bop0013" x="93" y="119" width="73" height="100" frameX="-1" frameY="0" frameWidth="76" frameHeight="100"/>
+</TextureAtlas>

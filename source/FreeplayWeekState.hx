@@ -290,11 +290,11 @@ class FreeplayWeekState extends MusicBeatState
 		{
 			case 'all_songs':
 				addWeek(WeekData.songsNames[1], 1, songIcons[0]);
-				addWeek(WeekData.songsNames[2], 2, songIcons[1]);
+				addWeek(['Wifi', 'Casual-Duel'], 2, songIcons[1]);
 			case 'week_1':
 				addWeek(WeekData.songsNames[1], 1, songIcons[0]);
 			case 'week_2':
-				addWeek(WeekData.songsNames[2], 2, songIcons[1]);
+				addWeek(['Wifi', 'Casual-Duel'], 2, songIcons[1]);
 		}
 	}
 
