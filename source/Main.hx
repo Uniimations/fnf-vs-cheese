@@ -21,6 +21,8 @@ class Main extends Sprite
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
+	public static var autoPause:Bool = false;
+
 	public static var fpsVar:FPS;
 	//public static var memoryCounterVar:MemoryCounter;
 	public static var watermarkCheese:Sprite;
@@ -136,6 +138,6 @@ class Main extends Sprite
 		FlxG.mouse.visible = false;
 		#end
 
-		FlxG.autoPause = false;
+		FlxG.autoPause = ClientPrefs.autoPause;
 	}
 }

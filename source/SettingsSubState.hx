@@ -91,6 +91,7 @@ class SettingsSubState extends MusicBeatSubstate
 		#if !mobile
 		'FPS Counter',
 		#end
+		'Auto Pause',
 		'Watermark Icon',
 		'Note Splashes',
 		'Hide HUD',
@@ -280,6 +281,9 @@ class SettingsSubState extends MusicBeatSubstate
 						ClientPrefs.showFPS = !ClientPrefs.showFPS;
 						if(Main.fpsVar != null)
 							Main.fpsVar.visible = ClientPrefs.showFPS;
+
+					case 'Auto Pause':
+						ClientPrefs.autoPause = !ClientPrefs.autoPause;
 
 					case 'Watermark Icon':
 						ClientPrefs.showWatermark = !ClientPrefs.showWatermark;
@@ -571,6 +575,8 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "Changes how late a note is spawned.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
+			case 'Auto Pause':
+				daText = "WIP: TO APPLY THIS, YOU NEED TO GO BACK TO MAIN MENU\nAND RESTART THE GAME!!\nIf checked, pauses the game when the window is unfocused.";
 			case 'Watermark Icon':
 				daText = "If unchecked, hides the VS Cheese watermark.";
 			case 'Memory Cache':
@@ -678,6 +684,8 @@ class SettingsSubState extends MusicBeatSubstate
 				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
+					case 'Auto Pause':
+						daValue = ClientPrefs.autoPause;
 					case 'Watermark Icon':
 						daValue = ClientPrefs.showWatermark;
 					case 'High Quality':
