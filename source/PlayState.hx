@@ -1177,12 +1177,16 @@ class PlayState extends MusicBeatState
 
 		switch (song)
 		{
-			case 'manager-strike-back' | 'frosted':
+			case 'cream-cheese':
+				songArtist = 'Ghostoru';
+			case 'i-still-have-to-think-about-it':
+				songArtist = 'breadiboyo';
+			case 'below-zero' | 'dirty-cheater' | 'manager-strike-back' | 'frosted':
 				songArtist = 'Avinera';
 			case 'fat-blunt':
 				songArtist = 'Toby Fox (ft. Avinera)';
 			default:
-				songArtist = 'Uniimations';
+				songArtist = 'uniimations';
 		}
 
 		if (song == 'manager-strike-back') {
