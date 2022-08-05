@@ -42,7 +42,7 @@ class Achievements
 
 		["awww the scrunkly <3",			"Headpat Cheese on the Main Menu.",														'scrunkly',				false], //i added a heart here fuck u lol it looks cute <33
 
-		["Bookworm",					"You're a fucking streamer aren't you?!\nDon't skip dialogue AT ALL in any way.",			'evil_woops',			false],
+		["Lore Master",					"You're a fucking streamer aren't you?!\nDon't skip dialogue AT ALL in any way.",			'evil_woops',			false],
 
 		// OG RENAMED
 

@@ -391,6 +391,7 @@ class PlayState extends MusicBeatState
 		storyDifficultyText = '' + CoolUtil.difficultyStuff[storyDifficulty][0];
 
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
+		
 		if (isStoryMode)
 		{
 			var weekCustomName = 'Week ' + storyWeek;
@@ -1423,8 +1424,12 @@ class PlayState extends MusicBeatState
         }
 
 		#if desktop
-		// Updating Discord Rich Presence.
-		DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
+			// Updating Discord Rich Presence.
+			#if debug
+			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
+			#else
+			DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
+			#end
 		#end
 		super.create();
 	}
@@ -1900,9 +1905,13 @@ class PlayState extends MusicBeatState
 		}
 
 		#if desktop
-		// Updating Discord Rich Presence (with Time Left)
-		DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength);
-		trace(dad.healthIcon);
+			// Updating Discord Rich Presence (with Time Left)
+			#if debug
+			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
+			#else
+			DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength);
+			trace(dad.healthIcon);
+			#end
 		#end
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
@@ -2235,16 +2244,20 @@ class PlayState extends MusicBeatState
 			callOnLuas('onResume', []);
 
 			#if desktop
-			if (startTimer.finished)
-			{
-				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
-				trace(dad.healthIcon);
-			}
-			else
-			{
-				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
-				//trace(dad.healthIcon);
-			}
+				#if debug
+				DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
+				#else
+				if (startTimer.finished)
+				{
+					DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+					trace(dad.healthIcon);
+				}
+				else
+				{
+					DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
+					//trace(dad.healthIcon);
+				}
+				#end
 			#end
 		}
 		super.closeSubState();
@@ -2255,6 +2268,9 @@ class PlayState extends MusicBeatState
 		#if desktop
 		if (health > 0 && !paused)
 		{
+			#if debug
+			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
+			#else
 			if (Conductor.songPosition > 0.0)
 			{
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
@@ -2265,6 +2281,7 @@ class PlayState extends MusicBeatState
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
 				//trace(dad.healthIcon);
 			}
+			#end
 		}
 		#end
 
@@ -2274,10 +2291,14 @@ class PlayState extends MusicBeatState
 	override public function onFocusLost():Void
 	{
 		#if desktop
-		if (health > 0 && paused)
-		{
-			DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
-		}
+			#if debug
+			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
+			#else
+			if (health > 0 && paused)
+			{
+				DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+			}
+			#end
 		#end
 
 		super.onFocusLost();
@@ -2390,7 +2411,11 @@ class PlayState extends MusicBeatState
 
 				#if desktop
 				if(FlxG.autoPause = false) {
-				DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+					#if debug
+					DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
+					#else
+					DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+					#end
 				}
 				#end
 			}
@@ -4135,28 +4160,28 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			if (noteDiff > Conductor.safeZoneOffset * 0.69)
+			if (noteDiff > Conductor.safeZoneOffset * 0.53)
 			{
 				daRating = 'shit';
-				score = 50;
+				score = 15;
 				shits++;
 			}
 
-			else if (noteDiff > Conductor.safeZoneOffset * 0.5)
+			else if (noteDiff > Conductor.safeZoneOffset * 0.45)
 			{
 				daRating = 'bad';
-				score = 100;
+				score = 50;
 				bads++;
 			}
 
 			else if (noteDiff > Conductor.safeZoneOffset * 0.35)
 			{
 				daRating = 'good';
-				score = 200;
+				score = 150;
 				goods++;
 			}
 
-			else if (noteDiff > Conductor.safeZoneOffset * 0.25)
+			else if (noteDiff > Conductor.safeZoneOffset * 0.2)
 			{
 				daRating = 'sick';
 				score = 325;
@@ -5314,8 +5339,12 @@ class PlayState extends MusicBeatState
 		}
 
 		#if desktop
-		// Updating Discord Rich Presence.
-		DiscordClient.changePresence(detailsText,"(" + rankString + ") Misses: " + songMisses + " - " + "Combo: " + combo, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+			// Updating Discord Rich Presence.
+			#if debug
+			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
+			#else
+			DiscordClient.changePresence(detailsText,"(" + rankString + ") Misses: " + songMisses + " - " + "Combo: " + combo, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+			#end
 		#end
 
 		lastStepHit = curStep;
@@ -6382,8 +6411,12 @@ class PlayState extends MusicBeatState
 				}
 
 				#if desktop
-				DiscordClient.changePresence("Game Over", displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
-				//trace(dad.healthIcon);
+					#if debug
+					DiscordClient.changePresence('I FUCKING DIED', null, null, true);
+						#else
+					DiscordClient.changePresence("Game Over", displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+					//trace(dad.healthIcon);
+					#end
 				#end
 			}
 			deathCounter++;

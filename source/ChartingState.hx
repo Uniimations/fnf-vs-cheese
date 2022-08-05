@@ -65,6 +65,9 @@ class ChartingState extends MusicBeatState
 		'14 - toxicitii fire'
 	];
 
+	var undos = [];
+	var redos = [];
+
 	private static var eventStuff:Array<Dynamic> =
 	[
 		['', "suck DEEZ NUTS, BITCH!"],
@@ -131,6 +134,8 @@ class ChartingState extends MusicBeatState
 	var gridMult:Int = 2;
 	var curZoom:Float = 1;
 
+	var curUndoIndex = 0;
+	var curRedoIndex = 0;
 	var _song:SwagSong;
 	/*
 	 * WILL BE THE CURRENT / LAST PLACED NOTE
@@ -158,8 +163,12 @@ class ChartingState extends MusicBeatState
 	override function create()
 	{
 		#if desktop
-		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Chart Editor", StringTools.replace(PlayState.SONG.song, '-', ' '));
+			// Updating Discord Rich Presence
+			#if debug
+			DiscordClient.changePresence('I AM CHARtiNG!!! GO AWAYY DONT LOOK AT MY STATUS BITCHH!!', null, null, true);
+			#else
+			DiscordClient.changePresence("Chart Editor", StringTools.replace(PlayState.SONG.song, '-', ' '));
+			#end
 		#end
 
 		#if !UNII_CUSTOM_BUILD
@@ -262,13 +271,15 @@ class ChartingState extends MusicBeatState
 		UI_box.y = 25;
 
 		var tipText:FlxText = new FlxText(UI_box.x, UI_box.y + UI_box.height + 6, 0,
+			
 			"W/S or Mouse Wheel - Change Conductor's strum time
 			\nA or Left/D or Right - Go to the previous/next section
 			\nHold Shift to move 4x faster
 			\nHold Control and click on an arrow to select it
 			\nZ/X - Zoom in/out
 			\n
-			\nEnter - Test your chart
+			\nEsc - Test your chart inside Chart Editor
+			\nEnter - Play your chart
 			\nQ/E - Decrease/Increase Note Sustain Length
 			\nSpace - Stop/Resume song
 			\nR - Reset section\n", 16);
@@ -1105,7 +1116,13 @@ class ChartingState extends MusicBeatState
 				}
 			}
 
-			if(FlxG.keys.justPressed.Z && zoomMult > 0) {
+			if(FlxG.keys.justPressed.Z && FlxG.keys.pressed.CONTROL) {
+				undo();
+			}
+
+
+
+			if(FlxG.keys.justPressed.Z && curZoom > 0 && !FlxG.keys.pressed.CONTROL) {
 				--zoomMult;
 				updateZoom();
 			}
@@ -1697,6 +1714,21 @@ class ChartingState extends MusicBeatState
 		updateNoteUI();
 
 		autosaveSong();
+	}
+
+	// will figure this out l8r
+	function redo()
+	{
+		//_song = redos[curRedoIndex];
+	}
+
+	function undo()
+	{
+		//redos.push(_song);
+		undos.pop();
+		//_song.notes = undos[undos.length - 1];
+		///trace(_song.notes);
+		//updateGrid();
 	}
 
 	function getStrumTime(yPos:Float, doZoomCalc:Bool = true):Float
