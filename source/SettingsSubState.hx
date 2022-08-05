@@ -631,8 +631,8 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If checked, turns all the mechanics off in songs\nwith UNFAIR difficulty. Also certifies you as a pussy.";
 			case 'Input System:':
 				daText = "Choose input systems from other Friday Night Funkin' Engines.";
-			case 'Focus Window Freeze':
-				daText = "WIP: TO APPLY THIS, YOU NEED TO GO BACK TO MAIN MENU\nAND RESTART THE GAME!!\nIf checked, pauses the game when the window is unfocused.";
+			case 'Window Auto Pause':
+				daText = "If checked, pauses the game when the window is unfocused.";
 		}
 		descText.text = daText;
 
