@@ -10,7 +10,7 @@ class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
-	public static var autoPause:Bool = false;
+	public static var autoP:Bool = false;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -87,7 +87,6 @@ class ClientPrefs {
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.showFPS = showFPS;
-		FlxG.save.data.autoPause = autoPause;
 		FlxG.save.data.flashing = flashing;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
 		FlxG.save.data.noteSplashes = noteSplashes;
@@ -121,6 +120,8 @@ class ClientPrefs {
 		FlxG.save.data.specialEffects = specialEffects;
 		FlxG.save.data.cameraShake = cameraShake;
 		FlxG.save.data.camZoomOut = camZoomOut;
+
+		FlxG.autoPause = autoP;
  
 		FlxG.save.flush();
 
@@ -143,9 +144,6 @@ class ClientPrefs {
 			if(Main.fpsVar != null) {
 				Main.fpsVar.visible = showFPS;
 			}
-		}
-		if(FlxG.save.data.autoPause != null) {
-			autoPause = FlxG.save.data.autoPause;
 		}
 		if(FlxG.save.data.flashing != null) {
 			flashing = FlxG.save.data.flashing;
@@ -258,6 +256,8 @@ class ClientPrefs {
 		if(FlxG.save.data.volume != null) {
 			FlxG.sound.volume = FlxG.save.data.volume;
 		}
+
+		autoP = FlxG.autoPause;
 
 		var save:FlxSave = new FlxSave();
 		save.bind('controls', 'vscheese');

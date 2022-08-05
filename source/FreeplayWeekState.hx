@@ -157,7 +157,7 @@ class FreeplayWeekState extends MusicBeatState
 
 		//Arsen = new FlxSprite(CoolUtil.spriteOffsets[1], CoolUtil.spriteOffsets[2]);
 		if (MainMenuState.cursed) {
-			Arsen = new FlxSprite(630, 160);
+			Arsen = new FlxSprite(632, 202);
 			Arsen.frames = Paths.getSparrowAtlas('freeplay/arsen_computer_easter_egg');
 			Arsen.animation.addByPrefix('eyes', 'arsen computer bob', 24, true);
 			Arsen.antialiasing = ClientPrefs.globalAntialiasing;

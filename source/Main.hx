@@ -138,6 +138,6 @@ class Main extends Sprite
 		FlxG.mouse.visible = false;
 		#end
 
-		FlxG.autoPause = ClientPrefs.autoPause;
+		autoPause = ClientPrefs.autoP;
 	}
 }

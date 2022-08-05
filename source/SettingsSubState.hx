@@ -43,6 +43,7 @@ class SettingsSubState extends MusicBeatSubstate
 		'GAMEPLAY',
 		'APPEARANCE',
 		'CAMERA EFFECTS',
+		'WINDOW',
 		'MISCELLANEOUS'
 	];
 	static var noCheckbox:Array<String> = [
@@ -91,12 +92,16 @@ class SettingsSubState extends MusicBeatSubstate
 		#if !mobile
 		'FPS Counter',
 		#end
-		'Auto Pause',
 		'Watermark Icon',
 		'Note Splashes',
 		'Hide HUD',
 		'Hide Song Length',
 		'Hide Rating Pop Up',
+		' ',
+
+		//WINDOW CATEGORY
+		'WINDOW',
+		'Focus Window Freeze',
 		' ',
 
 		//MISC CATEGORY
@@ -282,9 +287,6 @@ class SettingsSubState extends MusicBeatSubstate
 						if(Main.fpsVar != null)
 							Main.fpsVar.visible = ClientPrefs.showFPS;
 
-					case 'Auto Pause':
-						ClientPrefs.autoPause = !ClientPrefs.autoPause;
-
 					case 'Watermark Icon':
 						ClientPrefs.showWatermark = !ClientPrefs.showWatermark;
 						if (Main.watermarkCheese != null)
@@ -397,6 +399,10 @@ class SettingsSubState extends MusicBeatSubstate
 							ClientPrefs.pussyMode = !ClientPrefs.pussyMode;
 						else
 							FlxG.sound.play(Paths.sound('cancelMenu'));
+
+					case 'Focus Window Freeze':
+						ClientPrefs.autoP = !ClientPrefs.autoP;
+						ClientPrefs.saveSettings();
 				}
 				FlxG.sound.play(Paths.sound('selectMenu'));
 				reloadValues();
@@ -575,8 +581,6 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "Changes how late a note is spawned.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
-			case 'Auto Pause':
-				daText = "WIP: TO APPLY THIS, YOU NEED TO GO BACK TO MAIN MENU\nAND RESTART THE GAME!!\nIf checked, pauses the game when the window is unfocused.";
 			case 'Watermark Icon':
 				daText = "If unchecked, hides the VS Cheese watermark.";
 			case 'Memory Cache':
@@ -627,6 +631,8 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If checked, turns all the mechanics off in songs\nwith UNFAIR difficulty. Also certifies you as a pussy.";
 			case 'Input System:':
 				daText = "Choose input systems from other Friday Night Funkin' Engines.";
+			case 'Focus Window Freeze':
+				daText = "WIP: TO APPLY THIS, YOU NEED TO GO BACK TO MAIN MENU\nAND RESTART THE GAME!!\nIf checked, pauses the game when the window is unfocused.";
 		}
 		descText.text = daText;
 
@@ -684,8 +690,6 @@ class SettingsSubState extends MusicBeatSubstate
 				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
-					case 'Auto Pause':
-						daValue = ClientPrefs.autoPause;
 					case 'Watermark Icon':
 						daValue = ClientPrefs.showWatermark;
 					case 'High Quality':
@@ -728,6 +732,8 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.camZoomOut;
 					case 'Pussy Mode':
 						daValue = ClientPrefs.pussyMode;
+					case 'Focus Window Freeze':
+						daValue = ClientPrefs.autoP;
 				}
 				checkbox.daValue = daValue;
 			}

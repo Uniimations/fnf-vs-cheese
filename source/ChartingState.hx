@@ -46,6 +46,7 @@ using StringTools;
 
 class ChartingState extends MusicBeatState
 {
+	// this is a bad way to do this but were using old psych so... lmao
 	private static var noteTypeList:Array<String> =
 	[
 		'',
