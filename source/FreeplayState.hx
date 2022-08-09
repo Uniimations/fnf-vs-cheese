@@ -244,6 +244,7 @@ class FreeplayState extends MusicBeatState
 				case 'UNFAIR SONGS':
 					MusicBeatState.switchState(new FreeplayUnfairState());
 			}
+			PressACCEPT();
 		}
 	}
 
@@ -266,5 +267,11 @@ class FreeplayState extends MusicBeatState
 		new FlxTimer().start(1, function(tmr:FlxTimer) {
 			FlxG.sound.music.fadeOut(1, 0);
 		});
+	}
+
+	private function PressACCEPT():Void
+	{
+		FlxG.sound.play(Paths.sound('confirmMenu'));
+		FlxTween.tween(FlxG.camera, { zoom: 5}, 0.9, { ease: FlxEase.expoIn });
 	}
 }

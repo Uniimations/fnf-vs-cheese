@@ -448,7 +448,7 @@ class PlayState extends MusicBeatState
 				}
 
 			// kinda sorry for this code but also kinda not... it works.
-			case 'restaurante' | 'milkshake' | 'cultured' | 'cream-cheese':
+			case 'restaurante' | 'milkshake' | 'cultured':
 				curStage = 'restaurante';
 
 				defaultCamZoom = 0.60;
@@ -623,6 +623,43 @@ class PlayState extends MusicBeatState
 						add(suzuki);
 						add(phillyBlack);
 					}
+				}
+
+			case 'cream-cheese':
+				curStage = 'restauranteCream';
+
+				defaultCamZoom = 0.60;
+				staticCamZoom = 0.60;
+
+				var floor:BGSprite = new BGSprite('bonus/cream/floor', -377.9, -146.4, 1, 1);
+				floor.updateHitbox();
+
+				var tableA:BGSprite = new BGSprite('bonus/cream/tableA', 1966.5, 283.05, 1, 1);
+				tableA.updateHitbox();
+
+				var tableB:BGSprite = new BGSprite('bonus/cream/tableB', 1936.15, 568.5, 1, 1);
+				tableB.updateHitbox();
+
+				var tSideMod:BGSprite = new BGSprite('bonus/cream/t-side_mod', 1265.6, 127.6, 1, 1);
+				tSideMod.updateHitbox();
+
+				var suzuki:BGSprite = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+
+				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+				counter.updateHitbox();
+
+				phillyBlack = new BGSprite(null, -390, -190, 1, 1);
+				phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+				phillyBlack.alpha = 0.0;
+
+				if(!ClientPrefs.fuckyouavi) {
+					suzuki.updateHitbox();
+					add(floor);
+					add(tableA);
+					add(tableB);
+					add(boppers);
+					add(suzuki);
+					add(phillyBlack);
 				}
 
 			case 'wifi':
@@ -1237,7 +1274,7 @@ class PlayState extends MusicBeatState
 		if (!song.startsWith('manager')) versionShit.text = songArtist + ' - ' + displaySongName + ' [' + CoolUtil.difficultyStuff[storyDifficulty][0] + '] | VS Cheese v' + MainMenuState.cheeseVersion;
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 40, FlxG.width, "", 20);
-		scoreTxt.setFormat(Paths.font(hudFont), 19, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		scoreTxt.setFormat(Paths.font(hudFont), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
@@ -1442,7 +1479,7 @@ class PlayState extends MusicBeatState
 
 		switch (songLC)
 		{
-			case 'tutorial' | 'restaurante' | 'milkshake' | 'cultured' | 'alter-ego':
+			case 'tutorial' | 'restaurante' | 'milkshake' | 'cultured'| 'cream-cheese' | 'alter-ego':
 				percentColor = FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]);
 			default:
 				percentColor = FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
@@ -3231,8 +3268,11 @@ class PlayState extends MusicBeatState
 										doFlash();
 										freezePogging = true;
 										snow.visible = true;
-										dadPog = true;
-										boyfriendPog = true;
+
+										if (ClientPrefs.cameraShake) {
+											dadPog = true;
+											boyfriendPog = true;
+										}
 		
 										freezeFadeTween(scoreTxt, 0, poggerLength);
 										freezeFadeTween(healthBar, 0, poggerLength);
@@ -3311,8 +3351,11 @@ class PlayState extends MusicBeatState
 										doFlash();
 										freezePogging = true;
 										snow.visible = true;
-										dadPog = true;
-										boyfriendPog = true;
+
+										if (ClientPrefs.cameraShake) {
+											dadPog = true;
+											boyfriendPog = true;
+										}
 
 										defaultCamZoom = 1.1;
 									case 1:
@@ -3398,6 +3441,9 @@ class PlayState extends MusicBeatState
 							case 1:
 								dadPog = true;
 							case 2:
+								boyfriendPog = true;
+							case 3:
+								dadPog = true;
 								boyfriendPog = true;
 						}
 					}
@@ -5127,28 +5173,30 @@ class PlayState extends MusicBeatState
 			{
 				case 0:
 					animToPlay = 'singLEFT';
-					if (boyfriendPog) {
-						bfnoteMovementXoffset = -30;
-						bfnoteMovementYoffset = 0;
-					}
 				case 1:
 					animToPlay = 'singDOWN';
-					if (boyfriendPog) {
-						bfnoteMovementYoffset = 30;
-						bfnoteMovementXoffset = 0;
-					}
 				case 2:
 					animToPlay = 'singUP';
-					if (boyfriendPog) {
-						bfnoteMovementYoffset = -30;
-						bfnoteMovementXoffset = 0;
-					}
 				case 3:
 					animToPlay = 'singRIGHT';
-					if (boyfriendPog) {
+			}
+
+			if (boyfriendPog) {
+				switch (Std.int(Math.abs(note.noteData)))
+				{
+					case 0:
+						bfnoteMovementXoffset = -30;
+						bfnoteMovementYoffset = 0;
+					case 1:
+						bfnoteMovementYoffset = 30;
+						bfnoteMovementXoffset = 0;
+					case 2:
+						bfnoteMovementYoffset = -30;
+						bfnoteMovementXoffset = 0;
+					case 3:
 						bfnoteMovementXoffset = 30;
 						bfnoteMovementYoffset = 0;
-					}
+				}
 			}
 
 			
@@ -6203,6 +6251,13 @@ class PlayState extends MusicBeatState
 						add(boyfriendGroup);
 						add(frontBoppers);
 
+					case 'restauranteCream':
+						gf.visible = true;
+						add(gfGroup);
+						add(dadGroup);
+						add(counter);
+						add(boyfriendGroup);
+
 					case 'restauranteArsen':
 						gf.visible = true;
 						add(gfGroup);
@@ -6292,6 +6347,10 @@ class PlayState extends MusicBeatState
 						if (CoolUtil.difficultyString() == HARDER_THAN_HARD) {
 							phillyCounter.dance();
 						}
+
+					case 'restauranteCream':
+						counter.dance();
+						// yea thats it lmaO
 
 					case 'restauranteDefault':
 						boppers.dance();

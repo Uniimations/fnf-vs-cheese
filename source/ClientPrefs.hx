@@ -10,7 +10,6 @@ class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
-	public static var autoP:Bool = false;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -24,7 +23,7 @@ class ClientPrefs {
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
-	public static var hideTime:Bool = false;
+	public static var hideTime:Bool = true;
 
 	// EXTRA MOD SPECIFIC OPTIONS
 	public static var shit:Bool = true;
@@ -46,6 +45,9 @@ class ClientPrefs {
 	public static var specialEffects:Bool = true;
 	public static var cameraShake:Bool = true;
 	public static var camZoomOut:Bool = true;
+
+	public static var autoP:Bool = false; //window
+	public static var gameP:Bool = false; //game
 
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left

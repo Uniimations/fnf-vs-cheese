@@ -3,7 +3,6 @@ package;
 #if desktop
 import Discord.DiscordClient;
 #end
-import flash.text.TextField;
 import flash.system.System;
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -52,7 +51,6 @@ class SettingsSubState extends MusicBeatSubstate
 		'Background Dim',
 		'Rating Pop Up Position',
 		'Framerate',
-		'Note Offset',
 	];
 
 	static var options:Array<String> = [
@@ -65,18 +63,6 @@ class SettingsSubState extends MusicBeatSubstate
 		'Rating Pop Up Position',
 		' ',
 
-		//GRAPHICS CATEGORY
-		'GRAPHICS',
-		'High Quality',
-		'Special Effects',
-		'Camera Shake',
-		'Change Zoom Amount',
-		'Background Dim',
-		#if !html5
-		'Framerate', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
-		#end
-		' ',
-
 		//GAMEPLAY CATEGORY
 		'GAMEPLAY',
 		'Downscroll',
@@ -84,30 +70,44 @@ class SettingsSubState extends MusicBeatSubstate
 		'Ghost Tapping',
 		'Miss Sounds',
 		'RESET to Game Over',
-		'Note Offset',
 		' ',
 
 		//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
 		'APPEARANCE',
-		#if !mobile
-		'FPS Counter',
-		#end
-		'Watermark Icon',
+		'Song Position',
+		'Background Dim',
+		'Camera Zoom',
 		'Note Splashes',
 		'Hide HUD',
-		'Hide Song Length',
 		'Hide Rating Pop Up',
+		' ',
+
+		//GRAPHICS CATEGORY
+		'PERFORMANCE',
+		'High Quality',
+		'Special Effects',
+		'Camera Shake',
+		'Optimized Mode',
+		'Memory Cache',
 		' ',
 
 		//WINDOW CATEGORY
 		'WINDOW',
-		'Focus Window Freeze',
+		'Window Auto Pause',
+
+		#if !html5
+		'Framerate',
+		#end
+
+		#if !mobile
+		'FPS Counter',
+		#end
+
+		'Watermark Icon',
 		' ',
 
 		//MISC CATEGORY
 		'MISCELLANEOUS',
-		'Optimized Mode',
-		'Memory Cache',
 		'Erase Save Data',
 	];
 
@@ -345,7 +345,7 @@ class SettingsSubState extends MusicBeatSubstate
 						ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;
 						FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
-					case 'Hide Song Length':
+					case 'Song Position':
 						ClientPrefs.hideTime = !ClientPrefs.hideTime;
 
 					case 'New Boyfriend Skin':
@@ -391,7 +391,7 @@ class SettingsSubState extends MusicBeatSubstate
 					case 'Camera Shake':
 						ClientPrefs.cameraShake = !ClientPrefs.cameraShake;
 
-					case 'Change Zoom Amount':
+					case 'Camera Zoom':
 						ClientPrefs.camZoomOut = !ClientPrefs.camZoomOut;
 
 					case 'Pussy Mode':
@@ -400,7 +400,7 @@ class SettingsSubState extends MusicBeatSubstate
 						else
 							FlxG.sound.play(Paths.sound('cancelMenu'));
 
-					case 'Focus Window Freeze':
+					case 'Window Auto Pause':
 						ClientPrefs.autoP = !ClientPrefs.autoP;
 						ClientPrefs.saveSettings();
 				}
@@ -455,26 +455,6 @@ class SettingsSubState extends MusicBeatSubstate
 								} else {
 									FlxG.drawFramerate = ClientPrefs.framerate;
 									FlxG.updateFramerate = ClientPrefs.framerate;
-								}
-							}
-						case 'Note Offset':
-							{
-								var mult:Int = 1;
-
-								if(holdTime > 1.5) { //Double speed after 1.5 seconds holding
-									mult = 2;
-								}
-
-								ClientPrefs.noteOffset += add * mult;
-								FlxG.log.add('changed offset');
-
-								if (ClientPrefs.noteOffset < 0) {
-									ClientPrefs.noteOffset = 0;
-									FlxG.log.add('offset min');
-								}
-								else if (ClientPrefs.noteOffset > 500) {
-									ClientPrefs.noteOffset = 500;
-									FlxG.log.add('offset max');
 								}
 							}
 						case 'Background Dim':
@@ -577,8 +557,6 @@ class SettingsSubState extends MusicBeatSubstate
 		switch(options[curSelected]) {
 			case 'Framerate':
 				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.\nWARNING: Setting your framerate above 250 may cause lag.";
-			case 'Note Offset':
-				daText = "Changes how late a note is spawned.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
 			case 'Watermark Icon':
@@ -603,8 +581,8 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "Uncheck this if you're sensitive to flashing lights.";
 			case 'Hide HUD':
 				daText = "If checked, hides your HUD.";
-			case 'Hide Song Length':
-				daText = "If checked, the bar showing the song name\nand how much time is left\nwill be hidden.";
+			case 'Song Position':
+				daText = "If checked, shows the current song position.";
 			case 'New Boyfriend Skin':
 				daText = "If unchecked, bf will have the normal skin\ninstead of the default \"remastered\" one.";
 			case 'Miss Sounds':
@@ -625,13 +603,13 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If unchecked, color changing and mechanic indicator effects\nwill be turned off in songs with camera effects.";
 			case 'Camera Shake':
 				daText = "If unchecked, won't shake and won't move as much in\nsongs with camera effects.";
-			case 'Change Zoom Amount':
+			case 'Camera Zoom':
 				daText = "If unchecked, camera will not change zoom amount in\nsongs with camera effects.";
 			case 'Pussy Mode':
 				daText = "If checked, turns all the mechanics off in songs\nwith UNFAIR difficulty. Also certifies you as a pussy.";
 			case 'Input System:':
 				daText = "Choose input systems from other Friday Night Funkin' Engines.";
-			case 'Focus Window Freeze':
+			case 'Window Auto Pause':
 				daText = "WIP: TO APPLY THIS, YOU NEED TO GO BACK TO MAIN MENU\nAND RESTART THE GAME!!\nIf checked, pauses the game when the window is unfocused.";
 		}
 		descText.text = daText;
@@ -712,7 +690,7 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.hideHud;
 					case 'Memory Cache':
 						daValue = ClientPrefs.imagesPersist;
-					case 'Hide Song Length':
+					case 'Song Position':
 						daValue = ClientPrefs.hideTime;
 					case 'New Boyfriend Skin':
 						daValue = ClientPrefs.bfreskin;
@@ -728,11 +706,11 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.specialEffects;
 					case 'Camera Shake':
 						daValue = ClientPrefs.cameraShake;
-					case 'Change Zoom Amount':
+					case 'Camera Zoom':
 						daValue = ClientPrefs.camZoomOut;
 					case 'Pussy Mode':
 						daValue = ClientPrefs.pussyMode;
-					case 'Focus Window Freeze':
+					case 'Window Auto Pause':
 						daValue = ClientPrefs.autoP;
 				}
 				checkbox.daValue = daValue;
@@ -745,8 +723,6 @@ class SettingsSubState extends MusicBeatSubstate
 				switch(options[textNumber[i]]) {
 					case 'Framerate':
 						daText = '' + ClientPrefs.framerate;
-					case 'Note Offset':
-						daText = ClientPrefs.noteOffset + 'ms';
 					case 'Background Dim':
 						daText = Math.round(ClientPrefs.bgDim * 100) + '%';
 					case 'Input System:':

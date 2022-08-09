@@ -4805,7 +4805,8 @@
 		"stage": "stage",
 		"sections": 0,
 		"needsVoices": true,
-		"arrowSkin": "noteskins/NOTE_assets_EX",
+		"splashSkin": "note-splash-skins/noteSplashes_VIP",
+		"arrowSkin": "noteskins/NOTE_assets_VIP",
 		"speed": 2.6,
 		"bpm": 138
 	}
