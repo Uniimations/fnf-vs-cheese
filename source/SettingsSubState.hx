@@ -610,11 +610,7 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'Input System:':
 				daText = "Choose input systems from other Friday Night Funkin' Engines.";
 			case 'Window Auto Pause':
-<<<<<<< HEAD
-				daText = "WIP: TO APPLY THIS, YOU NEED TO GO BACK TO MAIN MENU\nAND RESTART THE GAME!!\nIf checked, pauses the game when the window is unfocused.";
-=======
-				daText = "If checked, pauses the game when the window is unfocused.";
->>>>>>> 66821ed181f1cfd6497796176a3381bc175f1598
+				daText = "If checked, freezes the game when the window is unfocused.";
 		}
 		descText.text = daText;
 
