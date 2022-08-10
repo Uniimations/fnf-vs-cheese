@@ -28,7 +28,9 @@ class Main extends Sprite
 
 	public static var watermarkCheese:Sprite;
 
+	#if cpp
 	public static var MemoryMonitor:MemoryMonitor = new MemoryMonitor(10, 3, 0xffffff);
+	#end
 	public static var fpsVar:FPS;
 
 	public static var focusMusicTween:FlxTween;
@@ -119,8 +121,10 @@ class Main extends Sprite
 		}
 		#end
 
+		#if cpp
 		MemoryMonitor = new MemoryMonitor(10, 3, 0xFFFFFF);
 		addChild(MemoryMonitor);
+		#end
 
 		watermarkCheese = new Sprite();
         watermarkCheese.addChild(new Bitmap(bitmapData));

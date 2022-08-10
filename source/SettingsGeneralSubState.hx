@@ -31,20 +31,10 @@ using StringTools;
 	MENU FOR MOST CONTROLS INCLUDING THEIR CATEGORIES
 **/
 
-class SettingsSubState extends MusicBeatSubstate
+class SettingsGeneralSubState extends MusicBeatSubstate
 {
 	private static var curSelected:Int = 0;
 
-	static var unselectableOptions:Array<String> = [
-		' ', //for spacing out categories
-		'GENERAL',
-		'GRAPHICS',
-		'GAMEPLAY',
-		'APPEARANCE',
-		'PERFORMANCE',
-		'WINDOW',
-		'MISCELLANEOUS'
-	];
 	static var noCheckbox:Array<String> = [
 		'Input System:',
 		'Erase Save Data',
@@ -55,7 +45,6 @@ class SettingsSubState extends MusicBeatSubstate
 
 	static var options:Array<String> = [
 		//GENERAL CATEGORY
-		'GENERAL',
 		'Flashing Lights',
 		'New Boyfriend Skin',
 		'Pussy Mode',
@@ -64,7 +53,6 @@ class SettingsSubState extends MusicBeatSubstate
 		' ',
 
 		//GAMEPLAY CATEGORY
-		'GAMEPLAY',
 		'Downscroll',
 		'Middlescroll',
 		'Ghost Tapping',
@@ -73,7 +61,6 @@ class SettingsSubState extends MusicBeatSubstate
 		' ',
 
 		//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
-		'APPEARANCE',
 		'Song Position',
 		'Background Dim',
 		'Camera Zoom',
@@ -82,8 +69,7 @@ class SettingsSubState extends MusicBeatSubstate
 		'Hide Rating Pop Up',
 		' ',
 
-		//GRAPHICS CATEGORY
-		'PERFORMANCE',
+		//PERFORMANCE CATEGORY
 		'High Quality',
 		'Special Effects',
 		'Camera Shake',
@@ -92,7 +78,6 @@ class SettingsSubState extends MusicBeatSubstate
 		' ',
 
 		//WINDOW CATEGORY
-		'WINDOW',
 		'Window Auto Pause',
 
 		#if !html5
@@ -107,7 +92,6 @@ class SettingsSubState extends MusicBeatSubstate
 		' ',
 
 		//MISC CATEGORY
-		'MISCELLANEOUS',
 		'Erase Save Data',
 	];
 
@@ -149,43 +133,35 @@ class SettingsSubState extends MusicBeatSubstate
 
 		for (i in 0...options.length)
 		{
-			var isCentered:Bool = unselectableCheck(i);
 			var optionText:AlphabetWhite = new AlphabetWhite(0, 70 * i, options[i], false, false);
 			optionText.tweenType = "standard";
 
-			if(isCentered) {
-				optionText.screenCenter(X);
-				optionText.xAdd = optionText.x;
-			} else {
-				optionText.x += 60;
-				optionText.xAdd = 60;
-			}
+			optionText.x += 60;
+			optionText.xAdd = 60;
 
 			optionText.yMult = 90;
 			optionText.targetY = i;
 			grpOptions.add(optionText);
 
-			if(!isCentered) {
-				var useCheckbox:Bool = true;
-				for (j in 0...noCheckbox.length) {
-					if(options[i] == noCheckbox[j]) {
-						useCheckbox = false;
-						break;
-					}
+			var useCheckbox:Bool = true;
+			for (j in 0...noCheckbox.length) {
+				if(options[i] == noCheckbox[j]) {
+					useCheckbox = false;
+					break;
 				}
+			}
 
-				if(useCheckbox) {
-					var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 105, optionText.y, false);
-					checkbox.sprTracker = optionText;
-					checkboxArray.push(checkbox);
-					checkboxNumber.push(i);
-					add(checkbox);
-				} else {
-					var valueText:AttachedText = new AttachedText('0', optionText.width + 80);
-					valueText.sprTracker = optionText;
-					grpTexts.add(valueText);
-					textNumber.push(i);
-				}
+			if(useCheckbox) {
+				var checkbox:CheckboxThingie = new CheckboxThingie(optionText.x - 105, optionText.y, false);
+				checkbox.sprTracker = optionText;
+				checkboxArray.push(checkbox);
+				checkboxNumber.push(i);
+				add(checkbox);
+			} else {
+				var valueText:AttachedText = new AttachedText('0', optionText.width + 80);
+				valueText.sprTracker = optionText;
+				grpTexts.add(valueText);
+				textNumber.push(i);
 			}
 		}
 
@@ -222,12 +198,6 @@ class SettingsSubState extends MusicBeatSubstate
 		pauseText.alpha = 0;
 		add(pauseText);
 
-		for (i in 0...options.length) {
-			if(!unselectableCheck(i)) {
-				curSelected = i;
-				break;
-			}
-		}
 		changeSelection();
 		reloadValues();
 	}
@@ -542,13 +512,11 @@ class SettingsSubState extends MusicBeatSubstate
 
 	function changeSelection(change:Int = 0)
 	{
-		do {
-			curSelected += change;
-			if (curSelected < 0)
-				curSelected = options.length - 1;
-			if (curSelected >= options.length)
-				curSelected = 0;
-		} while(unselectableCheck(curSelected));
+		curSelected += change;
+		if (curSelected < 0)
+			curSelected = options.length - 1;
+		if (curSelected >= options.length)
+			curSelected = 0;
 
 		var daText:String = '';
 
@@ -633,18 +601,16 @@ class SettingsSubState extends MusicBeatSubstate
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 
-			if(!unselectableCheck(bullShit-1)) {
-				item.alpha = 0.2;
-				if (item.targetY == 0) {
-					item.alpha = 1;
-				}
+			item.alpha = 0.2;
+			if (item.targetY == 0) {
+				item.alpha = 1;
+			}
 
-				for (j in 0...checkboxArray.length) {
-					var tracker:FlxSprite = checkboxArray[j].sprTracker;
-					if(tracker == item) {
-						checkboxArray[j].alpha = item.alpha;
-						break;
-					}
+			for (j in 0...checkboxArray.length) {
+				var tracker:FlxSprite = checkboxArray[j].sprTracker;
+				if(tracker == item) {
+					checkboxArray[j].alpha = item.alpha;
+					break;
 				}
 			}
 		}
@@ -734,15 +700,6 @@ class SettingsSubState extends MusicBeatSubstate
 				text.sprTracker = lastTracker;
 			}
 		}
-	}
-
-	private function unselectableCheck(num:Int):Bool {
-		for (i in 0...unselectableOptions.length) {
-			if(options[num] == unselectableOptions[i]) {
-				return true;
-			}
-		}
-		return options[num] == '';
 	}
 
 	private function newBoyfriend(character:String) {

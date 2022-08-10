@@ -1,6 +1,8 @@
 package;
 
+#if cpp
 import cpp.vm.Gc;
+#end
 import openfl.events.Event;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
@@ -41,9 +43,14 @@ class MemoryMonitor extends TextField
 		// now be an ACTUAL real man and get the memory from plain & straight c++
 		var actualMem:Float = obtainMemory();
 		#else
-		// be a real man and calculate memory from hxcpp
-		var actualMem:Float = Gc.memInfo64(3); // update: this sucks
+			#if cpp
+			// be a real man and calculate memory from hxcpp
+			var actualMem:Float = Gc.memInfo64(3); // update: this sucks
+			#else
+			var actualMem:Float = 7;
+			#end
 		#end
+
 		var mem:Float = Math.round(actualMem / 1024 / 1024 * 100) / 100;
 		if (mem > memPeak)
 			memPeak = mem;
