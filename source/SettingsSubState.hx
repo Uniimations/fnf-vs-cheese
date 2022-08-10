@@ -41,7 +41,7 @@ class SettingsSubState extends MusicBeatSubstate
 		'GRAPHICS',
 		'GAMEPLAY',
 		'APPEARANCE',
-		'PERFORMANCE',
+		'CAMERA EFFECTS',
 		'WINDOW',
 		'MISCELLANEOUS'
 	];

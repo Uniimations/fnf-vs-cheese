@@ -3991,13 +3991,13 @@ class PlayState extends MusicBeatState
 	}
 
 	function moveCameraSection(?id:Int = 0):Void {
-		if (SONG.notes[id] != null && !SONG.notes[id].mustHitSection)
+		if (SONG.notes[id] != null && camFollow.x != dad.getMidpoint().x + 150 && !SONG.notes[id].mustHitSection)
 		{
 			moveCamera(true);
 			callOnLuas('onMoveCamera', ['dad']);
 		}
 
-		if (SONG.notes[id] != null && SONG.notes[id].mustHitSection)
+		if (SONG.notes[id] != null && SONG.notes[id].mustHitSection && camFollow.x != boyfriend.getMidpoint().x - 100)
 		{
 			moveCamera(false);
 			callOnLuas('onMoveCamera', ['boyfriend']);
@@ -4015,6 +4015,17 @@ class PlayState extends MusicBeatState
 			camFollow.y += dad.cameraPosition[1];
 		} else {
 			camFollow.set(boyfriend.getMidpoint().x - 100 + bfnoteMovementXoffset, boyfriend.getMidpoint().y - 100 + bfnoteMovementYoffset);
+
+			switch (curStage)
+			{
+				case 'limo':
+					camFollow.x = boyfriend.getMidpoint().x - 300;
+				case 'mall':
+					camFollow.y = boyfriend.getMidpoint().y - 200;
+				case 'school' | 'schoolEvil':
+					camFollow.x = boyfriend.getMidpoint().x - 200;
+					camFollow.y = boyfriend.getMidpoint().y - 200;
+			}
 			camFollow.x -= boyfriend.cameraPosition[0];
 			camFollow.y += boyfriend.cameraPosition[1];
 		}
@@ -5188,7 +5199,7 @@ class PlayState extends MusicBeatState
 				}
 			}
 
-
+			
 
 			//THIS ONE IS FOR BOYFRIEND
 			//FORCE ANIMATION NOTES - FORCE THE ANIMATION NO MATTER WHAT SINGER IS SET
