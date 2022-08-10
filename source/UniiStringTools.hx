@@ -35,12 +35,10 @@ class UniiStringTools
                 {
                     case 'bluecheese' | 'bluecheese-garcello' | 'bluecheese-hex' | 'bluecheese-kitchen' | 'bluecheese-spamton' | 'bluecheese-tired' | 'bluecheese-tricky' | 'bluecheese-whitty' | 'ex-bluecheese':
                         note_skin_suffix = '_CHEESE';
-                    case 'vip-bluecheese':
-                        note_skin_suffix = '_CHEESE'; 
-                    case 'bluecheese-and-suzuki':
-                        note_skin_suffix = '_SUZUCHEESE';
                     case 'avinera-frosted-tape' | 'avinera-frosted':
                         note_skin_suffix = '_AVINERA';
+                    case 'bluecheese-and-suzuki':
+                        note_skin_suffix = '_SUZUCHEESE';
                     case 'unii':
                         note_skin_suffix = '_UNII';
                     default:

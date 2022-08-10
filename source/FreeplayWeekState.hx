@@ -509,12 +509,6 @@ class FreeplayWeekState extends MusicBeatState
 				}
 			}
 
-			if(FlxG.mouse.wheel != 0)
-			{
-				changeSelection(-FlxG.mouse.wheel, false);
-				changeDiff();
-			}
-
 			//completely rewrote the code for this! I'm proud of myself
 
 			//difficulty dependencies
@@ -735,13 +729,9 @@ class FreeplayWeekState extends MusicBeatState
 		reposScoreText();
 	}
 
-	function changeSelection(change:Int = 0, ?scrolling:Bool = true)
+	function changeSelection(change:Int = 0)
 	{
-		if (scrolling == true)
-			FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
-		else
-			FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
-
+		FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
 		ArsenHand.animation.play('idleBop', true);
 
 		curSelected += change;

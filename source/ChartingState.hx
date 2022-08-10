@@ -80,7 +80,7 @@ class ChartingState extends MusicBeatState
 		['Add Camera Zoom', "Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."],
 		['Change CamZoom', "Old CamZoom changing.\n0 to Reset.\nValue 1: 1-9"],
 		['Change NumZoom', "Camera zoom number\nValue 1: defaultCamZoom"],
-		['Set CamPog', "NOTE: You have to set it individually\nthere is no trigger for both\nValue 1:\n0: Reset\n1: dad\n2: bf\n3: both!!"],
+		['Set CamPog', "NOTE: You have to set it individually\nthere is no trigger for both\nValue 1:\n0: Reset\n1: dad\n2: bf"],
 		['Camera Follow Pos', "Value 1: X\nValue 2: Y\n\nThe camera won't change the follow point\nafter using this, for getting it back\nto normal, leave both values blank."],
 		['Screen Shake', "Value 1: Camera shake\nValue 2: HUD shake\n\nEvery value works as the following example: \"1, 0.1\".\nThe first number (1) is the duration.\nThe second number (0.05) is the intensity."],
 		['Flash', "Value 1: Duration/Length of flash."],

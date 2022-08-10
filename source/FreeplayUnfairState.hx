@@ -354,19 +354,248 @@ class FreeplayUnfairState extends MusicBeatState
 		{
 			if (upP)
 			{
-				changeSelection(-1);
+				switch (songLowercase)
+				{
+					case 'tutorial':
+						{
+							if (FlxG.save.data.beatBonus)
+							{
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+								{
+									changeShit();
+								}, 2);
+								new FlxTimer().start(0.4, function(tmr:FlxTimer)
+								{
+									changeSelection(-1);
+								});
+							}
+							else
+							{
+								changeSelection(-1);
+							}
+						}
+					case 'restaurante': //SONGS WITH VIP DIFFICULTY
+						{
+							if (curDifficulty == 2)
+								{
+									new FlxTimer().start(0.1, function(tmr:FlxTimer)
+										{
+											changeShit();
+										}, 2);
+									new FlxTimer().start(0.4, function(tmr:FlxTimer)
+										{
+											changeSelection(-1); 
+											if(colorTween != null) {
+												colorTween.cancel();
+											}
+											intendedColor = 0xFF8B3551;
+											colorTween = FlxTween.color(pcLight, 1, pcLight.color, 0xFF8B3551, {
+												onComplete: function(twn:FlxTween) {
+													colorTween = null;
+												}
+											});
+										});
+								}
+							else
+								{
+									changeSelection(-1);
+								}
+						}
+					case 'milkshake':
+						{
+							changeSelection(-1);
+							if (curDifficulty == 2) {
+								if(colorTween != null) {
+									colorTween.cancel();
+								}
+								intendedColor = exColor;
+								colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
+									onComplete: function(twn:FlxTween) {
+										colorTween = null;
+									}
+								});
+							}
+						}
+					case 'cultured':
+						{
+							changeSelection(-1);
+							if (curDifficulty == 2) {
+								if(colorTween != null) {
+									colorTween.cancel();
+								}
+								intendedColor = exColor;
+								colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
+									onComplete: function(twn:FlxTween) {
+										colorTween = null;
+									}
+								});
+							}
+						}
+					case 'wifi':
+						{
+							forcedColor = false;
+							changeSelection(-1);
+						}
+					case 'dynamic-duo':
+						{
+							forcedColor = true;
+							forceColorChange(0xFFff1f1f);
+							changeSelection(-1);
+						}
+					case 'below-zero':
+						{
+							forcedColor = true;
+							forceColorChange(0xFFc852ff);
+							changeSelection(-1);
+						}
+					case 'manager-strike-back':
+						{
+							if (curDifficulty == 3)
+								{
+									new FlxTimer().start(0.1, function(tmr:FlxTimer)
+										{
+											changeShit();
+										}, 2);
+									new FlxTimer().start(0.4, function(tmr:FlxTimer)
+										{
+											changeSelection(-1);
+										});
+								}
+						}
+					default:
+						changeSelection(-1);
+				}
 			}
 
 			if (downP)
 			{
-				changeSelection(1);
+				switch (songLowercase)
+				{
+					case 'restaurante':
+						{
+							changeSelection(1);
+							if (curDifficulty ==  2)
+								{
+									if(colorTween != null) {
+										colorTween.cancel();
+									}
+									intendedColor = exColor;
+									colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
+										onComplete: function(twn:FlxTween) {
+											colorTween = null;
+										}
+									});
+								}
+						}
+					case 'milkshake':
+						{
+							if (curDifficulty == 2 && !songLowercase.startsWith('restaurante'))
+								{
+									changeSelection(1);
+									if(colorTween != null) {
+										colorTween.cancel();
+									}
+									intendedColor = exColor;
+									colorTween = FlxTween.color(pcLight, 1, pcLight.color, exColor, {
+										onComplete: function(twn:FlxTween) {
+											colorTween = null;
+										}
+									});
+								}
+							else
+								{
+									changeSelection(1);
+								}
+						}
+					case 'cultured':
+						{
+							if (curDifficulty == 2 && !songLowercase.startsWith('milkshake'))
+								{
+									new FlxTimer().start(0.1, function(tmr:FlxTimer)
+										{
+											changeShit();
+										}, 2);
+									new FlxTimer().start(0.4, function(tmr:FlxTimer)
+										{
+											changeSelection(1);
+											if(colorTween != null) {
+												colorTween.cancel();
+											}
+											intendedColor = newColor;
+											colorTween = FlxTween.color(pcLight, 1, pcLight.color, intendedColor, {
+												onComplete: function(twn:FlxTween) {
+													colorTween = null;
+												}
+											});
+										});
+								}
+							else
+								{
+									changeSelection(1);
+								}
+						}
+					case 'wifi':
+						{
+							forcedColor = true;
+							forceColorChange(0xFFff1f1f);
+							changeSelection(1);
+						}
+					case 'casual-duel':
+						{
+							forcedColor = true;
+							forceColorChange(0xFFc852ff);
+							changeSelection(1);
+						}
+					case 'dynamic-duo':
+						{
+							if (FlxG.save.data.beatAlternateEnd) {
+								forcedColor = true;
+								forceColorChange(0xFF6260bd);
+							} else {
+								forcedColor = false;
+							}
+
+							changeSelection(1);
+						}
+					case 'below-zero':
+						{
+							forcedColor = false;
+							if (FlxG.save.data.beatBonus)
+							{
+								new FlxTimer().start(0.1, function(tmr:FlxTimer)
+									{
+										changeShit();
+									}, 2);
+								new FlxTimer().start(0.4, function(tmr:FlxTimer)
+									{
+										changeSelection(1);
+									});
+							}
+							else
+							{
+								changeSelection(1);
+							}
+						}
+					case 'alter-ego':
+						{
+							if (curDifficulty == 3)
+								{
+									new FlxTimer().start(0.1, function(tmr:FlxTimer)
+										{
+											changeShit();
+										}, 2);
+									new FlxTimer().start(0.4, function(tmr:FlxTimer)
+										{
+											changeSelection(1);
+										});
+								}
+						}
+					default:
+						changeSelection(1);
+				}
 			}
 
-			if(FlxG.mouse.wheel != 0)
-			{
-				changeSelection(-FlxG.mouse.wheel, false);
-				changeDiff();
-			}
+			//completely rewrote the code for this! I'm proud of myself
 
 			//difficulty dependencies
 			if (controls.UI_LEFT_P || controls.UI_RIGHT_P)
@@ -474,12 +703,10 @@ class FreeplayUnfairState extends MusicBeatState
 		reposScoreText();
 	}
 
-	function changeSelection(change:Int = 0, ?scrolling:Bool = true)
+	function changeSelection(change:Int = 0)
 	{
-		if (scrolling == true)
-			FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
-		else
-			FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
+		FlxG.sound.play(Paths.sound('scrollMouse'), 0.6);
+		ArsenHand.animation.play('idleBop', true);
 
 		curSelected += change;
 
