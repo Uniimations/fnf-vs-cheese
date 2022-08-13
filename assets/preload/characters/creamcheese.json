@@ -3,17 +3,6 @@
 		{
 			"offsets": [
 				0,
-				0
-			],
-			"loop": false,
-			"anim": "idle",
-			"fps": 24,
-			"name": "cheese idle",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
 				-53
 			],
 			"loop": false,
@@ -98,6 +87,39 @@
 			"fps": 24,
 			"name": "cream right-",
 			"indices": []
+		},
+		{
+			"loop": true,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "cheese SCARY",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-default",
+			"fps": 24,
+			"name": "cheese idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				4
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "lighter",
+			"loop": false,
+			"name": "cheese lighter"
 		}
 	],
 	"no_antialiasing": false,

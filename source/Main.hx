@@ -24,7 +24,9 @@ class Main extends Sprite
 	public static var autoPause:Bool = false;
 
 	public static var fpsVar:FPS;
-	//public static var memoryCounterVar:MemoryCounter;
+	#if cpp
+	public static var MemoryMonitor:MemoryMonitor = new MemoryMonitor(10, 3, 0xffffff);
+	#end
 	public static var watermarkCheese:Sprite;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
@@ -32,6 +34,10 @@ class Main extends Sprite
 	// stfu suck my nuts im gonna kill everything!!! -unii
 
 	// i did kill everything and i am happy :]
+
+	// oh.
+
+	// damn this broke the game for a period of time fuck you past unii's
 
 	public static function main():Void
 	{
@@ -109,14 +115,11 @@ class Main extends Sprite
 		if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
+		#end
 
-		/*
-		memoryCounterVar = new MemoryCounter(10, 3, 0xFFFFFF);
-		addChild(memoryCounterVar);
-		if(memoryCounterVar != null) {
-			memoryCounterVar.visible = ClientPrefs.showMemory;
-		}
-		*/
+		#if cpp
+		MemoryMonitor = new MemoryMonitor(10, 3, 0xFFFFFF);
+		addChild(MemoryMonitor);
 		#end
 
 		watermarkCheese = new Sprite();
@@ -139,5 +142,17 @@ class Main extends Sprite
 		#end
 
 		autoPause = ClientPrefs.autoP;
+	}
+
+	function onWindowFocusOut()
+	{
+		// Conserve power by lowering draw framerate when unfocuced
+		FlxG.drawFramerate = 60;
+	}
+
+	function onWindowFocusIn()
+	{
+		// Bring framerate back when focused
+		FlxG.drawFramerate = ClientPrefs.framerate;
 	}
 }

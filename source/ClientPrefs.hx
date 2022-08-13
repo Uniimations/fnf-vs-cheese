@@ -10,7 +10,6 @@ class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var showFPS:Bool = true;
-	public static var autoP:Bool = false;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
@@ -46,6 +45,8 @@ class ClientPrefs {
 	public static var specialEffects:Bool = true;
 	public static var cameraShake:Bool = true;
 	public static var camZoomOut:Bool = true;
+
+	public static var autoP:Bool = false;
 
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left

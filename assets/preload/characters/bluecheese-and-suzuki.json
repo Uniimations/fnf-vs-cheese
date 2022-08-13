@@ -1,124 +1,79 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "idle",
-			"indices": [],
-			"name": "cheese idle"
+			"fps": 24,
+			"name": "cheese idle",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "cheese left"
+			"fps": 24,
+			"name": "cheese left",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "cheese right"
+			"fps": 24,
+			"name": "cheese right",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"fps": 24,
+			"loop": false,
 			"anim": "singUP",
-			"indices": [],
-			"name": "cheese up"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
 			"fps": 24,
+			"name": "cheese up",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "cheese down"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "freestyle",
-			"fps": 30,
-			"name": "cheese freestyle",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "pog",
-			"fps": 30,
-			"name": "cheese pog",
+			"fps": 24,
+			"name": "cheese down",
 			"indices": []
 		},
 		{
 			"offsets": [
 				0,
-				0
+				1
 			],
 			"indices": [],
-			"fps": 30,
-			"anim": "keychange",
+			"fps": 24,
+			"anim": "shut",
 			"loop": false,
-			"name": "cheese keychange"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"indices": [],
-			"fps": 30,
-			"anim": "cultured",
-			"loop": false,
-			"name": "cheese cultured"
-		},
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"indices": [],
-			"fps": 30,
-			"anim": "yo",
-			"loop": false,
-			"name": "cheese yo"
+			"name": "cheese shut"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Cheese_Assets",
+	"image": "characters/dynamic-duo-full/Cheese_Dynamic",
 	"position": [
 		470,
 		140
 	],
 	"healthicon": "cheezuki",
-	"noteskin": "NOTES_BLUECHEESE",
 	"flip_x": false,
 	"healthbar_colors": [
 		125,
@@ -130,5 +85,6 @@
 		173
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }

@@ -1,13 +1,14 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "danceLeft",
+			"fps": 24,
+			"name": "suzuki idle",
 			"indices": [
 				0,
 				1,
@@ -24,17 +25,17 @@
 				12,
 				13,
 				14
-			],
-			"name": "suzuki idle"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "danceRight",
+			"fps": 24,
+			"name": "suzuki idle",
 			"indices": [
 				15,
 				16,
@@ -51,52 +52,62 @@
 				27,
 				28,
 				29
-			],
-			"name": "suzuki idle"
+			]
 		},
 		{
+			"loop": false,
 			"offsets": [
 				7,
 				4
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "suzuki left"
+			"fps": 24,
+			"name": "suzuki left",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-21,
-				-30
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				-22,
+				-31
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "suzuki down"
-		},
-		{
-			"offsets": [
-				-7,
-				-8
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "suzuki up"
+			"name": "suzuki down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
-				-49,
+				-5,
+				-7
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "suzuki up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-51,
 				-18
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "suzuki right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				43,
+				-1
+			],
 			"indices": [],
-			"name": "suzuki right"
+			"fps": 24,
+			"anim": "long",
+			"loop": false,
+			"name": "suzuki long"
 		}
 	],
 	"no_antialiasing": false,

@@ -833,8 +833,8 @@
 						84292.6829268292,
 						-1,
 						"Set Singer",
-						"reset",
-						"reset"
+						"unii",
+						"cheese"
 					]
 				],
 				"bpm": 0,
@@ -916,15 +916,7 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						93658.5365853657,
-						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
-					]
-				],
+				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1024,50 +1016,7 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						105365.853658536,
-						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
-					]
-				],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						107707.317073171,
-						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
-					]
-				],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						110006.707317073,
+						105475.609756097,
 						-1,
 						"Set Singer",
 						"avinera",
@@ -1083,6 +1032,41 @@
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						110162.195121951,
+						-1,
+						"Set Singer",
+						"unii",
+						"suzuki"
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1182,11 +1166,11 @@
 						118243.902439024,
 						-1,
 						"Set Singer",
-						"unii",
+						"avinera",
 						"suzuki"
 					],
 					[
-						119389.024390244,
+						119405.487804878,
 						-1,
 						"Set Singer",
 						"avinera",
@@ -1203,11 +1187,18 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						120563.414634146,
+						119414.634146341,
 						-1,
-						"Set Singer",
-						"unii",
-						"suzuki"
+						"Play Animation",
+						"long",
+						"2"
+					],
+					[
+						119707.317073171,
+						-1,
+						"Alt Idle Animation",
+						"2",
+						"-long"
 					]
 				],
 				"bpm": 0,
@@ -1231,9 +1222,9 @@
 					[
 						121756.097560975,
 						-1,
-						"Set Singer",
-						"avinera",
-						"cheese"
+						"Play Animation",
+						"shut",
+						"0"
 					]
 				],
 				"bpm": 0,
@@ -1244,7 +1235,22 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						122926.829268293,
+						-1,
+						"Alt Idle Animation",
+						"2",
+						""
+					],
+					[
+						123000,
+						-1,
+						"Alt Idle Animation",
+						"2",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1258,8 +1264,8 @@
 						124097.56097561,
 						-1,
 						"Set Singer",
-						"avinera",
-						"suzuki"
+						"unii",
+						"cheese"
 					]
 				],
 				"bpm": 0,
@@ -1272,33 +1278,7 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						126376.829268293,
-						-1,
-						"Set Singer",
-						"avinera",
-						"suzuki"
-					]
-				],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						128727.43902439,
+						126402.43902439,
 						-1,
 						"Set Singer",
 						"unii",
@@ -1313,9 +1293,60 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						129878.048780488,
+						131079.87804878,
+						-1,
+						"Set Singer",
+						"avinera",
+						"reset"
+					]
+				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						132283.536585366,
+						-1,
+						"Flash",
+						"1",
+						""
+					],
+					[
+						132274.390243902,
 						-1,
 						"Set Singer",
 						"unii",
@@ -1332,46 +1363,20 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						129951.219512195,
-						-1,
-						"Comic Spawn",
-						"1",
-						"1"
-					],
-					[
-						129987.804878049,
+						132301.829268292,
 						-1,
 						"Comic Toggle",
 						"true",
 						"true"
-					]
-				],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [
+					],
 					[
-						131121.951219512,
+						132292.682926829,
 						-1,
-						"Set Singer",
-						"unii",
-						"cheese"
+						"Comic Spawn",
+						"1",
+						"1"
 					]
 				],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1386,6 +1391,32 @@
 						-1,
 						"Set Singer",
 						"unii",
+						"cheese"
+					]
+				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						135804.87804878,
+						-1,
+						"Set Singer",
+						"unii",
 						"suzuki"
 					]
 				],
@@ -1417,11 +1448,11 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						138111.585365854,
+						140447.56097561,
 						-1,
 						"Set Singer",
 						"avinera",
-						"suzuki"
+						"cheese"
 					]
 				],
 				"bpm": 0,
@@ -1443,10 +1474,136 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						140451.219512195,
+						142820.121951219,
 						-1,
 						"Flash",
 						"1",
+						""
+					],
+					[
+						142810.975609756,
+						-1,
+						"Set Singer",
+						"avinera",
+						"reset"
+					]
+				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						142829.268292683,
+						-1,
+						"Change Character",
+						"0",
+						"dd-avinera-guitar"
+					],
+					[
+						142838.414634146,
+						-1,
+						"Set Singer",
+						"avinera",
+						"cheese"
+					],
+					[
+						143121.951219512,
+						-1,
+						"Comic Toggle",
+						"0",
+						"0"
+					]
+				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						147512.195121951,
+						-1,
+						"Set Singer",
+						"avinera",
+						"cheese"
+					]
+				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						152195.12195122,
+						-1,
+						"Flash",
+						"2",
 						""
 					]
 				],
@@ -1458,29 +1615,61 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [
-					[
-						140780.487804878,
-						-1,
-						"Comic Toggle",
-						"false",
-						"false"
-					],
-					[
-						140487.804878049,
-						-1,
-						"Change Character",
-						"0",
-						"dd-avinera-guitar"
-					],
-					[
-						140524.390243902,
-						-1,
-						"Set Singer",
-						"avinera",
-						"cheese"
-					]
-				],
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
