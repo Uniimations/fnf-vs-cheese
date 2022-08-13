@@ -5444,7 +5444,7 @@ class PlayState extends MusicBeatState
 				}
 				camZooming = true;
 
-			case 'CHANGEHTIS LATER uhh yea':
+			case 'dynamic-duo':
 				switch (curBeat)
 				{
 					case 32:
@@ -5484,84 +5484,84 @@ class PlayState extends MusicBeatState
 					case 336:
 						gameZoom = 0.022;
 						hudZoom = 0.03;
-					case 348:
+					case 350:
 						camHUD.alpha = 0; //camhud hide
 						phillyFade.alpha = 1;
 						camPercentFloat = 4;
 						gameZoom = 0.020;
 						hudZoom = 0.10;
 						introThree('default', true);
-					case 349:
-						introTwo('default', true);
-					case 350:
-						introOne('default', true);
 					case 351:
+						introTwo('default', true);
+					case 352:
+						introOne('default', true);
+					case 353:
 						defaultCamZoom = 0.65;
 						introGo('default', true);
-					case 352:
+					case 354:
 						camHUD.alpha = 1; //camhud show
 						phillyFade.alpha = 0;
 						camPercentFloat = 1;
 						gameZoom = 0.020;
 						hudZoom = 0.03;
 						defaultCamZoom = 0.60;
-					case 380:
-						introThree('default', true);
-					case 381:
-						introTwo('default', true);
 					case 382:
-						introOne('default', true);
+						introThree('default', true);
 					case 383:
-						introGo('default', true);
+						introTwo('default', true);
 					case 384:
+						introOne('default', true);
+					case 385:
+						introGo('default', true);
+					case 386:
 						camPercentFloat = 2;
 						gameZoom = 0.010;
 						hudZoom = 0.03;
 						defaultCamZoom = 0.80;
-					case 385 | 387 | 389 | 391 | 393 | 395:
+					case 387 | 389 | 391 | 393 | 395 | 397:
 						introGo('default', true);
-					case 396:
-						introThree('default', true);
-					case 397:
-						introTwo('default', true);
 					case 398:
-						introOne('default', true);
+						introThree('default', true);
 					case 399:
+						introTwo('default', true);
+					case 400:
+						introOne('default', true);
+					case 401:
 						introGo('default', true);
-					case 408:
+					case 410:
 						defaultCamZoom = 0.85;
-					case 401 | 403 | 405 | 407 | 409 | 411 | 413:
+					case 403 | 405 | 407 | 409 | 411 | 413 | 415:
 						introGo('default', true);
-					case 414:
+					case 416:
 						camHUD.alpha = 0; //camhud hide
 						phillyFade.alpha = 1;
-					case 416:
+					case 418:
 						camHUD.alpha = 1; //camhud show
 						defaultCamZoom = 0.75;
 						phillyFade.alpha = 0;
 						camPercentFloat = 1;
 						gameZoom = 0.015;
 						hudZoom = 0.03;
-					case 444:
+					case 446:
 						defaultCamZoom = 0.82;
 						introThree('default', true);
-					case 445:
-						introTwo('default', true);
-					case 446:
-						introOne('default', true);
 					case 447:
-						introGo('default', true);
+						introTwo('default', true);
 					case 448:
+						introOne('default', true);
+					case 449:
+						introGo('default', true);
+					case 450:
 						phillyFade.alpha = 0;
 						camPercentFloat = 1;
 						gameZoom = 0.020;
 						hudZoom = 0.03;
 						defaultCamZoom = 0.60;
-					case 504:
+					case 506:
 						defaultCamZoom = 0.66;
-					case 508:
+					case 510:
 						defaultCamZoom = 0.70;
-					case 512:
+					case 514:
 						camPercentFloat = 4;
 						gameZoom = 0;
 						hudZoom = 0;
@@ -5570,7 +5570,7 @@ class PlayState extends MusicBeatState
 						//big zoom for avi final strum
 						FlxG.camera.zoom += 0.40;
 						camHUD.zoom += 0.20;
-					case 516:
+					case 518:
 						boyfriend2.dance();
 						daniTriangle.dance();
 				}
