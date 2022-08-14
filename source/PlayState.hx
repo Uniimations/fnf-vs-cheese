@@ -1461,6 +1461,8 @@ class PlayState extends MusicBeatState
                 rpcIcon = dad.healthIcon;
         }
 
+		openfl.system.System.gc(); 
+
 		#if desktop
 			// Updating Discord Rich Presence.
 			#if debug
@@ -2193,11 +2195,8 @@ class PlayState extends MusicBeatState
 
 			babyArrow.updateHitbox();
 			babyArrow.scrollFactor.set();
-
 			babyArrow.y -= 10;
 			babyArrow.alpha = 0;
-			FlxTween.tween(babyArrow, {y: babyArrow.y + 10, alpha: 1}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
-
 			babyArrow.ID = i;
 
 			switch (playerArrow)
@@ -2211,6 +2210,8 @@ class PlayState extends MusicBeatState
 			babyArrow.playAnim('static');
 			babyArrow.x += 50;
 			babyArrow.x += ((FlxG.width / 2) * playerArrow);
+
+			FlxTween.tween(babyArrow, {y: babyArrow.y + 10, alpha: 1}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
 
 			strumLineNotes.add(babyArrow);
 		}
@@ -4149,7 +4150,6 @@ class PlayState extends MusicBeatState
 				changedDifficulty = false;
 
 				MainMenuState.cursed = false; // makes you not cursed
-				FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 			}
 		});
 	}
@@ -4234,7 +4234,7 @@ class PlayState extends MusicBeatState
 				goods++;
 			}
 
-			else if (noteDiff > Conductor.safeZoneOffset * 0.2)
+			else if (noteDiff > Conductor.safeZoneOffset * 0.17)
 			{
 				daRating = 'sick';
 				score = 325;
@@ -5484,13 +5484,9 @@ class PlayState extends MusicBeatState
 					case 336:
 						gameZoom = 0.022;
 						hudZoom = 0.03;
+					/*
 					case 350:
-						camHUD.alpha = 0; //camhud hide
-						phillyFade.alpha = 1;
-						camPercentFloat = 4;
-						gameZoom = 0.020;
-						hudZoom = 0.10;
-						introThree('default', true);
+						
 					case 351:
 						introTwo('default', true);
 					case 352:
@@ -5520,65 +5516,64 @@ class PlayState extends MusicBeatState
 						defaultCamZoom = 0.80;
 					case 387 | 389 | 391 | 393 | 395 | 397:
 						introGo('default', true);
-					case 398:
-						introThree('default', true);
-					case 399:
-						introTwo('default', true);
-					case 400:
-						introOne('default', true);
-					case 401:
-						introGo('default', true);
-					case 410:
-						defaultCamZoom = 0.85;
-					case 403 | 405 | 407 | 409 | 411 | 413 | 415:
-						introGo('default', true);
-					case 416:
+					*/
+					case 420:
 						camHUD.alpha = 0; //camhud hide
 						phillyFade.alpha = 1;
-					case 418:
-						camHUD.alpha = 1; //camhud show
-						defaultCamZoom = 0.75;
-						phillyFade.alpha = 0;
-						camPercentFloat = 1;
-						gameZoom = 0.015;
-						hudZoom = 0.03;
-					case 446:
-						defaultCamZoom = 0.82;
+						camPercentFloat = 4;
+						gameZoom = 0.020;
+						hudZoom = 0.10;
 						introThree('default', true);
-					case 447:
+					case 421:
 						introTwo('default', true);
-					case 448:
+					case 422:
 						introOne('default', true);
-					case 449:
+					case 423:
+						defaultCamZoom = 0.65;
 						introGo('default', true);
-					case 450:
+					case 424:
+						camHUD.alpha = 1; //camhud show
 						phillyFade.alpha = 0;
 						camPercentFloat = 1;
 						gameZoom = 0.020;
 						hudZoom = 0.03;
 						defaultCamZoom = 0.60;
-					case 506:
+					case 436 | 452:
+						introThree('default', true);
+					case 437 | 453:
+						introTwo('default', true);
+					case 438 | 454:
+						introOne('default', true);
+					case 439 | 455:
+						introGo('default', true);
+					case 456:
+						camPercentFloat = 1;
+						gameZoom = 0.020;
+						hudZoom = 0.03;
+						defaultCamZoom = 0.60;
+					case 512:
 						defaultCamZoom = 0.66;
-					case 510:
+					case 516:
 						defaultCamZoom = 0.70;
-					case 514:
+					case 519:
 						camPercentFloat = 4;
 						gameZoom = 0;
 						hudZoom = 0;
+					case 520:
 						defaultCamZoom = 0.59;
 
 						//big zoom for avi final strum
 						FlxG.camera.zoom += 0.40;
 						camHUD.zoom += 0.20;
-					case 518:
+					case 524:
 						boyfriend2.dance();
 						daniTriangle.dance();
 				}
 				switch (curBeat) //unii camera function
 				{
-					case 80 | 120 | 152 | 192 | 220 | 226 | 248 | 280 | 336 | 368 | 384 | 412 | 440 | 464:
+					case 80 | 120 | 152 | 192 | 220 | 226 | 248 | 280 | 336 | 376 | 440 | 452 | 472:
 						setUniiCam(true); //focus on unii
-					case 96 | 128 | 160 | 194 | 224 | 232 | 256 | 288 | 352 | 376 | 388 | 416 | 448 | 472:
+					case 96 | 128 | 160 | 194 | 224 | 232 | 256 | 288 | 352 | 388 | 448 | 456 | 480:
 						setUniiCam(false); //focus on must hit sectionz
 				}
 			case 'manager-strike-back': //rewritten box hud effects.
@@ -6078,7 +6073,6 @@ class PlayState extends MusicBeatState
 		changedDifficulty = false;
 
 		MainMenuState.cursed = false; // makes you not cursed
-		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 	}
 
 	private function backToMenu():Void {
@@ -6197,7 +6191,7 @@ class PlayState extends MusicBeatState
 
 					case 'toastie':
 						// run the game with shit settings basically LOL
-						if (!ClientPrefs.globalAntialiasing && !ClientPrefs.imagesPersist && !ClientPrefs.specialEffects && ClientPrefs.fuckyouavi) {
+						if (!ClientPrefs.globalAntialiasing && !ClientPrefs.specialEffects && ClientPrefs.fuckyouavi) {
 							unlock = true;
 						}
 				}
