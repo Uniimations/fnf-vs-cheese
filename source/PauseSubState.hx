@@ -175,20 +175,6 @@ class PauseSubState extends MusicBeatSubstate
 						hasNoPoses = true;
 						hasTwoDances = true;
 				}
-			case 'mozzarella':
-				switch (randomChance)
-				{
-					case 0:
-						newCharacter(740, 340, "bluecheese", false, true);
-					case 1:
-						newCharacter(893, 150, "bob-unii-style", true);
-					case 2:
-						newCharacter(900, 180, "bosip-unii-style", true);
-					case 3:
-						newCharacter(910, 150, "bob", true);
-					case 4:
-						newCharacter(895, 165, "bosip", false, true);
-				}
 			case 'manager-strike-back':
 				switch (randomChance)
 				{
@@ -393,11 +379,6 @@ class PauseSubState extends MusicBeatSubstate
 					});
 
 					MainMenuState.cursed = false; // makes you not cursed
-					FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
-
-				/*case 'BACK':
-					menuItems = menuItemsOG;
-					regenMenu();*/
 			}
 		}
 

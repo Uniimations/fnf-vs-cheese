@@ -123,7 +123,7 @@ class Paths
 
 	inline static public function voices_vip(song:String)
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/VoicesEX.$SOUND_EXT';
+		return 'songs:assets/songs/${song.toLowerCase()}/VoicesVIP.$SOUND_EXT';
 	}
 
 	inline static public function inst(song:String)
@@ -133,18 +133,22 @@ class Paths
 
 	inline static public function inst_vip(song:String)
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/InstEX.$SOUND_EXT';
+		return 'songs:assets/songs/${song.toLowerCase()}/InstVIP.$SOUND_EXT';
 	}
 
-	inline static public function image(key:String, ?library:String):Dynamic
+	// im so fucking based
+	// sorry this is from indie cross-
+	inline static public function image(key:String, ?library:String, ?needsPixelAccess:Bool = true):Dynamic
 	{
-		#if MODS_ALLOWED
-		var imageToReturn:FlxGraphic = addCustomGraphic(key);
-		if(imageToReturn != null) return imageToReturn;
-		#end
-		return getPath('images/$key.png', IMAGE, library);
+		var imagePath:String = getPath('images/$key.png', IMAGE, library);
+
+		if (needsPixelAccess)
+			return imagePath;
+
+		var daBitmap = GPUFunctions.bitmapToGPU(imagePath);
+		return daBitmap;
 	}
-	
+
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
 	{
 		#if sys

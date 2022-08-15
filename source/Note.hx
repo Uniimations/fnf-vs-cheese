@@ -78,7 +78,6 @@ class Note extends FlxSprite
 		return value;
 	}
 
-	var isPixel:Bool = false;
 	var daSong:String = PlayState.SONG.song.toLowerCase();
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false)
 	{
@@ -107,35 +106,12 @@ class Note extends FlxSprite
 
 		var daStage:String = PlayState.curStage;
 
-		switch (daStage)
-		{
-			case 'school' | 'schoolEvil':
-				if (isSustainNote)
-				{
-					loadGraphic(Paths.image('weeb/pixelUI/NOTE_assetsENDS'));
-					width = width / 4;
-					height = height / 2;
-					loadGraphic(Paths.image('weeb/pixelUI/NOTE_assetsENDS'), true, Math.floor(width), Math.floor(height));
-				} else {
-					loadGraphic(Paths.image('weeb/pixelUI/NOTE_assets'));
-					width = width / 4;
-					height = height / 5;
-					loadGraphic(Paths.image('weeb/pixelUI/NOTE_assets'), true, Math.floor(width), Math.floor(height));
-				}
-				loadPixelNoteAnims();
+		frames = Paths.getSparrowAtlas('NOTE_assets');
+		loadNoteAnims();
+		antialiasing = ClientPrefs.globalAntialiasing;
 
-				setGraphicSize(Std.int(width * PlayState.daPixelZoom));
-				updateHitbox();
-				isPixel = true;
-
-			default:
-				frames = Paths.getSparrowAtlas('NOTE_assets');
-				loadNoteAnims();
-				antialiasing = ClientPrefs.globalAntialiasing;
-
-				if (burning) {
-					x -= 300;
-				}
+		if (burning) {
+			x -= 300;
 		}
 
 		if(noteData > -1) {
@@ -209,7 +185,7 @@ class Note extends FlxSprite
 			}
 		}
 
-		if(!isPixel && noteData > -1) reloadNote();
+		if(noteData > -1) reloadNote();
 	}
 
 	// THIS FUNCTION IS KINDA DUMB NOW... please do this more organized dont copy my code LOL
@@ -235,27 +211,16 @@ class Note extends FlxSprite
 		}
 
 		var blahblah:String = prefix + skin + suffix;
-		if(isPixel) {
-			if(isSustainNote) {
-				loadGraphic(Paths.image('weeb/pixelUI/' + blahblah + 'ENDS'));
-				width = width / 4;
-				height = height / 2;
-				loadGraphic(Paths.image('weeb/pixelUI/' + blahblah + 'ENDS'), true, Math.floor(width), Math.floor(height));
-			} else {
-				loadGraphic(Paths.image('weeb/pixelUI/' + blahblah));
-				width = width / 4;
-				height = height / 5;
-				loadGraphic(Paths.image('weeb/pixelUI/' + blahblah), true, Math.floor(width), Math.floor(height));
-			}
-			loadPixelNoteAnims();
-		} else {
-			// JUST IN CASE!!!
-			if (forceDadSkin)
-				frames = Paths.getSparrowAtlas(prefix + dadSkin + suffix);
-			else
-				frames = Paths.getSparrowAtlas(blahblah);
-			loadNoteAnims();
+
+		if (forceDadSkin) blahblah = prefix + dadSkin + suffix;
+
+		if (!FlxG.bitmap.checkCache("noteasset")) {
+			FlxG.bitmap.add(BitmapData.fromFile(Paths.image(blahblah)), false, "noteasset");
 		}
+
+		frames = Paths.getSparrowAtlas(blahblah);
+
+		loadNoteAnims();
 		animation.play(animName, true);
 
 		if(inEditor) {

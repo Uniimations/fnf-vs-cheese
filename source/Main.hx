@@ -11,6 +11,7 @@ import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
+import flixel.graphics.FlxGraphic;
 
 class Main extends Sprite
 {
@@ -66,6 +67,7 @@ class Main extends Sprite
 		}
 
 		setupGame();
+		setupDefines();
 	}
 
 	private function setupGame():Void
@@ -107,6 +109,17 @@ class Main extends Sprite
 		GlobalVideo.setWebm(webmHandle);
 		#end
 
+		#if html5
+		FlxG.mouse.visible = false;
+		#end
+
+		autoPause = ClientPrefs.autoP;
+	}
+
+	function setupDefines()
+	{
+		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+
 		var bitmapData = Assets.getBitmapData("assets/images/watermark.png");
 
 		#if !mobile
@@ -136,23 +149,5 @@ class Main extends Sprite
 		if(watermarkCheese != null) {
 			watermarkCheese.visible = ClientPrefs.showWatermark;
 		}
-
-		#if html5
-		FlxG.mouse.visible = false;
-		#end
-
-		autoPause = ClientPrefs.autoP;
-	}
-
-	function onWindowFocusOut()
-	{
-		// Conserve power by lowering draw framerate when unfocuced
-		FlxG.drawFramerate = 60;
-	}
-
-	function onWindowFocusIn()
-	{
-		// Bring framerate back when focused
-		FlxG.drawFramerate = ClientPrefs.framerate;
 	}
 }

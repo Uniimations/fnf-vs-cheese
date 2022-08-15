@@ -641,7 +641,7 @@ class PlayState extends MusicBeatState
 				var tableB:BGSprite = new BGSprite('bonus/cream/tableB', 1936.15, 568.5, 1, 1);
 				tableB.updateHitbox();
 
-				var tSideMod:BGSprite = new BGSprite('bonus/cream/t-side_mod', 1265.6, 127.6, 1, 1);
+				var tSideMod:BGSprite = new BGSprite('bonus/cream/t-side_mod', 1288.35, 279.9, 1, 1);
 				tSideMod.updateHitbox();
 
 				var suzuki:BGSprite = new BGSprite('bonus/cream/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);

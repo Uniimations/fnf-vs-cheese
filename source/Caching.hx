@@ -1,201 +1,192 @@
 package;
 
-import lime.app.Application;
-#if desktop
-import Discord.DiscordClient;
-#end
-import openfl.display.BitmapData;
-import openfl.utils.Assets;
-import flixel.ui.FlxBar;
-import haxe.Exception;
-import flixel.tweens.FlxEase;
-import flixel.tweens.FlxTween;
-#if cpp
-import sys.FileSystem;
-import sys.io.File;
-#end
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
-import flixel.addons.transition.FlxTransitionableState;
-import flixel.addons.transition.TransitionData;
 import flixel.graphics.FlxGraphic;
-import flixel.graphics.frames.FlxAtlasFrames;
-import flixel.math.FlxPoint;
-import flixel.math.FlxRect;
 import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
-import flixel.text.FlxText;
+import lime.app.Application;
+import sys.thread.Thread;
 
 using StringTools;
 
+#if cpp
+import Discord.DiscordClient;
+#end
+
+/**
+ * @author BrightFyre
+ */
 class Caching extends MusicBeatState
 {
-	var toBeDone = 0;
-	var done = 0;
+	var calledDone = false;
+	var screen:LoadingScreen;
+	var debug:Bool = false;
 
-	var loaded = false;
+	public function new()
+	{
+		super();
 
-	var text:FlxText;
-	var kadeLogo:FlxSprite;
-
-	public static var bitmapData:Map<String,FlxGraphic>;
-
-	var images = [];
-	var music = [];
-	var charts = [];
+		enableTransIn = false;
+		enableTransOut = false;
+	}
 
 	override function create()
 	{
-		FlxG.save.bind('funkin', 'vscheese');
-
-		loadData();
-
-		FlxG.mouse.visible = false;
-
-		FlxG.worldBounds.set(0,0);
-
-		bitmapData = new Map<String,FlxGraphic>();
-
-		text = new FlxText(FlxG.width / 2, FlxG.height / 2 + 300,0,"Loading...");
-		text.y -= 200;
-		text.x -= 170;
-		text.size = 34;
-		text.alignment = FlxTextAlign.CENTER;
-		text.alpha = 0;
-
-		kadeLogo = new FlxSprite(0, 0).loadGraphic(Paths.image('startupWarning'));
-		kadeLogo.setGraphicSize(Std.int(kadeLogo.width * 0.6));
-		kadeLogo.antialiasing = ClientPrefs.globalAntialiasing;
-		kadeLogo.alpha = 0;
-
-		#if cpp
-		{
-			trace("caching images...");
-
-			for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/shared/images/cheese/")))
-			{
-				if (!i.endsWith(".png"))
-					continue;
-				images.push(i);
-			}
-			for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/shared/images/cheese/undertale/")))
-			{
-				if (!i.endsWith(".png"))
-					continue;
-				images.push(i);
-			}
-		}
-
-		trace("caching music...");
-
-		for (i in FileSystem.readDirectory(FileSystem.absolutePath("assets/songs")))
-		{
-			music.push(i);
-		}
-		#end
-
-		toBeDone = Lambda.count(images) + Lambda.count(music);
-
-		var bar = new FlxBar(10,FlxG.height - 50,FlxBarFillDirection.LEFT_TO_RIGHT,FlxG.width,40,null,"done",0,toBeDone);
-		bar.color = FlxColor.PURPLE;
-
-		add(bar);
-
-		add(kadeLogo);
-		add(text);
-
-		trace('starting caching..');
-		
-		#if cpp
-		// update thread
-
-		sys.thread.Thread.create(() -> {
-			while(!loaded)
-			{
-				if (toBeDone != 0 && done != toBeDone)
-					{
-						var alpha = truncateFloat(done / toBeDone * 100,2) / 100;
-						kadeLogo.alpha = alpha;
-						text.alpha = alpha;
-						text.text = "Loading... (" + done + "/" + toBeDone + ")";
-					}
-			}
-		
-		});
-
-		// cache thread
-
-		sys.thread.Thread.create(() -> {
-			cache();
-		});
-		#end
-
 		super.create();
+
+		screen = new LoadingScreen();
+		add(screen);
+
+		trace("Starting caching...");
+
+		initSettings();
 	}
 
-	var calledDone = false;
-
-	override function update(elapsed) 
+	function initSettings()
 	{
-		super.update(elapsed);
+		#if debug
+			debug = true;
+		#end
+
+		FlxG.save.bind(Main.curSave, 'indiecross');
+
+		#if cpp
+		DiscordClient.initialize();
+		#end
+
+		PlayerSettings.init();
+		KadeEngineData.initSave();
+
+		Highscore.load();
+		PlayerSettings.player1.controls.loadKeyBinds();
+		KeyBinds.keyCheck();
+
+		FXHandler.UpdateColors();
+
+		Application.current.onExit.add(function(exitCode)
+		{
+			FlxG.save.flush();
+			DiscordClient.shutdown();
+			Sys.exit(0);
+		});
+
+		FlxG.sound.muteKeys = null;
+		FlxG.sound.volumeUpKeys = null;
+		FlxG.sound.volumeDownKeys = null;
+		FlxG.sound.volume = 1;
+		FlxG.sound.muted = false;
+		FlxG.fixedTimestep = false;
+		FlxG.mouse.useSystemCursor = true;
+		FlxG.console.autoPause = false;
+		FlxG.autoPause = FlxG.save.data.focusfreeze;
+
+		FlxG.worldBounds.set(0, 0);
+
+		FlxG.save.data.optimize = false;
+
+		if (FlxG.save.data.cachestart)
+		{
+			Thread.create(() ->
+			{
+				cache();
+			});
+		}
+		else
+		{
+			end();
+		}
 	}
 
 	function cache()
 	{
-		#if !linux
-		trace("LOADING: " + toBeDone + " OBJECTS.");
+		screen.max = 9;
+		
+		trace("Caching images...");
 
-		for (i in images)
+		screen.setLoadingText("Loading images...");
+
+		// store this or else nothing will be saved
+		// Thanks Shubs -sqirra
+		FlxGraphic.defaultPersist = true;
+
+		var splashes:FlxGraphic = FlxG.bitmap.add(Paths.image("AllnoteSplashes", "notes"));
+		var sinSplashes:FlxGraphic = FlxG.bitmap.add(Paths.image("sinSplashes", "notes"));
+		var parryAssets:FlxGraphic = FlxG.bitmap.add(Paths.image("Parry_assets", "notes"));
+		var bounceAssets:FlxGraphic = FlxG.bitmap.add(Paths.image("NOTE_bounce", "notes"));
+		var noteAssets:FlxGraphic = FlxG.bitmap.add(Paths.image("NOTE_assets", "notes"));
+
+		Main.persistentAssets.push(splashes);
+		screen.progress = 1;
+		
+		Main.persistentAssets.push(sinSplashes);
+		screen.progress = 2;
+
+		Main.persistentAssets.push(parryAssets);
+		Main.persistentAssets.push(bounceAssets);
+		Main.persistentAssets.push(noteAssets);
+		screen.progress = 3;
+
+		// CachedFrames.loadEverything();
+
+		/* var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
+			for (i in 0...3)
+			{
+				switch (i)
+				{
+					case 0:
+						initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
+					case 1:
+						initSonglist = CoolUtil.coolTextFile(Paths.txt('nightmareSonglist'));
+					case 2:
+						initSonglist = CoolUtil.coolTextFile(Paths.txt('extraSonglist'));
+				}
+
+				for (i in 0...initSonglist.length)
+				{
+					var data:Array<String> = initSonglist[i].split(':');
+					// FlxG.sound.cache(Paths.inst(data[0]));
+					FlxG.sound.cache(Paths.voices(data[0]));
+					trace("cached " + data[0]);
+				}
+		}*/
+
+		screen.setLoadingText("Loading sounds...");
+
+		FlxG.sound.cache(Paths.sound('hitsounds', 'shared'));
+		screen.progress = 8;
+
+		screen.setLoadingText("Loading cutscenes...");
+		
+		if (!debug)
 		{
-			var replaced = i.replace(".png","");
-			var data:BitmapData = BitmapData.fromFile("assets/shared/images/cheese/" + i);
-			trace('id ' + replaced + ' file - assets/shared/images/cheese/' + i + ' ${data.width}');
-			var data:BitmapData = BitmapData.fromFile("assets/shared/images/cheese/undertale/" + i);
-			trace('id ' + replaced + ' file - assets/shared/images/cheese/undertale/' + i + ' ${data.width}');
-			var graph = FlxGraphic.fromBitmapData(data);
-			graph.persist = true;
-			graph.destroyOnNoUse = false;
-			bitmapData.set(replaced,graph);
-			done++;
+			trace('starting vid cache');
+			var video = new VideoHandler();
+			var vidSprite = new FlxSprite(0, 0);
+			video.finishCallback = null;
+	
+			video.playMP4(Paths.video('bendy/1.5'), false, vidSprite, false, false, true);
+			video.kill();
+			trace('finished vid cache');
 		}
 
-		for (i in music)
+		screen.progress = 9;
+
+		FlxGraphic.defaultPersist = false;
+
+		screen.setLoadingText("Done!");
+		trace("Caching done!");
+
+		end();
+	}
+
+	function end()
+	{
+		FlxG.camera.fade(FlxColor.BLACK, 1, false);
+		
+		new FlxTimer().start(1, function(tmr:FlxTimer)
 		{
-			FlxG.sound.cache(Paths.inst(i));
-			FlxG.sound.cache(Paths.voices(i));
-			trace("cached " + i);
-			done++;
-		}
-
-
-		trace("Finished caching...");
-
-		loaded = true;
-
-		trace(Assets.cache.hasBitmapData('GF_assets'));
-
-		#end
-		FlxG.switchState(new TitleState());
+			FlxG.switchState(new TitleState());
+		});
 	}
-
-	private function loadData():Void
-	{
-		PlayerSettings.init();
-
-		ClientPrefs.loadPrefs();
-		Highscore.load();
-		ResetTools.resetData();
-
-		FlxG.mouse.visible = false;
-	}
-
-	private function truncateFloat( number : Float, precision : Int): Float
-	{
-		var num = number;
-		num = num * Math.pow(10, precision);
-		num = Math.round( num ) / Math.pow(10, precision);
-		return num;
-	}
-
 }

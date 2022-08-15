@@ -26,11 +26,6 @@ class MusicBeatState extends FlxUIState
 		return PlayerSettings.player1.controls;
 
 	override function create() {
-		#if MODS_ALLOWED
-		if(!ClientPrefs.imagesPersist) {
-			Paths.customImagesLoaded.clear();
-		}
-		#end
 		super.create();
 
 		// Custom made Trans out
@@ -38,6 +33,8 @@ class MusicBeatState extends FlxUIState
 			openSubState(new CustomFadeTransition(1, true));
 		}
 		FlxTransitionableState.skipNextTransOut = false;
+
+		openfl.system.System.gc();
 	}
 
 	override function update(elapsed:Float)
