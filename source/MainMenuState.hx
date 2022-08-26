@@ -222,21 +222,21 @@ class MainMenuState extends MusicBeatState
 		//MENU ITEM ZOOM
 		camHUD.zoom -= 0.25;
 
-		versionShit = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion + modificationString, 12);
-		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionShit.borderSize = 1.25;
-		versionShit.alpha = 0;
-		add(versionShit);
-
 		//VERSION NUMBER
-		CheeseVersionShit = new FlxText(12, FlxG.height - 24, 0, "VS Cheese v" + cheeseVersion /*#if debug + " Headpats: " + cheesePats #end*/, 12);
+		CheeseVersionShit = new FlxText(12, FlxG.height - 44, 0, "VS Cheese v" + cheeseVersion /*#if debug + " Headpats: " + cheesePats #end*/, 12);
 		CheeseVersionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		CheeseVersionShit.borderSize = 1.25;
+		CheeseVersionShit.borderSize = 1.5;
 		CheeseVersionShit.alpha = 0;
 		add(CheeseVersionShit);
 
-		versionShit.cameras = [camAchievement];
+		versionShit = new FlxText(12, FlxG.height - 24, 0, "Psych Engine v" + psychEngineVersion + modificationString, 12);
+		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionShit.borderSize = 1.5;
+		versionShit.alpha = 0;
+		add(versionShit);
+
 		CheeseVersionShit.cameras = [camAchievement];
+		versionShit.cameras = [camAchievement];
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
@@ -360,10 +360,7 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 
 		if (FlxG.sound.music.volume < 0.8)
 		{
@@ -419,8 +416,7 @@ class MainMenuState extends MusicBeatState
 				{
 					//trace('easter egg passed!');
 					//trace('you\'re temporarily safe!');
-					if (!MainMenuState.cursed)
-						cheeseScrunkly.animation.play('headpat', true);
+					if (!MainMenuState.cursed) cheeseScrunkly.animation.play('headpat', true);
 				}
 			}
 			else

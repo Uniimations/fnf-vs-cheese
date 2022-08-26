@@ -7,6 +7,7 @@ import flash.text.TextField;
 import flash.system.System;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import flixel.effects.FlxFlicker;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
@@ -29,7 +30,7 @@ import Controls;
 using StringTools;
 
 /**
-	MENU FOR OPTION SELECTION
+	I CODED THIS REALLY WEIRD PLEASE DONT LOOK AT THI S
 **/
 
 class FreeplayState extends MusicBeatState
@@ -149,10 +150,7 @@ class FreeplayState extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 
 		if (controls.UI_LEFT_P)
 		{
@@ -229,21 +227,30 @@ class FreeplayState extends MusicBeatState
 
 		if (controls.ACCEPT)
 		{
+			FlxG.sound.play(Paths.sound('confirmMenu'));
+			FlxTween.tween(FlxG.camera, { zoom: 5}, 0.9, { ease: FlxEase.expoIn });
+
 			for (item in grpOptions.members) {
 				item.alpha = 0;
 			}
 
-			switch(options[curSelected])
+			grpOptions.forEach(function(spr:FlxSprite)
 			{
-				case 'STORY SONGS':
-					MusicBeatState.switchState(new FreeplayWeekState());
+				FlxFlicker.flicker(spr, 0.65, 0.06, false, false, function(flick:FlxFlicker)
+				{
+					switch(options[curSelected])
+					{
+						case 'STORY SONGS':
+							MusicBeatState.switchState(new FreeplayWeekState());
 
-				case 'BONUS SONGS':
-					MusicBeatState.switchState(new FreeplayBonusState());
-				
-				case 'UNFAIR SONGS':
-					MusicBeatState.switchState(new FreeplayUnfairState());
-			}
+						case 'BONUS SONGS':
+							MusicBeatState.switchState(new FreeplayBonusState());
+
+						case 'UNFAIR SONGS':
+							MusicBeatState.switchState(new FreeplayUnfairState());
+					}
+				});
+			});
 		}
 	}
 

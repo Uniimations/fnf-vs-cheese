@@ -5,15 +5,6 @@ class ResetTools
 {
     public static function resetData()
     {
-		// thanks kade
-
-		if (FlxG.save.data.changedHit == null)
-		{
-			FlxG.save.data.changedHitX = -1;
-			FlxG.save.data.changedHitY = -1;
-			FlxG.save.data.changedHit = false;
-		}
-
 		// WEEK UNLOCK DATA
 
 		if (FlxG.save.data.beatTutorial == null)

@@ -92,7 +92,8 @@ class ChartingState extends MusicBeatState
 		['Summon Lil Man',  "Summons lil scrunkly on Cultured VIP."],
 		['Set Singer', "Set the singer in Dynamic Duo.\nValue 1: Boyfriend chart singer\nValue 2: Dad chart singer"],
 		['Comic Toggle', "Toggle the isArsen and isDani Bools.\nType true or false ONLY.\nValue 1: Arsen\nValue 2: Dani"],
-		['Comic Spawn', "Flashes camera and changes\nArsen and Dani alpha\nValue 1: Arsen\nValue 2: Dani"]
+		['Comic Spawn', "Flashes camera and changes\nArsen and Dani alpha\nValue 1: Arsen\nValue 2: Dani"],
+		['Pan To GF', "Pans to GF lmao\nValue 1: (1 = true, 2 = false)"]
 	];
 
 	var dfc:CoolUtil;

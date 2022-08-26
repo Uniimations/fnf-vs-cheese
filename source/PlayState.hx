@@ -1452,7 +1452,7 @@ class PlayState extends MusicBeatState
 		CoolUtil.precacheSound('missnote2');
 		CoolUtil.precacheSound('missnote3');
 
-        switch (SONG.song.toLowerCase()) //ARE YOU PROUD OF ME UNII
+        switch (SONG.song.toLowerCase()) //ARE YOU PROUD OF ME UNII - yes i am dops ill always be proud of you <3
         {
             case 'wifi' | 'casual-duel' | 'dynamic-duo':
                 rpcIcon = iconP1.getCharacter();
@@ -1461,19 +1461,14 @@ class PlayState extends MusicBeatState
                 rpcIcon = dad.healthIcon;
         }
 
-		openfl.system.System.gc(); 
+		openfl.system.System.gc();
 
 		#if desktop
-			// Updating Discord Rich Presence.
-			#if debug
-			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
-			#else
-			DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
-			#end
+		// Updating Discord Rich Presence.
+		DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
 		#end
 		super.create();
 	}
-
 
 	public function reloadAllBarColors() {
 		var percentColor:Int;
@@ -1945,13 +1940,9 @@ class PlayState extends MusicBeatState
 		}
 
 		#if desktop
-			// Updating Discord Rich Presence (with Time Left)
-			#if debug
-			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
-			#else
-			DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength);
-			trace(dad.healthIcon);
-			#end
+		// Updating Discord Rich Presence (with Time Left)
+		DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength);
+		//trace(dad.healthIcon);
 		#end
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
@@ -2283,20 +2274,16 @@ class PlayState extends MusicBeatState
 			callOnLuas('onResume', []);
 
 			#if desktop
-				#if debug
-				DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
-				#else
-				if (startTimer.finished)
-				{
-					DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
-					trace(dad.healthIcon);
-				}
-				else
-				{
-					DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
-					//trace(dad.healthIcon);
-				}
-				#end
+			if (startTimer.finished)
+			{
+				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
+				trace(dad.healthIcon);
+			}
+			else
+			{
+				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
+				//trace(dad.healthIcon);
+			}
 			#end
 		}
 		super.closeSubState();
@@ -2305,11 +2292,8 @@ class PlayState extends MusicBeatState
 	override public function onFocus():Void
 	{
 		#if desktop
-		if (health > 0 && !paused)
+		if (health > 0 && !paused && !ClientPrefs.gamePause)
 		{
-			#if debug
-			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
-			#else
 			if (Conductor.songPosition > 0.0)
 			{
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
@@ -2320,24 +2304,23 @@ class PlayState extends MusicBeatState
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
 				//trace(dad.healthIcon);
 			}
-			#end
 		}
 		#end
 
 		super.onFocus();
 	}
-	
+
 	override public function onFocusLost():Void
 	{
+		if (ClientPrefs.gamePause)
+		{
+			pressPause();
+		}
 		#if desktop
-			#if debug
-			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
-			#else
-			if (health > 0 && paused)
-			{
-				DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
-			}
-			#end
+		else if (health > 0 && paused)
+		{
+			DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+		}
 		#end
 
 		super.onFocusLost();
@@ -2372,15 +2355,12 @@ class PlayState extends MusicBeatState
 			iconP1.sussyTime();
 		}
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 
 		callOnLuas('onUpdate', [elapsed]);
 
 		if(!inCutscene) {
-			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.4, 0, 1);
+			var lerpVal:Float = CoolUtil.boundTo(elapsed * 2.3, 0, 1);
 			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 			if(!startingSong && !endingSong && boyfriend.animation.curAnim.name.startsWith('idle')) {
 				boyfriendIdleTime += elapsed;
@@ -2435,29 +2415,7 @@ class PlayState extends MusicBeatState
 		// YOU CAN NOW PAUSE WITH THE PAUSE KEYBIND!!! (idk why this wasnt added sooner)
 		if (controls.PAUSE && startedCountdown && canPause)
 		{
-			var ret:Dynamic = callOnLuas('onPause', []);
-			var rank:Dynamic = callOnLuas('onPause', []);
-			if(ret != FunkinLua.Function_Stop && rank != FunkinLua.Function_Stop) {
-				persistentUpdate = false;
-				persistentDraw = true;
-				paused = true;
-
-				if(FlxG.sound.music != null) {
-					FlxG.sound.music.pause();
-					vocals.pause();
-				}
-				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-
-				#if desktop
-				if(ClientPrefs.autoP = false) {
-					#if debug
-					DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
-					#else
-					DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
-					#end
-				}
-				#end
-			}
+			pressPause();
 		}
 
 		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
@@ -3926,6 +3884,7 @@ class PlayState extends MusicBeatState
 								}
 							}
 					}
+
 				case 'Set Singer':
 					var activeBoyfriend:String = value1; // for bf tag
 					var activeDad:String = value2; // for dad tag
@@ -3993,6 +3952,7 @@ class PlayState extends MusicBeatState
 					} else {
 						isDani = false;
 					}
+
 				case 'Comic Spawn':
 					var arsenAlpha:Int = Std.parseInt(value1);
 					var daniAlpha:Int = Std.parseInt(value2);
@@ -4001,6 +3961,18 @@ class PlayState extends MusicBeatState
 
 					arsenTriangle.alpha = arsenAlpha;
 					daniTriangle.alpha = daniAlpha;
+
+				case 'Pan To GF':
+					switch (Std.parseInt(value1))
+					{
+						case 0:
+							isCameraOnForcedPos = false;
+						case 1:
+							camFollow.set(gf.getGraphicMidpoint().x, gf.getGraphicMidpoint().y);
+							camFollow.x += gf.cameraPosition[0];
+							camFollow.y += gf.cameraPosition[1];
+							isCameraOnForcedPos = true;
+					}
 			}
 			if(!onLua) {
 				callOnLuas('onEvent', [eventName, value1, value2]);
@@ -4198,7 +4170,7 @@ class PlayState extends MusicBeatState
 
 		var coolText:FlxText = new FlxText(0, 0, 0, placement, 32);
 		coolText.screenCenter();
-		coolText.x = FlxG.width * 0.55;
+		coolText.x = FlxG.width * 0.35;
 
 		var rating:FlxSprite = new FlxSprite();
 		var score:Int = 350;
@@ -4219,101 +4191,87 @@ class PlayState extends MusicBeatState
 				score = 15;
 				shits++;
 			}
-
 			else if (noteDiff > Conductor.safeZoneOffset * 0.45)
 			{
 				daRating = 'bad';
 				score = 50;
 				bads++;
 			}
-
 			else if (noteDiff > Conductor.safeZoneOffset * 0.35)
 			{
 				daRating = 'good';
 				score = 150;
 				goods++;
 			}
-
 			else if (noteDiff > Conductor.safeZoneOffset * 0.17)
 			{
 				daRating = 'sick';
 				score = 325;
 				sicks++;
 			}
-
-			if(daRating == 'perfect')
+			else
 			{
-				spawnNoteSplashOnNote(note);
+				daRating = 'perfect';
+				score = 350;
 				perfects++;
+				spawnNoteSplashOnNote(note);
 			}
+
 			songScore += score;
 			songHits++;
 			RecalculateRating();
 		}
 
-		var pixelShitPart1:String = "";
-		var pixelShitPart2:String = '';
-
-		if (curStage.startsWith('school'))
-		{
-			pixelShitPart1 = 'weeb/pixelUI/';
-			pixelShitPart2 = '-pixel';
-		}
-
-		rating.loadGraphic(Paths.image(pixelShitPart1 + daRating + pixelShitPart2));
+		rating.loadGraphic(Paths.image(daRating));
+		rating.cameras = [camHUD];
 		rating.screenCenter();
 		rating.x = coolText.x - 40;
 		rating.y -= 60;
-		if (FlxG.save.data.changedHit)
-		{
-			rating.x = FlxG.save.data.changedHitX;
-			rating.y = FlxG.save.data.changedHitY;
-		}
-
 		rating.acceleration.y = 550;
 		rating.velocity.y -= FlxG.random.int(140, 175);
 		rating.velocity.x -= FlxG.random.int(0, 10);
 		rating.visible = !ClientPrefs.comboShown;
+		rating.x += ClientPrefs.comboOffset[0];
+		rating.y -= ClientPrefs.comboOffset[1];
 
-		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'combo' + pixelShitPart2));
+		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image('combo'));
 		comboSpr.screenCenter();
-		comboSpr.x = coolText.x;
-		comboSpr.acceleration.y = 600;
-		comboSpr.velocity.y -= 150;
-		comboSpr.alpha = 0.7; //slightly more transparent
-		comboSpr.visible = !ClientPrefs.comboShown;
-
 		comboSpr.velocity.x += FlxG.random.int(1, 10);
-		add(rating);
+
+		insert(members.indexOf(strumLineNotes), rating); // this is so it "adds" it under the notes !! :D
 
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
 		rating.antialiasing = ClientPrefs.globalAntialiasing;
-		comboSpr.setGraphicSize(Std.int(comboSpr.width * 0.7));
-		comboSpr.antialiasing = ClientPrefs.globalAntialiasing;
 
-		comboSpr.updateHitbox();
 		rating.updateHitbox();
 
-		comboSpr.cameras = [camHUD];
-		rating.cameras = [camHUD];
-
-		if (!missSpr) {
+		if (!missSpr)
+		{
+			var daLoop:Int = 0;
+			var xThing:Float = 0;
 			var seperatedScore:Array<Int> = [];
 
-			seperatedScore.push(Math.floor(combo / 100));
-			seperatedScore.push(Math.floor((combo - (seperatedScore[0] * 100)) / 10));
+			if (combo >= 1000) {
+				seperatedScore.push(Math.floor(combo / 1000) % 10);
+			}
+			seperatedScore.push(Math.floor(combo / 100) % 10);
+			seperatedScore.push(Math.floor(combo / 10) % 10);
 			seperatedScore.push(combo % 10);
 
-			var daLoop:Int = 0;
 			for (i in seperatedScore)
 			{
-				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image(pixelShitPart1 + 'num' + Std.int(i) + pixelShitPart2));
+				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image('num' + Std.int(i)));
+				numScore.cameras = [camHUD];
 				numScore.screenCenter();
-				numScore.x = rating.x + (43 * daLoop) - 78;
-				numScore.y = rating.y + 75;
+				numScore.x = coolText.x + (43 * daLoop) - 90;
+				numScore.y += 80;
+
+				numScore.x += ClientPrefs.comboOffset[2];
+				numScore.y -= ClientPrefs.comboOffset[3];
 
 				numScore.antialiasing = ClientPrefs.globalAntialiasing;
 				numScore.setGraphicSize(Std.int(numScore.width * 0.5));
+
 				numScore.updateHitbox();
 
 				numScore.acceleration.y = FlxG.random.int(200, 300);
@@ -4321,10 +4279,9 @@ class PlayState extends MusicBeatState
 				numScore.velocity.x = FlxG.random.float(-5, 5);
 				numScore.visible = !ClientPrefs.comboShown;
 
-				numScore.cameras = [camHUD];
-
-				if (combo >= 10 || combo == 0)
-					add(numScore);
+				if (combo >= 10 || combo == 0) {
+					insert(members.indexOf(strumLineNotes), numScore);
+				}
 
 				FlxTween.tween(numScore, {alpha: 0}, 0.2, {
 					onComplete: function(tween:FlxTween)
@@ -4335,6 +4292,7 @@ class PlayState extends MusicBeatState
 				});
 
 				daLoop++;
+				if (numScore.x > xThing) xThing = numScore.x;
 			}
 
 			coolText.text = Std.string(seperatedScore);
@@ -4367,6 +4325,8 @@ class PlayState extends MusicBeatState
 				psychKeyShit(); // shubs
 			case "Vanilla":
 				vanillaKeyShit(); // ninjamuffin
+			case "Controller":
+				controllerKeyShit(); // cheedbone real
 		}
 	}
 
@@ -4817,6 +4777,11 @@ class PlayState extends MusicBeatState
 		});
 	}
 
+	function controllerKeyShit()
+	{
+		
+	}
+
 	function ghostMiss(statement:Bool = false, direction:Int = 0, ?ghostMiss:Bool = false) {
 		if (statement) {
 			noteMissPress(direction, ghostMiss);
@@ -5166,9 +5131,9 @@ class PlayState extends MusicBeatState
 
 			if (!note.isSustainNote)
 			{
-				popUpScore(note);
 				combo += 1;
-				if(combo > 9999) combo = 9999;
+				if (combo > 9999) combo = 9999;
+				popUpScore(note);
 			}
 			health += note.hitHealth;
 
@@ -5394,12 +5359,8 @@ class PlayState extends MusicBeatState
 		}
 
 		#if desktop
-			// Updating Discord Rich Presence.
-			#if debug
-			DiscordClient.changePresence('stop looking at my fucking status.', null, null, true);
-			#else
-			DiscordClient.changePresence(detailsText,"(" + rankString + ") Misses: " + songMisses + " - " + "Combo: " + combo, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
-			#end
+		// Updating Discord Rich Presence.
+		DiscordClient.changePresence(detailsText,"(" + rankString + ") Misses: " + songMisses + " - " + "Combo: " + combo, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
 		#end
 
 		lastStepHit = curStep;
@@ -5484,39 +5445,6 @@ class PlayState extends MusicBeatState
 					case 336:
 						gameZoom = 0.022;
 						hudZoom = 0.03;
-					/*
-					case 350:
-						
-					case 351:
-						introTwo('default', true);
-					case 352:
-						introOne('default', true);
-					case 353:
-						defaultCamZoom = 0.65;
-						introGo('default', true);
-					case 354:
-						camHUD.alpha = 1; //camhud show
-						phillyFade.alpha = 0;
-						camPercentFloat = 1;
-						gameZoom = 0.020;
-						hudZoom = 0.03;
-						defaultCamZoom = 0.60;
-					case 382:
-						introThree('default', true);
-					case 383:
-						introTwo('default', true);
-					case 384:
-						introOne('default', true);
-					case 385:
-						introGo('default', true);
-					case 386:
-						camPercentFloat = 2;
-						gameZoom = 0.010;
-						hudZoom = 0.03;
-						defaultCamZoom = 0.80;
-					case 387 | 389 | 391 | 393 | 395 | 397:
-						introGo('default', true);
-					*/
 					case 420:
 						camHUD.alpha = 0; //camhud hide
 						phillyFade.alpha = 1;
@@ -5569,6 +5497,7 @@ class PlayState extends MusicBeatState
 						boyfriend2.dance();
 						daniTriangle.dance();
 				}
+
 				switch (curBeat) //unii camera function
 				{
 					case 80 | 120 | 152 | 192 | 220 | 226 | 248 | 280 | 336 | 376 | 440 | 452 | 472:
@@ -6422,12 +6351,7 @@ class PlayState extends MusicBeatState
 		{
 			if (asset.alpha != opacity) {
 				FlxTween.tween(asset, {alpha: opacity}, length, {ease: FlxEase.quadInOut});
-				trace('alpha of object is opposite');
 			}
-			if (asset == freezeFade)
-				trace('frozen snowstorm fade');
-			else if (asset == redFade)
-				trace('red brittle mechanic fade');
 		}
 
 	private function iconBop(boyfriend:Bool = true, dad:Bool = false)
@@ -6443,6 +6367,29 @@ class PlayState extends MusicBeatState
 			if (dad) {
 				iconP2.scale.set(1.1, 1.1);
 				iconP2.updateHitbox();
+			}
+		}
+
+	public function pressPause():Void
+		{
+			var ret:Dynamic = callOnLuas('onPause', []);
+			var rank:Dynamic = callOnLuas('onPause', []);
+			if(ret != FunkinLua.Function_Stop && rank != FunkinLua.Function_Stop) {
+				persistentUpdate = false;
+				persistentDraw = true;
+				paused = true;
+
+				if(FlxG.sound.music != null) {
+					FlxG.sound.music.pause();
+					vocals.pause();
+				}
+				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+
+				#if desktop
+				if(!FlxG.autoPause) {
+					DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				}
+				#end
 			}
 		}
 

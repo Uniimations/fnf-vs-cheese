@@ -292,10 +292,7 @@ class PauseSubState extends MusicBeatSubstate
 		var pressedDown = controls.UI_DOWN_P;
 		var pressedACCEPT = controls.ACCEPT;
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 
 		if (pressedUp && canDoStuff)
 		{

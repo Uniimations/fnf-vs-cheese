@@ -1,124 +1,140 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-53
 			],
-			"loop": false,
-			"anim": "singLEFT",
 			"fps": 24,
-			"name": "cheese left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "cheese left"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-14
 			],
-			"loop": false,
-			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "cheese right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "cheese right"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-23
 			],
-			"loop": false,
-			"anim": "singUP",
 			"fps": 24,
-			"name": "cheese up",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "cheese up"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-65
 			],
-			"loop": false,
-			"anim": "singDOWN",
 			"fps": 24,
-			"name": "cheese down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "cheese down"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-66
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT-alt",
-			"indices": [],
-			"name": "cream left"
+			"fps": 24,
+			"name": "cream left",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-47
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN-alt",
-			"indices": [],
-			"name": "cream down"
+			"fps": 24,
+			"name": "cream down",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				-8
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP-alt",
-			"indices": [],
-			"name": "cream up"
+			"fps": 24,
+			"name": "cream up",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				-1
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singRIGHT-alt",
-			"fps": 24,
-			"name": "cream right-",
-			"indices": []
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "cheese SCARY",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "idle-default",
-			"fps": 24,
-			"name": "cheese idle",
-			"indices": []
-		},
-		{
-			"offsets": [
-				0,
-				4
-			],
 			"indices": [],
+			"name": "cream right-"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
 			"fps": 24,
-			"anim": "lighter",
+			"anim": "idle",
+			"indices": [],
+			"name": "cheese SCARY"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
 			"loop": false,
+			"fps": 24,
+			"anim": "idle-default",
+			"indices": [],
+			"name": "cheese idle"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				13
+			],
+			"anim": "lighter",
+			"fps": 24,
+			"name": "cheese lighter",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				13
+			],
+			"indices": [
+				30,
+				31,
+				32,
+				33
+			],
+			"fps": 24,
+			"anim": "lighter-loop",
+			"loop": true,
 			"name": "cheese lighter"
 		}
 	],

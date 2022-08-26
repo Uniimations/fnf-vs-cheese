@@ -9,6 +9,9 @@ import flixel.FlxState;
 import openfl.Assets;
 import openfl.Lib;
 import openfl.display.FPS;
+#if cpp
+import openfl.display.MEMORY;
+#end
 import openfl.display.Sprite;
 import openfl.events.Event;
 import flixel.graphics.FlxGraphic;
@@ -26,7 +29,7 @@ class Main extends Sprite
 
 	public static var fpsVar:FPS;
 	#if cpp
-	public static var MemoryMonitor:MemoryMonitor = new MemoryMonitor(10, 3, 0xffffff);
+	public static var memoryVar:MEMORY;
 	#end
 	public static var watermarkCheese:Sprite;
 
@@ -113,7 +116,7 @@ class Main extends Sprite
 		FlxG.mouse.visible = false;
 		#end
 
-		autoPause = ClientPrefs.autoP;
+		autoPause = ClientPrefs.windowPause;
 	}
 
 	function setupDefines()
@@ -131,8 +134,11 @@ class Main extends Sprite
 		#end
 
 		#if cpp
-		MemoryMonitor = new MemoryMonitor(10, 3, 0xFFFFFF);
-		addChild(MemoryMonitor);
+		memoryVar = new MEMORY(10, 3, 0xFFFFFF);
+		addChild(memoryVar);
+		if(memoryVar != null) {
+			memoryVar.visible = ClientPrefs.showMem;
+		}
 		#end
 
 		watermarkCheese = new Sprite();
@@ -142,12 +148,25 @@ class Main extends Sprite
 		watermarkCheese.x =  10;
         watermarkCheese.y = 3;
 		#else
-		watermarkCheese.x =  fpsVar.x;
-        watermarkCheese.y = fpsVar.y + 25;
+			#if cpp
+			watermarkCheese.x =  memoryVar.x;
+			watermarkCheese.y = memoryVar.y + 25;
+			#else
+			watermarkCheese.x =  fpsVar.x;
+			watermarkCheese.y = fpsVar.y + 25;
+			#end
 		#end
         addChild(watermarkCheese);
 		if(watermarkCheese != null) {
 			watermarkCheese.visible = ClientPrefs.showWatermark;
 		}
+	}
+
+	// OH MY GOSH THAT DUMB IDEA ACTUALLY WORKED WTF ????? IT WORKS NOW WOO
+	public static function showMemory(show:Bool)
+	{
+		#if cpp
+		memoryVar.visible = show;
+		#end
 	}
 }

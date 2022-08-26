@@ -34,7 +34,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['KEYBINDS', 'SETTINGS'];
+	var options:Array<String> = ['KEYBINDS', 'COMBO & OFFSET', 'GAMEPLAY', 'APPEARANCE', 'PERFORMANCE', 'WINDOW', 'ACCESSIBILITY'];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private static var curSelected:Int = 0;
 	public static var menuBlackShit:FlxSprite;
@@ -94,10 +94,7 @@ class OptionsState extends MusicBeatState
 	override function update(elapsed:Float) {
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 
 		if (controls.UI_UP_P) {
 			changeSelection(-1);
@@ -127,7 +124,10 @@ class OptionsState extends MusicBeatState
 				case 'KEYBINDS':
 					openSubState(new KeybindsSubState());
 
-				case 'SETTINGS':
+				case 'COMBO & OFFSET':
+					LoadingState.loadAndSwitchState(new RatingPopUpMenuState());
+
+				case 'GAMEPLAY' | 'APPEARANCE' | 'PERFORMANCE' | 'WINDOW' | 'ACCESSIBILITY':
 					openSubState(new SettingsSubState());
 			}
 		}
