@@ -277,10 +277,7 @@ class FreeplayBonusState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 
 		if (FlxG.sound.music.volume < 0.7)
 		{

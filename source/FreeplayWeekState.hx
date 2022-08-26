@@ -96,7 +96,7 @@ class FreeplayWeekState extends MusicBeatState
 
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Browsing Freeplay Songs", null);
+		DiscordClient.changePresence("Browsing Story Songs", null);
 		#end
 
 		#if !debug
@@ -303,10 +303,7 @@ class FreeplayWeekState extends MusicBeatState
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 
 		if (FlxG.sound.music.volume < 0.7)
 		{

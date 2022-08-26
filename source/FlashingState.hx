@@ -150,10 +150,7 @@ class FlashingState extends MusicBeatState
 		}
 		super.update(elapsed);
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 	}
 
 	//BEAT HIT SHIT!

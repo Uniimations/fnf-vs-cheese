@@ -6,11 +6,18 @@ import flixel.graphics.frames.FlxAtlasFrames;
 class BGSprite extends FlxSprite
 {
 	private var idleAnim:String;
-	public function new(image:String, x:Float = 0, y:Float = 0, ?scrollX:Float = 1, ?scrollY:Float = 1, ?animArray:Array<String> = null, ?loop:Bool = false) {
+	public function new(image:String, x:Float = 0, y:Float = 0, ?scrollX:Float = 1, ?scrollY:Float = 1, ?animArray:Array<String> = null, ?loop:Bool = false, ?forceShared:Bool = false)
+	{
 		super(x, y);
 
-		if (animArray != null) {
-			frames = Paths.getSparrowAtlas(image);
+		if (animArray != null)
+		{
+			if (forceShared) {
+				frames = Paths.getSparrowAtlas(image, 'shared');
+			} else {
+				frames = Paths.getSparrowAtlas(image);
+			}
+
 			for (i in 0...animArray.length) {
 				var anim:String = animArray[i];
 				animation.addByPrefix(anim, anim, 24, loop);
@@ -19,9 +26,15 @@ class BGSprite extends FlxSprite
 					animation.play(anim);
 				}
 			}
-		} else {
+		}
+		else
+		{
 			if(image != null) {
-				loadGraphic(Paths.image(image));
+				if (forceShared) {
+					loadGraphic(Paths.image(image, 'shared'));
+				} else {
+					loadGraphic(Paths.image(image));
+				}
 			}
 			active = false;
 		}

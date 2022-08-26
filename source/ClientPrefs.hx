@@ -24,6 +24,8 @@ class ClientPrefs {
 	public static var imagesPersist:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var hideTime:Bool = false;
+	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
+	public static var ratingOffset:Int = 0;
 
 	// EXTRA MOD SPECIFIC OPTIONS
 	public static var shit:Bool = true;
@@ -40,13 +42,15 @@ class ClientPrefs {
 	public static var pussyMode:Bool = false;
 
 	public static var showWatermark:Bool = true;
+	public static var showMem:Bool = true;
 
 	// EXTRA EFFECTS OPTIONS
 	public static var specialEffects:Bool = true;
 	public static var cameraShake:Bool = true;
 	public static var camZoomOut:Bool = true;
 
-	public static var autoP:Bool = false;
+	public static var windowPause:Bool = false;
+	public static var gamePause:Bool = true;
 
 	public static var defaultKeys:Array<FlxKey> = [
 		A, LEFT,			//Note Left
@@ -102,6 +106,8 @@ class ClientPrefs {
 		FlxG.save.data.imagesPersist = imagesPersist;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.hideTime = hideTime;
+		FlxG.save.data.comboOffset = comboOffset;
+		FlxG.save.data.ratingOffset = ratingOffset;
 
 		FlxG.save.data.shit = shit;
 		FlxG.save.data.bfreskin = bfreskin;
@@ -117,12 +123,15 @@ class ClientPrefs {
 		FlxG.save.data.pussyMode = pussyMode;
 
 		FlxG.save.data.showWatermark = showWatermark;
+		FlxG.save.data.showMem = showMem;
 
 		FlxG.save.data.specialEffects = specialEffects;
 		FlxG.save.data.cameraShake = cameraShake;
 		FlxG.save.data.camZoomOut = camZoomOut;
 
-		FlxG.autoPause = autoP;
+		FlxG.autoPause = windowPause;
+
+		FlxG.save.data.gamePause = gamePause;
  
 		FlxG.save.flush();
 
@@ -168,12 +177,6 @@ class ClientPrefs {
 				FlxG.updateFramerate = framerate;
 			}
 		}
-		/*if(FlxG.save.data.cursing != null) {
-			cursing = FlxG.save.data.cursing;
-		}
-		if(FlxG.save.data.violence != null) {
-			violence = FlxG.save.data.violence;
-		}*/
 		if(FlxG.save.data.camZooms != null) {
 			camZooms = FlxG.save.data.camZooms;
 		}
@@ -195,6 +198,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.hideTime != null) {
 			hideTime = FlxG.save.data.hideTime;
+		}
+		if(FlxG.save.data.comboOffset != null) {
+			comboOffset = FlxG.save.data.comboOffset;
+		}
+		if(FlxG.save.data.ratingOffset != null) {
+			ratingOffset = FlxG.save.data.ratingOffset;
 		}
 
 
@@ -241,6 +250,8 @@ class ClientPrefs {
 			}
 		}
 
+		Main.showMemory(showMem); //i am a fucking genius
+
 
 
 		if(FlxG.save.data.specialEffects != null) {
@@ -258,7 +269,11 @@ class ClientPrefs {
 			FlxG.sound.volume = FlxG.save.data.volume;
 		}
 
-		autoP = FlxG.autoPause;
+		FlxG.autoPause = windowPause;
+
+		if (FlxG.save.data.gamePause != null) {
+			gamePause = FlxG.save.data.gamePause;
+		}
 
 		var save:FlxSave = new FlxSave();
 		save.bind('controls', 'vscheese');

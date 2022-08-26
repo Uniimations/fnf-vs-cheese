@@ -50,9 +50,7 @@ class SettingsSubState extends MusicBeatSubstate
 		'Input System:',
 		'Erase Save Data',
 		'Background Dim',
-		'Rating Pop Up Position',
-		'Framerate',
-		'Note Offset',
+		'FPS Cap',
 	];
 
 	static var options:Array<String> = [
@@ -62,7 +60,6 @@ class SettingsSubState extends MusicBeatSubstate
 		'New Boyfriend Skin',
 		'Pussy Mode',
 		'Input System:',
-		'Rating Pop Up Position',
 		' ',
 
 		//GRAPHICS CATEGORY
@@ -73,7 +70,7 @@ class SettingsSubState extends MusicBeatSubstate
 		'Change Zoom Amount',
 		'Background Dim',
 		#if !html5
-		'Framerate', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+		'FPS Cap', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
 		#end
 		' ',
 
@@ -84,24 +81,30 @@ class SettingsSubState extends MusicBeatSubstate
 		'Ghost Tapping',
 		'Miss Sounds',
 		'RESET to Game Over',
-		'Note Offset',
 		' ',
 
 		//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
 		'APPEARANCE',
+
 		#if !mobile
 		'FPS Counter',
 		#end
+
+		#if cpp
+		'Memory Info',
+		#end
+
 		'Watermark Icon',
 		'Note Splashes',
 		'Hide HUD',
 		'Hide Song Length',
-		'Hide Rating Pop Up',
+		'Hide Combo Rating',
 		' ',
 
 		//WINDOW CATEGORY
 		'WINDOW',
-		'Focus Window Freeze',
+		'Window Pause',
+		'Auto Pause',
 		' ',
 
 		//MISC CATEGORY
@@ -206,7 +209,7 @@ class SettingsSubState extends MusicBeatSubstate
 
 		descBox = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		descBox.y += 585;
-		descBox.alpha = 0.5;
+		descBox.alpha = 0.8;
 		add(descBox);
 
 		descText = new FlxText(50, 600, 1180, "", 32);
@@ -236,10 +239,7 @@ class SettingsSubState extends MusicBeatSubstate
 	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
+		//
 		if (controls.UI_UP_P)
 		{
 			changeSelection(-1);
@@ -284,8 +284,12 @@ class SettingsSubState extends MusicBeatSubstate
 				switch(options[curSelected]) {
 					case 'FPS Counter':
 						ClientPrefs.showFPS = !ClientPrefs.showFPS;
-						if(Main.fpsVar != null)
+						if (Main.fpsVar != null)
 							Main.fpsVar.visible = ClientPrefs.showFPS;
+
+					case 'Memory Info':
+						ClientPrefs.showMem = !ClientPrefs.showMem;
+						Main.showMemory(ClientPrefs.showMem);
 
 					case 'Watermark Icon':
 						ClientPrefs.showWatermark = !ClientPrefs.showWatermark;
@@ -382,7 +386,7 @@ class SettingsSubState extends MusicBeatSubstate
 					case 'RESET to Game Over':
 						ClientPrefs.resetDeath = !ClientPrefs.resetDeath;
 
-					case 'Hide Rating Pop Up':
+					case 'Hide Combo Rating':
 						ClientPrefs.comboShown = !ClientPrefs.comboShown;
 
 					case 'Special Effects':
@@ -400,25 +404,21 @@ class SettingsSubState extends MusicBeatSubstate
 						else
 							FlxG.sound.play(Paths.sound('cancelMenu'));
 
-					case 'Focus Window Freeze':
-						ClientPrefs.autoP = !ClientPrefs.autoP;
-						ClientPrefs.saveSettings();
+					case 'Window Pause':
+						ClientPrefs.windowPause = !ClientPrefs.windowPause;
+
+					case 'Auto Pause':
+						ClientPrefs.gamePause = !ClientPrefs.gamePause;
 				}
-				FlxG.sound.play(Paths.sound('selectMenu'));
 				reloadValues();
+				ClientPrefs.saveSettings(); //saves whenever you change an option (because like why didnt it do that before ???)
 			}
 		}
 		else if (controls.ACCEPT)
 		{
-			switch (options[curSelected])
-			{
-				case 'Erase Save Data':
-					ResetTools.resetData();
-					FlxG.save.erase();
-					System.exit(0);
-				case 'Rating Pop Up Position':
-					FlxG.sound.play(Paths.sound('confirmMenu'));
-					FlxG.switchState(new RatingPopUpMenuState());
+			if (options[curSelected] == 'Erase Save Data') {
+				openSubState(new ResetPromptSubState());
+				FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 		}
 		else
@@ -442,11 +442,15 @@ class SettingsSubState extends MusicBeatSubstate
 				{
 					switch(options[curSelected])
 					{
-						case 'Framerate':
+						case 'FPS Cap':
 							{
 								ClientPrefs.framerate += add;
 								if(ClientPrefs.framerate < 60) ClientPrefs.framerate = 60;
-								else if(ClientPrefs.framerate > 330) ClientPrefs.framerate = 330;
+								else if(ClientPrefs.framerate > 360) ClientPrefs.framerate = 360;
+
+								//changed the cap back because i hate optimizing it for higher framerate lol, better than 60 fps tho ??? so whatever ratio
+								// shut the fuck up past unii fuck you fuck YOU!! ! !!!
+
 								FlxG.log.add('changed fps');
 
 								if(ClientPrefs.framerate > FlxG.drawFramerate) {
@@ -455,26 +459,6 @@ class SettingsSubState extends MusicBeatSubstate
 								} else {
 									FlxG.drawFramerate = ClientPrefs.framerate;
 									FlxG.updateFramerate = ClientPrefs.framerate;
-								}
-							}
-						case 'Note Offset':
-							{
-								var mult:Int = 1;
-
-								if(holdTime > 1.5) { //Double speed after 1.5 seconds holding
-									mult = 2;
-								}
-
-								ClientPrefs.noteOffset += add * mult;
-								FlxG.log.add('changed offset');
-
-								if (ClientPrefs.noteOffset < 0) {
-									ClientPrefs.noteOffset = 0;
-									FlxG.log.add('offset min');
-								}
-								else if (ClientPrefs.noteOffset > 500) {
-									ClientPrefs.noteOffset = 500;
-									FlxG.log.add('offset max');
 								}
 							}
 						case 'Background Dim':
@@ -524,24 +508,15 @@ class SettingsSubState extends MusicBeatSubstate
 							}
 					}
 					reloadValues();
+					ClientPrefs.saveSettings();
 				}
 
 				// BETTER THAN THE IF STATEMENT (slightly)
 				var soundShouldPlay:Bool = true;
 
-				switch (options[curSelected])
-				{
-					case 'Erase Save Data' | 'Rating Pop Up Position':
-						soundShouldPlay = false;
-					default:
-						soundShouldPlay = true;
-				}
+				if (options[curSelected] == 'Erase Save Data')
+					soundShouldPlay = false;
 
-				if(holdTime <= 0) {
-					if (soundShouldPlay) {
-						FlxG.sound.play(Paths.sound('selectMenu'));
-					}
-				}
 				holdTime += elapsed;
 			}
 			else
@@ -575,12 +550,12 @@ class SettingsSubState extends MusicBeatSubstate
 		//DESCRIPTIONS
 
 		switch(options[curSelected]) {
-			case 'Framerate':
-				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.\nWARNING: Setting your framerate above 250 may cause lag.";
-			case 'Note Offset':
-				daText = "Changes how late a note is spawned.\nAdjust with LEFT and RIGHT keys.";
+			case 'FPS Cap':
+				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
+			case 'Memory Info':
+				daText = "If unchecked, hides Memory Info.";
 			case 'Watermark Icon':
 				daText = "If unchecked, hides the VS Cheese watermark.";
 			case 'Memory Cache':
@@ -590,7 +565,7 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'Downscroll':
 				daText = "If checked, notes go downward instead of upward.";
 			case 'Middlescroll':
-				daText = "If checked, Your notes get centered\nsimilar to most 4k games.";
+				daText = "If checked, your notes get centered\nsimilar to most 4k games.";
 			case 'Ghost Tapping':
 				daText = "If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.";
 			case 'Swearing':
@@ -604,7 +579,7 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'Hide HUD':
 				daText = "If checked, hides your HUD.";
 			case 'Hide Song Length':
-				daText = "If checked, the bar showing the song name\nand how much time is left\nwill be hidden.";
+				daText = "If checked, the bar showing the song name\nand how much time is left will be hidden.";
 			case 'New Boyfriend Skin':
 				daText = "If unchecked, bf will have the normal skin\ninstead of the default \"remastered\" one.";
 			case 'Miss Sounds':
@@ -615,11 +590,9 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If checked, hides ALL STAGE ELEMENTS.\nOnly notes and HUD will be visible.";
 			case 'Erase Save Data':
 				daText = "WARNING: THIS WILL CLOSE THE GAME!\nPress your ACCEPT key to clear your VS Cheese save data.";
-			case 'Rating Pop Up Position':
-				daText = "Press ACCEPT to move around your rating pop up.\nRating pop ups are the \"Sick\", \"Good\", etc...";
 			case 'RESET to Game Over':
 				daText = "Toggle pressing your RESET key to game over.";
-			case 'Hide Rating Pop Up':
+			case 'Hide Combo Rating':
 				daText = "If checked, the rating pop up showing your combo\nwill be hidden.";
 			case 'Special Effects':
 				daText = "If unchecked, color changing and mechanic indicator effects\nwill be turned off in songs with camera effects.";
@@ -630,9 +603,11 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'Pussy Mode':
 				daText = "If checked, turns all the mechanics off in songs\nwith UNFAIR difficulty. Also certifies you as a pussy.";
 			case 'Input System:':
-				daText = "Choose input systems from other Friday Night Funkin' Engines.";
-			case 'Focus Window Freeze':
-				daText = "WIP: TO APPLY THIS, YOU NEED TO GO BACK TO MAIN MENU\nAND RESTART THE GAME!!\nIf checked, pauses the game when the window is unfocused.";
+				daText = "Choose input systems from other Friday Night Funkin' Engines.\nAdjust with LEFT and RIGHT keys.";
+			case 'Window Pause':
+				daText = "If checked, freezes the game when clicking off of the window.";
+			case 'Auto Pause':
+				daText = "If unchecked, doesn't pause the game when\nclicking off the window during a song.";
 		}
 		descText.text = daText;
 
@@ -690,6 +665,8 @@ class SettingsSubState extends MusicBeatSubstate
 				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
+					case 'Memory Info':
+						daValue = ClientPrefs.showMem;
 					case 'Watermark Icon':
 						daValue = ClientPrefs.showWatermark;
 					case 'High Quality':
@@ -722,7 +699,7 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.fuckyouavi;
 					case 'RESET to Game Over':
 						daValue = ClientPrefs.resetDeath;
-					case 'Hide Rating Pop Up':
+					case 'Hide Combo Rating':
 						daValue = ClientPrefs.comboShown;
 					case 'Special Effects':
 						daValue = ClientPrefs.specialEffects;
@@ -732,8 +709,10 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.camZoomOut;
 					case 'Pussy Mode':
 						daValue = ClientPrefs.pussyMode;
-					case 'Focus Window Freeze':
-						daValue = ClientPrefs.autoP;
+					case 'Window Pause':
+						daValue = ClientPrefs.windowPause;
+					case 'Auto Pause':
+						daValue = ClientPrefs.gamePause;
 				}
 				checkbox.daValue = daValue;
 			}
@@ -743,10 +722,8 @@ class SettingsSubState extends MusicBeatSubstate
 			if(text != null) {
 				var daText:String = '';
 				switch(options[textNumber[i]]) {
-					case 'Framerate':
+					case 'FPS Cap':
 						daText = '' + ClientPrefs.framerate;
-					case 'Note Offset':
-						daText = ClientPrefs.noteOffset + 'ms';
 					case 'Background Dim':
 						daText = Math.round(ClientPrefs.bgDim * 100) + '%';
 					case 'Input System:':
