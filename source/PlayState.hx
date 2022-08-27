@@ -242,6 +242,7 @@ class PlayState extends MusicBeatState
 	public var ghostMisses:Int = 0;
 	public var scoreTxt:FlxText;
 	public var versionShit:FlxText;
+	public var artistShit:FlxText;
 	public var versionHeight:Float = 0;
 	public var blackscreenhud:FlxSprite;
 	public var whiteBox:FlxSprite;
@@ -1257,22 +1258,25 @@ class PlayState extends MusicBeatState
 		}
 		reloadAllBarColors();
 
-		if(ClientPrefs.downScroll && ClientPrefs.showFPS){ //what ocd does to a mf
-			versionHeight = healthBarBG.y - 120;
-		} else if(ClientPrefs.downScroll){
-			versionHeight = healthBarBG.y - 135;
-		} else if (!ClientPrefs.downScroll){
-			versionHeight = healthBarBG.y;
-		}
 
-		versionShit = new FlxText(4,versionHeight + 60,0, "", 16); //versionHeight used to be healthBarBG.y fyi
+		versionShit = new FlxText(1,healthBarBG.y + 605,0, "", 16); //versionHeight used to be healthBarBG.y fyi
 		versionShit.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		versionShit.scrollFactor.set();
 		versionShit.borderSize = 1.25;
 		versionShit.visible = !ClientPrefs.hideHud;
 		add(versionShit);
 
-		if (!song.startsWith('manager')) versionShit.text = songArtist + ' - ' + displaySongName + ' [' + CoolUtil.difficultyStuff[storyDifficulty][0] + '] | VS Cheese v' + MainMenuState.cheeseVersion;
+		artistShit = new FlxText(1,healthBarBG.y + 620,0, "", 16);
+		artistShit.setFormat(Paths.font("vcr.ttf"), 14, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		artistShit.scrollFactor.set();
+		artistShit.borderSize = 1.25;
+		artistShit.visible = !ClientPrefs.hideHud;
+		add(artistShit);
+
+		if (!song.startsWith('manager')){
+			versionShit.text = 'VS Cheese v' + MainMenuState.cheeseVersion;
+			artistShit.text = songArtist + ' - ' + displaySongName + ' [' + CoolUtil.difficultyStuff[storyDifficulty][0] + ']';
+		}
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 40, FlxG.width, "", 20);
 		scoreTxt.setFormat(Paths.font(hudFont), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1379,6 +1383,7 @@ class PlayState extends MusicBeatState
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		versionShit.cameras = [camHUD];
+		artistShit.cameras = [camHUD];
 		infoTxt.cameras = [camHUD];
 		shitsTxt.cameras = [camHUD];
 		badsTxt.cameras = [camHUD];
