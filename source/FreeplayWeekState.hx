@@ -668,7 +668,7 @@ class FreeplayWeekState extends MusicBeatState
 	
 					FlxFlicker.flicker(item, 1.1, 0.06, false, false, function(flick:FlxFlicker)
 					{
-						LoadingState.loadAndSwitchState(new PlayState());
+						MusicBeatState.switchState(new LoadingState());
 						fadeMenuMusic();
 					});
 				});
@@ -822,13 +822,7 @@ class FreeplayWeekState extends MusicBeatState
 		}
 		trace ('CURRENT SONG: ' + songLowercase + ' | CURRENT DIFFICULTY: ' + curDifName + ' | DIFFICULTY INT: ' + curDifficulty); //added new shit here so it tells me wtf im doing
 
-		// to fix loading problems force graphic image persist (it works for some reason, its a shitty way to optimize but... eh what can u do sex mod aint open source ...i think?)
-		StoryMenuState.forceImagesPersist = true;
-
-		if (StoryMenuState.forceImagesPersist)
-			FlxGraphic.defaultPersist = true;
-		else
-			FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+		LoadingState.target = new PlayState();
 	}
 
 	private function reposScoreText() {

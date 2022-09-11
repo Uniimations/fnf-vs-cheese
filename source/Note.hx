@@ -106,8 +106,9 @@ class Note extends FlxSprite
 
 		var daStage:String = PlayState.curStage;
 
-		frames = Paths.getSparrowAtlas('NOTE_assets');
+		frames = Paths.getSparrowAtlas('NOTE_assets', null, true);
 		loadNoteAnims();
+
 		antialiasing = ClientPrefs.globalAntialiasing;
 
 		if (burning) {
@@ -215,10 +216,10 @@ class Note extends FlxSprite
 		if (forceDadSkin) blahblah = prefix + dadSkin + suffix;
 
 		if (!FlxG.bitmap.checkCache("noteasset")) {
-			FlxG.bitmap.add(BitmapData.fromFile(Paths.image(blahblah)), false, "noteasset");
+			FlxG.bitmap.add(BitmapData.fromFile(Paths.image(blahblah, null, true)), false, "noteasset");
 		}
 
-		frames = Paths.getSparrowAtlas(blahblah);
+		frames = Paths.getSparrowAtlas(blahblah, null, true);
 
 		loadNoteAnims();
 		animation.play(animName, true);

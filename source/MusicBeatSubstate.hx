@@ -11,6 +11,8 @@ class MusicBeatSubstate extends FlxSubState
 	public function new()
 	{
 		super();
+
+		openfl.system.System.gc();
 	}
 
 	private var lastBeat:Float = 0;
@@ -25,7 +27,6 @@ class MusicBeatSubstate extends FlxSubState
 
 	override function update(elapsed:Float)
 	{
-		//everyStep();
 		var oldStep:Int = curStep;
 
 		updateCurStep();

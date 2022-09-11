@@ -90,7 +90,7 @@ class DialogueBox extends FlxSpriteGroup
 		{
 			case 'restaurante' | 'milkshake' | 'cultured':
 				hasDialog = true;
-				box.frames = Paths.getSparrowAtlas('dialogue/cooltextboxes');
+				box.frames = Paths.getSparrowAtlas('dialogue/cooltextboxes', null, true);
 				box.animation.addByPrefix('normalOpen', 'cooltextSUMMON', 24, false);
 				box.animation.addByIndices('normal', 'cooltextanim', [1], "", 24);
 				box.antialiasing = ClientPrefs.globalAntialiasing;
@@ -102,7 +102,7 @@ class DialogueBox extends FlxSpriteGroup
 			return;
 		
 		portraitLeft = new FlxSprite(0, 0);
-		portraitLeft.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue');
+		portraitLeft.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue', null, true);
 		portraitLeft.animation.addByPrefix('enter', 'cheeseportrait1', 24, false);
 		portraitLeft.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitLeft.updateHitbox();
@@ -111,7 +111,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft.visible = false;
 
 		portraitLeft2 = new FlxSprite(0, 0);
-		portraitLeft2.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue');
+		portraitLeft2.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue', null, true);
 		portraitLeft2.animation.addByPrefix('enter', 'cheeseportrait2', 24, false);
 		portraitLeft2.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitLeft2.updateHitbox();
@@ -120,7 +120,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft2.visible = false;
 
 		portraitLeft3 = new FlxSprite(0, 0);
-		portraitLeft3.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue');
+		portraitLeft3.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue', null, true);
 		portraitLeft3.animation.addByPrefix('enter', 'cheeseportrait3', 24, false);
 		portraitLeft3.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitLeft3.updateHitbox();
@@ -129,7 +129,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft3.visible = false;
 
 		portraitLeft4 = new FlxSprite(0, 0);
-		portraitLeft4.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue');
+		portraitLeft4.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue', null, true);
 		portraitLeft4.animation.addByPrefix('enter', 'cheeseportrait4', 24, false);
 		portraitLeft4.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitLeft4.updateHitbox();
@@ -138,7 +138,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft4.visible = false;
 
 		portraitLeft5 = new FlxSprite(0, 0);
-		portraitLeft5.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue');
+		portraitLeft5.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue', null, true);
 		portraitLeft5.animation.addByPrefix('enter', 'cheeseportrait5', 24, false);
 		portraitLeft5.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitLeft5.updateHitbox();
@@ -147,7 +147,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft5.visible = false;
 
 		portraitLeft6 = new FlxSprite(0, 0);
-		portraitLeft6.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue');
+		portraitLeft6.frames = Paths.getSparrowAtlas('dialogue/Bluecheese_Dialogue', null, true);
 		portraitLeft6.animation.addByPrefix('enter', 'cheeseportrait6', 24, false);
 		portraitLeft6.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitLeft6.updateHitbox();
@@ -156,7 +156,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitLeft6.visible = false;
 
 		portraitRight = new FlxSprite(0, 0);
-		portraitRight.frames = Paths.getSparrowAtlas('dialogue/BOYFRIEND_Dialogue');
+		portraitRight.frames = Paths.getSparrowAtlas('dialogue/BOYFRIEND_Dialogue', null, true);
 		portraitRight.animation.addByPrefix('enter', 'bfportrait1', 24, false);
 		portraitRight.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitRight.updateHitbox();
@@ -165,7 +165,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitRight.visible = false;
 
 		portraitRight2 = new FlxSprite(0, 0);
-		portraitRight2.frames = Paths.getSparrowAtlas('dialogue/BOYFRIEND_Dialogue');
+		portraitRight2.frames = Paths.getSparrowAtlas('dialogue/BOYFRIEND_Dialogue', null, true);
 		portraitRight2.animation.addByPrefix('enter', 'bfportrait2', 24, false);
 		portraitRight2.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitRight2.updateHitbox();
@@ -174,7 +174,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitRight2.visible = false;
 
 		portraitGF = new FlxSprite(0, 0);
-		portraitGF.frames = Paths.getSparrowAtlas('dialogue/gf_Dialogue');
+		portraitGF.frames = Paths.getSparrowAtlas('dialogue/gf_Dialogue', null, true);
 		portraitGF.animation.addByPrefix('enter', 'gfportrait1', 24, false);
 		portraitGF.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitGF.updateHitbox();
@@ -184,7 +184,7 @@ class DialogueBox extends FlxSpriteGroup
 
 		if (PlayState.SONG.song.toLowerCase() == 'cultured') {
 			portraitGF = new FlxSprite(0, 0);
-		    portraitGF.frames = Paths.getSparrowAtlas('dialogue/gf_cheer');
+		    portraitGF.frames = Paths.getSparrowAtlas('dialogue/gf_cheer', null, true);
 		    portraitGF.animation.addByPrefix('enter', 'gfportrait4', 24, false);
 		    portraitGF.antialiasing = ClientPrefs.globalAntialiasing;
 		    portraitGF.updateHitbox();
@@ -194,7 +194,7 @@ class DialogueBox extends FlxSpriteGroup
 		}
 
 		portraitGF2 = new FlxSprite(0, 0);
-		portraitGF2.frames = Paths.getSparrowAtlas('dialogue/gf_Dialogue');
+		portraitGF2.frames = Paths.getSparrowAtlas('dialogue/gf_Dialogue', null, true);
 		portraitGF2.animation.addByPrefix('enter', 'gfportrait2', 24, false);
 		portraitGF2.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitGF2.updateHitbox();
@@ -203,7 +203,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitGF2.visible = false;
 
 		portraitGF3 = new FlxSprite(0, 0);
-		portraitGF3.frames = Paths.getSparrowAtlas('dialogue/gf_Dialogue');
+		portraitGF3.frames = Paths.getSparrowAtlas('dialogue/gf_Dialogue', null, true);
 		portraitGF3.animation.addByPrefix('enter', 'gfportrait3', 24, false);
 		portraitGF3.antialiasing = ClientPrefs.globalAntialiasing;
 		portraitGF3.updateHitbox();
@@ -212,7 +212,7 @@ class DialogueBox extends FlxSpriteGroup
 		portraitGF3.visible = false;
 
 		suzuki = new FlxSprite(0, 0);
-		suzuki.frames = Paths.getSparrowAtlas('dialogue/OiSuzuki');
+		suzuki.frames = Paths.getSparrowAtlas('dialogue/OiSuzuki', null, true);
 		suzuki.animation.addByPrefix('enter', 'suzukiportrait', 24, false);
 		suzuki.antialiasing = ClientPrefs.globalAntialiasing;
 		suzuki.updateHitbox();

@@ -98,6 +98,8 @@ class GPUFunctions
 			texture.texture.dispose();
 			trackedTextures.remove(texture);
 			counter++;
+
+			trace('removed ' + texture);
 		}
 
 	}

@@ -236,10 +236,6 @@ class SettingsSubState extends MusicBeatSubstate
 	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
 		if (controls.UI_UP_P)
 		{
 			changeSelection(-1);

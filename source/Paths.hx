@@ -136,17 +136,24 @@ class Paths
 		return 'songs:assets/songs/${song.toLowerCase()}/InstVIP.$SOUND_EXT';
 	}
 
-	// im so fucking based
-	// sorry this is from indie cross-
-	inline static public function image(key:String, ?library:String, ?needsPixelAccess:Bool = true):Dynamic
+	//FINISH THIS GPU SHIT TOMORROW IM SO TIRED UUGHHh
+	inline static public function image(key:String, ?library:String, ?pixelAccess:Bool = true):Dynamic
 	{
-		var imagePath:String = getPath('images/$key.png', IMAGE, library);
+		var imagePath:Dynamic; //DUO ??????
+		var daBitmap:Dynamic;
 
-		if (needsPixelAccess)
+		if (pixelAccess)
+		{
+			imagePath = getPath('images/$key.png', IMAGE, library);
+
 			return imagePath;
+		}
+		else
+		{
+			daBitmap = GPUFunctions.bitmapToGPU(getPath('images/$key.png', IMAGE, library));
 
-		var daBitmap = GPUFunctions.bitmapToGPU(imagePath);
-		return daBitmap;
+			return daBitmap;
+		}
 	}
 
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
@@ -194,51 +201,16 @@ class Paths
 		return false;
 	}
 
-	inline static public function getSparrowAtlas(key:String, ?library:String)
+	inline static public function getSparrowAtlas(key:String, ?library:String, ?pixelShit:Bool = true)
 	{
-		#if MODS_ALLOWED
-		var imageLoaded:FlxGraphic = addCustomGraphic(key);
-		var xmlExists:Bool = false;
-		if(FileSystem.exists(modsXml(key))) {
-			xmlExists = true;
-		}
-
-		return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image(key, library)), (xmlExists ? File.getContent(modsXml(key)) : file('images/$key.xml', library)));
-		#else
-		return FlxAtlasFrames.fromSparrow(image(key, library), file('images/$key.xml', library));
-		#end
+		return FlxAtlasFrames.fromSparrow(image(key, library, pixelShit), file('images/$key.xml', library));
 	}
-
-	inline static public function getMenuSA(key:String, ?library:String)
-		{
-			#if MODS_ALLOWED
-			var imageLoaded:FlxGraphic = addCustomGraphic(key);
-			var xmlExists:Bool = false;
-			if(FileSystem.exists(modsXml(key))) {
-				xmlExists = true;
-			}
-	
-			return FlxAtlasFrames.fromSparrow((imageLoaded != null ? imageLoaded : image('menucharacters/Menu_$key', library)), (xmlExists ? File.getContent(modsXml(key)) : file('images/menucharacters/Menu_$key.xml', library)));
-			#else
-			return FlxAtlasFrames.fromSparrow(image('menucharacters/Menu_$key', library), file('images/menucharacters/Menu_$key.xml', library));
-			#end
-		}
 
 	inline static public function getPackerAtlas(key:String, ?library:String)
 	{
-		#if MODS_ALLOWED
-		var imageLoaded:FlxGraphic = addCustomGraphic(key);
-		var txtExists:Bool = false;
-		if(FileSystem.exists(modsTxt(key))) {
-			txtExists = true;
-		}
-
-		return FlxAtlasFrames.fromSpriteSheetPacker((imageLoaded != null ? imageLoaded : image(key, library)), (txtExists ? File.getContent(modsTxt(key)) : file('images/$key.txt', library)));
-		#else
 		return FlxAtlasFrames.fromSpriteSheetPacker(image(key, library), file('images/$key.txt', library));
-		#end
 	}
-	
+
 	#if MODS_ALLOWED
 	static private function addCustomGraphic(key:String):FlxGraphic {
 		if(FileSystem.exists(modsImages(key))) {

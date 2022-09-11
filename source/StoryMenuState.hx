@@ -59,7 +59,6 @@ class StoryMenuState extends MusicBeatState
 	];
 
 	public var animOffsets:Map<String, Array<Dynamic>>;
-	public static var forceImagesPersist:Bool = false;
 	public static var weekUnlockedItems:Array<Bool> = [];
 
 	var weekDefaultItems:Array<Bool> = [
@@ -465,18 +464,11 @@ class StoryMenuState extends MusicBeatState
 						}
 
 				default:
-					forceImagesPersist = true;
-
 					if (stopspamming == false)
 						{
 							FlxG.sound.play(Paths.sound('confirmMenu'));
 							FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.3});
 							grpWeekText.members[curWeek].startFlashing();
-
-							if (forceImagesPersist)
-								FlxGraphic.defaultPersist = true;
-							else
-								FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
 							stopspamming = true;
 						}
@@ -510,6 +502,8 @@ class StoryMenuState extends MusicBeatState
 						PlayState.campaignScore = 0;
 						PlayState.campaignMisses = 0;
 
+						LoadingState.target = new PlayState();
+
 						//MP4 INTRO CUTSCENES
 						#if WINDOWS_BUILD
 						new FlxTimer().start(1, function(tmr:FlxTimer)
@@ -520,7 +514,7 @@ class StoryMenuState extends MusicBeatState
 						#else
 						new FlxTimer().start(1, function(tmr:FlxTimer)
 						{
-							LoadingState.loadAndSwitchState(new PlayState(), true);
+							MusicBeatState.switchState(new LoadingState());
 							FreeplayState.fadeMenuMusic();
 						});
 						#end
@@ -650,7 +644,7 @@ class StoryMenuState extends MusicBeatState
 				video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
 				video.finishCallback = function()
 				{
-					LoadingState.loadAndSwitchState(new PlayState(), true);
+					MusicBeatState.switchState(new LoadingState());
 				}
 				PlayState.isCutscene = true;
 			}
@@ -660,7 +654,7 @@ class StoryMenuState extends MusicBeatState
 			PlayState.isCutscene = false;
 			new FlxTimer().start(1, function(tmr:FlxTimer)
 			{
-				LoadingState.loadAndSwitchState(new PlayState(), true);
+				MusicBeatState.switchState(new LoadingState());
 			});
 		}
 		#end

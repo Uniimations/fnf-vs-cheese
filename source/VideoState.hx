@@ -121,11 +121,6 @@ class VideoState extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		//FULLSCREEN IN VIDEOSTATE
-		if (FlxG.keys.justPressed.F11) {
-			FlxG.fullscreen = !FlxG.fullscreen;
-		}
-
 		if (useSound)
 		{
 			var wasFuckingHit = GlobalVideo.get().webm.wasHitOnce;

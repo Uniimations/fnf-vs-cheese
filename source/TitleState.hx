@@ -256,12 +256,6 @@ class TitleState extends MusicBeatState
 			trace('PRESS F TO FULLSCREEN');
 		}
 
-		if (FlxG.keys.justPressed.F11)
-		{
-			FlxG.fullscreen = !FlxG.fullscreen;
-			trace('F11 FULLSCREEN');
-		}
-
 		var pressedEnter:Bool;
 
 		if (canDoShit == true) {

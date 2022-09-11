@@ -12,6 +12,8 @@ import flixel.FlxSprite;
 import flixel.util.FlxColor;
 import flixel.util.FlxGradient;
 import flixel.FlxState;
+import openfl.system.System;
+import openfl.utils.Assets;
 
 class MusicBeatState extends FlxUIState
 {
@@ -33,13 +35,16 @@ class MusicBeatState extends FlxUIState
 			openSubState(new CustomFadeTransition(1, true));
 		}
 		FlxTransitionableState.skipNextTransOut = false;
-
-		openfl.system.System.gc();
 	}
 
 	override function update(elapsed:Float)
 	{
-		//everyStep();
+		// FULLSCREEN KEY
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
 		var oldStep:Int = curStep;
 
 		updateCurStep();
@@ -72,7 +77,7 @@ class MusicBeatState extends FlxUIState
 		curStep = lastChange.stepTime + Math.floor(((Conductor.songPosition - ClientPrefs.noteOffset) - lastChange.songTime) / Conductor.stepCrochet);
 	}
 
-	public static function switchState(nextState:FlxState) {
+	public static function switchState(nextState:FlxState, dump:Bool = false) {
 		// Custom made Trans in
 		var curState:Dynamic = FlxG.state;
 		var leState:MusicBeatState = curState;
@@ -93,6 +98,8 @@ class MusicBeatState extends FlxUIState
 		}
 		FlxTransitionableState.skipNextTransIn = false;
 		FlxG.switchState(nextState);
+
+		openfl.system.System.gc();
 	}
 
 	public static function resetState() {

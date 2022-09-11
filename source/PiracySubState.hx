@@ -37,8 +37,6 @@ class PiracySubState extends MusicBeatState
 	override function update(elapsed:Float)
 	{
 		//MIGHT BUG THINGS OUT SO JUST IN CASE SINCE THIS IS ALL A LOADING STATE FOR DESKTOP/ANYTHING NOT HTML
-		if (FlxG.keys.justPressed.F11)
-			FlxG.fullscreen = !FlxG.fullscreen;
 
 		if (controls.ACCEPT)
 			FlxG.openURL("https://gamebanana.com/mods/296548");

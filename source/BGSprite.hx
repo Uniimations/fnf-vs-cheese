@@ -13,9 +13,9 @@ class BGSprite extends FlxSprite
 		if (animArray != null)
 		{
 			if (forceShared) {
-				frames = Paths.getSparrowAtlas(image, 'shared');
+				frames = Paths.getSparrowAtlas(image, 'shared', false);
 			} else {
-				frames = Paths.getSparrowAtlas(image);
+				frames = Paths.getSparrowAtlas(image, null, false);
 			}
 
 			for (i in 0...animArray.length) {
@@ -31,9 +31,9 @@ class BGSprite extends FlxSprite
 		{
 			if(image != null) {
 				if (forceShared) {
-					loadGraphic(Paths.image(image, 'shared'));
+					loadGraphic(Paths.image(image, 'shared', false));
 				} else {
-					loadGraphic(Paths.image(image));
+					loadGraphic(Paths.image(image, null, false));
 				}
 			}
 			active = false;

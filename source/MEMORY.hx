@@ -1,5 +1,6 @@
 package;
 
+import flixel.math.FlxMath;
 #if cpp
 import cpp.vm.Gc;
 #end
@@ -36,7 +37,7 @@ class MEMORY extends TextField
 		height = 70;
 	}
 
-	private function onEnter(_)
+	private function onEnter(_) // i LOVE freestyle engine :3
 	{
 		#if windows
 		// now be an ACTUAL real man and get the memory from plain & straight c++
@@ -59,9 +60,11 @@ class MEMORY extends TextField
 		gcMem = Math.round(openfl.system.System.totalMemory / 1024 / 1024 * 100) / 100;
 		#end
 
+		var ramUsage:Float = FlxMath.roundDecimal((mem / 1000), 2);
+
 		if (visible)
 		{
-			text = "\nPHYS MEM: " + mem + " MB\nGC MEM: " + gcMem + " MB";
+			text = "\nPHYS MEM: " + mem + " MB\nGC MEM: " + gcMem + " MB\n" + "USAGE: " + ramUsage + "/8 GB";
 		}
 	}
 

@@ -125,7 +125,7 @@ class OptionsState extends MusicBeatState
 					openSubState(new KeybindsSubState());
 
 				case 'COMBO & OFFSET':
-					LoadingState.loadAndSwitchState(new RatingPopUpMenuState());
+					MusicBeatState.switchState(new RatingPopUpMenuState());
 
 				case 'GAMEPLAY' | 'APPEARANCE' | 'PERFORMANCE' | 'WINDOW' | 'ACCESSIBILITY':
 					openSubState(new SettingsSubState());

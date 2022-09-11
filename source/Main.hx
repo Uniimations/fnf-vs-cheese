@@ -17,7 +17,7 @@ class Main extends Sprite
 {
 	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
-	var initialState:Class<FlxState> = TitleState; // The FlxState the game starts with.
+	var initialState:Class<FlxState>; // The FlxState the game starts with.
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var framerate:Int = 60; // How many frames per second the game should run at.
 	var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
@@ -84,7 +84,7 @@ class Main extends Sprite
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
-		initialState = TitleState;
+		initialState = LoadingStartup; // game starts with loading needed assets
 
 		var ourSource:String = "assets/videos/DO NOT DELETE OR GAME WILL CRASH/dontDelete.webm";
 
@@ -157,6 +157,27 @@ class Main extends Sprite
 		if(watermarkCheese != null) {
 			watermarkCheese.visible = ClientPrefs.showWatermark;
 		}
+	}
+
+	public static var path:Array<String> = ['', 'assets/'];
+
+	public static function clearCache():Void
+	{
+		trace('fat dumpy !!');
+
+		// clear gpu vram
+		GPUFunctions.disposeAllTextures();
+
+		// clear ALL songs
+		for (i in 0...path.length)
+		{
+			Assets.cache.clear(path[i] + "songs");
+			Assets.cache.clear(path[i] + "shared/sounds");
+		}
+		openfl.Assets.cache.clear("songs");
+		openfl.Assets.cache.clear("assets/songs");
+
+		LoadingState.dumpAdditionalAssets();
 	}
 
 	// OH MY GOSH THAT DUMB IDEA ACTUALLY WORKED WTF ????? IT WORKS NOW WOO

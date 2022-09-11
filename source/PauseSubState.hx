@@ -368,11 +368,13 @@ class PauseSubState extends MusicBeatSubstate
 
 					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
 						if(PlayState.isStoryMode) {
-							MusicBeatState.switchState(new StoryMenuState());
+							MusicBeatState.switchState(new StoryMenuState(), true);
 						} else {
-							MusicBeatState.switchState(new FreeplayState());
+							MusicBeatState.switchState(new FreeplayState(), true);
 						}
 						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
+						Main.clearCache(); // CLEARS MEMORY
 					});
 
 					MainMenuState.cursed = false; // makes you not cursed
