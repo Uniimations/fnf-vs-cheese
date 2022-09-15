@@ -170,7 +170,6 @@ class PlayState extends MusicBeatState
 	private var startingSong:Bool = false;
 	private var updateTime:Bool = false;
 	public static var practiceMode:Bool = false;
-	public static var changedDifficulty:Bool = false;
 	public static var cpuControlled:Bool = false;
 
 	var botplaySine:Float = 0;
@@ -370,13 +369,18 @@ class PlayState extends MusicBeatState
 		bfnoteMovementYoffset = 0;
 
 		// REWRITTEN ZOOM CODE (stuff you probably never notice lmao)
+		// also added camzooming shit here lol
 
-		switch (curSong.toLowerCase())
+		switch (SONG.song.toLowerCase())
 		{
+			case 'restaurante':
+				camZooming = true;
 			case 'milkshake':
 				camPercentFloat = 2;
 				gameZoom = 0.015;
 				hudZoom = 0.03;
+			case 'cultured':
+				camZooming = true;
 			case 'manager':
 				camPercentFloat = 4;
 				gameZoom = 0.005;
@@ -1186,15 +1190,11 @@ class PlayState extends MusicBeatState
 		#if desktop
 		Thread.create(() ->
 		{
+			FlxGraphic.defaultPersist = true;
+
 			generateSong();
 		});
-		#else
-		generateSong();
 		#end
-		/*
-		FreestyleThread.invoke = new PlayState();
-		FreestyleThreadThread.start('generateSong');
-		*/
 
 		// After all characters being loaded, it makes then invisible 0.01s later so that the player won't freeze when you change characters
 
@@ -1472,7 +1472,6 @@ class PlayState extends MusicBeatState
         {
             case 'wifi' | 'casual-duel' | 'dynamic-duo':
                 rpcIcon = iconP1.getCharacter();
-				//trace(iconP1.getCharacter());
             default:
                 rpcIcon = dad.healthIcon;
         }
@@ -1726,6 +1725,7 @@ class PlayState extends MusicBeatState
 		{
 			#if !WINDOWS_BUILD
 			cutsceneShit = true;
+
 			if (cutsceneShit) {
 				var file:String = 'assets/videos/webm/' + videoName + '/' + videoName + '.webm';
 				if (OpenFlAssets.exists(file))
@@ -1737,7 +1737,7 @@ class PlayState extends MusicBeatState
 				else
 				{
 					LoadingState.target = new PlayState();
-					LoadingState.switchState(new VideoState('assets/videos/webm/ass.webm', new LoadingState()));
+					MusicBeatState.switchState(new VideoState('assets/videos/webm/ass.webm', new LoadingState()));
 					trace('error: cutscene path:' + file + 'not found');
 					trace('loaded assets/videos/webm/ass.webm');
 				}
@@ -1755,10 +1755,10 @@ class PlayState extends MusicBeatState
 	public function addMP4Outro(songName:String, videoName:String)
 		{
 			#if WINDOWS_BUILD
-			var video:VideoMP4State = new VideoMP4State();
-
 			if (curSong.toLowerCase() == songName)
 			{
+				var video:VideoMP4State = new VideoMP4State();
+
 				hasMP4 = true;
 				video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
 				video.finishCallback = function()
@@ -1766,6 +1766,8 @@ class PlayState extends MusicBeatState
 					LoadingState.target = new PlayState();
 					MusicBeatState.switchState(new LoadingState());
 					hasMP4 = false;
+
+					Main.clearCache(); // CLEARS MEMORY
 				}
 			}
 			#end
@@ -1774,10 +1776,10 @@ class PlayState extends MusicBeatState
 	public function videoOutro(songName:String, videoName:String)
 		{
 			#if WINDOWS_BUILD
-			var video:VideoMP4State = new VideoMP4State();
-
 			if (curSong.toLowerCase() == songName)
 			{
+				var video:VideoMP4State = new VideoMP4State();
+
 				video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
 				video.finishCallback = function()
 				{
@@ -1968,15 +1970,12 @@ class PlayState extends MusicBeatState
 		#if desktop
 		// Updating Discord Rich Presence (with Time Left)
 		DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength);
-		//trace(dad.healthIcon);
 		#end
 		setOnLuas('songLength', songLength);
 		callOnLuas('onSongStart', []);
 	}
 
-	var debugNum:Int = 0;
-
-	private function generateSong():Void
+	function generateSong():Void
 	{
 		var dataPath:String = SONG.song.toLowerCase();
 		var songData = SONG;
@@ -2001,26 +2000,18 @@ class PlayState extends MusicBeatState
 		var file:String;
 
 		if (CoolUtil.difficultyString() == HARDER_THAN_HARD)
-		{
 			file = Paths.json(dataPath + '/events-vip');
-		}
 		else
-		{
 			file = Paths.json(dataPath + "/events");
-		}
 
 		if (OpenFlAssets.exists(file))
 		{
 			var eventsData:Array<SwagSection>;
 
 			if (CoolUtil.difficultyString() == HARDER_THAN_HARD)
-			{
 				eventsData = Song.loadFromJson('events-vip', dataPath).notes;
-			}
 			else
-			{
 				eventsData = Song.loadFromJson('events', dataPath).notes;
-			}
 
 			for (section in eventsData)
 			{
@@ -2070,8 +2061,9 @@ class PlayState extends MusicBeatState
 					unspawnNotes.push(swagNote);
 
 					var floorSus:Int = Math.floor(susLength);
-					if(floorSus > 0) {
-						for (susNote in 0...floorSus+1)
+
+					if (floorSus > 0) {
+						for (susNote in 0...floorSus + 1)
 						{
 							oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
 
@@ -2109,11 +2101,18 @@ class PlayState extends MusicBeatState
 		}
 
 		unspawnNotes.sort(sortByShit);
+
 		if(eventNotes.length > 1) { //No need to sort if there's a single one or none at all
 			eventNotes.sort(sortByTime);
 		}
 
+		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+
 		generatedMusic = true;
+
+		trace('checking music gen: ' + generatedMusic);
+		trace('checking graphic persist: ' + FlxGraphic.defaultPersist);
+		trace('GENERATED MUSIC !! :3');
 	}
 
 	function preloadSongs() {
@@ -2313,12 +2312,10 @@ class PlayState extends MusicBeatState
 			if (startTimer.finished)
 			{
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
-				trace(dad.healthIcon);
 			}
 			else
 			{
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
-				//trace(dad.healthIcon);
 			}
 			#end
 		}
@@ -2333,12 +2330,10 @@ class PlayState extends MusicBeatState
 			if (Conductor.songPosition > 0.0)
 			{
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
-				//trace(dad.healthIcon);
 			}
 			else
 			{
 				DiscordClient.changePresence(detailsText, "Combo: " + combo + " - " + "Misses: " + songMisses, rpcIcon);
-				//trace(dad.healthIcon);
 			}
 		}
 		#end
@@ -3038,6 +3033,8 @@ class PlayState extends MusicBeatState
 				#if desktop
 				DiscordClient.changePresence("Chart Editor", null, null, true);
 				#end
+
+				Main.clearCache(); // CLEARS MEMORY
 			}
 
 			if (FlxG.keys.justPressed.F8 || FlxG.keys.justPressed.EIGHT)
@@ -3048,6 +3045,8 @@ class PlayState extends MusicBeatState
 				#if windows
 				MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
 				#end
+
+				Main.clearCache(); // CLEARS MEMORY
 			}
 		}
 		else
@@ -3065,6 +3064,8 @@ class PlayState extends MusicBeatState
 				#if desktop
 				DiscordClient.changePresence("Chart Editor", null, null, true);
 				#end
+
+				Main.clearCache(); // CLEARS MEMORY
 			}
 
 			if (FlxG.keys.justPressed.EIGHT)
@@ -3072,9 +3073,9 @@ class PlayState extends MusicBeatState
 				persistentUpdate = false;
 				paused = true;
 				FlxG.sound.music.stop();
-				#if windows
 				MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
-				#end
+
+				Main.clearCache(); // CLEARS MEMORY
 			}
 			/*
 			if (FlxG.keys.justPressed.EIGHT || FlxG.keys.justPressed.SEVEN && !endingSong)
@@ -4154,11 +4155,10 @@ class PlayState extends MusicBeatState
 
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				skippedDialogue = false;
-				changedDifficulty = false;
 
 				trace('WENT BACK TO FREEPLAY??');
 
-				LoadingState.dumpAdditionalAssets();
+				Main.clearCache(); // CLEARS MEMORY
 
 				MainMenuState.cursed = false; // makes you not cursed
 			}
@@ -4273,10 +4273,6 @@ class PlayState extends MusicBeatState
 		rating.x += ClientPrefs.comboOffset[0];
 		rating.y -= ClientPrefs.comboOffset[1];
 
-		var comboSpr:FlxSprite = new FlxSprite().loadGraphic(Paths.image('combo'));
-		comboSpr.screenCenter();
-		comboSpr.velocity.x += FlxG.random.int(1, 10);
-
 		insert(members.indexOf(strumLineNotes), rating); // this is so it "adds" it under the notes !! :D
 
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
@@ -4341,11 +4337,10 @@ class PlayState extends MusicBeatState
 			startDelay: Conductor.crochet * 0.001
 		});
 
-		FlxTween.tween(comboSpr, {alpha: 0}, 0.2, {
+		FlxTween.tween(coolText, {alpha: 0}, 0.2, {
 			onComplete: function(tween:FlxTween)
 			{
 				coolText.destroy();
-				comboSpr.destroy();
 				rating.destroy();
 			},
 			startDelay: Conductor.crochet * 0.001
@@ -4959,10 +4954,6 @@ class PlayState extends MusicBeatState
 		if (!boyfriend.stunned)
 		{
 			health -= 0.04;
-			if (combo > 5 && gf.animOffsets.exists('sad'))
-			{
-				gf.playAnim('sad');
-			}
 			combo = 0;
 			songScore -= 10;
 			songMisses++;
@@ -5424,9 +5415,6 @@ class PlayState extends MusicBeatState
 						introGo();
 				}
 
-			case 'restaurante':
-                camZooming = true;
-
 			case 'cultured':
 				if (CoolUtil.difficultyString() == HARDER_THAN_HARD)
 				{
@@ -5442,7 +5430,6 @@ class PlayState extends MusicBeatState
 							reloadAllBarColors();
 					}
 				}
-				camZooming = true;
 
 			case 'dynamic-duo':
 				switch (curBeat)
@@ -5946,7 +5933,7 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	public function loadSong(?customSong:Bool, ?customPath:String):Void
+	public function loadSong(?customSong:Bool = false, ?customPath:String = '', ?followStoryDifficulty:Bool = false):Void
 	{
 		var difficulty:String = '' + CoolUtil.difficultyStuff[storyDifficulty][1];
 
@@ -5968,7 +5955,16 @@ class PlayState extends MusicBeatState
 
 		if (customSong)
 		{
-			PlayState.SONG = Song.loadFromJson(customPath.toLowerCase() + '-hard', customPath.toLowerCase());
+			var realDifficulty:String = '';
+
+			if (followStoryDifficulty)
+				realDifficulty = difficulty;
+			else
+				realDifficulty = '-hard';
+
+			PlayState.SONG = Song.loadFromJson(customPath.toLowerCase() + realDifficulty, customPath.toLowerCase());
+
+			trace('loaded custom song: "' + customPath.toLowerCase + '" suffix: "' + realDifficulty + '"');
 		}
 		else
 		{
@@ -5980,10 +5976,12 @@ class PlayState extends MusicBeatState
 		//checks if the song is the first argument, then the cutscene folder and video name
 		addMP4Outro('wifi', 'casual-duel');
 
-		if(hasMP4 == false)
+		if(!hasMP4 && !customSong)
 		{
 			LoadingState.target = new PlayState();
 			MusicBeatState.switchState(new LoadingState());
+
+			Main.clearCache(); // CLEARS MEMORY
 		}
 	}
 
@@ -6018,22 +6016,13 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (PauseSubState.psChartingMode)
+		switch (curSong.toLowerCase())
 		{
-			new FlxTimer().start(0.5, function(tmr:FlxTimer) {
-				MusicBeatState.switchState(new ChartingState());
-			});
-		}
-		else
-		{
-			switch (curSong.toLowerCase())
-			{
-				case 'casual-duel':
-					loadSong(true, 'Dynamic-Duo');
-				default:
-					backToMenu();
-					trace('exited song, transitioned to story mode');
-			}
+			case 'casual-duel':
+				loadSong(true, 'Dynamic-Duo', true);
+			default:
+				backToMenu();
+				trace('exited song, transitioned to story mode');
 		}
 
 		if (SONG.validScore)
@@ -6043,18 +6032,20 @@ class PlayState extends MusicBeatState
 
 		FlxG.save.flush(); // SAVE DATA
 		skippedDialogue = false;
-		changedDifficulty = false;
 
 		MainMenuState.cursed = false; // makes you not cursed
 	}
 
 	private function backToMenu():Void {
+		MusicBeatState.switchState(new MainMenuState());
 		FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
 		MainMenuState.justExited = true;
 
 		new FlxTimer().start(0.5, function(tmr:FlxTimer) {
 			MusicBeatState.switchState(new MainMenuState());
+
+			Main.clearCache(); // CLEARS MEMORY
 		});
 	}
 
@@ -6469,7 +6460,6 @@ class PlayState extends MusicBeatState
 					DiscordClient.changePresence('I FUCKING DIED', null, null, true);
 						#else
 					DiscordClient.changePresence("Game Over", displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
-					//trace(dad.healthIcon);
 					#end
 				#end
 			}

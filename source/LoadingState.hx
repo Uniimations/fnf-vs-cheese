@@ -16,9 +16,11 @@ class LoadingState extends MusicBeatState
 
 	static var soundsToCache:Array<String> = [];
 	static var imagesToCache:Array<String> = [];
+	static var spritesToCache:Array<String> = [];
 
 	static var soundLibrary:String = '';
 	static var imageLibrary:String = '';
+	static var spriteLibrary:String = '';
 
 	var screen:LoadingScreen;
 
@@ -30,6 +32,7 @@ class LoadingState extends MusicBeatState
 
 		soundLibrary = 'shared';
 		imageLibrary = 'shared';
+		spriteLibrary = 'preload';
 
 		switch (daSong)
 		{
@@ -48,61 +51,98 @@ class LoadingState extends MusicBeatState
 					'cheese/kitchen/THEE_AWESIOME_STOBEVE'
 				];
 
+				spritesToCache = ['characters/bluecheese_kitchen', 'characters/oisuzuki_kitchen'];
+
 			case 'restaurante' | 'milkshake' | 'cultured':
 				if (PlayState.isStoryMode)
 				{
 					soundsToCache = ['dialogue/bluecheeseText', 'dialogue/boyfriendText', 'dialogue/suzukiText', 'dialogue/clickText'];
 				}
 
-				if (PlayState.isStoryMode)
-				{
-					imagesToCache = [
-						'cheese/counter',
-						'cheese/floor',
-						'cheese/tableA',
-						'cheese/tableB',
-						'cheese/wall_suzuki',
-						'cheese/char/boppers',
-						'cheese/front_boppers',
+				imagesToCache = [
+					'cheese/floor',
+					'cheese/tableA',
+					'cheese/tableB',
+					'cheese/wall_suzuki',
+					'cheese/char/boppers',
+					'cheese/counter'
+				];
 
-						'dialogue/Bluecheese_Dialogue',
-						'dialogue/BOYFRIEND_Dialogue',
-						'dialogue/gf_cheer',
-						'dialogue/gf_Dialogue',
-						'dialogue/OiSuzuki',
-						'dialogue/cooltextboxes'
-					];
-				}
-				else
-				{
-					imagesToCache = [
-						'cheese/counter',
-						'cheese/floor',
-						'cheese/tableA',
-						'cheese/tableB',
-						'cheese/wall_suzuki',
-						'cheese/char/boppers',
-						'cheese/front_boppers'
-					];
-				}
+				spritesToCache = [
+					'characters/Cheese_Assets',
+					'characters/Cheese_Exausted',
+					'characters/BOYFRIEND',
+					'characters/BOYFRIEND_ALT',
+					'characters/GF_assets'
+				];
 
 			case 'cream-cheese':
 
 				imagesToCache = [
-					'bonus/cream/counter',
 					'bonus/cream/floor',
 					'bonus/cream/tableA',
 					'bonus/cream/tableB',
 					'bonus/cream/t-side_mod',
-					'cheese/wall_suzuki'
+					'cheese/wall_suzuki',
+					'bonus/cream/counter'
 				];
 
+				spritesToCache = [
+					'characters/CREAM_CHEESE',
+					'characters/BOYFRIEND',
+					'characters/BOYFRIEND_ALT',
+					'characters/GF_assets',
+					'characters/GF_Ghostoru'
+				];
+
+			case 'wifi':
+
+				imagesToCache = [
+					'cheese/floor_week2',
+					'cheese/t-side_mod',
+					'cheese/tableA',
+					'cheese/tableB',
+					'cheese/char/stickmin',
+					'cheese/char/joey_new',
+					'cheese/char/circle_bop',
+					'cheese/char/ralsei_bop',
+					'cheese/wall',
+					'cheese/counter'
+				];
+
+				spritesToCache = [
+					'characters/Cheese_Assets',
+					'characters/ARSEN_EXPRESSIVE',
+					'characters/oisuzuki'
+				];
+
+			case 'casual-duel':
+
+				imagesToCache = [
+					'cheese/floor_week2',
+					'cheese/tableB',
+					'cheese/char/fun_gang_latest',
+					'cheese/char/sussy_table',
+					'cheese/char/DELTARUNE',
+					'cheese/wall',
+					'cheese/counter',
+					'cheese/char/avinera_counter',
+					'cheese/char/crowdindie_big'
+				];
+
+				spritesToCache = [
+					'characters/Cheese_Assets',
+					'characters/DANSILOT',
+					'characters/oisuzuki'
+				];
+
+			case 'dynamic-duo':
 		}
 
 		screen = new LoadingScreen();
 		add(screen);
 
-		screen.max = soundsToCache.length + imagesToCache.length;
+		screen.max = soundsToCache.length + imagesToCache.length + spritesToCache.length;
 
 		FlxG.camera.fade(FlxG.camera.bgColor, 0.5, true);
 
@@ -112,23 +152,32 @@ class LoadingState extends MusicBeatState
 		{
 			for (sound in soundsToCache)
 			{
-				trace("Caching sound " + sound);
+				trace("caching sound " + sound);
 				FlxG.sound.cache(Paths.sound(sound, soundLibrary));
 				screen.progress += 1;
 			}
 
 			for (image in imagesToCache)
 			{
-				trace("Caching image " + image);
+				trace("caching image " + image);
 				FlxG.bitmap.add(Paths.image(image, imageLibrary, true));
+				screen.progress += 1;
+			}
+
+			for (character in spritesToCache)
+			{
+				trace("caching character " + character);
+				FlxG.bitmap.add(Paths.image(character, spriteLibrary, true));
 				screen.progress += 1;
 			}
 
 			FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
-			trace("Done caching");
+			trace("done caching");
 
-			new FlxTimer().start(1.5, function(_:FlxTimer)
+			FlxG.camera.fade(FlxColor.BLACK, 1.5, false);
+
+			new FlxTimer().start(2, function(_:FlxTimer)
 			{
 				screen.kill();
 				screen.destroy();
@@ -168,11 +217,18 @@ class LoadingState extends MusicBeatState
 	{
 		for (image in imagesToCache)
 		{
-			trace("dumped " + image);
+			trace("dumped image " + image);
 			FlxG.bitmap.removeByKey(Paths.image(image, imageLibrary, true));
+		}
+
+		for (character in spritesToCache)
+		{
+			trace("dumped character " + character);
+			FlxG.bitmap.removeByKey(Paths.image(character, spriteLibrary, true));
 		}
 
 		soundsToCache = [];
 		imagesToCache = [];
+		spritesToCache = [];
 	}
 }

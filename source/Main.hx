@@ -12,6 +12,7 @@ import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
 import flixel.graphics.FlxGraphic;
+import flixel.util.FlxTimer;
 
 class Main extends Sprite
 {
@@ -161,23 +162,31 @@ class Main extends Sprite
 
 	public static var path:Array<String> = ['', 'assets/'];
 
+	// clears all loaded song shit from memory btw (in PlayState.hx)
 	public static function clearCache():Void
 	{
 		trace('fat dumpy !!');
-
-		// clear gpu vram
-		GPUFunctions.disposeAllTextures();
 
 		// clear ALL songs
 		for (i in 0...path.length)
 		{
 			Assets.cache.clear(path[i] + "songs");
 			Assets.cache.clear(path[i] + "shared/sounds");
+
+			GPUFunctions.disposeTexturesByKey(path[i] + 'shared/images/cheese');
+			GPUFunctions.disposeTexturesByKey(path[i] + 'shared/images/bonus');
 		}
+		// SONGS
 		openfl.Assets.cache.clear("songs");
 		openfl.Assets.cache.clear("assets/songs");
+		// GPU GRAPHICS
+		openfl.Assets.cache.clear("assets/shared/images/cheese");
+		openfl.Assets.cache.clear("assets/shared/images/bonus");
 
-		LoadingState.dumpAdditionalAssets();
+		//LoadingState.dumpAdditionalAssets();
+		// :((((
+
+		openfl.system.System.gc();
 	}
 
 	// OH MY GOSH THAT DUMB IDEA ACTUALLY WORKED WTF ????? IT WORKS NOW WOO

@@ -38,7 +38,6 @@ class FreeplayState extends MusicBeatState
 	var options:Array<String> = ['STORY SONGS', 'BONUS SONGS', 'UNFAIR SONGS'];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private static var curSelected:Int = 0;
-	public var menuBG:FlxSprite;
 	public var storySpr:FlxSprite;
 	public var bonusSpr:FlxSprite;
 	public var unfairSpr:FlxSprite;
@@ -53,14 +52,6 @@ class FreeplayState extends MusicBeatState
 		storySpr = new FlxSprite(0, 0);
 		bonusSpr = new FlxSprite(0, 0);
 		unfairSpr = new FlxSprite(0, 0);
-
-		menuBG = new FlxSprite(0, 0); // fix for wrong positions!
-
-		menuBG.loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE'));
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.updateHitbox();
-		menuBG.screenCenter();
-		add(menuBG);
 
 		storySpr = new FlxSprite().loadGraphic(Paths.image('freeplay/MAIN_FP_STORY'));
 		storySpr.antialiasing = ClientPrefs.globalAntialiasing;

@@ -64,7 +64,7 @@ class MEMORY extends TextField
 
 		if (visible)
 		{
-			text = "\nPHYS MEM: " + mem + " MB\nGC MEM: " + gcMem + " MB\n" + "USAGE: " + ramUsage + "/8 GB";
+			text = "\nPHYS MEM: " + mem + " MB\nGC MEM: " + gcMem + " MB\n" + "USAGE: " + ramUsage + " / 8 GB";
 		}
 	}
 

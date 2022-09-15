@@ -190,7 +190,8 @@ class GameOverFrostedSubstate extends MusicBeatSubstate
 				FlxG.sound.music.fadeOut(1.5, 0);
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
-					LoadingState.loadAndSwitchState(new PlayState());
+					LoadingState.target = new PlayState();
+					MusicBeatState.switchState(new LoadingState());
 				});
 			});
 		}

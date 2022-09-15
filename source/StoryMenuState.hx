@@ -474,7 +474,14 @@ class StoryMenuState extends MusicBeatState
 						}
 
 						var songArray:Array<String> = [];
-						var leWeek:Array<Dynamic> = WeekData.songsNames[curWeek];
+						var leWeek:Array<Dynamic> = [];
+
+						if (curWeek == 2) {
+							leWeek = ['Wifi', 'Casual-Duel'];
+						} else {
+							leWeek = WeekData.songsNames[curWeek];
+						}
+
 						for (i in 0...leWeek.length) {
 							songArray.push(leWeek[i]);
 						}

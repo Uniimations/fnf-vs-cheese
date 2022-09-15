@@ -50,37 +50,37 @@ class LoadingStartup extends MusicBeatState
 
 		FlxGraphic.defaultPersist = true;
 
-		FlxG.bitmap.add(Paths.image("noteskins/NOTE_assets_CHEESE", "preload"));
+		FlxG.bitmap.add(Paths.image('noteskins/NOTE_assets_CHEESE', 'preload'));
 
-		screen.progress = 1;
+		screen.progress = 1; // cheese note skin
 
-		FlxG.sound.cache(Paths.sound('intro3', 'shared'));
-		FlxG.sound.cache(Paths.sound('intro2', 'shared'));
-		FlxG.sound.cache(Paths.sound('intro1', 'shared'));
-		FlxG.sound.cache(Paths.sound('introGo', 'shared'));
+		FlxG.bitmap.add(Paths.image('countdown3', 'shared'));
+		FlxG.bitmap.add(Paths.image('countdown2', 'shared'));
+		FlxG.bitmap.add(Paths.image('countdown1', 'shared'));
+		FlxG.bitmap.add(Paths.image('countdownGo', 'shared'));
 
-		screen.progress = 3;
+		screen.progress = 3; // countdown graphix
+
+		FlxG.bitmap.add(Paths.image('perfect', 'shared'));
+		FlxG.bitmap.add(Paths.image('sick', 'shared'));
+		FlxG.bitmap.add(Paths.image('good', 'shared'));
+		FlxG.bitmap.add(Paths.image('bad', 'shared'));
+		FlxG.bitmap.add(Paths.image('shit', 'shared'));
+		FlxG.bitmap.add(Paths.image('miss', 'shared'));
+
+		screen.progress = 7; // rating graphix
 
 		FlxG.sound.cache(Paths.sound('confirmMenu', 'preload'));
 		FlxG.sound.cache(Paths.sound('cancelMenu', 'preload'));
 		FlxG.sound.cache(Paths.sound('scrollMenu', 'preload'));
 
-		screen.progress = 7;
-
-		FlxG.bitmap.add(Paths.image("dialogue/Bluecheese_Dialogue", "shared"));
-		FlxG.bitmap.add(Paths.image("dialogue/BOYFRIEND_Dialogue", "shared"));
-		FlxG.bitmap.add(Paths.image("dialogue/gf_cheer", "shared"));
-		FlxG.bitmap.add(Paths.image("dialogue/gf_Dialogue", "shared"));
-		FlxG.bitmap.add(Paths.image("dialogue/OiSuzuki", "shared"));
-		FlxG.bitmap.add(Paths.image("dialogue/cooltextboxes", "shared"));
-
-		screen.progress = 10;
+		screen.progress = 10; // menu sounds
 
 		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
 		trace("bullshit over lmao");
 
-		new FlxTimer().start(2, function(tmr:FlxTimer)
+		new FlxTimer().start(1.8, function(tmr:FlxTimer)
 		{
 			MusicBeatState.switchState(new TitleState());
 		});

@@ -242,13 +242,6 @@ class PauseSubState extends MusicBeatSubstate
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
-		/*
-		#if debug
-		practiceText = new FlxText(20, 15 + 101, 0, "YOU WILL NOW NEVER DIE", 32);
-		#else
-		practiceText = new FlxText(20, 15 + 101, 0, "stop messingn with the game, man :[", 32);
-		#end
-		*/
 		practiceText = new FlxText(20, 15 + 101, 0, "YOU WILL NOW NEVER DIE", 32);
 		practiceText.scrollFactor.set();
 		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
@@ -331,6 +324,8 @@ class PauseSubState extends MusicBeatSubstate
 					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
 						MusicBeatState.resetState();
 						FlxG.sound.music.volume = 0;
+
+						Main.clearCache(); // CLEARS MEMORY
 					});
 
 				case 'Options':
@@ -364,7 +359,6 @@ class PauseSubState extends MusicBeatSubstate
 
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
-					PlayState.changedDifficulty = false;
 
 					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
 						if(PlayState.isStoryMode) {

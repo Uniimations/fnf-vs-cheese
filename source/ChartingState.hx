@@ -1101,7 +1101,7 @@ class ChartingState extends MusicBeatState
 						}
 					}
 				}
-				LoadingState.loadAndSwitchState(new PlayState());
+				MusicBeatState.switchState(new PlayState());
 			}
 
 			if(curSelectedNote != null && curSelectedNote[1] > -1) {
