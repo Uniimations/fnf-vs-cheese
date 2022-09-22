@@ -509,8 +509,6 @@ class StoryMenuState extends MusicBeatState
 						PlayState.campaignScore = 0;
 						PlayState.campaignMisses = 0;
 
-						LoadingState.target = new PlayState();
-
 						//MP4 INTRO CUTSCENES
 						#if WINDOWS_BUILD
 						new FlxTimer().start(1, function(tmr:FlxTimer)
@@ -521,7 +519,7 @@ class StoryMenuState extends MusicBeatState
 						#else
 						new FlxTimer().start(1, function(tmr:FlxTimer)
 						{
-							MusicBeatState.switchState(new LoadingState());
+							LoadingState.loadAndSwitchState(new PlayState());
 							FreeplayState.fadeMenuMusic();
 						});
 						#end
@@ -642,26 +640,20 @@ class StoryMenuState extends MusicBeatState
 	function addMP4Intro(videoName:String, weekNum:Int)
 	{
 		#if WINDOWS_BUILD
-		var video:VideoMP4State = new VideoMP4State();
-
 		if (curWeek == weekNum && !PlayState.isCutscene)
-		new FlxTimer().start(1.2, function(tmr:FlxTimer)
 		{
+			var video:VideoMP4State = new VideoMP4State();
+
+			new FlxTimer().start(1.2, function(tmr:FlxTimer)
 			{
-				video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
-				video.finishCallback = function()
 				{
-					MusicBeatState.switchState(new LoadingState());
+					video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
+					video.finishCallback = function()
+					{
+						LoadingState.loadAndSwitchState(new PlayState());
+					}
+					PlayState.isCutscene = true;
 				}
-				PlayState.isCutscene = true;
-			}
-		});
-		else // fix for crash after going into another week after week 2.
-		{
-			PlayState.isCutscene = false;
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-			{
-				MusicBeatState.switchState(new LoadingState());
 			});
 		}
 		#end

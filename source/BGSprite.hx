@@ -40,6 +40,8 @@ class BGSprite extends FlxSprite
 		}
 		scrollFactor.set(scrollX, scrollY);
 		antialiasing = ClientPrefs.globalAntialiasing;
+
+		openfl.system.System.gc();
 	}
 
 	public function dance(?forceplay:Bool = false) {

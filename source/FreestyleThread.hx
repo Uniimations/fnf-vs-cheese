@@ -3,7 +3,7 @@ package;
 import openfl.utils.Function;
 import flixel.FlxBasic as YourMother;
 
-class FreestyleThread extends YourMother // FREESTYLE ENGINE THREADING
+class Thread extends YourMother // FREESTYLE ENGINE THREADING
 {
     public static var cache:Bool = false;
     public static var invoke:Dynamic;

@@ -292,23 +292,15 @@ class TitleState extends MusicBeatState
 			if(titleText != null) titleText.animation.play('press');
 			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
 
-			//FlxTween.tween(FlxG.camera, {y:1111}, 2, {ease: FlxEase.expoInOut});
 			FlxTween.tween(FlxG.camera, {y: FlxG.height}, 1.6, {ease: FlxEase.expoIn, startDelay: 0.4});
 			trace('wacky shit!');
 
+			// removed anti piracy thing cuz it was dumb
 			new FlxTimer().start(1.5, function(tmr:FlxTimer)
 			{
-				#if web
-				MusicBeatState.switchState(new PiracySubState());
-				trace('anti piracy log = true');
-				trace('access denied');
-				closedState = true;
-				#else
 				MusicBeatState.switchState(new MainMenuState());
-				trace('anti piracy log = false');
 				trace('access granted');
 				closedState = true;
-				#end
 			});
 			canDoShit = false;
 		}

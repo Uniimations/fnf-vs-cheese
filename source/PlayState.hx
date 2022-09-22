@@ -8,7 +8,6 @@ import sys.thread.Thread;
 #end
 import Section.SwagSection;
 import Song.SwagSong;
-import WiggleEffect.WiggleEffectType;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -758,6 +757,38 @@ class PlayState extends MusicBeatState
 					add(wall);
 				}
 
+			case 'below-zero':
+				curStage = 'restauranteAvi';
+
+				defaultCamZoom = 0.60;
+				staticCamZoom = 0.60;
+
+				var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+				floor.updateHitbox();
+
+				var tableA:BGSprite = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+				tableA.updateHitbox();
+
+				var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+				tableB.updateHitbox();
+
+				var tSideMod:BGSprite = new BGSprite('cheese/t-side_mod', 1288.35, 279.9, 1, 1);
+				tSideMod.updateHitbox();
+
+				var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
+				wall.updateHitbox();
+
+				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+				counter.updateHitbox();
+
+				if(!ClientPrefs.fuckyouavi) {
+					add(floor);
+					add(tableA);
+					add(tableB);
+					add(tSideMod);
+					add(wall);
+				}
+
 			case 'dynamic-duo':
 				curStage = 'restauranteDynamic';
 
@@ -900,8 +931,8 @@ class PlayState extends MusicBeatState
 					add(sunnyBack);
 				}
 
-			case 'fat-blunt':
-				curStage = 'fatStage';
+			case 'fat-blunt' | 'dirty-cheater':
+				curStage = 'placeholder';
 
 				defaultCamZoom = 0.60;
 				staticCamZoom = 0.60;
@@ -1034,19 +1065,18 @@ class PlayState extends MusicBeatState
 
 				trace('AVINERA + UNIIMATIONS');
 			default:
-				if (SONG.song.toLowerCase() == 'alter-ego')
+				switch (SONG.song.toLowerCase())
 				{
-					boyfriend2 = new Boyfriend(BF_X, BF_Y, 'bf');
-					boyfriend2.x += boyfriend.positionArray[0];
-					boyfriend2.y += boyfriend.positionArray[1];
-					boyfriend2.scrollFactor.set(1, 1);
-					boyfriendGroup.add(boyfriend2);
+					case 'alter-ego':
+						boyfriend2 = new Boyfriend(BF_X, BF_Y, 'bf');
+						boyfriend2.x += boyfriend.positionArray[0];
+						boyfriend2.y += boyfriend.positionArray[1];
+						boyfriend2.scrollFactor.set(1, 1);
+						boyfriendGroup.add(boyfriend2);
 
-					trace('death bf for alter ego mid song event');
-				}
-				else
-				{
-					FlxG.log.add('NO BOYFRIEND2');
+						trace('death bf for alter ego mid song event');
+					default:
+						FlxG.log.add('NO BOYFRIEND2');
 				}
 		}
 
@@ -1187,14 +1217,7 @@ class PlayState extends MusicBeatState
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
 
-		#if desktop
-		Thread.create(() ->
-		{
-			FlxGraphic.defaultPersist = true;
-
-			generateSong();
-		});
-		#end
+		generateSong();
 
 		// After all characters being loaded, it makes then invisible 0.01s later so that the player won't freeze when you change characters
 
@@ -1730,14 +1753,12 @@ class PlayState extends MusicBeatState
 				var file:String = 'assets/videos/webm/' + videoName + '/' + videoName + '.webm';
 				if (OpenFlAssets.exists(file))
 				{
-					LoadingState.target = new PlayState();
-					MusicBeatState.switchState(new VideoState('assets/videos/webm/' + videoName + '/' + videoName + '.webm', new LoadingState()));
+					LoadingState.loadAndSwitchState(new VideoState('assets/videos/webm/' + videoName + '/' + videoName + '.webm', new PlayState()));
 					trace('loaded' + file);
 				}
 				else
 				{
-					LoadingState.target = new PlayState();
-					MusicBeatState.switchState(new VideoState('assets/videos/webm/ass.webm', new LoadingState()));
+					LoadingState.loadAndSwitchState(new VideoState('assets/videos/webm/ass.webm', new PlayState()));
 					trace('error: cutscene path:' + file + 'not found');
 					trace('loaded assets/videos/webm/ass.webm');
 				}
@@ -1763,8 +1784,7 @@ class PlayState extends MusicBeatState
 				video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
 				video.finishCallback = function()
 				{
-					LoadingState.target = new PlayState();
-					MusicBeatState.switchState(new LoadingState());
+					LoadingState.loadAndSwitchState(new PlayState());
 					hasMP4 = false;
 
 					Main.clearCache(); // CLEARS MEMORY
@@ -1975,37 +1995,33 @@ class PlayState extends MusicBeatState
 		callOnLuas('onSongStart', []);
 	}
 
+	var dataPath:String;
+	var songData:SwagSong;
+	var noteData:Array<SwagSection>;
+
 	function generateSong():Void
 	{
-		var dataPath:String = SONG.song.toLowerCase();
-		var songData = SONG;
-
-		Conductor.changeBPM(songData.bpm);
+		dataPath = SONG.song.toLowerCase();
+		songData = SONG;
 
 		curSong = songData.song;
+		noteData = songData.notes;
+
+		Conductor.changeBPM(songData.bpm);
 
 		notes = new FlxTypedGroup<Note>();
 		add(notes);
 
 		notes.cameras = [camHUD];
 
-		var noteData:Array<SwagSection>;
-
-		noteData = songData.notes;
-
-		var playerCounter:Int = 0;
-
-		var daBeats:Int = 0; // Not exactly representative of 'daBeats' lol, just how much it has looped
-
-		var file:String;
+		var file:String = Paths.json(dataPath + "/events");
 
 		if (CoolUtil.difficultyString() == HARDER_THAN_HARD)
-			file = Paths.json(dataPath + '/events-vip');
-		else
-			file = Paths.json(dataPath + "/events");
-
-		if (OpenFlAssets.exists(file))
 		{
+			file = Paths.json(dataPath + '/events-vip');
+		}
+
+		if (OpenFlAssets.exists(file)) {
 			var eventsData:Array<SwagSection>;
 
 			if (CoolUtil.difficultyString() == HARDER_THAN_HARD)
@@ -2025,11 +2041,16 @@ class PlayState extends MusicBeatState
 			}
 		}
 
+		loadChart();
+	}
+
+	function loadChart():Void
+	{
 		for (section in noteData)
 		{
 			for (songNotes in section.sectionNotes)
 			{
-				if(songNotes[1] > -1) { //Real notes
+				if (songNotes[1] > -1) { //Real notes
 					var daStrumTime:Float = songNotes[0];
 					var daNoteData:Int = Std.int(songNotes[1] % 4);
 
@@ -2097,7 +2118,6 @@ class PlayState extends MusicBeatState
 					eventPushed(songNotes);
 				}
 			}
-			daBeats += 1;
 		}
 
 		unspawnNotes.sort(sortByShit);
@@ -2105,8 +2125,6 @@ class PlayState extends MusicBeatState
 		if(eventNotes.length > 1) { //No need to sort if there's a single one or none at all
 			eventNotes.sort(sortByTime);
 		}
-
-		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 
 		generatedMusic = true;
 
@@ -2984,6 +3002,7 @@ class PlayState extends MusicBeatState
 			{
 				if (FlxG.keys.justPressed.ONE)
 					FlxG.sound.music.onComplete();
+
 				if(FlxG.keys.justPressed.TWO)
 				{
 					FlxG.sound.music.pause();
@@ -3022,67 +3041,42 @@ class PlayState extends MusicBeatState
 					vocals.play();
 				}
 			}
-
-			if (FlxG.keys.justPressed.F7 && !endingSong || FlxG.keys.justPressed.SEVEN && !endingSong)
-			{
-				persistentUpdate = false;
-				paused = true;
-				PauseSubState.psChartingMode = true;
-				MusicBeatState.switchState(new ChartingState());
-
-				#if desktop
-				DiscordClient.changePresence("Chart Editor", null, null, true);
-				#end
-
-				Main.clearCache(); // CLEARS MEMORY
-			}
-
-			if (FlxG.keys.justPressed.F8 || FlxG.keys.justPressed.EIGHT)
-			{
-				persistentUpdate = false;
-				paused = true;
-				FlxG.sound.music.stop();
-				#if windows
-				MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
-				#end
-
-				Main.clearCache(); // CLEARS MEMORY
-			}
 		}
-		else
+
+		if (FlxG.keys.justPressed.F12)
+			FlxG.sound.music.onComplete();
+
+		if (FlxG.keys.justPressed.SEVEN && !endingSong)
 		{
-			if (FlxG.keys.justPressed.F12)
-				FlxG.sound.music.onComplete();
+			persistentUpdate = false;
+			paused = true;
+			PauseSubState.psChartingMode = true;
+			MusicBeatState.switchState(new ChartingState());
 
-			if (FlxG.keys.justPressed.SEVEN && !endingSong)
-			{
-				persistentUpdate = false;
-				paused = true;
-				PauseSubState.psChartingMode = true;
-				MusicBeatState.switchState(new ChartingState());
+			#if desktop
+			DiscordClient.changePresence("Chart Editor", null, null, true);
+			#end
 
-				#if desktop
-				DiscordClient.changePresence("Chart Editor", null, null, true);
-				#end
+			Main.clearCache(); // CLEARS MEMORY
+		}
 
-				Main.clearCache(); // CLEARS MEMORY
-			}
+		if (FlxG.keys.justPressed.EIGHT)
+		{
+			persistentUpdate = false;
+			paused = true;
+			FlxG.sound.music.stop();
+			MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
 
-			if (FlxG.keys.justPressed.EIGHT)
-			{
-				persistentUpdate = false;
-				paused = true;
-				FlxG.sound.music.stop();
-				MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
+			Main.clearCache(); // CLEARS MEMORY
+		}
 
-				Main.clearCache(); // CLEARS MEMORY
-			}
-			/*
-			if (FlxG.keys.justPressed.EIGHT || FlxG.keys.justPressed.SEVEN && !endingSong)
-			{
-				loadSong(true, 'Cultured');
-			}
-			*/
+		if (FlxG.keys.justPressed.SIX && !endingSong && canPause)
+		{
+			persistentUpdate = false;
+			paused = true;
+			FlxG.sound.music.onComplete = FUCKING_CHEATER;
+
+			FlxG.sound.music.onComplete();
 		}
 
 		setOnLuas('cameraX', camFollowPos.x);
@@ -5962,9 +5956,9 @@ class PlayState extends MusicBeatState
 			else
 				realDifficulty = '-hard';
 
-			PlayState.SONG = Song.loadFromJson(customPath.toLowerCase() + realDifficulty, customPath.toLowerCase());
+			PlayState.SONG = Song.loadFromJson(customPath.toLowerCase() + realDifficulty, customPath);
 
-			trace('loaded custom song: "' + customPath.toLowerCase + '" suffix: "' + realDifficulty + '"');
+			trace('loaded custom song: "' + customPath + '" suffix: "' + realDifficulty + '"');
 		}
 		else
 		{
@@ -5976,10 +5970,9 @@ class PlayState extends MusicBeatState
 		//checks if the song is the first argument, then the cutscene folder and video name
 		addMP4Outro('wifi', 'casual-duel');
 
-		if(!hasMP4 && !customSong)
+		if(!hasMP4)
 		{
-			LoadingState.target = new PlayState();
-			MusicBeatState.switchState(new LoadingState());
+			LoadingState.loadAndSwitchState(new PlayState());
 
 			Main.clearCache(); // CLEARS MEMORY
 		}
@@ -6034,6 +6027,11 @@ class PlayState extends MusicBeatState
 		skippedDialogue = false;
 
 		MainMenuState.cursed = false; // makes you not cursed
+	}
+
+	public function FUCKING_CHEATER():Void
+	{
+		loadSong(true, 'DIRTY-CHEATER', false);
 	}
 
 	private function backToMenu():Void {
@@ -6244,6 +6242,13 @@ class PlayState extends MusicBeatState
 						add(boyfriendGroup);
 						add(frontBoppers);
 
+					case 'restauranteAvi':
+						gf.visible = true;
+						add(gfGroup);
+						add(dadGroup);
+						add(counter);
+						add(boyfriendGroup);
+
 					case 'restauranteDynamic':
 						gf.visible = true;
 						add(gfGroup);
@@ -6270,10 +6275,6 @@ class PlayState extends MusicBeatState
 						add(wallLeft);
 						add(counter);
 
-						startingPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
-						startingPos.x += dad.cameraPosition[0];
-						startingPos.y += dad.cameraPosition[1];
-
 					case 'theBack':
 						gf.visible = false;
 						add(gfGroup);
@@ -6289,10 +6290,6 @@ class PlayState extends MusicBeatState
 						add(gotcha);
 
 						boyfriend2.alpha = 0;
-
-						startingPos = new FlxPoint(boyfriend.getGraphicMidpoint().x, boyfriend.getGraphicMidpoint().y);
-						startingPos.x += boyfriend.cameraPosition[0];
-						startingPos.y += boyfriend.cameraPosition[1];
 
 					default:
 						gf.visible = true;
@@ -6339,6 +6336,9 @@ class PlayState extends MusicBeatState
 						{
 							boppers.dance();
 						});
+
+					case 'restauranteAvi':
+						counter.dance();
 
 					case 'restauranteDynamic':
 						if (curBeat % 2 == 0)

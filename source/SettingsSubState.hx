@@ -110,7 +110,6 @@ class SettingsSubState extends MusicBeatSubstate
 		//MISC CATEGORY
 		'MISCELLANEOUS',
 		'Optimized Mode',
-		'Memory Cache',
 		'Erase Save Data',
 	];
 
@@ -345,10 +344,6 @@ class SettingsSubState extends MusicBeatSubstate
 					case 'Hide HUD':
 						ClientPrefs.hideHud = !ClientPrefs.hideHud;
 
-					case 'Memory Cache':
-						ClientPrefs.imagesPersist = !ClientPrefs.imagesPersist;
-						FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
-
 					case 'Hide Song Length':
 						ClientPrefs.hideTime = !ClientPrefs.hideTime;
 
@@ -558,8 +553,6 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If unchecked, hides Memory Info.";
 			case 'Watermark Icon':
 				daText = "If unchecked, hides the VS Cheese watermark.";
-			case 'Memory Cache':
-				daText = "TURN THIS ON IF YOU HAVE ANY LOADING PROBLEMS!\nKeep images stored in memory at the extent of memory usage.";
 			case 'High Quality':
 				daText = "If unchecked, disables anti-aliasing, increases performance\nat the cost of the graphics not looking as smooth.";
 			case 'Downscroll':
@@ -687,8 +680,6 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.violence;
 					case 'Hide HUD':
 						daValue = ClientPrefs.hideHud;
-					case 'Memory Cache':
-						daValue = ClientPrefs.imagesPersist;
 					case 'Hide Song Length':
 						daValue = ClientPrefs.hideTime;
 					case 'New Boyfriend Skin':

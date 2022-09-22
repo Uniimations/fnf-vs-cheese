@@ -38,6 +38,8 @@ class Note extends FlxSprite
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
 
+	public var multSpeed(default, set):Float = 1;
+
 	public var hitHealth:Float = 0.023;
 	public var missHealth:Float = 0.0475;
 
@@ -47,6 +49,22 @@ class Note extends FlxSprite
 	public var yAdd:Float = 0; // doooont use this lol
 
 	public var burning:Bool = false;
+
+	private function set_multSpeed(value:Float):Float {
+		resizeByRatio(value / multSpeed);
+		multSpeed = value;
+		//trace('fuck cock');
+		return value;
+	}
+
+	public function resizeByRatio(ratio:Float) //haha funny twitter shit
+	{
+		if(isSustainNote && !animation.curAnim.name.endsWith('end'))
+		{
+			scale.y *= ratio;
+			updateHitbox();
+		}
+	}
 
 	private function set_noteType(value:Int):Int {
 		if(noteData > -1 && noteType != value) {
@@ -164,9 +182,6 @@ class Note extends FlxSprite
 
 			x -= width / 2;
 
-			if (PlayState.curStage.startsWith('school'))
-				x += 30;
-
 			if (prevNote.isSustainNote)
 			{
 				switch (prevNote.noteData)
@@ -182,6 +197,9 @@ class Note extends FlxSprite
 				}
 
 				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.5 * PlayState.SONG.speed;
+				//prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.05 * PlayState.instance.songSpeed;
+				// CHANGE THIS LATER!!
+
 				prevNote.updateHitbox();
 			}
 		}

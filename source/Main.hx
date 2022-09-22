@@ -119,7 +119,7 @@ class Main extends Sprite
 
 	function setupDefines()
 	{
-		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+		FlxGraphic.defaultPersist = false;
 
 		var bitmapData = Assets.getBitmapData("assets/images/watermark.png");
 
@@ -162,12 +162,15 @@ class Main extends Sprite
 
 	public static var path:Array<String> = ['', 'assets/'];
 
-	// clears all loaded song shit from memory btw (in PlayState.hx)
+	// clears MOST loaded song shit from memory btw (in PlayState.hx)
+	// it doesnt clear everything sadly qwq
 	public static function clearCache():Void
 	{
 		trace('fat dumpy !!');
 
-		// clear ALL songs
+		GPUFunctions.disposeAllTextures();
+
+		// clear cache
 		for (i in 0...path.length)
 		{
 			Assets.cache.clear(path[i] + "songs");
@@ -176,15 +179,14 @@ class Main extends Sprite
 			GPUFunctions.disposeTexturesByKey(path[i] + 'shared/images/cheese');
 			GPUFunctions.disposeTexturesByKey(path[i] + 'shared/images/bonus');
 		}
+
 		// SONGS
 		openfl.Assets.cache.clear("songs");
 		openfl.Assets.cache.clear("assets/songs");
-		// GPU GRAPHICS
+
+		// GPU GRAPHICS (backgrounds)
 		openfl.Assets.cache.clear("assets/shared/images/cheese");
 		openfl.Assets.cache.clear("assets/shared/images/bonus");
-
-		//LoadingState.dumpAdditionalAssets();
-		// :((((
 
 		openfl.system.System.gc();
 	}
@@ -197,4 +199,16 @@ class Main extends Sprite
 			memoryVar.visible = show;
 		#end
 	}
+
+	// silly windows api build xml :P
+
+	#if windows
+	@:buildXml('
+	<target id="haxe">
+		<compilerflag value="-fno-omit-frame-pointer" />
+		<compilerflag value="-fsanitize=address" />
+		<compilerflag value="-fsanitize=thread" />
+	</target>
+	')
+	#end
 }

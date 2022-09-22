@@ -1,200 +1,162 @@
 package;
 
+import lime.app.Promise;
+import lime.app.Future;
 import flixel.FlxG;
 import flixel.FlxState;
-import flixel.graphics.FlxGraphic;
-import flixel.util.FlxColor;
+import flixel.FlxSprite;
+import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.util.FlxTimer;
-import sys.thread.Thread;
+import flixel.math.FlxMath;
 
-using StringTools;
+import openfl.utils.Assets;
+import lime.utils.Assets as LimeAssets;
+import lime.utils.AssetLibrary;
+import lime.utils.AssetManifest;
+
+import haxe.io.Path;
 
 class LoadingState extends MusicBeatState
 {
-	public static var target:FlxState;
-	public static var stopMusic:Bool = false;
+	inline static var MIN_TIME = 1.0;
 
-	static var soundsToCache:Array<String> = [];
-	static var imagesToCache:Array<String> = [];
-	static var spritesToCache:Array<String> = [];
+	// Browsers will load create(), you can make your song load a custom directory there
+	// If you're compiling to desktop (or something that doesn't use NO_PRELOAD_ALL), search for getNextState instead
+	// I'd recommend doing it on both actually lol
+	
+	// TO DO: Make this easier
+	
+	var target:FlxState;
+	var stopMusic = false;
+	var callbacks:MultiCallback;
+	var targetShit:Float = 0;
 
-	static var soundLibrary:String = '';
-	static var imageLibrary:String = '';
-	static var spriteLibrary:String = '';
+	function new(target:FlxState, stopMusic:Bool)
+	{
+		super();
+		this.target = target;
+		this.stopMusic = stopMusic;
+	}
 
-	var screen:LoadingScreen;
+	var funkay:FlxSprite;
+	var loadBar:FlxSprite;
 
 	override function create()
 	{
-		super.create();
+		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, 0xffcaff4d);
+		add(bg);
 
-		var daSong:String = PlayState.SONG.song.toLowerCase();
+		funkay = new FlxSprite(0, 0).loadGraphic(Paths.getPath('images/loadingScreen.png', IMAGE));
+		funkay.setGraphicSize(0, FlxG.height);
+		funkay.updateHitbox();
+		funkay.antialiasing = ClientPrefs.globalAntialiasing;
+		add(funkay);
 
-		soundLibrary = 'shared';
-		imageLibrary = 'shared';
-		spriteLibrary = 'preload';
+		funkay.scrollFactor.set();
+		funkay.screenCenter();
 
-		switch (daSong)
+		loadBar = new FlxSprite(0, FlxG.height - 20).makeGraphic(FlxG.width, 10, 0xffff16d2);
+		loadBar.screenCenter(X);
+		loadBar.antialiasing = ClientPrefs.globalAntialiasing;
+		add(loadBar);
+
+		initSongsManifest().onComplete
+		(
+			function (lib)
+			{
+				callbacks = new MultiCallback(onLoad);
+				var introComplete = callbacks.add("introComplete");
+				if (PlayState.SONG != null) {
+					checkLoadSong(getSongPath());
+					if (PlayState.SONG.needsVoices)
+						checkLoadSong(getVocalPath());
+				}
+				checkLibrary("shared");
+
+				var directory:String = WeekData.getWeekDirectory();
+				checkLibrary(directory);
+
+				var fadeTime = 0.5;
+				FlxG.camera.fade(FlxG.camera.bgColor, fadeTime, true);
+				new FlxTimer().start(fadeTime + MIN_TIME, function(_) introComplete());
+			}
+		);
+	}
+	
+	function checkLoadSong(path:String)
+	{
+		if (!Assets.cache.hasSound(path))
 		{
-			case 'tutorial':
-				if (PlayState.isStoryMode)
-				{
-					soundsToCache = ['dialogue/bluecheeseText', 'dialogue/suzukiText', 'dialogue/clickText'];
-				}
+			var library = Assets.getLibrary("songs");
+			final symbolPath = path.split(":").pop();
+			// @:privateAccess
+			// library.types.set(symbolPath, SOUND);
+			// @:privateAccess
+			// library.pathGroups.set(symbolPath, [library.__cacheBreak(symbolPath)]);
+			var callback = callbacks.add("song:" + path);
+			Assets.loadSound(path).onComplete(function (_) { callback(); });
+		}
+	}
+	
+	function checkLibrary(library:String, ?doCheck:Bool = false) {
+		if(!doCheck || !ClientPrefs.lowQuality) {
+			trace(Assets.hasLibrary(library));
+			if (Assets.getLibrary(library) == null)
+			{
+				@:privateAccess
+				if (!LimeAssets.libraryPaths.exists(library))
+					throw "Missing library: " + library;
 
-				imagesToCache = [
-					'cheese/kitchen/background_main',
-					'cheese/kitchen/cheeese_nevr_uses_that_frying_pan_on_that_shelf',
-					'cheese/kitchen/counter_strike_source',
-					'cheese/kitchen/SILLY_TRAMSHCANSH',
-					'cheese/kitchen/Sink',
-					'cheese/kitchen/THEE_AWESIOME_STOBEVE'
-				];
-
-				spritesToCache = ['characters/bluecheese_kitchen', 'characters/oisuzuki_kitchen'];
-
-			case 'restaurante' | 'milkshake' | 'cultured':
-				if (PlayState.isStoryMode)
-				{
-					soundsToCache = ['dialogue/bluecheeseText', 'dialogue/boyfriendText', 'dialogue/suzukiText', 'dialogue/clickText'];
-				}
-
-				imagesToCache = [
-					'cheese/floor',
-					'cheese/tableA',
-					'cheese/tableB',
-					'cheese/wall_suzuki',
-					'cheese/char/boppers',
-					'cheese/counter'
-				];
-
-				spritesToCache = [
-					'characters/Cheese_Assets',
-					'characters/Cheese_Exausted',
-					'characters/BOYFRIEND',
-					'characters/BOYFRIEND_ALT',
-					'characters/GF_assets'
-				];
-
-			case 'cream-cheese':
-
-				imagesToCache = [
-					'bonus/cream/floor',
-					'bonus/cream/tableA',
-					'bonus/cream/tableB',
-					'bonus/cream/t-side_mod',
-					'cheese/wall_suzuki',
-					'bonus/cream/counter'
-				];
-
-				spritesToCache = [
-					'characters/CREAM_CHEESE',
-					'characters/BOYFRIEND',
-					'characters/BOYFRIEND_ALT',
-					'characters/GF_assets',
-					'characters/GF_Ghostoru'
-				];
-
-			case 'wifi':
-
-				imagesToCache = [
-					'cheese/floor_week2',
-					'cheese/t-side_mod',
-					'cheese/tableA',
-					'cheese/tableB',
-					'cheese/char/stickmin',
-					'cheese/char/joey_new',
-					'cheese/char/circle_bop',
-					'cheese/char/ralsei_bop',
-					'cheese/wall',
-					'cheese/counter'
-				];
-
-				spritesToCache = [
-					'characters/Cheese_Assets',
-					'characters/ARSEN_EXPRESSIVE',
-					'characters/oisuzuki'
-				];
-
-			case 'casual-duel':
-
-				imagesToCache = [
-					'cheese/floor_week2',
-					'cheese/tableB',
-					'cheese/char/fun_gang_latest',
-					'cheese/char/sussy_table',
-					'cheese/char/DELTARUNE',
-					'cheese/wall',
-					'cheese/counter',
-					'cheese/char/avinera_counter',
-					'cheese/char/crowdindie_big'
-				];
-
-				spritesToCache = [
-					'characters/Cheese_Assets',
-					'characters/DANSILOT',
-					'characters/oisuzuki'
-				];
-
-			case 'dynamic-duo':
+				var callback = callbacks.add("library:" + library);
+				Assets.loadLibrary(library).onComplete(function (_) { callback(); });
+			}
+		}
+	}
+	
+	override function update(elapsed:Float)
+	{
+		super.update(elapsed);
+		funkay.setGraphicSize(Std.int(0.88 * FlxG.width + 0.9 * (funkay.width - 0.88 * FlxG.width)));
+		funkay.updateHitbox();
+		if(controls.ACCEPT)
+		{
+			funkay.setGraphicSize(Std.int(funkay.width + 60));
+			funkay.updateHitbox();
 		}
 
-		screen = new LoadingScreen();
-		add(screen);
-
-		screen.max = soundsToCache.length + imagesToCache.length + spritesToCache.length;
-
-		FlxG.camera.fade(FlxG.camera.bgColor, 0.5, true);
-
-		FlxGraphic.defaultPersist = true;
-
-		Thread.create(() ->
-		{
-			for (sound in soundsToCache)
-			{
-				trace("caching sound " + sound);
-				FlxG.sound.cache(Paths.sound(sound, soundLibrary));
-				screen.progress += 1;
-			}
-
-			for (image in imagesToCache)
-			{
-				trace("caching image " + image);
-				FlxG.bitmap.add(Paths.image(image, imageLibrary, true));
-				screen.progress += 1;
-			}
-
-			for (character in spritesToCache)
-			{
-				trace("caching character " + character);
-				FlxG.bitmap.add(Paths.image(character, spriteLibrary, true));
-				screen.progress += 1;
-			}
-
-			FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
-
-			trace("done caching");
-
-			FlxG.camera.fade(FlxColor.BLACK, 1.5, false);
-
-			new FlxTimer().start(2, function(_:FlxTimer)
-			{
-				screen.kill();
-				screen.destroy();
-				loadAndSwitchState(target, false);
-			});
-		});
+		if(callbacks != null) {
+			targetShit = FlxMath.remapToRange(callbacks.numRemaining / callbacks.length, 1, 0, 0, 1);
+			loadBar.scale.x += 0.5 * (targetShit - loadBar.scale.x);
+		}
 	}
-
+	
+	function onLoad()
+	{
+		if (stopMusic && FlxG.sound.music != null)
+			FlxG.sound.music.stop();
+		
+		MusicBeatState.switchState(target);
+	}
+	
+	static function getSongPath()
+	{
+		return Paths.inst(PlayState.SONG.song);
+	}
+	
+	static function getVocalPath()
+	{
+		return Paths.voices(PlayState.SONG.song);
+	}
+	
 	inline static public function loadAndSwitchState(target:FlxState, stopMusic = false)
 	{
 		MusicBeatState.switchState(getNextState(target, stopMusic));
 	}
-
+	
 	static function getNextState(target:FlxState, stopMusic = false):FlxState
 	{
 		Paths.setCurrentLevel(WeekData.getWeekDirectory());
-		
+
 		#if NO_PRELOAD_ALL
 		var directory:String = WeekData.getWeekDirectory();
 		var loaded:Bool = false;
@@ -212,23 +174,146 @@ class LoadingState extends MusicBeatState
 		
 		return target;
 	}
-
-	public static function dumpAdditionalAssets()
+	
+	#if NO_PRELOAD_ALL
+	static function isSoundLoaded(path:String):Bool
 	{
-		for (image in imagesToCache)
-		{
-			trace("dumped image " + image);
-			FlxG.bitmap.removeByKey(Paths.image(image, imageLibrary, true));
-		}
-
-		for (character in spritesToCache)
-		{
-			trace("dumped character " + character);
-			FlxG.bitmap.removeByKey(Paths.image(character, spriteLibrary, true));
-		}
-
-		soundsToCache = [];
-		imagesToCache = [];
-		spritesToCache = [];
+		return Assets.cache.hasSound(path);
 	}
+	
+	static function isLibraryLoaded(library:String):Bool
+	{
+		return Assets.getLibrary(library) != null;
+	}
+	#end
+	
+	override function destroy()
+	{
+		super.destroy();
+		
+		callbacks = null;
+	}
+	
+	static function initSongsManifest()
+	{
+		var id = "songs";
+		var promise = new Promise<AssetLibrary>();
+
+		var library = LimeAssets.getLibrary(id);
+
+		if (library != null)
+		{
+			return Future.withValue(library);
+		}
+
+		var path = id;
+		var rootPath = null;
+
+		@:privateAccess
+		var libraryPaths = LimeAssets.libraryPaths;
+		if (libraryPaths.exists(id))
+		{
+			path = libraryPaths[id];
+			rootPath = Path.directory(path);
+		}
+		else
+		{
+			if (StringTools.endsWith(path, ".bundle"))
+			{
+				rootPath = path;
+				path += "/library.json";
+			}
+			else
+			{
+				rootPath = Path.directory(path);
+			}
+			@:privateAccess
+			path = LimeAssets.__cacheBreak(path);
+		}
+
+		AssetManifest.loadFromFile(path, rootPath).onComplete(function(manifest)
+		{
+			if (manifest == null)
+			{
+				promise.error("Cannot parse asset manifest for library \"" + id + "\"");
+				return;
+			}
+
+			var library = AssetLibrary.fromManifest(manifest);
+
+			if (library == null)
+			{
+				promise.error("Cannot open library \"" + id + "\"");
+			}
+			else
+			{
+				@:privateAccess
+				LimeAssets.libraries.set(id, library);
+				library.onChange.add(LimeAssets.onChange.dispatch);
+				promise.completeWith(Future.withValue(library));
+			}
+		}).onError(function(_)
+		{
+			promise.error("There is no asset library with an ID of \"" + id + "\"");
+		});
+
+		return promise.future;
+	}
+}
+
+class MultiCallback
+{
+	public var callback:Void->Void;
+	public var logId:String = null;
+	public var length(default, null) = 0;
+	public var numRemaining(default, null) = 0;
+	
+	var unfired = new Map<String, Void->Void>();
+	var fired = new Array<String>();
+	
+	public function new (callback:Void->Void, logId:String = null)
+	{
+		this.callback = callback;
+		this.logId = logId;
+	}
+	
+	public function add(id = "untitled")
+	{
+		id = '$length:$id';
+		length++;
+		numRemaining++;
+		var func:Void->Void = null;
+		func = function ()
+		{
+			if (unfired.exists(id))
+			{
+				unfired.remove(id);
+				fired.push(id);
+				numRemaining--;
+				
+				if (logId != null)
+					log('fired $id, $numRemaining remaining');
+				
+				if (numRemaining == 0)
+				{
+					if (logId != null)
+						log('all callbacks fired');
+					callback();
+				}
+			}
+			else
+				log('already fired $id');
+		}
+		unfired[id] = func;
+		return func;
+	}
+	
+	inline function log(msg):Void
+	{
+		if (logId != null)
+			trace('$logId: $msg');
+	}
+	
+	public function getFired() return fired.copy();
+	public function getUnfired() return [for (id in unfired.keys()) id];
 }

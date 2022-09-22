@@ -44,22 +44,18 @@ class LoadingStartup extends MusicBeatState
 
 	function cache()
 	{
-		screen.max = 10;
+		screen.max = 3;
 
 		trace("Caching images...");
 
 		FlxGraphic.defaultPersist = true;
-
-		FlxG.bitmap.add(Paths.image('noteskins/NOTE_assets_CHEESE', 'preload'));
-
-		screen.progress = 1; // cheese note skin
 
 		FlxG.bitmap.add(Paths.image('countdown3', 'shared'));
 		FlxG.bitmap.add(Paths.image('countdown2', 'shared'));
 		FlxG.bitmap.add(Paths.image('countdown1', 'shared'));
 		FlxG.bitmap.add(Paths.image('countdownGo', 'shared'));
 
-		screen.progress = 3; // countdown graphix
+		screen.progress = 1; // countdown graphix
 
 		FlxG.bitmap.add(Paths.image('perfect', 'shared'));
 		FlxG.bitmap.add(Paths.image('sick', 'shared'));
@@ -68,19 +64,19 @@ class LoadingStartup extends MusicBeatState
 		FlxG.bitmap.add(Paths.image('shit', 'shared'));
 		FlxG.bitmap.add(Paths.image('miss', 'shared'));
 
-		screen.progress = 7; // rating graphix
+		screen.progress = 2; // rating graphix
 
 		FlxG.sound.cache(Paths.sound('confirmMenu', 'preload'));
 		FlxG.sound.cache(Paths.sound('cancelMenu', 'preload'));
 		FlxG.sound.cache(Paths.sound('scrollMenu', 'preload'));
 
-		screen.progress = 10; // menu sounds
+		screen.progress = 3; // menu sounds
 
-		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+		FlxGraphic.defaultPersist = false;
 
 		trace("bullshit over lmao");
 
-		new FlxTimer().start(1.8, function(tmr:FlxTimer)
+		new FlxTimer().start(2, function(tmr:FlxTimer)
 		{
 			MusicBeatState.switchState(new TitleState());
 		});

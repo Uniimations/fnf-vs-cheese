@@ -59,33 +59,4 @@ class UniiStringTools
         // the string it will return for the note skin path
         return note_skin_suffix;
     }
-
-    // FOR ADDING BASIC ACHIEVEMENTS FOR WEEKS AND SONGS SINCE IM LAZY LOL
-    public static function quickAchievement(achievementType:String, statement:Bool = true, ?weekNum:Int = 0, ?difficulty:String = 'hard', ?song:String = '', ?SongString:String = '')
-    {
-        // none of this works dont use it, pushing this file anyway for note skins
-        switch (achievementType)
-        {
-            case 'song':
-                if (song == SongString && CoolUtil.difficultyString() == difficulty.toUpperCase()) {
-                    statement = true;
-                }
-
-            case 'storySong':
-                if (PlayState.isStoryMode && song == SongString && CoolUtil.difficultyString() == difficulty.toUpperCase()) {
-                    statement = true;
-                }
-
-            case 'quickSong':
-                if (song == SongString) {
-                    statement = true;
-                }
-
-            case 'week':
-                if (PlayState.isStoryMode && WeekData.getCurrentWeekNumber() == weekNum && PlayState.storyPlaylist.length <= 1 && CoolUtil.difficultyString() == difficulty.toUpperCase()) {
-                    statement = true;
-                }
-
-        }
-    }
 }

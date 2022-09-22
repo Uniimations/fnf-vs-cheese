@@ -439,7 +439,7 @@ class FreeplayBonusState extends MusicBeatState
 	
 					FlxFlicker.flicker(item, 1.1, 0.06, false, false, function(flick:FlxFlicker)
 					{
-						MusicBeatState.switchState(new LoadingState());
+						LoadingState.loadAndSwitchState(new PlayState());
 						fadeMenuMusic();
 					});
 				});
@@ -593,8 +593,6 @@ class FreeplayBonusState extends MusicBeatState
 				curDifName = 'UNFAIR';
 		}
 		trace ('CURRENT SONG: ' + songLowercase + ' | CURRENT DIFFICULTY: ' + curDifName + ' | DIFFICULTY INT: ' + curDifficulty); //added new shit here so it tells me wtf im doing
-
-		LoadingState.target = new PlayState();
 	}
 
 	private function reposScoreText() {
