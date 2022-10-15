@@ -1,4 +1,12 @@
 import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.util.FlxTimer;
+
+/**
+ * this isnt only used for string tools i lied :3 
+ * hehe x3
+ * @author uniimations
+ */
 
 class UniiStringTools
 {
@@ -24,39 +32,39 @@ class UniiStringTools
     }
 
     // NOTE SKIN SUFFIX
-    public static function noteSkinSuffix(characterString:String, ?playerInt:Int = 0)
+    public static function noteSkinSuffix(characterString:String)
     {
         var note_skin_suffix:String = '';
 
-        switch (playerInt)
+        switch (characterString)
         {
-            case 0: // dad character name
-                switch (characterString)
-                {
-                    case 'bluecheese' | 'bluecheese-garcello' | 'bluecheese-hex' | 'bluecheese-kitchen' | 'bluecheese-spamton' | 'bluecheese-tired' | 'bluecheese-tricky' | 'bluecheese-whitty' | 'ex-bluecheese':
-                        note_skin_suffix = '_CHEESE';
-                    case 'avinera-frosted-tape' | 'avinera-frosted':
-                        note_skin_suffix = '_AVINERA';
-                    case 'bluecheese-and-suzuki':
-                        note_skin_suffix = '_SUZUCHEESE';
-                    case 'unii':
-                        note_skin_suffix = '_UNII';
-                    default:
-                        note_skin_suffix = '';
-                }
-            case 1: // bf character name (unused, DON'T use)
-                switch (characterString)
-                {
-                    case 'bf' | 'bf-alt' | 'bf-small' | 'bf-small-alt':
-                        note_skin_suffix = '_BF';
-                    case 'undertale-bf':
-                        note_skin_suffix = '_UNDERTALE';
-                    default:
-                        note_skin_suffix = '';
-                }
+            case 'bluecheese' | 'bluecheese-garcello' | 'bluecheese-hex' | 'bluecheese-kitchen' | 'bluecheese-spamton' | 'bluecheese-tired' | 'bluecheese-tricky' | 'bluecheese-whitty' | 'ex-bluecheese':
+                note_skin_suffix = '_CHEESE';
+            case 'avinera-frosted-tape' | 'avinera-frosted':
+                note_skin_suffix = '_AVINERA';
+            case 'bluecheese-and-suzuki':
+                note_skin_suffix = '_SUZUCHEESE';
+            case 'unii':
+                note_skin_suffix = '_UNII';
+            default:
+                note_skin_suffix = '';
         }
 
         // the string it will return for the note skin path
         return note_skin_suffix;
+    }
+
+    public static function checkAnimFinish(object:FlxSprite, introAnim:String, idleAnim:String)
+    {
+        if (object.animation.curAnim != null)
+        {
+            if (object.animation.curAnim.name == introAnim && object.animation.curAnim.finished)
+            {
+                new FlxTimer().start(0.1, function(tmr: FlxTimer)
+                {
+                    object.animation.play(idleAnim);
+                });
+            }
+        }
     }
 }

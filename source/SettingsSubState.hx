@@ -90,10 +90,6 @@ class SettingsSubState extends MusicBeatSubstate
 		'FPS Counter',
 		#end
 
-		#if cpp
-		'Memory Info',
-		#end
-
 		'Watermark Icon',
 		'Note Splashes',
 		'Hide HUD',
@@ -285,10 +281,6 @@ class SettingsSubState extends MusicBeatSubstate
 						ClientPrefs.showFPS = !ClientPrefs.showFPS;
 						if (Main.fpsVar != null)
 							Main.fpsVar.visible = ClientPrefs.showFPS;
-
-					case 'Memory Info':
-						ClientPrefs.showMem = !ClientPrefs.showMem;
-						Main.showMemory(ClientPrefs.showMem);
 
 					case 'Watermark Icon':
 						ClientPrefs.showWatermark = !ClientPrefs.showWatermark;
@@ -549,8 +541,6 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
-			case 'Memory Info':
-				daText = "If unchecked, hides Memory Info.";
 			case 'Watermark Icon':
 				daText = "If unchecked, hides the VS Cheese watermark.";
 			case 'High Quality':
@@ -658,8 +648,6 @@ class SettingsSubState extends MusicBeatSubstate
 				switch(options[checkboxNumber[i]]) {
 					case 'FPS Counter':
 						daValue = ClientPrefs.showFPS;
-					case 'Memory Info':
-						daValue = ClientPrefs.showMem;
 					case 'Watermark Icon':
 						daValue = ClientPrefs.showWatermark;
 					case 'High Quality':

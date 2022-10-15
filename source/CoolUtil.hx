@@ -14,6 +14,12 @@ using StringTools;
 
 class CoolUtil
 {
+	inline public static function quantize(f:Float, snap:Float) {
+		var m:Float = Math.fround(f * snap);
+		trace(snap);
+		return (m / snap);
+	}
+
 	public static var difficultyStuff:Array<Dynamic> = [
 		['Easy', '-easy'],
 		['Hard', '-hard'],

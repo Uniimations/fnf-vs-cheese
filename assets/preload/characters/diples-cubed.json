@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				2,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "Diple Idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				55,
+				-84
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "Diple Left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				145,
+				-122
+			],
+			"anim": "singDOWN",
+			"fps": 48,
+			"name": "Diple down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				15,
+				297
+			],
+			"anim": "singUP",
+			"fps": 32,
+			"name": "Diple Up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				109,
+				7
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "Diple Right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				64,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "spawn",
+			"loop": false,
+			"name": "diples spawn"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/secret/diples",
+	"position": [
+		160,
+		400
+	],
+	"healthicon": "diples-cubed",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		255,
+		255
+	],
+	"camera_position": [
+		-150,
+		-100
+	],
+	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

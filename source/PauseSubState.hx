@@ -320,12 +320,11 @@ class PauseSubState extends MusicBeatSubstate
 					canDoStuff = false;
 					coolSound();
 					flickerSelected();
+					trace('RESTARTING SONG...');
 
 					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
 						MusicBeatState.resetState();
 						FlxG.sound.music.volume = 0;
-
-						Main.clearCache(); // CLEARS MEMORY
 					});
 
 				case 'Options':
@@ -367,23 +366,22 @@ class PauseSubState extends MusicBeatSubstate
 							MusicBeatState.switchState(new FreeplayState(), true);
 						}
 						FlxG.sound.playMusic(Paths.music('freakyMenu'));
-
-						Main.clearCache(); // CLEARS MEMORY
 					});
 
 					MainMenuState.cursed = false; // makes you not cursed
+					PauseSubState.psChartingMode = false;
 			}
 		}
 
 		// checks if the first animation ended, then plays second animation on the crappy if statement
 
 		if (!hasNoPoses && !hasTwoDances && canDoStuff) {
-			checkAnimFinish(char, 'idle', 'idle');
+			UniiStringTools.checkAnimFinish(char, 'idle', 'idle');
 		}
 
 		if (hasTwoDances && canDoStuff) {
-			checkAnimFinish(char, 'danceLeft', 'danceRight');
-			checkAnimFinish(char, 'danceRight', 'danceLeft');
+			UniiStringTools.checkAnimFinish(char, 'danceLeft', 'danceRight');
+			UniiStringTools.checkAnimFinish(char, 'danceRight', 'danceLeft');
 		}
 	}
 

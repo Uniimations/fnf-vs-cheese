@@ -134,61 +134,20 @@ class Main extends Sprite
 		#if cpp
 		memoryVar = new MEMORY(10, 3, 0xFFFFFF);
 		addChild(memoryVar);
-		if(memoryVar != null) {
-			memoryVar.visible = ClientPrefs.showMem;
-		}
+		memoryVar.visible = false;
 		#end
 
 		watermarkCheese = new Sprite();
         watermarkCheese.addChild(new Bitmap(bitmapData));
 		watermarkCheese.alpha = 0.2;
-        #if mobile
-		watermarkCheese.x =  10;
-        watermarkCheese.y = 3;
-		#else
-			#if cpp
-			watermarkCheese.x =  memoryVar.x;
-			watermarkCheese.y = memoryVar.y + 25;
-			#else
-			watermarkCheese.x =  fpsVar.x;
-			watermarkCheese.y = fpsVar.y + 25;
-			#end
+        #if !mobile
+		watermarkCheese.x =  fpsVar.x;
+		watermarkCheese.y = fpsVar.y + 25;
 		#end
         addChild(watermarkCheese);
 		if(watermarkCheese != null) {
 			watermarkCheese.visible = ClientPrefs.showWatermark;
 		}
-	}
-
-	public static var path:Array<String> = ['', 'assets/'];
-
-	// clears MOST loaded song shit from memory btw (in PlayState.hx)
-	// it doesnt clear everything sadly qwq
-	public static function clearCache():Void
-	{
-		trace('fat dumpy !!');
-
-		GPUFunctions.disposeAllTextures();
-
-		// clear cache
-		for (i in 0...path.length)
-		{
-			Assets.cache.clear(path[i] + "songs");
-			Assets.cache.clear(path[i] + "shared/sounds");
-
-			GPUFunctions.disposeTexturesByKey(path[i] + 'shared/images/cheese');
-			GPUFunctions.disposeTexturesByKey(path[i] + 'shared/images/bonus');
-		}
-
-		// SONGS
-		openfl.Assets.cache.clear("songs");
-		openfl.Assets.cache.clear("assets/songs");
-
-		// GPU GRAPHICS (backgrounds)
-		openfl.Assets.cache.clear("assets/shared/images/cheese");
-		openfl.Assets.cache.clear("assets/shared/images/bonus");
-
-		openfl.system.System.gc();
 	}
 
 	// OH MY GOSH THAT DUMB IDEA ACTUALLY WORKED WTF ????? IT WORKS NOW WOO

@@ -38,21 +38,20 @@
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
 
+	<!--UNIIMATIONS ENGINE CUSTOMIZATION -->
+	<define name="UNII_CUSTOM_BUILD" if="debug"/>
+	<define name="WINDOWS_BUILD" if="windows"/>
+	<define name="PLAYTEST_BUILD" if="UNII_CUSTOM_BUILD"/>
+	<define name="TRAILER_BUILD" if="waaaaaaaaaaaaaaaaaaaaaaaa"/>
+	<!--WHAT!
+		
+		don't question it ok
+	-->
+
 	<!-- PSYCH ENGINE CUSTOMIZATION -->
 	<define name="MODS_ALLOWED" if="desktop" />
 	<define name="LUA_ALLOWED" if="windows" />
 	<define name="ACHIEVEMENTS_ALLOWED"/>
-
-	<!--UNIIMATIONS ENGINE CUSTOMIZATION -->
-	<define name="UNII_CUSTOM_BUILD" if="test build"/>
-	<define name="WINDOWS_BUILD" if="windows"/>
-	<define name="ALLOW_CHARACTER_EDITOR_JSONS"/>
-	<define name="PLAYTEST_BUILD" unless="UNII_CUSTOM_BUILD"/>
-	<define name="TRAILER_BUILD" if="UNII_CUSTOM_BUILD"/>
-	<!--WHAT???
-		
-		don't question it ok
-	-->
 
 	<define name="PRELOAD_ALL" unless="web" />
 	<define name="NO_PRELOAD_ALL" unless="PRELOAD_ALL"/>

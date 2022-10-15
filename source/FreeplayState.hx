@@ -42,6 +42,7 @@ class FreeplayState extends MusicBeatState
 	public var bonusSpr:FlxSprite;
 	public var unfairSpr:FlxSprite;
 	public var categoryText:FlxText;
+	private var canMove:Bool = false;
 
 	override function create()
 	{
@@ -127,6 +128,7 @@ class FreeplayState extends MusicBeatState
 				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
 		}
+		canMove = true;
 
 		super.create();
 	}
@@ -141,107 +143,103 @@ class FreeplayState extends MusicBeatState
 	{
 		super.update(elapsed);
 
-		//
-
-		if (controls.UI_LEFT_P)
+		if (canMove)
 		{
-			switch(options[curSelected])
+			if (controls.UI_LEFT_P)
 			{
-				case 'STORY SONGS':
-					categoryText.text = "< UNFAIR SONGS >";
-					storySpr.alpha = 0.5;
-					bonusSpr.alpha = 0.5;
-					unfairSpr.alpha = 1;
-					FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-
-				case 'BONUS SONGS':
-					categoryText.text = "< STORY SONGS >";
-					storySpr.alpha = 1;
-					bonusSpr.alpha = 0.5;
-					unfairSpr.alpha = 0.5;
-					FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-
-				case 'UNFAIR SONGS':
-					categoryText.text = "< BONUS SONGS >";
-					storySpr.alpha = 0.5;
-					bonusSpr.alpha = 1;
-					unfairSpr.alpha = 0.5;
-					FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-			}
-			changeSelection(-1);
-		}
-
-		if (controls.UI_RIGHT_P)
-		{
-			switch(options[curSelected])
-			{
-				case 'STORY SONGS':
-					categoryText.text = "< BONUS SONGS >";
-					storySpr.alpha = 0.5;
-					bonusSpr.alpha = 1;
-					unfairSpr.alpha = 0.5;
-					FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-
-				case 'BONUS SONGS':
-					categoryText.text = "< UNFAIR SONGS >";
-					storySpr.alpha = 0.5;
-					bonusSpr.alpha = 0.5;
-					unfairSpr.alpha = 1;
-					FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-
-				case 'UNFAIR SONGS':
-					categoryText.text = "< STORY SONGS >";
-					storySpr.alpha = 1;
-					bonusSpr.alpha = 0.5;
-					unfairSpr.alpha = 0.5;
-					FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-					FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-			}
-			changeSelection(1);
-		}
-
-		if (controls.BACK) {
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-			MusicBeatState.switchState(new MainMenuState());
-		}
-
-		if (controls.ACCEPT)
-		{
-			FlxG.sound.play(Paths.sound('confirmMenu'));
-			FlxTween.tween(FlxG.camera, { zoom: 5}, 0.9, { ease: FlxEase.expoIn });
-
-			for (item in grpOptions.members) {
-				item.alpha = 0;
-			}
-
-			grpOptions.forEach(function(spr:FlxSprite)
-			{
-				FlxFlicker.flicker(spr, 0.65, 0.06, false, false, function(flick:FlxFlicker)
+				switch(options[curSelected])
 				{
-					switch(options[curSelected])
+					case 'STORY SONGS':
+						categoryText.text = "< UNFAIR SONGS >";
+						storySpr.alpha = 0.5;
+						bonusSpr.alpha = 0.5;
+						unfairSpr.alpha = 1;
+						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+
+					case 'BONUS SONGS':
+						categoryText.text = "< STORY SONGS >";
+						storySpr.alpha = 1;
+						bonusSpr.alpha = 0.5;
+						unfairSpr.alpha = 0.5;
+						FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+
+					case 'UNFAIR SONGS':
+						categoryText.text = "< BONUS SONGS >";
+						storySpr.alpha = 0.5;
+						bonusSpr.alpha = 1;
+						unfairSpr.alpha = 0.5;
+						FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				}
+				changeSelection(-1);
+			}
+
+			if (controls.UI_RIGHT_P)
+			{
+				switch(options[curSelected])
+				{
+					case 'STORY SONGS':
+						categoryText.text = "< BONUS SONGS >";
+						storySpr.alpha = 0.5;
+						bonusSpr.alpha = 1;
+						unfairSpr.alpha = 0.5;
+						FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+
+					case 'BONUS SONGS':
+						categoryText.text = "< UNFAIR SONGS >";
+						storySpr.alpha = 0.5;
+						bonusSpr.alpha = 0.5;
+						unfairSpr.alpha = 1;
+						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+
+					case 'UNFAIR SONGS':
+						categoryText.text = "< STORY SONGS >";
+						storySpr.alpha = 1;
+						bonusSpr.alpha = 0.5;
+						unfairSpr.alpha = 0.5;
+						FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				}
+				changeSelection(1);
+			}
+
+			if (controls.BACK) {
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+				MusicBeatState.switchState(new MainMenuState());
+			}
+
+			if (controls.ACCEPT)
+			{
+				canMove = false;
+
+				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxTween.tween(FlxG.camera, { zoom: 3}, 1, { ease: FlxEase.expoIn });
+
+				for (item in grpOptions.members) {
+					item.alpha = 0;
+				}
+
+				FreeplaySelection.category = options[curSelected];
+				trace('FREEPLAY SELECTION CATEGORY: ' + FreeplaySelection.category);
+
+				grpOptions.forEach(function(spr:FlxSprite)
+				{
+					FlxFlicker.flicker(spr, 0.65, 0.06, false, false, function(flick:FlxFlicker)
 					{
-						case 'STORY SONGS':
-							MusicBeatState.switchState(new FreeplayWeekState());
-
-						case 'BONUS SONGS':
-							MusicBeatState.switchState(new FreeplayBonusState());
-
-						case 'UNFAIR SONGS':
-							MusicBeatState.switchState(new FreeplayUnfairState());
-					}
+						MusicBeatState.switchState(new FreeplaySelection());
+					});
 				});
-			});
+			}
 		}
 	}
 

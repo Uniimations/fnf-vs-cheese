@@ -155,7 +155,7 @@ class RatingPopUpMenuState extends MusicBeatState
 		coolText.screenCenter();
 		coolText.x = FlxG.width * 0.35;
 
-		rating = new FlxSprite().loadGraphic(Paths.image('perfect', 'shared'));
+		rating = new FlxSprite().loadGraphic(Paths.image('rating-stuffs/perfect', 'shared'));
 		rating.cameras = [camHUD];
 		rating.setGraphicSize(Std.int(rating.width * 0.7));
 		rating.updateHitbox();
@@ -398,9 +398,11 @@ class RatingPopUpMenuState extends MusicBeatState
 
 			if(controls.RESET)
 			{
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 				holdTime = 0;
 				barPercent = 0;
 				updateNoteDelay();
+				trace('RESET OFFSET TO: 0');
 			}
 		}
 

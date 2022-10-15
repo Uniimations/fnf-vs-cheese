@@ -10,6 +10,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import lime.app.Application;
 import sys.thread.Thread;
+import flixel.input.keyboard.FlxKey;
 
 using StringTools;
 
@@ -20,6 +21,10 @@ class LoadingStartup extends MusicBeatState
 {
 	var screen:LoadingScreen;
 
+	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
+	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
+	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
+
 	public function new()
 	{
 		super();
@@ -27,7 +32,17 @@ class LoadingStartup extends MusicBeatState
 
 	override function create()
 	{
+		FlxG.game.focusLostFramerate = 60;
+		FlxG.sound.muteKeys = muteKeys;
+		FlxG.sound.volumeDownKeys = volumeDownKeys;
+		FlxG.sound.volumeUpKeys = volumeUpKeys;
+
+		PlayerSettings.init();
+
 		super.create();
+
+		FlxG.save.bind('funkin', 'vscheese');
+		loadData();
 
 		screen = new LoadingScreen();
 		add(screen);
@@ -57,12 +72,12 @@ class LoadingStartup extends MusicBeatState
 
 		screen.progress = 1; // countdown graphix
 
-		FlxG.bitmap.add(Paths.image('perfect', 'shared'));
-		FlxG.bitmap.add(Paths.image('sick', 'shared'));
-		FlxG.bitmap.add(Paths.image('good', 'shared'));
-		FlxG.bitmap.add(Paths.image('bad', 'shared'));
-		FlxG.bitmap.add(Paths.image('shit', 'shared'));
-		FlxG.bitmap.add(Paths.image('miss', 'shared'));
+		FlxG.bitmap.add(Paths.image('rating-stuffs/perfect', 'shared'));
+		FlxG.bitmap.add(Paths.image('rating-stuffs/sick', 'shared'));
+		FlxG.bitmap.add(Paths.image('rating-stuffs/good', 'shared'));
+		FlxG.bitmap.add(Paths.image('rating-stuffs/bad', 'shared'));
+		FlxG.bitmap.add(Paths.image('rating-stuffs/shit', 'shared'));
+		FlxG.bitmap.add(Paths.image('rating-stuffs/miss', 'shared'));
 
 		screen.progress = 2; // rating graphix
 
@@ -76,9 +91,17 @@ class LoadingStartup extends MusicBeatState
 
 		trace("bullshit over lmao");
 
-		new FlxTimer().start(2, function(tmr:FlxTimer)
+		new FlxTimer().start(2.5, function(tmr:FlxTimer)
 		{
 			MusicBeatState.switchState(new TitleState());
 		});
+	}
+
+	private function loadData():Void
+	{
+		ClientPrefs.loadPrefs();
+		Highscore.load();
+		ResetTools.resetData();
+		FlxG.mouse.visible = false;
 	}
 }

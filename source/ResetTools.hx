@@ -13,6 +13,9 @@ class ResetTools
 		if (FlxG.save.data.beatCulturedWeek == null)
 			FlxG.save.data.beatCulturedWeek = false;
 
+		if (FlxG.save.data.beatCream == null)
+			FlxG.save.data.beatCream = false;
+
 		if (FlxG.save.data.beatWeekEnding == null)
 			FlxG.save.data.beatWeekEnding = false;
 
@@ -25,6 +28,9 @@ class ResetTools
 		if (FlxG.save.data.beatBonus == null)
 			FlxG.save.data.beatBonus = false;
 
+		if (FlxG.save.data.beatOnion == null)
+			FlxG.save.data.beatOnion = false;
+
 		//MISC DATA
 
 		if (FlxG.save.data.seenIntro == null)
@@ -35,9 +41,6 @@ class ResetTools
 
 		if (FlxG.save.data.petCheese == null)
 			FlxG.save.data.petCheese == false;
-
-		if (FlxG.save.data.skipTutorialDia == null)
-			FlxG.save.data.skipTutorialDia = false;
 
 		if (FlxG.save.data.seenNotifs == null)
 			FlxG.save.data.seenNotifs = false;

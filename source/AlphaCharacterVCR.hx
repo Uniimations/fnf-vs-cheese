@@ -57,7 +57,7 @@ class AlphaCharacterVCR extends FlxSprite
 			case "'":
 				animation.addByPrefix(letter, 'APOSTRAPHIE bold', 24);
 			case "?":
-				animation.addByPrefix(letter, 'QUESTION MARK bold', 24);
+				animation.addByPrefix(letter, 'question mark', 24);
 			case "!":
 				animation.addByPrefix(letter, 'EXCLAMATION POINT bold', 24);
 			case "(":

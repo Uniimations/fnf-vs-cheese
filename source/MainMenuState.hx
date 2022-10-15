@@ -360,8 +360,6 @@ class MainMenuState extends MusicBeatState
 
 	override function update(elapsed:Float)
 	{
-		//
-
 		if (FlxG.sound.music.volume < 0.8)
 		{
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
@@ -385,9 +383,9 @@ class MainMenuState extends MusicBeatState
         {
 			if (FlxG.save.data.petCheese)
 			{
-				if (FlxG.random.bool(0.02)) //made more MORE double rare
+				if (FlxG.random.bool(0.15)) //made more MORE double rare
 				{
-					trace('0.02% chance easter egg');
+					trace('0.1% chance easter egg');
 					trace('you are now cursed.');
 					MainMenuState.cursed = true;
 					if (MainMenuState.cursed) {
@@ -460,7 +458,6 @@ class MainMenuState extends MusicBeatState
 		// MENU SELECTING INTERACTION
 		if (!selectedSomethin)
 		{
-			changeItem(0);
 			if (curTrophySelect == true)
 			{
 				changeItem(0);
@@ -501,27 +498,15 @@ class MainMenuState extends MusicBeatState
 			if (controls.UI_RIGHT_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
-				if (curTrophySelect == false)
-				{
-					curTrophySelect = true;
-				}
-				else
-				{
-					curTrophySelect = false;
-				}
+				curTrophySelect = !curTrophySelect;
+				changeItem(0);
 			}
 
 			if (controls.UI_LEFT_P)
 			{
 				FlxG.sound.play(Paths.sound('scrollMenu'));
-				if (curTrophySelect == false)
-				{
-					curTrophySelect = true;
-				}
-				else
-				{
-					curTrophySelect = false;
-				}
+				curTrophySelect = !curTrophySelect;
+				changeItem(0);
 			}
 
 			if (controls.ACCEPT)
@@ -530,9 +515,8 @@ class MainMenuState extends MusicBeatState
 			}
 		}
 
-		checkAnimFinish(cheeseScrunkly, 'intro', 'idleLoop');
-		checkAnimFinish(cheeseScrunkly, 'headpat', 'idleLoop');
-		//checkAnimFinish(trophy, 'selectOPEN', 'selected');
+		UniiStringTools.checkAnimFinish(cheeseScrunkly, 'intro', 'idleLoop');
+		UniiStringTools.checkAnimFinish(cheeseScrunkly, 'headpat', 'idleLoop');
 
 		if (trophy.animation.curAnim != null)
 		{

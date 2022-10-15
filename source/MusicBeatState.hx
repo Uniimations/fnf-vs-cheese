@@ -45,6 +45,18 @@ class MusicBeatState extends FlxUIState
 			FlxG.fullscreen = !FlxG.fullscreen;
 		}
 
+		if (FlxG.keys.justPressed.F3)
+		{
+			ClientPrefs.showMem = !ClientPrefs.showMem;
+
+			Main.showMemory(ClientPrefs.showMem);
+
+			new FlxTimer().start(0.01, function(tmr:FlxTimer) {
+				Main.showMemory(ClientPrefs.showMem);
+				trace('memory toggled');
+			});
+		}
+
 		var oldStep:Int = curStep;
 
 		updateCurStep();
@@ -121,19 +133,5 @@ class MusicBeatState extends FlxUIState
 	public function beatHit():Void
 	{
 		//do literally nothing dumbass
-	}
-
-	public function checkAnimFinish(object:FlxSprite, introAnim:String, idleAnim:String)
-	{
-		if (object.animation.curAnim != null)
-		{
-			if (object.animation.curAnim.name == introAnim && object.animation.curAnim.finished)
-			{
-				new FlxTimer().start(0.1, function(tmr: FlxTimer)
-				{
-					object.animation.play(idleAnim);
-				});
-			}
-		}
 	}
 }

@@ -7,7 +7,6 @@ import sys.thread.Thread;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
-import flixel.input.keyboard.FlxKey;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
@@ -34,15 +33,6 @@ using StringTools;
 class TitleState extends MusicBeatState
 {
 	public static var isDebug:Bool = false;
-	#if debug
-	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
-	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
-	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
-	#else
-	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO, FlxKey.F4];
-	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS, FlxKey.F7];
-	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS, FlxKey.F8];
-	#end
 	static var initialized:Bool = false;
 
 	private var canDoShit:Bool = false;
@@ -87,21 +77,12 @@ class TitleState extends MusicBeatState
 		//
 		//not having fun :')
 		#end
-		FlxG.game.focusLostFramerate = 60;
-		FlxG.sound.muteKeys = muteKeys;
-		FlxG.sound.volumeDownKeys = volumeDownKeys;
-		FlxG.sound.volumeUpKeys = volumeUpKeys;
-
-		PlayerSettings.init();
 
 		curWacky = FlxG.random.getObject(getIntroTextShit());
 
 		// DEBUG BULLSHIT
 
 		super.create();
-
-		FlxG.save.bind('funkin', 'vscheese');
-		loadData();
 
 		#if FREEPLAY
 		MusicBeatState.switchState(new FreeplayState());
@@ -542,13 +523,5 @@ class TitleState extends MusicBeatState
 					addMoreText(curWacky[1], 45);
 			}
 		}
-	}
-
-	private function loadData():Void
-	{
-		ClientPrefs.loadPrefs();
-		Highscore.load();
-		ResetTools.resetData();
-		FlxG.mouse.visible = false;
 	}
 }

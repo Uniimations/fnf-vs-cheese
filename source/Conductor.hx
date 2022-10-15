@@ -28,6 +28,9 @@ class Conductor
 
 	public static var bpmChangeMap:Array<BPMChangeEvent> = [];
 
+	public static var interpTime:Float = 0;
+	public static var prevTime:Float = 0;
+
 	public function new()
 	{
 	}

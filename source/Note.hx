@@ -40,15 +40,11 @@ class Note extends FlxSprite
 
 	public var multSpeed(default, set):Float = 1;
 
-	public var hitHealth:Float = 0.023;
-	public var missHealth:Float = 0.0475;
-
 	public var customFunctions:Bool = false;
+	public var noteSkin(default, set):String = 'NOTE_assets';
 
 	public var xAdd:Float = 50;
 	public var yAdd:Float = 0; // doooont use this lol
-
-	public var burning:Bool = false;
 
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
@@ -66,25 +62,25 @@ class Note extends FlxSprite
 		}
 	}
 
-	private function set_noteType(value:Int):Int {
+	private function set_noteType(value:Int):Int
+	{
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
 				case 3: // DODGE NOTE
-					reloadNote('dodge', '', true, 'NOTES_UNDERTALE');
+					reloadNote('dodgeNOTES_UNDERTALE');
 					customFunctions = true;
 
 				case 4: // DEATH NOTE
-					reloadNote('death', '', true, 'NOTES_UNDERTALE');
+					reloadNote('deathNOTES_UNDERTALE');
 					customFunctions = true;
 
 				case 5 | 6 | 8: // DAD NOTE
-					reloadNote('noteskins/', UniiStringTools.noteSkinSuffix(PlayState.SONG.player2, 0), true);
+					reloadNote('noteskins/NOTE_assets' + UniiStringTools.noteSkinSuffix(PlayState.SONG.player2));
 
-				case 10 | 11 | 12: // INVISIBLE
-					reloadNote('noteskins/', '', true, 'NOTE_comic');
+				case 10 | 11 | 12 | 15: // INVISIBLE
+					reloadNote('noteskins/NOTE_comic');
 
-				case 14: // ALTER EGO FIRE NOTES
-					reloadNote('bonus/ALTER_', '', true, 'NOTE_FIRE');
+				case 14:
 					customFunctions = true;
 			}
 			colorSwap.hue = 0;
@@ -96,8 +92,15 @@ class Note extends FlxSprite
 		return value;
 	}
 
+	private function set_noteSkin(image:String):String
+	{
+		reloadNote(image);
+
+		return image;
+	}
+
 	var daSong:String = PlayState.SONG.song.toLowerCase();
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false)
+	public function new(noteSkin:String, strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false)
 	{
 		super();
 
@@ -107,10 +110,11 @@ class Note extends FlxSprite
 		this.prevNote = prevNote;
 		this.inEditor = inEditor;
 		isSustainNote = sustainNote;
+		this.noteSkin = noteSkin;
 
 		switch (daSong) {
 			case 'tutorial' | 'manager-strike-back':
-				x += (ClientPrefs.shit ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + xAdd;
+				x += PlayState.STRUM_X_MIDDLESCROLL + xAdd;
 			default:
 				x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + xAdd;
 		}
@@ -122,16 +126,10 @@ class Note extends FlxSprite
 
 		this.noteData = noteData;
 
-		var daStage:String = PlayState.curStage;
-
-		frames = Paths.getSparrowAtlas('NOTE_assets', null, true);
+		frames = Paths.getSparrowAtlas(noteSkin, null, true);
 		loadNoteAnims();
 
 		antialiasing = ClientPrefs.globalAntialiasing;
-
-		if (burning) {
-			x -= 300;
-		}
 
 		if(noteData > -1) {
 			colorSwap = new ColorSwap();
@@ -142,21 +140,20 @@ class Note extends FlxSprite
 			colorSwap.brightness = 0;
 
 			x += swagWidth * (noteData % 4);
-			if(!isSustainNote) { //Doing this 'if' check to fix the warnings on Senpai songs
-				var animToPlay:String = '';
-				switch (noteData % 4)
-				{
-					case 0:
-						animToPlay = 'purple';
-					case 1:
-						animToPlay = 'blue';
-					case 2:
-						animToPlay = 'green';
-					case 3:
-						animToPlay = 'red';
-				}
-				animation.play(animToPlay + 'Scroll');
+
+			var animToPlay:String = '';
+			switch (noteData % 4)
+			{
+				case 0:
+					animToPlay = 'purple';
+				case 1:
+					animToPlay = 'blue';
+				case 2:
+					animToPlay = 'green';
+				case 3:
+					animToPlay = 'red';
 			}
+			animation.play(animToPlay + 'Scroll');
 		}
 
 		if (isSustainNote && prevNote != null)
@@ -203,41 +200,22 @@ class Note extends FlxSprite
 				prevNote.updateHitbox();
 			}
 		}
-
-		if(noteData > -1) reloadNote();
+		reloadNote(noteSkin);
 	}
 
-	// THIS FUNCTION IS KINDA DUMB NOW... please do this more organized dont copy my code LOL
-	function reloadNote(?prefix:String = '', ?suffix:String = '',  ?forceDadSkin:Bool = false, dadSkin:String = 'NOTE_assets') {
-		var jsonSkin:String = PlayState.SONG.arrowSkin;
-		var skin:String = 'NOTE_assets';
-
-		if (forceDadSkin)
-		{
-			skin = dadSkin;
-		}
-		else
-		{
-			if(jsonSkin != null && jsonSkin.length > 1)
-				skin = jsonSkin;
-			else
-				skin = 'NOTE_assets';
-		}
-
+	function reloadNote(?newSkin:String = 'NOTE_assets')
+	{
 		var animName:String = null;
+
 		if(animation.curAnim != null) {
 			animName = animation.curAnim.name;
 		}
 
-		var blahblah:String = prefix + skin + suffix;
-
-		if (forceDadSkin) blahblah = prefix + dadSkin + suffix;
-
 		if (!FlxG.bitmap.checkCache("noteasset")) {
-			FlxG.bitmap.add(BitmapData.fromFile(Paths.image(blahblah, null, true)), false, "noteasset");
+			FlxG.bitmap.add(BitmapData.fromFile(Paths.image(newSkin, null)), false, "noteasset");
 		}
 
-		frames = Paths.getSparrowAtlas(blahblah, null, true);
+		frames = Paths.getSparrowAtlas(newSkin, null);
 
 		loadNoteAnims();
 		animation.play(animName, true);
@@ -248,7 +226,8 @@ class Note extends FlxSprite
 		}
 	}
 
-	function loadNoteAnims() {
+	function loadNoteAnims()
+	{
 		animation.addByPrefix('greenScroll', 'green0');
 		animation.addByPrefix('redScroll', 'red0');
 		animation.addByPrefix('blueScroll', 'blue0');
@@ -269,25 +248,6 @@ class Note extends FlxSprite
 
 		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
-	}
-
-	function loadPixelNoteAnims() {
-		if(isSustainNote) {
-			animation.add('purpleholdend', [PURP_NOTE + 4]);
-			animation.add('greenholdend', [GREEN_NOTE + 4]);
-			animation.add('redholdend', [RED_NOTE + 4]);
-			animation.add('blueholdend', [BLUE_NOTE + 4]);
-
-			animation.add('purplehold', [PURP_NOTE]);
-			animation.add('greenhold', [GREEN_NOTE]);
-			animation.add('redhold', [RED_NOTE]);
-			animation.add('bluehold', [BLUE_NOTE]);
-		} else {
-			animation.add('greenScroll', [GREEN_NOTE + 4]);
-			animation.add('redScroll', [RED_NOTE + 4]);
-			animation.add('blueScroll', [BLUE_NOTE + 4]);
-			animation.add('purpleScroll', [PURP_NOTE + 4]);
-		}
 	}
 
 	override function update(elapsed:Float)
@@ -323,8 +283,12 @@ class Note extends FlxSprite
 				{
 					canBeHit = false;
 
-					if (strumTime <= Conductor.songPosition)
-						wasGoodHit = true;
+					if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+					{
+						// fixes botplay going above strumline // worth noting that above the strumline represents music desync. 
+						if ((isSustainNote && prevNote.wasGoodHit) || strumTime - Conductor.songPosition < 4) // mean 1/60 /4 = 4.
+							wasGoodHit = true;
+					}
 				}
 
 				if (tooLate)
@@ -349,8 +313,12 @@ class Note extends FlxSprite
 				{
 					canBeHit = false;
 
-					if (strumTime <= Conductor.songPosition)
-						wasGoodHit = true;
+					if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+					{
+						// fixes botplay going above strumline // worth noting that above the strumline represents music desync. 
+						if ((isSustainNote && prevNote.wasGoodHit) || strumTime - Conductor.songPosition < 4) // mean 1/60 /4 = 4.
+							wasGoodHit = true;
+					}
 				}
 
 				if (tooLate)

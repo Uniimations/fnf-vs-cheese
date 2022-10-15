@@ -443,9 +443,6 @@
 	<SubTexture name="q  lowercase0002" x="940" y="378" width="36" height="43"/>
 	<SubTexture name="q  lowercase0003" x="940" y="378" width="36" height="43"/>
 	<SubTexture name="question mark0000" x="976" y="378" width="39" height="65"/>
-	<SubTexture name="question mark0001" x="976" y="378" width="39" height="65"/>
-	<SubTexture name="question mark0002" x="0" y="443" width="39" height="65"/>
-	<SubTexture name="question mark0003" x="0" y="443" width="39" height="65"/>
 	<SubTexture name="r  lowercase0000" x="39" y="443" width="24" height="29"/>
 	<SubTexture name="r  lowercase0001" x="39" y="443" width="24" height="29"/>
 	<SubTexture name="r  lowercase0002" x="63" y="443" width="24" height="29"/>

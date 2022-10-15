@@ -95,7 +95,7 @@ class GPUFunctions
 
 		for (texture in trackedTextures)
 		{
-			trace('REMOVED ' + texture + ' FROM GPU VRAM');
+			//trace('REMOVED ' + texture + ' FROM GPU VRAM');
 			texture.texture.dispose();
 			trackedTextures.remove(texture);
 			counter++;

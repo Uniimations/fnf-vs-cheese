@@ -562,9 +562,6 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, "setRatingPercent", function(value:Float) {
 			lePlayState.ratingPercent = value;
 		});
-		Lua_helper.add_callback(lua, "setRatingString", function(value:String) {
-			lePlayState.ratingString = value;
-		});
 		Lua_helper.add_callback(lua, "getMouseX", function(camera:String) {
 			var cam:FlxCamera = lePlayState.camGame;
 			switch(camera.toLowerCase()) {

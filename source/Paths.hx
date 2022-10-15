@@ -26,6 +26,23 @@ class Paths
 		public static var customImagesLoaded:Map<String, FlxGraphic> = new Map<String, FlxGraphic>();
 		#end
 	#end
+
+	public static inline function clearOpenflAssets() {			
+		// clear non local assets in the tracked assets list
+		@:privateAccess
+		for (key in FlxG.bitmap._cache.keys())
+		{
+			var obj = FlxG.bitmap._cache.get(key);
+			openfl.Assets.cache.removeBitmapData(key);
+			FlxG.bitmap._cache.remove(key);
+		
+			//if (obj != null)
+			//	obj.destroy();
+		}
+		openfl.Assets.cache.clear();
+		openfl.system.System.gc();
+	}
+
 	static var currentLevel:String;
 
 	static public function setCurrentLevel(name:String)
@@ -85,9 +102,16 @@ class Paths
 		return getPath('data/$key.xml', TEXT, library);
 	}
 
+	/*
 	inline static public function json(key:String, ?library:String)
 	{
 		return getPath('data/$key.json', TEXT, library);
+	}
+	*/
+
+	inline static public function chart(key:String, ?library:String)
+	{
+		return getPath('charts/$key.json', TEXT, library);
 	}
 
 	inline static public function lua(key:String, ?library:String)
@@ -116,24 +140,14 @@ class Paths
 		return getPath('music/$key.$SOUND_EXT', MUSIC, library);
 	}
 
-	inline static public function voices(song:String)
+	inline static public function voices(song:String, suffix:String)
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/Voices.$SOUND_EXT';
+		return 'songs:assets/songs/${song.toLowerCase()}/Voices$suffix.$SOUND_EXT';
 	}
 
-	inline static public function voices_vip(song:String)
+	inline static public function inst(song:String, suffix:String)
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/VoicesVIP.$SOUND_EXT';
-	}
-
-	inline static public function inst(song:String)
-	{
-		return 'songs:assets/songs/${song.toLowerCase()}/Inst.$SOUND_EXT';
-	}
-
-	inline static public function inst_vip(song:String)
-	{
-		return 'songs:assets/songs/${song.toLowerCase()}/InstVIP.$SOUND_EXT';
+		return 'songs:assets/songs/${song.toLowerCase()}/Inst$suffix.$SOUND_EXT';
 	}
 
 	//FINISH THIS GPU SHIT TOMORROW IM SO TIRED UUGHHh

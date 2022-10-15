@@ -27,6 +27,19 @@ class MusicBeatSubstate extends FlxSubState
 
 	override function update(elapsed:Float)
 	{
+		// FULLSCREEN KEY
+		if (FlxG.keys.justPressed.F11)
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+		}
+
+		if (FlxG.keys.justPressed.F3)
+		{
+			ClientPrefs.showMem = !ClientPrefs.showMem;
+
+			Main.showMemory(ClientPrefs.showMem);
+		}
+
 		var oldStep:Int = curStep;
 
 		updateCurStep();
@@ -34,7 +47,6 @@ class MusicBeatSubstate extends FlxSubState
 
 		if (oldStep != curStep && curStep > 0)
 			stepHit();
-
 
 		super.update(elapsed);
 	}
@@ -64,16 +76,5 @@ class MusicBeatSubstate extends FlxSubState
 	public function beatHit():Void
 	{
 		//do literally nothing dumbass
-	}
-
-	public function checkAnimFinish(object:FlxSprite, introAnim:String, idleAnim:String)
-	{
-		if (object.animation.curAnim != null)
-		{
-			if (object.animation.curAnim.name == introAnim && object.animation.curAnim.finished)
-			{
-				object.animation.play(idleAnim, true);
-			}
-		}
 	}
 }

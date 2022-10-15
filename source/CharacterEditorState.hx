@@ -74,25 +74,11 @@ class CharacterEditorState extends MusicBeatState
 	var cameraFollowPointer:FlxSprite;
 	var healthBarBG:FlxSprite;
 
-	private var menuMusicChance:Int;
-
 	override function create()
 	{
 		//FlxG.sound.music.stop();
 
-		menuMusicChance = FlxG.random.int(0, 3);
-
-		switch (menuMusicChance) //lil menu music jingle to keep you   n o t   b o r e d .
-		{
-			case 0:
-				playMenuMusic('Restaurante');
-			case 1:
-				playMenuMusic('Milkshake');
-			case 2:
-				playMenuMusic('Cultured');
-			case 3:
-				playMenuMusic('Milkshake');
-		}
+		playMenuMusic();
 
 		camEditor = new FlxCamera();
 		camHUD = new FlxCamera();
@@ -967,9 +953,9 @@ class CharacterEditorState extends MusicBeatState
 				return;
 			}
 		}
-		FlxG.sound.muteKeys = TitleState.muteKeys;
-		FlxG.sound.volumeDownKeys = TitleState.volumeDownKeys;
-		FlxG.sound.volumeUpKeys = TitleState.volumeUpKeys;
+		FlxG.sound.muteKeys = LoadingStartup.muteKeys;
+		FlxG.sound.volumeDownKeys = LoadingStartup.volumeDownKeys;
+		FlxG.sound.volumeUpKeys = LoadingStartup.volumeUpKeys;
 
 		if(!charDropDown.dropPanel.visible) {
 			if (FlxG.keys.justPressed.ESCAPE) {
@@ -1155,8 +1141,29 @@ class CharacterEditorState extends MusicBeatState
 		return text;
 	}
 
-	private function playMenuMusic(trackPlaying:String)
+	private function playMenuMusic():Void
 	{
-		FlxG.sound.playMusic(Paths.inst(trackPlaying), 0.5);
+		var trackPlaying = '';
+		var menuMusicChance = FlxG.random.int(0, 6);
+
+		switch (menuMusicChance) //lil menu music jingle to keep you   n o t   b o r e d .
+		{
+			case 0:
+				trackPlaying = 'Restaurante';
+			case 1:
+				trackPlaying = 'Milkshake';
+			case 2:
+				trackPlaying = 'Cultured';
+			case 3:
+				trackPlaying = 'Wifi';
+			case 4:
+				trackPlaying = 'Casual-Duel';
+			case 5:
+				trackPlaying = 'Below-Zero';
+			case 6:
+				trackPlaying = 'Cream-Cheese';
+		}
+
+		FlxG.sound.playMusic(Paths.inst(trackPlaying, ''), 0.5);
 	}
 }

@@ -71,16 +71,6 @@ class StoryMenuState extends MusicBeatState
 		true 	//debug
 	];
 
-	var weekDebugItems:Array<Bool> = [
-		true,	//Tutorial
-		true,	//Week 1
-		true,   //Week 2
-		true, 	//Manager Strike Back
-
-		true, 	//debug
-		true 	//debug
-	];
-
 	var weekTutorialItems:Array<Bool> = [
 		true,	//Tutorial
 		true,	//Week 1
@@ -142,7 +132,6 @@ class StoryMenuState extends MusicBeatState
 
 		animOffsets = new Map<String, Array<Dynamic>>();
 
-		#if !debug
 		if (FlxG.save.data.beatTutorial)
 			{
 				weekUnlockedItems = weekTutorialItems;
@@ -161,9 +150,6 @@ class StoryMenuState extends MusicBeatState
 			{
 				weekUnlockedItems = weekBonusItems;
 			}
-		#else
-		weekUnlockedItems = weekDebugItems;
-		#end
 
 		var blackBack:FlxSprite = new FlxSprite().loadGraphic(Paths.image('storymenu/black_stuff_scuffed'));
 		blackBack.antialiasing = ClientPrefs.globalAntialiasing;
@@ -411,6 +397,9 @@ class StoryMenuState extends MusicBeatState
 								if (FlxG.save.data.beatCulturedWeek == null || FlxG.save.data.beatCulturedWeek == false) {
 									FlxG.save.data.beatCulturedWeek = true;
 								}
+								if (FlxG.save.data.beatCream == null || FlxG.save.data.beatCream == false) {
+									FlxG.save.data.beatCream = true;
+								}
 								if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == false) {
 									FlxG.save.data.beatWeekEnding = true;
 								}
@@ -423,9 +412,10 @@ class StoryMenuState extends MusicBeatState
 								if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
 									FlxG.save.data.beatBonus = true;
 								}
-								if (FlxG.save.data.beatBNB == null || FlxG.save.data.beatBNB == false) {
-									FlxG.save.data.beatBNB = true;
+								if (FlxG.save.data.beatOnion == null || FlxG.save.data.beatOnion == false) {
+									FlxG.save.data.beatOnion = true;
 								}
+
 								if (FlxG.save.data.diedTwiceFrosted == null || FlxG.save.data.diedTwiceFrosted == false) {
 									FlxG.save.data.diedTwiceFrosted = true;
 								}
@@ -448,15 +438,19 @@ class StoryMenuState extends MusicBeatState
 								if (FlxG.save.data.beatCulturedWeek == null || FlxG.save.data.beatCulturedWeek == true) {
 									FlxG.save.data.beatCulturedWeek = false;
 								}
+								if (FlxG.save.data.beatCream == null || FlxG.save.data.beatCream == true) {
+									FlxG.save.data.beatCream = false;
+								}
 								if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == true) {
 									FlxG.save.data.beatWeekEnding = false;
 								}
 								if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == true) {
 									FlxG.save.data.beatBonus = false;
 								}
-								if (FlxG.save.data.beatBNB == null || FlxG.save.data.beatBNB == true) {
-									FlxG.save.data.beatBNB = false;
+								if (FlxG.save.data.beatOnion == null || FlxG.save.data.beatOnion == true) {
+									FlxG.save.data.beatOnion = false;
 								}
+
 								if (FlxG.save.data.diedTwiceFrosted == null || FlxG.save.data.diedTwiceFrosted == true) {
 									FlxG.save.data.diedTwiceFrosted = false;
 								}
@@ -497,6 +491,9 @@ class StoryMenuState extends MusicBeatState
 
 						switch (curWeek)
 						{
+							case 1:
+								PlayState.hasDialogue = true;
+
 							case 3: // forces easy mode if pussy mode
 								if (ClientPrefs.pussyMode)
 									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-easy', PlayState.storyPlaylist[0].toLowerCase());
@@ -655,6 +652,10 @@ class StoryMenuState extends MusicBeatState
 					PlayState.isCutscene = true;
 				}
 			});
+		}
+		else
+		{
+			LoadingState.loadAndSwitchState(new PlayState());
 		}
 		#end
 	}

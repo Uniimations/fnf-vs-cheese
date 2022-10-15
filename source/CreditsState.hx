@@ -195,8 +195,8 @@ class CreditsState extends MusicBeatState
 			});
 		}
 
-		checkAnimFinish(arrowSpr, 'intro', 'normal');
-		checkAnimFinish(arrowSpr, 'pressed', 'normal');
+		UniiStringTools.checkAnimFinish(arrowSpr, 'intro', 'normal');
+		UniiStringTools.checkAnimFinish(arrowSpr, 'pressed', 'normal');
 		super.update(elapsed);
 	}
 
