@@ -1158,7 +1158,7 @@ class PlayState extends MusicBeatState
 		}
 
 		timeTxt = new FlxText(STRUM_X + 75, 10, 400, "", 32);
-		timeTxt.setFormat(Paths.font("fnf.ttf"), 17, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		timeTxt.setFormat(Paths.font("fnf.otf"), 17, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		timeTxt.scrollFactor.set();
 		timeTxt.alpha = 0;
 		timeTxt.borderSize = 2;
@@ -1230,7 +1230,7 @@ class PlayState extends MusicBeatState
 
 		var songArtist:String;
 
-		var hudFont:String = 'fnf.ttf';
+		var hudFont:String = 'fnf.otf';
 		var ratingBarSize:Int = 16;
 
 		switch (songLowercase)
@@ -1248,7 +1248,7 @@ class PlayState extends MusicBeatState
 		}
 
 		if (songLowercase == 'manager-strike-back') {
-			hudFont = 'UNDERTALE.ttf';
+			hudFont = 'UNDERTALE.otf';
 			ratingBarSize = 15;
 		}
 
@@ -1294,14 +1294,14 @@ class PlayState extends MusicBeatState
 		*/
 
 		versionShit = new FlxText(15, FlxG.height * 1 - 30, 0, "", 18); //versionHeight used to be healthBarBG.y fyi
-		versionShit.setFormat(Paths.font("fnf.ttf"), 18, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		versionShit.setFormat(Paths.font("fnf.otf"), 18, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		versionShit.scrollFactor.set();
 		versionShit.borderSize = 2;
 		versionShit.visible = !ClientPrefs.hideHud;
 		versionShit.antialiasing = ClientPrefs.globalAntialiasing;
 
 		songShit = new FlxText(versionShit.x, versionShit.y - 25, 0, "", 18);
-		songShit.setFormat(Paths.font("fnf.ttf"), 13, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
+		songShit.setFormat(Paths.font("fnf.otf"), 13, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		songShit.scrollFactor.set();
 		songShit.borderSize = 2;
 		songShit.visible = !ClientPrefs.hideHud;
@@ -1416,7 +1416,7 @@ class PlayState extends MusicBeatState
 
 		if (curStage == 'frostedStage') {
 			frostedMisses = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "" + deathCounter, 32);
-			frostedMisses.setFormat(Paths.font("fnf.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			frostedMisses.setFormat(Paths.font("fnf.otf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 			frostedMisses.scrollFactor.set();
 			frostedMisses.borderSize = 2;
 			frostedMisses.antialiasing = ClientPrefs.globalAntialiasing;

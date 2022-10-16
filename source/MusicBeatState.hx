@@ -54,9 +54,7 @@ class MusicBeatState extends FlxUIState
 		{
 			ClientPrefs.showMem = !ClientPrefs.showMem;
 
-			Main.showMemory(ClientPrefs.showMem);
-
-			new FlxTimer().start(0.01, function(tmr:FlxTimer) {
+			new FlxTimer().start(0.1, function(tmr:FlxTimer) {
 				Main.showMemory(ClientPrefs.showMem);
 				trace('memory toggled');
 			});
