@@ -493,6 +493,7 @@ class StoryMenuState extends MusicBeatState
 						{
 							case 1:
 								PlayState.hasDialogue = true;
+								PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 
 							case 3: // forces easy mode if pussy mode
 								if (ClientPrefs.pussyMode)

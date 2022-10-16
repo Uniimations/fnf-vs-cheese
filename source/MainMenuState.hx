@@ -383,9 +383,9 @@ class MainMenuState extends MusicBeatState
         {
 			if (FlxG.save.data.petCheese)
 			{
-				if (FlxG.random.bool(0.15)) //made more MORE double rare
+				if (FlxG.random.bool(0.2)) //made more MORE double rare /// shut up
 				{
-					trace('0.1% chance easter egg');
+					trace('0.2% chance easter egg');
 					trace('you are now cursed.');
 					MainMenuState.cursed = true;
 					if (MainMenuState.cursed) {

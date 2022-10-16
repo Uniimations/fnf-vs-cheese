@@ -11,7 +11,7 @@ import flixel.util.FlxTimer;
 class UniiStringTools
 {
     // FC TYPES - ALSO I CHANGED IT TO SFC NOW BECAYUSE PSYCH ENGINE OMGG
-    public static function makePlayRanks(accuracy:Float, misses:Int, shits:Int, bads:Int, goods:Int, sicks:Int, perfectMarvelous:Int) // generate a letter ranking
+    public static function makePlayRanks(misses:Int, shits:Int, bads:Int, goods:Int, sicks:Int, perfectMarvelous:Int) // generate a letter ranking
     {
         var rankString:String = "N/A";
 

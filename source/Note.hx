@@ -129,8 +129,6 @@ class Note extends FlxSprite
 		frames = Paths.getSparrowAtlas(noteSkin, null, true);
 		loadNoteAnims();
 
-		antialiasing = ClientPrefs.globalAntialiasing;
-
 		if(noteData > -1) {
 			colorSwap = new ColorSwap();
 			shader = colorSwap.shader;

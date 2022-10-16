@@ -35,6 +35,11 @@ class MusicBeatState extends FlxUIState
 			openSubState(new CustomFadeTransition(1, true));
 		}
 		FlxTransitionableState.skipNextTransOut = false;
+
+		// flixel automatically saves your volume! (from psych 4.2) // but now it WORKS WOO
+		if(FlxG.save.data.volume != null) {
+			FlxG.sound.volume = FlxG.save.data.volume;
+		}
 	}
 
 	override function update(elapsed:Float)

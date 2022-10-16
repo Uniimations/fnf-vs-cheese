@@ -138,6 +138,7 @@ class FreeplaySelection extends MusicBeatState
 		{
 			var monster:FlxSprite = new FlxSprite(664, 78).loadGraphic(Paths.image('freeplay/monster'));
 			monster.antialiasing = ClientPrefs.globalAntialiasing;
+			monster.alpha = 0.5;
 			monster.flipX = true;
 			monster.animation.addByPrefix('idle', 'monster idle', 24, true);
 			add(monster);
@@ -532,11 +533,11 @@ class FreeplaySelection extends MusicBeatState
 					colorTween.cancel();
 				}
 				FlxG.sound.play(Paths.sound('cancelMenu'));
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
+				if (!MainMenuState.cursed) FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
 				Conductor.changeBPM(120);
-
 				MusicBeatState.switchState(new FreeplayState());
-
 				FlxTween.tween(disc, { alpha:0, 'scale.x':0}, 0.2, { ease: FlxEase.quartInOut});
 			}
 
