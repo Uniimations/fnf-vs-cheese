@@ -34,12 +34,13 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['KEYBINDS', 'COMBO & OFFSET', 'GAMEPLAY', 'APPEARANCE', 'PERFORMANCE', 'WINDOW', 'ACCESSIBILITY'];
+	var options:Array<String> = ['KEYBINDS', 'OFFSETS & PREVIEW', 'GAMEPLAY', 'APPEARANCE', 'PERFORMANCE', 'WINDOW', 'ACCESSIBILITY'];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private static var curSelected:Int = 0;
 	public static var menuBlackShit:FlxSprite;
 	public static var menuBG:FlxSprite;
 	public static var inPause:Bool = false;
+	public static var canDoShit:Bool = true;
 
 	override function create()
 	{
@@ -83,57 +84,79 @@ class OptionsState extends MusicBeatState
 		changeSelection();
 
 		super.create();
+
+		canDoShit = true;
 	}
 
-	override function closeSubState() {
+	override function closeSubState()
+	{
 		super.closeSubState();
 		ClientPrefs.saveSettings();
 		changeSelection();
 	}
 
-	override function update(elapsed:Float) {
+	override function update(elapsed:Float)
+	{
 		super.update(elapsed);
 
-		//
-
-		if (controls.UI_UP_P) {
-			changeSelection(-1);
-		}
-		if (controls.UI_DOWN_P) {
-			changeSelection(1);
-		}
-
-		if (controls.BACK) {
-			FlxG.sound.play(Paths.sound('cancelMenu'));
-
-			if (!inPause) {
-				MusicBeatState.switchState(new MainMenuState());
-			} else {
-				MusicBeatState.switchState(new PlayState());
-				FlxG.sound.music.volume = 0;
-				inPause = false;
+		if (canDoShit)
+		{
+			if (controls.UI_UP_P) {
+				changeSelection(-1);
+				FlxG.sound.play(Paths.sound('clickMenu'));
 			}
-		}
-
-		if (controls.ACCEPT) {
-			for (item in grpOptions.members) {
-				item.alpha = 0;
+			if (controls.UI_DOWN_P) {
+				changeSelection(1);
+				FlxG.sound.play(Paths.sound('clickMenu'));
 			}
 
-			switch(options[curSelected]) {
-				case 'KEYBINDS':
-					openSubState(new KeybindsSubState());
+			if (controls.BACK) {
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 
-				case 'COMBO & OFFSET':
-					MusicBeatState.switchState(new RatingPopUpMenuState());
+				if (!inPause) {
+					MusicBeatState.switchState(new MainMenuState());
+				} else {
+					MusicBeatState.switchState(new PlayState());
+					FlxG.sound.music.volume = 0;
+					inPause = false;
+				}
+			}
 
-				case 'GAMEPLAY' | 'APPEARANCE' | 'PERFORMANCE' | 'WINDOW' | 'ACCESSIBILITY':
-					openSubState(new SettingsSubState());
+			if (controls.ACCEPT)
+			{
+				var selected = options[curSelected];
+
+				SettingsSubState.category = selected; // select category
+				canDoShit = false; // prevent player input
+
+				new FlxTimer().start(0.05, function(tmr:FlxTimer)
+				{
+					if (selected != 'OFFSETS & PREVIEW') {
+						for (item in grpOptions.members) {
+							item.alpha = 0;
+						}
+					}
+
+					switch(selected)
+					{
+						case 'KEYBINDS':
+							openSubState(new KeybindsSubState());
+
+						case 'OFFSETS & PREVIEW':
+							MusicBeatState.switchState(new RatingPopUpMenuState());
+
+						case 'GAMEPLAY' | 'APPEARANCE' | 'PERFORMANCE' | 'WINDOW' | 'ACCESSIBILITY':
+							openSubState(new SettingsSubState());
+					}
+					trace('picked category: ' + SettingsSubState.category);
+				});
+				FlxG.sound.play(Paths.sound('clickMenu'));
 			}
 		}
 	}
 
-	function changeSelection(change:Int = 0) {
+	function changeSelection(change:Int = 0)
+	{
 		curSelected += change;
 		if (curSelected < 0)
 			curSelected = options.length - 1;

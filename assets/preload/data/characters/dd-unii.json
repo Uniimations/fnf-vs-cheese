@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "unii idle"
+		},
+		{
+			"offsets": [
+				5,
+				-6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "unii left"
+		},
+		{
+			"offsets": [
+				-36,
+				-27
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "unii down"
+		},
+		{
+			"offsets": [
+				-71,
+				6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "unii right"
+		},
+		{
+			"offsets": [
+				-20,
+				-10
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singGLOBALmiss",
+			"indices": [],
+			"name": "unii miss"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-33,
+				10
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "unii up",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/dynamic-duo-full/uni_nation",
+	"position": [
+		470,
+		140
+	],
+	"healthicon": "unii",
+	"flip_x": true,
+	"healthbar_colors": [
+		175,
+		95,
+		255
+	],
+	"camera_position": [
+		-60,
+		-97
+	],
+	"sing_duration": 6,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

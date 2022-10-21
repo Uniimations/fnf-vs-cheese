@@ -267,23 +267,8 @@ class MainMenuState extends MusicBeatState
 				});
 			});
 
-			if (versionShit != null && versionShit.alpha != 1)
-			{
-				PlayState.phillyBlackTween = FlxTween.tween(versionShit, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut,
-					onComplete: function(twn:FlxTween) {
-						PlayState.phillyBlackTween = null;
-					}
-				});
-			}
-
-			if (CheeseVersionShit != null && CheeseVersionShit.alpha != 1)
-			{
-				PlayState.phillyBlackTween = FlxTween.tween(CheeseVersionShit, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut,
-					onComplete: function(twn:FlxTween) {
-						PlayState.phillyBlackTween = null;
-					}
-				});
-			}
+			if (versionShit != null) FlxTween.tween(versionShit, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut});
+			if (CheeseVersionShit != null) FlxTween.tween(CheeseVersionShit, {alpha: 1}, 0.5, {ease: FlxEase.quadInOut});
 		});
 
 		changeItem();
@@ -383,7 +368,7 @@ class MainMenuState extends MusicBeatState
         {
 			if (FlxG.save.data.petCheese)
 			{
-				if (FlxG.random.bool(0.2)) //made more MORE double rare /// shut up
+				if (FlxG.random.bool(0.18)) //made more MORE double rare /// shut up
 				{
 					trace('0.2% chance easter egg');
 					trace('you are now cursed.');
@@ -396,7 +381,7 @@ class MainMenuState extends MusicBeatState
 						{
 							// STUFF
 							defaultCamZoom = 0.80;
-							FlxG.sound.playMusic(Paths.music('freakyMenuDisturbing'), 0);
+							FlxG.sound.playMusic(Paths.music('monster'), 0);
 							FlxG.sound.music.fadeIn(6, 0, 0.8);
 
 							// TWEENS
@@ -605,22 +590,9 @@ class MainMenuState extends MusicBeatState
 				{
 					MusicBeatState.switchState(new AchievementsMenuState());
 				});
-				if (versionShit != null && versionShit.alpha != 0)
-				{
-					PlayState.phillyBlackTween = FlxTween.tween(versionShit, {alpha: 0}, 0.4, {ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween) {
-							PlayState.phillyBlackTween = null;
-						}
-					});
-				}
-				if (CheeseVersionShit != null && CheeseVersionShit.alpha != 0)
-				{
-					PlayState.phillyBlackTween = FlxTween.tween(CheeseVersionShit, {alpha: 0}, 0.4, {ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween) {
-							PlayState.phillyBlackTween = null;
-						}
-					});
-				}
+
+				if (versionShit != null) FlxTween.tween(versionShit, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
+				if (CheeseVersionShit != null) FlxTween.tween(CheeseVersionShit, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
 			});
 		}
 		else
@@ -658,22 +630,8 @@ class MainMenuState extends MusicBeatState
 						}
 					});
 				}
-				if (versionShit != null && versionShit.alpha != 0)
-				{
-					PlayState.phillyBlackTween = FlxTween.tween(versionShit, {alpha: 0}, 0.4, {ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween) {
-							PlayState.phillyBlackTween = null;
-						}
-					});
-				}
-				if (CheeseVersionShit != null && CheeseVersionShit.alpha != 0)
-				{
-					PlayState.phillyBlackTween = FlxTween.tween(CheeseVersionShit, {alpha: 0}, 0.4, {ease: FlxEase.quadInOut,
-						onComplete: function(twn:FlxTween) {
-							PlayState.phillyBlackTween = null;
-						}
-					});
-				}
+				if (versionShit != null) FlxTween.tween(versionShit, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
+				if (CheeseVersionShit != null) FlxTween.tween(CheeseVersionShit, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
 			});
 		}
 	}

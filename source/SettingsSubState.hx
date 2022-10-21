@@ -34,18 +34,10 @@ using StringTools;
 
 class SettingsSubState extends MusicBeatSubstate
 {
-	private static var curSelected:Int = 0;
+	public static var category:String = '';
 
-	static var unselectableOptions:Array<String> = [
-		' ', //for spacing out categories
-		'GENERAL',
-		'GRAPHICS',
-		'GAMEPLAY',
-		'APPEARANCE',
-		'CAMERA EFFECTS',
-		'WINDOW',
-		'MISCELLANEOUS'
-	];
+	static var unselectableOptions:Array<String> = ['oops'];
+
 	static var noCheckbox:Array<String> = [
 		'Input System:',
 		'Erase Save Data',
@@ -53,62 +45,9 @@ class SettingsSubState extends MusicBeatSubstate
 		'FPS Cap',
 	];
 
-	static var options:Array<String> = [
-		//GENERAL CATEGORY
-		'GENERAL',
-		'Flashing Lights',
-		'New Boyfriend Skin',
-		'Pussy Mode',
-		'Input System:',
-		' ',
+	private static var curSelected:Int = 0;
 
-		//GRAPHICS CATEGORY
-		'GRAPHICS',
-		'High Quality',
-		'Special Effects',
-		'Camera Shake',
-		'Change Zoom Amount',
-		'Background Dim',
-		#if !html5
-		'FPS Cap', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
-		#end
-		' ',
-
-		//GAMEPLAY CATEGORY
-		'GAMEPLAY',
-		'Downscroll',
-		'Middlescroll',
-		'Ghost Tapping',
-		'Miss Sounds',
-		'RESET to Game Over',
-		' ',
-
-		//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
-		'APPEARANCE',
-
-		#if !mobile
-		'FPS Counter',
-		#end
-
-		'Watermark Icon',
-		'Note Splashes',
-		'Hide HUD',
-		'Hide Song Length',
-		'Hide Combo Rating',
-		' ',
-
-		//WINDOW CATEGORY
-		'WINDOW',
-		'Window Pause',
-		'Auto Pause',
-		' ',
-
-		//MISC CATEGORY
-		'MISCELLANEOUS',
-		'Optimized Mode',
-		'Erase Save Data',
-	];
-
+	private var options:Array<String> = [];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private var checkboxArray:Array<CheckboxThingie> = [];
 	private var checkboxNumber:Array<Int> = [];
@@ -129,7 +68,131 @@ class SettingsSubState extends MusicBeatSubstate
 
 	public function new()
 	{
+		// FINISH TOMORROW
+		switch (category)
+		{
+			case 'GAMEPLAY':
+				options = [
+					'Downscroll',
+					'Middlescroll',
+					'Ghost Tapping',
+					#if PLAYTEST_BUILD
+					'Botplay',
+					#end
+					'RESET to Game Over',
+					'Miss Sounds'
+				];
+			case 'APPEARANCE':
+				options = [
+					'New Boyfriend Skin',
+					'Note Splashes',
+					'Hide Combo Rating',
+					'Hide HUD',
+					'Background Dim'
+				];
+			case 'PERFORMANCE':
+				options = [
+					'Flashing Lights',
+					'Special Effects',
+					'Camera Shake',
+					'Camera Zoom',
+					'High Quality'
+				];
+			case 'WINDOW':
+				options = [
+					'Window Pause',
+					'Auto Pause',
+					#if !mobile
+					'FPS Counter',
+					#end
+
+					#if !html5
+					'FPS Cap' //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+					#end
+				];
+			case 'ACCESSIBILITY':
+				options = [
+					'Optimized Mode',
+					'Pussy Mode',
+					'Input System:',
+					'Erase Save Data'
+				];
+			default:
+				options = [
+					'Flashing Lights',
+					'New Boyfriend Skin',
+					'Pussy Mode',
+					'Input System:'
+				];
+				/*
+				options = [
+					'Flashing Lights',
+					'New Boyfriend Skin',
+					'Pussy Mode',
+					'Input System:'
+				];
+				*/
+		}
+
 		super();
+
+		/*
+		options = [
+			//GENERAL CATEGORY
+			'GENERAL',
+			'Flashing Lights',
+			'New Boyfriend Skin',
+			'Pussy Mode',
+			'Input System:',
+			' ',
+
+			//GRAPHICS CATEGORY
+			'GRAPHICS',
+			'High Quality',
+			'Special Effects',
+			'Camera Shake',
+			'Change Zoom Amount',
+			'Background Dim',
+			#if !html5
+			'FPS Cap', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
+			#end
+			' ',
+
+			//GAMEPLAY CATEGORY
+			'GAMEPLAY',
+			'Downscroll',
+			'Middlescroll',
+			'Ghost Tapping',
+			'Miss Sounds',
+			'RESET to Game Over',
+			' ',
+
+			//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
+			'APPEARANCE',
+
+			#if !mobile
+			'FPS Counter',
+			#end
+
+			'Watermark Icon',
+			'Note Splashes',
+			'Hide HUD',
+			'Hide Combo Rating',
+			' ',
+
+			//WINDOW CATEGORY
+			'WINDOW',
+			'Window Pause',
+			'Auto Pause',
+			' ',
+
+			//MISC CATEGORY
+			'MISCELLANEOUS',
+			'Optimized Mode',
+			'Erase Save Data',
+		];
+		*/
+
 		characterLayer = new FlxTypedGroup<Character>();
 		add(characterLayer);
 
@@ -234,7 +297,6 @@ class SettingsSubState extends MusicBeatSubstate
 	var holdTime:Float = 0;
 	override function update(elapsed:Float)
 	{
-		//
 		if (controls.UI_UP_P)
 		{
 			changeSelection(-1);
@@ -244,23 +306,12 @@ class SettingsSubState extends MusicBeatSubstate
 			changeSelection(1);
 		}
 
-		if (controls.BACK) {
-			grpOptions.forEachAlive(function(spr:AlphabetWhite) {
-				spr.alpha = 0;
-			});
-			grpTexts.forEachAlive(function(spr:AttachedText) {
-				spr.alpha = 0;
-			});
-			for (i in 0...checkboxArray.length) {
-				var spr:CheckboxThingie = checkboxArray[i];
-				if(spr != null) {
-					spr.alpha = 0;
-				}
-			}
-			descText.alpha = 0;
-			pauseText.alpha = 0;
-			close();
+		if (controls.BACK)
+		{
+			OptionsState.canDoShit = true;
 			FlxG.sound.play(Paths.sound('cancelMenu'));
+
+			new FlxTimer().start(0.05, function(tmr:FlxTimer) close()); // add delay
 		}
 
 
@@ -336,9 +387,6 @@ class SettingsSubState extends MusicBeatSubstate
 					case 'Hide HUD':
 						ClientPrefs.hideHud = !ClientPrefs.hideHud;
 
-					case 'Hide Song Length':
-						ClientPrefs.hideTime = !ClientPrefs.hideTime;
-
 					case 'New Boyfriend Skin':
 						ClientPrefs.bfreskin = !ClientPrefs.bfreskin;
 						if (!ClientPrefs.fuckyouavi) {
@@ -382,7 +430,7 @@ class SettingsSubState extends MusicBeatSubstate
 					case 'Camera Shake':
 						ClientPrefs.cameraShake = !ClientPrefs.cameraShake;
 
-					case 'Change Zoom Amount':
+					case 'Camera Zoom':
 						ClientPrefs.camZoomOut = !ClientPrefs.camZoomOut;
 
 					case 'Pussy Mode':
@@ -396,16 +444,21 @@ class SettingsSubState extends MusicBeatSubstate
 
 					case 'Auto Pause':
 						ClientPrefs.gamePause = !ClientPrefs.gamePause;
+
+					case 'Botplay':
+						ClientPrefs.botplay = !ClientPrefs.botplay;
 				}
 				reloadValues();
 				ClientPrefs.saveSettings(); //saves whenever you change an option (because like why didnt it do that before ???)
+
+				FlxG.sound.play(Paths.sound('clickMenu'));
 			}
 		}
 		else if (controls.ACCEPT)
 		{
 			if (options[curSelected] == 'Erase Save Data') {
 				openSubState(new ResetPromptSubState());
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				FlxG.sound.play(Paths.sound('clickMenu'));
 			}
 		}
 		else
@@ -501,9 +554,9 @@ class SettingsSubState extends MusicBeatSubstate
 				// BETTER THAN THE IF STATEMENT (slightly)
 				var soundShouldPlay:Bool = true;
 
-				if (options[curSelected] == 'Erase Save Data')
-					soundShouldPlay = false;
+				if (options[curSelected] == 'Erase Save Data') soundShouldPlay = false;
 
+				if (holdTime <= 0 && soundShouldPlay) FlxG.sound.play(Paths.sound('clickMenu'));
 				holdTime += elapsed;
 			}
 			else
@@ -561,8 +614,6 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "Uncheck this if you're sensitive to flashing lights.";
 			case 'Hide HUD':
 				daText = "If checked, hides your HUD.";
-			case 'Hide Song Length':
-				daText = "If checked, the bar showing the song name\nand how much time is left will be hidden.";
 			case 'New Boyfriend Skin':
 				daText = "If unchecked, bf will have the normal skin\ninstead of the default \"remastered\" one.";
 			case 'Miss Sounds':
@@ -570,7 +621,7 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'Background Dim':
 			    daText = "Dims the background down with a black tint.\nAdjust opacity with LEFT and RIGHT keys.";
 			case 'Optimized Mode':
-				daText = "If checked, hides ALL STAGE ELEMENTS.\nOnly notes and HUD will be visible.";
+				daText = "If checked, hides ALL backgrounds and characters.\nAlso disables distractions.";
 			case 'Erase Save Data':
 				daText = "WARNING: THIS WILL CLOSE THE GAME!\nPress your ACCEPT key to clear your VS Cheese save data.";
 			case 'RESET to Game Over':
@@ -578,11 +629,11 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'Hide Combo Rating':
 				daText = "If checked, the rating pop up showing your combo\nwill be hidden.";
 			case 'Special Effects':
-				daText = "If unchecked, color changing and mechanic indicator effects\nwill be turned off in songs with camera effects.";
+				daText = "If unchecked, mechanic indicators and visual effects\nwill be turned off.";
 			case 'Camera Shake':
-				daText = "If unchecked, won't shake and won't move as much in\nsongs with camera effects.";
-			case 'Change Zoom Amount':
-				daText = "If unchecked, camera will not change zoom amount in\nsongs with camera effects.";
+				daText = "If unchecked, camera will not shake or move to the notes\npressed in songs with camera effects.";
+			case 'Camera Zoom':
+				daText = "If unchecked, camera will not zoom in and out in\nsongs with camera effects.";
 			case 'Pussy Mode':
 				daText = "If checked, turns all the mechanics off in songs\nwith UNFAIR difficulty. Also certifies you as a pussy.";
 			case 'Input System:':
@@ -591,6 +642,8 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If checked, freezes the game when clicking off of the window.";
 			case 'Auto Pause':
 				daText = "If unchecked, doesn't pause the game when\nclicking off the window during a song.";
+			case 'Botplay':
+				daText = "BE A NERDDDD LOLL, this is only in playtest buuilds of the game hi diples hi diples hi di";
 		}
 		descText.text = daText;
 
@@ -637,7 +690,7 @@ class SettingsSubState extends MusicBeatSubstate
 				}
 			}
 		}
-		buttonSound();
+		buttonSound(change != 0);
 	}
 
 	function reloadValues() {
@@ -668,8 +721,6 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.violence;
 					case 'Hide HUD':
 						daValue = ClientPrefs.hideHud;
-					case 'Hide Song Length':
-						daValue = ClientPrefs.hideTime;
 					case 'New Boyfriend Skin':
 						daValue = ClientPrefs.bfreskin;
 					case 'Miss Sounds':
@@ -684,7 +735,7 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.specialEffects;
 					case 'Camera Shake':
 						daValue = ClientPrefs.cameraShake;
-					case 'Change Zoom Amount':
+					case 'Camera Zoom':
 						daValue = ClientPrefs.camZoomOut;
 					case 'Pussy Mode':
 						daValue = ClientPrefs.pussyMode;
@@ -692,6 +743,8 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.windowPause;
 					case 'Auto Pause':
 						daValue = ClientPrefs.gamePause;
+					case 'Botplay':
+						daValue = ClientPrefs.botplay;
 				}
 				checkbox.daValue = daValue;
 			}

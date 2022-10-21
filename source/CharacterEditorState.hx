@@ -891,7 +891,7 @@ class CharacterEditorState extends MusicBeatState
 
 		#if sys
 		var charsLoaded:Map<String, Bool> = new Map();
-		var directories:Array<String> = [Paths.mods('characters/'), Paths.getPreloadPath('characters/')];
+		var directories:Array<String> = [Paths.mods('data/characters/'), Paths.getPreloadPath('data/characters/')];
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
 			if(FileSystem.exists(directory)) {

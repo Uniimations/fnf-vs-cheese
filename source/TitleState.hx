@@ -120,7 +120,7 @@ class TitleState extends MusicBeatState
 		if (!initialized)
 		{
 			//got rid of old code cause stinky
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			FlxG.sound.playMusic(Paths.music('freaky_overture'));
 		}
 
 		Conductor.changeBPM(120);

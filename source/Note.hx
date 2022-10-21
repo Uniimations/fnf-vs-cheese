@@ -41,7 +41,7 @@ class Note extends FlxSprite
 	public var multSpeed(default, set):Float = 1;
 
 	public var customFunctions:Bool = false;
-	public var noteSkin(default, set):String = 'NOTE_assets';
+	public var noteSkin(default, set):String = 'noteskins/NOTE_assets';
 
 	public var xAdd:Float = 50;
 	public var yAdd:Float = 0; // doooont use this lol
@@ -201,7 +201,7 @@ class Note extends FlxSprite
 		reloadNote(noteSkin);
 	}
 
-	function reloadNote(?newSkin:String = 'NOTE_assets')
+	function reloadNote(?newSkin:String = 'noteskins/NOTE_assets')
 	{
 		var animName:String = null;
 

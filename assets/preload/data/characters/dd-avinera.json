@@ -8,83 +8,83 @@
 			],
 			"anim": "idle",
 			"fps": 24,
-			"name": "unii idle",
+			"name": "idle dance big guy",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-4,
-				-11
+				45,
+				-19
 			],
 			"anim": "singLEFT",
 			"fps": 24,
-			"name": "unii left",
+			"name": "avi left",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-38,
-				-29
+				-23,
+				-36
 			],
 			"anim": "singDOWN",
 			"fps": 24,
-			"name": "unii down",
+			"name": "avi down",
 			"indices": []
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-61,
-				2
+				-26,
+				40
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "avi up guy",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-99,
+				19
 			],
 			"anim": "singRIGHT",
 			"fps": 24,
-			"name": "unii right",
+			"name": "AVI SING RIGHT",
 			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-20,
-				0
+				-41,
+				23
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singGLOBALmiss",
-			"fps": 24,
-			"name": "unii miss",
-			"indices": []
-		},
-		{
-			"offsets": [
-				-33,
-				0
-			],
 			"indices": [],
-			"fps": 24,
-			"anim": "singUP",
-			"loop": false,
-			"name": "unii up"
+			"name": "avi miss"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/dynamic-duo-full/uni_nation",
+	"image": "characters/dynamic-duo-full/the_nera_sans_boy_urh_rur_urh",
 	"position": [
 		470,
-		140
+		170
 	],
-	"healthicon": "dad",
+	"healthicon": "avinera",
 	"flip_x": true,
 	"healthbar_colors": [
-		175,
-		95,
-		255
+		134,
+		102,
+		178
 	],
 	"camera_position": [
 		-60,
 		-97
 	],
-	"sing_duration": 4,
+	"sing_duration": 8,
 	"noteskin": "NOTE_assets",
 	"scale": 1
 }

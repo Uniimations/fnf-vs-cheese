@@ -35,11 +35,6 @@ class MusicBeatState extends FlxUIState
 			openSubState(new CustomFadeTransition(1, true));
 		}
 		FlxTransitionableState.skipNextTransOut = false;
-
-		// flixel automatically saves your volume! (from psych 4.2) // but now it WORKS WOO
-		if(FlxG.save.data.volume != null) {
-			FlxG.sound.volume = FlxG.save.data.volume;
-		}
 	}
 
 	override function update(elapsed:Float)
@@ -92,7 +87,7 @@ class MusicBeatState extends FlxUIState
 		curStep = lastChange.stepTime + Math.floor(((Conductor.songPosition - ClientPrefs.noteOffset) - lastChange.songTime) / Conductor.stepCrochet);
 	}
 
-	public static function switchState(nextState:FlxState, dump:Bool = false) {
+	public static function switchState(nextState:FlxState) {
 		// Custom made Trans in
 		var curState:Dynamic = FlxG.state;
 		var leState:MusicBeatState = curState;

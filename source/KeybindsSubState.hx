@@ -39,22 +39,23 @@ class KeybindsSubState extends MusicBeatSubstate
 	private static var defaultKey:String = 'RESET ALL KEYBINDS';
 
 	var optionShit:Array<String> = [
-		'Note Controls',
+		'NOTE KEYBINDS',
 		ClientPrefs.keyBinds[0][1],
 		ClientPrefs.keyBinds[1][1],
 		ClientPrefs.keyBinds[2][1],
 		ClientPrefs.keyBinds[3][1],
 		'',
-		'GUI Controls',
+		'HUD KEYBINDS',
 		ClientPrefs.keyBinds[4][1],
 		ClientPrefs.keyBinds[5][1],
 		ClientPrefs.keyBinds[6][1],
 		ClientPrefs.keyBinds[7][1],
 		'',
-		'RESET Key',
 		ClientPrefs.keyBinds[8][1],
 		'',
-		defaultKey];
+		'',
+		defaultKey
+	];
 
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private var grpInputs:Array<AttachedText> = [];
@@ -112,19 +113,13 @@ class KeybindsSubState extends MusicBeatSubstate
 				changeAlt();
 			}
 
-			if (controls.BACK) {
+			if (controls.BACK)
+			{
+				OptionsState.canDoShit = true;
 				ClientPrefs.reloadControls(controlArray);
-				grpOptions.forEachAlive(function(spr:AlphabetWhite) {
-					spr.alpha = 0;
-				});
-				for (i in 0...grpInputs.length) {
-					var spr:AttachedText = grpInputs[i];
-					if(spr != null) {
-						spr.alpha = 0;
-					}
-				}
-				close();
 				FlxG.sound.play(Paths.sound('cancelMenu'));
+
+				new FlxTimer().start(0.05, function(tmr:FlxTimer) close());
 			}
 
 			if(controls.ACCEPT && nextAccept <= 0)
@@ -132,7 +127,7 @@ class KeybindsSubState extends MusicBeatSubstate
 				if(optionShit[curSelected] == defaultKey)
 				{
 					if (ClientPrefs.flashing) {
-						FlxG.camera.flash(FlxColor.WHITE, 2);
+						FlxG.camera.flash(FlxColor.WHITE, 0.5);
 					}
 
 					controlArray = ClientPrefs.defaultKeys.copy();
@@ -220,7 +215,7 @@ class KeybindsSubState extends MusicBeatSubstate
 				}
 			}
 		}
-		buttonSound();
+		buttonSound(change != 0);
 	}
 
 	function changeAlt() {

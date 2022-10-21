@@ -467,7 +467,7 @@ class ChartingState extends MusicBeatState
 
 		#if sys
 		var charsLoaded:Map<String, Bool> = new Map();
-		var directories:Array<String> = [Paths.mods('characters/'), Paths.getPreloadPath('characters/')];
+		var directories:Array<String> = [Paths.mods('data/characters/'), Paths.getPreloadPath('data/characters/')];
 		for (i in 0...directories.length) {
 			var directory:String = directories[i];
 			if(FileSystem.exists(directory)) {
@@ -1180,7 +1180,7 @@ class ChartingState extends MusicBeatState
 			}
 			quant.animation.play('q', true, false, curQuant);
 
-			if (FlxG.keys.justPressed.ENTER)
+			if (FlxG.keys.justPressed.ENTER || FlxG.keys.justPressed.ESCAPE)
 			{
 				FlxG.mouse.visible = false;
 				PlayState.SONG = _song;
@@ -1543,7 +1543,7 @@ class ChartingState extends MusicBeatState
 	}
 
 	function loadHealthIconFromCharacter(char:String) {
-		var characterPath:String = 'characters/' + char + '.json';
+		var characterPath:String = 'data/characters/' + char + '.json';
 		#if MODS_ALLOWED
 		var path:String = Paths.mods(characterPath);
 		if (!FileSystem.exists(path)) {
@@ -1556,7 +1556,7 @@ class ChartingState extends MusicBeatState
 		if (!OpenFlAssets.exists(path))
 		#end
 		{
-			path = Paths.getPreloadPath('characters/' + Character.DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
+			path = Paths.getPreloadPath('data/characters/' + Character.DEFAULT_CHARACTER + '.json'); //If a character couldn't be found, change him to BF just to prevent a crash
 		}
 
 		#if MODS_ALLOWED
@@ -1682,7 +1682,7 @@ class ChartingState extends MusicBeatState
 		var daSus:Dynamic = i[2];
 		var daType:Dynamic = i[3];
 
-		var note:Note = new Note('NOTE_assets', daStrumTime, daNoteInfo % 4, null, null, true);
+		var note:Note = new Note('noteskins/NOTE_assets', daStrumTime, daNoteInfo % 4, null, null, true);
 		if(daNoteInfo > -1) { //Common note
 			note.sustainLength = daSus;
 			note.noteType = daType;

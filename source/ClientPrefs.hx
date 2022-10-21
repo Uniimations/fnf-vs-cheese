@@ -22,12 +22,11 @@ class ClientPrefs {
 	public static var noteOffset:Int = 0;
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var ghostTapping:Bool = true;
-	public static var hideTime:Bool = false;
 	public static var comboOffset:Array<Int> = [0, 0, 0, 0];
 	public static var ratingOffset:Int = 0;
 
 	// EXTRA MOD SPECIFIC OPTIONS
-	public static var shit:Bool = true;
+	public static var botplay:Bool = false;
 	public static var bfreskin:Bool = true;
 	public static var missSounds:Bool = true;
 	public static var bgDim:Float = 0;
@@ -102,11 +101,10 @@ class ClientPrefs {
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
 		FlxG.save.data.ghostTapping = ghostTapping;
-		FlxG.save.data.hideTime = hideTime;
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.ratingOffset = ratingOffset;
 
-		FlxG.save.data.shit = shit;
+		FlxG.save.data.botplay = botplay;
 		FlxG.save.data.bfreskin = bfreskin;
 		FlxG.save.data.missSounds = missSounds;
 		FlxG.save.data.bgDim = bgDim;
@@ -189,9 +187,6 @@ class ClientPrefs {
 		if(FlxG.save.data.ghostTapping != null) {
 			ghostTapping = FlxG.save.data.ghostTapping;
 		}
-		if(FlxG.save.data.hideTime != null) {
-			hideTime = FlxG.save.data.hideTime;
-		}
 		if(FlxG.save.data.comboOffset != null) {
 			comboOffset = FlxG.save.data.comboOffset;
 		}
@@ -201,8 +196,8 @@ class ClientPrefs {
 
 
 
-		if(FlxG.save.data.shit != null) {
-			shit = FlxG.save.data.shit;
+		if(FlxG.save.data.botplay != null) {
+			botplay = FlxG.save.data.botplay;
 		}
 		if(FlxG.save.data.bfreskin != null) {
 			bfreskin = FlxG.save.data.bfreskin;
@@ -248,6 +243,11 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.camZoomOut != null) {
 			camZoomOut = FlxG.save.data.camZoomOut;
+		}
+
+		// flixel automatically saves your volume! (from psych 4.2)
+		if(FlxG.save.data.volume != null) {
+			FlxG.sound.volume = FlxG.save.data.volume;
 		}
 
 		if (FlxG.save.data.windowPause != null) {

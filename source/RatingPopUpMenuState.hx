@@ -422,9 +422,9 @@ class RatingPopUpMenuState extends MusicBeatState
 			MusicBeatState.switchState(new OptionsState());
 
 			if (OptionsState.inPause)
-				FlxG.sound.playMusic(Paths.music('gameOver'), 1, true);
+				FlxG.sound.playMusic(Paths.music(PauseSubState.pauseSong), 1, true);
 			else
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 1, true);
+				FlxG.sound.playMusic(Paths.music('freaky_overture'), 1, true);
 
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			FlxG.mouse.visible = false;
@@ -544,7 +544,7 @@ class RatingPopUpMenuState extends MusicBeatState
 	function updateNoteDelay()
 	{
 		ClientPrefs.noteOffset = Math.round(barPercent);
-		timeTxt.text = 'Current offset: ' + Math.floor(barPercent) + ' ms';
+		timeTxt.text = Math.floor(barPercent) + ' ms';
 	}
 
 	function updateMode()

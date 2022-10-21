@@ -534,7 +534,7 @@ class FreeplaySelection extends MusicBeatState
 				}
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 
-				if (!MainMenuState.cursed) FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				if (!MainMenuState.cursed) FlxG.sound.playMusic(Paths.music('freaky_overture'));
 
 				Conductor.changeBPM(120);
 				MusicBeatState.switchState(new FreeplayState());
@@ -631,6 +631,7 @@ class FreeplaySelection extends MusicBeatState
 		}
 		else if (curNumberEnd == 2)
 		{
+			danceLeft = !danceLeft;
 			listen_to_song();
 		}
 	}
@@ -726,7 +727,7 @@ class FreeplaySelection extends MusicBeatState
 			{
 				switch (songs[curSelected].songName.toLowerCase())
 				{
-					case 'wifi' | 'casual-duel':
+					case 'wifi' | 'casual-duel' | 'dynamic-duo' | 'below-zero':
 						arsenType = 1;
 					case 'manager-strike-back' | 'frosted' | 'alter-ego':
 						arsenType = 3;

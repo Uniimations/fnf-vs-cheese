@@ -33,7 +33,7 @@ class ResetPromptSubState extends MusicBeatSubstate
 		text.alpha = 1;
 		add(text);
 
-		var text2:Alphabet = new Alphabet(0, text.y + 90, "You will lose all your progress and this will close the game", true, false, 0.05, 0.5);
+		var text2:Alphabet = new Alphabet(0, text.y + 90, "You will lose all your progress and this will close the game", true, false, 0.05, 0.45);
 		text2.screenCenter(X);
 		text2.alpha = 1;
 		add(text2);

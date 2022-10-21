@@ -108,7 +108,7 @@ class FunkinLua {
 		set('ratingName', '');
 		
 		set('mustHitSection', false);
-		set('botPlay', PlayState.cpuControlled);
+		set('botPlay', ClientPrefs.botplay);
 
 		for (i in 0...4) {
 			set('defaultPlayerStrumX' + i, 0);
@@ -123,7 +123,6 @@ class FunkinLua {
 		set('framerate', ClientPrefs.framerate);
 		set('ghostTapping', ClientPrefs.ghostTapping);
 		set('hideHud', ClientPrefs.hideHud);
-		set('hideTime', ClientPrefs.hideTime);
 		set('cameraZoomOnBeat', ClientPrefs.camZooms);
 		set('flashingLights', ClientPrefs.flashing);
 		set('noteOffset', ClientPrefs.noteOffset);

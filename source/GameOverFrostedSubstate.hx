@@ -102,7 +102,7 @@ class GameOverFrostedSubstate extends MusicBeatSubstate
 							MusicBeatState.switchState(new StoryMenuState());
 						else
 							MusicBeatState.switchState(new FreeplayState());
-						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.sound.playMusic(Paths.music('freaky_overture'));
 					});
 				});
 		}

@@ -500,7 +500,10 @@ class StoryMenuState extends MusicBeatState
 									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + '-easy', PlayState.storyPlaylist[0].toLowerCase());
 								else
 									PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
+
+								PlayState.hasDialogue = false;
 							default:
+								PlayState.hasDialogue = false;
 								PlayState.SONG = Song.loadFromJson(PlayState.storyPlaylist[0].toLowerCase() + diffic, PlayState.storyPlaylist[0].toLowerCase());
 						}
 						PlayState.storyWeek = curWeek;
@@ -557,6 +560,8 @@ class StoryMenuState extends MusicBeatState
 				FlxTween.tween(spr, {y: leftArrow.y + 15, alpha: 1}, 0.07);
 			}
 		});
+
+		if (change != 0) FlxG.sound.play(Paths.sound('clickMenu'));
 
 		#if !switch
 		intendedScore = Highscore.getWeekScore(WeekData.getWeekNumber(curWeek), curDifficulty);

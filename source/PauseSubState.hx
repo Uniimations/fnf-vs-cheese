@@ -51,25 +51,28 @@ class PauseSubState extends MusicBeatSubstate
 	public var hasTwoDances:Bool = false;
 
 	public static var psChartingMode:Bool = false;
+	public static var pauseSong:String;
 
 	public function new(x:Float, y:Float)
 	{
 		super();
 
-		if (psChartingMode) {
-			menuItemsOG = ['Charting mode on', 'Resume', 'Restart Song', 'Options', 'OP Mode', 'Botplay', 'Exit to menu'];
-			menuItemsPRESSED = ['Charting mode on', 'Resume ', 'Restart Song', 'Options', 'OP Mode', 'Botplay', 'Exit to menu'];
-		} else {
-			menuItemsOG = ['Resume', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu'];
-			menuItemsPRESSED = ['Resume ', 'Restart Song', 'Options',#if debug 'OP Mode', 'Botplay', #end 'Exit to menu']; //extra space on 'Resume' for bug fix
-		}
+		menuItemsOG = ['Resume', 'Restart Song', 'Options',#if debug 'Toggle Cheats', #end 'Exit to menu'];
+		menuItemsPRESSED = ['Resume ', 'Restart Song', 'Options',#if debug 'Toggle Cheats', #end 'Exit to menu']; //extra space on 'Resume' for bug fix
 
 		menuItems = menuItemsOG;
 		canDoStuff = true;
 
-		pauseMusic = new FlxSound().loadEmbedded(Paths.music('distant'), true, true);
-		pauseMusic.volume = 0.82;
-		pauseMusic.play(false);
+		switch (PlayState.SONG.song.toLowerCase())
+		{
+			case 'below-zero' | 'frosted':
+				pauseSong = 'avi.';
+			default:
+				pauseSong = 'distant';
+		}
+
+		pauseMusic = new FlxSound().loadEmbedded(Paths.music(pauseSong), true, true);
+		pauseMusic.play(true);
 
 		FlxG.sound.list.add(pauseMusic);
 
@@ -285,8 +288,6 @@ class PauseSubState extends MusicBeatSubstate
 		var pressedDown = controls.UI_DOWN_P;
 		var pressedACCEPT = controls.ACCEPT;
 
-		//
-
 		if (pressedUp && canDoStuff)
 		{
 			changeSelection(-1);
@@ -335,21 +336,14 @@ class PauseSubState extends MusicBeatSubstate
 					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
 						OptionsState.inPause = true;
 						MusicBeatState.switchState(new OptionsState());
-						FlxG.sound.playMusic(Paths.music('gameOver')); // music becomes unmuffled because its cool
+						FlxG.sound.playMusic(Paths.music(pauseSong));
 					});
 
-				case 'OP Mode':
+				case 'Toggle Cheats':
 					canDoStuff = true;
-					coolSound();
-					FlxG.camera.flash(FlxColor.WHITE, 1);
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 					PlayState.practiceMode = !PlayState.practiceMode;
 					practiceText.visible = PlayState.practiceMode;
-
-				case 'Botplay':
-					canDoStuff = true;
-					coolSound();
-					FlxG.camera.flash(FlxColor.WHITE, 1);
-					PlayState.cpuControlled = !PlayState.cpuControlled;
 
 				case "Exit to menu":
 					canDoStuff = false;
@@ -361,11 +355,11 @@ class PauseSubState extends MusicBeatSubstate
 
 					new FlxTimer().start(1.1, function(tmr:FlxTimer) {
 						if(PlayState.isStoryMode) {
-							MusicBeatState.switchState(new StoryMenuState(), true);
+							MusicBeatState.switchState(new StoryMenuState());
 						} else {
-							MusicBeatState.switchState(new FreeplayState(), true);
+							MusicBeatState.switchState(new FreeplayState());
 						}
-						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+						FlxG.sound.playMusic(Paths.music('freaky_overture'));
 					});
 
 					MainMenuState.cursed = false; // makes you not cursed

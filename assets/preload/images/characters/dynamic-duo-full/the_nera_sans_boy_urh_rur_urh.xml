@@ -2,52 +2,52 @@
 <TextureAtlas imagePath="the_nera_sans_boy_urh_rur_urh.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="AVI SING RIGHT0000" x="0" y="0" width="318" height="856" frameX="-12" frameY="0" frameWidth="330" frameHeight="856"/>
-	<SubTexture name="AVI SING RIGHT0001" x="0" y="0" width="318" height="856" frameX="-12" frameY="0" frameWidth="330" frameHeight="856"/>
-	<SubTexture name="AVI SING RIGHT0002" x="338" y="0" width="323" height="854" frameX="-1" frameY="-2" frameWidth="330" frameHeight="856"/>
-	<SubTexture name="AVI SING RIGHT0003" x="338" y="0" width="323" height="854" frameX="-1" frameY="-2" frameWidth="330" frameHeight="856"/>
-	<SubTexture name="AVI SING RIGHT0004" x="681" y="0" width="324" height="854" frameX="0" frameY="-2" frameWidth="330" frameHeight="856"/>
-	<SubTexture name="AVI SING RIGHT0005" x="681" y="0" width="324" height="854" frameX="0" frameY="-2" frameWidth="330" frameHeight="856"/>
-	<SubTexture name="avi down0000" x="1025" y="0" width="398" height="793" frameX="-3" frameY="-7" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi down0001" x="1443" y="0" width="400" height="796" frameX="0" frameY="-4" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi down0002" x="1443" y="0" width="400" height="796" frameX="0" frameY="-4" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi down0003" x="1863" y="0" width="397" height="800" frameX="-1" frameY="0" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi down0004" x="1863" y="0" width="397" height="800" frameX="-1" frameY="0" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi down0005" x="2280" y="0" width="396" height="799" frameX="-2" frameY="-1" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi down0006" x="2280" y="0" width="396" height="799" frameX="-2" frameY="-1" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi down0007" x="2280" y="0" width="396" height="799" frameX="-2" frameY="-1" frameWidth="401" frameHeight="800"/>
-	<SubTexture name="avi left0000" x="2696" y="0" width="453" height="817" frameX="0" frameY="-1" frameWidth="454" frameHeight="818"/>
-	<SubTexture name="avi left0001" x="2696" y="0" width="453" height="817" frameX="0" frameY="-1" frameWidth="454" frameHeight="818"/>
-	<SubTexture name="avi left0002" x="3169" y="0" width="446" height="818" frameX="-8" frameY="0" frameWidth="454" frameHeight="818"/>
-	<SubTexture name="avi left0003" x="3169" y="0" width="446" height="818" frameX="-8" frameY="0" frameWidth="454" frameHeight="818"/>
-	<SubTexture name="avi left0004" x="3635" y="0" width="446" height="818" frameX="-8" frameY="0" frameWidth="454" frameHeight="818"/>
-	<SubTexture name="avi left0005" x="3635" y="0" width="446" height="818" frameX="-8" frameY="0" frameWidth="454" frameHeight="818"/>
-	<SubTexture name="avi miss0000" x="0" y="876" width="380" height="860"/>
-	<SubTexture name="avi miss0001" x="400" y="876" width="380" height="842" frameX="0" frameY="-18" frameWidth="380" frameHeight="860"/>
-	<SubTexture name="avi miss0002" x="800" y="876" width="378" height="860" frameX="-1" frameY="0" frameWidth="380" frameHeight="860"/>
-	<SubTexture name="avi miss0003" x="1198" y="876" width="378" height="842" frameX="-1" frameY="-18" frameWidth="380" frameHeight="860"/>
-	<SubTexture name="avi miss0004" x="800" y="876" width="378" height="860" frameX="-1" frameY="0" frameWidth="380" frameHeight="860"/>
-	<SubTexture name="avi miss0005" x="1198" y="876" width="378" height="842" frameX="-1" frameY="-18" frameWidth="380" frameHeight="860"/>
-	<SubTexture name="avi miss0006" x="800" y="876" width="378" height="860" frameX="-1" frameY="0" frameWidth="380" frameHeight="860"/>
-	<SubTexture name="avi miss0007" x="1198" y="876" width="378" height="842" frameX="-1" frameY="-18" frameWidth="380" frameHeight="860"/>
-	<SubTexture name="avi up guy0000" x="1596" y="876" width="386" height="879" frameX="-5" frameY="0" frameWidth="395" frameHeight="879"/>
-	<SubTexture name="avi up guy0001" x="1596" y="876" width="386" height="879" frameX="-5" frameY="0" frameWidth="395" frameHeight="879"/>
-	<SubTexture name="avi up guy0002" x="2002" y="876" width="395" height="871" frameX="0" frameY="-8" frameWidth="395" frameHeight="879"/>
-	<SubTexture name="avi up guy0003" x="2002" y="876" width="395" height="871" frameX="0" frameY="-8" frameWidth="395" frameHeight="879"/>
-	<SubTexture name="avi up guy0004" x="2417" y="876" width="395" height="870" frameX="0" frameY="-9" frameWidth="395" frameHeight="879"/>
-	<SubTexture name="avi up guy0005" x="2417" y="876" width="395" height="870" frameX="0" frameY="-9" frameWidth="395" frameHeight="879"/>
-	<SubTexture name="idle dance big guy0000" x="2832" y="876" width="423" height="830" frameX="0" frameY="-7" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0001" x="2832" y="876" width="423" height="830" frameX="0" frameY="-7" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0002" x="3275" y="876" width="420" height="829" frameX="-2" frameY="-8" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0003" x="3275" y="876" width="420" height="829" frameX="-2" frameY="-8" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0004" x="0" y="1775" width="411" height="836" frameX="-9" frameY="-1" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0005" x="0" y="1775" width="411" height="836" frameX="-9" frameY="-1" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0006" x="431" y="1775" width="410" height="837" frameX="-10" frameY="0" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0007" x="431" y="1775" width="410" height="837" frameX="-10" frameY="0" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0008" x="861" y="1775" width="409" height="836" frameX="-11" frameY="-1" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0009" x="861" y="1775" width="409" height="836" frameX="-11" frameY="-1" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0010" x="861" y="1775" width="409" height="836" frameX="-11" frameY="-1" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0011" x="861" y="1775" width="409" height="836" frameX="-11" frameY="-1" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0012" x="861" y="1775" width="409" height="836" frameX="-11" frameY="-1" frameWidth="423" frameHeight="837"/>
-	<SubTexture name="idle dance big guy0013" x="861" y="1775" width="409" height="836" frameX="-11" frameY="-1" frameWidth="423" frameHeight="837"/>
+	<SubTexture name="AVI SING RIGHT0000" x="0" y="0" width="324" height="859" frameX="-6" frameY="0" frameWidth="330" frameHeight="859"/>
+	<SubTexture name="AVI SING RIGHT0001" x="0" y="0" width="324" height="859" frameX="-6" frameY="0" frameWidth="330" frameHeight="859"/>
+	<SubTexture name="AVI SING RIGHT0002" x="344" y="0" width="319" height="857" frameX="-1" frameY="-2" frameWidth="330" frameHeight="859"/>
+	<SubTexture name="AVI SING RIGHT0003" x="344" y="0" width="319" height="857" frameX="-1" frameY="-2" frameWidth="330" frameHeight="859"/>
+	<SubTexture name="AVI SING RIGHT0004" x="683" y="0" width="319" height="857" frameX="0" frameY="-2" frameWidth="330" frameHeight="859"/>
+	<SubTexture name="AVI SING RIGHT0005" x="683" y="0" width="319" height="857" frameX="0" frameY="-2" frameWidth="330" frameHeight="859"/>
+	<SubTexture name="avi down0000" x="1022" y="0" width="390" height="799" frameX="0" frameY="-4" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi down0001" x="1022" y="0" width="390" height="799" frameX="0" frameY="-4" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi down0002" x="1432" y="0" width="388" height="803" frameX="-1" frameY="0" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi down0003" x="1432" y="0" width="388" height="803" frameX="-1" frameY="0" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi down0004" x="1840" y="0" width="387" height="802" frameX="-2" frameY="-1" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi down0005" x="1840" y="0" width="387" height="802" frameX="-2" frameY="-1" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi down0006" x="1840" y="0" width="387" height="802" frameX="-2" frameY="-1" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi down0007" x="1840" y="0" width="387" height="802" frameX="-2" frameY="-1" frameWidth="390" frameHeight="803"/>
+	<SubTexture name="avi left0000" x="2247" y="0" width="453" height="820" frameX="0" frameY="-1" frameWidth="453" frameHeight="821"/>
+	<SubTexture name="avi left0001" x="2247" y="0" width="453" height="820" frameX="0" frameY="-1" frameWidth="453" frameHeight="821"/>
+	<SubTexture name="avi left0002" x="2720" y="0" width="446" height="821" frameX="-7" frameY="0" frameWidth="453" frameHeight="821"/>
+	<SubTexture name="avi left0003" x="2720" y="0" width="446" height="821" frameX="-7" frameY="0" frameWidth="453" frameHeight="821"/>
+	<SubTexture name="avi left0004" x="3186" y="0" width="446" height="821" frameX="-7" frameY="0" frameWidth="453" frameHeight="821"/>
+	<SubTexture name="avi left0005" x="3186" y="0" width="446" height="821" frameX="-7" frameY="0" frameWidth="453" frameHeight="821"/>
+	<SubTexture name="avi miss0000" x="3652" y="0" width="371" height="863"/>
+	<SubTexture name="avi miss0001" x="0" y="883" width="371" height="845" frameX="0" frameY="-18" frameWidth="371" frameHeight="863"/>
+	<SubTexture name="avi miss0002" x="391" y="883" width="369" height="863" frameX="-1" frameY="0" frameWidth="371" frameHeight="863"/>
+	<SubTexture name="avi miss0003" x="780" y="883" width="369" height="845" frameX="-1" frameY="-18" frameWidth="371" frameHeight="863"/>
+	<SubTexture name="avi miss0004" x="391" y="883" width="369" height="863" frameX="-1" frameY="0" frameWidth="371" frameHeight="863"/>
+	<SubTexture name="avi miss0005" x="1169" y="883" width="369" height="845" frameX="-1" frameY="-18" frameWidth="371" frameHeight="863"/>
+	<SubTexture name="avi miss0006" x="391" y="883" width="369" height="863" frameX="-1" frameY="0" frameWidth="371" frameHeight="863"/>
+	<SubTexture name="avi miss0007" x="780" y="883" width="369" height="845" frameX="-1" frameY="-18" frameWidth="371" frameHeight="863"/>
+	<SubTexture name="avi up guy0000" x="1558" y="883" width="372" height="879" frameX="-5" frameY="0" frameWidth="379" frameHeight="879"/>
+	<SubTexture name="avi up guy0001" x="1558" y="883" width="372" height="879" frameX="-5" frameY="0" frameWidth="379" frameHeight="879"/>
+	<SubTexture name="avi up guy0002" x="1950" y="883" width="379" height="874" frameX="0" frameY="-5" frameWidth="379" frameHeight="879"/>
+	<SubTexture name="avi up guy0003" x="1950" y="883" width="379" height="874" frameX="0" frameY="-5" frameWidth="379" frameHeight="879"/>
+	<SubTexture name="avi up guy0004" x="2349" y="883" width="379" height="873" frameX="0" frameY="-6" frameWidth="379" frameHeight="879"/>
+	<SubTexture name="avi up guy0005" x="2349" y="883" width="379" height="873" frameX="0" frameY="-6" frameWidth="379" frameHeight="879"/>
+	<SubTexture name="idle dance big guy0000" x="2748" y="883" width="413" height="833" frameX="0" frameY="-7" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0001" x="2748" y="883" width="413" height="833" frameX="0" frameY="-7" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0002" x="3181" y="883" width="411" height="832" frameX="-2" frameY="-8" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0003" x="3181" y="883" width="411" height="832" frameX="-2" frameY="-8" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0004" x="3612" y="883" width="402" height="839" frameX="-9" frameY="-1" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0005" x="3612" y="883" width="402" height="839" frameX="-9" frameY="-1" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0006" x="0" y="1782" width="401" height="840" frameX="-10" frameY="0" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0007" x="0" y="1782" width="401" height="840" frameX="-10" frameY="0" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0008" x="421" y="1782" width="400" height="839" frameX="-11" frameY="-1" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0009" x="421" y="1782" width="400" height="839" frameX="-11" frameY="-1" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0010" x="421" y="1782" width="400" height="839" frameX="-11" frameY="-1" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0011" x="421" y="1782" width="400" height="839" frameX="-11" frameY="-1" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0012" x="421" y="1782" width="400" height="839" frameX="-11" frameY="-1" frameWidth="413" frameHeight="840"/>
+	<SubTexture name="idle dance big guy0013" x="421" y="1782" width="400" height="839" frameX="-11" frameY="-1" frameWidth="413" frameHeight="840"/>
 </TextureAtlas>
