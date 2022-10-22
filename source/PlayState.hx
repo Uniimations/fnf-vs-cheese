@@ -391,13 +391,11 @@ class PlayState extends MusicBeatState
 				counter = new BGSprite('cheese/kitchen/counter_strike_source', 331.8, 709.1, 1, 1);
 				counter.updateHitbox();
 
-				if (!ClientPrefs.fuckyouavi) { //fuckyouavi is shitty optimized mode
-					add(bg);
-					add(sink);
-					add(stove);
-					add(silly);
-					add(shelf);
-				}
+				add(bg);
+				add(sink);
+				add(stove);
+				add(silly);
+				add(shelf);
 
 			// kinda sorry for this code but also kinda not... it works.
 			case 'restaurante' | 'milkshake' | 'cultured':
@@ -418,127 +416,61 @@ class PlayState extends MusicBeatState
 					{
 						case 'restaurante':
 							floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
-							floor.updateHitbox();
-
 							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-							tableA.updateHitbox();
-
 							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-							tableB.updateHitbox();
-
-							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']); //add anim
-							boppers.updateHitbox();
-
+							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
 							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-
 							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
-
-							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
-							counter.updateHitbox();
-
-							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
-							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
-							phillyBlack.alpha = 0.0;
-
-							phillyCounter = new BGSprite('cheese/counter_effect', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
-							phillyCounter.alpha = 0.0;
-							phillyCounter.updateHitbox();
 
 						case 'milkshake':
 							floor = new BGSprite('cheese/sunset_floor', -377.9, -146.4, 1, 1);
-							floor.updateHitbox();
-
 							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-							tableA.updateHitbox();
-
 							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-							tableB.updateHitbox();
-
-							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']); //add anim
-							boppers.updateHitbox();
-
+							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
 							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-
 							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
-
-							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
-							counter.updateHitbox();
-
-							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
-							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
-							phillyBlack.alpha = 0.0;
-
-							phillyCounter = new BGSprite('cheese/counter_effect', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
-							phillyCounter.alpha = 0.0;
-							phillyCounter.updateHitbox();
 
 						case 'cultured':
 							floor = new BGSprite('cheese/night/floor', -377.9, -146.4, 1, 1);
-							floor.updateHitbox();
-
 							tableA = new BGSprite('cheese/night/tableA', 1966.5, 283.05, 1, 1);
-							tableA.updateHitbox();
-
 							tableB = new BGSprite('cheese/night/tableB', 1936.15, 568.5, 1, 1);
-							tableB.updateHitbox();
-
-							boppers = new BGSprite('cheese/night/boppers', 1287.3, 206.05, 1, 1, ['boppers']); //add anim
-							boppers.updateHitbox();
-
+							boppers = new BGSprite('cheese/night/boppers', 1287.3, 206.05, 1, 1, ['boppers']);
 							suzuki = new BGSprite('cheese/night/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-
 							frontBoppers = new BGSprite('cheese/night/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
-
-							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
-							counter.updateHitbox();
-
-							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
-							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
-							phillyBlack.alpha = 0.0;
-
-							phillyCounter = new BGSprite('cheese/counter_effect', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
-							phillyCounter.alpha = 0.0;
-							phillyCounter.updateHitbox();
 
 						default:
 							floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
-							floor.updateHitbox();
-
 							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-							tableA.updateHitbox();
-
 							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-							tableB.updateHitbox();
-
-							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']); //add anim
-							boppers.updateHitbox();
-
+							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
 							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-
 							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
-
-							counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
-							counter.updateHitbox();
-
-							phillyBlack = new BGSprite(null, -390, -190, 1, 1);
-							phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
-							phillyBlack.alpha = 0.0;
-
-							phillyCounter = new BGSprite('cheese/counter_effect', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
-							phillyCounter.alpha = 0.0;
-							phillyCounter.updateHitbox();
 					}
 
-					if(!ClientPrefs.fuckyouavi) {
-						suzuki.updateHitbox();
-						frontBoppers.updateHitbox();
-						add(floor);
-						add(tableA);
-						add(tableB);
-						add(boppers);
-						add(suzuki);
-						add(phillyBlack);
-					}
+					floor.updateHitbox();
+					tableA.updateHitbox();
+					tableB.updateHitbox();
+					boppers.updateHitbox();
+					suzuki.updateHitbox();
+					frontBoppers.updateHitbox();
+
+					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
+					counter.updateHitbox();
+
+					phillyBlack = new BGSprite(null, -390, -190, 1, 1);
+					phillyBlack.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+					phillyBlack.alpha = 0.0;
+
+					phillyCounter = new BGSprite('cheese/counter_effect', 232.35, 403.25, 1, 1, ['COUNTER WHITE']); //add anim
+					phillyCounter.alpha = 0.0;
+					phillyCounter.updateHitbox();
+
+					add(floor);
+					add(tableA);
+					add(tableB);
+					add(boppers);
+					add(suzuki);
+					add(phillyBlack);
 				}
 				else
 				{
@@ -555,26 +487,24 @@ class PlayState extends MusicBeatState
 					boppers.updateHitbox();
 
 					suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+					suzuki.updateHitbox();
 
 					frontBoppers = new BGSprite('cheese/char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+					frontBoppers.updateHitbox();
 
 					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
 					counter.updateHitbox();
 
 					phillyBlack = new BGSprite(null, -390, -190, 1, 1);
-					phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+					phillyBlack.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 					phillyBlack.alpha = 0.0;
 
-					if(!ClientPrefs.fuckyouavi) {
-						suzuki.updateHitbox();
-						frontBoppers.updateHitbox();
-						add(floor);
-						add(tableA);
-						add(tableB);
-						add(boppers);
-						add(suzuki);
-						add(phillyBlack);
-					}
+					add(floor);
+					add(tableA);
+					add(tableB);
+					add(boppers);
+					add(suzuki);
+					add(phillyBlack);
 				}
 
 			case 'cream-cheese':
@@ -596,23 +526,21 @@ class PlayState extends MusicBeatState
 				tSideMod.updateHitbox();
 
 				var suzuki:BGSprite = new BGSprite('bonus/cream/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+				suzuki.updateHitbox();
 
 				counter = new BGSprite('bonus/cream/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
 				counter.updateHitbox();
 
 				phillyBlack = new BGSprite(null, -390, -190, 1, 1);
-				phillyBlack.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+				phillyBlack.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
 				phillyBlack.alpha = 1;
 
-				if(!ClientPrefs.fuckyouavi) {
-					suzuki.updateHitbox();
-					add(floor);
-					add(tableA);
-					add(tableB);
-					add(tSideMod);
-					add(suzuki);
-					add(phillyBlack);
-				}
+				add(floor);
+				add(tableA);
+				add(tableB);
+				add(tSideMod);
+				add(suzuki);
+				add(phillyBlack);
 
 			case 'wifi':
 				curStage = 'restauranteArsen';
@@ -650,14 +578,12 @@ class PlayState extends MusicBeatState
 				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
 				counter.updateHitbox();
 
-				if(!ClientPrefs.fuckyouavi) {
-					add(floor);
-					add(tSideMod);
-				    add(tableA);
-				    add(tableB);
-					add(grpCustomTableBoppers);
-					add(wall);
-				}
+				add(floor);
+				add(tSideMod);
+				add(tableA);
+				add(tableB);
+				add(grpCustomTableBoppers);
+				add(wall);
 
 			case 'casual-duel':
 				curStage = 'restauranteDansilot';
@@ -695,12 +621,10 @@ class PlayState extends MusicBeatState
 				frontBoppers = new BGSprite('cheese/char/crowdindie_big', -29.25, 744.45, 1, 1, ['crowdindie']);
 				frontBoppers.updateHitbox();
 
-				if(!ClientPrefs.fuckyouavi) {
-					add(floor);
-				    add(tableForDeltarune);
-					add(grpCustomTableBoppers);
-					add(wall);
-				}
+				add(floor);
+				add(tableForDeltarune);
+				add(grpCustomTableBoppers);
+				add(wall);
 
 			case 'below-zero':
 				curStage = 'restauranteAvi';
@@ -721,11 +645,9 @@ class PlayState extends MusicBeatState
 				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']); //add anim
 				counter.updateHitbox();
 
-				if(!ClientPrefs.fuckyouavi) {
-					add(floor);
-					add(grpCustomTableBoppers);
-					add(wall);
-				}
+				add(floor);
+				add(grpCustomTableBoppers);
+				add(wall);
 
 			case 'dynamic-duo':
 				curStage = 'restauranteDynamic';
@@ -752,14 +674,12 @@ class PlayState extends MusicBeatState
 				counter.updateHitbox();
 
 				phillyFade = new BGSprite(null, -390, -190, 1, 1);
-				phillyFade.makeGraphic(Std.int(FlxG.width * 12), Std.int(FlxG.height * 12), FlxColor.BLACK);
+				phillyFade.makeGraphic(Std.int(FlxG.width * 4), Std.int(FlxG.height * 4), FlxColor.BLACK);
 				phillyFade.alpha = 0.0;
 
-				if(!ClientPrefs.fuckyouavi) {
-					add(floor);
-					add(grpCustomTableBoppers);
-					add(wall);
-				}
+				add(floor);
+				add(grpCustomTableBoppers);
+				add(wall);
 
 			case 'manager-strike-back':
 				curStage = 'undertale';
@@ -769,7 +689,7 @@ class PlayState extends MusicBeatState
 
 				//added during dark fade event.
 				phillyFade = new BGSprite(null, -390, -190, 1, 1);
-				phillyFade.makeGraphic(Std.int(FlxG.width * 8), Std.int(FlxG.height * 8), FlxColor.BLACK);
+				phillyFade.makeGraphic(Std.int(FlxG.width * 4), Std.int(FlxG.height * 4), FlxColor.BLACK);
 				phillyFade.alpha = 0.0;
 
 			case 'frosted':
@@ -800,12 +720,10 @@ class PlayState extends MusicBeatState
 				counter = new BGSprite('bonus/boppers', -348.35, 403, 1.2, 1.2, ['cheese bop']);
 				counter.updateHitbox();
 
-				if(!ClientPrefs.fuckyouavi) {
-					add(outside);
-					add(snow);
-					add(wall);
-					add(dansilot);
-				}
+				add(outside);
+				add(snow);
+				add(wall);
+				add(dansilot);
 
 			case 'alter-ego':
 				curStage = 'theBack';
@@ -862,12 +780,10 @@ class PlayState extends MusicBeatState
 				phillyFade.makeGraphic(Std.int(FlxG.width * 6), Std.int(FlxG.height * 6), FlxColor.BLACK);
 				phillyFade.alpha = 0.0;
 
-				if(!ClientPrefs.fuckyouavi) {
-					add(nightBack);
-					add(angryBack);
-					add(sadBack);
-					add(sunnyBack);
-				}
+				add(nightBack);
+				add(angryBack);
+				add(sadBack);
+				add(sunnyBack);
 
 			case 'dirty-cheater':
 				curStage = 'chartEditor';
@@ -883,12 +799,10 @@ class PlayState extends MusicBeatState
 
 				var songInfo:BGSprite = new BGSprite('bonus/dirt/song_info', 827.85, 264, 1, 1);
 
-				if (!ClientPrefs.fuckyouavi) {
-					add(leftChart);
-					add(rightChart);
-					add(editorMenu);
-					add(songInfo);
-				}
+				add(leftChart);
+				add(rightChart);
+				add(editorMenu);
+				add(songInfo);
 
 			default:
 				/*
@@ -2442,11 +2356,7 @@ class PlayState extends MusicBeatState
 	{
 		if(finishTimer != null) return;
 
-		vocals.pause();
-
-		FlxG.sound.music.play();
 		vocals.time = FlxG.sound.music.time;
-		vocals.play();
 	}
 
 	private var paused:Bool = false;
@@ -2560,7 +2470,7 @@ class PlayState extends MusicBeatState
 		{
 			//Conductor.songPosition += FlxG.elapsed * 1000;
 
-			/* Freestyle Music Resync Ported to Phys engine */ // im watching you uni
+			/* Freestyle Music Resync Ported to hell engine */ // im watching you uni
             // Fixes Desync caused by inconsistent FPS also resyncs faster than onStep// 
             if (FlxG.sound.music != null && FlxG.sound.music.playing) {
                 var currentTime = FlxG.sound.music.time/1000; // get currentTime
@@ -3459,7 +3369,7 @@ class PlayState extends MusicBeatState
 								}
 							}
 						default:
-							phillyBlackTween = FlxTween.tween(value1, {alpha: poggerLength}, 1, {ease: FlxEase.quadInOut,
+							phillyBlackTween = FlxTween.tween(phillyBlack, {alpha: pogging}, poggerLength, {ease: FlxEase.quadInOut,
 								onComplete: function(twn:FlxTween) {
 									phillyBlackTween = null;
 								}
@@ -5459,27 +5369,21 @@ class PlayState extends MusicBeatState
 		super.destroy();
 	}
 
-	var lastStepHit:Int = -1;
 	override function stepHit()
 	{
 		super.stepHit();
-		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
-		{
-			resyncVocals();
-		}
 
-		if(curStep == lastStepHit) {
-			return;
-		}
+		resyncVocals();
 
 		#if desktop
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText,"(" + rankString + ") Misses: " + songMisses + " - " + "Combo: " + combo, rpcIcon, true, songLength - Conductor.songPosition - ClientPrefs.noteOffset);
 		#end
 
-		lastStepHit = curStep;
 		setOnLuas('curStep', curStep);
 		callOnLuas('onStepHit', []);
+
+		FlxG.log.add(curStep);
 
 		//HARDCODED EVENTS!!!
 		//IDK HOW BAD IT IS THAT I EMBEDED THESE IN SWITCHES BUUUUUT ITS PROBABLY FINE

@@ -232,7 +232,7 @@ class RatingPopUpMenuState extends MusicBeatState
 
 		///////////////////////
 
-		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 32).makeGraphic(FlxG.width, FlxG.height - 32, 0xFF000000);
+		var textBG:FlxSprite = new FlxSprite(0, FlxG.height - 40).makeGraphic(FlxG.width, FlxG.height - 32, 0xFF000000);
 		textBG.scrollFactor.set();
 		textBG.alpha = 0.6;
 		textBG.cameras = [camHUD];
