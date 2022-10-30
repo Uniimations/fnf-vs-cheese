@@ -1593,39 +1593,31 @@ class PlayState extends MusicBeatState
 
 	public function startIntro():Void
 		{
-			if(startedCountdown) {
-				return;
-			}
-
 			noCountdown = true;
 			inCutscene = false;
 			isCutscene = false;
 
-			if(ret != FunkinLua.Function_Stop && rank != FunkinLua.Function_Stop)
-			{
-				generateStaticArrows(0);
-				generateStaticArrows(1);
-				for (i in 0...playerStrums.length) {
-					setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
-					setOnLuas('defaultPlayerStrumY' + i, playerStrums.members[i].y);
-				}
-				for (i in 0...opponentStrums.length) {
-					setOnLuas('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
-					setOnLuas('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
-					if(ClientPrefs.middleScroll || songLowercase == 'manager-strike-back' || songLowercase == 'tutorial') opponentStrums.members[i].visible = false;
-				}
-
-				startedCountdown = true;
-				Conductor.songPosition = 0;
-
-				startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
-				{
-					if (generatedMusic)
-					{
-						notes.sort(FlxSort.byY, ClientPrefs.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
-					}
-				}, 5);
+			generateStaticArrows(0);
+			generateStaticArrows(1);
+			for (i in 0...playerStrums.length) {
+				setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
+				setOnLuas('defaultPlayerStrumY' + i, playerStrums.members[i].y);
 			}
+			for (i in 0...opponentStrums.length) {
+				setOnLuas('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
+				setOnLuas('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
+				if(ClientPrefs.middleScroll || songLowercase == 'manager-strike-back' || songLowercase == 'tutorial') opponentStrums.members[i].visible = false;
+			}
+
+			Conductor.songPosition = 0;
+
+			startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
+			{
+				if (generatedMusic)
+				{
+					notes.sort(FlxSort.byY, ClientPrefs.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
+				}
+			}, 5);
 		}
 
 	public function addwebmIntro(videoName:String)
@@ -2338,9 +2330,6 @@ class PlayState extends MusicBeatState
 
 		super.update(elapsed);
 
-		setOnLuas('curDecStep', curDecStep);
-		setOnLuas('curDecBeat', curDecBeat);
-
 		if(ClientPrefs.botplay) {
 			botplaySine += 180 * elapsed;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
@@ -2355,7 +2344,7 @@ class PlayState extends MusicBeatState
 		// YOU CAN NOW PAUSE WITH THE PAUSE KEYBIND!!! (idk why this wasnt added sooner)
 		if (controls.PAUSE && startedCountdown && canPause)
 		{
-			var ret:Dynamic = callOnLuas('onPause', [], false);
+			var ret:Dynamic = callOnLuas('onPause', []);
 			if(ret != FunkinLua.Function_Stop) {
 				pressPause();
 			}
@@ -2507,7 +2496,6 @@ class PlayState extends MusicBeatState
 			{
 				var dunceNote:Note = unspawnNotes[0];
 				notes.add(dunceNote);
-				dunceNote.spawned = true;
 				callOnLuas('onSpawnNote', [notes.members.indexOf(dunceNote), dunceNote.noteData, dunceNote.noteType, dunceNote.isSustainNote]);
 
 				var index:Int = unspawnNotes.indexOf(dunceNote);
@@ -2743,7 +2731,7 @@ class PlayState extends MusicBeatState
 					}
 					daNote.ignoreNote = true;
 
-					callOnLuas('opponentNoteHit', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
+					callOnLuas('opponentNoteHit', [notes.members.indexOf(daNote), Math.abs(daNote.noteData), daNote.noteType, daNote.isSustainNote]);
 
 					if (!daNote.isSustainNote)
 					{
@@ -5764,15 +5752,9 @@ class PlayState extends MusicBeatState
 				ratingPercent = 1;
 			}
 
+			rankString = UniiStringTools.makePlayRanks(songMisses, shits, bads, goods, sicks, perfects);
+
 			var accuracyDisplay:Float = FlxMath.roundDecimal(Math.floor(ratingPercent * 10000) / 100, 2);
-
-			if(rank != FunkinLua.Function_Stop)
-			{
-				rankString = UniiStringTools.makePlayRanks(songMisses, shits, bads, goods, sicks, perfects);
-			}
-
-			scoreTxt.text = "Score: " + songScore;
-
 			if (!Math.isNaN(ratingPercent))
 			{
 				accText.text = accuracyDisplay + "%   [" + rankString + "]";
@@ -5780,7 +5762,7 @@ class PlayState extends MusicBeatState
 
 			// accText.text = "BF   LVL 19   Score: " + songScore + "   Accuracy: " + accuracyDisplay + "%   (" + rankString + ")   Deaths: " + deathCounter;
 
-			//ALL HIT TIMING UPDATED TEXT
+			scoreTxt.text = "Score: " + songScore;
 			shitsTxt.text = 'Shit:  ' + shits;
 			badsTxt.text = 'Bad:  ' + bads;
 			goodsTxt.text = 'Good:  ' + goods;
