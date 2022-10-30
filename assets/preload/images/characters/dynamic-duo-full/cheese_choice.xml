@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cheese_choice.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cheese pick 10000" x="0" y="0" width="2182" height="1011" frameX="0" frameY="0" frameWidth="2182" frameHeight="1012"/>
+	<SubTexture name="cheese pick 10001" x="0" y="0" width="2182" height="1011" frameX="0" frameY="0" frameWidth="2182" frameHeight="1012"/>
+	<SubTexture name="cheese pick 10002" x="2212" y="0" width="2182" height="1012"/>
+	<SubTexture name="cheese pick 10003" x="2212" y="0" width="2182" height="1012"/>
+	<SubTexture name="cheese pick 20000" x="4424" y="0" width="2182" height="1007"/>
+	<SubTexture name="cheese pick 20001" x="4424" y="0" width="2182" height="1007"/>
+	<SubTexture name="cheese pick 20002" x="0" y="1042" width="2182" height="1006" frameX="0" frameY="0" frameWidth="2182" frameHeight="1007"/>
+	<SubTexture name="cheese pick 20003" x="0" y="1042" width="2182" height="1006" frameX="0" frameY="0" frameWidth="2182" frameHeight="1007"/>
+</TextureAtlas>

@@ -1,77 +1,77 @@
 {
 	"animations": [
 		{
+			"offsets": [
+				19,
+				-21
+			],
 			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "left"
+		},
+		{
+			"offsets": [
+				3,
+				-94
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "down"
+		},
+		{
+			"offsets": [
+				-3,
+				14
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "up"
+		},
+		{
+			"offsets": [
+				-5,
+				2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "right"
+		},
+		{
 			"offsets": [
 				0,
 				0
-			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "idle dance big guy",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				45,
-				-19
-			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "avi left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-23,
-				-36
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "avi down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-26,
-				40
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "avi up guy",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-99,
-				19
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "AVI SING RIGHT",
-			"indices": []
-		},
-		{
-			"offsets": [
-				-41,
-				23
 			],
 			"loop": false,
 			"fps": 24,
 			"anim": "singGLOBALmiss",
 			"indices": [],
-			"name": "avi miss"
+			"name": "idle"
+		},
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 12,
+			"anim": "idle",
+			"indices": [],
+			"name": "idle"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/dynamic-duo-full/the_nera_sans_boy_urh_rur_urh",
+	"image": "characters/AVINERA_BELOW_BALLS",
 	"position": [
-		470,
-		170
+		650,
+		100
 	],
 	"healthicon": "avinera",
 	"flip_x": true,
@@ -81,8 +81,8 @@
 		178
 	],
 	"camera_position": [
-		-60,
-		-97
+		-50,
+		40
 	],
 	"sing_duration": 8,
 	"noteskin": "NOTE_assets",

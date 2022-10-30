@@ -144,8 +144,7 @@ class TitleState extends MusicBeatState
 		//dont mind this shitty code please
 		logoBl = new FlxSprite(-200, -260);
 		logoBl.frames = Paths.getSparrowAtlas('intro/logoBumpin');
-		logoBl.animation.addByIndices('bump1', 'logo bumpin', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-		logoBl.animation.addByIndices('bump2', 'logo bumpin', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+		logoBl.animation.addByIndices('bump', 'logo bumpin', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
 		logoBl.antialiasing = ClientPrefs.globalAntialiasing;
         logoBl.scale.set(0.6, 0.6);
 		add(logoBl);
@@ -315,7 +314,12 @@ class TitleState extends MusicBeatState
 
 			if (FlxG.keys.justPressed.F6)
 			{
-				MusicBeatState.switchState(new RatingPopUpMenuState());
+				MusicBeatState.switchState(new OffsetState());
+			}
+
+			if (FlxG.keys.justPressed.F7)
+			{
+				MusicBeatState.switchState(new ChoiceState());
 			}
 		}
 		#end
@@ -369,16 +373,16 @@ class TitleState extends MusicBeatState
 
 		danceLeft = !danceLeft;
 
-		//really shit way to force the logo to bump but it works so whatever
-		if (danceLeft)
-			logoBl.animation.play('bump2');
-		else
-			logoBl.animation.play('bump1');
+		if (logoBl != null) logoBl.animation.play('bump');
 
-		if (danceLeft)
+		if (danceLeft && cheese != null)
+		{
 			cheese.animation.play('danceRight');
-		else
+		}
+		else if (!danceLeft && cheese != null)
+		{
 			cheese.animation.play('danceLeft');
+		}
 
 		FlxG.log.add(curBeat);
 		FlxTween.tween(FlxG.camera, {zoom:1.02}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});

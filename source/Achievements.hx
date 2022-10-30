@@ -15,7 +15,7 @@ class Achievements
 	public static var achievementsStuff:Array<Dynamic> = [
 		//Name, 						 Description, 			 																	 Achievement save tag, 	 Hide?
 
-		["Freaky on a Friday Night",	"Play on a Friday... Night.",																'friday_night_play',	 true],
+		["Freaky on a Friday Night",	"Play on a Friday Night.",																	'friday_night_play',	 true],
 		["Back To The Basics",			"Beat Tutorial and unlock the rest of the game.",											'tutorial_beat', 		false],
 
 		// WEEK 1!! :3
@@ -24,38 +24,38 @@ class Achievements
 
 		// WEEK 2!!!!
 		["A Prequel?",					"Beat Week 2 on HARD.",																		'week2_beat',			false],
-		["The Boyz",					"Sing with Unii and get the true ending \nto Week 2",										'dynamic_duo',			false],
-		["Something's Missing...",		"Say no to Unii and get the below zero \nending to Week 2.",								'below_zero',			false],
+		["The Boyz",					"Sing with Unii and get the canon ending \nto Week 2",										'dynamic_duo',			 true],
+		["Something's Missing...",		"Say no to Unii and get the alternate\nending to Week 2.",									'below_zero',			 true],
 
 		// VIP DIFFICULTY
-		["Freestyle Time!", 			"Beat Restaurante on VIP difficulty",														'restaurante_ex',		false],
+		["Freestyle Time!", 			"Beat Restaurante on VIP difficulty.",														'restaurante_ex',		false],
 		["Let's Change It Up!", 		"Beat Milkshake on VIP difficulty.",														'milkshake_ex',		 	false],
 		["You're Not Cultured Yet!",	"Beat Cultured on VIP difficulty.", 														'cultured_ex',			false],
+
 		// EXTRA ACHIEVEMENTS
-		["Megalomaniac", 				"Beat Manager Strike Back without Pussy Mode.",												'beat_chara',			 true],
-		["Let It Go",	 				"Beat Frosted without Pussy Mode.",															'beat_sans',			 true],
+		["Megalomaniac", 				"Beat Manager Strike Back with mechanics on.",												'beat_chara',			 true],
+		["Let It Go",	 				"Beat Frosted with mechanics on.",															'beat_sans',			 true],
+		["Mania",	 					"Beat Alter Ego with mechanics on.",														'beat_unii',			 true],
 
 		["Fucking Cheater...",
 		"You cheated not only the game, but yourself. You didn't grow. You didn't improve. 
 		You took a shortcut and gained nothing. You experienced a hollow victory. Nothing was 
 		risked and nothing was gained. It's sad that you don't know the difference.", 												'beat_onion', 			true],
 
-		["awww the scrunkly <3",			"Headpat Cheese on the Main Menu.",														'scrunkly',				false], //i added a heart here fuck u lol it looks cute <33
-
-		["Lore Master",					"You're a fucking streamer aren't you?!\nDon't skip dialogue AT ALL in any way.",			'evil_woops',			false],
+		["Cerbera",						"Place a note in the Chart Editor :3",														'charter', 				false],
+		["awww the scrunkly <3",		"Headpat Cheese on the Main Menu.",															'scrunkly',				false], //i added a heart here fuck u lol it looks cute <33
+		["Loremaster",					"You're a fucking streamer aren't you?!\nDon't skip dialogue AT ALL in any way.",			'evil_woops',			false],
 
 		// OG RENAMED
 
 		["L + Ratio",					"Beat a Song with less than 20% accuracy.",													'ur_bad',				false],
 		["Marvelous",					"Beat a Song with a Full Combo with a 100% PFC.",											'ur_good',				false],
-
-		["Long And Hard",
-		"Hold down a note for at least 5 seconds. \nThe name? don't know what you mean...",
-		'oversinging', false],
-
+		["Long And Hard", 				"Hold down a note for at least 5 seconds. \nThe name? don't know what you mean...", 		'oversinging', 			false],
 		["SCP-173",						"Don't blink.\n(Finish a Song without going Idle.)",										'hype',					false],
 		["Dynamic Duo",					"Finish a Song pressing only two keys.",													'two_keys',				false],
-		["Mac User",					"Have you tried to run the game on a toaster?",												'toastie',				false]
+		["Mac User",					"Have you tried to run the game on a toaster?",												'toastie',				false],
+
+		// SECRET
 	];
 
 	// for unlocks/notifications

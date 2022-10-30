@@ -37,6 +37,7 @@ class FreeplayState extends MusicBeatState
 {
 	var options:Array<String> = ['STORY SONGS', 'BONUS SONGS', 'UNFAIR SONGS'];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
+	private var grpSelections:FlxTypedGroup<FlxSprite>;
 	private static var curSelected:Int = 0;
 	public var storySpr:FlxSprite;
 	public var bonusSpr:FlxSprite;
@@ -50,6 +51,9 @@ class FreeplayState extends MusicBeatState
 		DiscordClient.changePresence("Browsing Freeplay Menu", null);
 		#end
 
+		grpSelections = new FlxTypedGroup<FlxSprite>();
+		add(grpSelections);
+
 		storySpr = new FlxSprite(0, 0);
 		bonusSpr = new FlxSprite(0, 0);
 		unfairSpr = new FlxSprite(0, 0);
@@ -58,19 +62,19 @@ class FreeplayState extends MusicBeatState
 		storySpr.antialiasing = ClientPrefs.globalAntialiasing;
 	    storySpr.updateHitbox();
 	    storySpr.screenCenter();
-		add(storySpr);
+		grpSelections.add(storySpr);
 
 		bonusSpr = new FlxSprite().loadGraphic(Paths.image('freeplay/MAIN_FP_BONUS'));
 		bonusSpr.antialiasing = ClientPrefs.globalAntialiasing;
 	    bonusSpr.updateHitbox();
 	    bonusSpr.screenCenter();
-		add(bonusSpr);
+		grpSelections.add(bonusSpr);
 
 		unfairSpr = new FlxSprite().loadGraphic(Paths.image('freeplay/MAIN_FP_UNFAIR'));
 		unfairSpr.antialiasing = ClientPrefs.globalAntialiasing;
 	    unfairSpr.updateHitbox();
 	    unfairSpr.screenCenter();
-		add(unfairSpr);
+		grpSelections.add(unfairSpr);
 
 		categoryText = new FlxText(700, 30, 0, "< DIPLES >");
 		categoryText.setFormat(Paths.font("vcr.ttf"), 60, FlxColor.WHITE, RIGHT);
@@ -106,27 +110,27 @@ class FreeplayState extends MusicBeatState
 				storySpr.alpha = 1;
 				bonusSpr.alpha = 0.5;
 				unfairSpr.alpha = 0.5;
-				FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
 			case 'BONUS SONGS':
 				categoryText.text = "< BONUS SONGS >";
 				storySpr.alpha = 0.5;
 				bonusSpr.alpha = 1;
 				unfairSpr.alpha = 0.5;
-				FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
 			case 'UNFAIR SONGS':
 				categoryText.text = "< UNFAIR SONGS >";
 				storySpr.alpha = 0.5;
 				bonusSpr.alpha = 0.5;
 				unfairSpr.alpha = 1;
-				FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 		}
 		canMove = true;
 
@@ -154,27 +158,27 @@ class FreeplayState extends MusicBeatState
 						storySpr.alpha = 0.5;
 						bonusSpr.alpha = 0.5;
 						unfairSpr.alpha = 1;
-						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
 					case 'BONUS SONGS':
 						categoryText.text = "< STORY SONGS >";
 						storySpr.alpha = 1;
 						bonusSpr.alpha = 0.5;
 						unfairSpr.alpha = 0.5;
-						FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
 					case 'UNFAIR SONGS':
 						categoryText.text = "< BONUS SONGS >";
 						storySpr.alpha = 0.5;
 						bonusSpr.alpha = 1;
 						unfairSpr.alpha = 0.5;
-						FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 				}
 				changeSelection(-1);
 			}
@@ -188,27 +192,27 @@ class FreeplayState extends MusicBeatState
 						storySpr.alpha = 0.5;
 						bonusSpr.alpha = 1;
 						unfairSpr.alpha = 0.5;
-						FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
 					case 'BONUS SONGS':
 						categoryText.text = "< UNFAIR SONGS >";
 						storySpr.alpha = 0.5;
 						bonusSpr.alpha = 0.5;
 						unfairSpr.alpha = 1;
-						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
 					case 'UNFAIR SONGS':
 						categoryText.text = "< STORY SONGS >";
 						storySpr.alpha = 1;
 						bonusSpr.alpha = 0.5;
 						unfairSpr.alpha = 0.5;
-						FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
-						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.3, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 				}
 				changeSelection(1);
 			}
@@ -223,20 +227,19 @@ class FreeplayState extends MusicBeatState
 				canMove = false;
 
 				FlxG.sound.play(Paths.sound('confirmMenu'));
-				FlxTween.tween(FlxG.camera, { zoom: 3}, 1, { ease: FlxEase.expoIn });
-
-				for (item in grpOptions.members) {
-					item.alpha = 0;
-				}
+				FlxTween.tween(FlxG.camera, { zoom: 1.5}, 1.5, { ease: FlxEase.expoIn });
 
 				FreeplaySelection.category = options[curSelected];
 				trace('FREEPLAY SELECTION CATEGORY: ' + FreeplaySelection.category);
 
-				grpOptions.forEach(function(spr:FlxSprite)
+				grpSelections.forEach(function(spr:FlxSprite)
 				{
-					FlxFlicker.flicker(spr, 0.65, 0.06, false, false, function(flick:FlxFlicker)
-					{
-						MusicBeatState.switchState(new FreeplaySelection());
+					FlxTween.tween(spr, {alpha: 0}, 1.5, {
+						ease: FlxEase.quadOut,
+						onComplete: function(twn:FlxTween)
+						{
+							MusicBeatState.switchState(new FreeplaySelection());
+						}
 					});
 				});
 			}
@@ -256,6 +259,8 @@ class FreeplayState extends MusicBeatState
 			item.targetY = bullShit - curSelected;
 			bullShit++;
 		}
+
+		if (change != 0) FlxG.sound.play(Paths.sound('clickMenu'));
 	}
 
 	public static function fadeMenuMusic() {

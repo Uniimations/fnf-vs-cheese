@@ -493,6 +493,11 @@ class MainMenuState extends MusicBeatState
 				curTrophySelect = !curTrophySelect;
 				changeItem(0);
 			}
+			
+			if (controls.BACK)
+			{
+				MusicBeatState.switchState(new TitleState());
+			}
 
 			if (controls.ACCEPT)
 			{

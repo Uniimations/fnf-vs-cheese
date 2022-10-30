@@ -606,6 +606,9 @@ class FreeplaySelection extends MusicBeatState
 			case 'dirty-cheater':
 				curNumberStart = 1;
 				curNumberEnd = 1;
+			case 'manager-strike-back' | 'frosted' | 'alter-ego':
+				curNumberStart = 3;
+				curNumberEnd = 3;
 			default:
 				curNumberEnd = 1;
 		}

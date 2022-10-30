@@ -72,26 +72,10 @@
 				457,
 				0
 			],
-			"anim": "transition",
+			"anim": "idle-diples",
 			"fps": 24,
 			"name": "Potion EX Stare at Diple",
 			"indices": []
-		},
-		{
-			"offsets": [
-				457,
-				0
-			],
-			"indices": [
-				10,
-				10,
-				12,
-				12
-			],
-			"fps": 24,
-			"anim": "idle-diples",
-			"loop": true,
-			"name": "Potion EX Stare at Diple"
 		}
 	],
 	"no_antialiasing": false,

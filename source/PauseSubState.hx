@@ -39,7 +39,6 @@ class PauseSubState extends MusicBeatSubstate
 
 	var canDoStuff:Bool = true;
 	var loaded:Bool = false;
-	var finishedFading:Bool = false;
 
 	public var char:Character;
 	public var randomChance:Int = 0;
@@ -79,10 +78,10 @@ class PauseSubState extends MusicBeatSubstate
 		bg = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
 		bg.scrollFactor.set();
 		add(bg);
+		bg.alpha = 0.8;
 
 		canDoStuff = true;
 		loaded = false;
-		finishedFading = false;
 
 		switch (PlayState.SONG.song.toLowerCase())
 		{
@@ -209,7 +208,7 @@ class PauseSubState extends MusicBeatSubstate
 						hasNoPoses = true;
 						hasTwoDances = true;
 				}
-				trace('ERROR: missing song, default characters and chances.');
+				trace('missing song, default characters and chances.');
 		}
 
 		grpMenuShit = new FlxTypedGroup<Alphabet>();
@@ -260,20 +259,10 @@ class PauseSubState extends MusicBeatSubstate
 		warningText.updateHitbox();
 		add(warningText);
 
-		bg.alpha = 0;
-		blueballedTxt.alpha = 0;
-		levelDifficulty.alpha = 0;
-		levelInfo.alpha = 0;
-		warningText.alpha = 0;
-
 		levelInfo.x = FlxG.width - (levelInfo.width + 20);
 		levelDifficulty.x = FlxG.width - (levelDifficulty.width + 20);
 		blueballedTxt.x = FlxG.width - (blueballedTxt.width + 20);
 		warningText.x = FlxG.width - (warningText.width + 20);
-
-		new FlxTimer().start(0.1, function(tmr:FlxTimer) {
-			tweenMenuShit('in');
-		});
 
 		changeSelection();
 
@@ -468,28 +457,12 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		if (loaded)
 		{
-			switch (backOrIn)
-			{
-				case 'in' | 'intro':
-					FlxTween.tween(bg, {alpha: 0.8}, 0.4, {ease: FlxEase.quartInOut});
-					FlxTween.tween(char, {alpha: 0.8}, 0.4, {ease: FlxEase.quartInOut});
-					FlxTween.tween(levelInfo, {alpha: 1, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-					FlxTween.tween(levelDifficulty, {alpha: 1, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
-					FlxTween.tween(blueballedTxt, {alpha: 1, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-					FlxTween.tween(warningText, {alpha: 1, y: warningText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-					finishedFading = true;
-				case 'back' | 'out':
-					if (finishedFading)
-					{
-						FlxTween.tween(bg, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-						FlxTween.tween(char, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-						FlxTween.tween(levelInfo, {alpha: 0, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
-						FlxTween.tween(levelDifficulty, {alpha: 0, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
-						FlxTween.tween(blueballedTxt, {alpha: 0, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-						FlxTween.tween(warningText, {alpha: 0, y: warningText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
-						finishedFading = false;
-					}
-			}
+			FlxTween.tween(bg, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+			FlxTween.tween(char, {alpha: 0}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+			FlxTween.tween(levelInfo, {alpha: 0, y: 20}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.3});
+			FlxTween.tween(levelDifficulty, {alpha: 0, y: levelDifficulty.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.5});
+			FlxTween.tween(blueballedTxt, {alpha: 0, y: blueballedTxt.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
+			FlxTween.tween(warningText, {alpha: 0, y: warningText.y + 5}, 0.4, {ease: FlxEase.quartInOut, startDelay: 0.7});
 		}
 	}
 
@@ -502,8 +475,8 @@ class PauseSubState extends MusicBeatSubstate
 
 		char.scale.set(1.1, 1.1);
 		char.scrollFactor.set(0, 0);
-		char.alpha = 0;
 		add(char);
+		char.alpha = 0.8;
 
 		if (flipPosX)
 			char.flipX = true;
@@ -513,7 +486,7 @@ class PauseSubState extends MusicBeatSubstate
 		isBFchar = isBoyfriend;
 		loaded = true;
 
-		trace(startNum + ' ,' + endNum);
-		trace('CHARACTER INFO: NAME: ' + charName + ' X: ' + posX + ' Y: ' + posY + ' FLIPPED: ' + flipPosX);
+		//trace(startNum + ' ,' + endNum);
+		//trace('CHARACTER INFO: NAME: ' + charName + ' X: ' + posX + ' Y: ' + posY + ' FLIPPED: ' + flipPosX);
 	}
 }

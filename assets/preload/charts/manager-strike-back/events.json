@@ -2805,7 +2805,7 @@
 				"mustHitSection": false
 			}
 		],
-		"splashSkin": "noteSplashesUT",
+		"splashSkin": "note-splash-skins/noteSplashesUT",
 		"validScore": false,
 		"bpm": 180,
 		"arrowSkin": "NOTES_UNDERTALE",

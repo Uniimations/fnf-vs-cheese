@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="week2_choice.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cheese pick avi0000" x="0" y="0" width="1468" height="680"/>
+	<SubTexture name="cheese pick avi0001" x="0" y="0" width="1468" height="680"/>
+	<SubTexture name="cheese pick avi0002" x="1498" y="0" width="1468" height="680"/>
+	<SubTexture name="cheese pick avi0003" x="1498" y="0" width="1468" height="680"/>
+	<SubTexture name="cheese pick unii0000" x="0" y="710" width="1468" height="677"/>
+	<SubTexture name="cheese pick unii0001" x="0" y="710" width="1468" height="677"/>
+	<SubTexture name="cheese pick unii0002" x="1498" y="710" width="1468" height="677"/>
+	<SubTexture name="cheese pick unii0003" x="1498" y="710" width="1468" height="677"/>
+</TextureAtlas>

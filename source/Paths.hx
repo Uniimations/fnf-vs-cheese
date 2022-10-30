@@ -239,7 +239,7 @@ class Paths
 	}
 
 	inline static public function mods(key:String) {
-		return 'mods/' + key;
+		return 'assets/lua/' + key;
 	}
 	inline static public function modsImages(key:String) {
 		return mods('images/' + key + '.png');
