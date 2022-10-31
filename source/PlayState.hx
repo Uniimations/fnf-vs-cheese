@@ -300,7 +300,6 @@ class PlayState extends MusicBeatState
 
 		// they look fancy c:
 		MainMenuState.cursed = false;
-		PlayState.skippedDialogue = false;
 		PlayState.isCutscene = false;
 
 		camGame = new FlxCamera();
@@ -366,414 +365,414 @@ class PlayState extends MusicBeatState
 
 		grpCustomTableBoppers = new FlxTypedGroup<BGSprite>();
 
-		switch (songLowercase)
-		{
-			case 'tutorial':
-				curStage = 'restauranteKitchen';
+		if (!ClientPrefs.fuckyouavi) {
+			switch (songLowercase)
+			{
+				case 'tutorial':
+					curStage = 'restauranteKitchen';
 
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
 
-				var bg:BGSprite = new BGSprite('cheese/kitchen/background_main', -762.4, -1524.4, 1, 1);
-				var sink:BGSprite = new BGSprite('cheese/kitchen/Sink', 916.8, -23.55, 1, 1, ['Sink'], true);
-				var stove:BGSprite = new BGSprite('cheese/kitchen/THEE_AWESIOME_STOBEVE', 278.8, 29.05, 1, 1, ['THEE AWESIOME STOBEVE'], true);
-				var silly:BGSprite = new BGSprite('cheese/kitchen/SILLY_TRAMSHCANSH', -44.45, 697.95, 1, 1);
-				var shelf:BGSprite = new BGSprite('cheese/kitchen/cheeese_nevr_uses_that_frying_pan_on_that_shelf', 251.6, -607.5, 1, 1);
+					var bg:BGSprite = new BGSprite('cheese/kitchen/background_main', -762.4, -1524.4, 1, 1);
+					var sink:BGSprite = new BGSprite('cheese/kitchen/Sink', 916.8, -23.55, 1, 1, ['Sink'], true);
+					var stove:BGSprite = new BGSprite('cheese/kitchen/THEE_AWESIOME_STOBEVE', 278.8, 29.05, 1, 1, ['THEE AWESIOME STOBEVE'], true);
+					var silly:BGSprite = new BGSprite('cheese/kitchen/SILLY_TRAMSHCANSH', -44.45, 697.95, 1, 1);
+					var shelf:BGSprite = new BGSprite('cheese/kitchen/cheeese_nevr_uses_that_frying_pan_on_that_shelf', 251.6, -607.5, 1, 1);
 
-				counter = new BGSprite('cheese/kitchen/counter_strike_source', 331.8, 709.1, 1, 1);
+					counter = new BGSprite('cheese/kitchen/counter_strike_source', 331.8, 709.1, 1, 1);
 
-				add(bg);
-				add(sink);
-				add(stove);
-				add(silly);
-				add(shelf);
+					add(bg);
+					add(sink);
+					add(stove);
+					add(silly);
+					add(shelf);
 
-			// kinda sorry for this code but also kinda not... it works.
-			case 'restaurante' | 'milkshake' | 'cultured':
-				curStage = 'restaurante';
+				// kinda sorry for this code but also kinda not... it works.
+				case 'restaurante' | 'milkshake' | 'cultured':
+					curStage = 'restaurante';
 
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
 
-				// local variables stated here
-				var floor:BGSprite;
-				var tableA:BGSprite;
-				var tableB:BGSprite;
-				var suzuki:BGSprite;
+					// local variables stated here
+					var floor:BGSprite;
+					var tableA:BGSprite;
+					var tableB:BGSprite;
+					var suzuki:BGSprite;
 
-				if (CoolUtil.difficultyString() == HARDER_THAN_HARD)
-				{
-					switch (songLowercase)
+					if (CoolUtil.difficultyString() == HARDER_THAN_HARD)
 					{
-						case 'restaurante':
-							floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
-							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
-							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+						switch (songLowercase)
+						{
+							case 'restaurante':
+								floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+								tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+								tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+								boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
+								suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+								frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
 
-						case 'milkshake':
-							floor = new BGSprite('cheese/sunset_floor', -377.9, -146.4, 1, 1);
-							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
-							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+							case 'milkshake':
+								floor = new BGSprite('cheese/sunset_floor', -377.9, -146.4, 1, 1);
+								tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+								tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+								boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
+								suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+								frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
 
-						case 'cultured':
-							floor = new BGSprite('cheese/night/floor', -377.9, -146.4, 1, 1);
-							tableA = new BGSprite('cheese/night/tableA', 1966.5, 283.05, 1, 1);
-							tableB = new BGSprite('cheese/night/tableB', 1936.15, 568.5, 1, 1);
-							boppers = new BGSprite('cheese/night/boppers', 1287.3, 206.05, 1, 1, ['boppers']);
-							suzuki = new BGSprite('cheese/night/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-							frontBoppers = new BGSprite('cheese/night/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+							case 'cultured':
+								floor = new BGSprite('cheese/night/floor', -377.9, -146.4, 1, 1);
+								tableA = new BGSprite('cheese/night/tableA', 1966.5, 283.05, 1, 1);
+								tableB = new BGSprite('cheese/night/tableB', 1936.15, 568.5, 1, 1);
+								boppers = new BGSprite('cheese/night/boppers', 1287.3, 206.05, 1, 1, ['boppers']);
+								suzuki = new BGSprite('cheese/night/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+								frontBoppers = new BGSprite('cheese/night/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
 
-						default:
-							floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
-							tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-							tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-							boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
-							suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-							frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+							default:
+								floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+								tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+								tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+								boppers = new BGSprite('cheese/ex/boppers', 1278.2, 128.8, 1, 1, ['boppers']);
+								suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+								frontBoppers = new BGSprite('cheese/ex/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+						}
 					}
-				}
-				else
-				{
-					floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
-					tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-					tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-					boppers = new BGSprite('cheese/char/boppers', 1265.6, 127.6, 1, 1, ['boppers']);
-					suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-					frontBoppers = new BGSprite('cheese/char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
-				}
-				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+					else
+					{
+						floor = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+						tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+						tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+						boppers = new BGSprite('cheese/char/boppers', 1265.6, 127.6, 1, 1, ['boppers']);
+						suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+						frontBoppers = new BGSprite('cheese/char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+					}
+					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+
+					phillyBlack = new BGSprite(null, -220, -100, 1, 1);
+					phillyBlack.makeGraphic(Std.int(FlxG.width * 2.2), Std.int(FlxG.height * 2.2), FlxColor.BLACK);
+					phillyBlack.alpha = 0;
+
+					phillyCounter = new BGSprite('cheese/counter_effect', 232.35, 403.25, 1, 1, ['COUNTER WHITE']);
+					phillyCounter.alpha = 0.0;
 
-				phillyBlack = new BGSprite(null, -220, -100, 1, 1);
-				phillyBlack.makeGraphic(Std.int(FlxG.width * 2.2), Std.int(FlxG.height * 2.2), FlxColor.BLACK);
-				phillyBlack.alpha = 0;
-
-				phillyCounter = new BGSprite('cheese/counter_effect', 232.35, 403.25, 1, 1, ['COUNTER WHITE']);
-				phillyCounter.alpha = 0.0;
-
-				add(floor);
-				add(tableA);
-				add(tableB);
-				add(boppers);
-				add(suzuki);
-				add(phillyBlack);
-
-				comboOffset = [430, -550];
-
-			case 'cream-cheese':
-				curStage = 'restauranteCream';
-
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
-
-				var floor:BGSprite = new BGSprite('bonus/cream/floor', -377.9, -146.4, 1, 1);
-				var tableA:BGSprite = new BGSprite('bonus/cream/tableA', 1966.5, 283.05, 1, 1);
-				var tableB:BGSprite = new BGSprite('bonus/cream/tableB', 1936.15, 568.5, 1, 1);
-				var tSideMod:BGSprite = new BGSprite('bonus/cream/t-side_mod', 1288.35, 279.9, 1, 1);
-				var suzuki:BGSprite = new BGSprite('bonus/cream/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
-
-				counter = new BGSprite('bonus/cream/counter', 232.35, 403.25, 1, 1, ['counter bop']);
-
-				phillyBlack = new BGSprite(null, -400, -180, 1, 1);
-				phillyBlack.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-				phillyBlack.alpha = 1;
-
-				add(floor);
-				add(tableA);
-				add(tableB);
-				add(tSideMod);
-				add(suzuki);
-				add(phillyBlack);
-
-				comboOffset = [430, -550];
-
-			case 'wifi':
-				curStage = 'restauranteArsen';
-
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
-
-				var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
-
-				var tSideMod:BGSprite = new BGSprite('cheese/t-side_mod', 1288.35, 279.9, 1, 1);
-				var tableA:BGSprite = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
-				var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-
-				var stickmin = new BGSprite('cheese/char/stickmin', 1855.55, 49.9, 1, 1, ['henry']);
-				grpCustomTableBoppers.add(stickmin);
-
-				var joey = new BGSprite('cheese/char/joey_new', 1474.3, 222.25, 1, 1, ['joey']);
-				grpCustomTableBoppers.add(joey);
-
-				var ralsei = new BGSprite('cheese/char/ralsei_bop', 2059.45, 469.55, 1, 1, ['ralsei bop']);
-				grpCustomTableBoppers.add(ralsei);
-
-				var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
-				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
-
-				add(floor);
-				add(tSideMod);
-				add(tableA);
-				add(tableB);
-				add(grpCustomTableBoppers);
-				add(wall);
-
-				comboOffset = [430, -550];
-
-			case 'casual-duel':
-				curStage = 'restauranteDansilot';
-
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
-
-				var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
-				var tableForDeltarune:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
-
-				var funGang:BGSprite = new BGSprite('cheese/char/fun_gang_latest', 1307.25, 79.25, 1, 1, ['fungang boppy']);
-				grpCustomTableBoppers.add(funGang);
-
-				var sussyArgument:BGSprite = new BGSprite('cheese/char/sussy_table', 1967.65, 48.05, 1, 1, ['SUSSY TABLE']);
-				grpCustomTableBoppers.add(sussyArgument);
-
-				var deltaBop = new BGSprite('cheese/char/DELTARUNE', 1851.35, 468.8, 1, 1, ['kris bop']);
-				grpCustomTableBoppers.add(deltaBop);
-
-				var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
-
-				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
-				avineraCasualDuel = new BGSprite('cheese/char/avinera_counter', 357.65, 257.4, 1, 1, ['avinera counter']);
-				frontBoppers = new BGSprite('cheese/char/crowdindie_big', -29.25, 744.45, 1, 1, ['crowdindie']);
-
-				add(floor);
-				add(tableForDeltarune);
-				add(grpCustomTableBoppers);
-				add(wall);
-
-				comboOffset = [430, -550];
-
-			case 'below-zero':
-				curStage = 'restauranteAvi';
-
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
-
-				var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
-
-				var belowBop = new BGSprite('cheese/char/BELOW_BOPPER', 1340, 100, 1, 1, ['beloppers']);
-				grpCustomTableBoppers.add(belowBop);
-
-				var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
-
-				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
-
-				add(floor);
-				add(grpCustomTableBoppers);
-				add(wall);
-
-				comboOffset = [430, -550];
-
-			case 'dynamic-duo':
-				curStage = 'restauranteDynamic';
-
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60 ;
-
-				// local variables stated here
-				var floor:BGSprite;
-				var wall:BGSprite;
-				var dynamicBop:BGSprite;
-
-				floor = new BGSprite('cheese/floor_twitter', -377.9, -146.4, 1, 1);
-
-				dynamicBop = new BGSprite('cheese/char/DYANMIC_BOPPER', 1340.3, 9.75, 1, 1, ['dynamic bop']);
-				grpCustomTableBoppers.add(dynamicBop);
-
-				wall = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
-
-				counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
-
-				phillyFade = new BGSprite(null, -220, -60, 1, 1);
-				phillyFade.makeGraphic(Std.int(FlxG.width * 2.2), Std.int(FlxG.height * 2.2), FlxColor.BLACK);
-				phillyFade.alpha = 0.0;
-
-				add(floor);
-				add(grpCustomTableBoppers);
-				add(wall);
-
-				comboOffset = [430, -550];
-
-			case 'manager-strike-back':
-				curStage = 'undertale';
-
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
-
-				//added during dark fade event.
-				phillyFade = new BGSprite(null, -390, -190, 1, 1);
-				phillyFade.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-				phillyFade.alpha = 0.0;
-
-				comboOffset = [1300, -150];
-
-			case 'frosted':
-				curStage = 'frostedStage';
-
-				defaultCamZoom = 0.92;
-				staticCamZoom = 1;
-
-				var outside = new BGSprite('bonus/outside', -438.85, -213.3, 0.9, 0.9);
-
-				snow = new BGSprite('bonus/snowstorm', -369.8, -114.8, 1, 1, ['funny snowsto'], true);
-				snow.visible = false;
-
-				var wall = new BGSprite('bonus/wall', -486, -352.3, 1, 1);
-				dansilot = new BGSprite('bonus/tableRight', 632.95, 17.8, 1, 1, ['tableRight']);
-				frontBoppers = new BGSprite('bonus/boppers', 855.9, 327.65, 1.2, 1.2, ['TABLE BOP FIXED']);
-				wallLeft = new BGSprite('bonus/wallLeft', -949.25, -393.6, 1.1, 1.1);
-
-				counter = new BGSprite('bonus/boppers', -348.35, 403, 1.2, 1.2, ['cheese bop']);
-
-				add(outside);
-				add(snow);
-				add(wall);
-				add(dansilot);
-
-			case 'alter-ego':
-				curStage = 'theBack';
-
-				defaultCamZoom = 0.7;
-				staticCamZoom = 0.8;
-
-				nightBack = new BGSprite('bonus/ALTER_NORMAL', -322.55, -248.1, 0.95, 0.95, ['NORMAL']);
-				nightBack.updateHitbox();
-
-				angryBack = new BGSprite('bonus/ALTER_ANGRY', -322.55, -248.1, 0.95, 0.95, ['ANGRY']);
-				angryBack.updateHitbox();
-
-				sadBack = new BGSprite('bonus/ALTER_SADGE', -322.55, -248.1, 0.95, 0.95, ['SADGE']);
-				sadBack.updateHitbox();
-
-				sunnyBack = new BGSprite('bonus/ALTER_SUNNY', -322.55, -248.1, 0.95, 0.95, ['SUNNY']);
-				sunnyBack.updateHitbox();
-
-				var repositionX = -300;
-				var repositionY = -150;
-
-				click = new BGSprite('bonus/ALTER_click', 0 + repositionX, 0 + repositionY, 0, 0, ['click fadew']);
-				click.screenCenter();
-				click.updateHitbox();
-
-				soundWave = new BGSprite('bonus/ALTER_sound_wave', -212 + repositionX, -252 + repositionY, 0, 0, ['the thing']);
-				soundWave.updateHitbox();
-
-				uniiEye = new BGSprite('bonus/ALTER_eye', 300 + repositionX, 132 + repositionY, 0, 0, ['unii eye open']);
-				uniiEye.updateHitbox();
-
-				gotcha = new BGSprite('bonus/ALTER_gotcha', 600 + repositionX, 335 + repositionY, 0, 0, ['gotcha'], true);
-				gotcha.updateHitbox();
-
-				// bigger bg
-				nightBack.scale.set(1.5, 1.5);
-				angryBack.scale.set(1.5, 1.5);
-				sadBack.scale.set(1.5, 1.5);
-				sunnyBack.scale.set(1.5, 1.5);
-
-				// hide other stages
-				angryBack.alpha = 0;
-				sadBack.alpha = 0;
-				sunnyBack.alpha = 0;
-
-				// hide mid song stuff
-				click.alpha = 0;
-				soundWave.alpha = 0;
-				uniiEye.alpha = 0;
-				gotcha.alpha = 0;
-
-				phillyFade = new BGSprite(null, -500, -300, 0, 0);
-				phillyFade.makeGraphic(Std.int(FlxG.width * 6), Std.int(FlxG.height * 6), FlxColor.BLACK);
-				phillyFade.alpha = 0.0;
-
-				add(nightBack);
-				add(angryBack);
-				add(sadBack);
-				add(sunnyBack);
-
-			case 'dirty-cheater':
-				curStage = 'chartEditor';
-
-				defaultCamZoom = 0.67;
-				staticCamZoom = 0.67;
-
-				var leftChart:BGSprite = new BGSprite('bonus/dirt/left_chart', -42.6, -173.4, 1, 1);
-
-				var rightChart:BGSprite = new BGSprite('bonus/dirt/right_chart', 1107.1, 57.15, 1, 1);
-
-				var editorMenu:BGSprite = new BGSprite('bonus/dirt/THIS_ONE', 804.95, -1.40, 1, 1);
-
-				var songInfo:BGSprite = new BGSprite('bonus/dirt/song_info', 827.85, 264, 1, 1);
-
-				add(leftChart);
-				add(rightChart);
-				add(editorMenu);
-				add(songInfo);
-
-				comboOffset = [-70, -50];
-
-			default:
-				/*
-				curStage = 'restauranteDefault';
-
-				defaultCamZoom = 0.60;
-				staticCamZoom = 0.60;
-
-				var suzuki:BGSprite;
-				var oldPath:String = 'cheese/old/';
-
-				var floor:BGSprite = new BGSprite(oldPath + 'bedrock', -1262.95, -138.7, 0.9, 0.9);
-				floor.updateHitbox();
-
-				var tableA:BGSprite = new BGSprite(oldPath + 'sit', 1918.1, 282.15, 0.9, 0.9);
-				tableA.updateHitbox();
-
-				var tableB:BGSprite = new BGSprite(oldPath + 'UHM', 1664.95, 581.65, 0.9, 0.9);
-				tableB.updateHitbox();
-
-				boppers = new BGSprite(oldPath + 'doot', 1276.65, 154.1, 0.9, 0.9, ['doot']); //add anim
-				boppers.updateHitbox();
-
-				suzuki = new BGSprite(oldPath + 'SUSSY_IMPOSER', -358.25, -142.2, 0.9, 0.9, ['wall'], true);
-
-				counter = new BGSprite(oldPath + 'counter', 230.8, 417.45, 1, 1);
-				counter.updateHitbox();
-
-				frontBoppers = new BGSprite(oldPath + 'spectator_mode', 256.6, 1069.85, 0.9, 0.9, ['spectator mode']);
-
-				if(!ClientPrefs.fuckyouavi) {
-					suzuki.updateHitbox();
-					frontBoppers.updateHitbox();
 					add(floor);
-				    add(tableA);
-				    add(tableB);
-				    add(boppers);
-				    add(suzuki);
-				}
-				*/
-				curStage = 'placeholder';
+					add(tableA);
+					add(tableB);
+					add(boppers);
+					add(suzuki);
+					add(phillyBlack);
 
-				defaultCamZoom = 0.6;
-				staticCamZoom = 0.6;
+					comboOffset = [430, -550];
+
+				case 'cream-cheese':
+					curStage = 'restauranteCream';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
+
+					var floor:BGSprite = new BGSprite('bonus/cream/floor', -377.9, -146.4, 1, 1);
+					var tableA:BGSprite = new BGSprite('bonus/cream/tableA', 1966.5, 283.05, 1, 1);
+					var tableB:BGSprite = new BGSprite('bonus/cream/tableB', 1936.15, 568.5, 1, 1);
+					var tSideMod:BGSprite = new BGSprite('bonus/cream/t-side_mod', 1288.35, 279.9, 1, 1);
+					var suzuki:BGSprite = new BGSprite('bonus/cream/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+
+					counter = new BGSprite('bonus/cream/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+
+					phillyBlack = new BGSprite(null, -400, -180, 1, 1);
+					phillyBlack.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+					phillyBlack.alpha = 1;
+
+					add(floor);
+					add(tableA);
+					add(tableB);
+					add(tSideMod);
+					add(suzuki);
+					add(phillyBlack);
+
+					comboOffset = [430, -550];
+
+				case 'wifi':
+					curStage = 'restauranteArsen';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
+
+					var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
+
+					var tSideMod:BGSprite = new BGSprite('cheese/t-side_mod', 1288.35, 279.9, 1, 1);
+					var tableA:BGSprite = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+					var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+
+					var stickmin = new BGSprite('cheese/char/stickmin', 1855.55, 49.9, 1, 1, ['henry']);
+					grpCustomTableBoppers.add(stickmin);
+
+					var joey = new BGSprite('cheese/char/joey_new', 1474.3, 222.25, 1, 1, ['joey']);
+					grpCustomTableBoppers.add(joey);
+
+					var ralsei = new BGSprite('cheese/char/ralsei_bop', 2059.45, 469.55, 1, 1, ['ralsei bop']);
+					grpCustomTableBoppers.add(ralsei);
+
+					var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
+					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+
+					add(floor);
+					add(tSideMod);
+					add(tableA);
+					add(tableB);
+					add(grpCustomTableBoppers);
+					add(wall);
+
+					comboOffset = [430, -550];
+
+				case 'casual-duel':
+					curStage = 'restauranteDansilot';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
+
+					var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
+					var tableForDeltarune:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
+
+					var funGang:BGSprite = new BGSprite('cheese/char/fun_gang_latest', 1307.25, 79.25, 1, 1, ['fungang boppy']);
+					grpCustomTableBoppers.add(funGang);
+
+					var sussyArgument:BGSprite = new BGSprite('cheese/char/sussy_table', 1967.65, 48.05, 1, 1, ['SUSSY TABLE']);
+					grpCustomTableBoppers.add(sussyArgument);
+
+					var deltaBop = new BGSprite('cheese/char/DELTARUNE', 1851.35, 468.8, 1, 1, ['kris bop']);
+					grpCustomTableBoppers.add(deltaBop);
+
+					var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
+
+					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+					avineraCasualDuel = new BGSprite('cheese/char/avinera_counter', 357.65, 257.4, 1, 1, ['avinera counter']);
+					frontBoppers = new BGSprite('cheese/char/crowdindie_big', -29.25, 744.45, 1, 1, ['crowdindie']);
+
+					add(floor);
+					add(tableForDeltarune);
+					add(grpCustomTableBoppers);
+					add(wall);
+
+					comboOffset = [430, -550];
+
+				case 'below-zero':
+					curStage = 'restauranteAvi';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
+
+					var floor:BGSprite = new BGSprite('cheese/floor', -377.9, -146.4, 1, 1);
+
+					var belowBop = new BGSprite('cheese/char/BELOW_BOPPER', 1340, 100, 1, 1, ['beloppers']);
+					grpCustomTableBoppers.add(belowBop);
+
+					var wall:BGSprite = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
+
+					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+
+					add(floor);
+					add(grpCustomTableBoppers);
+					add(wall);
+
+					comboOffset = [430, -550];
+
+				case 'dynamic-duo':
+					curStage = 'restauranteDynamic';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60 ;
+
+					// local variables stated here
+					var floor:BGSprite;
+					var wall:BGSprite;
+					var dynamicBop:BGSprite;
+
+					floor = new BGSprite('cheese/floor_twitter', -377.9, -146.4, 1, 1);
+
+					dynamicBop = new BGSprite('cheese/char/DYANMIC_BOPPER', 1340.3, 9.75, 1, 1, ['dynamic bop']);
+					grpCustomTableBoppers.add(dynamicBop);
+
+					wall = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
+
+					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
+
+					phillyFade = new BGSprite(null, -220, -60, 1, 1);
+					phillyFade.makeGraphic(Std.int(FlxG.width * 2.2), Std.int(FlxG.height * 2.2), FlxColor.BLACK);
+					phillyFade.alpha = 0.0;
+
+					add(floor);
+					add(grpCustomTableBoppers);
+					add(wall);
+
+					comboOffset = [430, -550];
+
+				case 'manager-strike-back':
+					curStage = 'undertale';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
+
+					//added during dark fade event.
+					phillyFade = new BGSprite(null, -390, -190, 1, 1);
+					phillyFade.makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
+					phillyFade.alpha = 0.0;
+
+					comboOffset = [1300, -150];
+
+				case 'frosted':
+					curStage = 'frostedStage';
+
+					defaultCamZoom = 0.92;
+					staticCamZoom = 1;
+
+					var outside = new BGSprite('bonus/outside', -438.85, -213.3, 0.9, 0.9);
+
+					snow = new BGSprite('bonus/snowstorm', -369.8, -114.8, 1, 1, ['funny snowsto'], true);
+					snow.visible = false;
+
+					var wall = new BGSprite('bonus/wall', -486, -352.3, 1, 1);
+					dansilot = new BGSprite('bonus/tableRight', 632.95, 17.8, 1, 1, ['tableRight']);
+					frontBoppers = new BGSprite('bonus/boppers', 855.9, 327.65, 1.2, 1.2, ['TABLE BOP FIXED']);
+					wallLeft = new BGSprite('bonus/wallLeft', -949.25, -393.6, 1.1, 1.1);
+
+					counter = new BGSprite('bonus/boppers', -348.35, 403, 1.2, 1.2, ['cheese bop']);
+
+					add(outside);
+					add(snow);
+					add(wall);
+					add(dansilot);
+
+				case 'alter-ego':
+					curStage = 'theBack';
+
+					defaultCamZoom = 0.7;
+					staticCamZoom = 0.8;
+
+					nightBack = new BGSprite('bonus/ALTER_NORMAL', -322.55, -248.1, 0.95, 0.95, ['NORMAL']);
+					nightBack.updateHitbox();
+
+					angryBack = new BGSprite('bonus/ALTER_ANGRY', -322.55, -248.1, 0.95, 0.95, ['ANGRY']);
+					angryBack.updateHitbox();
+
+					sadBack = new BGSprite('bonus/ALTER_SADGE', -322.55, -248.1, 0.95, 0.95, ['SADGE']);
+					sadBack.updateHitbox();
+
+					sunnyBack = new BGSprite('bonus/ALTER_SUNNY', -322.55, -248.1, 0.95, 0.95, ['SUNNY']);
+					sunnyBack.updateHitbox();
+
+					var repositionX = -300;
+					var repositionY = -150;
+
+					click = new BGSprite('bonus/ALTER_click', 0 + repositionX, 0 + repositionY, 0, 0, ['click fadew']);
+					click.screenCenter();
+					click.updateHitbox();
+
+					soundWave = new BGSprite('bonus/ALTER_sound_wave', -212 + repositionX, -252 + repositionY, 0, 0, ['the thing']);
+					soundWave.updateHitbox();
+
+					uniiEye = new BGSprite('bonus/ALTER_eye', 300 + repositionX, 132 + repositionY, 0, 0, ['unii eye open']);
+					uniiEye.updateHitbox();
+
+					gotcha = new BGSprite('bonus/ALTER_gotcha', 600 + repositionX, 335 + repositionY, 0, 0, ['gotcha'], true);
+					gotcha.updateHitbox();
+
+					// bigger bg
+					nightBack.scale.set(1.5, 1.5);
+					angryBack.scale.set(1.5, 1.5);
+					sadBack.scale.set(1.5, 1.5);
+					sunnyBack.scale.set(1.5, 1.5);
+
+					// hide other stages
+					angryBack.alpha = 0;
+					sadBack.alpha = 0;
+					sunnyBack.alpha = 0;
+
+					// hide mid song stuff
+					click.alpha = 0;
+					soundWave.alpha = 0;
+					uniiEye.alpha = 0;
+					gotcha.alpha = 0;
+
+					phillyFade = new BGSprite(null, -500, -300, 0, 0);
+					phillyFade.makeGraphic(Std.int(FlxG.width * 6), Std.int(FlxG.height * 6), FlxColor.BLACK);
+					phillyFade.alpha = 0.0;
+
+					add(nightBack);
+					add(angryBack);
+					add(sadBack);
+					add(sunnyBack);
+
+				case 'dirty-cheater':
+					curStage = 'chartEditor';
+
+					defaultCamZoom = 0.67;
+					staticCamZoom = 0.67;
+
+					var leftChart:BGSprite = new BGSprite('bonus/dirt/left_chart', -42.6, -173.4, 1, 1);
+
+					var rightChart:BGSprite = new BGSprite('bonus/dirt/right_chart', 1107.1, 57.15, 1, 1);
+
+					var editorMenu:BGSprite = new BGSprite('bonus/dirt/THIS_ONE', 804.95, -1.40, 1, 1);
+
+					var songInfo:BGSprite = new BGSprite('bonus/dirt/song_info', 827.85, 264, 1, 1);
+
+					add(leftChart);
+					add(rightChart);
+					add(editorMenu);
+					add(songInfo);
+
+					comboOffset = [-70, -50];
+
+				default:
+					/*
+					curStage = 'restauranteDefault';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
+
+					var suzuki:BGSprite;
+					var oldPath:String = 'cheese/old/';
+
+					var floor:BGSprite = new BGSprite(oldPath + 'bedrock', -1262.95, -138.7, 0.9, 0.9);
+					floor.updateHitbox();
+
+					var tableA:BGSprite = new BGSprite(oldPath + 'sit', 1918.1, 282.15, 0.9, 0.9);
+					tableA.updateHitbox();
+
+					var tableB:BGSprite = new BGSprite(oldPath + 'UHM', 1664.95, 581.65, 0.9, 0.9);
+					tableB.updateHitbox();
+
+					boppers = new BGSprite(oldPath + 'doot', 1276.65, 154.1, 0.9, 0.9, ['doot']); //add anim
+					boppers.updateHitbox();
+
+					suzuki = new BGSprite(oldPath + 'SUSSY_IMPOSER', -358.25, -142.2, 0.9, 0.9, ['wall'], true);
+
+					counter = new BGSprite(oldPath + 'counter', 230.8, 417.45, 1, 1);
+					counter.updateHitbox();
+
+					frontBoppers = new BGSprite(oldPath + 'spectator_mode', 256.6, 1069.85, 0.9, 0.9, ['spectator mode']);
+
+					if(!ClientPrefs.fuckyouavi) {
+						suzuki.updateHitbox();
+						frontBoppers.updateHitbox();
+						add(floor);
+						add(tableA);
+						add(tableB);
+						add(boppers);
+						add(suzuki);
+					}
+					*/
+					curStage = 'placeholder';
+
+					defaultCamZoom = 0.6;
+					staticCamZoom = 0.6;
+			}
 		}
-
 		backgroundGroup = new FlxTypedGroup<FlxSprite>();
 		add(backgroundGroup);
 
 		var gfVersion:String = SONG.player3;
-
 		var bfType:String = SONG.player1;
 		if(!ClientPrefs.bfreskin) {
 			{
@@ -785,8 +784,8 @@ class PlayState extends MusicBeatState
 					case 'bf-small':
 						bfType = 'bf-small-alt';
 					default:
-					    bfType = SONG.player1;
-			    }
+						bfType = SONG.player1;
+				}
 			}
 			SONG.player1 = bfType;
 		}
@@ -1011,6 +1010,7 @@ class PlayState extends MusicBeatState
 		{
 			var splash:NoteSplash = new NoteSplash(100, 100, 0);
 			grpNoteSplashes.add(splash);
+			splash.alpha = 0.0;
 		}
 
 		opponentStrums = new FlxTypedGroup<StrumNote>();
@@ -1488,7 +1488,6 @@ class PlayState extends MusicBeatState
 	public function startCountdown():Void
 	{
 		if(startedCountdown) {
-			callOnLuas('onStartCountdown', []);
 			return;
 		}
 
@@ -1518,7 +1517,6 @@ class PlayState extends MusicBeatState
 			Conductor.songPosition = 0;
 			Conductor.songPosition -= Conductor.crochet * 5;
 			setOnLuas('startedCountdown', true);
-			callOnLuas('onCountdownStarted', []);
 
 			var swagCounter:Int = 0;
 
@@ -1609,6 +1607,7 @@ class PlayState extends MusicBeatState
 				if(ClientPrefs.middleScroll || songLowercase == 'manager-strike-back' || songLowercase == 'tutorial') opponentStrums.members[i].visible = false;
 			}
 
+			startedCountdown = true;
 			Conductor.songPosition = 0;
 
 			startTimer = new FlxTimer().start(Conductor.crochet / 1000, function(tmr:FlxTimer)
@@ -2233,7 +2232,7 @@ class PlayState extends MusicBeatState
 
 	override public function onFocusLost():Void
 	{
-		if (ClientPrefs.gamePause && !paused)
+		if (ClientPrefs.gamePause && !paused && canPause)
 		{
 			pressPause();
 		}
@@ -2344,10 +2343,7 @@ class PlayState extends MusicBeatState
 		// YOU CAN NOW PAUSE WITH THE PAUSE KEYBIND!!! (idk why this wasnt added sooner)
 		if (controls.PAUSE && startedCountdown && canPause)
 		{
-			var ret:Dynamic = callOnLuas('onPause', []);
-			if(ret != FunkinLua.Function_Stop) {
-				pressPause();
-			}
+			pressPause();
 		}
 
 		var mult:Float = FlxMath.lerp(1, iconP1.scale.x, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
@@ -2496,7 +2492,6 @@ class PlayState extends MusicBeatState
 			{
 				var dunceNote:Note = unspawnNotes[0];
 				notes.add(dunceNote);
-				callOnLuas('onSpawnNote', [notes.members.indexOf(dunceNote), dunceNote.noteData, dunceNote.noteType, dunceNote.isSustainNote]);
 
 				var index:Int = unspawnNotes.indexOf(dunceNote);
 				unspawnNotes.splice(index, 1);
@@ -2730,8 +2725,6 @@ class PlayState extends MusicBeatState
 							camZooming = true;
 					}
 					daNote.ignoreNote = true;
-
-					callOnLuas('opponentNoteHit', [notes.members.indexOf(daNote), Math.abs(daNote.noteData), daNote.noteType, daNote.isSustainNote]);
 
 					if (!daNote.isSustainNote)
 					{
@@ -3648,7 +3641,6 @@ class PlayState extends MusicBeatState
 									boyfriend.visible = true;
 									iconP1.changeIcon(boyfriend.healthIcon);
 							}
-							setOnLuas('boyfriendName', boyfriend.curCharacter);
 
 						case 1:
 							if(dad.curCharacter != value2) {
@@ -3673,7 +3665,6 @@ class PlayState extends MusicBeatState
 									dad.visible = true;
 									iconP2.changeIcon(dad.healthIcon);
 							}
-							setOnLuas('dadName', dad.curCharacter);
 
 						case 2:
 							if(gf.curCharacter != value2) {
@@ -3688,7 +3679,6 @@ class PlayState extends MusicBeatState
 										gf.alreadyLoaded = true;
 									}
 							}
-							setOnLuas('gfName', gf.curCharacter);
 					}
 					if (CoolUtil.difficultyString() == HARDER_THAN_HARD && songLowercase == 'cultured') {
 						doFlash();
@@ -3965,8 +3955,8 @@ class PlayState extends MusicBeatState
 				'restaurante_ex',
 				'milkshake_ex',
 				'cultured_ex',
-				'bnb_beat',
 
+				'beat_bonus',
 				'beat_chara',
 				'beat_sans',
 				'beat_onion',
@@ -5606,12 +5596,12 @@ class PlayState extends MusicBeatState
 			if (SONG.notes[Math.floor(curStep / 16)].changeBPM)
 			{
 				Conductor.changeBPM(SONG.notes[Math.floor(curStep / 16)].bpm);
+				//FlxG.log.add('CHANGED BPM!');
 				setOnLuas('curBpm', Conductor.bpm);
 				setOnLuas('crochet', Conductor.crochet);
 				setOnLuas('stepCrochet', Conductor.stepCrochet);
 			}
 			setOnLuas('mustHitSection', SONG.notes[Math.floor(curStep / 16)].mustHitSection);
-			setOnLuas('altAnim', SONG.notes[Math.floor(curStep / 16)].altAnim);
 		}
 
 		if (!ClientPrefs.fuckyouavi)
@@ -5742,6 +5732,8 @@ class PlayState extends MusicBeatState
 		setOnLuas('hits', songHits);
 
 		var ret:Dynamic = callOnLuas('onRecalculateRating', []);
+		var rank:Dynamic = callOnLuas('onRecalculateRating', []);
+
 		if (ret != FunkinLua.Function_Stop)
 		{
 			ratingPercent = songScore / ((songHits + songMisses - ghostMisses) * 350);
@@ -5752,32 +5744,39 @@ class PlayState extends MusicBeatState
 				ratingPercent = 1;
 			}
 
-			rankString = UniiStringTools.makePlayRanks(songMisses, shits, bads, goods, sicks, perfects);
-
-			var accuracyDisplay:Float = FlxMath.roundDecimal(Math.floor(ratingPercent * 10000) / 100, 2);
-			if (!Math.isNaN(ratingPercent))
-			{
-				accText.text = accuracyDisplay + "%   [" + rankString + "]";
-			}
-
-			// accText.text = "BF   LVL 19   Score: " + songScore + "   Accuracy: " + accuracyDisplay + "%   (" + rankString + ")   Deaths: " + deathCounter;
-
-			scoreTxt.text = "Score: " + songScore;
-			shitsTxt.text = 'Shit:  ' + shits;
-			badsTxt.text = 'Bad:  ' + bads;
-			goodsTxt.text = 'Good:  ' + goods;
-			sicksTxt.text = 'Sick:  ' + sicks;
-			perfectsTxt.text = 'Perfect:  ' + perfects;
-			missesTxt.text = 'Miss:  ' + songMisses;
-
-			if (curStage == 'frostedStage') {
-				if (ClientPrefs.pussyMode)
-					frostedMisses.text = "MISSES: " + songMisses + "\nDEATHS: " + deathCounter + "\nYOU'RE A PUSSY!";
-				else
-					frostedMisses.text = "MISSES: " + songMisses + "/10\nDEATHS: " + deathCounter;
-			}
+			setOnLuas('rating', ratingPercent);
 		}
-		setOnLuas('rating', ratingPercent);
+
+		var accuracyDisplay:Float = FlxMath.roundDecimal(Math.floor(ratingPercent * 10000) / 100, 2);
+
+		if(rank != FunkinLua.Function_Stop)
+		{
+			rankString = UniiStringTools.makePlayRanks(songMisses, shits, bads, goods, sicks, perfects);
+		}
+
+		scoreTxt.text = "Score: " + songScore;
+
+		if (!Math.isNaN(ratingPercent))
+		{
+			accText.text = accuracyDisplay + "%   [" + rankString + "]";
+		}
+
+		// accText.text = "BF   LVL 19   Score: " + songScore + "   Accuracy: " + accuracyDisplay + "%   (" + rankString + ")   Deaths: " + deathCounter;
+
+		//ALL HIT TIMING UPDATED TEXT
+		shitsTxt.text = 'Shit:  ' + shits;
+		badsTxt.text = 'Bad:  ' + bads;
+		goodsTxt.text = 'Good:  ' + goods;
+		sicksTxt.text = 'Sick:  ' + sicks;
+		perfectsTxt.text = 'Perfect:  ' + perfects;
+		missesTxt.text = 'Miss:  ' + songMisses;
+
+		if (curStage == 'frostedStage') {
+			if (ClientPrefs.pussyMode)
+				frostedMisses.text = "MISSES: " + songMisses + "\nDEATHS: " + deathCounter + "\nYOU'RE A PUSSY!";
+			else
+				frostedMisses.text = "MISSES: " + songMisses + "/10\nDEATHS: " + deathCounter;
+		}
 	}
 
 	public function loadSong(?customSong:Bool = false, ?customPath:String = '', ?followStorySettings:Bool = true):Void
@@ -5918,9 +5917,9 @@ class PlayState extends MusicBeatState
 							unlock = true;
 						}
 
-					case 'week2_beat':
-						if (isStoryMode && WeekData.getCurrentWeekNumber() == 2 && PlayState.storyPlaylist.length <= 1 && CoolUtil.difficultyString() == 'HARD') {
-							unlock = true;
+					case 'week2_beat': // this looks rly weird sorry ToT
+						if (isStoryMode && WeekData.getCurrentWeekNumber() == 2 && CoolUtil.difficultyString() == 'HARD') {
+							if (songLowercase == 'dynamic-duo' || songLowercase == 'below-zero') unlock = true;
 						}
 
 					case 'dynamic_duo':
@@ -5948,13 +5947,8 @@ class PlayState extends MusicBeatState
 							unlock = true;
 						}
 
-					case 'bnb_beat':
-						if (isStoryMode && songLowercase == 'mozzarella') {
-							unlock = true;
-						}
-
 					case 'beat_chara':
-						if (isStoryMode && songLowercase == 'manager-strike-back' && !ClientPrefs.pussyMode) {
+						if (songLowercase == 'manager-strike-back' && !ClientPrefs.pussyMode) {
 							unlock = true;
 						}
 
@@ -5964,7 +5958,7 @@ class PlayState extends MusicBeatState
 						}
 
 					case 'beat_onion':
-						if (songLowercase == 'dirty-cheater') {
+						if (songLowercase == 'dirty-cheater' && !ClientPrefs.pussyMode) {
 							unlock = true;
 						}
 
@@ -6249,19 +6243,23 @@ class PlayState extends MusicBeatState
 
 	public function pressPause():Void
 		{
-			persistentUpdate = false;
-			persistentDraw = true;
-			paused = true;
+			var ret:Dynamic = callOnLuas('onPause', []);
+			var rank:Dynamic = callOnLuas('onPause', []);
+			if(ret != FunkinLua.Function_Stop && rank != FunkinLua.Function_Stop) {
+				persistentUpdate = false;
+				persistentDraw = true;
+				paused = true;
 
-			if(FlxG.sound.music != null) {
-				FlxG.sound.music.pause();
-				vocals.pause();
+				if(FlxG.sound.music != null) {
+					FlxG.sound.music.pause();
+					vocals.pause();
+				}
+				openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
+
+				#if desktop
+				DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
+				#end
 			}
-			openSubState(new PauseSubState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
-
-			#if desktop
-			DiscordClient.changePresence(detailsPausedText, displaySongName + " (" + storyDifficultyText + ")", rpcIcon);
-			#end
 		}
 
 	public function gameOver():Void
@@ -6273,7 +6271,8 @@ class PlayState extends MusicBeatState
 	public function gameOverReal():Void
 		{
 			var ret:Dynamic = callOnLuas('onGameOver', []);
-			if(ret != FunkinLua.Function_Stop) {
+			var rank:Dynamic = callOnLuas('onGameOver', []);
+			if(ret != FunkinLua.Function_Stop && rank != FunkinLua.Function_Stop) {
 				boyfriend.stunned = true;
 				deathCounter++;
 

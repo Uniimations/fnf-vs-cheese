@@ -62,7 +62,6 @@ class LoadingState extends MusicBeatState
 					if (PlayState.SONG.needsVoices) checkLoadSong(getVocalPath());
 				}
 				checkLibrary("shared");
-				screen.progress = 1;
 			}
 		);
 	}
@@ -94,7 +93,6 @@ class LoadingState extends MusicBeatState
 				var callback = callbacks.add("library:" + library);
 				Assets.loadLibrary(library).onComplete(function (_) { callback(); });
 			}
-			screen.progress = 2;
 		}
 	}
 	

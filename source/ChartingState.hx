@@ -1781,6 +1781,18 @@ class ChartingState extends MusicBeatState
 
 	private function addNote():Void
 	{
+		// GIVES ACHIEVEMENT
+		Achievements.loadAchievements();
+
+		if(!Achievements.isAchievementUnlocked(Achievements.achievementsStuff[Achievements.getAchievementIndex('charter')][2]))
+		{
+			FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+			Achievements.achievementsMap.set(Achievements.achievementsStuff[Achievements.getAchievementIndex('charter')][2], true);
+			add(new AchievementObject('charter', null, 'achievement'));
+
+			trace('YOU ARE CERBERA');
+		}
+
 		var noteStrum = getStrumTime(dummyArrow.y, false) + sectionStartTime();
 		var noteData = Math.floor((FlxG.mouse.x - GRID_SIZE) / GRID_SIZE);
 		var noteSus = 0;

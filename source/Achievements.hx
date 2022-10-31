@@ -16,16 +16,13 @@ class Achievements
 		//Name, 						 Description, 			 																	 Achievement save tag, 	 Hide?
 
 		["Freaky on a Friday Night",	"Play on a Friday Night.",																	'friday_night_play',	 true],
-		["Back To The Basics",			"Beat Tutorial and unlock the rest of the game.",											'tutorial_beat', 		false],
+		["Back To The Basics",			"Beat the Tutorial.",																		'tutorial_beat', 		false],
 
-		// WEEK 1!! :3
+		// WEEKS
 		["Are You Cultured?", 			"Beat Week 1 on HARD.",																		'week1_beat', 			false],
-		["KEYCHANGE!!", 				"Beat the bonus songs for Week 1.",															'bonus_beat', 			false],
-
-		// WEEK 2!!!!
 		["A Prequel?",					"Beat Week 2 on HARD.",																		'week2_beat',			false],
-		["The Boyz",					"Sing with Unii and get the canon ending \nto Week 2",										'dynamic_duo',			 true],
-		["Something's Missing...",		"Say no to Unii and get the alternate\nending to Week 2.",									'below_zero',			 true],
+		["The Boyz",					"Sing with Unii and get the canon ending \nto Week 2",										'dynamic_duo',			false],
+		["Something's Missing...",		"Say no to Unii and get the alternate\nending to Week 2.",									'below_zero',			false],
 
 		// VIP DIFFICULTY
 		["Freestyle Time!", 			"Beat Restaurante on VIP difficulty.",														'restaurante_ex',		false],
@@ -33,6 +30,7 @@ class Achievements
 		["You're Not Cultured Yet!",	"Beat Cultured on VIP difficulty.", 														'cultured_ex',			false],
 
 		// EXTRA ACHIEVEMENTS
+		["Afterparty",					"Beat all Bonus Songs and VIP remixes.",													'beat_bonus',			false],
 		["Megalomaniac", 				"Beat Manager Strike Back with mechanics on.",												'beat_chara',			 true],
 		["Let It Go",	 				"Beat Frosted with mechanics on.",															'beat_sans',			 true],
 		["Mania",	 					"Beat Alter Ego with mechanics on.",														'beat_unii',			 true],
@@ -40,9 +38,9 @@ class Achievements
 		["Fucking Cheater...",
 		"You cheated not only the game, but yourself. You didn't grow. You didn't improve. 
 		You took a shortcut and gained nothing. You experienced a hollow victory. Nothing was 
-		risked and nothing was gained. It's sad that you don't know the difference.", 												'beat_onion', 			true],
+		risked and nothing was gained. It's sad that you don't know the difference.", 												'beat_onion', 			 true],
 
-		["Cerbera",						"Place a note in the Chart Editor :3",														'charter', 				false],
+		["Cerbera",						"Place a note in the Chart Editor.",														'charter', 				false],
 		["awww the scrunkly <3",		"Headpat Cheese on the Main Menu.",															'scrunkly',				false], //i added a heart here fuck u lol it looks cute <33
 		["Loremaster",					"You're a fucking streamer aren't you?!\nDon't skip dialogue AT ALL in any way.",			'evil_woops',			false],
 
@@ -56,6 +54,9 @@ class Achievements
 		["Mac User",					"Have you tried to run the game on a toaster?",												'toastie',				false],
 
 		// SECRET
+		["Ghostly Articulation", 		"HEY GUYSITS ME GHOST ORU! THE REAL ONE! IM REAL!",											'beat_ghost',			 true],
+		["Hacker",						"01100011 01100001 01101101 01100101 01101111", 											'beat_diples', 			 true],
+		["Lung Failure", 				"This meme isn't fucking funny anymore.",													'beat_ralsei',			 true]
 	];
 
 	// for unlocks/notifications
