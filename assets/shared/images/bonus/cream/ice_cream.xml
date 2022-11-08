@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ice_cream.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="ice cream change0000" x="993" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0001" x="993" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0002" x="1324" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0003" x="1324" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0004" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0005" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0006" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0007" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0008" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0009" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0010" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0011" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0012" x="0" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0013" x="0" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0014" x="331" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0015" x="331" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0016" x="662" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0017" x="662" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0018" x="993" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0019" x="993" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0020" x="1324" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0021" x="1324" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0022" x="1655" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0023" x="1655" y="0" width="301" height="366"/>
+	<SubTexture name="ice cream change0024" x="0" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0025" x="0" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0026" x="331" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0027" x="331" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0028" x="662" y="396" width="301" height="366"/>
+	<SubTexture name="ice cream change0029" x="662" y="396" width="301" height="366"/>
+	<SubTexture name="ice creamed bageled0000" x="993" y="396" width="301" height="366"/>
+	<SubTexture name="ice creamed bageled0001" x="993" y="396" width="301" height="366"/>
+	<SubTexture name="ice creamed bageled0002" x="1324" y="396" width="301" height="366"/>
+	<SubTexture name="ice creamed bageled0003" x="1324" y="396" width="301" height="366"/>
+	<SubTexture name="ice creamed bageled0004" x="1655" y="396" width="301" height="366"/>
+	<SubTexture name="ice creamed bageled0005" x="1655" y="396" width="301" height="366"/>
+</TextureAtlas>

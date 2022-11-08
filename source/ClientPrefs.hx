@@ -29,6 +29,7 @@ class ClientPrefs {
 	public static var bfreskin:Bool = true;
 	public static var missSounds:Bool = true;
 	public static var bgDim:Float = 0;
+	public static var safeFrames:Int = 10;
 	public static var fuckyouavi:Bool = false;
 	public static var resetDeath:Bool = true;
 	public static var comboShown:Bool = false;
@@ -106,6 +107,7 @@ class ClientPrefs {
 		FlxG.save.data.bfreskin = bfreskin;
 		FlxG.save.data.missSounds = missSounds;
 		FlxG.save.data.bgDim = bgDim;
+		FlxG.save.data.safeFrames = safeFrames;
 		FlxG.save.data.fuckyouavi = fuckyouavi;
 		FlxG.save.data.resetDeath = resetDeath;
 		FlxG.save.data.comboShown = comboShown;
@@ -203,6 +205,9 @@ class ClientPrefs {
 		if(FlxG.save.data.bgDim != null) {
 			bgDim = FlxG.save.data.bgDim;
 		}
+		if(FlxG.save.data.safeFrames != null) {
+			safeFrames = FlxG.save.data.safeFrames;
+		}
 		if(FlxG.save.data.fuckyouavi != null) {
 			fuckyouavi = FlxG.save.data.fuckyouavi;
 		}
@@ -238,11 +243,6 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.camZoomOut != null) {
 			camZoomOut = FlxG.save.data.camZoomOut;
-		}
-
-		// flixel automatically saves your volume! (from psych 4.2)
-		if(FlxG.save.data.volume != null) {
-			FlxG.sound.volume = FlxG.save.data.volume;
 		}
 
 		if (FlxG.save.data.windowPause != null) {

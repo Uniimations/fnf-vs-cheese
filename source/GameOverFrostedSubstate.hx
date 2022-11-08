@@ -138,7 +138,7 @@ class GameOverFrostedSubstate extends MusicBeatSubstate
 
 	function startBullshit():Void
 	{
-		FlxG.sound.playMusic(Paths.music('gameOver'), 0);
+		FlxG.sound.playMusic(Paths.music('dinner'), 0);
 
 		if (FlxG.save.data.diedTwiceFrosted)
 		{
@@ -179,7 +179,7 @@ class GameOverFrostedSubstate extends MusicBeatSubstate
 			isEnding = true;
 			bf.playAnim('deathConfirm', true);
 			FlxG.sound.music.stop();
-			FlxG.sound.play(Paths.music('gameOverEnd'));
+			FlxG.sound.play(Paths.music('dinnerOutro'));
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
 				PlayState.phillyBlackTween = FlxTween.tween(frozenShit, {alpha: 0}, 1, {ease: FlxEase.quadInOut,

@@ -2,30 +2,14 @@
 <TextureAtlas imagePath="counter.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="counter bop0000" x="0" y="0" width="1356" height="662"/>
-	<SubTexture name="counter bop0001" x="1361" y="0" width="1356" height="662"/>
-	<SubTexture name="counter bop0002" x="2722" y="0" width="1348" height="662" frameX="-4" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0003" x="4075" y="0" width="1348" height="662" frameX="-4" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0004" x="5428" y="0" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0005" x="6775" y="0" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0006" x="0" y="667" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0007" x="1347" y="667" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0008" x="2694" y="667" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0009" x="4041" y="667" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0010" x="5388" y="667" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0011" x="6735" y="667" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0012" x="0" y="1334" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0013" x="1347" y="1334" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0014" x="2694" y="1334" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0015" x="4041" y="1334" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0016" x="5388" y="1334" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0017" x="6735" y="1334" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0018" x="0" y="2001" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0019" x="1347" y="2001" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0020" x="2694" y="2001" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0021" x="4041" y="2001" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0022" x="5388" y="2001" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0023" x="6735" y="2001" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0024" x="0" y="2668" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
-	<SubTexture name="counter bop0025" x="1347" y="2668" width="1342" height="662" frameX="-7" frameY="0" frameWidth="1356" frameHeight="662"/>
+	<SubTexture name="counter bop0000" x="0" y="0" width="1342" height="662"/>
+	<SubTexture name="counter bop0001" x="1372" y="0" width="1342" height="662"/>
+	<SubTexture name="counter bop0002" x="2744" y="0" width="1342" height="662"/>
+	<SubTexture name="counter bop0003" x="0" y="692" width="1342" height="662"/>
+	<SubTexture name="counter bop0004" x="1372" y="692" width="1342" height="662"/>
+	<SubTexture name="counter bop0005" x="2744" y="692" width="1342" height="662"/>
+	<SubTexture name="counter bop0006" x="0" y="1384" width="1342" height="662"/>
+	<SubTexture name="counter bop0007" x="1372" y="1384" width="1342" height="662"/>
+	<SubTexture name="counter bop0008" x="2744" y="1384" width="1342" height="662"/>
+	<SubTexture name="counter bop0009" x="0" y="2076" width="1342" height="662"/>
 </TextureAtlas>

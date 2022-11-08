@@ -79,6 +79,7 @@ class ChartingState extends MusicBeatState
 		['Change Character', "Value 1: Character to change\nValue 2: New character's name\n\nOn Value 1, Boyfriend is 0,\nDad is 1, and Girlfriend is 2"], //oxford comma :troll:
 		['Set GF Speed', "Sets GF head bopping speed,\nValue 1: 1 = Normal speed,\n2 = 1/2 speed, 4 = 1/4 speed etc.\nUsed on Fresh during the beatbox parts.\n\nWarning: Value must be integer!"],
 		['Add Camera Zoom', "Used on MILF on that one \"hard\" part\nValue 1: Camera zoom add (Default: 0.015)\nValue 2: UI zoom add (Default: 0.03)\nLeave the values blank if you want to use Default."],
+		['Edit Camera Settings', "Value 1: Camera speed\nValue 2: game zoom, HUD zoom"],
 		['Change CamZoom', "Old CamZoom changing.\n0 to Reset.\nValue 1: 1-9"],
 		['Change NumZoom', "Camera zoom number\nValue 1: defaultCamZoom"],
 		['Set CamPog', "NOTE: You have to set it individually\nthere is no trigger for both\nValue 1:\n0: Reset\n1: dad\n2: bf"],
@@ -89,12 +90,16 @@ class ChartingState extends MusicBeatState
 		['Flash Color', "Value 1: Flash Color\nValue 2: Intensity\nAnything 1 or above will trigger intense flashes."],
 		['Poggers Lights', "Value 1: 0 = Turn off, 1 = Blue, 2 = Green,\n3 = Pink, 4 = Red, 5 = Orange, Anything else = Random."],
 		['Poggers Fade', "Value 1:\n0 = fade to 1\n1 = fade to 2\n2 = fade to 1 only\n3 = fade to 0 only"],
-		['Opponent Anim', "Used to decide if another character is using the opponents chart.\nValue 1: Character (0 = Default, 1 = Dad, 2 = Little Man, 3 = GF)\nValue 2: if camera focuses on Little Man"],
+		['Opponent Anim', "Used to decide if another character is using the opponents chart.\nAlso reused in Dirty Cheater.\nValue 1: Character (0 = Default, 1 = Dad, 2 = Little Man, 3 = GF)\nValue 2: if camera focuses on Little Man"],
 		['Summon Lil Man',  "Summons lil scrunkly on Cultured VIP."],
 		['Set Singer', "Set the singer in Dynamic Duo.\nValue 1: Boyfriend chart singer\nValue 2: Dad chart singer"],
 		['Comic Toggle', "Toggle the isArsen and isDani Bools.\nType true or false ONLY.\nValue 1: Arsen\nValue 2: Dani"],
 		['Comic Spawn', "Flashes camera and changes\nArsen and Dani alpha\nValue 1: Arsen\nValue 2: Dani"],
-		['Pan To GF', "Pans to GF lmao\nValue 1: (1 = true, 2 = false)"],
+		['Cream Cheese Pan', "Pans to objects.\nValue 1: (1 = GF, 2 = bagel)\n0 turns it off."],
+		['KEY CHANGE', "Plays bagels key change animation.\n(1 = play animation, 0 = off)"],
+		['Set Freeze Fade', "Freeze Fade opacity.\nValue 1: opacity in float"],
+		['Cinematics', "Tween in black bars.\nValue 1: Black bars\nValue 2: HUD fade\n1 = on, 0 = off"],
+		['Subtitles', "White subtitle text at the bottom.\nValue 1: text\nIf you type \"null\" into Value1 it will reset."],
 		['Spawn Diples', "Spawns Diple In Dirt."]
 	];
 

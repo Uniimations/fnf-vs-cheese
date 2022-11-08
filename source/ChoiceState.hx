@@ -24,6 +24,7 @@ class ChoiceState extends MusicBeatState
 		bg.frames = Paths.getSparrowAtlas('week2_choice');
 		bg.animation.addByPrefix('avi', 'cheese pick avi', 24, true);
 		bg.animation.addByPrefix('unii', 'cheese pick unii', 24, true);
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		bg.scrollFactor.set();
 		add(bg);
 

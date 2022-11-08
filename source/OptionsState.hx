@@ -55,8 +55,6 @@ class OptionsState extends MusicBeatState
 		else
 			menuBG.loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE'));
 
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.updateHitbox();
 		menuBG.screenCenter();
 		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
 		menuBG.alpha = 0.85;
@@ -64,7 +62,6 @@ class OptionsState extends MusicBeatState
 
 		menuBlackShit = new FlxSprite().loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE'));
 		menuBlackShit.setGraphicSize(Std.int(menuBlackShit.width * 1.1));
-	    menuBlackShit.updateHitbox();
 	    menuBlackShit.screenCenter();
 		menuBlackShit.alpha = ClientPrefs.bgDim;
 		add(menuBlackShit);

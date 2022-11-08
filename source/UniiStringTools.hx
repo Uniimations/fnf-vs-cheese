@@ -1,6 +1,9 @@
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
+import openfl.display.BlendMode;
+
+using StringTools;
 
 /**
  * this isnt only used for string tools i lied :3 
@@ -67,4 +70,31 @@ class UniiStringTools
             }
         }
     }
+
+    public static function potionionsMessage() {
+		var returnTxt = "You cheated not only the game, but yourself. You didn't grow. You didn't improve. You took a shortcut and gained nothing. You experienced a hollow victory. Nothing was risked and nothing was gained. It's sad that you don't know the difference.";
+
+		return returnTxt;
+	}
+
+    // i added blend modes!! ^_^
+    public static function getBlend(blend:String):BlendMode {
+		switch(blend.toLowerCase().trim()) {
+			case 'add': return ADD;
+			case 'alpha': return ALPHA;
+			case 'darken': return DARKEN;
+			case 'difference': return DIFFERENCE;
+			case 'erase': return ERASE;
+			case 'hardlight': return HARDLIGHT;
+			case 'invert': return INVERT;
+			case 'layer': return LAYER;
+			case 'lighten': return LIGHTEN;
+			case 'multiply': return MULTIPLY;
+			case 'overlay': return OVERLAY;
+			case 'screen': return SCREEN;
+			case 'shader': return SHADER;
+			case 'subtract': return SUBTRACT;
+		}
+		return NORMAL;
+	}
 }

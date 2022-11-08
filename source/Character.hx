@@ -124,7 +124,6 @@ class Character extends FlxSprite
 				if(json.scale != 1) {
 					jsonScale = json.scale;
 					setGraphicSize(Std.int(width * jsonScale));
-					updateHitbox();
 				}
 
 				positionArray = json.position;

@@ -42,6 +42,7 @@ class SettingsSubState extends MusicBeatSubstate
 		'Input System:',
 		'Erase Save Data',
 		'Background Dim',
+		'Safe Frames',
 		'FPS Cap',
 	];
 
@@ -56,7 +57,6 @@ class SettingsSubState extends MusicBeatSubstate
 
 	private var characterLayer:FlxTypedGroup<Character>;
 	private var CharacterBoyfriend:Character;
-	private var descBox:FlxSprite;
 	private var descText:FlxText;
 	private var pauseText:FlxText;
 
@@ -80,7 +80,8 @@ class SettingsSubState extends MusicBeatSubstate
 					'Botplay',
 					#end
 					'RESET to Game Over',
-					'Miss Sounds'
+					'Miss Sounds',
+					'Safe Frames'
 				];
 			case 'APPEARANCE':
 				options = [
@@ -124,74 +125,9 @@ class SettingsSubState extends MusicBeatSubstate
 					'Pussy Mode',
 					'Input System:'
 				];
-				/*
-				options = [
-					'Flashing Lights',
-					'New Boyfriend Skin',
-					'Pussy Mode',
-					'Input System:'
-				];
-				*/
 		}
 
 		super();
-
-		/*
-		options = [
-			//GENERAL CATEGORY
-			'GENERAL',
-			'Flashing Lights',
-			'New Boyfriend Skin',
-			'Pussy Mode',
-			'Input System:',
-			' ',
-
-			//GRAPHICS CATEGORY
-			'GRAPHICS',
-			'High Quality',
-			'Special Effects',
-			'Camera Shake',
-			'Change Zoom Amount',
-			'Background Dim',
-			#if !html5
-			'FPS Cap', //Apparently 120FPS isn't correctly supported on Browser? Probably it has some V-Sync shit enabled by default, idk
-			#end
-			' ',
-
-			//GAMEPLAY CATEGORY
-			'GAMEPLAY',
-			'Downscroll',
-			'Middlescroll',
-			'Ghost Tapping',
-			'Miss Sounds',
-			'RESET to Game Over',
-			' ',
-
-			//APPEARANCE CATEGORY (please tell me i spelled that right please oh please)
-			'APPEARANCE',
-
-			#if !mobile
-			'FPS Counter',
-			#end
-
-			'Watermark Icon',
-			'Note Splashes',
-			'Hide HUD',
-			'Hide Combo Rating',
-			' ',
-
-			//WINDOW CATEGORY
-			'WINDOW',
-			'Window Pause',
-			'Auto Pause',
-			' ',
-
-			//MISC CATEGORY
-			'MISCELLANEOUS',
-			'Optimized Mode',
-			'Erase Save Data',
-		];
-		*/
 
 		characterLayer = new FlxTypedGroup<Character>();
 		add(characterLayer);
@@ -205,8 +141,8 @@ class SettingsSubState extends MusicBeatSubstate
 		//BOYFRIEND INFORMATION BECAUSE I AM LAZY
 		boyfriendNormal = 'bf-menu';
 		boyfriendRemaster = 'bf-menu-remaster';
-		boyfriendX = 900;
-		boyfriendY = 302;
+		boyfriendX = 800;
+		boyfriendY = 350;
 
 		for (i in 0...options.length)
 		{
@@ -264,11 +200,6 @@ class SettingsSubState extends MusicBeatSubstate
 			else
 				newBoyfriend(boyfriendNormal);
 		}
-
-		descBox = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-		descBox.y += 585;
-		descBox.alpha = 0.8;
-		add(descBox);
 
 		descText = new FlxText(50, 600, 1180, "", 32);
 		descText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -516,6 +447,12 @@ class SettingsSubState extends MusicBeatSubstate
 								else if(ClientPrefs.bgDim > 0.9)
 									ClientPrefs.bgDim = 0.9;
 							}
+						case 'Safe Frames':
+							{
+								ClientPrefs.safeFrames += add;
+								if(ClientPrefs.safeFrames < 1) ClientPrefs.safeFrames = 1;
+								else if(ClientPrefs.safeFrames > 20) ClientPrefs.safeFrames = 20;
+							}
 						case 'Input System:':
 							{
 								// I SHOULDVE DONE THIS IN AN ARRAY FUUUCK
@@ -599,7 +536,7 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'High Quality':
 				daText = "If unchecked, disables anti-aliasing, increases performance\nat the cost of the graphics not looking as smooth.";
 			case 'Downscroll':
-				daText = "If checked, notes go downward instead of upward.";
+				daText = "If checked, notes go downward instead of upward\nuse this if you're a REAL rhythm gamer. B)"; // i added it back idk why it was removed B)
 			case 'Middlescroll':
 				daText = "If checked, your notes get centered\nsimilar to most 4k games.";
 			case 'Ghost Tapping':
@@ -617,7 +554,7 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'New Boyfriend Skin':
 				daText = "If unchecked, bf will have the normal skin\ninstead of the default \"remastered\" one.";
 			case 'Miss Sounds':
-				daText = "If unchecked, miss sounds won't play\nand vocals won't be muted when you miss a note.";
+				daText = "If unchecked, miss sounds won't play and vocals\nwon't be muted when you miss a note.";
 			case 'Background Dim':
 			    daText = "Dims the background down with a black tint.\nAdjust opacity with LEFT and RIGHT keys.";
 			case 'Optimized Mode':
@@ -644,6 +581,8 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If unchecked, doesn't pause the game when\nclicking off the window during a song.";
 			case 'Botplay':
 				daText = "BE A NERDDDD LOLL, this is only in playtest buuilds of the game hi diples hi diples hi di";
+			case 'Safe Frames':
+				daText = "Customize how many frames you have for\nhitting a note earlier or late.";
 		}
 		descText.text = daText;
 
@@ -758,6 +697,8 @@ class SettingsSubState extends MusicBeatSubstate
 						daText = '' + ClientPrefs.framerate;
 					case 'Background Dim':
 						daText = Math.round(ClientPrefs.bgDim * 100) + '%';
+					case 'Safe Frames':
+						daText = '' + ClientPrefs.safeFrames;
 					case 'Input System:':
 						daText = ClientPrefs.inputSystem;
 				}
@@ -783,8 +724,7 @@ class SettingsSubState extends MusicBeatSubstate
 			characterLayer.remove(CharacterBoyfriend);
 		}
 		CharacterBoyfriend = new Character(boyfriendX, boyfriendY, character, true);
-		CharacterBoyfriend.setGraphicSize(Std.int(CharacterBoyfriend.width * 0.8));
-		CharacterBoyfriend.updateHitbox();
+		CharacterBoyfriend.setGraphicSize(Std.int(CharacterBoyfriend.width * 0.65));
 		CharacterBoyfriend.dance();
 		characterLayer.add(CharacterBoyfriend);
 	}
@@ -800,7 +740,6 @@ class SettingsSubState extends MusicBeatSubstate
 		}
 		arrows = new FlxSprite().loadGraphic(Paths.image('settingsmenu/' + scrollPref));
 		arrows.setGraphicSize(Std.int(arrows.width * 1.1));
-		arrows.updateHitbox();
 		arrows.screenCenter();
 		arrows.antialiasing = ClientPrefs.globalAntialiasing;
 		add(arrows);

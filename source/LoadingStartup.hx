@@ -37,6 +37,10 @@ class LoadingStartup extends MusicBeatState
 		FlxG.sound.volumeDownKeys = volumeDownKeys;
 		FlxG.sound.volumeUpKeys = volumeUpKeys;
 
+		// GAME STARTS AT MAX VOLUME
+		FlxG.sound.volume = 1;
+		FlxG.sound.muted = false;
+
 		PlayerSettings.init();
 
 		super.create();

@@ -56,8 +56,8 @@ class PauseSubState extends MusicBeatSubstate
 	{
 		super();
 
-		menuItemsOG = ['Resume', 'Restart Song', 'Options',#if debug 'Toggle Cheats', #end 'Exit to menu'];
-		menuItemsPRESSED = ['Resume ', 'Restart Song', 'Options',#if debug 'Toggle Cheats', #end 'Exit to menu']; //extra space on 'Resume' for bug fix
+		menuItemsOG = ['Resume', 'Restart Song', 'Options',#if PLAYTEST_BUILD 'Toggle Cheats', #end 'Exit to menu'];
+		menuItemsPRESSED = ['Resume ', 'Restart Song', 'Options',#if PLAYTEST_BUILD 'Toggle Cheats', #end 'Exit to menu']; //extra space on 'Resume' for bug fix
 
 		menuItems = menuItemsOG;
 		canDoStuff = true;

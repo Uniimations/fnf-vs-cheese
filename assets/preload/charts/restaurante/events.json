@@ -1,6 +1,6 @@
 {
 	"song": {
-		"speed": 2,
+		"speed": 1.9,
 		"player1": "bf",
 		"player2": "bluecheese",
 		"player3": "gf",
@@ -44,17 +44,23 @@
 					[
 						2375,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					],
 					[
 						2750,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					],
 					[
 						3500,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					]
 				],
 				"bpm": 0,
@@ -69,17 +75,23 @@
 					[
 						4375,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					],
 					[
 						4750,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					],
 					[
 						5500,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					]
 				],
 				"bpm": 0,
@@ -94,17 +106,23 @@
 					[
 						6375,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					],
 					[
 						6750,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					],
 					[
 						7500,
 						-1,
-						"Add Camera Zoom"
+						"Add Camera Zoom",
+						null,
+						null
 					]
 				],
 				"bpm": 0,
@@ -248,6 +266,13 @@
 						"Change NumZoom",
 						"0.8",
 						""
+					],
+					[
+						29875,
+						-1,
+						"Cinematics",
+						"1",
+						"1"
 					]
 				],
 				"bpm": 0,
@@ -265,6 +290,41 @@
 						"Play Animation",
 						"freestyle",
 						"0"
+					],
+					[
+						31875,
+						-1,
+						"Cinematics",
+						"0",
+						"0"
+					],
+					[
+						31375,
+						-1,
+						"Subtitles",
+						"Go ahead, try and freestyle",
+						""
+					],
+					[
+						31984.375,
+						-1,
+						"Subtitles",
+						"null",
+						""
+					],
+					[
+						30250,
+						-1,
+						"Subtitles",
+						"Go ahead,",
+						""
+					],
+					[
+						31000,
+						-1,
+						"Subtitles",
+						"Go ahead, try and",
+						""
 					]
 				],
 				"bpm": 0,
@@ -438,6 +498,48 @@
 						"Add Camera Zoom",
 						"0.050",
 						"0.09"
+					],
+					[
+						38125,
+						-1,
+						"Cinematics",
+						"1",
+						"1"
+					],
+					[
+						39875,
+						-1,
+						"Cinematics",
+						"0",
+						"0"
+					],
+					[
+						38500,
+						-1,
+						"Subtitles",
+						"That",
+						""
+					],
+					[
+						38875,
+						-1,
+						"Subtitles",
+						"That was quite",
+						""
+					],
+					[
+						39375,
+						-1,
+						"Subtitles",
+						"That was quite poggers!",
+						""
+					],
+					[
+						39984.375,
+						-1,
+						"Subtitles",
+						"null",
+						""
 					]
 				],
 				"bpm": 0,
@@ -633,6 +735,24 @@
 						""
 					]
 				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false

@@ -35,10 +35,7 @@ class Achievements
 		["Let It Go",	 				"Beat Frosted with mechanics on.",															'beat_sans',			 true],
 		["Mania",	 					"Beat Alter Ego with mechanics on.",														'beat_unii',			 true],
 
-		["Fucking Cheater...",
-		"You cheated not only the game, but yourself. You didn't grow. You didn't improve. 
-		You took a shortcut and gained nothing. You experienced a hollow victory. Nothing was 
-		risked and nothing was gained. It's sad that you don't know the difference.", 												'beat_onion', 			 true],
+		["Fucking Cheater...",  		UniiStringTools.potionionsMessage(), 														'beat_onion', 			 true], //made cleaner, look in UniiStringTools.hx for info!
 
 		["Cerbera",						"Place a note in the Chart Editor.",														'charter', 				false],
 		["awww the scrunkly <3",		"Headpat Cheese on the Main Menu.",															'scrunkly',				false], //i added a heart here fuck u lol it looks cute <33

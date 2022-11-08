@@ -2,32 +2,153 @@
 <TextureAtlas imagePath="BOYFRIEND_MENU.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="original idle dance0000" x="0" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0001" x="0" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0002" x="411" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0003" x="411" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0004" x="822" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0005" x="822" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0006" x="1233" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0007" x="1233" y="0" width="411" height="413"/>
-	<SubTexture name="original idle dance0008" x="0" y="413" width="411" height="413"/>
-	<SubTexture name="original idle dance0009" x="0" y="413" width="411" height="413"/>
-	<SubTexture name="original idle dance0010" x="0" y="413" width="411" height="413"/>
-	<SubTexture name="original idle dance0011" x="0" y="413" width="411" height="413"/>
-	<SubTexture name="original idle dance0012" x="0" y="413" width="411" height="413"/>
-	<SubTexture name="original idle dance0013" x="0" y="413" width="411" height="413"/>
-	<SubTexture name="remastered idle dance0000" x="411" y="413" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0001" x="411" y="413" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0002" x="828" y="413" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0003" x="828" y="413" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0004" x="1245" y="413" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0005" x="1245" y="413" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0006" x="0" y="826" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0007" x="0" y="826" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0008" x="417" y="826" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0009" x="417" y="826" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0010" x="834" y="826" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0011" x="834" y="826" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0012" x="834" y="826" width="417" height="409"/>
-	<SubTexture name="remastered idle dance0013" x="834" y="826" width="417" height="409"/>
+	<SubTexture name="original idle dance0000" x="0" y="0" width="420" height="407" frameX="-13" frameY="-51" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0001" x="0" y="0" width="420" height="407" frameX="-13" frameY="-51" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0002" x="450" y="0" width="422" height="411" frameX="-12" frameY="-48" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0003" x="450" y="0" width="422" height="411" frameX="-12" frameY="-48" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0004" x="902" y="0" width="421" height="415" frameX="-14" frameY="-44" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0005" x="902" y="0" width="421" height="415" frameX="-14" frameY="-44" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0006" x="1353" y="0" width="425" height="428" frameX="-13" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0007" x="1353" y="0" width="425" height="428" frameX="-13" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0008" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0009" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0010" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0011" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0012" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0013" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0014" x="0" y="0" width="420" height="407" frameX="-13" frameY="-51" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0015" x="0" y="0" width="420" height="407" frameX="-13" frameY="-51" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0016" x="450" y="0" width="422" height="411" frameX="-12" frameY="-48" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0017" x="450" y="0" width="422" height="411" frameX="-12" frameY="-48" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0018" x="902" y="0" width="421" height="415" frameX="-14" frameY="-44" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0019" x="902" y="0" width="421" height="415" frameX="-14" frameY="-44" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0020" x="1353" y="0" width="425" height="428" frameX="-13" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0021" x="1353" y="0" width="425" height="428" frameX="-13" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0022" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0023" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0024" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0025" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0026" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0027" x="1808" y="0" width="424" height="429" frameX="-13" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0028" x="2262" y="0" width="398" height="420" frameX="0" frameY="-39" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0029" x="2262" y="0" width="398" height="420" frameX="0" frameY="-39" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0030" x="2690" y="0" width="389" height="418" frameX="-11" frameY="-41" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0031" x="2690" y="0" width="389" height="418" frameX="-11" frameY="-41" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0032" x="2690" y="0" width="389" height="418" frameX="-11" frameY="-41" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0033" x="2690" y="0" width="389" height="418" frameX="-11" frameY="-41" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0034" x="3109" y="0" width="389" height="372" frameX="-15" frameY="-92" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0035" x="3109" y="0" width="389" height="372" frameX="-15" frameY="-92" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0036" x="3528" y="0" width="388" height="376" frameX="-14" frameY="-87" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0037" x="3528" y="0" width="388" height="376" frameX="-14" frameY="-87" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0038" x="3528" y="0" width="388" height="376" frameX="-14" frameY="-87" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0039" x="3528" y="0" width="388" height="376" frameX="-14" frameY="-87" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0040" x="0" y="459" width="385" height="459" frameX="-60" frameY="0" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0041" x="0" y="459" width="385" height="459" frameX="-60" frameY="0" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0042" x="415" y="459" width="392" height="454" frameX="-55" frameY="-5" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0043" x="415" y="459" width="392" height="454" frameX="-55" frameY="-5" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0044" x="415" y="459" width="392" height="454" frameX="-55" frameY="-5" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0045" x="415" y="459" width="392" height="454" frameX="-55" frameY="-5" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0046" x="837" y="459" width="424" height="422" frameX="-63" frameY="-36" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0047" x="837" y="459" width="424" height="422" frameX="-63" frameY="-36" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0048" x="1291" y="459" width="422" height="424" frameX="-63" frameY="-34" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0049" x="1291" y="459" width="422" height="424" frameX="-63" frameY="-34" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0050" x="1291" y="459" width="422" height="424" frameX="-63" frameY="-34" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0051" x="1291" y="459" width="422" height="424" frameX="-63" frameY="-34" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0052" x="1743" y="459" width="409" height="432" frameX="-10" frameY="-25" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0053" x="1743" y="459" width="409" height="432" frameX="-10" frameY="-25" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0054" x="2182" y="459" width="429" height="426" frameX="-10" frameY="-33" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0055" x="2182" y="459" width="429" height="426" frameX="-10" frameY="-33" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0056" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0057" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0058" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0059" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0060" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0061" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0062" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0063" x="2641" y="459" width="430" height="428" frameX="-10" frameY="-31" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0064" x="3101" y="459" width="423" height="429" frameX="-14" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0065" x="3554" y="459" width="424" height="429" frameX="-14" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0066" x="0" y="948" width="424" height="430" frameX="-13" frameY="-29" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0067" x="454" y="948" width="425" height="430" frameX="-13" frameY="-29" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0068" x="3101" y="459" width="423" height="429" frameX="-14" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0069" x="3554" y="459" width="424" height="429" frameX="-14" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0070" x="0" y="948" width="424" height="430" frameX="-13" frameY="-29" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0071" x="454" y="948" width="425" height="430" frameX="-13" frameY="-29" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="original idle dance0072" x="3101" y="459" width="423" height="429" frameX="-14" frameY="-30" frameWidth="487" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0000" x="909" y="948" width="431" height="413" frameX="-18" frameY="-46" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0001" x="909" y="948" width="431" height="413" frameX="-18" frameY="-46" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0002" x="1370" y="948" width="432" height="417" frameX="-16" frameY="-42" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0003" x="1370" y="948" width="432" height="417" frameX="-16" frameY="-42" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0004" x="1832" y="948" width="433" height="428" frameX="-16" frameY="-31" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0005" x="1832" y="948" width="433" height="428" frameX="-16" frameY="-31" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0006" x="2295" y="948" width="433" height="432" frameX="-16" frameY="-27" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0007" x="2295" y="948" width="433" height="432" frameX="-16" frameY="-27" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0008" x="2758" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0009" x="2758" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0010" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0011" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0012" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0013" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0014" x="909" y="948" width="431" height="413" frameX="-18" frameY="-46" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0015" x="909" y="948" width="431" height="413" frameX="-18" frameY="-46" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0016" x="1370" y="948" width="432" height="417" frameX="-16" frameY="-42" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0017" x="1370" y="948" width="432" height="417" frameX="-16" frameY="-42" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0018" x="1832" y="948" width="433" height="428" frameX="-16" frameY="-31" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0019" x="1832" y="948" width="433" height="428" frameX="-16" frameY="-31" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0020" x="2295" y="948" width="433" height="432" frameX="-16" frameY="-27" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0021" x="2295" y="948" width="433" height="432" frameX="-16" frameY="-27" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0022" x="2758" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0023" x="2758" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0024" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0025" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0026" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0027" x="3221" y="948" width="433" height="433" frameX="-16" frameY="-26" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0028" x="3684" y="948" width="385" height="441" frameX="-9" frameY="-23" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0029" x="3684" y="948" width="385" height="441" frameX="-9" frameY="-23" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0030" x="0" y="1419" width="380" height="441" frameX="-16" frameY="-23" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0031" x="0" y="1419" width="380" height="441" frameX="-16" frameY="-23" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0032" x="0" y="1419" width="380" height="441" frameX="-16" frameY="-23" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0033" x="0" y="1419" width="380" height="441" frameX="-16" frameY="-23" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0034" x="410" y="1419" width="371" height="382" frameX="-37" frameY="-82" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0035" x="410" y="1419" width="371" height="382" frameX="-37" frameY="-82" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0036" x="811" y="1419" width="364" height="383" frameX="-39" frameY="-80" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0037" x="811" y="1419" width="364" height="383" frameX="-39" frameY="-80" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0038" x="811" y="1419" width="364" height="383" frameX="-39" frameY="-80" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0039" x="811" y="1419" width="364" height="383" frameX="-39" frameY="-80" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0040" x="1205" y="1419" width="395" height="460" frameX="-49" frameY="0" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0041" x="1205" y="1419" width="395" height="460" frameX="-49" frameY="0" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0042" x="1630" y="1419" width="395" height="454" frameX="-50" frameY="-5" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0043" x="1630" y="1419" width="395" height="454" frameX="-50" frameY="-5" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0044" x="1630" y="1419" width="395" height="454" frameX="-50" frameY="-5" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0045" x="1630" y="1419" width="395" height="454" frameX="-50" frameY="-5" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0046" x="2055" y="1419" width="380" height="423" frameX="-64" frameY="-41" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0047" x="2055" y="1419" width="380" height="423" frameX="-64" frameY="-41" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0048" x="2465" y="1419" width="380" height="426" frameX="-63" frameY="-38" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0049" x="2465" y="1419" width="380" height="426" frameX="-63" frameY="-38" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0050" x="2465" y="1419" width="380" height="426" frameX="-63" frameY="-38" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0051" x="2465" y="1419" width="380" height="426" frameX="-63" frameY="-38" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0052" x="2875" y="1419" width="386" height="421" frameX="-18" frameY="-36" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0053" x="3291" y="1419" width="385" height="423" frameX="-19" frameY="-34" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0054" x="0" y="1909" width="444" height="426" frameX="0" frameY="-33" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0055" x="0" y="1909" width="444" height="426" frameX="0" frameY="-33" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0056" x="474" y="1909" width="443" height="427" frameX="-2" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0057" x="474" y="1909" width="443" height="427" frameX="-2" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0058" x="947" y="1909" width="438" height="427" frameX="-7" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0059" x="947" y="1909" width="438" height="427" frameX="-7" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0060" x="1415" y="1909" width="430" height="427" frameX="-15" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0061" x="1415" y="1909" width="430" height="427" frameX="-15" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0062" x="1875" y="1909" width="430" height="427" frameX="-15" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0063" x="1875" y="1909" width="430" height="427" frameX="-15" frameY="-32" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0064" x="2335" y="1909" width="419" height="420" frameX="-25" frameY="-38" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0065" x="2335" y="1909" width="419" height="420" frameX="-25" frameY="-38" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0066" x="2784" y="1909" width="415" height="424" frameX="-26" frameY="-34" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0067" x="2784" y="1909" width="415" height="424" frameX="-26" frameY="-34" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0068" x="3229" y="1909" width="417" height="429" frameX="-25" frameY="-29" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0069" x="3229" y="1909" width="417" height="429" frameX="-25" frameY="-29" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0070" x="3676" y="1909" width="418" height="429" frameX="-25" frameY="-29" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0071" x="3676" y="1909" width="418" height="429" frameX="-25" frameY="-29" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0072" x="3676" y="1909" width="418" height="429" frameX="-25" frameY="-29" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0073" x="3676" y="1909" width="418" height="429" frameX="-25" frameY="-29" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0074" x="2335" y="1909" width="419" height="420" frameX="-25" frameY="-38" frameWidth="449" frameHeight="464"/>
+	<SubTexture name="remastered idle dance0075" x="2335" y="1909" width="419" height="420" frameX="-25" frameY="-38" frameWidth="449" frameHeight="464"/>
 </TextureAtlas>

@@ -234,7 +234,7 @@ class FreeplayState extends MusicBeatState
 
 				grpSelections.forEach(function(spr:FlxSprite)
 				{
-					FlxTween.tween(spr, {alpha: 0}, 1.5, {
+					FlxTween.tween(spr, {alpha: 0}, 1, {
 						ease: FlxEase.quadOut,
 						onComplete: function(twn:FlxTween)
 						{

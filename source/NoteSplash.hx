@@ -28,18 +28,14 @@ class NoteSplash extends FlxSprite
 		// TRUE POSITION
 		setPosition(x - Note.swagWidth * 0.95, y - Note.swagWidth);
 
-		var randomChance = FlxG.random.int(1, 4);
+		var randomChance = FlxG.random.int(1, 2);
 
 		switch (randomChance)
 		{
-			case 1:
-				alpha = 0.4;
 			case 2:
 				alpha = 0.6;
 			case 3:
 				alpha = 0.8;
-			case 4:
-				alpha = 1;
 		}
 
 		if(lastNoteType != noteType)
@@ -77,23 +73,19 @@ class NoteSplash extends FlxSprite
 
 	function loadAnims(skin:String)
 	{
-		if (!FlxG.bitmap.checkCache("splashasset")) {
-			FlxG.bitmap.add(BitmapData.fromFile(Paths.image(skin, null)), false, "splashasset");
-		}
-
 		frames = Paths.getSparrowAtlas(skin);
 
 		for (i in 1...3) {
-			animation.addByPrefix("note1-" + i, "note splash blue " + i, 15, false);
-			animation.addByPrefix("note2-" + i, "note splash green " + i, 15, false);
-			animation.addByPrefix("note0-" + i, "note splash purple " + i, 15, false);
-			animation.addByPrefix("note3-" + i, "note splash red " + i, 15, false);
+			animation.addByPrefix("note1-" + i, "note splash blue " + i, 20, false);
+			animation.addByPrefix("note2-" + i, "note splash green " + i, 20, false);
+			animation.addByPrefix("note0-" + i, "note splash purple " + i, 20, false);
+			animation.addByPrefix("note3-" + i, "note splash red " + i, 20, false);
 		}
 	}
 
 	override function update(elapsed:Float)
 	{
-		if(animation.curAnim.finished) kill();
+		if(animation.curAnim != null)if(animation.curAnim.finished) kill();
 
 		super.update(elapsed);
 	}

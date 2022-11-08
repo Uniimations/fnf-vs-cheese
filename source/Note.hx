@@ -259,29 +259,29 @@ class Note extends FlxSprite
 				{
 					if (isSustainNote)
 					{
-						if (strumTime > Conductor.songPosition - (Conductor.safeZoneOffset * 1.5)
-							&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+						if (strumTime > Conductor.songPosition - (PlayState.safeZoneOffset * 1.5)
+							&& strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
 							canBeHit = true;
 						else
 							canBeHit = false;
 					}
 					else
 					{
-						if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-							&& strumTime < Conductor.songPosition + Conductor.safeZoneOffset)
+						if (strumTime > Conductor.songPosition - PlayState.safeZoneOffset
+							&& strumTime < Conductor.songPosition + PlayState.safeZoneOffset)
 							canBeHit = true;
 						else
 							canBeHit = false;
 					}
 
-					if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset * Conductor.safeZoneOffset / 166 && !wasGoodHit)
+					if (strumTime < Conductor.songPosition - PlayState.safeZoneOffset * PlayState.safeZoneOffset / 166 && !wasGoodHit)
 						tooLate = true;
 				}
 				else
 				{
 					canBeHit = false;
 
-					if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+					if (strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
 					{
 						// fixes botplay going above strumline // worth noting that above the strumline represents music desync. 
 						if ((isSustainNote && prevNote.wasGoodHit) || strumTime - Conductor.songPosition < 4) // mean 1/60 /4 = 4.
@@ -298,20 +298,20 @@ class Note extends FlxSprite
 				if (mustPress)
 				{
 					// The * 0.5 is so that it's easier to hit them too late, instead of too early
-					if (strumTime > Conductor.songPosition - Conductor.safeZoneOffset
-						&& strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+					if (strumTime > Conductor.songPosition - PlayState.safeZoneOffset
+						&& strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
 						canBeHit = true;
 					else
 						canBeHit = false;
 
-					if (strumTime < Conductor.songPosition - Conductor.safeZoneOffset && !wasGoodHit)
+					if (strumTime < Conductor.songPosition - PlayState.safeZoneOffset && !wasGoodHit)
 						tooLate = true;
 				}
 				else
 				{
 					canBeHit = false;
 
-					if (strumTime < Conductor.songPosition + (Conductor.safeZoneOffset * 0.5))
+					if (strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
 					{
 						// fixes botplay going above strumline // worth noting that above the strumline represents music desync. 
 						if ((isSustainNote && prevNote.wasGoodHit) || strumTime - Conductor.songPosition < 4) // mean 1/60 /4 = 4.
