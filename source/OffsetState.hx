@@ -71,23 +71,12 @@ class OffsetState extends MusicBeatState
 		FlxG.sound.pause();
 
 		// Stage
-		floor = new BGSprite(('cheese/floor'), -377.9, -146.4, 1, 1, null, false, true);
-		floor.updateHitbox();
-
-		tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1, null, false, true);
-		tableA.updateHitbox();
-
-		tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1, null, false, true);
-		tableB.updateHitbox();
-
-		tSideMod = new BGSprite('cheese/t-side_mod', 1288.35, 279.9, 1, 1, null, false, true);
-		tSideMod.updateHitbox();
-
-		suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true, true);
-		suzuki.updateHitbox();
-
-		counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop'], false, true); //add anim
-		counter.updateHitbox();
+		floor = new BGSprite(('cheese/floor'), -377.9, -146.4, 1, 1, null, false);
+		tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1, null, false);
+		tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1, null, false);
+		tSideMod = new BGSprite('cheese/t-side_mod', 1288.35, 279.9, 1, 1, null, false);
+		suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+		counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop'], false); //add anim
 
 		// Characters
 		gf = new Character(400, 130, 'gf');
