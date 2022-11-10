@@ -21,6 +21,8 @@ class Note extends FlxSprite
 	public var ignoreNote:Bool = false;
 	public var prevNote:Note;
 
+	public var spawned:Bool = false;
+
 	public var sustainLength:Float = 0;
 	public var isSustainNote:Bool = false;
 	public var noteType(default, set):Int = 0;

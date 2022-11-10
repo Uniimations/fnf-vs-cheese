@@ -349,6 +349,18 @@ class ChartingState extends MusicBeatState
 		bg.alpha = 0.1;
 		add(bg);
 		#end
+
+		var potionion:FlxSprite;
+
+		potionion = new FlxSprite(900, 600);
+		potionion.frames = Paths.getSparrowAtlas('characters/secret/Who_Could_IT_BE_Knocking_At_MY_DOR');
+		potionion.animation.addByPrefix('idle', 'the otion', 24, true);
+		potionion.setGraphicSize(Std.int(potionion.width * 0.6));
+		potionion.antialiasing = ClientPrefs.globalAntialiasing;
+		potionion.scrollFactor.set();
+		add(potionion);
+
+		potionion.animation.play('idle');
 	}
 
 	var check_mute_inst:FlxUICheckBox = null;
