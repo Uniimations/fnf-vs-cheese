@@ -25,36 +25,23 @@ class NoteSplash extends FlxSprite
 
 	public function setupNoteSplash(x:Float, y:Float, note:Int = 0, noteType:Int = 0)
 	{
-		// TRUE POSITION
+		setGraphicSize(200);
 		setPosition(x - Note.swagWidth * 0.95, y - Note.swagWidth);
-
-		var randomChance = FlxG.random.int(1, 2);
-
-		switch (randomChance)
-		{
-			case 2:
-				alpha = 0.6;
-			case 3:
-				alpha = 0.8;
-		}
 
 		if(lastNoteType != noteType)
 		{
-			var skin:String = 'note-splash-skins/noteSplashes';
-			if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) skin = PlayState.SONG.splashSkin;
-
 			switch(noteType)
 			{
 				case 3:
 					loadAnims('note-splash-skins/DODGEnoteSplashesUT'); //all expect dodge note splashes arent actually used, this is just in case the game tries to load them
 				default:
-					loadAnims(skin);
+					if (PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0)
+						loadAnims(PlayState.SONG.splashSkin);
+					else
+						loadAnims('note-splash-skins/noteSplashes');
 			}
 			lastNoteType = noteType;
 		}
-
-		// SPLASH SIZE
-		setGraphicSize(Std.int(width * 0.7));
 
 		var animNum:Int = FlxG.random.int(1, 2);
 
@@ -64,8 +51,10 @@ class NoteSplash extends FlxSprite
 		{
 			case 1:
 				offset.set(-10, -20);
+				alpha = 0.6;
 			case 2:
 				offset.set(0, -8);
+				alpha = 0.8;
 		}
 
 		animation.play('note' + note + '-' + animNum, true);
@@ -76,10 +65,10 @@ class NoteSplash extends FlxSprite
 		frames = Paths.getSparrowAtlas(skin);
 
 		for (i in 1...3) {
-			animation.addByPrefix("note1-" + i, "note splash blue " + i, 20, false);
-			animation.addByPrefix("note2-" + i, "note splash green " + i, 20, false);
-			animation.addByPrefix("note0-" + i, "note splash purple " + i, 20, false);
-			animation.addByPrefix("note3-" + i, "note splash red " + i, 20, false);
+			animation.addByPrefix("note1-" + i, "note splash blue " + i, 18, false);
+			animation.addByPrefix("note2-" + i, "note splash green " + i, 18, false);
+			animation.addByPrefix("note0-" + i, "note splash purple " + i, 18, false);
+			animation.addByPrefix("note3-" + i, "note splash red " + i, 18, false);
 		}
 	}
 

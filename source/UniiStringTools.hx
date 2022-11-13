@@ -1,7 +1,17 @@
+package;
+
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
+import openfl.utils.Assets;
+import haxe.Json;
+import haxe.format.JsonParser;
 import openfl.display.BlendMode;
+
+#if sys
+import sys.io.File;
+import sys.FileSystem;
+#end
 
 using StringTools;
 
@@ -71,6 +81,22 @@ class UniiStringTools
         }
     }
 
+    public static function getLuaStage(stage:String):LuaStage
+    {
+		var rawJson:String = null;
+		var path:String = Paths.mods('stages/' + stage + '.json');
+
+		if(FileSystem.exists(path))
+        {
+			rawJson = File.getContent(path);
+		}
+		else
+		{
+			return null;
+		}
+		return cast Json.parse(rawJson);
+	}
+
     public static function potionionsMessage() {
 		var returnTxt = "You cheated not only the game, but yourself. You didn't grow. You didn't improve. You took a shortcut and gained nothing. You experienced a hollow victory. Nothing was risked and nothing was gained. It's sad that you don't know the difference.";
 
@@ -97,4 +123,15 @@ class UniiStringTools
 		}
 		return NORMAL;
 	}
+}
+
+typedef LuaStage = {
+    var stage:String;
+	var defaultZoom:Float;
+    var staticZoom:Float;
+    var combo:Array<Int>;
+
+	var boyfriend:Array<Dynamic>;
+	var girlfriend:Array<Dynamic>;
+	var opponent:Array<Dynamic>;
 }

@@ -1,0 +1,10 @@
+{
+	"stage": "your_lua_file_name_here",
+	"defaultZoom": 0.9,
+	"staticZoom": 0.9,
+	"combo": [0, 0],
+
+	"boyfriend": [770, 100],
+	"girlfriend": [400, 130],
+	"opponent": [100, 100]
+}

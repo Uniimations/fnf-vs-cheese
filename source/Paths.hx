@@ -142,12 +142,34 @@ class Paths
 
 	inline static public function voices(song:String, suffix:String)
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/Voices$suffix.$SOUND_EXT';
+		var file;
+		var returnFile;
+		#if MODS_ALLOWED
+		file = modsSounds('songs', '${song.toLowerCase()}/Voices$suffix');
+
+		if (FileSystem.exists(file))
+			returnFile = file;
+		else
+		#end
+			returnFile = 'songs:assets/songs/${song.toLowerCase()}/Voices$suffix.$SOUND_EXT';
+
+		return returnFile;
 	}
 
 	inline static public function inst(song:String, suffix:String)
 	{
-		return 'songs:assets/songs/${song.toLowerCase()}/Inst$suffix.$SOUND_EXT';
+		var file;
+		var returnFile;
+		#if MODS_ALLOWED
+		file = modsSounds('songs', '${song.toLowerCase()}/Inst$suffix');
+
+		if (FileSystem.exists(file))
+			returnFile = file;
+		else
+		#end
+			returnFile = 'songs:assets/songs/${song.toLowerCase()}/Inst$suffix.$SOUND_EXT';
+
+		return returnFile;
 	}
 
 	//FINISH THIS GPU SHIT TOMORROW IM SO TIRED UUGHHh
@@ -241,15 +263,25 @@ class Paths
 	inline static public function mods(key:String) {
 		return 'assets/lua/' + key;
 	}
+
+	inline static public function modsChart(key:String) {
+		return mods('charts/' + key + '.json');
+	}
+
+	inline static public function modsSounds(path:String, key:String) {
+		return mods(path + '/' + key + '.' + SOUND_EXT);
+	}
+
 	inline static public function modsImages(key:String) {
 		return mods('images/' + key + '.png');
 	}
-	
+
 	inline static public function modsXml(key:String) {
 		return mods('images/' + key + '.xml');
 	}
+
 	inline static public function modsTxt(key:String) {
-		return mods('images/' + key + '.xml');
+		return mods('images/' + key + '.txt');
 	}
 	#end
 }

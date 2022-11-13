@@ -136,7 +136,8 @@ class FreeplaySelection extends MusicBeatState
 
 		if (MainMenuState.cursed)
 		{
-			var monster:FlxSprite = new FlxSprite(664, 78).loadGraphic(Paths.image('freeplay/monster'));
+			var monster:FlxSprite = new FlxSprite(664, 78);
+			monster.frames = Paths.getSparrowAtlas('freeplay/monster');
 			monster.antialiasing = ClientPrefs.globalAntialiasing;
 			monster.alpha = 0.5;
 			monster.flipX = true;
@@ -234,6 +235,17 @@ class FreeplaySelection extends MusicBeatState
 
 				if (FlxG.save.data.beatOnion) {
 					addSong('DIRTY-CHEATER', 3, 'onion');
+				}
+
+				var initSonglist = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
+				for (i in 0...initSonglist.length)
+				{
+					if(initSonglist[i] != null && initSonglist[i].length > 0) {
+						var songArray:Array<String> = initSonglist[i].split(":");
+						coolColors.push(Std.parseInt(songArray[2]));
+
+						addSong(songArray[0], 0, songArray[1]);
+					}
 				}
 			case 'UNFAIR SONGS':
 				addSong('Manager-Strike-Back', 0, 'suzuki-fp');

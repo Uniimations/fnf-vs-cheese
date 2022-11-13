@@ -5,6 +5,11 @@ import haxe.Json;
 import haxe.format.JsonParser;
 import lime.utils.Assets;
 
+#if sys
+import sys.io.File;
+import sys.FileSystem;
+#end
+
 using StringTools;
 
 typedef SwagSong =
@@ -47,15 +52,21 @@ class Song
 
 	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong
 	{
-		var rawJson;
-		if(jsonInput == 'events') { //Makes the game not crash while trying to load an events chart, doesn't work on HTML tho
+		var rawJson = null;
+
+		#if MODS_ALLOWED
+		var LUA_FILE:String = Paths.modsChart(folder.toLowerCase() + '/' + jsonInput.toLowerCase());
+		if(FileSystem.exists(LUA_FILE)) {
+			rawJson = File.getContent(LUA_FILE).trim();
+		}
+		#end
+
+		if(rawJson == null) {
 			#if sys
-			rawJson = sys.io.File.getContent(Paths.chart(folder.toLowerCase() + '/events')).trim();
+			rawJson = File.getContent(Paths.chart(folder.toLowerCase() + '/' + jsonInput.toLowerCase())).trim();
 			#else
-			rawJson = Assets.getText(Paths.chart(folder.toLowerCase() + '/events')).trim();
-			#end
-		} else {
 			rawJson = Assets.getText(Paths.chart(folder.toLowerCase() + '/' + jsonInput.toLowerCase())).trim();
+			#end
 		}
 
 		while (!rawJson.endsWith("}"))

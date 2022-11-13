@@ -245,6 +245,11 @@ class ClientPrefs {
 			camZoomOut = FlxG.save.data.camZoomOut;
 		}
 
+		// flixel automatically saves your volume! (from psych 4.2)
+		if(FlxG.save.data.volume != null) {
+			FlxG.sound.volume = FlxG.save.data.volume;
+		}
+
 		if (FlxG.save.data.windowPause != null) {
 			windowPause = FlxG.save.data.windowPause;
 			FlxG.autoPause = FlxG.save.data.windowPause;
