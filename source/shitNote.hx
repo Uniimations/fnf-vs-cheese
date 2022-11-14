@@ -19,7 +19,6 @@ class Note extends FlxSprite
 	public var tooLate:Bool = false;
 	public var wasGoodHit:Bool = false;
 	public var ignoreNote:Bool = false;
-	public var hitByOpponent:Bool = false;
 	public var prevNote:Note;
 
 	public var spawned:Bool = false;
@@ -32,6 +31,7 @@ class Note extends FlxSprite
 	public var eventVal1:String = '';
 	public var eventVal2:String = '';
 
+	public var colorSwap:ColorSwap;
 	public var inEditor:Bool = false;
 
 	public static var swagWidth:Float = 160 * 0.7;
@@ -40,20 +40,13 @@ class Note extends FlxSprite
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
 
-	public var offsetX:Float = 0;
-	public var offsetY:Float = 0;
-	public var offsetAngle:Float = 0;
-	public var multAlpha:Float = 1;
 	public var multSpeed(default, set):Float = 1;
-
-	public var copyX:Bool = true;
-	public var copyY:Bool = true;
-	public var copyAngle:Bool = true;
-	public var copyAlpha:Bool = true;
 
 	public var customFunctions:Bool = false;
 	public var noteSkin(default, set):String = 'noteskins/NOTE_assets';
-	public var distance:Float = 2000; //plan on doing scroll directions soon -bb
+
+	public var xAdd:Float = 50;
+	public var yAdd:Float = 0; // doooont use this lol
 
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
@@ -92,6 +85,10 @@ class Note extends FlxSprite
 				case 14:
 					customFunctions = true;
 			}
+			colorSwap.hue = 0;
+			colorSwap.saturation = 0;
+			colorSwap.brightness = 0;
+
 			noteType = value;
 		}
 		return value;
@@ -117,9 +114,15 @@ class Note extends FlxSprite
 		isSustainNote = sustainNote;
 		this.noteSkin = noteSkin;
 
-		x += ((ClientPrefs.middleScroll || daSong == 'tutorial' || daSong.startsWith('manager')) ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
+		switch (daSong) {
+			case 'tutorial' | 'manager-strike-back':
+				x += PlayState.STRUM_X_MIDDLESCROLL + xAdd;
+			default:
+				x += (ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + xAdd;
+		}
+
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
-		y -= 2000;
+		y -= 2000 + yAdd;
 		this.strumTime = strumTime;
 		if(!inEditor) this.strumTime += ClientPrefs.noteOffset;
 
@@ -128,8 +131,14 @@ class Note extends FlxSprite
 		frames = Paths.getSparrowAtlas(noteSkin, null, true);
 		loadNoteAnims();
 
-		if(noteData > -1)
-		{
+		if(noteData > -1) {
+			colorSwap = new ColorSwap();
+			shader = colorSwap.shader;
+			
+			colorSwap.hue = 0;
+			colorSwap.saturation = 0;
+			colorSwap.brightness = 0;
+
 			x += swagWidth * (noteData % 4);
 
 			var animToPlay:String = '';
@@ -149,12 +158,10 @@ class Note extends FlxSprite
 
 		if (isSustainNote && prevNote != null)
 		{
-			alpha = 0.6;
-			multAlpha = 0.6;
+			alpha = 1;
 			if(ClientPrefs.downScroll) flipY = true;
 
-			offsetX += width / 2;
-			copyAngle = false;
+			x += width / 2;
 
 			switch (noteData)
 			{
@@ -170,7 +177,7 @@ class Note extends FlxSprite
 
 			updateHitbox();
 
-			offsetX -= width / 2;
+			x -= width / 2;
 
 			if (prevNote.isSustainNote)
 			{
@@ -193,7 +200,7 @@ class Note extends FlxSprite
 				prevNote.updateHitbox();
 			}
 		}
-		x += offsetX;
+		reloadNote(noteSkin);
 	}
 
 	function reloadNote(?newSkin:String = 'noteskins/NOTE_assets')

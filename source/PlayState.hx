@@ -1024,11 +1024,8 @@ class PlayState extends MusicBeatState
 		}
 
 		strumLine = new FlxSprite((ClientPrefs.middleScroll || songLowercase == 'tutorial' || songLowercase.startsWith('manager')) ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
+		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
-
-		if(ClientPrefs.downScroll) {
-			strumLine.y = FlxG.height - 150;
-		}
 
 		var hudFont:String = 'fnf.otf';
 		var ratingBarSize:Int = 16;
@@ -1638,7 +1635,6 @@ class PlayState extends MusicBeatState
 			for (i in 0...opponentStrums.length) {
 				setOnLuas('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
 				setOnLuas('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
-				if(ClientPrefs.middleScroll || songLowercase == 'manager-strike-back' || songLowercase == 'tutorial') opponentStrums.members[i].visible = false;
 			}
 
 			startedCountdown = true;
@@ -1704,6 +1700,14 @@ class PlayState extends MusicBeatState
 						introGo();
 					case 4:
 				}
+
+				notes.forEachAlive(function(note:Note) {
+					if (note.mustPress)
+					{
+						note.copyAlpha = false;
+						note.alpha = note.multAlpha;
+					}
+				});
 				callOnLuas('onCountdownTick', [swagCounter]);
 
 				swagCounter += 1;
@@ -1726,7 +1730,6 @@ class PlayState extends MusicBeatState
 			for (i in 0...opponentStrums.length) {
 				setOnLuas('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
 				setOnLuas('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
-				if(ClientPrefs.middleScroll || songLowercase == 'manager-strike-back' || songLowercase == 'tutorial') opponentStrums.members[i].visible = false;
 			}
 
 			startedCountdown = true;
@@ -2163,6 +2166,7 @@ class PlayState extends MusicBeatState
 		for (i in 0...4)
 		{
 			babyArrow = new StrumNote((ClientPrefs.middleScroll || songLowercase == 'tutorial' || songLowercase.startsWith('manager')) ? STRUM_X_MIDDLESCROLL : STRUM_X, strumLine.y, i);
+			babyArrow.downScroll = ClientPrefs.downScroll;
 
 			// NOTE SKINS WORK NOW!!! LOOK INSIDE OF UniiStringTools.hx TO CHANGE
 			var skin:String = 'noteskins/NOTE_assets';
@@ -2217,9 +2221,14 @@ class PlayState extends MusicBeatState
 			babyArrow.alpha = 0;
 			babyArrow.ID = i;
 
+			var targetAlpha:Float = 1;
+
 			switch (playerArrow)
 			{
 				case 0:
+					if(ClientPrefs.middleScroll || songLowercase == 'tutorial' || songLowercase.startsWith('manager'))
+						targetAlpha = 0;
+
 					opponentStrums.add(babyArrow);
 				case 1:
 					playerStrums.add(babyArrow);
@@ -2229,7 +2238,7 @@ class PlayState extends MusicBeatState
 			babyArrow.x += 50;
 			babyArrow.x += ((FlxG.width / 2) * playerArrow);
 
-			FlxTween.tween(babyArrow, {y: babyArrow.y + 10, alpha: 1}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
+			FlxTween.tween(babyArrow, {y: babyArrow.y + 10, alpha: targetAlpha}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * i)});
 
 			strumLineNotes.add(babyArrow);
 		}
@@ -2596,235 +2605,61 @@ class PlayState extends MusicBeatState
 
 			notes.forEachAlive(function(daNote:Note)
 			{
-				//THIS TOOK FOREVER FOR ME TO REALIZE HOW TO CODE HOLY SHIT I AM SO SMART!!! (dumb)
-				switch (songLowercase)
+				var strumGroup:FlxTypedGroup<StrumNote> = playerStrums;
+				if(!daNote.mustPress) strumGroup = opponentStrums;
+
+				var strumX:Float = strumGroup.members[daNote.noteData].x;
+				var strumY:Float = strumGroup.members[daNote.noteData].y;
+				var strumAngle:Float = strumGroup.members[daNote.noteData].angle;
+				var strumDirection:Float = strumGroup.members[daNote.noteData].direction;
+				var strumAlpha:Float = strumGroup.members[daNote.noteData].alpha;
+				var strumScroll:Bool = strumGroup.members[daNote.noteData].downScroll;
+
+				strumX += daNote.offsetX;
+				strumY += daNote.offsetY;
+				strumAngle += daNote.offsetAngle;
+				strumAlpha *= daNote.multAlpha;
+
+				if (strumScroll) //Downscroll
 				{
-					case 'manager-strike-back' | 'tutorial': // middle invis notes scroll lock
-						if(!daNote.mustPress)
-							{
-								daNote.active = true;
-								daNote.visible = false;
-							}
-						else if (daNote.y > FlxG.height)
-							{
-								daNote.active = false;
-								daNote.visible = false;
-							}
-						else
-							{
-								daNote.visible = true;
-								daNote.active = true;
-							}
-					default:
-						if(!daNote.mustPress && ClientPrefs.middleScroll)
-							{
-								daNote.active = true;
-								daNote.visible = false;
-							}
-						else if (daNote.y > FlxG.height)
-							{
-								daNote.active = false;
-								daNote.visible = false;
-							}
-						else
-							{
-								daNote.visible = true;
-								daNote.active = true;
-							}
+					//daNote.y = (strumY + 0.45 * (Conductor.songPosition - daNote.strumTime) * songSpeed);
+					daNote.distance = (0.45 * (Conductor.songPosition - daNote.strumTime) * SONG.speed * daNote.multSpeed);
+				}
+				else //Upscroll
+				{
+					//daNote.y = (strumY - 0.45 * (Conductor.songPosition - daNote.strumTime) * songSpeed);
+					daNote.distance = (-0.45 * (Conductor.songPosition - daNote.strumTime) * SONG.speed * daNote.multSpeed);
 				}
 
-				// i am so fucking sorry for this if condition
-				var strumY:Float = 0;
-				if(daNote.mustPress) {
-					strumY = playerStrums.members[daNote.noteData].y;
-				} else {
-					strumY = opponentStrums.members[daNote.noteData].y;
-				}
-				var center:Float = strumY + Note.swagWidth / 2;
+				var angleDir = strumDirection * Math.PI / 180;
+				if (daNote.copyAngle)
+					daNote.angle = strumDirection - 90 + strumAngle;
 
-				if (ClientPrefs.downScroll) {
-					daNote.y = (strumY + 0.45 * (Conductor.songPosition - daNote.strumTime) * roundedSpeed);
-					if (daNote.isSustainNote) {
-						//Jesus fuck this took me so much mother fucking time AAAAAAAAAA
+				if(daNote.copyAlpha)
+					daNote.alpha = strumAlpha;
+
+				if(daNote.copyX)
+					daNote.x = strumX + Math.cos(angleDir) * daNote.distance;
+
+				if(daNote.copyY)
+				{
+					daNote.y = strumY + Math.sin(angleDir) * daNote.distance;
+
+					//Jesus fuck this took me so much mother fucking time AAAAAAAAAA
+					if(strumScroll && daNote.isSustainNote)
+					{
 						if (daNote.animation.curAnim.name.endsWith('end')) {
 							daNote.y += 10.5 * (fakeCrochet / 400) * 1.5 * roundedSpeed + (46 * (roundedSpeed - 1));
 							daNote.y -= 46 * (1 - (fakeCrochet / 600)) * roundedSpeed;
-						} 
+						}
 						daNote.y += (Note.swagWidth / 2) - (60.5 * (roundedSpeed - 1));
 						daNote.y += 27.5 * ((SONG.bpm / 100) - 1) * (roundedSpeed - 1);
-
-						if(daNote.y - daNote.offset.y * daNote.scale.y + daNote.height >= center
-							&& (!daNote.mustPress || (daNote.wasGoodHit || (daNote.prevNote.wasGoodHit && !daNote.canBeHit))))
-						{
-							var swagRect = new FlxRect(0, 0, daNote.frameWidth, daNote.frameHeight);
-							swagRect.height = (center - daNote.y) / daNote.scale.y;
-							swagRect.y = daNote.frameHeight - swagRect.height;
-
-							daNote.clipRect = swagRect;
-						}
-					}
-				} else {
-					daNote.y = (strumY - 0.45 * (Conductor.songPosition - daNote.strumTime) * roundedSpeed);
-
-					if (daNote.isSustainNote
-						&& daNote.y + daNote.offset.y * daNote.scale.y <= center
-						&& (!daNote.mustPress || (daNote.wasGoodHit || (daNote.prevNote.wasGoodHit && !daNote.canBeHit))))
-					{
-						var swagRect = new FlxRect(0, 0, daNote.width / daNote.scale.x, daNote.height / daNote.scale.y);
-						swagRect.y = (center - daNote.y) / daNote.scale.y;
-						swagRect.height -= swagRect.y;
-
-						daNote.clipRect = swagRect;
 					}
 				}
 
-				if (!daNote.mustPress && daNote.wasGoodHit && !daNote.ignoreNote)
+				if (!daNote.mustPress && daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
 				{
-					var altAnim:String = "";
-
-					if (SONG.notes[Math.floor(curStep / 16)] != null)
-					{
-						if (SONG.notes[Math.floor(curStep / 16)].altAnim || daNote.noteType == 1) {
-							altAnim = '-alt';
-						}
-					}
-
-					var animToPlay:String = '';
-					switch (Math.abs(daNote.noteData))
-					{
-						case 0:
-							animToPlay = 'singLEFT';
-						case 1:
-							animToPlay = 'singDOWN';
-						case 2:
-							animToPlay = 'singUP';
-						case 3:
-							animToPlay = 'singRIGHT';
-					}
-
-					if (dadPog && !daNote.isSustainNote) {
-						switch (Math.abs(daNote.noteData))
-						{
-							case 0:
-								dadnoteMovementXoffset = -30;
-								dadnoteMovementYoffset = 0;
-							case 1:
-								dadnoteMovementYoffset = 30;
-								dadnoteMovementXoffset = 0;
-							case 2:
-								dadnoteMovementYoffset = -30;
-								dadnoteMovementXoffset = 0;
-							case 3:
-								dadnoteMovementXoffset = 30;
-								dadnoteMovementYoffset = 0;
-						}
-					}
-
-					//THIOS OPNE IS FOR DADDY DEAREST
-					switch (daNote.noteType)
-					{
-						case 2: //hey
-							if (dad.animOffsets.exists('hey')) {
-								dad.playAnim('hey', true);
-								dad.specialAnim = true;
-								dad.heyTimer = 0.6;
-							}
-						case 6: //gf
-							gf.playAnim(animToPlay + altAnim, true);
-
-							gf.holdTimer = 0;
-						case 7: //bf2
-							boyfriend2.playAnim(animToPlay + altAnim, true);
-
-							boyfriend2.holdTimer = 0;
-						case 8: //dad
-							dad.playAnim(animToPlay + altAnim, true);
-
-							dad.holdTimer = 0;
-						case 9: //bf
-							boyfriend.playAnim(animToPlay + altAnim, true);
-
-							boyfriend.holdTimer = 0;
-						case 10: //comic arsen
-							arsenTriangle.playAnim(animToPlay + altAnim, true);
-
-							arsenTriangle.holdTimer = 0;
-						case 11: //comic dani
-							daniTriangle.playAnim(animToPlay + altAnim, true);
-
-							daniTriangle.holdTimer = 0;
-						case 12: //everyone sings at the same time except avi cause he plays guitar
-							dad.playAnim(animToPlay + altAnim, true);
-							boyfriend2.playAnim(animToPlay + altAnim, true);
-							gf.playAnim(animToPlay + altAnim, true);
-
-							arsenTriangle.playAnim(animToPlay + altAnim, true);
-							daniTriangle.playAnim(animToPlay + altAnim, true);
-
-							dad.holdTimer = 0;
-							boyfriend2.holdTimer = 0;
-							gf.holdTimer = 0;
-
-							arsenTriangle.holdTimer = 0;
-							daniTriangle.holdTimer = 0;
-						case 13: //none
-							// do nothing lolz
-						default:
-							if (!daNote.isSustainNote)
-							{
-								if (isDad2) {
-									dad2.playAnim(animToPlay + altAnim, true);
-								}
-
-								if (isGF) {
-									gf.playAnim(animToPlay + altAnim, true);
-								}
-
-								if (isDad) {
-									dad.playAnim(animToPlay + altAnim, true);
-								}
-
-								if (isArsen && curStage == 'restauranteDynamic') {
-									arsenTriangle.playAnim(animToPlay + altAnim, true);
-								}
-							}
-
-							// its probably bad that it checks for this all the time but uhh 
-							if (ClientPrefs.cameraShake) {
-								if (dad.curCharacter.startsWith('toxic') && daNote.isSustainNote == false) FlxG.camera.shake(0.003, 0.15);
-							}
-
-							gf.holdTimer = 0;
-							dad.holdTimer = 0;
-
-							if (dad2 != null) dad2.holdTimer = 0;
-							if (curStage == 'restauranteDynamic') arsenTriangle.holdTimer = 0;
-					}
-
-					if (SONG.needsVoices)
-						vocals.volume = 1;
-
-					switch (daNote.noteType)
-					{
-						case 10 | 11 | 12:
-							camZooming = true;
-
-							trace('invis note :3');
-						default:
-							StrumPlayAnim(true, Std.int(Math.abs(daNote.noteData)) % 4);
-
-							camZooming = true;
-					}
-					daNote.ignoreNote = true;
-
-					callOnLuas('opponentNoteHit', [notes.members.indexOf(daNote), Math.abs(daNote.noteData), daNote.noteType, daNote.isSustainNote]);
-
-					if (!daNote.isSustainNote)
-					{
-						daNote.kill();
-						notes.remove(daNote, true);
-						daNote.destroy();
-					}
+					opponentNoteHit(daNote);
 				}
 
 				// NOTE TOUCHES STRUM LINE
@@ -2850,6 +2685,34 @@ class PlayState extends MusicBeatState
 						else if (daNote.strumTime <= Conductor.songPosition)
 						{
 							goodNoteHit(daNote);
+						}
+					}
+				}
+
+				var center:Float = strumY + Note.swagWidth / 2;
+				if(strumGroup.members[daNote.noteData].sustainReduce && daNote.isSustainNote && (daNote.mustPress || !daNote.ignoreNote) &&
+				(!daNote.mustPress || (daNote.wasGoodHit || (daNote.prevNote.wasGoodHit && !daNote.canBeHit))))
+				{
+					if (strumScroll)
+					{
+						if(daNote.y - daNote.offset.y * daNote.scale.y + daNote.height >= center)
+						{
+							var swagRect = new FlxRect(0, 0, daNote.frameWidth, daNote.frameHeight);
+							swagRect.height = (center - daNote.y) / daNote.scale.y;
+							swagRect.y = daNote.frameHeight - swagRect.height;
+
+							daNote.clipRect = swagRect;
+						}
+					}
+					else
+					{
+						if (daNote.y + daNote.offset.y * daNote.scale.y <= center)
+						{
+							var swagRect = new FlxRect(0, 0, daNote.width / daNote.scale.x, daNote.height / daNote.scale.y);
+							swagRect.y = (center - daNote.y) / daNote.scale.y;
+							swagRect.height -= swagRect.y;
+
+							daNote.clipRect = swagRect;
 						}
 					}
 				}
@@ -4029,7 +3892,7 @@ class PlayState extends MusicBeatState
 			}
 			callOnLuas('onEvent', [eventName, value1, value2]);
 		}
-		trace('triggered event note: ' + eventName + ' | ' + value1 + ' | ' + value2);
+		//trace('triggered event note: ' + eventName + ' | ' + value1 + ' | ' + value2);
 	}
 
 	function moveCameraSection(?id:Int = 0):Void {
@@ -5053,6 +4916,154 @@ class PlayState extends MusicBeatState
 		else
 		{
 			badNoteCheck();
+		}
+	}
+
+	function opponentNoteHit(note:Note):Void
+	{
+		var altAnim:String = "";
+
+		if (SONG.notes[Math.floor(curStep / 16)] != null)
+		{
+			if (SONG.notes[Math.floor(curStep / 16)].altAnim || note.noteType == 1) {
+				altAnim = '-alt';
+			}
+		}
+
+		var animToPlay:String = '';
+		switch (Math.abs(note.noteData))
+		{
+			case 0:
+				animToPlay = 'singLEFT';
+			case 1:
+				animToPlay = 'singDOWN';
+			case 2:
+				animToPlay = 'singUP';
+			case 3:
+				animToPlay = 'singRIGHT';
+		}
+
+		if (dadPog && !note.isSustainNote) {
+			switch (Math.abs(note.noteData))
+			{
+				case 0:
+					dadnoteMovementXoffset = -30;
+					dadnoteMovementYoffset = 0;
+				case 1:
+					dadnoteMovementYoffset = 30;
+					dadnoteMovementXoffset = 0;
+				case 2:
+					dadnoteMovementYoffset = -30;
+					dadnoteMovementXoffset = 0;
+				case 3:
+					dadnoteMovementXoffset = 30;
+					dadnoteMovementYoffset = 0;
+			}
+		}
+
+		//THIOS OPNE IS FOR DADDY DEAREST
+		switch (note.noteType)
+		{
+			case 2: //hey
+				if (dad.animOffsets.exists('hey')) {
+					dad.playAnim('hey', true);
+					dad.specialAnim = true;
+					dad.heyTimer = 0.6;
+				}
+			case 6: //gf
+				gf.playAnim(animToPlay + altAnim, true);
+
+				gf.holdTimer = 0;
+			case 7: //bf2
+				boyfriend2.playAnim(animToPlay + altAnim, true);
+
+				boyfriend2.holdTimer = 0;
+			case 8: //dad
+				dad.playAnim(animToPlay + altAnim, true);
+
+				dad.holdTimer = 0;
+			case 9: //bf
+				boyfriend.playAnim(animToPlay + altAnim, true);
+
+				boyfriend.holdTimer = 0;
+			case 10: //comic arsen
+				arsenTriangle.playAnim(animToPlay + altAnim, true);
+
+				arsenTriangle.holdTimer = 0;
+			case 11: //comic dani
+				daniTriangle.playAnim(animToPlay + altAnim, true);
+
+				daniTriangle.holdTimer = 0;
+			case 12: //everyone sings at the same time except avi cause he plays guitar
+				dad.playAnim(animToPlay + altAnim, true);
+				boyfriend2.playAnim(animToPlay + altAnim, true);
+				gf.playAnim(animToPlay + altAnim, true);
+
+				arsenTriangle.playAnim(animToPlay + altAnim, true);
+				daniTriangle.playAnim(animToPlay + altAnim, true);
+
+				dad.holdTimer = 0;
+				boyfriend2.holdTimer = 0;
+				gf.holdTimer = 0;
+
+				arsenTriangle.holdTimer = 0;
+				daniTriangle.holdTimer = 0;
+			case 13: //none
+				// do nothing lolz
+			default:
+				if (!note.isSustainNote)
+				{
+					if (isDad2) {
+						dad2.playAnim(animToPlay + altAnim, true);
+					}
+
+					if (isGF) {
+						gf.playAnim(animToPlay + altAnim, true);
+					}
+
+					if (isDad) {
+						dad.playAnim(animToPlay + altAnim, true);
+					}
+
+					if (isArsen && curStage == 'restauranteDynamic') {
+						arsenTriangle.playAnim(animToPlay + altAnim, true);
+					}
+				}
+
+				// its probably bad that it checks for this all the time but uhh 
+				if (ClientPrefs.cameraShake) {
+					if (dad.curCharacter.startsWith('toxic') && note.isSustainNote == false) FlxG.camera.shake(0.003, 0.15);
+				}
+
+				gf.holdTimer = 0;
+				dad.holdTimer = 0;
+
+				if (dad2 != null) dad2.holdTimer = 0;
+				if (curStage == 'restauranteDynamic') arsenTriangle.holdTimer = 0;
+		}
+
+		if (SONG.needsVoices)
+			vocals.volume = 1;
+
+		switch (note.noteType)
+		{
+			case 10 | 11 | 12:
+				camZooming = true;
+
+			default:
+				StrumPlayAnim(true, Std.int(Math.abs(note.noteData)) % 4);
+
+				camZooming = true;
+		}
+		note.hitByOpponent = true;
+
+		callOnLuas('opponentNoteHit', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
+
+		if (!note.isSustainNote)
+		{
+			note.kill();
+			notes.remove(note, true);
+			note.destroy();
 		}
 	}
 
