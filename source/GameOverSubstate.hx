@@ -18,7 +18,6 @@ class GameOverSubstate extends MusicBeatSubstate
 	var bf:Boyfriend;
 	var camFollow:FlxPoint;
 	var camFollowPos:FlxObject;
-	var updateCamera:Bool = false;
 
 	var deathSound:String = 'loss_sfx';
 	var deathSong:String = 'dinner';
@@ -55,30 +54,28 @@ class GameOverSubstate extends MusicBeatSubstate
 			FlxG.camera.flash(FlxColor.WHITE, 0.5);
 		}
 
-		var menuBG = new FlxSprite(0, 0).loadGraphic(Paths.image('game_over'));
-		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
-		menuBG.antialiasing = ClientPrefs.globalAntialiasing;
-		menuBG.scrollFactor.set(0, 0);
-		menuBG.screenCenter();
-		add(menuBG);
-
 		bf = new Boyfriend(x, y, daBf);
 		add(bf);
 
-		camFollow = new FlxPoint(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y);
+		bf.playAnim('firstDeath');
 
 		FlxG.sound.play(Paths.sound('lose/' + deathSound));
 		Conductor.changeBPM(100);
-		// FlxG.camera.followLerp = 1;
-		// FlxG.camera.focusOn(FlxPoint.get(FlxG.width / 2, FlxG.height / 2));
-		FlxG.camera.scroll.set();
-		FlxG.camera.target = null;
 
-		bf.playAnim('firstDeath');
+		camFollow = new FlxPoint();
+		camFollow.set(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y);
 
 		camFollowPos = new FlxObject(0, 0, 1, 1);
-		camFollowPos.setPosition(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
+		camFollowPos.setPosition(camX, camY);
+
 		add(camFollowPos);
+
+		FlxG.camera.follow(camFollowPos, LOCKON, 1);
+		FlxG.camera.focusOn(camFollow);
+
+		camFollow.set(bf.getMidpoint().x - 100, bf.getMidpoint().y - 100);
+		camFollow.x -= bf.cameraPosition[0];
+		camFollow.y += bf.cameraPosition[1];
 	}
 
 	var canSkip:Bool = false;
@@ -88,10 +85,8 @@ class GameOverSubstate extends MusicBeatSubstate
 	{
 		super.update(elapsed);
 
-		if(updateCamera) {
-			var lerpVal:Float = CoolUtil.boundTo(elapsed * 0.6, 0, 1);
-			camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
-		}
+		var lerpVal:Float = CoolUtil.boundTo(elapsed * 0.6, 0, 1);
+		camFollowPos.setPosition(FlxMath.lerp(camFollowPos.x, camFollow.x, lerpVal), FlxMath.lerp(camFollowPos.y, camFollow.y, lerpVal));
 
 		if (controls.ACCEPT && canSkip)
 		{
@@ -119,12 +114,6 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		if (bf.animation.curAnim.name == 'firstDeath')
 		{
-			if(bf.animation.curAnim.curFrame == 12)
-			{
-				FlxG.camera.follow(camFollowPos, LOCKON, 1);
-				updateCamera = true;
-			}
-
 			if (bf.animation.curAnim.finished)
 			{
 				coolStartDeath();

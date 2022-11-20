@@ -38,16 +38,40 @@
 	<SubTexture name="left0003" x="1794" y="909" width="431" height="845" frameX="-1" frameY="-1" frameWidth="435" frameHeight="847"/>
 	<SubTexture name="left0004" x="2255" y="909" width="431" height="846" frameX="-1" frameY="0" frameWidth="435" frameHeight="847"/>
 	<SubTexture name="left0005" x="2255" y="909" width="431" height="846" frameX="-1" frameY="0" frameWidth="435" frameHeight="847"/>
-	<SubTexture name="right0000" x="2716" y="909" width="501" height="876" frameX="0" frameY="0" frameWidth="502" frameHeight="877"/>
-	<SubTexture name="right0001" x="2716" y="909" width="501" height="876" frameX="0" frameY="0" frameWidth="502" frameHeight="877"/>
-	<SubTexture name="right0002" x="3247" y="909" width="502" height="877"/>
-	<SubTexture name="right0003" x="3247" y="909" width="502" height="877"/>
-	<SubTexture name="right0004" x="0" y="1818" width="502" height="876" frameX="0" frameY="-1" frameWidth="502" frameHeight="877"/>
-	<SubTexture name="right0005" x="0" y="1818" width="502" height="876" frameX="0" frameY="-1" frameWidth="502" frameHeight="877"/>
-	<SubTexture name="up0000" x="532" y="1818" width="378" height="889" frameX="-4" frameY="0" frameWidth="384" frameHeight="889"/>
-	<SubTexture name="up0001" x="532" y="1818" width="378" height="889" frameX="-4" frameY="0" frameWidth="384" frameHeight="889"/>
-	<SubTexture name="up0002" x="940" y="1818" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
-	<SubTexture name="up0003" x="940" y="1818" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
-	<SubTexture name="up0004" x="1354" y="1818" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
-	<SubTexture name="up0005" x="1354" y="1818" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
+	<SubTexture name="miss me wit dat shit0000" x="2716" y="909" width="413" height="879" frameX="-11" frameY="0" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0001" x="3159" y="909" width="435" height="822" frameX="0" frameY="-56" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0002" x="3624" y="909" width="435" height="822" frameX="0" frameY="-56" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0003" x="0" y="1818" width="414" height="843" frameX="-11" frameY="-36" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0004" x="444" y="1818" width="414" height="843" frameX="-11" frameY="-36" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0005" x="888" y="1818" width="414" height="845" frameX="-11" frameY="-34" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0006" x="1332" y="1818" width="414" height="845" frameX="-11" frameY="-34" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0007" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0008" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0009" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0010" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0011" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0012" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0013" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0014" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0015" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0016" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0017" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0018" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0019" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0020" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0021" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0022" x="2219" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="miss me wit dat shit0023" x="1776" y="1818" width="413" height="846" frameX="-11" frameY="-33" frameWidth="435" frameHeight="879"/>
+	<SubTexture name="right0000" x="2662" y="1818" width="501" height="876" frameX="0" frameY="0" frameWidth="502" frameHeight="877"/>
+	<SubTexture name="right0001" x="2662" y="1818" width="501" height="876" frameX="0" frameY="0" frameWidth="502" frameHeight="877"/>
+	<SubTexture name="right0002" x="3193" y="1818" width="502" height="877"/>
+	<SubTexture name="right0003" x="3193" y="1818" width="502" height="877"/>
+	<SubTexture name="right0004" x="0" y="2725" width="502" height="876" frameX="0" frameY="-1" frameWidth="502" frameHeight="877"/>
+	<SubTexture name="right0005" x="0" y="2725" width="502" height="876" frameX="0" frameY="-1" frameWidth="502" frameHeight="877"/>
+	<SubTexture name="up0000" x="532" y="2725" width="378" height="889" frameX="-4" frameY="0" frameWidth="384" frameHeight="889"/>
+	<SubTexture name="up0001" x="532" y="2725" width="378" height="889" frameX="-4" frameY="0" frameWidth="384" frameHeight="889"/>
+	<SubTexture name="up0002" x="940" y="2725" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
+	<SubTexture name="up0003" x="940" y="2725" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
+	<SubTexture name="up0004" x="1354" y="2725" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
+	<SubTexture name="up0005" x="1354" y="2725" width="384" height="885" frameX="0" frameY="-3" frameWidth="384" frameHeight="889"/>
 </TextureAtlas>

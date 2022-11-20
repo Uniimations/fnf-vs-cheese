@@ -286,38 +286,45 @@ class TitleState extends MusicBeatState
 		}
 
 		#if debug
-		if (canDoShit) {
-			if (FlxG.keys.justPressed.F1)
+		if (canDoShit)
+		{
+			if (FlxG.keys.justPressed.ONE)
+			{
+				FreeplaySelection.category = 'BONUS SONGS';
+				MusicBeatState.switchState(new FreeplaySelection());
+			}
+
+			if (FlxG.keys.justPressed.TWO)
 			{
 				MusicBeatState.switchState(new MainMenuState());
 			}
 
-			if (FlxG.keys.justPressed.F2)
+			if (FlxG.keys.justPressed.THREE)
 			{
 				MusicBeatState.switchState(new StoryMenuState());
 			}
 
-			if (FlxG.keys.justPressed.F3)
+			if (FlxG.keys.justPressed.FOUR)
 			{
 				MusicBeatState.switchState(new FreeplayState());
 			}
 
-			if (FlxG.keys.justPressed.F4)
+			if (FlxG.keys.justPressed.FIVE)
 			{
 				MusicBeatState.switchState(new CreditsState());
 			}
 
-			if (FlxG.keys.justPressed.F5)
+			if (FlxG.keys.justPressed.SIX)
 			{
 				MusicBeatState.switchState(new OptionsState());
 			}
 
-			if (FlxG.keys.justPressed.F6)
+			if (FlxG.keys.justPressed.SEVEN)
 			{
 				MusicBeatState.switchState(new OffsetState());
 			}
 
-			if (FlxG.keys.justPressed.F7)
+			if (FlxG.keys.justPressed.EIGHT)
 			{
 				MusicBeatState.switchState(new ChoiceState());
 			}

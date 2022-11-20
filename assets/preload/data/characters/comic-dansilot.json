@@ -6,7 +6,7 @@
 				0
 			],
 			"indices": [],
-			"fps": 12,
+			"fps": 24,
 			"anim": "idle",
 			"loop": false,
 			"name": "daniTriangle0"
@@ -17,7 +17,7 @@
 				0
 			],
 			"indices": [],
-			"fps": 12,
+			"fps": 24,
 			"anim": "singLEFT",
 			"loop": false,
 			"name": "daniTriangle left"
@@ -28,7 +28,7 @@
 				0
 			],
 			"indices": [],
-			"fps": 12,
+			"fps": 24,
 			"anim": "singDOWN",
 			"loop": false,
 			"name": "daniTriangle down"
@@ -39,7 +39,7 @@
 				0
 			],
 			"indices": [],
-			"fps": 12,
+			"fps": 24,
 			"anim": "singUP",
 			"loop": false,
 			"name": "daniTriangle up"
@@ -50,7 +50,7 @@
 				0
 			],
 			"indices": [],
-			"fps": 12,
+			"fps": 24,
 			"anim": "singRIGHT",
 			"loop": false,
 			"name": "daniTriangle right"
@@ -73,6 +73,6 @@
 		0,
 		0
 	],
-	"sing_duration": 6.1,
+	"sing_duration": 6,
 	"scale": 0.8
 }
