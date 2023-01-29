@@ -44,6 +44,7 @@ class SettingsSubState extends MusicBeatSubstate
 		'Background Dim',
 		'Safe Frames',
 		'FPS Cap',
+		'Note Offset'
 	];
 
 	private static var curSelected:Int = 0;
@@ -81,6 +82,7 @@ class SettingsSubState extends MusicBeatSubstate
 					#end
 					'RESET to Game Over',
 					'Miss Sounds',
+					'Note Offset',
 					'Safe Frames'
 				];
 			case 'APPEARANCE':
@@ -432,6 +434,16 @@ class SettingsSubState extends MusicBeatSubstate
 									FlxG.updateFramerate = ClientPrefs.framerate;
 								}
 							}
+						case 'Note Offset':
+							{
+								var mult:Int = 1;
+								if(holdTime > 1.5) { //Double speed after 1.5 seconds holding
+									mult = 2;
+								}
+								ClientPrefs.noteOffset += add * mult;
+								if(ClientPrefs.noteOffset < 0) ClientPrefs.noteOffset = 0;
+								else if(ClientPrefs.noteOffset > 500) ClientPrefs.noteOffset = 500;
+							}
 						case 'Background Dim':
 							{
 								ClientPrefs.bgDim += add * 0.1;
@@ -529,6 +541,8 @@ class SettingsSubState extends MusicBeatSubstate
 		switch(options[curSelected]) {
 			case 'FPS Cap':
 				daText = "Frames per second of the game.\nAdjust with LEFT and RIGHT keys.";
+			case 'Note Offset':
+				daText = "Adjust your offset.\nUseful for preventing audio lag from wireless earphones.";
 			case 'FPS Counter':
 				daText = "If unchecked, hides FPS Counter.";
 			case 'Watermark Icon':
@@ -695,6 +709,8 @@ class SettingsSubState extends MusicBeatSubstate
 				switch(options[textNumber[i]]) {
 					case 'FPS Cap':
 						daText = '' + ClientPrefs.framerate;
+					case 'Note Offset':
+						daText = ClientPrefs.noteOffset + 'ms';
 					case 'Background Dim':
 						daText = Math.round(ClientPrefs.bgDim * 100) + '%';
 					case 'Safe Frames':

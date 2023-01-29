@@ -84,11 +84,6 @@ class TitleState extends MusicBeatState
 
 		super.create();
 
-		#if FREEPLAY
-		MusicBeatState.switchState(new FreeplayState());
-		#elseif CHARTING
-		MusicBeatState.switchState(new ChartingState());
-		#else
 		if(FlxG.save.data.flashing == null && !FlashingState.leftState) {
 			FlxTransitionableState.skipNextTransIn = true;
 			FlxTransitionableState.skipNextTransOut = true;
@@ -106,7 +101,6 @@ class TitleState extends MusicBeatState
 				canDoShit = true;
 			});
 		}
-		#end
 	}
 
 	var logoBl:FlxSprite;
@@ -290,7 +284,13 @@ class TitleState extends MusicBeatState
 		{
 			if (FlxG.keys.justPressed.ONE)
 			{
-				FreeplaySelection.category = 'BONUS SONGS';
+				if (FlxG.keys.pressed.S)
+					FreeplaySelection.category = 'STORY SONGS';
+				else if (FlxG.keys.pressed.B)
+					FreeplaySelection.category = 'BONUS SONGS';
+				else if (FlxG.keys.pressed.U)
+					FreeplaySelection.category = 'UNFAIR SONGS';
+
 				MusicBeatState.switchState(new FreeplaySelection());
 			}
 
@@ -320,11 +320,6 @@ class TitleState extends MusicBeatState
 			}
 
 			if (FlxG.keys.justPressed.SEVEN)
-			{
-				MusicBeatState.switchState(new OffsetState());
-			}
-
-			if (FlxG.keys.justPressed.EIGHT)
 			{
 				MusicBeatState.switchState(new ChoiceState());
 			}

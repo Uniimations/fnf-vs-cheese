@@ -63,8 +63,9 @@ class ChartingState extends MusicBeatState
 		'11 - Comic Dani',
 		'12 - EVERYONE EXCEPT AVI',
 		'13 - NO ANIMATION',
-		'14 - Miss',
-		'15 - Invisible Note'
+		'14 - Swap BF',
+		'15 - Swap Dad',
+		'16 - Invisible'
 	];
 
 	var undos = [];
@@ -100,7 +101,8 @@ class ChartingState extends MusicBeatState
 		['Set Freeze Fade', "Freeze Fade opacity.\nValue 1: opacity in float"],
 		['Cinematics', "Tween in black bars.\nValue 1: Black bars\nValue 2: HUD fade\n1 = on, 0 = off"],
 		['Subtitles', "White subtitle text at the bottom.\nValue 1: text\nIf you type \"null\" into Value1 it will reset."],
-		['Spawn Diples', "Spawns Diple In Dirt."]
+		['Spawn Diples', "Spawns Diple In Dirt."],
+		['Cheater Event', "The song info thingie idk.\nValue 1: Animation to play\nValue 2: Dirty Chair..."]
 	];
 
 	var dfc:CoolUtil;
@@ -352,7 +354,7 @@ class ChartingState extends MusicBeatState
 
 		var potionion:FlxSprite;
 
-		potionion = new FlxSprite(900, 600);
+		potionion = new FlxSprite(975, 420);
 		potionion.frames = Paths.getSparrowAtlas('characters/secret/Who_Could_IT_BE_Knocking_At_MY_DOR');
 		potionion.animation.addByPrefix('idle', 'the otion', 24, true);
 		potionion.setGraphicSize(Std.int(potionion.width * 0.6));
@@ -394,7 +396,7 @@ class ChartingState extends MusicBeatState
 			loadSong();
 		});
 
-		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload HARD JSON", function()
+		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload HARD", function()
 		{
 			loadJson(_song.song.toLowerCase());
 		});

@@ -95,21 +95,18 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		if (controls.BACK)
 		{
-			FlxG.sound.music.fadeOut(1.5, 0);
+			FlxG.sound.music.fadeOut(0.5, 0);
 			PlayState.deathCounter = 0;
 			PlayState.seenCutscene = false;
 
-			new FlxTimer().start(1, function(tmr:FlxTimer)
-				{
-					FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
-					{
-						if (PlayState.isStoryMode)
-							MusicBeatState.switchState(new StoryMenuState());
-						else
-							MusicBeatState.switchState(new FreeplayState());
-						FlxG.sound.playMusic(Paths.music('freaky_overture'));
-					});
-				});
+			FlxG.camera.fade(FlxColor.BLACK, 1, false, function()
+			{
+				if (PlayState.isStoryMode)
+					MusicBeatState.switchState(new StoryMenuState());
+				else
+					MusicBeatState.switchState(new FreeplayState());
+				FlxG.sound.playMusic(Paths.music('freaky_overture'));
+			});
 		}
 
 		if (bf.animation.curAnim.name == 'firstDeath')

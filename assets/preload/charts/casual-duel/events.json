@@ -189,7 +189,15 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						33333.3333333333,
+						-1,
+						"Flash",
+						"1",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -261,7 +269,22 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						46666.6666666667,
+						-1,
+						"Flash",
+						"1",
+						""
+					],
+					[
+						46770.8333333333,
+						-1,
+						"Change NumZoom",
+						"0.8",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -360,6 +383,20 @@
 						-1,
 						"Add Camera Zoom",
 						"",
+						""
+					],
+					[
+						60104.1666666666,
+						-1,
+						"Change NumZoom",
+						"0.6",
+						""
+					],
+					[
+						60000,
+						-1,
+						"Flash",
+						"1",
 						""
 					]
 				],
@@ -567,7 +604,22 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						73437.5,
+						-1,
+						"Change NumZoom",
+						"0.8",
+						""
+					],
+					[
+						73333.3333333333,
+						-1,
+						"Flash",
+						"1",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1137,7 +1189,78 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						105000,
+						-1,
+						"Play Animation",
+						"keychange",
+						"1"
+					],
+					[
+						105104.166666667,
+						-1,
+						"Change NumZoom",
+						"0.9",
+						""
+					],
+					[
+						105208.333333333,
+						-1,
+						"Cinematics",
+						"1",
+						"1"
+					],
+					[
+						105416.666666667,
+						-1,
+						"Subtitles",
+						"KEY",
+						""
+					],
+					[
+						105729.166666667,
+						-1,
+						"Subtitles",
+						"KEY CHA",
+						""
+					],
+					[
+						105833.333333333,
+						-1,
+						"Subtitles",
+						"KEY CHAA",
+						""
+					],
+					[
+						105937.5,
+						-1,
+						"Subtitles",
+						"KEY CHAAA",
+						""
+					],
+					[
+						106145.833333333,
+						-1,
+						"Subtitles",
+						"KEY CHAAANGE!",
+						""
+					],
+					[
+						106562.5,
+						-1,
+						"Subtitles",
+						"null",
+						""
+					],
+					[
+						106458.333333333,
+						-1,
+						"Cinematics",
+						"0",
+						"0"
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1173,6 +1296,20 @@
 						-1,
 						"Add Camera Zoom",
 						"",
+						""
+					],
+					[
+						106666.666666667,
+						-1,
+						"Flash",
+						"1",
+						""
+					],
+					[
+						106770.833333333,
+						-1,
+						"Change NumZoom",
+						"0.6",
 						""
 					]
 				],
@@ -1592,15 +1729,6 @@
 						""
 					]
 				],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false

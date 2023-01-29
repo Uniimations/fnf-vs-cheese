@@ -34,7 +34,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['KEYBINDS', 'OFFSETS & PREVIEW', 'GAMEPLAY', 'APPEARANCE', 'PERFORMANCE', 'WINDOW', 'ACCESSIBILITY'];
+	var options:Array<String> = ['KEYBINDS', 'GAMEPLAY', 'APPEARANCE', 'PERFORMANCE', 'WINDOW', 'ACCESSIBILITY'];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private static var curSelected:Int = 0;
 	public static var menuBlackShit:FlxSprite;
@@ -128,19 +128,14 @@ class OptionsState extends MusicBeatState
 
 				new FlxTimer().start(0.05, function(tmr:FlxTimer)
 				{
-					if (selected != 'OFFSETS & PREVIEW') {
-						for (item in grpOptions.members) {
-							item.alpha = 0;
-						}
+					for (item in grpOptions.members) {
+						item.alpha = 0;
 					}
 
 					switch(selected)
 					{
 						case 'KEYBINDS':
 							openSubState(new KeybindsSubState());
-
-						case 'OFFSETS & PREVIEW':
-							MusicBeatState.switchState(new OffsetState());
 
 						case 'GAMEPLAY' | 'APPEARANCE' | 'PERFORMANCE' | 'WINDOW' | 'ACCESSIBILITY':
 							openSubState(new SettingsSubState());

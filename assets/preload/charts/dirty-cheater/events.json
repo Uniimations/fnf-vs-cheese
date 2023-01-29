@@ -1,7 +1,7 @@
 {
 	"song": {
 		"speed": 3.1,
-		"player1": "bf-alt",
+		"player1": "bf",
 		"player2": "potionion",
 		"player3": "gf",
 		"notes": [
@@ -343,7 +343,14 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						56903.2258064517,
+						56806.4516129033,
+						-1,
+						"Cheater Event",
+						"2",
+						""
+					],
+					[
+						57000,
 						-1,
 						"Play Animation",
 						"singUPmiss",
@@ -396,11 +403,18 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						64645.1612903226,
+						64741.935483871,
 						-1,
 						"Play Animation",
 						"singDOWNmiss",
 						"1"
+					],
+					[
+						64548.3870967743,
+						-1,
+						"Cheater Event",
+						"3",
+						""
 					]
 				],
 				"bpm": 0,
@@ -708,7 +722,15 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						117290.322580645,
+						-1,
+						"Cheater Event",
+						"4",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -833,7 +855,15 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						130064.516129032,
+						-1,
+						"Cheater Event",
+						"5",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -910,6 +940,13 @@
 						"Spawn Diples",
 						"1",
 						"0"
+					],
+					[
+						142064.516129032,
+						-1,
+						"Cheater Event",
+						"6",
+						""
 					]
 				],
 				"bpm": 0,
@@ -926,9 +963,77 @@
 						-1,
 						"Change Character",
 						"1",
-						"bluecheese"
+						"dc-bluecheese"
+					],
+					[
+						142548.387096774,
+						-1,
+						"Opponent Anim",
+						"1",
+						"3"
+					],
+					[
+						142500,
+						-1,
+						"Cheater Event",
+						"null",
+						"on"
 					]
 				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -939,67 +1044,13 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						144000,
+						154451.612903226,
 						-1,
-						"Opponent Anim",
-						"1",
-						"3"
+						"Cheater Event",
+						"7",
+						""
 					]
 				],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1014,7 +1065,7 @@
 						-1,
 						"Change Character",
 						"1",
-						"avinera-frosted"
+						"dc-avinera"
 					]
 				],
 				"bpm": 0,
@@ -1104,6 +1155,20 @@
 						"Change Character",
 						"1",
 						"potionion"
+					],
+					[
+						168822.580645161,
+						-1,
+						"Cheater Event",
+						"8",
+						""
+					],
+					[
+						169112.903225806,
+						-1,
+						"Cheater Event",
+						"null",
+						"off"
 					]
 				],
 				"bpm": 0,
@@ -1349,6 +1414,68 @@
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [
+					[
+						220258.064516129,
+						-1,
+						"Cheater Event",
+						"9",
+						""
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false

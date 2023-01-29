@@ -37,7 +37,7 @@ class GPUFunctions
 				return BitmapData.fromTexture(tex.texture);
 			}
 		}
-		trace('Creating texture $_cacheKey');
+		//trace('Creating texture $_cacheKey');
 
 		var _bmp = Assets.getBitmapData(path, false);
 		var _texture = FlxG.stage.context3D.createTexture(_bmp.width, _bmp.height, texFormat, optimizeForRender);

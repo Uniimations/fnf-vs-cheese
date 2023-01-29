@@ -222,6 +222,7 @@ class FreeplaySelection extends MusicBeatState
 					addSong('Wifi', 2, 'arsen-fp');
 					addSong('Casual-Duel', 3, 'dansilot-fp');
 				}
+
 			case 'BONUS SONGS':
 				if (FlxG.save.data.beatCream)
 					addSong('CREAM-CHEESE', 0, 'creamcheese');
@@ -247,10 +248,28 @@ class FreeplaySelection extends MusicBeatState
 						addSong(songArray[0], 0, songArray[1]);
 					}
 				}
+
 			case 'UNFAIR SONGS':
 				addSong('Manager-Strike-Back', 0, 'suzuki-fp');
 				addSong('Frosted', 1, 'avinera');
 				addSong('Alter-Ego', 2, 'unii');
+
+			default:
+				var luaSongs = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
+				for (i in 0...luaSongs.length)
+				{
+					if (luaSongs[i] != null && luaSongs[i].length > 0)
+					{
+						var songArray:Array<String> = luaSongs[i].split(":");
+						coolColors.push(Std.parseInt(songArray[2]));
+
+						addSong(songArray[0], 0, songArray[2]);
+					}
+					else
+					{
+						addSong('Restaurante', 0, 'dad');
+					}
+				}
 		}
 
 		grpSongs = new FlxTypedGroup<AlphabetVCR>();

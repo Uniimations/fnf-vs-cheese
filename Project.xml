@@ -42,7 +42,7 @@
 	<define name="UNII_CUSTOM_BUILD" if="debug"/>
 	<define name="WINDOWS_BUILD" if="windows"/>
 	<define name="PLAYTEST_BUILD" if="desktop"/>
-	<define name="TRAILER_BUILD" if="waaaaaaaaaaaaaaaaaaaaaaaa"/>
+	<define name="TRAILER_BUILD" if="debug"/>
 	<!--WHAT!
 		
 		don't question it ok

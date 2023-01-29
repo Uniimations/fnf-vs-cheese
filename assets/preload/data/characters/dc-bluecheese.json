@@ -3,7 +3,7 @@
 		{
 			"offsets": [
 				0,
-				0
+				-1
 			],
 			"loop": false,
 			"anim": "idle",
@@ -13,8 +13,8 @@
 		},
 		{
 			"offsets": [
-				-157,
-				-45
+				160,
+				-17
 			],
 			"loop": false,
 			"anim": "singLEFT",
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				-164,
-				-55
+				7,
+				-11
 			],
 			"loop": false,
 			"anim": "singRIGHT",
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				-158,
-				-34
+				64,
+				19
 			],
 			"loop": false,
 			"anim": "singUP",
@@ -46,76 +46,21 @@
 		},
 		{
 			"offsets": [
-				-162,
-				-65
+				-7,
+				-60
 			],
 			"loop": false,
 			"anim": "singDOWN",
 			"fps": 24,
 			"name": "cheese down",
 			"indices": []
-		},
-		{
-			"offsets": [
-				-164,
-				-44
-			],
-			"loop": false,
-			"fps": 30,
-			"anim": "freestyle",
-			"indices": [],
-			"name": "cheese freestyle"
-		},
-		{
-			"offsets": [
-				-153,
-				-38
-			],
-			"loop": false,
-			"fps": 30,
-			"anim": "pog",
-			"indices": [],
-			"name": "cheese pog"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-159,
-				-43
-			],
-			"anim": "keychange",
-			"fps": 30,
-			"name": "cheese keychange",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-160,
-				-40
-			],
-			"anim": "cultured",
-			"fps": 30,
-			"name": "cheese cultured",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				-164,
-				-44
-			],
-			"anim": "yo",
-			"fps": 30,
-			"name": "cheese yo",
-			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/Cheese_Assets",
+	"image": "characters/secret/dirty_cheeser",
 	"position": [
-		470,
-		140
+		170,
+		310
 	],
 	"healthicon": "bluecheese",
 	"flip_x": false,

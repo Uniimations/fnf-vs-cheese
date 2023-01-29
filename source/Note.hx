@@ -86,11 +86,15 @@ class Note extends FlxSprite
 				case 5 | 6 | 8: // DAD NOTE
 					reloadNote('noteskins/NOTE_assets' + UniiStringTools.noteSkinSuffix(PlayState.SONG.player2));
 
-				case 10 | 11 | 12 | 15: // INVISIBLE
-					reloadNote('noteskins/NOTE_comic');
+				case 10 | 11 | 12 | 16: // INVISIBLE
+					visible = false; //reloadNote('noteskins/NOTE_comic'); NO. u can make it not load new assets :D
 
 				case 14:
 					customFunctions = true;
+
+				case 15:
+					customFunctions = true;
+					visible = false;
 			}
 			noteType = value;
 		}
@@ -125,9 +129,6 @@ class Note extends FlxSprite
 
 		this.noteData = noteData;
 
-		frames = Paths.getSparrowAtlas(noteSkin, null, true);
-		loadNoteAnims();
-
 		if(noteData > -1)
 		{
 			x += swagWidth * (noteData % 4);
@@ -149,8 +150,8 @@ class Note extends FlxSprite
 
 		if (isSustainNote && prevNote != null)
 		{
-			alpha = 0.6;
-			multAlpha = 0.6;
+			alpha = 0.75;
+			multAlpha = 0.75;
 			if(ClientPrefs.downScroll) flipY = true;
 
 			offsetX += width / 2;
@@ -209,9 +210,13 @@ class Note extends FlxSprite
 		}
 
 		frames = Paths.getSparrowAtlas(newSkin, null);
-
 		loadNoteAnims();
-		animation.play(animName, true);
+		antialiasing = ClientPrefs.globalAntialiasing;
+
+		updateHitbox();
+
+		if(animName != null) //FINALLY A FIX FOR THE NULL REFERENCE OMG!
+			animation.play(animName, true);
 
 		if(inEditor) {
 			setGraphicSize(ChartingState.GRID_SIZE, ChartingState.GRID_SIZE);
@@ -250,32 +255,30 @@ class Note extends FlxSprite
 		switch (ClientPrefs.inputSystem)
 		{
 			case "Kade Engine":
+				if (isSustainNote)
+				{
+					if (strumTime > Conductor.songPosition - (PlayState.safeZoneOffset * 1.5)
+						&& strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
+						canBeHit = true;
+					else
+						canBeHit = false;
+				}
+				else
+				{
+					if (strumTime > Conductor.songPosition - PlayState.safeZoneOffset
+						&& strumTime < Conductor.songPosition + PlayState.safeZoneOffset)
+						canBeHit = true;
+					else
+						canBeHit = false;
+				}
+
 				if (mustPress)
 				{
-					if (isSustainNote)
-					{
-						if (strumTime > Conductor.songPosition - (PlayState.safeZoneOffset * 1.5)
-							&& strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
-							canBeHit = true;
-						else
-							canBeHit = false;
-					}
-					else
-					{
-						if (strumTime > Conductor.songPosition - PlayState.safeZoneOffset
-							&& strumTime < Conductor.songPosition + PlayState.safeZoneOffset)
-							canBeHit = true;
-						else
-							canBeHit = false;
-					}
-
 					if (strumTime < Conductor.songPosition - PlayState.safeZoneOffset * PlayState.safeZoneOffset / 166 && !wasGoodHit)
 						tooLate = true;
 				}
 				else
 				{
-					canBeHit = false;
-
 					if (strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
 					{
 						// fixes botplay going above strumline // worth noting that above the strumline represents music desync. 
@@ -290,22 +293,20 @@ class Note extends FlxSprite
 						alpha = 0.3;
 				}
 			case "Psych Engine" | "Vanilla":
+				// The * 0.5 is so that it's easier to hit them too late, instead of too early
+				if (strumTime > Conductor.songPosition - PlayState.safeZoneOffset
+					&& strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
+					canBeHit = true;
+				else
+					canBeHit = false;
+
 				if (mustPress)
 				{
-					// The * 0.5 is so that it's easier to hit them too late, instead of too early
-					if (strumTime > Conductor.songPosition - PlayState.safeZoneOffset
-						&& strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
-						canBeHit = true;
-					else
-						canBeHit = false;
-
 					if (strumTime < Conductor.songPosition - PlayState.safeZoneOffset && !wasGoodHit)
 						tooLate = true;
 				}
 				else
 				{
-					canBeHit = false;
-
 					if (strumTime < Conductor.songPosition + (PlayState.safeZoneOffset * 0.5))
 					{
 						// fixes botplay going above strumline // worth noting that above the strumline represents music desync. 

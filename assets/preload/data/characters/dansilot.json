@@ -13,8 +13,8 @@
 		},
 		{
 			"offsets": [
-				34,
-				-11
+				50,
+				-10
 			],
 			"loop": false,
 			"fps": 24,
@@ -24,8 +24,8 @@
 		},
 		{
 			"offsets": [
-				-64,
-				-41
+				-60,
+				-37
 			],
 			"loop": false,
 			"fps": 24,
@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				16,
-				-23
+				18,
+				-17
 			],
 			"loop": false,
 			"fps": 24,
@@ -46,8 +46,8 @@
 		},
 		{
 			"offsets": [
-				-51,
-				6
+				-52,
+				7
 			],
 			"loop": false,
 			"fps": 24,
@@ -57,7 +57,7 @@
 		},
 		{
 			"offsets": [
-				-19,
+				-18,
 				136
 			],
 			"loop": false,
@@ -65,6 +65,17 @@
 			"anim": "singGLOBALmiss",
 			"indices": [],
 			"name": "dani miss"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				10,
+				75
+			],
+			"anim": "keychange",
+			"fps": 24,
+			"name": "dani key change",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
