@@ -2,34 +2,19 @@
 <TextureAtlas imagePath="avinera_counter.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="avinera counter0000" x="0" y="0" width="375" height="819" frameX="-12" frameY="-36" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0001" x="0" y="0" width="375" height="819" frameX="-12" frameY="-36" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0002" x="405" y="0" width="374" height="823" frameX="-14" frameY="-32" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0003" x="405" y="0" width="374" height="823" frameX="-14" frameY="-32" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0004" x="809" y="0" width="380" height="843" frameX="-4" frameY="-12" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0005" x="809" y="0" width="380" height="843" frameX="-4" frameY="-12" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0006" x="1219" y="0" width="384" height="854" frameX="0" frameY="-1" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0007" x="1219" y="0" width="384" height="854" frameX="0" frameY="-1" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0008" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0009" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0010" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0011" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0012" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0013" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0014" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0015" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0016" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0017" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0018" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0019" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0020" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0021" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0022" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0023" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0024" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0025" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0026" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0027" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0028" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
-	<SubTexture name="avinera counter0029" x="1633" y="0" width="383" height="855" frameX="-1" frameY="0" frameWidth="388" frameHeight="855"/>
+	<SubTexture name="avinera counter0000" x="0" y="0" width="383" height="827" frameX="-9" frameY="-28" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0001" x="0" y="0" width="383" height="827" frameX="-9" frameY="-28" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0002" x="393" y="0" width="382" height="823" frameX="-11" frameY="-32" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0003" x="393" y="0" width="382" height="823" frameX="-11" frameY="-32" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0004" x="785" y="0" width="386" height="843" frameX="-3" frameY="-12" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0005" x="785" y="0" width="386" height="843" frameX="-3" frameY="-12" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0006" x="1181" y="0" width="388" height="854" frameX="-1" frameY="-1" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0007" x="1181" y="0" width="388" height="854" frameX="-1" frameY="-1" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0008" x="1579" y="0" width="389" height="855" frameX="0" frameY="0" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0009" x="1579" y="0" width="389" height="855" frameX="0" frameY="0" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0010" x="1579" y="0" width="389" height="855" frameX="0" frameY="0" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0011" x="1579" y="0" width="389" height="855" frameX="0" frameY="0" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0012" x="1579" y="0" width="389" height="855" frameX="0" frameY="0" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0013" x="1579" y="0" width="389" height="855" frameX="0" frameY="0" frameWidth="393" frameHeight="855"/>
+	<SubTexture name="avinera counter0014" x="1579" y="0" width="389" height="855" frameX="0" frameY="0" frameWidth="393" frameHeight="855"/>
 </TextureAtlas>

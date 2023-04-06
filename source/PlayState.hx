@@ -550,7 +550,7 @@ class PlayState extends MusicBeatState
 					var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
 
 					var tSideMod:BGSprite = new BGSprite('cheese/t-side_mod', 1288.35, 279.9, 1, 1);
-					var tableA:BGSprite = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
+					var tableA:BGSprite = new BGSprite('cheese/char/cream_table', 1966.5, 283.05, 1, 1);
 					var tableB:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
 
 					var stickmin = new BGSprite('cheese/char/stickmin', 1855.55, 49.9, 1, 1, ['henry']);
@@ -584,8 +584,8 @@ class PlayState extends MusicBeatState
 					var floor:BGSprite = new BGSprite('cheese/floor_week2', -377.9, -146.4, 1, 1);
 					var tableForDeltarune:BGSprite = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
 
-					var funGang:BGSprite = new BGSprite('cheese/char/fun_gang_latest', 1307.25, 79.25, 1, 1, ['fungang boppy']);
-					grpCustomTableBoppers.add(funGang);
+					var dreamWorld:BGSprite = new BGSprite('cheese/char/omori_bopers', 1307.25, 79.25, 1, 1, ['omori']);
+					grpCustomTableBoppers.add(dreamWorld);
 
 					var sussyArgument:BGSprite = new BGSprite('cheese/char/sussy_table', 1967.65, 48.05, 1, 1, ['SUSSY TABLE']);
 					grpCustomTableBoppers.add(sussyArgument);
@@ -1155,7 +1155,7 @@ class PlayState extends MusicBeatState
 
 		switch (songLowercase)
 		{
-			case 'cream-cheese':
+			case 'cream-cheese' | 'dot-lua' | '.lua':
 				songArtist = 'Ghostoru';
 			case 'i-still-have-to-think-about-it':
 				songArtist = 'breadiboyo';
@@ -2457,7 +2457,7 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		// YOU CAN NOW PAUSE WITH THE PAUSE KEYBIND!!! (idk why this wasnt added sooner)
-		if (controls.PAUSE && !paused)
+		if (controls.PAUSE && !paused && startedCountdown)
 		{
 			var ret:Dynamic = callOnLuas('onPause', [], false);
 			if(ret != FunkinLua.Function_Stop) {
@@ -3930,6 +3930,11 @@ class PlayState extends MusicBeatState
 						subTxt.text = "";
 					else
 						subTxt.text = value1;
+
+				case 'Casual Time':
+					FlxTween.num(trueLength, casualTime[Std.parseInt(value1)], 2, {ease: FlxEase.circOut}, function (x:Float) {
+						trueLength = x;
+					});
 			}
 			callOnLuas('onEvent', [eventName, value1, value2]);
 		}
@@ -5474,6 +5479,7 @@ class PlayState extends MusicBeatState
 						introGo();
 				}
 
+			/*
 			case 'casual-duel':
 				// OH MY GOSH IM A GENIUS
 				switch (curBeat)
@@ -5487,6 +5493,7 @@ class PlayState extends MusicBeatState
 							trueLength = x;
 						});
 				}
+			*/
 
 			case 'dynamic-duo':
 				switch (curBeat)

@@ -102,7 +102,8 @@ class ChartingState extends MusicBeatState
 		['Cinematics', "Tween in black bars.\nValue 1: Black bars\nValue 2: HUD fade\n1 = on, 0 = off"],
 		['Subtitles', "White subtitle text at the bottom.\nValue 1: text\nIf you type \"null\" into Value1 it will reset."],
 		['Spawn Diples', "Spawns Diple In Dirt."],
-		['Cheater Event', "The song info thingie idk.\nValue 1: Animation to play\nValue 2: Dirty Chair..."]
+		['Cheater Event', "The song info thingie idk.\nValue 1: Animation to play\nValue 2: Dirty Chair..."],
+		['Casual Time', "Set casualTime array in Casual duel.\nValue 1: casualTime variable"]
 	];
 
 	var dfc:CoolUtil;

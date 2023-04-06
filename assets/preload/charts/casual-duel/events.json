@@ -582,17 +582,52 @@
 				"typeOfSection": 0,
 				"sectionNotes": [
 					[
-						72083.3333333333,
+						71666.6666666666,
+						-1,
+						"Play Animation",
+						"pocket",
+						"1"
+					],
+					[
+						71770.8333333333,
+						-1,
+						"Change NumZoom",
+						"0.9",
+						""
+					],
+					[
+						72500,
 						-1,
 						"Add Camera Zoom",
-						"",
+						"0.050",
+						""
+					],
+					[
+						72708.3333333333,
+						-1,
+						"Add Camera Zoom",
+						"0.050",
 						""
 					],
 					[
 						72916.6666666666,
 						-1,
 						"Add Camera Zoom",
-						"",
+						"0.050",
+						""
+					],
+					[
+						73125,
+						-1,
+						"Add Camera Zoom",
+						"0.050",
+						""
+					],
+					[
+						72395.8333333333,
+						-1,
+						"Change NumZoom",
+						"0.95",
 						""
 					]
 				],
@@ -616,6 +651,13 @@
 						73333.3333333333,
 						-1,
 						"Flash",
+						"1",
+						""
+					],
+					[
+						73385.4166666666,
+						-1,
+						"Casual Time",
 						"1",
 						""
 					]
@@ -754,6 +796,13 @@
 						-1,
 						"Add Camera Zoom",
 						"",
+						""
+					],
+					[
+						93385.4166666667,
+						-1,
+						"Casual Time",
+						"2",
 						""
 					]
 				],
@@ -1729,6 +1778,15 @@
 						""
 					]
 				],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false

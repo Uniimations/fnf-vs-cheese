@@ -2,18 +2,18 @@
 <TextureAtlas imagePath="crowdindie_big.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="crowdindie bop0000" x="0" y="0" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0001" x="0" y="0" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0002" x="0" y="676" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0003" x="0" y="676" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0004" x="0" y="1352" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0005" x="0" y="1352" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0006" x="0" y="2028" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0007" x="0" y="2028" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0008" x="0" y="2028" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0009" x="0" y="2028" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0010" x="0" y="2028" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0011" x="0" y="2028" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0012" x="0" y="2028" width="2329" height="626"/>
-	<SubTexture name="crowdindie bop0013" x="0" y="2028" width="2329" height="626"/>
+	<SubTexture name="crowdindie bop0000" x="0" y="0" width="2644" height="1005" frameX="0" frameY="-8" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0001" x="0" y="0" width="2644" height="1005" frameX="0" frameY="-8" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0002" x="0" y="1015" width="2637" height="1006" frameX="-3" frameY="-7" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0003" x="0" y="1015" width="2637" height="1006" frameX="-3" frameY="-7" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0004" x="0" y="2031" width="2627" height="1014" frameX="-7" frameY="-2" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0005" x="0" y="2031" width="2627" height="1014" frameX="-7" frameY="-2" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0006" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0007" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0008" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0009" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0010" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0011" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0012" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
+	<SubTexture name="crowdindie bop0013" x="0" y="3055" width="2625" height="1018" frameX="-8" frameY="0" frameWidth="2644" frameHeight="1018"/>
 </TextureAtlas>

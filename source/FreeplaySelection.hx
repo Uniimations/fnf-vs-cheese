@@ -236,8 +236,20 @@ class FreeplaySelection extends MusicBeatState
 
 				if (FlxG.save.data.beatOnion) {
 					addSong('DIRTY-CHEATER', 3, 'onion');
+					
+					var initSonglist = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
+					for (i in 0...initSonglist.length)
+					{
+						if(initSonglist[i] != null && initSonglist[i].length > 0) {
+							var songArray:Array<String> = initSonglist[i].split(":");
+							coolColors.push(Std.parseInt(songArray[2]));
+	
+							addSong(songArray[0], 0, songArray[1]);
+						}
+					}
 				}
 
+				/*
 				var initSonglist = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
 				for (i in 0...initSonglist.length)
 				{
@@ -248,6 +260,7 @@ class FreeplaySelection extends MusicBeatState
 						addSong(songArray[0], 0, songArray[1]);
 					}
 				}
+				*/
 
 			case 'UNFAIR SONGS':
 				addSong('Manager-Strike-Back', 0, 'suzuki-fp');

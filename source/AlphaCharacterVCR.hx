@@ -53,7 +53,7 @@ class AlphaCharacterVCR extends FlxSprite
 		switch (letter)
 		{
 			case '.':
-				animation.addByPrefix(letter, 'PERIOD bold', 24);
+				animation.addByPrefix(letter, 'period', 24);
 			case "'":
 				animation.addByPrefix(letter, 'APOSTRAPHIE bold', 24);
 			case "?":

@@ -35,8 +35,8 @@
 		},
 		{
 			"offsets": [
-				18,
-				-17
+				15,
+				-13
 			],
 			"loop": false,
 			"fps": 24,
@@ -46,8 +46,8 @@
 		},
 		{
 			"offsets": [
-				-52,
-				7
+				-55,
+				10
 			],
 			"loop": false,
 			"fps": 24,
@@ -57,8 +57,8 @@
 		},
 		{
 			"offsets": [
-				-18,
-				136
+				-11,
+				138
 			],
 			"loop": false,
 			"fps": 24,
@@ -76,6 +76,61 @@
 			"fps": 24,
 			"name": "dani key change",
 			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				131,
+				-5
+			],
+			"anim": "pocket",
+			"fps": 24,
+			"name": "dani pocket",
+			"indices": []
+		},
+		{
+			"offsets": [
+				55,
+				-10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "watch left"
+		},
+		{
+			"offsets": [
+				-60,
+				-37
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "watch down"
+		},
+		{
+			"offsets": [
+				8,
+				-13
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "watch up"
+		},
+		{
+			"offsets": [
+				-62,
+				10
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "watch right"
 		}
 	],
 	"no_antialiasing": false,

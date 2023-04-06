@@ -435,9 +435,6 @@
 	<SubTexture name="p  lowercase0002" x="848" y="378" width="28" height="43"/>
 	<SubTexture name="p  lowercase0003" x="848" y="378" width="28" height="43"/>
 	<SubTexture name="period0000" x="876" y="378" width="14" height="14"/>
-	<SubTexture name="period0001" x="876" y="378" width="14" height="14"/>
-	<SubTexture name="period0002" x="890" y="378" width="14" height="14"/>
-	<SubTexture name="period0003" x="890" y="378" width="14" height="14"/>
 	<SubTexture name="q  lowercase0000" x="904" y="378" width="36" height="43"/>
 	<SubTexture name="q  lowercase0001" x="904" y="378" width="36" height="43"/>
 	<SubTexture name="q  lowercase0002" x="940" y="378" width="36" height="43"/>
