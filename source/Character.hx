@@ -226,6 +226,7 @@ class Character extends FlxSprite
 	 */
 	public function dance(?forced:Bool = false):Void
 	{
+		recalculateDanceIdle();
 		if (!debugMode && !specialAnim)
 		{
 			if(danceIdle)

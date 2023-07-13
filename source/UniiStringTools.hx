@@ -17,7 +17,7 @@ using StringTools;
 
 /**
  * this isnt only used for string tools i lied :3 
- * hehe x3
+ * hehe
  * @author uniimations
  */
 

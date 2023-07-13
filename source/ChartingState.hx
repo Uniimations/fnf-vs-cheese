@@ -355,7 +355,7 @@ class ChartingState extends MusicBeatState
 
 		var potionion:FlxSprite;
 
-		potionion = new FlxSprite(975, 420);
+		potionion = new FlxSprite(975, 480); // 420
 		potionion.frames = Paths.getSparrowAtlas('characters/secret/Who_Could_IT_BE_Knocking_At_MY_DOR');
 		potionion.animation.addByPrefix('idle', 'the otion', 24, true);
 		potionion.setGraphicSize(Std.int(potionion.width * 0.6));

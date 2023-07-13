@@ -515,6 +515,29 @@ class PlayState extends MusicBeatState
 
 					comboOffset = [430, -550];
 
+				case 'restaurante-classic' | 'milkshake-classic':
+					curStage = 'restaurantOld';
+
+					defaultCamZoom = 0.60;
+					staticCamZoom = 0.60;
+
+					var floor:BGSprite = new BGSprite('cheese/old/bedrock', -1262.95, -138.7, 0.9, 0.9);
+					var doot = new BGSprite('cheese/old/doot', 1276.65, 154.1, 0.9, 0.9, ['doot']);
+					var tableA = new BGSprite('cheese/old/sit', 1918.1, 282.15, 0.9, 0.9);
+					var tableB = new BGSprite('cheese/old/UHM', 1664.95, 581.65, 0.9, 0.9);
+					var REEboy = new BGSprite('cheese/old/SUSSY_IMPOSER', -358.25, -142.2, 0.9, 0.9, ['wall'], true);
+
+					frontBoppers = new BGSprite('cheese/old/spectator_mode', 256.6, 1069.85, 0.9, 0.9, ['spectator mode']);
+					counter = new BGSprite('cheese/old/counter', 232.35, 403.25, 1, 1);
+
+					add(floor);
+					add(doot);
+					add(tableA);
+					add(tableB);
+					add(REEboy);
+
+					comboOffset = [430, -550];
+
 				case 'cream-cheese':
 					curStage = 'restauranteCream';
 
@@ -942,25 +965,31 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (curStage == 'restauranteDynamic')
+		switch (curStage)
 		{
-			arsenTriangle = new Character(DAD_X, DAD_Y, 'comic-arsen');
-			arsenTriangle.x += -210;
-			arsenTriangle.y += 80;
-			arsenTriangle.scrollFactor.set(0, 0);
-			arsenTriangle.alpha = 0;
-
-			daniTriangle = new Boyfriend(BF_X, BF_Y, 'comic-dansilot');
-			daniTriangle.x += -80;
-			daniTriangle.y += 100;
-			daniTriangle.scrollFactor.set(0, 0);
-			daniTriangle.alpha = 0;
-
-			arsenTriangle.cameras = [camHUD];
-			daniTriangle.cameras = [camHUD];
-
-			add(arsenTriangle);
-			add(daniTriangle);
+			case 'restauranteOld':
+				boyfriend.x = 1168.2;
+				boyfriend.y = 714.4;
+				gf.x = 1602.1;
+				gf.y = 399.35;
+			case 'restauranteDynamic':
+				arsenTriangle = new Character(DAD_X, DAD_Y, 'comic-arsen');
+				arsenTriangle.x += -210;
+				arsenTriangle.y += 80;
+				arsenTriangle.scrollFactor.set(0, 0);
+				arsenTriangle.alpha = 0;
+	
+				daniTriangle = new Boyfriend(BF_X, BF_Y, 'comic-dansilot');
+				daniTriangle.x += -80;
+				daniTriangle.y += 100;
+				daniTriangle.scrollFactor.set(0, 0);
+				daniTriangle.alpha = 0;
+	
+				arsenTriangle.cameras = [camHUD];
+				daniTriangle.cameras = [camHUD];
+	
+				add(arsenTriangle);
+				add(daniTriangle);
 		}
 
 		var camPos:FlxPoint;
@@ -1776,7 +1805,7 @@ class PlayState extends MusicBeatState
 			#if WINDOWS_BUILD
 			if (songLowercase == songName)
 			{
-				var video:VideoMP4State = new VideoMP4State();
+				var video:VideoMP4 = new VideoMP4();
 
 				hasMP4 = true;
 				video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
@@ -1794,7 +1823,7 @@ class PlayState extends MusicBeatState
 			if (songLowercase == songName)
 			{
 				#if WINDOWS_BUILD
-				var video:VideoMP4State = new VideoMP4State();
+				var video:VideoMP4 = new VideoMP4();
 
 				video.playMP4(Paths.video('mp4/' + videoName + '/' + videoName));
 				video.finishCallback = function()
@@ -2512,10 +2541,11 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			//Conductor.songPosition += FlxG.elapsed * 1000;
+			Conductor.songPosition += FlxG.elapsed * 1000;
 
 			/* Freestyle Music Resync Ported to hell engine */ // im watching you uni
             // Fixes Desync caused by inconsistent FPS also resyncs faster than onStep// 
+			/*
             if (FlxG.sound.music != null && FlxG.sound.music.playing) {
                 var currentTime = FlxG.sound.music.time/1000; // get currentTime
                 Conductor.interpTime += elapsed; // increment Elasped
@@ -2526,6 +2556,9 @@ class PlayState extends MusicBeatState
                 }
                 Conductor.songPosition = Conductor.interpTime * 1000; // increment Conductor.
             }
+			*/
+
+			// RAPPER GF'S CODE IS BUGGY FOR THIS VERSION OF THE ENGINE SO I WILL HOLD ON IT FOR NOW!
 
 			if (!paused)
 			{
@@ -3257,9 +3290,12 @@ class PlayState extends MusicBeatState
 							camHudZoom = newHUDzoom;
 						}
 
+						/*	NOT IMPORTANT STUFFS!!
+
 						trace(camPercentFloat);
 						trace(camGameZoom);
 						trace(camHudZoom);
+						*/
 					}
 
 				case 'Play Animation':
@@ -6283,6 +6319,13 @@ class PlayState extends MusicBeatState
 						add(counter);
 						add(littleMan);
 						add(phillyCounter);
+						add(boyfriendGroup);
+						add(frontBoppers);
+
+					case 'restaurantOld':
+						add(gfGroup);
+						add(dadGroup);
+						add(counter);
 						add(boyfriendGroup);
 						add(frontBoppers);
 

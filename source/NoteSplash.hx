@@ -25,9 +25,7 @@ class NoteSplash extends FlxSprite
 
 	public function setupNoteSplash(x:Float, y:Float, note:Int = 0, noteType:Int = 0)
 	{
-		setGraphicSize(200);
-		setPosition(x - Note.swagWidth * 0.95, y - Note.swagWidth);
-
+		/*
 		if(lastNoteType != noteType)
 		{
 			switch(noteType)
@@ -42,22 +40,16 @@ class NoteSplash extends FlxSprite
 			}
 			lastNoteType = noteType;
 		}
+		*/
+		loadAnims('note-splash-skins/NOTE_splashes'); // temporary fix to test note splashess!
 
-		var animNum:Int = FlxG.random.int(1, 2);
+		setGraphicSize(200);
+		setPosition(x - Note.swagWidth * 0.95 + 55, y - Note.swagWidth + 60);
+		alpha = 0.7;
 
-		// they have different offsets.. ugh
-		// OFFSETS !! FIXED
-		switch (animNum)
-		{
-			case 1:
-				offset.set(-10, -20);
-				alpha = 0.6;
-			case 2:
-				offset.set(0, -8);
-				alpha = 0.8;
-		}
-
-		animation.play('note' + note + '-' + animNum, true);
+		animation.play('note' + note + '-' + FlxG.random.int(1, 2), true);
+		animation.curAnim.frameRate += FlxG.random.int(-2, 2);
+		updateHitbox();
 	}
 
 	function loadAnims(skin:String)
@@ -65,10 +57,10 @@ class NoteSplash extends FlxSprite
 		frames = Paths.getSparrowAtlas(skin);
 
 		for (i in 1...3) {
-			animation.addByPrefix("note1-" + i, "note splash blue " + i, 18, false);
-			animation.addByPrefix("note2-" + i, "note splash green " + i, 18, false);
-			animation.addByPrefix("note0-" + i, "note splash purple " + i, 18, false);
-			animation.addByPrefix("note3-" + i, "note splash red " + i, 18, false);
+			animation.addByPrefix("note1-" + i, "BLUE splash " + i, 14, false);
+			animation.addByPrefix("note2-" + i, "GREEN splash " + i, 14, false);
+			animation.addByPrefix("note0-" + i, "PURPLE splash " + i, 14, false);
+			animation.addByPrefix("note3-" + i, "RED splash " + i, 14, false);
 		}
 	}
 

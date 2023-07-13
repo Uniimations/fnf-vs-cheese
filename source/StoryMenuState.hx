@@ -645,7 +645,7 @@ class StoryMenuState extends MusicBeatState
 		#if WINDOWS_BUILD
 		if (curWeek == weekNum && !PlayState.isCutscene)
 		{
-			var video:VideoMP4State = new VideoMP4State();
+			var video:VideoMP4 = new VideoMP4();
 
 			new FlxTimer().start(1.2, function(tmr:FlxTimer)
 			{

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="cheesebone.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bop0000" x="10" y="10" width="446" height="585"/>
+	<SubTexture name="bop0001" x="10" y="10" width="446" height="585"/>
+	<SubTexture name="bop0002" x="486" y="10" width="446" height="585"/>
+	<SubTexture name="bop0003" x="486" y="10" width="446" height="585"/>
+	<SubTexture name="down0000" x="962" y="10" width="446" height="585"/>
+	<SubTexture name="down0001" x="962" y="10" width="446" height="585"/>
+	<SubTexture name="down0002" x="1438" y="10" width="446" height="585"/>
+	<SubTexture name="down0003" x="1438" y="10" width="446" height="585"/>
+	<SubTexture name="left0000" x="10" y="625" width="446" height="585"/>
+	<SubTexture name="left0001" x="10" y="625" width="446" height="585"/>
+	<SubTexture name="left0002" x="486" y="625" width="446" height="585"/>
+	<SubTexture name="left0003" x="486" y="625" width="446" height="585"/>
+	<SubTexture name="right0000" x="962" y="625" width="446" height="585"/>
+	<SubTexture name="right0001" x="962" y="625" width="446" height="585"/>
+	<SubTexture name="right0002" x="1438" y="625" width="446" height="585"/>
+	<SubTexture name="right0003" x="1438" y="625" width="446" height="585"/>
+	<SubTexture name="up0000" x="10" y="1240" width="446" height="585"/>
+	<SubTexture name="up0001" x="10" y="1240" width="446" height="585"/>
+	<SubTexture name="up0002" x="486" y="1240" width="446" height="585"/>
+	<SubTexture name="up0003" x="486" y="1240" width="446" height="585"/>
+</TextureAtlas>

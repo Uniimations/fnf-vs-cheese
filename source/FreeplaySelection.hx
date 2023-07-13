@@ -225,17 +225,22 @@ class FreeplaySelection extends MusicBeatState
 
 			case 'BONUS SONGS':
 				if (FlxG.save.data.beatCream)
-					addSong('CREAM-CHEESE', 0, 'creamcheese');
+					addSong('CREAM-CHEESE', 2, 'creamcheese');
 				else
-					addSong('???', 0, 'creamcheese-fp');
+					addSong('???', 2, 'creamcheese-fp');
+
+				addSong('Restaurante-Classic', 1, 'bluecheese');
+				// ADD THESE WHEN SONGS ARE MADE FOR THEM !!!!!!!!!!!!! WOHOO YOPEE
+				addSong('Milkshake-Classic', 1, 'bluecheese');
+				addSong('Cultured-Classic', 1, 'bluecheese');
 
 				if (FlxG.save.data.beatWeekEnding) {
-					addSong('Dynamic-Duo', 1, 'uniinera-fp');
-					addSong('Below-Zero', 2, 'avinera');
+					addSong('Dynamic-Duo', 3, 'uniinera-fp');
+					addSong('Below-Zero', 4, 'avinera');
 				}
 
 				if (FlxG.save.data.beatOnion) {
-					addSong('DIRTY-CHEATER', 3, 'onion');
+					addSong('DIRTY-CHEATER', 5, 'onion');
 					
 					var initSonglist = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
 					for (i in 0...initSonglist.length)

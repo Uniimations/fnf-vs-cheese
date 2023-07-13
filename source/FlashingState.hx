@@ -41,7 +41,7 @@ class FlashingState extends MusicBeatState
 		*/
 
 		bg = new FlxSprite(0, 0);
-		bg.loadGraphic(Paths.image('startupWarning'));
+		bg.loadGraphic(Paths.image('settingsmenu/menuOptions'));
 		bg.scrollFactor.set();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
