@@ -123,6 +123,7 @@ class PlayState extends MusicBeatState
 	public static var skippedDialogue:Bool = false;
 
 	public var vocals:FlxSound;
+	public var vocalsFinished:Bool = false;
 
 	public var dad:Character;
 	public var dad2:Character;
@@ -220,7 +221,11 @@ class PlayState extends MusicBeatState
 	var grpCustomTableBoppers:FlxTypedGroup<BGSprite>;
 
 	var bagelSinging:Bool = false;
+	var cheeseboneSinging = false;
 	var bagel:BGSprite;
+	var cheesebone:BGSprite;
+	var cheeseboneAnimNotes:Array<Dynamic> = [];
+
 	var dansilot:BGSprite;
 	var avineraCasualDuel:BGSprite;
 	var wallLeft:BGSprite;
@@ -322,10 +327,6 @@ class PlayState extends MusicBeatState
 	public var luaArray:Array<FunkinLua> = [];
 	private var luaDebugGroup:FlxTypedGroup<DebugLuaText>;
 
-	// Lua shit
-	public var backgroundGroup:FlxTypedGroup<FlxSprite>;
-	public var foregroundGroup:FlxTypedGroup<FlxSprite>;
-
 	override public function create()
 	{
 		FlxGraphic.defaultPersist = false; // set graphics to not persist to clear everything from last create call
@@ -361,8 +362,6 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.add(camOther);
 
 		safeZoneOffset = (ClientPrefs.safeFrames / 60) * 1000;
-
-		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
 
 		if (cutsceneShit) {
 			camHUD.visible = false;
@@ -515,7 +514,7 @@ class PlayState extends MusicBeatState
 
 					comboOffset = [430, -550];
 
-				case 'restaurante-classic' | 'milkshake-classic':
+				case 'restaurante-classic' | 'milkshake-classic' | 'cultured-classic':
 					curStage = 'restaurantOld';
 
 					defaultCamZoom = 0.60;
@@ -545,10 +544,12 @@ class PlayState extends MusicBeatState
 					staticCamZoom = 0.60;
 
 					var floor:BGSprite = new BGSprite('bonus/cream/floor', -377.9, -146.4, 1, 1);
-					var tables:BGSprite = new BGSprite('bonus/cream/tables', 1287.4, 278.65, 1, 1);
+					var tables:BGSprite = new BGSprite('bonus/cream/tables', 1964.4, 283.4, 1, 1);
 					var suzuki:BGSprite = new BGSprite('bonus/cream/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
 
-					bagel = new BGSprite('bonus/cream/ice_cream', 1962, 74, 1, 1, ['ice creamed bageled', 'ice cream change'], false);
+					bagel = new BGSprite('bonus/cream/ice_cream', 1965, 80, 1, 1, ['ice creamed bageled', 'ice cream change'], false);
+					cheesebone = new BGSprite('bonus/cream/cheesebone', 1283, -86, 1, 1, ['bop', 'left', 'down', 'up', 'right'], false);
+					UniiStringTools.loadMappedAnims(cheeseboneAnimNotes, 'cheesebone', 'cream-cheese');
 
 					counter = new BGSprite('bonus/cream/counter', 232.35, 403.25, 1, 1, ['counter bop'], false, 12);
 
@@ -558,6 +559,7 @@ class PlayState extends MusicBeatState
 
 					add(floor);
 					add(bagel);
+					add(cheesebone);
 					add(tables);
 					add(suzuki);
 					add(phillyBlack);
@@ -855,8 +857,6 @@ class PlayState extends MusicBeatState
 			add(blackBarBottom);
 			add(subTxt);
 		}
-		backgroundGroup = new FlxTypedGroup<FlxSprite>();
-		add(backgroundGroup);
 
 		var bfType:String = '';
 		if(!ClientPrefs.bfreskin) {
@@ -1090,14 +1090,16 @@ class PlayState extends MusicBeatState
 
 		strumLineNotes = new FlxTypedGroup<StrumNote>();
 		add(strumLineNotes);
-		add(grpNoteSplashes);
 
-		if (ClientPrefs.noteSplashes)
-		{
-			var splash:NoteSplash = new NoteSplash(100, 100, 0);
-			grpNoteSplashes.add(splash);
-			splash.alpha = 0.0;
-		}
+		// fake notesplash cache type deal so that it loads in the graphic?
+
+		grpNoteSplashes = new FlxTypedGroup<NoteSplash>();
+
+		var noteSplash:NoteSplash = new NoteSplash(100, 100, 0);
+		grpNoteSplashes.add(noteSplash);
+		noteSplash.alpha = 0.1;
+
+		add(grpNoteSplashes);
 
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
@@ -1968,7 +1970,6 @@ class PlayState extends MusicBeatState
 	}
 
 	var previousFrameTime:Int = 0;
-	var lastReportedPlayheadPosition:Int = 0;
 	var songTime:Float = 0;
 
 	function startSong():Void
@@ -1976,7 +1977,6 @@ class PlayState extends MusicBeatState
 		startingSong = false;
 
 		previousFrameTime = FlxG.game.ticks;
-		lastReportedPlayheadPosition = 0;
 
 		FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song, soundSuffix), 1, false);
 		FlxG.sound.music.onComplete = finishSong;
@@ -2164,6 +2164,11 @@ class PlayState extends MusicBeatState
 			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, soundSuffix));
 		else
 			vocals = new FlxSound();
+
+		vocals.onComplete = function()
+		{
+			vocalsFinished = true;
+		};
 		FlxG.sound.list.add(vocals);
 
 		// CACHE SOUNDS !!
@@ -2332,9 +2337,7 @@ class PlayState extends MusicBeatState
 		if (paused)
 		{
 			if (FlxG.sound.music != null && !startingSong)
-			{
 				resyncVocals();
-			}
 
 			if (!startTimer.finished)
 				startTimer.active = true;
@@ -2449,9 +2452,13 @@ class PlayState extends MusicBeatState
 		if(finishTimer != null) return;
 
 		vocals.pause();
-
 		FlxG.sound.music.play();
-		vocals.time = FlxG.sound.music.time;
+		Conductor.songPosition = FlxG.sound.music.time + Conductor.offset;
+
+		if (vocalsFinished)
+			return;
+
+		vocals.time = Conductor.songPosition;
 		vocals.play();
 	}
 
@@ -2500,10 +2507,15 @@ class PlayState extends MusicBeatState
 		var mult:Float = FlxMath.lerp(1, iconP2.scale.x, CoolUtil.boundTo(1 - (elapsed * 9), 0, 1));
 		iconP2.scale.set(mult, mult);
 
-		var iconOffset:Int = 26;
+		/*
+		how near or far apart the icons are from each other.
+		negative is for farther ,  positive is for closer.
+		*/
+		var iconOffset:Int = 5;
 
-		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) + (150 * iconP1.scale.x - 150) / 2 - iconOffset;
-		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (150 * iconP2.scale.x) / 2 - iconOffset * 2;
+		// ICON OFFSETS
+		iconP1.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) + (150 * iconP1.scale.x - 150) / 2 - 26 - iconOffset;
+		iconP2.x = healthBar.x + (healthBar.width * (FlxMath.remapToRange(healthBar.percent, 0, 100, 100, 0) * 0.01)) - (150 * iconP2.scale.x) / 2 - 52 + iconOffset;
 
 		if (health > 2)
 			health = 2;
@@ -4195,7 +4207,7 @@ class PlayState extends MusicBeatState
 	{
 		var noteDiff:Float = Math.abs(note.strumTime - Conductor.songPosition + 8); 
 
-		vocals.volume = 1;
+		//vocals.volume = 1;
 
 		var placement:String = Std.string(combo);
 
@@ -4267,52 +4279,9 @@ class PlayState extends MusicBeatState
 
 		rating.updateHitbox();
 
-		if (!missSpr)
+		if (!missSpr && (combo >= 10 || combo == 0)) 
 		{
-			var daLoop:Int = 0;
-			var xThing:Float = 0;
-			var seperatedScore:Array<Int> = [];
-
-			if (combo >= 1000) {
-				seperatedScore.push(Math.floor(combo / 1000) % 10);
-			}
-			seperatedScore.push(Math.floor(combo / 100) % 10);
-			seperatedScore.push(Math.floor(combo / 10) % 10);
-			seperatedScore.push(combo % 10);
-
-			for (i in seperatedScore)
-			{
-				var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image('num' + Std.int(i)));
-				numScore.screenCenter();
-				numScore.x = FlxG.width * 0.35 + (43 * daLoop) + 25;
-				numScore.y += 80;
-
-				numScore.x += comboOffset[0];
-				numScore.y -= comboOffset[1];
-
-				numScore.antialiasing = ClientPrefs.globalAntialiasing;
-				numScore.setGraphicSize(Std.int(numScore.width * 0.5));
-
-				numScore.updateHitbox();
-
-				numScore.acceleration.y = FlxG.random.int(200, 300);
-				numScore.velocity.y -= FlxG.random.int(140, 160);
-				numScore.velocity.x = FlxG.random.float(-5, 5);
-				numScore.visible = !ClientPrefs.comboShown;
-
-				if (combo >= 10 || combo == 0) add(numScore);
-
-				FlxTween.tween(numScore, {alpha: 0}, 0.2, {
-					onComplete: function(tween:FlxTween)
-					{
-						numScore.destroy();
-					},
-					startDelay: Conductor.crochet * 0.002
-				});
-
-				daLoop++;
-				if (numScore.x > xThing) xThing = numScore.x;
-			}
+			displayCombo();
 		}
 
 		FlxTween.tween(rating, {alpha: 0}, 0.2, {
@@ -4322,6 +4291,65 @@ class PlayState extends MusicBeatState
 			},
 			startDelay: Conductor.crochet * 0.001
 		});
+	}
+
+	function displayCombo()
+	{
+		var daLoop:Int = 0;
+		var xThing:Float = 0;
+		var seperatedScore:Array<Int> = [];
+
+		if (combo >= 1000) {
+			seperatedScore.push(Math.floor(combo / 1000) % 10);
+		}
+		seperatedScore.push(Math.floor(combo / 100) % 10);
+		seperatedScore.push(Math.floor(combo / 10) % 10);
+		seperatedScore.push(combo % 10);
+
+		for (i in seperatedScore)
+		{
+			var numScore:FlxSprite = new FlxSprite().loadGraphic(Paths.image('num' + Std.int(i)));
+			numScore.screenCenter();
+			numScore.x = FlxG.width * 0.35 + (43 * daLoop) + 25;
+			numScore.y += 80;
+
+			numScore.x += comboOffset[0];
+			numScore.y -= comboOffset[1];
+
+			numScore.antialiasing = ClientPrefs.globalAntialiasing;
+			numScore.setGraphicSize(Std.int(numScore.width * 0.5));
+
+			numScore.updateHitbox();
+
+			numScore.acceleration.y = FlxG.random.int(200, 300);
+			numScore.velocity.y -= FlxG.random.int(140, 160);
+			numScore.velocity.x = FlxG.random.float(-5, 5);
+			numScore.visible = !ClientPrefs.comboShown;
+
+			add(numScore);
+
+			FlxTween.tween(numScore, {alpha: 0}, 0.2, {
+				onComplete: function(tween:FlxTween)
+				{
+					numScore.destroy();
+				},
+				startDelay: Conductor.crochet * 0.002
+			});
+
+			daLoop++;
+			if (numScore.x > xThing) xThing = numScore.x;
+		}
+	}
+
+	function killCombo():Void
+	{
+		if (combo > 5 && gf.animOffsets.exists('sad'))
+			gf.playAnim('sad');
+		if (combo != 0)
+		{
+			combo = 0;
+			displayCombo();
+		}
 	}
 
 	private function globalKeyStatement():Void
@@ -4807,8 +4835,11 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(daNote:Note):Void //You didn't hit the key and let it go offscreen, also used by Hurt Notes
 	{
-		health -= 0.05;
 		songMisses++;
+		health -= 0.05;
+		killCombo();
+
+		songScore -= 10;
 
 		if (ClientPrefs.missSounds) {
 			FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), 0.2);
@@ -4865,7 +4896,7 @@ class PlayState extends MusicBeatState
 		if (!boyfriend.stunned)
 		{
 			health -= 0.05;
-			combo = 0;
+			killCombo();
 
 			if(!endingSong) {
 				if(ghostMiss) ghostMisses++;
@@ -4922,17 +4953,18 @@ class PlayState extends MusicBeatState
 	function vanillaNoteMiss(direction:Int = 1):Void {
 		if (!boyfriend.stunned)
 		{
-			health -= 0.05;
-			combo = 0;
-			songScore -= 10;
 			songMisses++;
+			health -= 0.05;
+			killCombo();
+
+			songScore -= 10;
 
 			if (ClientPrefs.missSounds) {
+				FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), 0.2);
 				vocals.volume = 0;
 			}
 			RecalculateRating();
 
-			FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), 0.2);
 			// FlxG.log.add('played imss note');
 
 			boyfriend.stunned = true;
@@ -5233,6 +5265,7 @@ class PlayState extends MusicBeatState
 					    return;
 					}
 				case 14: // MISS NOTE !!
+					popUpScore(note, true);
 					return;
 				/*
 				case 14: //WIP FIRE DRAIN
@@ -5454,19 +5487,12 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	function spawnNoteSplashOnNote(note:Note) {
-		if(ClientPrefs.noteSplashes && note != null) {
-			var strum:StrumNote = playerStrums.members[note.noteData];
-			if(strum != null) {
-				spawnNoteSplash(strum.x, strum.y, note.noteData, note.noteType);
-			}
-		}
-	}
-
-	public function spawnNoteSplash(x:Float, y:Float, data:Int, type:Int) {
-		var splash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
-		splash.setupNoteSplash(x, y, data, type);
-		grpNoteSplashes.add(splash);
+	function spawnNoteSplashOnNote(daNote:Note) {
+		//trace('BAD FUNCTRION BEING USED FRAHHJFHJSDH');
+		var noteSplash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
+		noteSplash.setupNoteSplash(daNote.x, daNote.y, daNote.noteData);
+		// new NoteSplash(daNote.x, daNote.y, daNote.noteData);
+		grpNoteSplashes.add(noteSplash);
 	}
 
 	override function destroy() {
@@ -5484,9 +5510,7 @@ class PlayState extends MusicBeatState
 		// RESYNC VOCALS
 		if (FlxG.sound.music.time > Conductor.songPosition + 20 || FlxG.sound.music.time < Conductor.songPosition - 20)
 		{
-			//resyncVocals();
-			FlxG.sound.music.play();
-			vocals.time = FlxG.sound.music.time;
+			resyncVocals();
 		}
 
 		#if desktop
@@ -5513,6 +5537,36 @@ class PlayState extends MusicBeatState
 						introOne();
 					case 15:
 						introGo();
+				}
+			case 'cream-cheese':
+				// for CHEESEBONE TODAY??
+				if (cheeseboneAnimNotes.length > 0)
+				{
+					if (Conductor.songPosition > cheeseboneAnimNotes[0][0])
+					{
+						var cb_NoteData:Int = 1;
+
+						cb_NoteData = cheeseboneAnimNotes[0][1];
+
+						switch (cb_NoteData)
+						{
+							case 0:
+								cheesebone.animation.play('left');
+							case 1:
+								cheesebone.animation.play('down');
+							case 2:
+								cheesebone.animation.play('up');
+							case 3:
+								cheesebone.animation.play('right');
+						}
+						cheeseboneSinging = true;
+
+						// idk how much lag this causes but hey its okay lol cream cheese is powerful
+						new FlxTimer().start(Conductor.stepCrochet * 0.001 * 4, function(tmr:FlxTimer) {
+							cheeseboneSinging = false;
+						});
+						cheeseboneAnimNotes.shift();
+					}
 				}
 
 			/*
@@ -6311,13 +6365,18 @@ class PlayState extends MusicBeatState
 						add(counter);
 
 					case 'restaurante':
-						if (CoolUtil.difficultyString() != HARDER_THAN_HARD) {
-							gf.visible = true;
-							add(gfGroup);
-						}
+						add(gfGroup);
 						add(dadGroup);
 						add(counter);
-						add(littleMan);
+
+						// mess
+						if (CoolUtil.difficultyString() == HARDER_THAN_HARD) {
+							gf.visible = false;
+							add(littleMan);
+						} else {
+							gf.visible = true;
+						}
+
 						add(phillyCounter);
 						add(boyfriendGroup);
 						add(frontBoppers);
@@ -6428,6 +6487,7 @@ class PlayState extends MusicBeatState
 				case 'restauranteCream':
 					counter.dance(true);
 					if (bagelSinging == false) bagel.dance();
+					if (cheeseboneSinging == false) cheesebone.dance();
 
 				case 'restauranteArsen':
 					counter.dance();

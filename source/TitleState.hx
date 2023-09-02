@@ -326,7 +326,7 @@ class TitleState extends MusicBeatState
 		}
 		#end
 
-		if (pressedEnter && !skippedIntro)
+		if (pressedEnter && !skippedIntro && FlxG.save.data.seenIntro == true)
 		{
 			skipIntro();
 		}
@@ -407,10 +407,7 @@ class TitleState extends MusicBeatState
 
 			switch (curBeat)
 			{
-				case 12: // you've seen the intro text
-					if (FlxG.save.data.seenIntro == null || FlxG.save.data.seenIntro == false) {
-						FlxG.save.data.seenIntro = true;
-					}
+				case 12:
 					deleteCoolText();
 				case 13:
 					createCoolText(['getting'], 45);
@@ -430,6 +427,11 @@ class TitleState extends MusicBeatState
 				case 20:
 					deleteCoolText();
 					skipIntro();
+
+					// you've seen the intro text
+					if (FlxG.save.data.seenIntro == null || FlxG.save.data.seenIntro == false) {
+						FlxG.save.data.seenIntro = true;
+					}
 			}
 		}
 	}
@@ -471,29 +473,7 @@ class TitleState extends MusicBeatState
 	// this function is a bit of a mess... dont mind it
 	function createStartText():Void
 	{
-		#if TRAILER_BUILD
-		var isTrailer:Bool = true;
-		#else
-		var isTrailer:Bool = false;
-		#end
-		if (isTrailer) {
-			switch (curBeat)
-			{
-				case 7:
-				addMoreText('Are Proud', 20);
-				addMoreText('To Present', 20);
-				case 8:
-					deleteCoolText();
-					createCoolText(["If you're a"], 45);
-				case 9:
-					addMoreText('Friday Night Funkin fan', 45);
-				case 10:
-					deleteCoolText();
-					createCoolText(['You definitely want'], 45);
-				case 11:
-					addMoreText('the full ass', 45);
-			}
-		} else if (FlxG.save.data.seenIntro == false) {
+		if (FlxG.save.data.seenIntro == false) {
 			switch (curBeat)
 			{
 				case 7:

@@ -92,7 +92,7 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
-			//case 'your character name in case you want to hardcode him instead':
+			//case 'your character name in case you want to hardcode him instead':  ONLY MALES CAN BE IN FNF SHADOW MARIO ?? WHAT THE HECK!!! SEXISm
 
 			default:
 				var characterPath:String = 'data/characters/' + curCharacter + '.json';

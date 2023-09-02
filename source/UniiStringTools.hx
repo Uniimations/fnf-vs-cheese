@@ -1,5 +1,6 @@
 package;
 
+import Song.SwagSong;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
@@ -7,6 +8,7 @@ import openfl.utils.Assets;
 import haxe.Json;
 import haxe.format.JsonParser;
 import openfl.display.BlendMode;
+import flixel.util.FlxSort;
 
 #if sys
 import sys.io.File;
@@ -122,6 +124,29 @@ class UniiStringTools
 			case 'subtract': return SUBTRACT;
 		}
 		return NORMAL;
+	}
+
+    // FOR CHEESEBONE CREMA CHEESE !!
+    public static function loadMappedAnims(anims_to_map:Array<Dynamic>, chart:String, song_folder:String)
+	{
+		var chartData:SwagSong = Song.loadFromJson(chart, song_folder);
+
+		var noteDaata = chartData.notes;
+
+		for (section in noteDaata)
+		{
+			for (songNotes in section.sectionNotes)
+			{
+				anims_to_map.push(songNotes);
+			}
+		}
+
+		anims_to_map.sort(sortAnims);
+	}
+
+	public static function sortAnims(val1:Array<Dynamic>, val2:Array<Dynamic>):Int
+	{
+		return FlxSort.byValues(FlxSort.ASCENDING, val1[0], val2[0]);
 	}
 }
 

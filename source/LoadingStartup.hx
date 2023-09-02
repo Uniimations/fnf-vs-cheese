@@ -92,6 +92,9 @@ class LoadingStartup extends MusicBeatState
 
 		trace("bullshit over lmao");
 
+		//trace("dude YOU'RE GOATED...");
+		//FlxG.sound.play(Paths.sound('cockbetter'));
+
 		new FlxTimer().start(2.5, function(tmr:FlxTimer)
 		{
 			MusicBeatState.switchState(new TitleState());

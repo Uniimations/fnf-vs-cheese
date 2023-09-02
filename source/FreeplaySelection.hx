@@ -229,10 +229,12 @@ class FreeplaySelection extends MusicBeatState
 				else
 					addSong('???', 2, 'creamcheese-fp');
 
-				addSong('Restaurante-Classic', 1, 'bluecheese');
+				// MOVE TO EXTRAS MENU
+
+				//addSong('Restaurante-Classic', 1, 'bluecheese');
 				// ADD THESE WHEN SONGS ARE MADE FOR THEM !!!!!!!!!!!!! WOHOO YOPEE
-				addSong('Milkshake-Classic', 1, 'bluecheese');
-				addSong('Cultured-Classic', 1, 'bluecheese');
+				//addSong('Milkshake-Classic', 1, 'bluecheese');
+				//addSong('Cultured-Classic', 1, 'bluecheese');
 
 				if (FlxG.save.data.beatWeekEnding) {
 					addSong('Dynamic-Duo', 3, 'uniinera-fp');

@@ -454,6 +454,10 @@ class StoryMenuState extends MusicBeatState
 								if (FlxG.save.data.diedTwiceFrosted == null || FlxG.save.data.diedTwiceFrosted == true) {
 									FlxG.save.data.diedTwiceFrosted = false;
 								}
+
+								// USE THIS FUNCTION TO RESET LIKE EVERYTHING
+
+								FlxG.save.data.seenIntro = false;
 							});
 						}
 

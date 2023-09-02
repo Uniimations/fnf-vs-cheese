@@ -71,6 +71,7 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("Viewing Credits", null);
 		#end
 
+		/*
 		bgBack = new FlxSprite().loadGraphic(Paths.image('credits/menuCredits'));
 		bgBack.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bgBack);
@@ -121,6 +122,7 @@ class CreditsState extends MusicBeatState
 		descText.borderSize = 2.4;
 		add(descBox);
 		add(descText);
+		*/
 
 		// OFFSETS
 		/*
@@ -135,6 +137,7 @@ class CreditsState extends MusicBeatState
 		trace('loaded main arrowButton offset txt');
 		*/
 
+		/*
 		arrowSpr = new FlxSprite(40, 260);
 		arrowSpr.frames = Paths.getSparrowAtlas('credits/arrowButton');
 		arrowSpr.animation.addByPrefix('intro', 'intro arrow', 24, false);
@@ -155,6 +158,9 @@ class CreditsState extends MusicBeatState
 		});
 
 		changeSelection();
+		*/
+
+		// nO MORE CREDITS FOR NOW . DIE CREIDTS. crash the game.
 		super.create();
 	}
 
