@@ -518,7 +518,7 @@ class StoryMenuState extends MusicBeatState
 						#if WINDOWS_BUILD
 						new FlxTimer().start(1, function(tmr:FlxTimer)
 						{
-							addMP4Intro('wifi', 2);
+							addMP4Intro('wi-fi', 2);
 							FreeplayState.fadeMenuMusic();
 						});
 						#else

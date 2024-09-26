@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "ghostoru idle"
+		},
+		{
+			"offsets": [
+				46,
+				-25
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "ghostoru left"
+		},
+		{
+			"offsets": [
+				-82,
+				-328
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "ghostoru down"
+		},
+		{
+			"offsets": [
+				143,
+				213
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "ghostoru up"
+		},
+		{
+			"offsets": [
+				-102,
+				-32
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "oru right"
+		},
+		{
+			"offsets": [
+				-58,
+				-7
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "hey",
+			"indices": [],
+			"name": "oru eat"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/secret/ghost-oru",
+	"position": [
+		150,
+		270
+	],
+	"healthicon": "face",
+	"flip_x": false,
+	"healthbar_colors": [
+		161,
+		161,
+		161
+	],
+	"camera_position": [
+		0,
+		100
+	],
+	"sing_duration": 6.1,
+	"scale": 2.4
+}

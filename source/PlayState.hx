@@ -380,7 +380,8 @@ class PlayState extends MusicBeatState
 
 		songLowercase = SONG.song.toLowerCase(); // ACTUALLY MADE A VARIABLE FOR IT GOD DAMN THATS ALWAYS SO ANNOYING LMFAO
 
-		displaySongName = StringTools.replace(SONG.song, '-', ' ');
+		//displaySongName = StringTools.replace(SONG.song, '-', ' ');
+		displaySongName = UniiStringTools.generateSongName(SONG.song);
 
 		dadnoteMovementXoffset = 0;
 		dadnoteMovementYoffset = 0;
@@ -566,7 +567,7 @@ class PlayState extends MusicBeatState
 
 					comboOffset = [430, -550];
 
-				case 'wifi':
+				case 'wi-fi' | 'mozzarella': // THIS IS TEMPORARY LMFAO.
 					curStage = 'restauranteArsen';
 
 					defaultCamZoom = 0.60;
@@ -631,7 +632,7 @@ class PlayState extends MusicBeatState
 
 					comboOffset = [430, -550];
 
-				case 'below-zero':
+				case 'below-zero' | 'above-zero':
 					curStage = 'restauranteAvi';
 
 					defaultCamZoom = 0.60;
@@ -1186,9 +1187,9 @@ class PlayState extends MusicBeatState
 
 		switch (songLowercase)
 		{
-			case 'cream-cheese' | 'dot-lua' | '.lua':
+			case 'cream-cheese' | 'dot-lua' | '.lua' | 'above-zero' | 'articulation':
 				songArtist = 'Ghostoru';
-			case 'i-still-have-to-think-about-it':
+			case 'i-still-have-to-think-about-it': // he never thought about it.
 				songArtist = 'breadiboyo';
 			case 'below-zero' | 'dirty-cheater' | 'manager-strike-back' | 'frosted':
 				songArtist = 'Avinera';
@@ -1440,8 +1441,8 @@ class PlayState extends MusicBeatState
 					startIntro(); // no countdown
 				case 'restaurante' | 'milkshake' | 'cultured':
 					assEat(dialogueDefault); // dialogue box
-				case 'wifi':
-					addwebmIntro('wifi'); // webm cutscene if mac
+				case 'wi-fi':
+					addwebmIntro('wi-fi'); // webm cutscene if mac
 				default:
 					startCountdown(); // normal countdown
 			}
@@ -1499,13 +1500,17 @@ class PlayState extends MusicBeatState
 				camHudZoom = 0.01;
 		}
 
-        switch (songLowercase) //ARE YOU PROUD OF ME UNII - yes i am dops ill always be proud of you <3
+		#if PLAYTEST_BUILD
+        switch (songLowercase) //ARE YOU PROUD OF ME UNII - yes i am dops ill always be proud of you <3 // FUCK OFF 2022 UNIIMATIONS GO KILL YOURSE
         {
-            case 'wifi' | 'casual-duel' | 'dynamic-duo' | 'below-zero':
+            case 'wi-fi' | 'casual-duel' | 'dynamic-duo' | 'below-zero' | 'above-zero':
                 rpcIcon = iconP1.getCharacter();
             default:
                 rpcIcon = dad.healthIcon;
         }
+		#else
+		rpcIcon = dad.healthIcon;
+		#end
 
 		#if desktop
 		// Updating Discord Rich Presence.
@@ -1516,7 +1521,7 @@ class PlayState extends MusicBeatState
 
 		super.create();
 
-		Paths.clearOpenflAssets(); // call Paths to remove local assets.
+		Paths.clearOpenflAssets(); // call Paths to remove local assets. // THANKS RAPPER GF :3
 		FlxGraphic.defaultPersist = true;
 	}
 
@@ -2937,6 +2942,9 @@ class PlayState extends MusicBeatState
 					MusicBeatState.switchState(new CharacterEditorState(SONG.player2));
 			}
 
+			// WAS for dirty cheater testing
+
+			#if PLAYTEST_BUILD
 			if (FlxG.keys.justPressed.SIX && !endingSong)
 			{
 				persistentUpdate = false;
@@ -2945,6 +2953,7 @@ class PlayState extends MusicBeatState
 
 				FlxG.sound.music.onComplete();
 			}
+			#end
 		}
 
 		setOnLuas('cameraX', camFollowPos.x);
@@ -6136,7 +6145,7 @@ class PlayState extends MusicBeatState
 		if (followStorySettings)
 		{
 			// v   this function checks if the song is the first argument, then the cutscene folder and video name
-			addMP4Outro('wifi', 'casual-duel');
+			addMP4Outro('wi-fi', 'casual-duel');
 		}
 
 		if(!hasMP4)

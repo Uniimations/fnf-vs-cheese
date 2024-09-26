@@ -31,6 +31,14 @@ using StringTools;
 /**
 	FOR KEYBINDS MENU, JUST NABBED FROM ORIGINAL PSYCH LMFAO
 **/
+
+/**
+	REMIND ME to redo this. Please. REMINDER
+	
+	Additional...
+
+	REMINDER: ADD CONTROLLER SUPPORT! PLEASE! WE NEED controller support in PSYCH ENGINE 0.4.2 BRAH
+**/
 class KeybindsSubState extends MusicBeatSubstate
 {
 	private static var curSelected:Int = 1;

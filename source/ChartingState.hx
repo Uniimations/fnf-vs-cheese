@@ -397,9 +397,22 @@ class ChartingState extends MusicBeatState
 			loadSong();
 		});
 
+		var difficultyOption:String = CoolUtil.difficultyString();
+
 		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload HARD", function()
 		{
-			loadJson(_song.song.toLowerCase());
+			var ass:String = 'hard';
+
+			switch (difficultyOption)
+			{
+				case 'EASY':
+					ass = '-easy';
+				case 'HARD':
+					ass = '-hard';
+				case 'VIP':
+					ass = '-vip';
+			}
+			loadJson(_song.song.toLowerCase(), ass);
 		});
 
 		var loadAutosaveBtn:FlxButton = new FlxButton(reloadSongJson.x, reloadSongJson.y + 30, 'Load Autosave', function()
@@ -1914,9 +1927,9 @@ class ChartingState extends MusicBeatState
 		return noteData;
 	}
 
-	function loadJson(song:String):Void
+	function loadJson(song:String, suffix:String):Void
 	{
-		PlayState.SONG = Song.loadFromJson(song.toLowerCase() + '-hard', song.toLowerCase());
+		PlayState.SONG = Song.loadFromJson(song.toLowerCase() + suffix, song.toLowerCase());
 		MusicBeatState.resetState();
 	}
 

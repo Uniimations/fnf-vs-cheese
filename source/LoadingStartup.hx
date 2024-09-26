@@ -56,6 +56,8 @@ class LoadingStartup extends MusicBeatState
 		{
 			cache();
 		});
+
+		FlxG.sound.play(Paths.sound('cockbetter')); // this part is very important.
 	}
 
 	function cache()
@@ -88,12 +90,15 @@ class LoadingStartup extends MusicBeatState
 
 		screen.progress = 3; // menu sounds
 
+		/**
+			NOTE: Other menu sounds are not important enough to be cached. They will not lag the game.
+		**/
+
 		FlxGraphic.defaultPersist = false;
 
 		trace("bullshit over lmao");
 
 		//trace("dude YOU'RE GOATED...");
-		//FlxG.sound.play(Paths.sound('cockbetter'));
 
 		new FlxTimer().start(2.5, function(tmr:FlxTimer)
 		{

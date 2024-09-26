@@ -144,6 +144,73 @@ class UniiStringTools
 		anims_to_map.sort(sortAnims);
 	}
 
+    // new song name function
+    public static function generateSongName(song_name:String)
+    {
+        var swagShit:String = '';
+
+        #if debug
+        switch (song_name) {
+            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'CREAM-CHEESE' | 'DIRTY-CHEATER': //i'm stupidd lol
+                swagShit = "";
+            case 'Above-Zero':
+                swagShit = 'Cooking Up [unii mix]';
+            case 'Manager-Strike-Back':
+                swagShit = 'STOp looking at my status';
+            case 'dot-lua':
+                swagShit = 'AARRUUGHHH IM actually';
+            case 'swagShit':
+                swagShit = 'money';
+            default:
+                swagShit = song_name;
+        }
+        #else
+        switch (song_name) {
+            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'CREAM-CHEESE' | 'DIRTY-CHEATER' | 'Manager-Strike-Back': //i'm stupidd lol
+                swagShit = StringTools.replace(song_name, '-', ' ');
+            case 'Above-Zero':
+                swagShit = 'Above Zero [up]';
+            case 'dot-lua':
+                swagShit = '.lua';
+            case 'Articulation':
+                swagShit = 'articulation w/ Ghost Ghost';
+            default:
+                swagShit = song_name;
+        }
+        #end
+
+        return swagShit;
+    }
+
+    // taken from CharacterEditorState.hx, but modified.
+    public static function randomMusic():String
+	{
+		var trackPlaying = '';
+		var menuMusicChance = FlxG.random.int(0, 6);
+
+		switch (menuMusicChance) //lil menu music jingle to keep you   n o t   b o r e d .
+		{
+			case 0:
+				trackPlaying = 'Restaurante';
+			case 1:
+				trackPlaying = 'Milkshake';
+			case 2:
+				trackPlaying = 'Cultured';
+			case 3:
+				trackPlaying = 'Wi-Fi';
+			case 4:
+				trackPlaying = 'Casual-Duel';
+			case 5:
+				trackPlaying = 'Below-Zero';
+			case 6:
+				trackPlaying = 'Cream-Cheese';
+            case 7:
+                trackPlaying = 'Mozzarella';
+		}
+
+		return trackPlaying;
+	}
+
 	public static function sortAnims(val1:Array<Dynamic>, val2:Array<Dynamic>):Int
 	{
 		return FlxSort.byValues(FlxSort.ASCENDING, val1[0], val2[0]);

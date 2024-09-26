@@ -123,6 +123,7 @@ class AlphabetVCR extends FlxSpriteGroup
 			// {
 			// }
 
+			// REMINDER TO EDIT THIS!
 			var spaceChar:Bool = (character == " " || character == "-" || character == "_");
 			if (spaceChar)
 			{

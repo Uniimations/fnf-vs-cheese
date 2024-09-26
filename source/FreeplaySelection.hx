@@ -72,7 +72,7 @@ class FreeplaySelection extends MusicBeatState
 	{
 		#if desktop
 		// Updating Discord Rich Presence
-		DiscordClient.changePresence("Browsing Freeplay Songs", null);
+		DiscordClient.changePresence("Browsing...", null);
 		#end
 
 		transIn = FlxTransitionableState.defaultTransIn;
@@ -219,8 +219,8 @@ class FreeplaySelection extends MusicBeatState
 				addSong('Cultured', 1, 'bluecheese');
 
 				if (FlxG.save.data.beatWeekEnding) {
-					addSong('Wifi', 2, 'arsen-fp');
-					addSong('Casual-Duel', 3, 'dansilot-fp');
+					addSong('Wifi', 2, 'arsen');
+					addSong('Casual-Duel', 3, 'dansilot');
 				}
 
 			case 'BONUS SONGS':
@@ -237,12 +237,15 @@ class FreeplaySelection extends MusicBeatState
 				//addSong('Cultured-Classic', 1, 'bluecheese');
 
 				if (FlxG.save.data.beatWeekEnding) {
-					addSong('Dynamic-Duo', 3, 'uniinera-fp');
+					addSong('Dynamic-Duo', 3, 'uniinera');
 					addSong('Below-Zero', 4, 'avinera');
+					addSong('Above-Zero', 5, 'dad');
+
+					addSong('Mozzarella', 6, 'bluecheese');
 				}
 
 				if (FlxG.save.data.beatOnion) {
-					addSong('DIRTY-CHEATER', 5, 'onion');
+					addSong('DIRTY-CHEATER', 7, 'onion');
 					
 					var initSonglist = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
 					for (i in 0...initSonglist.length)
@@ -271,8 +274,12 @@ class FreeplaySelection extends MusicBeatState
 
 			case 'UNFAIR SONGS':
 				addSong('Manager-Strike-Back', 0, 'suzuki-fp');
-				addSong('Frosted', 1, 'avinera');
-				addSong('Alter-Ego', 2, 'unii');
+				//addSong('Relinquish', 1, 'arsen-fp'); bye Avinera :sob
+				/**
+					REMOVED SONGS: (lol)
+				**/
+				//addSong('Frosted', 1, 'avinera');
+				//addSong('Alter-Ego', 2, 'unii');
 
 			default:
 				var luaSongs = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
@@ -752,6 +759,26 @@ class FreeplaySelection extends MusicBeatState
 				change_pc_color(newColor);
 			});
 		}
+
+		// FINISH THIS LATER !!!!
+		#if !PLAYTEST_BUILD
+		// Updating Discord Rich Presence
+		switch (FlxG.random.int(0, 5))
+		{
+			case 0:
+				DiscordClient.changePresence("Vibing to " + songs[curSelected].songName + " for:", null, null, true);
+			case 1:
+				DiscordClient.changePresence("Sleeping on someone with " + songs[curSelected].songName + " for:", null, null, true);
+			case 2:
+				DiscordClient.changePresence("Dreaming about " + songs[curSelected].songName + " for:", null, null, true);
+			case 3:
+				DiscordClient.changePresence("Suckling some " + songs[curSelected].songName + " for:", null, null, true);
+			case 4:
+				DiscordClient.changePresence("Presenting " + songs[curSelected].songName + " to myself for:", null, null, true);
+			case 5:
+				DiscordClient.changePresence("Admiring " + songs[curSelected].songName + " for:", null, null, true);
+		}
+		#end
 
 		disc.animation.addByPrefix(songs[curSelected].songCharacter, songs[curSelected].songCharacter + '0', 24); // 0 just in case it freaks out and flickers between similar animation names.
 		disc.animation.play(songs[curSelected].songCharacter);

@@ -15,13 +15,15 @@ class HealthIcon extends FlxSprite
 	// The following icons have antialiasing forced to be disabled
 	var noAntialiasing:Array<String> = ['bf-pixel', 'senpai', 'spirit'];
 
-	public function new(char:String = 'bf', isPlayer:Bool = false)
+	public function new(char:String = 'bf', isPlayer:Bool = false, doFlip:Bool = false)
 	{
 		super();
 		isSus = (char == 'sus');
 		this.isPlayer = isPlayer;
 		changeIcon(char);
 		scrollFactor.set();
+
+		// TO DO: doFlip function for week 2 icons
 	}
 
 	override function update(elapsed:Float)
@@ -72,6 +74,19 @@ class HealthIcon extends FlxSprite
 			animation.add(char, [idleSpr, losingSpr, winningSpr], 0, false, isPlayer);
 			animation.play(char);
 			this.char = char;
+
+			/**
+				TRHIS CODE IS REALLY DUMB DON'T DO THIS. vvv
+			**/
+			// flipped player icons code here, for freeplay menu to work properly with flipX
+
+			/*
+			switch (PlayState.SONG.player1) {
+				case 'arsen' | 'dansilot' | 'uniinera':
+					flipX = true;
+			}
+			*/
+			// IT DOESN'T WORK
 
 			antialiasing = ClientPrefs.globalAntialiasing;
 			for (i in 0...noAntialiasing.length) {

@@ -2,26 +2,30 @@
 <TextureAtlas imagePath="cd.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="arsen-fp0000" x="0" y="0" width="312" height="307"/>
-	<SubTexture name="arsen-fp0001" x="332" y="0" width="312" height="307"/>
+	<SubTexture name="arsen0000" x="0" y="0" width="312" height="307"/>
+	<SubTexture name="arsen0001" x="332" y="0" width="312" height="307"/>
 	<SubTexture name="avinera0000" x="664" y="0" width="312" height="307"/>
 	<SubTexture name="avinera0001" x="996" y="0" width="312" height="307"/>
 	<SubTexture name="bluecheese0000" x="1328" y="0" width="312" height="307"/>
 	<SubTexture name="bluecheese0001" x="1660" y="0" width="312" height="307"/>
-	<SubTexture name="bluecheese-tired0000" x="1328" y="0" width="312" height="307"/>
-	<SubTexture name="bluecheese-tired0001" x="1660" y="0" width="312" height="307"/>
-	<SubTexture name="creamcheese0000" x="0" y="327" width="312" height="307"/>
-	<SubTexture name="creamcheese0001" x="332" y="327" width="312" height="307"/>
-	<SubTexture name="dansilot-fp0000" x="664" y="327" width="312" height="307"/>
-	<SubTexture name="dansilot-fp0001" x="996" y="327" width="312" height="307"/>
-	<SubTexture name="onion0000" x="1328" y="327" width="312" height="307"/>
-	<SubTexture name="onion0001" x="1660" y="327" width="312" height="307"/>
-	<SubTexture name="suzuki0000" x="0" y="654" width="312" height="307"/>
-	<SubTexture name="suzuki0001" x="332" y="654" width="312" height="307"/>
-	<SubTexture name="suzuki-fp0000" x="664" y="654" width="312" height="307"/>
-	<SubTexture name="suzuki-fp0001" x="996" y="654" width="312" height="307"/>
-	<SubTexture name="unii0000" x="1328" y="654" width="312" height="307"/>
-	<SubTexture name="unii0001" x="1660" y="654" width="312" height="307"/>
-	<SubTexture name="uniinera-fp0000" x="0" y="981" width="312" height="307"/>
-	<SubTexture name="uniinera-fp0001" x="332" y="981" width="312" height="307"/>
+	<SubTexture name="bluecheese-tired0000" x="0" y="327" width="312" height="307"/>
+	<SubTexture name="bluecheese-tired0001" x="332" y="327" width="312" height="307"/>
+	<SubTexture name="creamcheese0000" x="664" y="327" width="312" height="307"/>
+	<SubTexture name="creamcheese0001" x="996" y="327" width="312" height="307"/>
+	<SubTexture name="creamcheese-fp0000" x="0" y="654" width="312" height="307"/>
+	<SubTexture name="creamcheese-fp0001" x="332" y="654" width="312" height="307"/>
+	<SubTexture name="dad0000" x="0" y="654" width="312" height="307"/>
+	<SubTexture name="dad0001" x="332" y="654" width="312" height="307"/>
+	<SubTexture name="dansilot0000" x="1328" y="327" width="312" height="307"/>
+	<SubTexture name="dansilot0001" x="1660" y="327" width="312" height="307"/>
+	<SubTexture name="onion0000" x="0" y="654" width="312" height="307"/>
+	<SubTexture name="onion0001" x="332" y="654" width="312" height="307"/>
+	<SubTexture name="suzuki0000" x="664" y="654" width="312" height="307"/>
+	<SubTexture name="suzuki0001" x="996" y="654" width="312" height="307"/>
+	<SubTexture name="suzuki-fp0000" x="1328" y="654" width="316" height="310"/>
+	<SubTexture name="suzuki-fp0001" x="1664" y="654" width="316" height="310"/>
+	<SubTexture name="unii0000" x="0" y="984" width="312" height="307"/>
+	<SubTexture name="unii0001" x="332" y="984" width="312" height="307"/>
+	<SubTexture name="uniinera0000" x="664" y="984" width="312" height="307"/>
+	<SubTexture name="uniinera0001" x="996" y="984" width="312" height="307"/>
 </TextureAtlas>

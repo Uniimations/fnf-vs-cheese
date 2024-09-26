@@ -226,15 +226,16 @@ class FreeplayState extends MusicBeatState
 			{
 				canMove = false;
 
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxG.sound.play(Paths.sound('enterMenu'));
 				FlxTween.tween(FlxG.camera, { zoom: 1.5}, 1.5, { ease: FlxEase.expoIn });
 
 				FreeplaySelection.category = options[curSelected];
 				trace('FREEPLAY SELECTION CATEGORY: ' + FreeplaySelection.category);
 
+				// made timer for this function SHORTER !
 				grpSelections.forEach(function(spr:FlxSprite)
 				{
-					FlxTween.tween(spr, {alpha: 0}, 1, {
+					FlxTween.tween(spr, {alpha: 0}, 0.7, {
 						ease: FlxEase.quadOut,
 						onComplete: function(twn:FlxTween)
 						{

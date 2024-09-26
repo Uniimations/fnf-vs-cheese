@@ -1,0 +1,17 @@
+class Zox Zero Killed
+{
+    public var ZOx_Zero = patched;
+
+    local Killerprint = "Zox zero must die!!!!!";
+
+    local ps = game:GetService("Players");
+    ZOx_Zero = ps.LocalPlayer;
+
+    if ZOx_Zero.Name == "Z0XERO" then
+        print(Killerprint);
+        wait(5);
+        ZOxZero:Kick("My friends hate you Z0X ZERO THE REAL!!!! i hate you zox zero . !!!");
+    else
+        print("GHello! you are not zox zero, so you must LIVE NOW FOREVER LIVE LONG AND PROSPEROPUS");
+    end
+}

@@ -308,12 +308,22 @@ class DialogueBox extends FlxSpriteGroup
 					FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
 				}
 			}
+			/*
 			else if (dialogueStarted) //finish dialogue
 			{
 				swagDialogue.skip();
 				PlayState.skippedDialogue = true;
 				trace('lost woops achievement');
 			}
+			*/
+			// ^ move this stuff down to the back key
+		}
+
+		if (PlayerSettings.player1.controls.BACK && dialogueStarted)
+		{
+			swagDialogue.skip();
+			PlayState.skippedDialogue = true;
+			//trace('lost woops achievement'); // this got annoying LMAO
 		}
 
 		if (FlxG.keys.justPressed.S)

@@ -1155,7 +1155,7 @@ class CharacterEditorState extends MusicBeatState
 			case 2:
 				trackPlaying = 'Cultured';
 			case 3:
-				trackPlaying = 'Wifi';
+				trackPlaying = 'Wi-Fi';
 			case 4:
 				trackPlaying = 'Casual-Duel';
 			case 5:

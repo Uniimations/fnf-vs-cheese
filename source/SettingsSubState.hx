@@ -116,17 +116,12 @@ class SettingsSubState extends MusicBeatSubstate
 			case 'ACCESSIBILITY':
 				options = [
 					'Optimized Mode',
-					'Pussy Mode',
+					'Radio Music:',
 					'Input System:',
 					'Erase Save Data'
 				];
 			default:
-				options = [
-					'Flashing Lights',
-					'New Boyfriend Skin',
-					'Pussy Mode',
-					'Input System:'
-				];
+				options = ['Error'];
 		}
 
 		super();
@@ -321,10 +316,17 @@ class SettingsSubState extends MusicBeatSubstate
 						ClientPrefs.hideHud = !ClientPrefs.hideHud;
 
 					case 'New Boyfriend Skin':
-						ClientPrefs.bfreskin = !ClientPrefs.bfreskin;
-						if (!ClientPrefs.fuckyouavi) {
-							if (!ClientPrefs.bfreskin) newBoyfriend(boyfriendNormal);
-							else if (ClientPrefs.bfreskin) newBoyfriend(boyfriendRemaster);
+						if (!OptionsState.inPause)
+						{
+							ClientPrefs.bfreskin = !ClientPrefs.bfreskin;
+							if (!ClientPrefs.fuckyouavi) {
+								if (!ClientPrefs.bfreskin) newBoyfriend(boyfriendNormal);
+								else if (ClientPrefs.bfreskin) newBoyfriend(boyfriendRemaster);
+							}
+						}
+						else
+						{
+							FlxG.sound.play(Paths.sound('cancelMenu'));
 						}
 
 					case 'Miss Sounds':
@@ -365,12 +367,6 @@ class SettingsSubState extends MusicBeatSubstate
 
 					case 'Camera Zoom':
 						ClientPrefs.camZoomOut = !ClientPrefs.camZoomOut;
-
-					case 'Pussy Mode':
-						if (!OptionsState.inPause)
-							ClientPrefs.pussyMode = !ClientPrefs.pussyMode;
-						else
-							FlxG.sound.play(Paths.sound('cancelMenu'));
 
 					case 'Window Pause':
 						ClientPrefs.windowPause = !ClientPrefs.windowPause;
@@ -495,6 +491,8 @@ class SettingsSubState extends MusicBeatSubstate
 									//trace('working: ' + ClientPrefs.inputSystem);
 								});
 							}
+						case 'Radio Music:': // FINISH THIS
+							
 					}
 					reloadValues();
 					ClientPrefs.saveSettings();
@@ -585,8 +583,6 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "If unchecked, camera will not shake or move to the notes\npressed in songs with camera effects.";
 			case 'Camera Zoom':
 				daText = "If unchecked, camera will not zoom in and out in\nsongs with camera effects.";
-			case 'Pussy Mode':
-				daText = "If checked, turns all the mechanics off in songs\nwith UNFAIR difficulty. Also certifies you as a pussy.";
 			case 'Input System:':
 				daText = "Choose input systems from other Friday Night Funkin' Engines.\nAdjust with LEFT and RIGHT keys.";
 			case 'Window Pause':
@@ -603,7 +599,7 @@ class SettingsSubState extends MusicBeatSubstate
 		// switch in case i wanna add more options that are untogglable when using the pause menu options (it is the same state/substates)
 		switch (options[curSelected])
 		{
-			case 'Pussy Mode':
+			case 'New Boyfriend Skin':
 				if (OptionsState.inPause)
 					pauseText.alpha = 1;
 				else
@@ -690,8 +686,6 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.cameraShake;
 					case 'Camera Zoom':
 						daValue = ClientPrefs.camZoomOut;
-					case 'Pussy Mode':
-						daValue = ClientPrefs.pussyMode;
 					case 'Window Pause':
 						daValue = ClientPrefs.windowPause;
 					case 'Auto Pause':

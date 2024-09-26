@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "jon idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				138,
+				4
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "jon left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-20,
+				-140
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "jon down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-35,
+				101
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "jon up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-57,
+				-146
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "jon right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/GHJOSTLY_JON",
+	"position": [
+		650,
+		300
+	],
+	"healthicon": "dad",
+	"flip_x": true,
+	"healthbar_colors": [
+		175,
+		102,
+		206
+	],
+	"camera_position": [
+		0,
+		100
+	],
+	"sing_duration": 6.1,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

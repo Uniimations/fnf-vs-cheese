@@ -1,3 +1,7 @@
+/**
+	i think this was the old Note.hx before i redid the class.
+**/
+
 package;
 
 import flixel.FlxG;

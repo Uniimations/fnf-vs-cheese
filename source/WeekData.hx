@@ -13,7 +13,7 @@ class WeekData {
 	public static var songsNames:Array<Dynamic> = [
 		['Tutorial'],
 		['Restaurante', 'Milkshake', 'Cultured'],
-		['Wifi', 'Casual-Duel', '???'],
+		['Wi-Fi', 'Casual-Duel', '???'],
 		['Manager-Strike-Back']
 		#if PLAYTEST_BUILD
 		,['UNLOCK', 'ALL', 'SONGS'],

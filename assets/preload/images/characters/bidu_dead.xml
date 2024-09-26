@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bidu_dead.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="BIDU Dead Loop0000" x="0" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0001" x="0" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0002" x="506" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0003" x="506" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0004" x="1012" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0005" x="1012" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0006" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0007" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0008" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0009" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0010" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0011" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0012" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0013" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0014" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0015" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0016" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0017" x="0" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0018" x="0" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0019" x="506" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0020" x="506" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0021" x="1012" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0022" x="1012" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0023" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0024" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0025" x="2024" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0026" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0027" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0028" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0029" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0030" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0031" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0032" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead Loop0033" x="1518" y="0" width="486" height="528"/>
+	<SubTexture name="BIDU Dead confirm0000" x="2530" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0001" x="2530" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0002" x="3114" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0003" x="3698" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0004" x="4282" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0005" x="4866" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0006" x="5450" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0007" x="6034" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0008" x="6618" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0009" x="7202" y="0" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0010" x="0" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0011" x="584" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0012" x="1168" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0013" x="1752" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0014" x="2336" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0015" x="2920" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0016" x="3504" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0017" x="4088" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0018" x="4672" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0019" x="5256" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0020" x="5840" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0021" x="6424" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0022" x="7008" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0023" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0024" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0025" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0026" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0027" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0028" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0029" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0030" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0031" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0032" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU Dead confirm0033" x="7592" y="682" width="564" height="662"/>
+	<SubTexture name="BIDU dies0000" x="0" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0001" x="537" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0002" x="1074" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0003" x="1611" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0004" x="2148" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0005" x="2685" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0006" x="2685" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0007" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0008" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0009" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0010" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0011" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0012" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0013" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0014" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0015" x="3222" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0016" x="3759" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0017" x="3759" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0018" x="4296" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0019" x="4296" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0020" x="4833" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0021" x="4833" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0022" x="5370" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0023" x="5370" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0024" x="5907" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0025" x="5907" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0026" x="6444" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0027" x="6444" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0028" x="6981" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0029" x="6981" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0030" x="7518" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0031" x="7518" y="1364" width="517" height="596"/>
+	<SubTexture name="BIDU dies0032" x="0" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0033" x="0" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0034" x="537" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0035" x="537" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0036" x="1074" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0037" x="1074" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0038" x="1611" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0039" x="1611" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0040" x="2148" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0041" x="2148" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0042" x="2685" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0043" x="2685" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0044" x="3222" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0045" x="3222" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0046" x="3759" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0047" x="3759" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0048" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0049" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0050" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0051" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0052" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0053" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0054" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0055" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0056" x="4296" y="1980" width="517" height="596"/>
+	<SubTexture name="BIDU dies0057" x="4296" y="1980" width="517" height="596"/>
+</TextureAtlas>

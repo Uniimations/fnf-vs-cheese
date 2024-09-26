@@ -66,6 +66,8 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			case 'below-zero' | 'frosted':
 				pauseSong = 'avi.';
+			case 'above-zero':
+				pauseSong = 'afternoon';
 			default:
 				pauseSong = 'distant';
 		}
@@ -153,7 +155,7 @@ class PauseSubState extends MusicBeatSubstate
 							hasTwoDances = true;
 					}
 				}
-			case 'wifi':
+			case 'wi-fi':
 				switch (randomChance)
 				{
 					case 0:
@@ -197,17 +199,9 @@ class PauseSubState extends MusicBeatSubstate
 						newCharacter(822, 173, "dansilot", true);
 				}
 			default:
-				switch (randomChance)
-				{
-					case 0:
-						newCharacter(740, 340, "bluecheese", false, true);
-					case 1:
-						newCharacter(822, 420, "bf", true);
-					case 2:
-						newCharacter(630, 150, "gf");
-						hasNoPoses = true;
-						hasTwoDances = true;
-				}
+				// Remove Unnesecary BF and GF there. GET EM OUTTA HERE BRAH!! HAHHA
+				newCharacter(740, 340, "bluecheese", false, true);
+
 				trace('missing song, default characters and chances.');
 		}
 

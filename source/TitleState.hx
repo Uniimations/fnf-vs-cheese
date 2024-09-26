@@ -117,6 +117,8 @@ class TitleState extends MusicBeatState
 			FlxG.sound.playMusic(Paths.music('freaky_overture'));
 		}
 
+		//FlxG.drawFramerate = FlxG.drawFramerate;
+
 		Conductor.changeBPM(120);
 		persistentUpdate = true;
 
@@ -461,6 +463,8 @@ class TitleState extends MusicBeatState
 			//i wasnt being serious sorry
 			//wtf past me??? ^
 			//this is uniimation from 7 momnths later unii you were a fuicking asshole lmao you suck 
+
+			// uniimations from 3 years later ...  it was literally just simple adjusting x and y position holy shit HAHHAHAHHA CHILL
 			FlxTween.tween(logoBl, {'scale.x': 0.49, 'scale.y': 0.49, x: -200, y: -200}, 1.3, {ease: FlxEase.expoInOut, startDelay: 1.3});
             FlxTween.tween(cheese, {'scale.x': 1, 'scale.y': 1, x: 720, y: 120}, 2.3, {ease: FlxEase.expoInOut, startDelay: 0.9});
 			remove(credGroup);
