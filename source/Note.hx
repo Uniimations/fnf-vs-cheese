@@ -95,6 +95,10 @@ class Note extends FlxSprite
 				case 15:
 					customFunctions = true;
 					visible = false;
+
+				case 17:
+					reloadNote('noteskins/NOTE_assets_FIRE');
+					customFunctions = true;
 			}
 			noteType = value;
 		}

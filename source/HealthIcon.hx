@@ -22,8 +22,6 @@ class HealthIcon extends FlxSprite
 		this.isPlayer = isPlayer;
 		changeIcon(char);
 		scrollFactor.set();
-
-		// TO DO: doFlip function for week 2 icons
 	}
 
 	override function update(elapsed:Float)

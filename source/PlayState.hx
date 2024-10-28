@@ -440,7 +440,7 @@ class PlayState extends MusicBeatState
 					add(shelf);
 
 				// kinda sorry for this code but also kinda not... it works.
-				case 'restaurante' | 'milkshake' | 'cultured':
+				case 'restaurante' | 'milkshake' | 'cultured' | 'restaurante-senpai-mix' | 'milkshake-pico-mix' | 'cultured-parents-mix':
 					curStage = 'restaurante';
 
 					defaultCamZoom = 0.60;
@@ -942,6 +942,10 @@ class PlayState extends MusicBeatState
 
 		switch (SONG.player1)
 		{
+			case 'bidu':
+				isBoyfriend = true;
+
+				trace('bidu playing');
 			case 'dd-avinera-and-unii':
 				boyfriend2 = new Boyfriend(0, 0, 'dd-unii');
 				boyfriend2.x += 800;
@@ -950,20 +954,6 @@ class PlayState extends MusicBeatState
 				boyfriendGroup.add(boyfriend2);
 
 				trace('AVINERA + UNIIMATIONS');
-			default:
-				switch (songLowercase)
-				{
-					case 'alter-ego':
-						boyfriend2 = new Boyfriend(0, 0, 'bf');
-						boyfriend2.x += boyfriend.positionArray[0];
-						boyfriend2.y += boyfriend.positionArray[1];
-						boyfriend2.scrollFactor.set(1, 1);
-						boyfriendGroup.add(boyfriend2);
-
-						trace('death bf for alter ego mid song event');
-					default:
-						FlxG.log.add('NO BOYFRIEND2');
-				}
 		}
 
 		switch (curStage)
@@ -1153,7 +1143,14 @@ class PlayState extends MusicBeatState
 		add(healthBar);
 		add(healthBarOV);
 
-		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
+		switch (SONG.player1)
+		{
+			case 'arsen' | 'dansilot' | 'dd-avinera-and-unii':
+				iconP1 = new HealthIcon(boyfriend.healthIcon, false);
+			default:
+				iconP1 = new HealthIcon(boyfriend.healthIcon, true);
+		}
+
 		iconP1.y = healthBar.y - (iconP1.height / 2);
 		iconP1.visible = !ClientPrefs.hideHud && songLowercase != 'manager-strike-back';
 
@@ -1168,7 +1165,6 @@ class PlayState extends MusicBeatState
 
 		// NO MORE.
 
-		/*
 		//what ocd does to a mf
 		//what ocd does to a mf pt 2 (i cleaned it for u :3 )
 
@@ -1181,7 +1177,16 @@ class PlayState extends MusicBeatState
 			else
 				versionHeight -= 135;
 		}
-		*/
+
+		if (songLowercase == 'alter-ego') {
+			boyfriend2 = new Boyfriend(0, 0, 'bf');
+			boyfriend2.x += boyfriend.positionArray[0];
+			boyfriend2.y += boyfriend.positionArray[1];
+			boyfriend2.scrollFactor.set(1, 1);
+			boyfriendGroup.add(boyfriend2);
+
+			trace('death bf for alter ego mid song event');
+		}
 
 		var songArtist:String;
 
@@ -5276,10 +5281,7 @@ class PlayState extends MusicBeatState
 				case 14: // MISS NOTE !!
 					popUpScore(note, true);
 					return;
-				/*
-				case 14: //WIP FIRE DRAIN
-					if (cpuControlled) return;
-
+				case 17: //WIP FIRE DRAIN
 					FIRE_HITS += 1;
 
 					if (!boyfriend.stunned)
@@ -5314,7 +5316,6 @@ class PlayState extends MusicBeatState
 							}
 						}
 					}
-				*/
 				}
 
 				note.wasGoodHit = true;
@@ -5497,11 +5498,11 @@ class PlayState extends MusicBeatState
 	}
 
 	function spawnNoteSplashOnNote(daNote:Note) {
-		//trace('BAD FUNCTRION BEING USED FRAHHJFHJSDH');
-		var noteSplash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
-		noteSplash.setupNoteSplash(daNote.x, daNote.y, daNote.noteData);
-		// new NoteSplash(daNote.x, daNote.y, daNote.noteData);
-		grpNoteSplashes.add(noteSplash);
+		if (ClientPrefs.noteSplashes && daNote != null) {
+			var noteSplash:NoteSplash = grpNoteSplashes.recycle(NoteSplash);
+			noteSplash.setupNoteSplash(daNote.x, daNote.y, daNote.noteData);
+			grpNoteSplashes.add(noteSplash);
+		}
 	}
 
 	override function destroy() {

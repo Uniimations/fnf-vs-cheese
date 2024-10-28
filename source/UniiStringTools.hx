@@ -166,7 +166,7 @@ class UniiStringTools
         }
         #else
         switch (song_name) {
-            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'CREAM-CHEESE' | 'DIRTY-CHEATER' | 'Manager-Strike-Back': //i'm stupidd lol
+            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'Restaurante-Senpai' | 'Milkshake-Pico' | 'Cultured-Parents' | 'CREAM-CHEESE' | 'DIRTY-CHEATER' | 'Manager-Strike-Back': //i'm stupidd lol
                 swagShit = StringTools.replace(song_name, '-', ' ');
             case 'Above-Zero':
                 swagShit = 'Above Zero [up]';

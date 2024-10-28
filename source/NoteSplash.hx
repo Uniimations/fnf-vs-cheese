@@ -10,13 +10,14 @@ class NoteSplash extends FlxSprite
 	private var idleAnim:String;
 	private var lastNoteType:Int = -1;
 	public static var useSplashes:Bool = true;
+	public static var skin:String;
 
 	public function new(x:Float = 0, y:Float = 0, ?note:Int = 0)
 	{
 		super(x, y);
 
 		if (useSplashes) {
-			var skin:String = 'noteSplashes';
+			skin = 'noteSplashes';
 			if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) skin = PlayState.SONG.splashSkin;
 
 			loadAnims(skin);
@@ -28,7 +29,6 @@ class NoteSplash extends FlxSprite
 
 	public function setupNoteSplash(x:Float, y:Float, note:Int = 0, noteType:Int = 0)
 	{
-		/*
 		if(lastNoteType != noteType)
 		{
 			switch(noteType)
@@ -39,21 +39,20 @@ class NoteSplash extends FlxSprite
 					if (PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0)
 						loadAnims(PlayState.SONG.splashSkin);
 					else
-						loadAnims('note-splash-skins/noteSplashes');
+						loadAnims('note-splash-skins/oldnoteSplashes');
 			}
 			lastNoteType = noteType;
 		}
-		*/
 
 		if (useSplashes) {
-			loadAnims('note-splash-skins/NOTE_splashes'); // temporary fix to test note splashess!
+			loadAnims(skin);
 
 			setGraphicSize(200);
 			setPosition(x - Note.swagWidth * 0.95 + 55, y - Note.swagWidth + 65); // OFFSETS FINAL
 			alpha = 0.63; // crying
 
 			animation.play('note' + note + '-' + FlxG.random.int(1, 2), true);
-			//animation.curAnim.frameRate += FlxG.random.int(-2, 2);
+			animation.curAnim.frameRate += FlxG.random.int(-2, 2);
 			updateHitbox();
 		}
 	}
@@ -63,10 +62,10 @@ class NoteSplash extends FlxSprite
 		frames = Paths.getSparrowAtlas(skin);
 
 		for (i in 1...3) {
-			animation.addByPrefix("note1-" + i, "BLUE splash " + i, 14, false);
-			animation.addByPrefix("note2-" + i, "GREEN splash " + i, 14, false);
-			animation.addByPrefix("note0-" + i, "PURPLE splash " + i, 14, false);
-			animation.addByPrefix("note3-" + i, "RED splash " + i, 14, false);
+			animation.addByPrefix("note1-" + i, "note splash blue " + i, 24, false);
+			animation.addByPrefix("note2-" + i, "note splash green " + i, 24, false);
+			animation.addByPrefix("note0-" + i, "note splash purple " + i, 24, false);
+			animation.addByPrefix("note3-" + i, "note splash red " + i, 24, false);
 		}
 	}
 

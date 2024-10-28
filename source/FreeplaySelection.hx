@@ -224,6 +224,10 @@ class FreeplaySelection extends MusicBeatState
 				}
 
 			case 'BONUS SONGS':
+				addSong('Restaurante-Senpai-Mix', 1, 'senpai');
+				addSong('Milkshake-Pico-Mix', 1, 'pico');
+				addSong('Cultured-Parents-Mix', 1, 'parents');
+
 				if (FlxG.save.data.beatCream)
 					addSong('CREAM-CHEESE', 2, 'creamcheese');
 				else
@@ -231,10 +235,13 @@ class FreeplaySelection extends MusicBeatState
 
 				// MOVE TO EXTRAS MENU
 
-				//addSong('Restaurante-Classic', 1, 'bluecheese');
-				// ADD THESE WHEN SONGS ARE MADE FOR THEM !!!!!!!!!!!!! WOHOO YOPEE
-				//addSong('Milkshake-Classic', 1, 'bluecheese');
-				//addSong('Cultured-Classic', 1, 'bluecheese');
+				addSong('Restaurante-D-Side-Mix', 1, 'bluecheese');
+				//addSong('Milkshake-Arrow-Funk-Mix', 1, 'bluecheese');
+				//addSong('Cultured-Biddle3-Mix', 1, 'bluecheese');
+
+				addSong('Restaurante-Classic', 1, 'bluecheese');
+				addSong('Milkshake-Classic', 1, 'bluecheese');
+				addSong('Cultured-Classic', 1, 'bluecheese');
 
 				if (FlxG.save.data.beatWeekEnding) {
 					addSong('Dynamic-Duo', 3, 'uniinera');
@@ -278,8 +285,8 @@ class FreeplaySelection extends MusicBeatState
 				/**
 					REMOVED SONGS: (lol)
 				**/
-				//addSong('Frosted', 1, 'avinera');
-				//addSong('Alter-Ego', 2, 'unii');
+				addSong('Frosted', 1, 'avinera');
+				addSong('Alter-Ego', 2, 'unii');
 
 			default:
 				var luaSongs = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));

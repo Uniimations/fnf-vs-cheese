@@ -65,7 +65,8 @@ class ChartingState extends MusicBeatState
 		'13 - NO ANIMATION',
 		'14 - Swap BF',
 		'15 - Swap Dad',
-		'16 - Invisible'
+		'16 - Invisible',
+		'17 - Fire'
 	];
 
 	var undos = [];
