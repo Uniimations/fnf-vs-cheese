@@ -27,6 +27,8 @@ class GameOverSubstate extends MusicBeatSubstate
 		//BF DEATH SKIN, TYPE CHARACTER NAME
 		var daBf:String = '';
 		switch (PlayState.SONG.player1) {
+			case 'd-bf':
+				daBf = 'd-bf-dead';
 			case 'ex-bf':
 				daBf = 'ex-death';
 			case 'arsen':

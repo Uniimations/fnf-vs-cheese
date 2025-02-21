@@ -61,6 +61,8 @@ class UniiStringTools
                 note_skin_suffix = '_SUZUCHEESE';
             case 'unii':
                 note_skin_suffix = '_UNII';
+            case 'diples-cubed':
+                note_skin_suffix = '_DIPLES';
             default:
                 note_skin_suffix = '';
         }
@@ -166,7 +168,7 @@ class UniiStringTools
         }
         #else
         switch (song_name) {
-            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'Restaurante-Senpai' | 'Milkshake-Pico' | 'Cultured-Parents' | 'CREAM-CHEESE' | 'DIRTY-CHEATER' | 'Manager-Strike-Back': //i'm stupidd lol
+            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'Restaurante-Senpai-Mix' | 'Milkshake-Pico-Mix' | 'Cultured-Parents-Mix' | 'Restaurante-D-Side-Mix' | 'Milkshake-Arrow-Funk' | 'CREAM-CHEESE' | 'DIRTY-CHEATER' | 'Manager-Strike-Back': //i'm stupidd lol
                 swagShit = StringTools.replace(song_name, '-', ' ');
             case 'Above-Zero':
                 swagShit = 'Above Zero [up]';

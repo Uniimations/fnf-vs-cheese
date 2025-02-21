@@ -1,7 +1,7 @@
 {
 	"song": {
-		"player1": "bf",
-		"player2": "dad",
+		"player1": "bf-christmas",
+		"player2": "parents-christmas",
 		"notes": [
 			{
 				"lengthInSteps": 16,
@@ -505,6 +505,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -553,6 +554,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -613,6 +615,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -677,6 +680,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1318,6 +1322,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1342,6 +1347,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1384,6 +1390,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1408,6 +1415,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1437,6 +1445,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1704,6 +1713,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1744,6 +1754,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1772,6 +1783,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -1854,7 +1866,7 @@
 						1307.67441860465
 					]
 				],
-				"altAnim": false,
+				"altAnim": true,
 				"mustHitSection": true
 			},
 			{
@@ -1992,6 +2004,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -2039,6 +2052,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -2587,6 +2601,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -2629,6 +2644,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -2653,6 +2669,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -2689,6 +2706,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": false,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -2893,6 +2911,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -2941,6 +2960,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -3089,6 +3109,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -3137,6 +3158,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -3215,6 +3237,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -3803,6 +3826,7 @@
 				"mustHitSection": true
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -3849,6 +3873,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -3895,6 +3920,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -3981,6 +4007,7 @@
 				"mustHitSection": false
 			},
 			{
+				"altAnim": true,
 				"lengthInSteps": 16,
 				"sectionNotes": [
 					[
@@ -4107,11 +4134,17 @@
 						128895.348837209,
 						1,
 						0
+					],
+					[
+						128372.093023256,
+						5,
+						0,
+						0
 					]
 				],
 				"typeOfSection": 0,
 				"lengthInSteps": 16,
-				"altAnim": false,
+				"altAnim": true,
 				"mustHitSection": true,
 				"changeBPM": false,
 				"bpm": 178
@@ -5021,9 +5054,15 @@
 						3,
 						261.627906976744,
 						0
+					],
+					[
+						150348.837209302,
+						4,
+						261.627906976744,
+						0
 					]
 				],
-				"altAnim": false,
+				"altAnim": true,
 				"bpm": 172,
 				"changeBPM": false,
 				"mustHitSection": true
@@ -5063,7 +5102,7 @@
 						0
 					]
 				],
-				"altAnim": false,
+				"altAnim": true,
 				"bpm": 172,
 				"changeBPM": false,
 				"mustHitSection": true
@@ -5108,7 +5147,7 @@
 				],
 				"typeOfSection": 0,
 				"lengthInSteps": 16,
-				"altAnim": false,
+				"altAnim": true,
 				"mustHitSection": true,
 				"changeBPM": false,
 				"bpm": 172
@@ -5153,7 +5192,7 @@
 						0
 					]
 				],
-				"altAnim": false,
+				"altAnim": true,
 				"bpm": 172,
 				"changeBPM": false,
 				"mustHitSection": true
@@ -5198,7 +5237,7 @@
 						261.627906976744
 					]
 				],
-				"altAnim": false,
+				"altAnim": true,
 				"bpm": 172,
 				"changeBPM": false,
 				"mustHitSection": true
@@ -5244,7 +5283,7 @@
 						0
 					]
 				],
-				"altAnim": false,
+				"altAnim": true,
 				"bpm": 172,
 				"changeBPM": false,
 				"mustHitSection": true
@@ -5274,7 +5313,7 @@
 				],
 				"typeOfSection": 0,
 				"lengthInSteps": 16,
-				"altAnim": false,
+				"altAnim": true,
 				"mustHitSection": true,
 				"changeBPM": false,
 				"bpm": 172
@@ -5284,13 +5323,25 @@
 					[
 						159069.767441861,
 						1,
-						0,
+						784.883720930233,
 						0
 					],
 					[
 						159069.767441861,
 						0,
-						0,
+						784.883720930233,
+						0
+					],
+					[
+						159069.767441861,
+						7,
+						784.883720930233,
+						0
+					],
+					[
+						159069.767441861,
+						6,
+						784.883720930233,
 						0
 					]
 				],
@@ -5456,12 +5507,39 @@
 			},
 			{
 				"lengthInSteps": 16,
-				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
+				"altAnim": false,
 				"bpm": 172,
 				"changeBPM": false,
 				"mustHitSection": true
+			},
+			{
+				"lengthInSteps": 16,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"altAnim": false,
+				"bpm": 172,
+				"changeBPM": false,
+				"mustHitSection": true
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 172
+			},
+			{
+				"sectionNotes": [],
+				"typeOfSection": 0,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"mustHitSection": true,
+				"changeBPM": false,
+				"bpm": 172
 			},
 			{
 				"lengthInSteps": 16,
@@ -5473,7 +5551,7 @@
 				"mustHitSection": true
 			}
 		],
-		"player3": "gf",
+		"player3": "gf-christmas",
 		"song": "Cultured-Parents-Mix",
 		"stage": "restaurant",
 		"validScore": true,

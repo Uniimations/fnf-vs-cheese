@@ -93,6 +93,8 @@ class FreeplaySelection extends MusicBeatState
 				textPath = 'bonus';
 			case 'UNFAIR SONGS':
 				textPath = 'unfair';
+			case 'EXTRAS':
+				textPath = 'extra';
 		}
 
 		if (MainMenuState.cursed) textPath = 'easter_egg';
@@ -224,29 +226,14 @@ class FreeplaySelection extends MusicBeatState
 				}
 
 			case 'BONUS SONGS':
-				addSong('Restaurante-Senpai-Mix', 1, 'senpai');
-				addSong('Milkshake-Pico-Mix', 1, 'pico');
-				addSong('Cultured-Parents-Mix', 1, 'parents');
-
 				if (FlxG.save.data.beatCream)
 					addSong('CREAM-CHEESE', 2, 'creamcheese');
 				else
 					addSong('???', 2, 'creamcheese-fp');
 
-				// MOVE TO EXTRAS MENU
-
-				addSong('Restaurante-D-Side-Mix', 1, 'bluecheese');
-				//addSong('Milkshake-Arrow-Funk-Mix', 1, 'bluecheese');
-				//addSong('Cultured-Biddle3-Mix', 1, 'bluecheese');
-
-				addSong('Restaurante-Classic', 1, 'bluecheese');
-				addSong('Milkshake-Classic', 1, 'bluecheese');
-				addSong('Cultured-Classic', 1, 'bluecheese');
-
 				if (FlxG.save.data.beatWeekEnding) {
 					addSong('Dynamic-Duo', 3, 'uniinera');
 					addSong('Below-Zero', 4, 'avinera');
-					addSong('Above-Zero', 5, 'dad');
 
 					addSong('Mozzarella', 6, 'bluecheese');
 				}
@@ -287,6 +274,19 @@ class FreeplaySelection extends MusicBeatState
 				**/
 				addSong('Frosted', 1, 'avinera');
 				addSong('Alter-Ego', 2, 'unii');
+
+			case 'EXTRAS':
+				addSong('Restaurante-D-Side-Mix', 1, 'd-cheese');
+				addSong('Milkshake-Arrow-Funk', 2, 'arrow-funk');
+				//addSong('Cultured-Biddle3-Mix', 1, 'bluecheese');
+
+				addSong('Restaurante-Senpai-Mix', 3, 'senpai');
+				addSong('Milkshake-Pico-Mix', 4, 'pico');
+				addSong('Cultured-Parents-Mix', 5, 'parents');
+
+				addSong('Restaurante-Classic', 6, 'bluecheese');
+				addSong('Milkshake-Classic', 6, 'bluecheese');
+				addSong('Cultured-Classic', 6, 'bluecheese');
 
 			default:
 				var luaSongs = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));

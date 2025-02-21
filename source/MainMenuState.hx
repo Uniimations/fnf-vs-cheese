@@ -297,7 +297,7 @@ class MainMenuState extends MusicBeatState
 			// BEAT WEEK 1
 			if (FlxG.save.data.beatTutorial && FlxG.save.data.beatCulturedWeek && !FlxG.save.data.beatWeekEnding && !FlxG.save.data.beatBonus)
 			{
-				giveMenuAchievement('unlock_ex', 'notification', 'YOIU HAVE UNLOCKED EX OR SMTH', 'confirmMenu');
+				giveMenuAchievement('unlock_ex', 'notification', 'YOU HAVE UNLOCKED VIP', 'confirmMenu');
 
 				new FlxTimer().start(1.1, function(tmr: FlxTimer) {
 					giveMenuAchievement('unlock_week2', 'notification', 'UNLOCKED WEEK 2', 'confirmMenu');

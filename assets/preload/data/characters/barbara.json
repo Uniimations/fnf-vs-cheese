@@ -106,8 +106,8 @@
 	"no_antialiasing": false,
 	"image": "characters/BARBARA SIMPLE FLA",
 	"position": [
-		1080,
-		230
+		1500,
+		500
 	],
 	"healthicon": "barbara",
 	"flip_x": false,

@@ -55,6 +55,8 @@ class Note extends FlxSprite
 	public var noteSkin(default, set):String = 'noteskins/NOTE_assets';
 	public var distance:Float = 2000; //plan on doing scroll directions soon -bb
 
+	public var burning:Bool = false;
+
 	private function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
 		multSpeed = value;
@@ -98,7 +100,10 @@ class Note extends FlxSprite
 
 				case 17:
 					reloadNote('noteskins/NOTE_assets_FIRE');
+					setGraphicSize(Std.int(width * 0.86));
 					customFunctions = true;
+
+					burning = true;
 			}
 			noteType = value;
 		}
@@ -128,6 +133,11 @@ class Note extends FlxSprite
 		x += ((ClientPrefs.middleScroll || daSong == 'tutorial' || daSong.startsWith('manager')) ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
+
+		if (burning) {
+			x += -200;
+		}
+
 		this.strumTime = strumTime;
 		if(!inEditor) this.strumTime += ClientPrefs.noteOffset;
 

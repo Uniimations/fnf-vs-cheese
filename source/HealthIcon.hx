@@ -29,7 +29,7 @@ class HealthIcon extends FlxSprite
 		super.update(elapsed);
 
 		if (sprTracker != null)
-			setPosition(sprTracker.x + sprTracker.width + 10, sprTracker.y - 30);
+			setPosition(sprTracker.x - 120, sprTracker.y - 45);
 	}
 
 	//sussy function!!!
@@ -50,7 +50,7 @@ class HealthIcon extends FlxSprite
 			// ALL ANIMATION ICON SORTING CODE!!!
 			switch (char) // NOTE: CHAR IS NOT FOR curCharacter IT IS FOR THE ICON NAME!!!
 			{
-				case 'bluecheese-ex' | 'bf-ex':  //ex winning icons
+				case 'bluecheese-ex' | 'bf-ex' | 'bidu':  //ex winning icons
 					idleSpr = 0;
 					losingSpr = 1;
 					winningSpr = 2;

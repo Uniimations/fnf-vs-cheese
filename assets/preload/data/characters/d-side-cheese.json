@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "d cheese idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				31,
+				-2
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "d cheese left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				1,
+				-32
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "d cheese down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-7,
+				24
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "d cheese up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-14,
+				-23
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "d cheese right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/DSIDE",
+	"position": [
+		370,
+		100
+	],
+	"healthicon": "d-cheese",
+	"flip_x": false,
+	"healthbar_colors": [
+		64,
+		202,
+		103
+	],
+	"camera_position": [
+		176,
+		0
+	],
+	"sing_duration": 6.1,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

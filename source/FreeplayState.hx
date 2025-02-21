@@ -35,7 +35,7 @@ using StringTools;
 
 class FreeplayState extends MusicBeatState
 {
-	var options:Array<String> = ['STORY SONGS', 'BONUS SONGS', 'UNFAIR SONGS'];
+	var options:Array<String> = ['STORY SONGS', 'BONUS SONGS', 'UNFAIR SONGS', 'EXTRAS'];
 	private var grpOptions:FlxTypedGroup<AlphabetWhite>;
 	private var grpSelections:FlxTypedGroup<FlxSprite>;
 	private static var curSelected:Int = 0;
@@ -70,7 +70,12 @@ class FreeplayState extends MusicBeatState
 	    bonusSpr.screenCenter();
 		grpSelections.add(bonusSpr);
 
-		unfairSpr = new FlxSprite().loadGraphic(Paths.image('freeplay/MAIN_FP_UNFAIR'));
+		if (FlxG.save.data.beatBonus) {
+			unfairSpr = new FlxSprite().loadGraphic(Paths.image('freeplay/MAIN_FP_UNFAIR'));
+		}
+		else {
+			unfairSpr = new FlxSprite().loadGraphic(Paths.image('freeplay/MAIN_FP_UNFAIR_LOCKED'));
+		}
 		unfairSpr.antialiasing = ClientPrefs.globalAntialiasing;
 	    unfairSpr.updateHitbox();
 	    unfairSpr.screenCenter();
@@ -131,6 +136,15 @@ class FreeplayState extends MusicBeatState
 				FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
 				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+
+			case 'EXTRAS':
+				categoryText.text = "< EXTRAS >";
+				storySpr.alpha = 0.5;
+				bonusSpr.alpha = 0.5;
+				unfairSpr.alpha = 0.5;
+				FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+				FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 		}
 		canMove = true;
 
@@ -154,11 +168,11 @@ class FreeplayState extends MusicBeatState
 				switch(options[curSelected])
 				{
 					case 'STORY SONGS':
-						categoryText.text = "< UNFAIR SONGS >";
+						categoryText.text = "< EXTRAS >";
 						storySpr.alpha = 0.5;
 						bonusSpr.alpha = 0.5;
-						unfairSpr.alpha = 1;
-						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						unfairSpr.alpha = 0.5;
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
@@ -179,6 +193,15 @@ class FreeplayState extends MusicBeatState
 						FlxTween.tween(bonusSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
 						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+
+					case 'EXTRAS':
+						categoryText.text = "< UNFAIR SONGS >";
+						storySpr.alpha = 0.5;
+						bonusSpr.alpha = 0.5;
+						unfairSpr.alpha = 1;
+						FlxTween.tween(unfairSpr, {'scale.x': 1, 'scale.y': 1}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 				}
 				changeSelection(-1);
 			}
@@ -206,6 +229,15 @@ class FreeplayState extends MusicBeatState
 						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
 
 					case 'UNFAIR SONGS':
+						categoryText.text = "< EXTRAS >";
+						storySpr.alpha = 0.5;
+						bonusSpr.alpha = 0.5;
+						unfairSpr.alpha = 0.5;
+						FlxTween.tween(storySpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(bonusSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+						FlxTween.tween(unfairSpr, {'scale.x': 0.9, 'scale.y': 0.9}, 0.2, {ease: FlxEase.cubeInOut});
+
+					case 'EXTRAS':
 						categoryText.text = "< STORY SONGS >";
 						storySpr.alpha = 1;
 						bonusSpr.alpha = 0.5;
@@ -224,25 +256,57 @@ class FreeplayState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
-				canMove = false;
-
-				FlxG.sound.play(Paths.sound('enterMenu'));
-				FlxTween.tween(FlxG.camera, { zoom: 1.5}, 1.5, { ease: FlxEase.expoIn });
-
-				FreeplaySelection.category = options[curSelected];
-				trace('FREEPLAY SELECTION CATEGORY: ' + FreeplaySelection.category);
-
-				// made timer for this function SHORTER !
-				grpSelections.forEach(function(spr:FlxSprite)
+				if (options[curSelected] == 'UNFAIR SONGS')
 				{
-					FlxTween.tween(spr, {alpha: 0}, 0.7, {
-						ease: FlxEase.quadOut,
-						onComplete: function(twn:FlxTween)
+					if (FlxG.save.data.beatBonus)
+					{
+						canMove = false;
+
+						FlxG.sound.play(Paths.sound('enterMenu'));
+						FlxTween.tween(FlxG.camera, { zoom: 1.5}, 1.5, { ease: FlxEase.expoIn });
+
+						FreeplaySelection.category = options[curSelected];
+						trace('FREEPLAY SELECTION CATEGORY: ' + FreeplaySelection.category);
+
+						// made timer for this function SHORTER !
+						grpSelections.forEach(function(spr:FlxSprite)
 						{
-							MusicBeatState.switchState(new FreeplaySelection());
-						}
+							FlxTween.tween(spr, {alpha: 0}, 0.7, {
+								ease: FlxEase.quadOut,
+								onComplete: function(twn:FlxTween)
+								{
+									MusicBeatState.switchState(new FreeplaySelection());
+								}
+							});
+						});
+					}
+					else
+					{
+						FlxG.sound.play(Paths.sound('cancelMenu'));
+					}
+				}
+				else
+				{
+					canMove = false;
+
+					FlxG.sound.play(Paths.sound('enterMenu'));
+					FlxTween.tween(FlxG.camera, { zoom: 1.5}, 1.5, { ease: FlxEase.expoIn });
+
+					FreeplaySelection.category = options[curSelected];
+					trace('FREEPLAY SELECTION CATEGORY: ' + FreeplaySelection.category);
+
+					// made timer for this function SHORTER !
+					grpSelections.forEach(function(spr:FlxSprite)
+					{
+						FlxTween.tween(spr, {alpha: 0}, 0.7, {
+							ease: FlxEase.quadOut,
+							onComplete: function(twn:FlxTween)
+							{
+								MusicBeatState.switchState(new FreeplaySelection());
+							}
+						});
 					});
-				});
+				}
 			}
 		}
 	}

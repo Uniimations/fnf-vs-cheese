@@ -1,114 +1,114 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "arsen idle"
+			"fps": 24,
+			"name": "arsen idle",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				59,
 				-4
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "arsen left0"
+			"fps": 24,
+			"name": "arsen left0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				18,
 				-57
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "arsen down0"
+			"fps": 24,
+			"name": "arsen down0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-14,
 				31
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "arsen up0"
+			"fps": 24,
+			"name": "arsen up0",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-15,
 				-11
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "arsen right0"
+			"fps": 24,
+			"name": "arsen right0",
+			"indices": []
 		},
 		{
-			"loop": false,
 			"offsets": [
 				13,
 				20
 			],
-			"anim": "singGLOBALmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "arsen miss",
-			"indices": []
+			"anim": "singGLOBALmiss",
+			"indices": [],
+			"name": "arsen miss"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				54,
 				-6
 			],
-			"anim": "singLEFT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "alt left",
-			"indices": []
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "alt left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				16,
 				-51
 			],
-			"anim": "singDOWN-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "alt down",
-			"indices": []
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "alt down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-8,
 				32
 			],
-			"anim": "singUP-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "alt up",
-			"indices": []
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "alt up"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-10,
 				-10
 			],
-			"anim": "singRIGHT-alt",
+			"loop": false,
 			"fps": 24,
-			"name": "alt right",
-			"indices": []
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "alt right"
 		}
 	],
 	"no_antialiasing": false,
@@ -120,9 +120,9 @@
 	"healthicon": "arsen",
 	"flip_x": true,
 	"healthbar_colors": [
-		236,
-		192,
-		38
+		255,
+		149,
+		35
 	],
 	"camera_position": [
 		30,

@@ -103,8 +103,8 @@
 	"no_antialiasing": false,
 	"image": "characters/Pico_FNF_assetss",
 	"position": [
-		0,
-		300
+		550,
+		600
 	],
 	"healthicon": "pico",
 	"flip_x": true,

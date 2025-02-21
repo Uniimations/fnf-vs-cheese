@@ -14,7 +14,8 @@ class WeekData {
 		['Tutorial'],
 		['Restaurante', 'Milkshake', 'Cultured'],
 		['Wi-Fi', 'Casual-Duel', '???'],
-		['Manager-Strike-Back']
+		['Manager-Strike-Back'],
+		['Restaurante-D-Side-Mix', 'Milkshake-Arrow-Funk']
 		#if PLAYTEST_BUILD
 		,['UNLOCK', 'ALL', 'SONGS'],
 		['LOCK', 'ALL', 'SONGS']
@@ -34,7 +35,8 @@ class WeekData {
 		null,	//Tutorial
 		null,	//Week 1
 		null,	//Week 2
-		null	//Manager Strike Back
+		null,	//Manager Strike Back
+		null	//Side Job
 		#if PLAYTEST_BUILD
 		,null,
 		null
@@ -45,7 +47,8 @@ class WeekData {
 		null,   //Tutorial
 		null,	//Week 1
 		null,	//Week 2
-		null	//Manager Strike Back
+		null,	//Manager Strike Back
+		null	//Side Job
 		#if PLAYTEST_BUILD
 		,null,
 		null
@@ -60,7 +63,8 @@ class WeekData {
 		"Tutorial",
 		null,	//Week 1
 		null,	//Week 2
-		"Bonus Week"
+		"Bonus Week",
+		"Side Job"
 		#if PLAYTEST_BUILD
 		,"stop pressing the r button", //ur not supposed to be able to play this loloololl
 		"stop pressing the r button"   //ur not supposed to be able to play this loloololl

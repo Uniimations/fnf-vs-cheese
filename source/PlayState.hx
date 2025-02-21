@@ -128,6 +128,7 @@ class PlayState extends MusicBeatState
 	public var dad:Character;
 	public var dad2:Character;
 	public var gf:Character;
+	public var gf2:Character;
 	public var boyfriend:Boyfriend;
 	public var boyfriend2:Boyfriend;
 
@@ -217,6 +218,9 @@ class PlayState extends MusicBeatState
 	var boppers:BGSprite;
 	var counter:BGSprite;
 	var frontBoppers:BGSprite;
+
+	var upperBoppers:FlxSprite;
+	var bottomBoppers:FlxSprite;
 
 	var grpCustomTableBoppers:FlxTypedGroup<BGSprite>;
 
@@ -440,7 +444,7 @@ class PlayState extends MusicBeatState
 					add(shelf);
 
 				// kinda sorry for this code but also kinda not... it works.
-				case 'restaurante' | 'milkshake' | 'cultured' | 'restaurante-senpai-mix' | 'milkshake-pico-mix' | 'cultured-parents-mix':
+				case 'restaurante' | 'milkshake' | 'cultured' | 'restaurante-senpai-mix' | 'milkshake-pico-mix':
 					curStage = 'restaurante';
 
 					defaultCamZoom = 0.60;
@@ -477,7 +481,7 @@ class PlayState extends MusicBeatState
 								tableA = new BGSprite('cheese/night/tableA', 1966.5, 283.05, 1, 1);
 								tableB = new BGSprite('cheese/night/tableB', 1936.15, 568.5, 1, 1);
 								boppers = new BGSprite('cheese/night/boppers', 1287.3, 206.05, 1, 1, ['boppers']);
-								suzuki = new BGSprite('cheese/night/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+								suzuki = new BGSprite('cheese/ex/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
 								frontBoppers = new BGSprite('cheese/night/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
 
 							default:
@@ -497,8 +501,14 @@ class PlayState extends MusicBeatState
 						tableA = new BGSprite('cheese/tableA', 1966.5, 283.05, 1, 1);
 						tableB = new BGSprite('cheese/tableB', 1936.15, 568.5, 1, 1);
 						boppers = new BGSprite('cheese/char/boppers', 1265.6, 127.6, 1, 1, ['boppers']);
-						suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
 						frontBoppers = new BGSprite('cheese/char/front_boppers', 67.5, 959.7, 1, 1, ['front boppers']);
+
+						if (songLowercase == 'cultured') {
+							suzuki = new BGSprite('cheese/wall', -358.25, -180.35, 1, 1);
+						}
+						else {
+							suzuki = new BGSprite('cheese/wall_suzuki', -358.25, -180.35, 1, 1, ['wall'], true);
+						}
 					}
 					counter = new BGSprite('cheese/counter', 232.35, 403.25, 1, 1, ['counter bop']);
 
@@ -514,6 +524,55 @@ class PlayState extends MusicBeatState
 					add(phillyBlack);
 
 					comboOffset = [430, -550];
+
+				case 'cultured-parents-mix':
+					curStage = 'mall';
+
+					defaultCamZoom = 0.80;
+
+					var bg:FlxSprite = new FlxSprite(-1000, -500).loadGraphic(Paths.image('christmas/bgWalls'));
+					bg.antialiasing = ClientPrefs.globalAntialiasing;
+					bg.scrollFactor.set(0.2, 0.2);
+					bg.active = false;
+					bg.setGraphicSize(Std.int(bg.width * 0.8));
+					bg.updateHitbox();
+					add(bg);
+
+					upperBoppers = new FlxSprite(-240, -90);
+					upperBoppers.frames = Paths.getSparrowAtlas('christmas/upperBop');
+					upperBoppers.animation.addByPrefix('bop', "Upper Crowd Bob", 24, false);
+					upperBoppers.antialiasing = ClientPrefs.globalAntialiasing;
+					upperBoppers.scrollFactor.set(0.33, 0.33);
+					upperBoppers.setGraphicSize(Std.int(upperBoppers.width * 0.85));
+					upperBoppers.updateHitbox();
+					add(upperBoppers);
+
+					var bgEscalator:FlxSprite = new FlxSprite(-1100, -600).loadGraphic(Paths.image('christmas/bgEscalator'));
+					bgEscalator.antialiasing = ClientPrefs.globalAntialiasing;
+					bgEscalator.scrollFactor.set(0.3, 0.3);
+					bgEscalator.active = false;
+					bgEscalator.setGraphicSize(Std.int(bgEscalator.width * 0.9));
+					bgEscalator.updateHitbox();
+					add(bgEscalator);
+
+					var tree:FlxSprite = new FlxSprite(370, -250).loadGraphic(Paths.image('christmas/christmasTree'));
+					tree.antialiasing = ClientPrefs.globalAntialiasing;
+					tree.scrollFactor.set(0.40, 0.40);
+					add(tree);
+
+					bottomBoppers = new FlxSprite(-300, 140);
+					bottomBoppers.frames = Paths.getSparrowAtlas('christmas/bottomBop');
+					bottomBoppers.animation.addByPrefix('bop', 'Bottom Level Boppers', 24, false);
+					bottomBoppers.antialiasing = true;
+					bottomBoppers.scrollFactor.set(0.9, 0.9);
+					bottomBoppers.setGraphicSize(Std.int(bottomBoppers.width * 1));
+					bottomBoppers.updateHitbox();
+					add(bottomBoppers);
+
+					var fgSnow:FlxSprite = new FlxSprite(-600, 700).loadGraphic(Paths.image('christmas/fgSnow'));
+					fgSnow.active = false;
+					fgSnow.antialiasing = ClientPrefs.globalAntialiasing;
+					add(fgSnow);
 
 				case 'restaurante-classic' | 'milkshake-classic' | 'cultured-classic':
 					curStage = 'restaurantOld';
@@ -537,6 +596,32 @@ class PlayState extends MusicBeatState
 					add(REEboy);
 
 					comboOffset = [430, -550];
+
+				case 'restaurante-d-side-mix':
+					curStage = 'fancy';
+
+					defaultCamZoom = 0.7;
+					staticCamZoom = 0.7;
+
+					var fancy:BGSprite = new BGSprite('side-job/fancy_restaurant', 0, -210, 0.9, 0.9);
+					add(fancy);
+				
+				case 'milkshake-arrow-funk':
+					curStage = 'fancy restaurant';
+
+					defaultCamZoom = 0.5;
+					staticCamZoom = 0.5;
+
+					var fancy:BGSprite = new BGSprite('side-job/backdrop', -412, -777, 0.9, 0.9);
+					var back:BGSprite = new BGSprite('side-job/back', 98.55, 171.1, 1, 1);
+
+					var truck:FlxSprite = new FlxSprite(-122.05, -94.75).loadGraphic(Paths.image('side-job/food_truck'));
+					truck.antialiasing = ClientPrefs.globalAntialiasing;
+					truck.scrollFactor.set(1, 1);
+
+					add(fancy);
+					add(back);
+					add(truck);
 
 				case 'cream-cheese':
 					curStage = 'restauranteCream';
@@ -778,8 +863,8 @@ class PlayState extends MusicBeatState
 					uniiEye.alpha = 0;
 					gotcha.alpha = 0;
 
-					phillyFade = new FlxSprite(-390, -190).makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.BLACK);
-					phillyFade.scrollFactor.set(1, 1);
+					phillyFade = new FlxSprite(-1000, -800).makeGraphic(Std.int(FlxG.width * 3), Std.int(FlxG.height * 3), FlxColor.BLACK);
+					phillyFade.scrollFactor.set(0.1, 0.1);
 					phillyFade.alpha = 0.0;
 
 					add(nightBack);
@@ -812,6 +897,17 @@ class PlayState extends MusicBeatState
 					add(dirtyChair);
 
 					comboOffset = [-245, -80];
+
+				case 'outside':
+					curStage = 'theBack2';
+
+					defaultCamZoom = 0.9;
+					staticCamZoom = 0.9;
+
+					nightBack = new BGSprite('bonus/ALTER_NORMAL', -322.55, -248.1, 0.95, 0.95, ['NORMAL']);
+					nightBack.updateHitbox();
+					nightBack.scale.set(1.5, 1.5);
+					add(nightBack);
 
 				default:
 					var stageJson:LuaStage = UniiStringTools.getLuaStage(songLowercase);
@@ -882,6 +978,13 @@ class PlayState extends MusicBeatState
 				DAD_Y -= 269; //nice.
 				BF_X -= 540;
 				BF_Y -= 360;
+			case 'theBack2':
+				DAD_X -= 700;
+				DAD_Y -= 300; //nice.
+				BF_X -= 540;
+				BF_Y -= 360;
+				GF_X -= 540;
+				GF_Y -= 360;
 			case 'chartEditor':
 				DAD_Y -= 100;
 				BF_Y -= 100;
@@ -958,6 +1061,14 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
+			case 'restaurante':
+				if (songLowercase == 'cultured') {
+					gf2 = new Character(0, 0, 'gf');
+					gf2.x += gf2.positionArray[0];
+					gf2.y += gf2.positionArray[1];
+					gf2.scrollFactor.set(1, 1);
+					gfGroup.add(gf2);
+				}
 			case 'restauranteOld':
 				boyfriend.x = 1168.2;
 				boyfriend.y = 714.4;
@@ -983,11 +1094,21 @@ class PlayState extends MusicBeatState
 				add(daniTriangle);
 		}
 
+		if (songLowercase == 'alter-ego') {
+			boyfriend2 = new Boyfriend(0, 0, 'bf');
+			boyfriend2.x += boyfriend.positionArray[0];
+			boyfriend2.y += boyfriend.positionArray[1];
+			boyfriend2.scrollFactor.set(1, 1);
+			boyfriendGroup.add(boyfriend2);
+
+			trace('death bf for alter ego mid song event');
+		}
+
 		var camPos:FlxPoint;
 
 		switch (curStage)
 		{
-			case 'frostedStage' | 'theBack':
+			case 'frostedStage' | 'theBack' | 'theBack2':
 				camPos = new FlxPoint(dad.getGraphicMidpoint().x, dad.getGraphicMidpoint().y);
 				camPos.x += dad.cameraPosition[0];
 				camPos.y += dad.cameraPosition[1];
@@ -1165,6 +1286,7 @@ class PlayState extends MusicBeatState
 
 		// NO MORE.
 
+		/*
 		//what ocd does to a mf
 		//what ocd does to a mf pt 2 (i cleaned it for u :3 )
 
@@ -1177,16 +1299,7 @@ class PlayState extends MusicBeatState
 			else
 				versionHeight -= 135;
 		}
-
-		if (songLowercase == 'alter-ego') {
-			boyfriend2 = new Boyfriend(0, 0, 'bf');
-			boyfriend2.x += boyfriend.positionArray[0];
-			boyfriend2.y += boyfriend.positionArray[1];
-			boyfriend2.scrollFactor.set(1, 1);
-			boyfriendGroup.add(boyfriend2);
-
-			trace('death bf for alter ego mid song event');
-		}
+		*/
 
 		var songArtist:String;
 
@@ -1198,6 +1311,8 @@ class PlayState extends MusicBeatState
 				songArtist = 'breadiboyo';
 			case 'below-zero' | 'dirty-cheater' | 'manager-strike-back' | 'frosted':
 				songArtist = 'Avinera';
+			case 'outside' | 'restaurante-senpai-mix' | 'milkshake-pico-mix' | 'cultured-parents-mix' | 'milkshake-arrow-funk' | 'cultured-biddle3':
+				songArtist = 'Door Knobe';
 			case 'fat-blunt':
 				songArtist = 'Toby Fox (ft. Avinera)';
 			default:
@@ -1499,6 +1614,9 @@ class PlayState extends MusicBeatState
 
 				boyfriend.idleSuffix = '-straight'; // HE IS NOT HOMOSEXUAL !!
 
+			case 'frosted':
+				boyfriend.idleSuffix = '-straight';
+
 			default:
 				camPercentFloat = 4;
 				camGameZoom = 0.015;
@@ -1695,6 +1813,8 @@ class PlayState extends MusicBeatState
 				if (tmr.loopsLeft % gfSpeed == 0)
 				{
 					gf.dance();
+
+					if (gf2 != null) gf2.dance();
 				}
 				if(tmr.loopsLeft % 2 == 0)
 				{
@@ -1988,7 +2108,7 @@ class PlayState extends MusicBeatState
 
 		previousFrameTime = FlxG.game.ticks;
 
-		FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song, soundSuffix), 1, false);
+		FlxG.sound.playMusic(Paths.inst(PlayState.SONG.song, instSuffix), 1, false);
 		FlxG.sound.music.onComplete = finishSong;
 		vocals.play();
 
@@ -2164,14 +2284,28 @@ class PlayState extends MusicBeatState
 		//trace('GENERATED MUSIC !! :3');
 	}
 
-	var soundSuffix:String = '';
+	var instSuffix:String = '';
+	var voiceSuffix:String = '';
+
+	var isCheese:Bool = false;
+	var isAvinera:Bool = false;
+	var isGFchar:Bool = false;
+	var isBF:Bool = false;
 
 	function preloadSongs()
 	{
-		if (CoolUtil.difficultyString() == HARDER_THAN_HARD) soundSuffix = 'VIP';
+		if (CoolUtil.difficultyString() == HARDER_THAN_HARD) {
+			instSuffix = 'VIP';
+			voiceSuffix = 'VIP';
+		}
+
+		if (isCheese == true) voiceSuffix = 'Cheese';
+		if (isAvinera == true) voiceSuffix = 'Avinera';
+		if (isGFchar == true) voiceSuffix = 'GF';
+		if (isBF == true) voiceSuffix = 'BF';
 
 		if (SONG.needsVoices)
-			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, soundSuffix));
+			vocals = new FlxSound().loadEmbedded(Paths.voices(PlayState.SONG.song, voiceSuffix));
 		else
 			vocals = new FlxSound();
 
@@ -2182,8 +2316,8 @@ class PlayState extends MusicBeatState
 		FlxG.sound.list.add(vocals);
 
 		// CACHE SOUNDS !!
-		FlxG.sound.cache(Paths.voices(PlayState.SONG.song, soundSuffix));
-		FlxG.sound.cache(Paths.inst(PlayState.SONG.song, soundSuffix));
+		FlxG.sound.cache(Paths.voices(PlayState.SONG.song, voiceSuffix));
+		FlxG.sound.cache(Paths.inst(PlayState.SONG.song, instSuffix));
 
 		//trace('cached inst and voices'); // lowercase B) // shut up
 	}
@@ -2206,6 +2340,10 @@ class PlayState extends MusicBeatState
 				subTxt.setFormat(Paths.font("fnf.otf"), 40, FlxColor.WHITE, CENTER);
 				subTxt.scrollFactor.set();
 				subTxt.antialiasing = ClientPrefs.globalAntialiasing;
+			case 'Playable Characters':
+				var charType:Int = Std.parseInt(event[3]);
+				var newCharacter:String = event[4];
+				addCharacterToList(newCharacter, charType);
 		}
 
 		if(!eventPushedMap.exists(event[2])) {
@@ -3997,6 +4135,23 @@ class PlayState extends MusicBeatState
 					FlxTween.num(trueLength, casualTime[Std.parseInt(value1)], 2, {ease: FlxEase.circOut}, function (x:Float) {
 						trueLength = x;
 					});
+
+				case 'Playable Characters':
+					if(boyfriend.curCharacter != value2) {
+						if(!boyfriendMap.exists(value2)) {
+							addCharacterToList(value2, 0);
+						}
+
+						boyfriend.visible = false;
+						boyfriend = boyfriendMap.get(value2);
+						if(!boyfriend.alreadyLoaded) {
+							boyfriend.alpha = 1;
+							boyfriend.alreadyLoaded = true;
+						}
+						boyfriend.visible = true;
+						iconP1.changeIcon(boyfriend.healthIcon);
+				}
+				setOnLuas('boyfriendName', boyfriend.curCharacter);
 			}
 			callOnLuas('onEvent', [eventName, value1, value2]);
 		}
@@ -5282,6 +5437,11 @@ class PlayState extends MusicBeatState
 					popUpScore(note, true);
 					return;
 				case 17: //WIP FIRE DRAIN
+					if (ClientPrefs.botplay) {
+						return;
+						trace('botplay ass');
+					}
+
 					FIRE_HITS += 1;
 
 					if (!boyfriend.stunned)
@@ -5966,6 +6126,13 @@ class PlayState extends MusicBeatState
 				}
 			}
 
+			if (gf2 != null && curBeat % gfSpeed == 0 && !gf2.stunned)
+			{
+				if (!gf2.animation.curAnim.name.startsWith("sing") && !gf2.stunned) {
+					gf2.dance();
+				}
+			}
+
 			if(curBeat % dancePercent == 0) {
 				if (!boyfriend.animation.curAnim.name.startsWith("sing") && !boyfriend.specialAnim)
 				{
@@ -6170,15 +6337,21 @@ class PlayState extends MusicBeatState
 			case 'cultured':
 				if (FlxG.save.data.beatCulturedWeek == null || FlxG.save.data.beatCulturedWeek == false) {
 					FlxG.save.data.beatCulturedWeek = true;
-					trace('beat cultured');
+					trace('beat week 1');
 				}
-			case 'dynamic-duo' | 'below-zero':
+			case 'dynamic-duo':
 				if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == false) {
 					FlxG.save.data.beatWeekEnding = true;
 					trace('beat week 2');
 				}
 				FlxG.save.data.beatNormalEnd = true; //TAKE THNIS OUT AFTER ENDINGS HAVE BEEN PUT IN!!!
 				//SURE THING BUDDY!!! (my future self)
+			case 'below-zero':
+				if (FlxG.save.data.beatWeekEnding == null || FlxG.save.data.beatWeekEnding == false) {
+					FlxG.save.data.beatWeekEnding = true;
+					trace('beat week 2');
+				}
+				FlxG.save.data.beatAlternateEnd = true;
 			case 'manager-strike-back':
 				if (FlxG.save.data.beatBonus == null || FlxG.save.data.beatBonus == false) {
 					FlxG.save.data.beatBonus = true;
@@ -6186,14 +6359,13 @@ class PlayState extends MusicBeatState
 				}
 		}
 
-		if (songLowercase == 'casual-duel')
+		switch (songLowercase)
 		{
-			MusicBeatState.switchState(new ChoiceState());
-		}
-		else
-		{
-			backToMenu();
-			trace('exited song, transitioned to story mode');
+			case 'casual-duel':
+				MusicBeatState.switchState(new ChoiceState());
+			default:
+				backToMenu();
+				trace('exited song, transitioned to story mode');
 		}
 
 		if (SONG.validScore)
@@ -6398,6 +6570,9 @@ class PlayState extends MusicBeatState
 						add(boyfriendGroup);
 						add(frontBoppers);
 
+					case 'food truck':
+						add(counter);
+
 					case 'restauranteCream':
 						gf.visible = false;
 						boyfriend.visible = false;
@@ -6494,6 +6669,12 @@ class PlayState extends MusicBeatState
 						phillyCounter.dance();
 					}
 
+				/*
+				case 'mall':
+					upperBoppers.animation.play('bop', true);
+					bottomBoppers.animation.play('bop', true);
+				*/
+
 				case 'restauranteCream':
 					counter.dance(true);
 					if (bagelSinging == false) bagel.dance();
@@ -6549,6 +6730,9 @@ class PlayState extends MusicBeatState
 						sadBack.dance(true);
 						sunnyBack.dance(true);
 					}
+				case 'theBack2':
+					if (ClientPrefs.flashing)
+						nightBack.dance(true);
 			}
 		}
 
