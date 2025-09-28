@@ -3,17 +3,6 @@
 		{
 			"loop": false,
 			"offsets": [
-				3,
-				0
-			],
-			"anim": "idle",
-			"fps": 24,
-			"name": "Pico Idle Dance",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
 				21,
 				27
 			],
@@ -98,6 +87,28 @@
 			"anim": "singLEFTmiss",
 			"indices": [],
 			"name": "Pico NOTE LEFT miss"
+		},
+		{
+			"offsets": [
+				3,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "idle",
+			"loop": false,
+			"name": "Pico Idle Dance"
+		},
+		{
+			"offsets": [
+				39,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "burp",
+			"loop": false,
+			"name": "burp big pico"
 		}
 	],
 	"no_antialiasing": false,
@@ -118,5 +129,6 @@
 		0
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }

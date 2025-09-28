@@ -12,7 +12,7 @@ class NoteSplash extends FlxSprite
 	public static var useSplashes:Bool = true;
 	public static var skin:String;
 
-	public function new(x:Float = 0, y:Float = 0, ?note:Int = 0)
+	public function new(x:Float = 0, y:Float = 0, note:Int = 0, noteType:Int = 0)
 	{
 		super(x, y);
 
@@ -20,9 +20,7 @@ class NoteSplash extends FlxSprite
 			skin = 'noteSplashes';
 			if(PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0) skin = PlayState.SONG.splashSkin;
 
-			loadAnims(skin);
-
-			setupNoteSplash(x, y, note);
+			setupNoteSplash(x, y, note, noteType);
 			antialiasing = ClientPrefs.globalAntialiasing;
 		}
 	}
@@ -39,20 +37,18 @@ class NoteSplash extends FlxSprite
 					if (PlayState.SONG.splashSkin != null && PlayState.SONG.splashSkin.length > 0)
 						loadAnims(PlayState.SONG.splashSkin);
 					else
-						loadAnims('note-splash-skins/oldnoteSplashes');
+						loadAnims('note-splash-skins/noteSplashes');
 			}
 			lastNoteType = noteType;
 		}
 
 		if (useSplashes) {
-			loadAnims(skin);
-
 			setGraphicSize(200);
 			setPosition(x - Note.swagWidth * 0.95 + 55, y - Note.swagWidth + 65); // OFFSETS FINAL
 			alpha = 0.63; // crying
 
 			animation.play('note' + note + '-' + FlxG.random.int(1, 2), true);
-			animation.curAnim.frameRate += FlxG.random.int(-2, 2);
+			animation.curAnim.frameRate = 24 + FlxG.random.int(-2, 2);
 			updateHitbox();
 		}
 	}

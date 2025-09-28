@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Nene.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="nene dance0000" x="0" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0001" x="834" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0002" x="1668" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0003" x="2502" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0004" x="3336" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0005" x="4170" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0006" x="5004" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0007" x="5838" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0008" x="6672" y="0" width="814" height="670"/>
+	<SubTexture name="nene dance0009" x="0" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0010" x="834" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0011" x="1668" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0012" x="2502" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0013" x="3336" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0014" x="4170" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0015" x="5004" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0016" x="5838" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0017" x="6672" y="690" width="814" height="670"/>
+	<SubTexture name="nene dance0018" x="0" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0019" x="834" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0020" x="1668" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0021" x="2502" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0022" x="3336" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0023" x="4170" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0024" x="5004" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0025" x="5838" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0026" x="6672" y="1380" width="814" height="670"/>
+	<SubTexture name="nene dance0027" x="0" y="2070" width="814" height="670"/>
+	<SubTexture name="nene dance0028" x="834" y="2070" width="814" height="670"/>
+	<SubTexture name="nene dance0029" x="1668" y="2070" width="814" height="670"/>
+</TextureAtlas>

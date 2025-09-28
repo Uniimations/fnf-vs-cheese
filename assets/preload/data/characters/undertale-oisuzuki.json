@@ -9,75 +9,75 @@
 			"fps": 24,
 			"anim": "idle",
 			"indices": [],
-			"name": "suzuki ut idle"
+			"name": "SUZUKI IDLE BIG"
 		},
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				32,
+				-3
 			],
 			"fps": 24,
 			"anim": "singLEFT",
 			"indices": [],
-			"name": "suzuki ut left"
+			"name": "SUZUKI LEFT BIG"
 		},
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				-22,
+				-15
 			],
 			"fps": 24,
 			"anim": "singRIGHT",
 			"indices": [],
-			"name": "suzuki ut right"
+			"name": "SUZUKI RIGHT BIG"
 		},
 		{
 			"loop": false,
 			"offsets": [
-				0,
-				0
+				1,
+				-9
 			],
 			"fps": 24,
 			"anim": "singUP",
 			"indices": [],
-			"name": "suzuki ut up"
+			"name": "SUZUKI UP BIG"
 		},
 		{
 			"loop": false,
 			"offsets": [
 				0,
-				0
+				-38
 			],
 			"fps": 24,
 			"anim": "singDOWN",
 			"indices": [],
-			"name": "suzuki ut down"
+			"name": "SUZUKI DOWN BIG"
 		},
 		{
 			"loop": true,
 			"offsets": [
-				0,
-				0
+				1,
+				-9
 			],
 			"anim": "singUP-loop",
 			"fps": 24,
-			"name": "suzuki ut up",
+			"name": "SUZUKI UP BIG",
 			"indices": [
+				8,
 				9,
 				10,
 				11,
 				12,
 				13,
 				14,
-				15,
-				16
+				15
 			]
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/undertale/oisuzuki_LATEST",
+	"image": "characters/undertale/MANAGER",
 	"position": [
 		-90,
 		360
@@ -90,8 +90,8 @@
 		0
 	],
 	"camera_position": [
-		620,
-		100
+		545,
+		200
 	],
 	"sing_duration": 4,
 	"noteskin": "NOTE_assets",

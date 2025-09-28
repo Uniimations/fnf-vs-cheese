@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bluescreen_table.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="relinquish table big0000" x="0" y="0" width="955" height="448"/>
+	<SubTexture name="relinquish table big0001" x="0" y="0" width="955" height="448"/>
+	<SubTexture name="relinquish table big0002" x="0" y="0" width="955" height="448"/>
+	<SubTexture name="relinquish table big0003" x="0" y="468" width="955" height="448"/>
+	<SubTexture name="relinquish table big0004" x="0" y="468" width="955" height="448"/>
+	<SubTexture name="relinquish table big0005" x="0" y="468" width="955" height="448"/>
+</TextureAtlas>

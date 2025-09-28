@@ -30,10 +30,11 @@ class Achievements
 		["You're Not Cultured Yet!",	"Beat Cultured on VIP difficulty.", 														'cultured_ex',			false],
 
 		// EXTRA ACHIEVEMENTS
-		["Afterparty",					"Beat all Bonus Songs and VIP remixes.",													'beat_bonus',			false],
+		["Afterparty",					"Play all Bonus Songs and VIP remixes.",													'beat_bonus',			false],
 		["Megalomaniac", 				"Beat Manager Strike Back with mechanics on.",												'beat_chara',			 true],
 		["Let It Go",	 				"Beat Frosted with mechanics on.",															'beat_sans',			 true],
 		["Mania",	 					"Beat Alter Ego with mechanics on.",														'beat_unii',			 true],
+		["I'm Lagging!",				"Beat Relinquish with mechanics on.",														'beat_arsen',			 true],
 
 		["Fucking Cheater...",  		UniiStringTools.potionionsMessage(), 														'beat_onion', 			 true], //made cleaner, look in UniiStringTools.hx for info!
 

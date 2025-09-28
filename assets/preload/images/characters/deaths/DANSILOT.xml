@@ -2,130 +2,151 @@
 <TextureAtlas imagePath="DANSILOT.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="DANI DIES0000" x="0" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0001" x="704" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0002" x="1408" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0003" x="1408" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0004" x="2112" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0005" x="2816" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0006" x="3520" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0007" x="3520" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0008" x="4224" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0009" x="4928" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0010" x="4928" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0011" x="5632" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0012" x="5632" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0013" x="6336" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0014" x="6336" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0015" x="7040" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0016" x="7040" y="0" width="694" height="920"/>
-	<SubTexture name="DANI DIES0017" x="0" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0018" x="0" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0019" x="704" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0020" x="704" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0021" x="1408" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0022" x="1408" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0023" x="2112" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0024" x="2816" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0025" x="2816" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0026" x="3520" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0027" x="3520" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0028" x="4224" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0029" x="4224" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0030" x="4928" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0031" x="4928" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0032" x="5632" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0033" x="5632" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0034" x="4928" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0035" x="4928" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0036" x="4928" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0037" x="4928" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0038" x="5632" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0039" x="5632" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0040" x="5632" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0041" x="5632" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0042" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0043" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0044" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0045" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0046" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0047" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0048" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0049" x="6336" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0050" x="7040" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0051" x="7040" y="930" width="694" height="920"/>
-	<SubTexture name="DANI DIES0052" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="DANI DIES0053" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="DANI DIES0054" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="DANI DIES0055" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="DANI DIES0056" x="0" y="1860" width="694" height="920"/>
-	<SubTexture name="DANI DIES0057" x="0" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0000" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0001" x="1408" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0002" x="1408" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0003" x="2112" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0004" x="2112" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0005" x="2816" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0006" x="2816" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0007" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0008" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0009" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0010" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0011" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0012" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0013" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0014" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0015" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0016" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0017" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0018" x="1408" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0019" x="1408" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0020" x="2112" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0021" x="2112" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0022" x="2816" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0023" x="2816" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0024" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0025" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0026" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0027" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0028" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0029" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0030" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0031" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0032" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani bop anim0033" x="3520" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0000" x="4224" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0001" x="4928" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0002" x="4928" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0003" x="5632" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0004" x="6336" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0005" x="7040" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0006" x="0" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0007" x="704" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0008" x="1408" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0009" x="2112" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0010" x="2816" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0011" x="3520" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0012" x="4224" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0013" x="4928" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0014" x="5632" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0015" x="6336" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0016" x="7040" y="2790" width="694" height="920"/>
-	<SubTexture name="dani retry press0017" x="0" y="3720" width="694" height="920"/>
-	<SubTexture name="dani retry press0018" x="0" y="3720" width="694" height="920"/>
-	<SubTexture name="dani retry press0019" x="704" y="3720" width="694" height="920"/>
-	<SubTexture name="dani retry press0020" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0021" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0022" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0023" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0024" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0025" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0026" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0027" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0028" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0029" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0030" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0031" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0032" x="704" y="1860" width="694" height="920"/>
-	<SubTexture name="dani retry press0033" x="704" y="1860" width="694" height="920"/>
+	<SubTexture name="dani confirm0000" x="0" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0001" x="569" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0002" x="569" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0003" x="1138" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0004" x="1138" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0005" x="1707" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0006" x="2276" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0007" x="2845" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0008" x="2845" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0009" x="3414" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0010" x="3414" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0011" x="3983" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0012" x="3983" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0013" x="4552" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0014" x="4552" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0015" x="5121" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0016" x="5121" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0017" x="5690" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0018" x="5690" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0019" x="5690" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0020" x="5690" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0021" x="6259" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0022" x="6259" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0023" x="6259" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0024" x="6259" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0025" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0026" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0027" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0028" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0029" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0030" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0031" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0032" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani confirm0033" x="6828" y="0" width="549" height="694"/>
+	<SubTexture name="dani dead loop0000" x="7397" y="0" width="488" height="589"/>
+	<SubTexture name="dani dead loop0001" x="0" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0002" x="0" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0003" x="508" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0004" x="508" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0005" x="508" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0006" x="1016" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0007" x="1016" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0008" x="1016" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0009" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0010" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0011" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0012" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0013" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0014" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0015" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0016" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0017" x="7397" y="0" width="488" height="589"/>
+	<SubTexture name="dani dead loop0018" x="0" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0019" x="0" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0020" x="508" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0021" x="508" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0022" x="508" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0023" x="1016" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0024" x="1016" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0025" x="1016" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0026" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0027" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0028" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0029" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0030" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0031" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0032" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dead loop0033" x="1524" y="714" width="488" height="589"/>
+	<SubTexture name="dani dies0000" x="2032" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0001" x="2032" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0002" x="2576" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0003" x="2576" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0004" x="3120" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0005" x="3664" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0006" x="4208" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0007" x="4208" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0008" x="4752" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0009" x="4752" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0010" x="4752" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0011" x="5296" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0012" x="5296" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0013" x="5840" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0014" x="5840" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0015" x="6384" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0016" x="6384" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0017" x="6928" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0018" x="6928" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0019" x="7472" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0020" x="7472" y="714" width="524" height="733"/>
+	<SubTexture name="dani dies0021" x="0" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0022" x="0" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0023" x="544" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0024" x="1088" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0025" x="1088" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0026" x="1632" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0027" x="1632" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0028" x="2176" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0029" x="2176" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0030" x="2720" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0031" x="2720" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0032" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0033" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0034" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0035" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0036" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0037" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0038" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0039" x="3264" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0040" x="3808" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0041" x="3808" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0042" x="4352" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0043" x="4352" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0044" x="4896" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0045" x="4896" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0046" x="5440" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0047" x="5440" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0048" x="5984" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0049" x="5984" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0050" x="6528" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0051" x="6528" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0052" x="7072" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0053" x="7072" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0054" x="7616" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0055" x="7616" y="1467" width="524" height="733"/>
+	<SubTexture name="dani dies0056" x="0" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0057" x="0" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0058" x="544" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0059" x="544" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0060" x="1088" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0061" x="1088" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0062" x="1632" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0063" x="1632" y="2220" width="524" height="733"/>
+	<SubTexture name="dani dies0064" x="1632" y="2220" width="524" height="733"/>
+	<SubTexture name="dani idle0000" x="2176" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0001" x="2176" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0002" x="2554" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0003" x="2554" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0004" x="2932" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0005" x="2932" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0006" x="3310" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0007" x="3310" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0008" x="3688" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0009" x="3688" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0010" x="4066" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0011" x="4066" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0012" x="4066" y="2220" width="358" height="726"/>
+	<SubTexture name="dani idle0013" x="4066" y="2220" width="358" height="726"/>
 </TextureAtlas>

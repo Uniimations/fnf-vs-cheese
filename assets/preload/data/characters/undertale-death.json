@@ -1,146 +1,57 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				321,
-				352
+				329,
+				272
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "firstDeath",
-			"fps": 24,
-			"name": "BF dies",
-			"indices": []
+			"indices": [],
+			"name": "BF dies BIG"
 		},
 		{
+			"offsets": [
+				329,
+				272
+			],
 			"loop": true,
-			"offsets": [
-				321,
-				352
-			],
+			"fps": 24,
 			"anim": "deathLoop",
-			"fps": 24,
-			"name": "BF Dead Loop",
-			"indices": []
+			"indices": [],
+			"name": "BF Dead Loop"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				321,
-				352
+				329,
+				272
 			],
-			"anim": "deathConfirm",
+			"loop": false,
 			"fps": 24,
-			"name": "BF Dead confirm",
-			"indices": []
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "BF Dead confirm BIG"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-5,
+				0,
 				0
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "idle",
-			"fps": 24,
-			"name": "BF idle dance",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				69
-			],
-			"anim": "singLEFT",
-			"fps": 24,
-			"name": "BF Dead confirm0",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				69
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "BF Dead confirm0",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				69
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "BF Dead confirm0",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				69
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "BF Dead confirm0",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				11
-			],
-			"anim": "singLEFTmiss",
-			"fps": 24,
-			"name": "BF dies",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				11
-			],
-			"anim": "singDOWNmiss",
-			"fps": 24,
-			"name": "BF dies",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				11
-			],
-			"anim": "singUPmiss",
-			"fps": 24,
-			"name": "BF dies",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				37,
-				11
-			],
-			"anim": "singRIGHTmiss",
-			"fps": 24,
-			"name": "BF dies",
-			"indices": []
+			"indices": [],
+			"name": "BF idle big"
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/undertale/BOYFRIEND_DEATH",
+	"image": "characters/undertale/MSB_BF_DEATH",
 	"position": [
 		442,
 		621
 	],
 	"healthicon": "bf",
-	"noteskin": "NOTES_UNDERTALE",
 	"flip_x": true,
 	"healthbar_colors": [
 		255,
@@ -148,9 +59,10 @@
 		0
 	],
 	"camera_position": [
-		270,
-		-365
+		150,
+		-150
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }

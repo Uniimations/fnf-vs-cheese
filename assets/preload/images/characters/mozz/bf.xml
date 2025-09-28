@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="bf down0000" x="0" y="0" width="106" height="153"/>
+	<SubTexture name="bf down0001" x="0" y="0" width="106" height="153"/>
+	<SubTexture name="bf down0002" x="126" y="0" width="106" height="153"/>
+	<SubTexture name="bf down0003" x="126" y="0" width="106" height="153"/>
+	<SubTexture name="bf idle0000" x="252" y="0" width="103" height="161"/>
+	<SubTexture name="bf left0000" x="375" y="0" width="113" height="161"/>
+	<SubTexture name="bf left0001" x="375" y="0" width="113" height="161"/>
+	<SubTexture name="bf left0002" x="508" y="0" width="113" height="161"/>
+	<SubTexture name="bf left0003" x="508" y="0" width="113" height="161"/>
+	<SubTexture name="bf right0000" x="0" y="181" width="105" height="162"/>
+	<SubTexture name="bf right0001" x="0" y="181" width="105" height="162"/>
+	<SubTexture name="bf right0002" x="125" y="181" width="105" height="162"/>
+	<SubTexture name="bf right0003" x="125" y="181" width="105" height="162"/>
+	<SubTexture name="bf up0000" x="250" y="181" width="102" height="166"/>
+	<SubTexture name="bf up0001" x="250" y="181" width="102" height="166"/>
+	<SubTexture name="bf up0002" x="372" y="181" width="102" height="166"/>
+	<SubTexture name="bf up0003" x="372" y="181" width="102" height="166"/>
+	<SubTexture name="bf up0004" x="372" y="181" width="102" height="166"/>
+</TextureAtlas>

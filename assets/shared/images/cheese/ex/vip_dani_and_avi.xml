@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="vip_dani_and_avi.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="avinera counter0000" x="0" y="0" width="598" height="862"/>
+	<SubTexture name="avinera counter0001" x="0" y="0" width="598" height="862"/>
+	<SubTexture name="avinera counter0002" x="618" y="0" width="598" height="862"/>
+	<SubTexture name="avinera counter0003" x="618" y="0" width="598" height="862"/>
+	<SubTexture name="avinera counter0004" x="1236" y="0" width="598" height="862"/>
+	<SubTexture name="avinera counter0005" x="1236" y="0" width="598" height="862"/>
+	<SubTexture name="avinera counter0006" x="0" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0007" x="0" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0008" x="618" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0009" x="618" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0010" x="618" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0011" x="618" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0012" x="618" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0013" x="618" y="882" width="598" height="862"/>
+	<SubTexture name="avinera counter0014" x="618" y="882" width="598" height="862"/>
+</TextureAtlas>

@@ -68,9 +68,6 @@ class DialogueBox extends FlxSpriteGroup
 				case 'cultured':
 					FlxG.sound.playMusic(Paths.music('dialogue/objection'), 0);
 					FlxG.sound.music.fadeIn();
-				case 'outside':
-					FlxG.sound.playMusic(Paths.music('dialogue/is_that_french'), 0);
-					FlxG.sound.music.fadeIn();
 			}
 		}
 
@@ -91,7 +88,7 @@ class DialogueBox extends FlxSpriteGroup
 		var hasDialog = false;
 		switch (PlayState.SONG.song.toLowerCase())
 		{
-			case 'restaurante' | 'milkshake' | 'cultured' | 'outside':
+			case 'restaurante' | 'milkshake' | 'cultured':
 				hasDialog = true;
 				box.frames = Paths.getSparrowAtlas('dialogue/cooltextboxes', null, true);
 				box.animation.addByPrefix('normalOpen', 'cooltextSUMMON', 24, false);
@@ -274,7 +271,7 @@ class DialogueBox extends FlxSpriteGroup
 						isEnding = true;
 						FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
 
-						if (songLC == 'restaurante' || songLC == 'milkshake' || songLC == 'cultured' || songLC == 'outside')
+						if (songLC == 'restaurante' || songLC == 'milkshake' || songLC == 'cultured')
 							FlxG.sound.music.fadeOut(1.5, 0);
 
 						new FlxTimer().start(0.2, function(tmr:FlxTimer)
@@ -335,7 +332,7 @@ class DialogueBox extends FlxSpriteGroup
 			FlxG.sound.play(Paths.sound('dialogue/clickText'), 0.8);	
 
 			if (storyMode)
-				if (songLC == 'restaurante' || songLC == 'milkshake' || songLC == 'cultured' || songLC == 'outside')
+				if (songLC == 'restaurante' || songLC == 'milkshake' || songLC == 'cultured')
 					FlxG.sound.music.fadeOut(1.5, 0);
 
 			new FlxTimer().start(0.2, function(tmr:FlxTimer)

@@ -78,11 +78,11 @@ class Note extends FlxSprite
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
 				case 3: // DODGE NOTE
-					reloadNote('dodgeNOTES_UNDERTALE');
+					reloadNote('mechanic-notes/dodgeNOTES_UNDERTALE');
 					customFunctions = true;
 
 				case 4: // DEATH NOTE
-					reloadNote('deathNOTES_UNDERTALE');
+					reloadNote('mechanic-notes/deathNOTES_UNDERTALE');
 					customFunctions = true;
 
 				case 5 | 6 | 8: // DAD NOTE
@@ -99,11 +99,15 @@ class Note extends FlxSprite
 					visible = false;
 
 				case 17:
-					reloadNote('noteskins/NOTE_assets_FIRE');
-					setGraphicSize(Std.int(width * 0.86));
+					reloadNote('mechanic-notes/FIRE');
+					ignoreNote = true;
 					customFunctions = true;
 
 					burning = true;
+				case 20:
+					reloadNote('mechanic-notes/teardrop');
+					ignoreNote = true;
+					customFunctions = true;
 			}
 			noteType = value;
 		}
@@ -133,10 +137,6 @@ class Note extends FlxSprite
 		x += ((ClientPrefs.middleScroll || daSong == 'tutorial' || daSong.startsWith('manager')) ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X) + 50;
 		// MAKE SURE ITS DEFINITELY OFF SCREEN?
 		y -= 2000;
-
-		if (burning) {
-			x += -200;
-		}
 
 		this.strumTime = strumTime;
 		if(!inEditor) this.strumTime += ClientPrefs.noteOffset;

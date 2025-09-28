@@ -50,7 +50,7 @@ class HealthIcon extends FlxSprite
 			// ALL ANIMATION ICON SORTING CODE!!!
 			switch (char) // NOTE: CHAR IS NOT FOR curCharacter IT IS FOR THE ICON NAME!!!
 			{
-				case 'bluecheese-ex' | 'bf-ex' | 'bidu':  //ex winning icons
+				case 'bluecheese-ex' | 'bf-ex' | 'bidu' | 'arrow-funk':  //ex winning icons
 					idleSpr = 0;
 					losingSpr = 1;
 					winningSpr = 2;

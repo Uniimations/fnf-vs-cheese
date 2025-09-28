@@ -31,7 +31,6 @@ class StoryMenuState extends MusicBeatState
 		"Restaurante De Fromage Bleu",
 		"Self Insert",
 		"Bonus Week",
-		"Side Job",
 
 		"Unlock Weeks",
 		"Lock Weeks"
@@ -43,7 +42,6 @@ class StoryMenuState extends MusicBeatState
 		'week1',
 		'week2',
 		'heart',
-		'side_job',
 
 		'error',
 		'error'
@@ -55,7 +53,6 @@ class StoryMenuState extends MusicBeatState
 		['week_1'],
 		['week_2'],
 		['manager'],
-		['side'],
 
 		['unlock'],
 		['lock']
@@ -69,7 +66,6 @@ class StoryMenuState extends MusicBeatState
 		false,	//Week 1
 		false,  //Week 2
 		false, 	//Manager Strike Back
-		false,	//Side Job
 
 		true, 	//debug
 		true 	//debug
@@ -80,7 +76,6 @@ class StoryMenuState extends MusicBeatState
 		true,	//Week 1
 		false,  //Week 2
 		false, 	//Manager Strike Back
-		false,	//Side Job
 
 		true, 	//debug
 		true 	//debug
@@ -91,7 +86,6 @@ class StoryMenuState extends MusicBeatState
 		true,	//Week 1
 		true,   //Week 2
 		false, 	//Manager Strike Back
-		false,	//Side Job
 
 		true, 	//debug
 		true 	//debug
@@ -102,18 +96,6 @@ class StoryMenuState extends MusicBeatState
 		true,	//Week 1
 		true,  	//Week 2
 		true, 	//Manager Strike Back
-		false,	//Side Job
-
-		true, 	//debug
-		true 	//debug
-	];
-
-	var weekBonusItems:Array<Bool> = [
-		true,	//Tutorial
-		true,	//Week 1
-		true,  	//Week 2
-		true, 	//Manager Strike Back
-		true,	//Side Job
 
 		true, 	//debug
 		true 	//debug
@@ -167,11 +149,6 @@ class StoryMenuState extends MusicBeatState
 		if (FlxG.save.data.beatWeekEnding)
 			{
 				weekUnlockedItems = weekManagerItems;
-			}
-
-		if (FlxG.save.data.beatBonus)
-			{
-				weekUnlockedItems = weekBonusItems;
 			}
 
 		var blackBack:FlxSprite = new FlxSprite().loadGraphic(Paths.image('storymenu/black_stuff_scuffed'));
@@ -322,7 +299,7 @@ class StoryMenuState extends MusicBeatState
 
 		scoreText.text = "HIGH SCORE:" + lerpScore;
 
-		if (curWeek == 5 || curWeek == 6) {
+		if (curWeek == 4 || curWeek == 5) {
 			sprDifficultyGroup.visible = false;
 			difficultySelectors.visible = false;
 		} else {
@@ -404,7 +381,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			switch (curWeek)
 			{
-				case 5:
+				case 4:
 					if (stopspamming == false)
 						{
 							FlxG.sound.play(Paths.sound('confirmMenu'));
@@ -445,7 +422,7 @@ class StoryMenuState extends MusicBeatState
 							});
 						}
 
-				case 6:
+				case 5:
 					if (stopspamming == false)
 						{
 							FlxG.sound.play(Paths.sound('confirmMenu'));

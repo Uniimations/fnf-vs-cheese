@@ -1,9 +1,9 @@
 {
 	"song": {
-		"speed": 2.8,
-		"player1": "ex-bf",
-		"player2": "ex-bluecheese",
-		"player3": "ex-gf",
+		"speed": 2.6,
+		"player1": "vip-bf",
+		"player2": "vip-bluecheese",
+		"player3": "vip-gf",
 		"notes": [
 			{
 				"lengthInSteps": 16,
@@ -916,6 +916,13 @@
 						"Change CamZoom",
 						"9",
 						""
+					],
+					[
+						60694.8529411764,
+						-1,
+						"Cinematics",
+						"1",
+						"1"
 					]
 				],
 				"bpm": 0,
@@ -954,6 +961,41 @@
 						"Poggers Lights",
 						"0",
 						""
+					],
+					[
+						60727.9411764705,
+						-1,
+						"Subtitles",
+						"T-T-T-",
+						""
+					],
+					[
+						60970.5882352941,
+						-1,
+						"Subtitles",
+						"Time",
+						""
+					],
+					[
+						61147.0588235293,
+						-1,
+						"Subtitles",
+						"Time for",
+						""
+					],
+					[
+						61411.7647058823,
+						-1,
+						"Subtitles",
+						"Time for the",
+						""
+					],
+					[
+						61588.2352941176,
+						-1,
+						"Subtitles",
+						"Time for the drop!",
+						""
 					]
 				],
 				"bpm": 0,
@@ -971,6 +1013,20 @@
 						"Change CamZoom",
 						"7",
 						""
+					],
+					[
+						62294.1176470588,
+						-1,
+						"Subtitles",
+						"null",
+						""
+					],
+					[
+						62205.8823529411,
+						-1,
+						"Cinematics",
+						"0",
+						"0"
 					]
 				],
 				"bpm": 0,
@@ -1042,6 +1098,27 @@
 						"Set CamPog",
 						"0",
 						""
+					],
+					[
+						66529.4117647058,
+						-1,
+						"Cinematics",
+						"1",
+						"1"
+					],
+					[
+						66794.1176470588,
+						-1,
+						"Subtitles",
+						"Let's",
+						""
+					],
+					[
+						67058.8235294117,
+						-1,
+						"Subtitles",
+						"Let's change it up!",
+						""
 					]
 				],
 				"bpm": 0,
@@ -1065,6 +1142,20 @@
 						-1,
 						"Change CamZoom",
 						"6",
+						""
+					],
+					[
+						67941.1764705882,
+						-1,
+						"Cinematics",
+						"0",
+						"0"
+					],
+					[
+						68029.4117647058,
+						-1,
+						"Subtitles",
+						"null",
 						""
 					]
 				],
@@ -1633,12 +1724,93 @@
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
+			},
+			{
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 0,
+				"changeBPM": false,
+				"mustHitSection": false
 			}
 		],
-		"splashSkin": null,
+		"splashSkin": "note-splash-skins/noteSplashes_VIP",
 		"validScore": false,
 		"bpm": 170,
-		"arrowSkin": "NOTES_EX",
+		"arrowSkin": "noteskins/NOTE_assets_VIP",
 		"needsVoices": true,
 		"song": "Milkshake"
 	}

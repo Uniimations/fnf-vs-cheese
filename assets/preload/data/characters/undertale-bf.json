@@ -1,135 +1,90 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
-				-5,
+				0,
 				0
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "BF idle dance"
+			"fps": 24,
+			"name": "BF idle big",
+			"indices": []
 		},
 		{
-			"offsets": [
-				20,
-				1
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				2,
+				2
+			],
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "BF NOTE LEFT0"
+			"fps": 24,
+			"name": "BF left big",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-31,
-				-37
-			],
 			"loop": false,
-			"fps": 24,
+			"offsets": [
+				4,
+				-41
+			],
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "BF NOTE DOWN0"
-		},
-		{
-			"offsets": [
-				-32,
-				30
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singUP",
-			"indices": [],
-			"name": "BF NOTE UP0"
+			"name": "BF down big",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-55,
-				-3
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [],
-			"name": "BF NOTE RIGHT0"
-		},
-		{
 			"offsets": [
-				12,
+				-9,
 				24
 			],
-			"loop": false,
+			"anim": "singUP",
 			"fps": 24,
-			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "BF NOTE LEFT MISS"
+			"name": "BF up big",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-11,
-				-19
-			],
 			"loop": false,
+			"offsets": [
+				-5,
+				6
+			],
+			"anim": "singRIGHT",
 			"fps": 24,
-			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "BF NOTE DOWN MISS"
+			"name": "BF right big",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-29,
-				27
-			],
 			"loop": false,
+			"offsets": [
+				7,
+				0
+			],
+			"anim": "singGLOBALmiss",
 			"fps": 24,
-			"anim": "singUPmiss",
-			"indices": [],
-			"name": "BF NOTE UP MISS"
+			"name": "BF miss big",
+			"indices": []
 		},
 		{
-			"offsets": [
-				-30,
-				21
-			],
 			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "BF NOTE RIGHT MISS"
-		},
-		{
 			"offsets": [
-				17,
-				-5
+				-1,
+				7
 			],
-			"loop": false,
-			"fps": 24,
-			"anim": "hey",
-			"indices": [],
-			"name": "BF HEY!!"
-		},
-		{
-			"offsets": [
-				15,
-				18
-			],
-			"loop": false,
-			"fps": 24,
 			"anim": "hurt",
-			"indices": [],
-			"name": "BF hit"
+			"fps": 24,
+			"name": "BF hit big",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
-	"image": "characters/undertale/BOYFRIEND",
+	"image": "characters/undertale/MSB_BF",
 	"position": [
-		847,
-		621
+		600,
+		550
 	],
 	"healthicon": "bf",
-	"noteskin": "NOTES_UNDERTALE",
 	"flip_x": true,
 	"healthbar_colors": [
 		255,
@@ -137,9 +92,10 @@
 		0
 	],
 	"camera_position": [
-		0,
-		0
+		50,
+		125
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }

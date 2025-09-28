@@ -36,7 +36,7 @@ class VideoMP4
 		
 	}
 
-	public function playMP4(path:String, ?repeat:Bool = false, ?outputTo:FlxSprite = null, ?isWindow:Bool = false, ?isFullscreen:Bool = false, ?midSong:Bool = false):Void
+	public function playMP4(path:String, ?opacity:Float = 1, ?repeat:Bool = false, ?outputTo:FlxSprite = null, ?isWindow:Bool = false, ?isFullscreen:Bool = false, ?midSong:Bool = false):Void
 	{
 		if (!midSong)
 		{
@@ -85,6 +85,8 @@ class VideoMP4
 
 			sprite = outputTo;
 		}
+
+		bitmap.alpha = opacity;
 	}
 
 	function checkFile(fileName:String):String
@@ -168,40 +170,6 @@ class VideoMP4
 
 	function update(e:Event)
 	{
-		if (isVideo)
-		{
-			// skip function
-			if (FlxG.keys.justPressed.S || FlxG.keys.justPressed.ESCAPE || PlayerSettings.player1.controls.BACK)
-			{
-				trace("Trying to skip cutscene...");
-				if (bitmap.isPlaying)
-				{
-					onVLCComplete();
-				}
-			}
-
-			// pause function (pause is scuffed but...)
-			if (FlxG.keys.justPressed.ENTER || PlayerSettings.player1.controls.ACCEPT)
-			{
-				if (isPaused)
-				{
-					if(bitmap != null) {
-						bitmap.resume();
-						isPaused = false;
-						trace('Video resumed');
-					}
-				}
-				else
-				{
-					if(bitmap != null && bitmap.isPlaying) {
-						bitmap.pause();
-						isPaused = true;
-						trace('Video paused');
-					}
-				}
-			}
-		}
-
 		bitmap.volume = 0;
 		if(!FlxG.sound.muted && FlxG.sound.volume > 0.01) {
 			bitmap.volume = FlxG.sound.volume * 0.5 + 0.5;

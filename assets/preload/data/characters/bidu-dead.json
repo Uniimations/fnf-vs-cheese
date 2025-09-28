@@ -1,0 +1,63 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				52,
+				13
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "BIDU Dies"
+		},
+		{
+			"offsets": [
+				34,
+				-7
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "deathLoop",
+			"indices": [],
+			"name": "BIDU Dead Loop"
+		},
+		{
+			"offsets": [
+				118,
+				156
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "BIDU Dead confirm"
+		}
+	],
+	"no_antialiasing": false,
+	"gameover_properties": [
+		"bidu-dead",
+		"fnf_loss_sfx",
+		"gameOver",
+		"gameOverEnd"
+	],
+	"image": "characters/BIDU_DED",
+	"position": [
+		90,
+		430
+	],
+	"healthicon": "bidu",
+	"hasLongAnimations": true,
+	"flip_x": true,
+	"healthbar_colors": [
+		160,
+		255,
+		33
+	],
+	"camera_position": [
+		0,
+		10
+	],
+	"sing_duration": 4,
+	"scale": 1
+}

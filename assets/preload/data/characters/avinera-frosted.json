@@ -1,25 +1,24 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "IDLE DANCE AVINERA",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "IDLE DANCE AVINERA"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "idle-loop",
+			"loop": true,
 			"fps": 24,
-			"name": "IDLE DANCE AVINERA",
+			"anim": "idle-loop",
 			"indices": [
 				17,
 				18,
@@ -29,73 +28,74 @@
 				22,
 				23,
 				24
-			]
+			],
+			"name": "IDLE DANCE AVINERA"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				0,
-				0
+				60,
+				-2
 			],
+			"loop": false,
+			"fps": 24,
 			"anim": "singLEFT",
-			"fps": 24,
-			"name": "avi left",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "singDOWN",
-			"fps": 24,
-			"name": "avi down",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "singUP",
-			"fps": 24,
-			"name": "avi up",
-			"indices": []
-		},
-		{
-			"loop": false,
-			"offsets": [
-				0,
-				0
-			],
-			"anim": "singRIGHT",
-			"fps": 24,
-			"name": "avinera rigth",
-			"indices": []
-		},
-		{
-			"offsets": [
-				-118,
-				-50
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "LOL",
 			"indices": [],
-			"name": "laugh note"
+			"name": "avi left"
+		},
+		{
+			"offsets": [
+				-2,
+				-3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "avi down"
+		},
+		{
+			"offsets": [
+				-2,
+				6
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "avi up"
+		},
+		{
+			"offsets": [
+				-20,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "avinera rigth"
 		},
 		{
 			"loop": false,
 			"offsets": [
-				-118,
-				-50
+				-109,
+				-33
 			],
-			"anim": "singUP-alt",
+			"anim": "LOL",
 			"fps": 24,
 			"name": "laugh note",
 			"indices": []
+		},
+		{
+			"offsets": [
+				-109,
+				-33
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "laugh note"
 		}
 	],
 	"no_antialiasing": false,
@@ -113,7 +113,7 @@
 	],
 	"camera_position": [
 		40,
-		-40
+		100
 	],
 	"sing_duration": 4,
 	"noteskin": "NOTE_assets",

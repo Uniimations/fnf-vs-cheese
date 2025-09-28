@@ -226,7 +226,7 @@ class FreeplaySelection extends MusicBeatState
 				}
 
 			case 'BONUS SONGS':
-				if (FlxG.save.data.beatCream)
+				if (FlxG.save.data.seenCream)
 					addSong('CREAM-CHEESE', 2, 'creamcheese');
 				else
 					addSong('???', 2, 'creamcheese-fp');
@@ -235,7 +235,7 @@ class FreeplaySelection extends MusicBeatState
 					addSong('Dynamic-Duo', 3, 'uniinera');
 					addSong('Below-Zero', 4, 'avinera');
 
-					addSong('Mozzarella', 6, 'bluecheese');
+					addSong('Mozzarella', 6, 'bs-cheese');
 				}
 
 				if (FlxG.save.data.beatOnion) {
@@ -268,25 +268,22 @@ class FreeplaySelection extends MusicBeatState
 
 			case 'UNFAIR SONGS':
 				addSong('Manager-Strike-Back', 0, 'suzuki-fp');
-				//addSong('Relinquish', 1, 'arsen-fp'); bye Avinera :sob
-				/**
-					REMOVED SONGS: (lol)
-				**/
 				addSong('Frosted', 1, 'avinera');
 				addSong('Alter-Ego', 2, 'unii');
+				addSong('Relinquish', 3, 'relinquish');
 
 			case 'EXTRAS':
-				addSong('Restaurante-D-Side-Mix', 1, 'd-cheese');
-				addSong('Milkshake-Arrow-Funk', 2, 'arrow-funk');
-				//addSong('Cultured-Biddle3-Mix', 1, 'bluecheese');
+				addSong('Restaurante-D-Side', 1, 'd-cheese');
+				addSong('Milkshake-Arrow-Funk', 2, 'af-fp');
+				addSong('Cultured-B', 3, 'b3');
 
-				addSong('Restaurante-Senpai-Mix', 3, 'senpai');
-				addSong('Milkshake-Pico-Mix', 4, 'pico');
-				addSong('Cultured-Parents-Mix', 5, 'parents');
+				addSong('Restaurante-Senpai-Mix', 4, 'senpai');
+				addSong('Milkshake-Pico-Mix', 5, 'pico');
+				addSong('Cultured-Parents-Mix', 6, 'parents');
 
-				addSong('Restaurante-Classic', 6, 'bluecheese');
-				addSong('Milkshake-Classic', 6, 'bluecheese');
-				addSong('Cultured-Classic', 6, 'bluecheese');
+				addSong('Restaurante-Classic', 7, 'bluecheese');
+				addSong('Milkshake-Classic', 7, 'bluecheese');
+				addSong('Cultured-Classic', 7, 'bluecheese');
 
 			default:
 				var luaSongs = CoolUtil.coolTextFile(Paths.mods('SONG_LIST.txt'));
@@ -544,6 +541,8 @@ class FreeplaySelection extends MusicBeatState
 									changeDiff(-1);
 								}
 						}
+					case 'manager-strike-back' | 'frosted' | 'alter-ego' | 'relinquish' | 'dirty-cheater':
+						FlxG.sound.play(Paths.sound('cancelMenu'));
 					default:
 						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 						changeDiff(-1);
@@ -586,6 +585,8 @@ class FreeplaySelection extends MusicBeatState
 									changeDiff(1);
 								}
 						}
+					case 'manager-strike-back' | 'frosted' | 'alter-ego' | 'relinquish' | 'dirty-cheater':
+						FlxG.sound.play(Paths.sound('cancelMenu'));
 					default:
 						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 						changeDiff(1);
@@ -602,7 +603,11 @@ class FreeplaySelection extends MusicBeatState
 				if (!MainMenuState.cursed) FlxG.sound.playMusic(Paths.music('freaky_overture'));
 
 				Conductor.changeBPM(120);
-				MusicBeatState.switchState(new FreeplayState());
+
+				if (category == 'EXTRAS')
+					MusicBeatState.switchState(new MainMenuState());
+				else
+					MusicBeatState.switchState(new FreeplayState());
 				FlxTween.tween(disc, { alpha:0, 'scale.x':0}, 0.2, { ease: FlxEase.quartInOut});
 			}
 
@@ -671,7 +676,7 @@ class FreeplaySelection extends MusicBeatState
 			case 'dirty-cheater':
 				curNumberStart = 1;
 				curNumberEnd = 1;
-			case 'manager-strike-back' | 'frosted' | 'alter-ego':
+			case 'manager-strike-back' | 'frosted' | 'alter-ego' | 'relinquish':
 				curNumberStart = 3;
 				curNumberEnd = 3;
 			default:
@@ -693,7 +698,7 @@ class FreeplaySelection extends MusicBeatState
 		diffText.text = 'Difficulty: < ' + CoolUtil.difficultyString() + ' >';
 		reposScoreText();
 
-		if (category == 'BONUS SONGS' && !FlxG.save.data.beatCream)
+		if (category == 'BONUS SONGS' && !FlxG.save.data.seenCream)
 		{
 			//do nothing
 		}
@@ -751,7 +756,7 @@ class FreeplaySelection extends MusicBeatState
 		}
 		changeDiff();
 
-		if (category == 'BONUS SONGS' && !FlxG.save.data.beatCream)
+		if (category == 'BONUS SONGS' && !FlxG.save.data.seenCream)
 		{
 			//do nothing
 		}
@@ -760,12 +765,14 @@ class FreeplaySelection extends MusicBeatState
 			listen_to_song();
 		}
 
-		if (curDifficulty != 2) {
-			new FlxTimer().start(0.05, function(tmr:FlxTimer)
-			{
+		new FlxTimer().start(0.05, function(tmr:FlxTimer)
+		{
+			if (curDifficulty != 2) {
 				change_pc_color(newColor);
-			});
-		}
+			} else {
+				change_pc_color(vipColor);
+			}
+		});
 
 		// FINISH THIS LATER !!!!
 		#if !PLAYTEST_BUILD
@@ -817,7 +824,7 @@ class FreeplaySelection extends MusicBeatState
 				{
 					case 'wifi' | 'casual-duel' | 'dynamic-duo' | 'below-zero':
 						arsenType = 1;
-					case 'manager-strike-back' | 'frosted' | 'alter-ego':
+					case 'manager-strike-back' | 'frosted' | 'alter-ego' | 'relinquish':
 						arsenType = 3;
 					default:
 						arsenType = 0;
@@ -852,6 +859,11 @@ class FreeplaySelection extends MusicBeatState
 		if(!OpenFlAssets.exists(Paths.chart(songLowercase + '/' + ass))) {
 			ass = songLowercase + '-hard';
 			curDifficulty = 1;
+		}
+
+		if (songLowercase == 'manager-strike-back' && ClientPrefs.pussyMode) {
+			ass = songLowercase + '-easy';
+			curDifficulty = 0;
 		}
 
 		PlayState.SONG = Song.loadFromJson(ass, songLowercase);

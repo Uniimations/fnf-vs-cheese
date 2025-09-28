@@ -39,10 +39,8 @@
 	<assets path="assets/preload" rename="assets" exclude="*.mp3"  unless="web"/>
 
 	<!--UNIIMATIONS ENGINE CUSTOMIZATION -->
-	<define name="UNII_CUSTOM_BUILD" if="debug"/>
 	<define name="WINDOWS_BUILD" if="windows"/>
 	<define name="PLAYTEST_BUILD" if="debug"/>
-	<define name="TRAILER_BUILD" if="debug"/>
 	<!--WHAT!
 		
 		don't question it ok

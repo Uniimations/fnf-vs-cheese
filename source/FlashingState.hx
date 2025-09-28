@@ -29,7 +29,7 @@ class FlashingState extends MusicBeatState
 		super.create();
 
 		if(FlxG.sound.music == null) {
-			FlxG.sound.playMusic(Paths.music('distant', 'shared'));
+			FlxG.sound.playMusic(Paths.music('closing_time', 'shared'));
 		}
 
 		Conductor.changeBPM(105);
@@ -50,7 +50,7 @@ class FlashingState extends MusicBeatState
 		bgBlackShit.alpha = 0.8;
 		add(bgBlackShit);
 
-		warnText = new FlxText(459, 0, FlxG.width,
+		warnText = new FlxText(200, 0, FlxG.width,
 			"OI, watch out!\n
 			This Mod contains some flashing lights!\n
 			Press your ESCAPE key to disable them or\n

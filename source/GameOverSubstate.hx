@@ -27,10 +27,16 @@ class GameOverSubstate extends MusicBeatSubstate
 		//BF DEATH SKIN, TYPE CHARACTER NAME
 		var daBf:String = '';
 		switch (PlayState.SONG.player1) {
+			case 'pico-player' | 'relinquish-pico' | 'bluescreen-pico':
+				daBf = 'pico-dead';
+				deathSound = 'pico_loss_sfx';
 			case 'd-bf':
 				daBf = 'd-bf-dead';
-			case 'ex-bf':
-				daBf = 'ex-death';
+			case 'bidu':
+				daBf = 'bidu-dead';
+				deathSound = 'bidu_loss_sfx';
+			case 'bluecheese-kitchen':
+				daBf = 'bluecheese-kitchen-dead';
 			case 'arsen':
 				daBf = 'arsen-death';
 			case 'dansilot':
@@ -39,13 +45,10 @@ class GameOverSubstate extends MusicBeatSubstate
 				daBf = 'dd-death';
 			case 'undertale-bf':
 				daBf = 'undertale-death';
+				deathSound = 'UT_loss_sfx';
+				deathSong = 'determination';
 			default:
 				daBf = 'bf';
-		}
-
-		if (PlayState.SONG.player1 == 'undertale-bf') {
-			deathSound = 'UT_loss_sfx';
-			deathSong = 'determination';
 		}
 
 		super();
@@ -163,7 +166,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			{
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
-					MusicBeatState.switchState(new PlayState());
+					if (PlayState.SONG.song.toLowerCase() == 'manager-strike-back' && FlxG.save.data.diedTwiceMSB == false)
+						MusicBeatState.switchState(new PussyState());
+					else
+						MusicBeatState.switchState(new PlayState());
 				});
 			});
 		}

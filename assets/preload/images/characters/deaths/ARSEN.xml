@@ -2,110 +2,151 @@
 <TextureAtlas imagePath="ARSEN.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="Arsen dead bop0000" x="0" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0001" x="617" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0002" x="617" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0003" x="1234" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0004" x="1234" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0005" x="1851" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0006" x="1851" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0007" x="2468" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0008" x="2468" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0009" x="2468" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0010" x="2468" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0011" x="2468" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0012" x="2468" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dead bop0013" x="2468" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0000" x="3085" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0001" x="3085" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0002" x="3702" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0003" x="4319" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0004" x="4936" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0005" x="4936" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0006" x="5553" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0007" x="5553" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0008" x="6170" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0009" x="6170" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0010" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0011" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0012" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0013" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0014" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0015" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0016" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0017" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0018" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0019" x="6787" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0020" x="7404" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0021" x="7404" y="0" width="617" height="861"/>
-	<SubTexture name="Arsen dies0022" x="0" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0023" x="617" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0024" x="1234" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0025" x="1851" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0026" x="2468" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0027" x="3085" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0028" x="3702" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0029" x="3702" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0030" x="4319" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0031" x="4319" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0032" x="4936" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0033" x="4936" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0034" x="5553" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0035" x="6170" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0036" x="6787" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0037" x="7404" y="861" width="617" height="861"/>
-	<SubTexture name="Arsen dies0038" x="0" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0039" x="617" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0040" x="1234" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0041" x="1851" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0042" x="2468" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0043" x="3085" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0044" x="3702" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0045" x="4319" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0046" x="4936" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0047" x="5553" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0048" x="6170" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0049" x="6787" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0050" x="7404" y="1722" width="617" height="861"/>
-	<SubTexture name="Arsen dies0051" x="0" y="2583" width="617" height="861"/>
-	<SubTexture name="Arsen dies0052" x="617" y="2583" width="617" height="861"/>
-	<SubTexture name="Arsen dies0053" x="1234" y="2583" width="617" height="861"/>
-	<SubTexture name="Arsen dies0054" x="1851" y="2583" width="617" height="861"/>
-	<SubTexture name="Arsen dies0055" x="2468" y="2583" width="617" height="861"/>
-	<SubTexture name="Arsen dies0056" x="3085" y="2583" width="617" height="861"/>
-	<SubTexture name="Arsen dies0057" x="3085" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0000" x="3702" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0001" x="4319" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0002" x="4936" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0003" x="5553" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0004" x="6170" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0005" x="6787" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0006" x="7404" y="2583" width="617" height="861"/>
-	<SubTexture name="arsen button press0007" x="0" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0008" x="617" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0009" x="1234" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0010" x="1851" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0011" x="2468" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0012" x="3085" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0013" x="3702" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0014" x="4319" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0015" x="4936" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0016" x="5553" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0017" x="6170" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0018" x="6787" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0019" x="7404" y="3444" width="617" height="861"/>
-	<SubTexture name="arsen button press0020" x="0" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0021" x="0" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0022" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0023" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0024" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0025" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0026" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0027" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0028" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0029" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0030" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0031" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0032" x="617" y="4305" width="617" height="861"/>
-	<SubTexture name="arsen button press0033" x="617" y="4305" width="617" height="861"/>
+	<SubTexture name="arsen confirm0000" x="0" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0001" x="547" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0002" x="547" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0003" x="1094" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0004" x="1094" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0005" x="1641" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0006" x="2188" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0007" x="2735" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0008" x="2735" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0009" x="3282" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0010" x="3282" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0011" x="3829" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0012" x="3829" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0013" x="4376" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0014" x="4376" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0015" x="4923" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0016" x="4923" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0017" x="5470" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0018" x="5470" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0019" x="5470" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0020" x="5470" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0021" x="6017" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0022" x="6017" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0023" x="6017" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0024" x="6017" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0025" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0026" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0027" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0028" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0029" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0030" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0031" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0032" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen confirm0033" x="6564" y="0" width="527" height="848"/>
+	<SubTexture name="arsen dead loop0000" x="7111" y="0" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0001" x="7576" y="0" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0002" x="7576" y="0" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0003" x="0" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0004" x="0" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0005" x="0" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0006" x="465" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0007" x="465" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0008" x="465" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0009" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0010" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0011" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0012" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0013" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0014" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0015" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0016" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0017" x="7111" y="0" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0018" x="7576" y="0" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0019" x="7576" y="0" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0020" x="0" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0021" x="0" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0022" x="0" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0023" x="465" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0024" x="465" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0025" x="465" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0026" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0027" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0028" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0029" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0030" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0031" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0032" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dead loop0033" x="930" y="868" width="445" height="770"/>
+	<SubTexture name="arsen dies0000" x="1395" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0001" x="1395" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0002" x="1866" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0003" x="1866" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0004" x="2337" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0005" x="2337" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0006" x="2808" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0007" x="2808" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0008" x="3279" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0009" x="3279" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0010" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0011" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0012" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0013" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0014" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0015" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0016" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0017" x="3750" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0018" x="4221" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0019" x="4221" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0020" x="4692" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0021" x="4692" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0022" x="5163" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0023" x="5163" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0024" x="5634" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0025" x="5634" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0026" x="6105" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0027" x="6576" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0028" x="7047" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0029" x="7047" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0030" x="7518" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0031" x="7518" y="868" width="451" height="776"/>
+	<SubTexture name="arsen dies0032" x="0" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0033" x="0" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0034" x="471" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0035" x="471" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0036" x="942" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0037" x="942" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0038" x="942" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0039" x="942" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0040" x="1413" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0041" x="1413" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0042" x="1884" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0043" x="1884" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0044" x="2355" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0045" x="2355" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0046" x="2826" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0047" x="2826" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0048" x="3297" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0049" x="3297" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0050" x="3768" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0051" x="3768" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0052" x="4239" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0053" x="4239" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0054" x="4710" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0055" x="4710" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0056" x="5181" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0057" x="5181" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0058" x="5652" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0059" x="5652" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0060" x="6123" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0061" x="6123" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0062" x="6594" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0063" x="6594" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen dies0064" x="6594" y="1664" width="451" height="776"/>
+	<SubTexture name="arsen idle0000" x="7065" y="1664" width="334" height="750"/>
+	<SubTexture name="arsen idle0001" x="7065" y="1664" width="334" height="750"/>
+	<SubTexture name="arsen idle0002" x="7419" y="1664" width="334" height="750"/>
+	<SubTexture name="arsen idle0003" x="7419" y="1664" width="334" height="750"/>
+	<SubTexture name="arsen idle0004" x="7773" y="1664" width="334" height="750"/>
+	<SubTexture name="arsen idle0005" x="7773" y="1664" width="334" height="750"/>
+	<SubTexture name="arsen idle0006" x="0" y="2460" width="334" height="750"/>
+	<SubTexture name="arsen idle0007" x="0" y="2460" width="334" height="750"/>
+	<SubTexture name="arsen idle0008" x="354" y="2460" width="334" height="750"/>
+	<SubTexture name="arsen idle0009" x="354" y="2460" width="334" height="750"/>
+	<SubTexture name="arsen idle0010" x="354" y="2460" width="334" height="750"/>
+	<SubTexture name="arsen idle0011" x="354" y="2460" width="334" height="750"/>
+	<SubTexture name="arsen idle0012" x="354" y="2460" width="334" height="750"/>
+	<SubTexture name="arsen idle0013" x="354" y="2460" width="334" height="750"/>
 </TextureAtlas>

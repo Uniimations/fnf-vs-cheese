@@ -1,26 +1,26 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
-				-135,
-				-57
+				-116,
+				-42
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "tape click",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "tape click"
 		},
 		{
-			"loop": false,
 			"offsets": [
-				-135,
-				-57
+				-116,
+				-42
 			],
-			"anim": "tapeClick",
+			"loop": false,
 			"fps": 24,
-			"name": "tape click",
-			"indices": []
+			"anim": "tapeClick",
+			"indices": [],
+			"name": "tape click"
 		}
 	],
 	"no_antialiasing": false,
@@ -38,7 +38,7 @@
 	],
 	"camera_position": [
 		100,
-		0
+		100
 	],
 	"sing_duration": 4,
 	"noteskin": "NOTE_assets",

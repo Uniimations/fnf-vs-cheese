@@ -53,7 +53,7 @@ class UniiStringTools
 
         switch (characterString)
         {
-            case 'bluecheese' | 'bluecheese-garcello' | 'bluecheese-hex' | 'bluecheese-kitchen' | 'bluecheese-spamton' | 'bluecheese-tired' | 'bluecheese-tricky' | 'bluecheese-whitty' | 'ex-bluecheese':
+            case 'bluecheese' | 'vip-bluecheese':
                 note_skin_suffix = '_CHEESE';
             case 'avinera-frosted-tape' | 'avinera-frosted':
                 note_skin_suffix = '_AVINERA';
@@ -63,6 +63,14 @@ class UniiStringTools
                 note_skin_suffix = '_UNII';
             case 'diples-cubed':
                 note_skin_suffix = '_DIPLES';
+            case 'relinquish-arsen':
+                note_skin_suffix = '_ARSEN';
+            case 'b3-cheese':
+                note_skin_suffix = '_B3';
+            case 'arrow-funk-cheese':
+                note_skin_suffix = '_AF';
+            case 'bs-cheese':
+                note_skin_suffix = '_UT';
             default:
                 note_skin_suffix = '';
         }
@@ -151,35 +159,20 @@ class UniiStringTools
     {
         var swagShit:String = '';
 
-        #if debug
         switch (song_name) {
-            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'CREAM-CHEESE' | 'DIRTY-CHEATER': //i'm stupidd lol
-                swagShit = "";
-            case 'Above-Zero':
-                swagShit = 'Cooking Up [unii mix]';
-            case 'Manager-Strike-Back':
-                swagShit = 'STOp looking at my status';
-            case 'dot-lua':
-                swagShit = 'AARRUUGHHH IM actually';
-            case 'swagShit':
-                swagShit = 'money';
-            default:
-                swagShit = song_name;
-        }
-        #else
-        switch (song_name) {
-            case 'Casual-Duel' | 'Dynamic-Duo' | 'Below-Zero' | 'Restaurante-Senpai-Mix' | 'Milkshake-Pico-Mix' | 'Cultured-Parents-Mix' | 'Restaurante-D-Side-Mix' | 'Milkshake-Arrow-Funk' | 'CREAM-CHEESE' | 'DIRTY-CHEATER' | 'Manager-Strike-Back': //i'm stupidd lol
+            case 'Casual-Duel' | 'Disc-Scratch' | 'Dynamic-Duo' | 'Below-Zero' | 'Restaurante-Senpai-Mix' | 'Milkshake-Pico-Mix' | 'Cultured-Parents-Mix' | 'Restaurante-D-Side' | 'Milkshake-Arrow-Funk' | 'CREAM-CHEESE' | 'DIRTY-CHEATER' | 'Manager-Strike-Back': //i'm stupidd lol
+                swagShit = StringTools.replace(song_name, '-', ' ');
+            case 'Fat-Blunt':
                 swagShit = StringTools.replace(song_name, '-', ' ');
             case 'Above-Zero':
                 swagShit = 'Above Zero [up]';
             case 'dot-lua':
                 swagShit = '.lua';
-            case 'Articulation':
-                swagShit = 'articulation w/ Ghost Ghost';
+            case 'Cultured-B':
+                swagShit = 'Cultured B3';
             default:
                 swagShit = song_name;
         }
-        #end
 
         return swagShit;
     }

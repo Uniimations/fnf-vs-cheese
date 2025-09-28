@@ -2,76 +2,76 @@
 <TextureAtlas imagePath="FROSTED_NERA.png">
 	<!-- Created with Adobe Animate version 20.0.3.25487 -->
 	<!-- http://www.adobe.com/products/animate.html -->
-	<SubTexture name="IDLE DANCE AVINERA0000" x="0" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0001" x="647" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0002" x="1294" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0003" x="1941" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0004" x="2588" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0005" x="3235" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0006" x="3882" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0007" x="4529" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0008" x="5176" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0009" x="5823" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0010" x="6470" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0011" x="7117" y="0" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0012" x="0" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0013" x="647" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0014" x="1294" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0015" x="1941" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0016" x="2588" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0017" x="3235" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0018" x="3882" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0019" x="4529" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0020" x="5176" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0021" x="5823" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0022" x="6470" y="960" width="647" height="960"/>
-	<SubTexture name="IDLE DANCE AVINERA0023" x="7117" y="960" width="647" height="960"/>
-	<SubTexture name="avi down0000" x="0" y="1920" width="645" height="955" frameX="0" frameY="0" frameWidth="645" frameHeight="956"/>
-	<SubTexture name="avi down0001" x="645" y="1920" width="645" height="955" frameX="0" frameY="0" frameWidth="645" frameHeight="956"/>
-	<SubTexture name="avi down0002" x="1290" y="1920" width="645" height="956"/>
-	<SubTexture name="avi down0003" x="1935" y="1920" width="645" height="956"/>
-	<SubTexture name="avi down0004" x="2580" y="1920" width="645" height="956"/>
-	<SubTexture name="avi down0005" x="3225" y="1920" width="645" height="956"/>
-	<SubTexture name="avi left0000" x="3870" y="1920" width="645" height="958"/>
-	<SubTexture name="avi left0001" x="4515" y="1920" width="645" height="958"/>
-	<SubTexture name="avi left0002" x="5160" y="1920" width="645" height="958"/>
-	<SubTexture name="avi left0003" x="5805" y="1920" width="645" height="958"/>
-	<SubTexture name="avi left0004" x="6450" y="1920" width="645" height="958"/>
-	<SubTexture name="avi left0005" x="7095" y="1920" width="645" height="958"/>
-	<SubTexture name="avi up0000" x="0" y="2878" width="645" height="958"/>
-	<SubTexture name="avi up0001" x="645" y="2878" width="645" height="958"/>
-	<SubTexture name="avi up0002" x="1290" y="2878" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
-	<SubTexture name="avi up0003" x="1935" y="2878" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
-	<SubTexture name="avi up0004" x="2580" y="2878" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
-	<SubTexture name="avi up0005" x="3225" y="2878" width="645" height="957" frameX="0" frameY="0" frameWidth="645" frameHeight="958"/>
-	<SubTexture name="avinera rigth0000" x="3870" y="2878" width="647" height="960"/>
-	<SubTexture name="avinera rigth0001" x="4517" y="2878" width="647" height="960"/>
-	<SubTexture name="avinera rigth0002" x="5164" y="2878" width="647" height="960"/>
-	<SubTexture name="avinera rigth0003" x="5811" y="2878" width="647" height="960"/>
-	<SubTexture name="avinera rigth0004" x="6458" y="2878" width="647" height="960"/>
-	<SubTexture name="avinera rigth0005" x="7105" y="2878" width="647" height="960"/>
-	<SubTexture name="laugh note0000" x="7752" y="2878" width="418" height="905" frameX="0" frameY="0" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0001" x="0" y="3838" width="418" height="905" frameX="0" frameY="0" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0002" x="418" y="3838" width="416" height="897" frameX="-4" frameY="-7" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0003" x="834" y="3838" width="416" height="897" frameX="-4" frameY="-7" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0004" x="1250" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0005" x="1665" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0006" x="2080" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0007" x="2495" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0008" x="2910" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0009" x="3325" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0010" x="3740" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0011" x="4155" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0012" x="4570" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0013" x="4985" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0014" x="5400" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0015" x="5815" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0016" x="6230" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0017" x="6645" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0018" x="7060" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0019" x="7475" y="3838" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0020" x="0" y="4743" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0021" x="415" y="4743" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0022" x="830" y="4743" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
-	<SubTexture name="laugh note0023" x="1245" y="4743" width="415" height="896" frameX="-5" frameY="-8" frameWidth="420" frameHeight="905"/>
+	<SubTexture name="IDLE DANCE AVINERA0000" x="0" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0001" x="667" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0002" x="1334" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0003" x="2001" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0004" x="2668" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0005" x="3335" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0006" x="4002" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0007" x="4669" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0008" x="5336" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0009" x="6003" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0010" x="6670" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0011" x="7337" y="0" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0012" x="0" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0013" x="667" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0014" x="1334" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0015" x="2001" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0016" x="2668" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0017" x="3335" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0018" x="4002" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0019" x="4669" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0020" x="5336" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0021" x="6003" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0022" x="6670" y="977" width="647" height="957"/>
+	<SubTexture name="IDLE DANCE AVINERA0023" x="7337" y="977" width="647" height="957"/>
+	<SubTexture name="avi down0000" x="0" y="1954" width="645" height="955"/>
+	<SubTexture name="avi down0001" x="665" y="1954" width="645" height="955"/>
+	<SubTexture name="avi down0002" x="1330" y="1954" width="645" height="955"/>
+	<SubTexture name="avi down0003" x="1995" y="1954" width="645" height="955"/>
+	<SubTexture name="avi down0004" x="2660" y="1954" width="645" height="955"/>
+	<SubTexture name="avi down0005" x="3325" y="1954" width="645" height="955"/>
+	<SubTexture name="avi left0000" x="3990" y="1954" width="648" height="955"/>
+	<SubTexture name="avi left0001" x="4658" y="1954" width="648" height="955"/>
+	<SubTexture name="avi left0002" x="5326" y="1954" width="648" height="955"/>
+	<SubTexture name="avi left0003" x="5994" y="1954" width="648" height="955"/>
+	<SubTexture name="avi left0004" x="6662" y="1954" width="648" height="955"/>
+	<SubTexture name="avi left0005" x="7330" y="1954" width="648" height="955"/>
+	<SubTexture name="avi up0000" x="0" y="2929" width="645" height="963"/>
+	<SubTexture name="avi up0001" x="665" y="2929" width="645" height="963"/>
+	<SubTexture name="avi up0002" x="1330" y="2929" width="645" height="963"/>
+	<SubTexture name="avi up0003" x="1995" y="2929" width="645" height="963"/>
+	<SubTexture name="avi up0004" x="2660" y="2929" width="645" height="963"/>
+	<SubTexture name="avi up0005" x="3325" y="2929" width="645" height="963"/>
+	<SubTexture name="avinera rigth0000" x="3990" y="2929" width="653" height="957"/>
+	<SubTexture name="avinera rigth0001" x="4663" y="2929" width="653" height="957"/>
+	<SubTexture name="avinera rigth0002" x="5336" y="2929" width="653" height="957"/>
+	<SubTexture name="avinera rigth0003" x="6009" y="2929" width="653" height="957"/>
+	<SubTexture name="avinera rigth0004" x="6682" y="2929" width="653" height="957"/>
+	<SubTexture name="avinera rigth0005" x="7355" y="2929" width="653" height="957"/>
+	<SubTexture name="laugh note0000" x="0" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0001" x="449" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0002" x="898" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0003" x="1347" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0004" x="1796" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0005" x="2245" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0006" x="2694" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0007" x="3143" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0008" x="3592" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0009" x="4041" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0010" x="4490" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0011" x="4939" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0012" x="5388" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0013" x="5837" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0014" x="6286" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0015" x="6735" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0016" x="7184" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0017" x="7633" y="3912" width="429" height="874"/>
+	<SubTexture name="laugh note0018" x="0" y="4806" width="429" height="874"/>
+	<SubTexture name="laugh note0019" x="449" y="4806" width="429" height="874"/>
+	<SubTexture name="laugh note0020" x="898" y="4806" width="429" height="874"/>
+	<SubTexture name="laugh note0021" x="1347" y="4806" width="429" height="874"/>
+	<SubTexture name="laugh note0022" x="1796" y="4806" width="429" height="874"/>
+	<SubTexture name="laugh note0023" x="2245" y="4806" width="429" height="874"/>
 </TextureAtlas>

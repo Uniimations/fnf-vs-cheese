@@ -115,8 +115,8 @@ class SettingsSubState extends MusicBeatSubstate
 				];
 			case 'ACCESSIBILITY':
 				options = [
+					'Pussy Mode',
 					'Optimized Mode',
-					'Radio Music:',
 					'Input System:',
 					'Erase Save Data'
 				];
@@ -376,6 +376,9 @@ class SettingsSubState extends MusicBeatSubstate
 
 					case 'Botplay':
 						ClientPrefs.botplay = !ClientPrefs.botplay;
+
+					case 'Pussy Mode':
+						ClientPrefs.pussyMode = !ClientPrefs.pussyMode;
 				}
 				reloadValues();
 				ClientPrefs.saveSettings(); //saves whenever you change an option (because like why didnt it do that before ???)
@@ -491,8 +494,6 @@ class SettingsSubState extends MusicBeatSubstate
 									//trace('working: ' + ClientPrefs.inputSystem);
 								});
 							}
-						case 'Radio Music:': // FINISH THIS
-							
 					}
 					reloadValues();
 					ClientPrefs.saveSettings();
@@ -593,6 +594,8 @@ class SettingsSubState extends MusicBeatSubstate
 				daText = "BE A NERDDDD LOLL, this is only in playtest buuilds of the game hi diples hi diples hi di";
 			case 'Safe Frames':
 				daText = "Customize how many frames you have for\nhitting a note earlier or late.";
+			case 'Pussy Mode':
+				daText = "Turns off mechanics in UNFAIR songs.";
 		}
 		descText.text = daText;
 
@@ -692,6 +695,8 @@ class SettingsSubState extends MusicBeatSubstate
 						daValue = ClientPrefs.gamePause;
 					case 'Botplay':
 						daValue = ClientPrefs.botplay;
+					case 'Pussy Mode':
+						daValue = ClientPrefs.pussyMode;
 				}
 				checkbox.daValue = daValue;
 			}

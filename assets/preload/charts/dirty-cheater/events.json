@@ -729,6 +729,13 @@
 						"Cheater Event",
 						"4",
 						""
+					],
+					[
+						117665.322580645,
+						-1,
+						"Change Scroll Speed",
+						"0.6",
+						"1.2"
 					]
 				],
 				"bpm": 0,
@@ -767,6 +774,13 @@
 						"Play Animation",
 						"vomit",
 						"0"
+					],
+					[
+						118935.483870968,
+						-1,
+						"Change Scroll Speed",
+						"1.2",
+						"0.5"
 					]
 				],
 				"bpm": 0,
@@ -846,7 +860,15 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						130059.677419355,
+						-1,
+						"Change Scroll Speed",
+						"1",
+						"1"
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -1049,6 +1071,13 @@
 						"Cheater Event",
 						"7",
 						""
+					],
+					[
+						154836.290322581,
+						-1,
+						"Change Scroll Speed",
+						"0.6",
+						"1.2"
 					]
 				],
 				"bpm": 0,
@@ -1066,6 +1095,13 @@
 						"Change Character",
 						"1",
 						"dc-avinera"
+					],
+					[
+						156000,
+						-1,
+						"Change Scroll Speed",
+						"1.2",
+						"0.5"
 					]
 				],
 				"bpm": 0,
@@ -1169,6 +1205,13 @@
 						"Cheater Event",
 						"null",
 						"off"
+					],
+					[
+						170032.258064516,
+						-1,
+						"Change Scroll Speed",
+						"1",
+						"0"
 					]
 				],
 				"bpm": 0,
@@ -1715,7 +1758,7 @@
 				"mustHitSection": false
 			}
 		],
-		"splashSkin": "note-splash-skins/noteSplashes",
+		"splashSkin": "",
 		"validScore": false,
 		"bpm": 155,
 		"arrowSkin": "",

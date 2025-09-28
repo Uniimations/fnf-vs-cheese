@@ -23,6 +23,12 @@ import openfl.utils.Assets as OpenFlAssets;
 
 using StringTools;
 
+enum MainMenuColumn {
+	LEFT;
+	CENTER;
+	RIGHT;
+}
+
 class MainMenuState extends MusicBeatState
 {
 	// STRINGS AND MISC
@@ -39,8 +45,11 @@ class MainMenuState extends MusicBeatState
 
 	public static var curSelected:Int = 0;
 	public static var curTrophySelect:Bool = false;
+	public static var curExtrasSelect:Bool = false;
+	public static var curColumn:MainMenuColumn = CENTER;
 
 	var trophy:FlxSprite;
+	var extras:FlxSprite;
 	var trophyFloat:Float = 0;
 	var floatAmount:Float = 0.05;
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -71,6 +80,7 @@ class MainMenuState extends MusicBeatState
 	override function create()
 	{
 		curTrophySelect = false;
+		curExtrasSelect = false;
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -148,8 +158,18 @@ class MainMenuState extends MusicBeatState
 		wallBack.loadGraphic(Paths.image('mainmenu/wall_back'));
 		wallBack.scrollFactor.set(0, yScroll);
 		wallBack.antialiasing = ClientPrefs.globalAntialiasing;
+
+		wallGlow = new FlxSprite(0, 0);
+		wallGlow.loadGraphic(Paths.image('mainmenu/glow_effect'));
+		wallGlow.scrollFactor.set(0, yScroll);
+		wallGlow.antialiasing = ClientPrefs.globalAntialiasing;
+		wallGlow.blend = UniiStringTools.getBlend('add');
+
 		if (!MainMenuState.cursed)
+		{
 			add(wallBack);
+			add(wallGlow);
+		}
 
 		//cheeseScrunkly = new FlxSprite(CoolUtil.spriteOffsets[1], CoolUtil.spriteOffsets[2]);
 		cheeseScrunkly = new FlxSprite(402, 392); //adjusted offsets a TAAAAD bit
@@ -166,10 +186,6 @@ class MainMenuState extends MusicBeatState
 		cheeseScrunkly.antialiasing = ClientPrefs.globalAntialiasing;
 		cheeseScrunkly.updateHitbox();
 		add(cheeseScrunkly);
-
-		wallGlow = new FlxSprite(0, 0);
-		wallGlow.loadGraphic(Paths.image('mainmenu/glow_effect'));
-		wallGlow.antialiasing = ClientPrefs.globalAntialiasing;
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
@@ -216,6 +232,26 @@ class MainMenuState extends MusicBeatState
 		trophy.antialiasing = ClientPrefs.globalAntialiasing;
 		trophy.updateHitbox();
 		add(trophy);
+
+		extras = new FlxSprite(800, 0);
+		extras.frames = Paths.getSparrowAtlas('mainmenu/EXTRAS_MENU');
+
+		if (FlxG.save.data.beatCulturedWeek == false)
+		{
+			extras.animation.addByIndices('unselected', "LOCKED extras", [0], '', 0, false);
+			extras.animation.addByIndices('selected', "LOCKED extras", [0], '', 0, false);
+		}
+		else
+		{
+			extras.animation.addByIndices('unselected', "unselected extras", [0], '', 0, false);
+			extras.animation.addByIndices('selected', "extras", [0], '', 0, false);
+		}
+
+		extras.animation.play('unselected');
+		extras.scrollFactor.set(0, 0);
+		extras.antialiasing = ClientPrefs.globalAntialiasing;
+		extras.updateHitbox();
+		add(extras);
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 		FlxG.camera.zoom = defaultCamZoom;
@@ -392,6 +428,14 @@ class MainMenuState extends MusicBeatState
 									wallBack.kill();
 								}
 							});
+
+							FlxTween.tween(wallGlow, {alpha: 0}, 2, {
+								ease: FlxEase.quadOut,
+								onComplete: function(twn:FlxTween)
+								{
+									wallGlow.kill();
+								}
+							});
 						});
 					}
 				}
@@ -411,6 +455,7 @@ class MainMenuState extends MusicBeatState
 				}
 			}
 			curTrophySelect = false;
+			curExtrasSelect = false;
 
 			var daChoice:String = optionShit[curSelected];
 			switch (daChoice)
@@ -443,14 +488,9 @@ class MainMenuState extends MusicBeatState
 		// MENU SELECTING INTERACTION
 		if (!selectedSomethin)
 		{
-			if (curTrophySelect == true)
-			{
-				changeItem(0);
-			}
-
 			if (controls.UI_UP_P)
 			{
-				if (curTrophySelect == false)
+				if (curTrophySelect == false || curExtrasSelect == false)
 				{
 					if (FlxG.save.data.beatCulturedWeek == false && optionShit[curSelected] == 'credits')
 					{
@@ -466,7 +506,7 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.UI_DOWN_P)
 			{
-				if (curTrophySelect == false)
+				if (curTrophySelect == false || curExtrasSelect == false)
 				{
 					if (FlxG.save.data.beatCulturedWeek == false && optionShit[curSelected] == 'story_mode')
 					{
@@ -480,20 +520,47 @@ class MainMenuState extends MusicBeatState
 				}
 			}
 
-			if (controls.UI_RIGHT_P)
+			switch(curColumn)
 			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				curTrophySelect = !curTrophySelect;
-				changeItem(0);
+				case CENTER:
+					if(controls.UI_LEFT_P)
+					{
+						curTrophySelect = true;
+						curExtrasSelect = false;
+						curColumn = LEFT;
+						changeItem();
+						FlxG.sound.play(Paths.sound('scrollMenu'));
+					}
+					else if(controls.UI_RIGHT_P && FlxG.save.data.beatCulturedWeek)
+					{
+						curExtrasSelect = true;
+						curTrophySelect = false;
+						curColumn = RIGHT;
+						changeItem();
+						FlxG.sound.play(Paths.sound('scrollMenu'));
+					}
+
+				case LEFT:
+					if(controls.UI_RIGHT_P)
+					{
+						curTrophySelect = false;
+						curExtrasSelect = false;
+						curColumn = CENTER;
+						changeItem();
+						FlxG.sound.play(Paths.sound('scrollMenu'));
+					}
+
+				case RIGHT:
+					if(controls.UI_LEFT_P)
+					{
+						curTrophySelect = false;
+						curExtrasSelect = false;
+						curColumn = CENTER;
+						changeItem();
+						FlxG.sound.play(Paths.sound('scrollMenu'));
+					}
 			}
 
-			if (controls.UI_LEFT_P)
-			{
-				FlxG.sound.play(Paths.sound('scrollMenu'));
-				curTrophySelect = !curTrophySelect;
-				changeItem(0);
-			}
-			
 			if (controls.BACK)
 			{
 				MusicBeatState.switchState(new TitleState());
@@ -527,13 +594,14 @@ class MainMenuState extends MusicBeatState
 			//spr.x += 250;
 		});
 		trophy.y += Math.sin(trophyFloat);
+		extras.y += Math.sin(trophyFloat);
 	}
 
 	function changeItem(huh:Int = 0)
 	{
 		curSelected += huh;
 
-		if (curTrophySelect == false)
+		if (curTrophySelect == false || curExtrasSelect == false)
 		{
 			if (curSelected >= menuItems.length)
 				curSelected = 0;
@@ -554,6 +622,15 @@ class MainMenuState extends MusicBeatState
 			trophy.animation.play('unselected');
 		}
 
+		if (curExtrasSelect == true)
+		{
+			extras.animation.play('selected');
+		}
+		else
+		{
+			extras.animation.play('unselected');
+		}
+
 		menuItems.forEach(function(spr:FlxSprite)
 		{
 			spr.animation.play('idle');
@@ -562,10 +639,14 @@ class MainMenuState extends MusicBeatState
 
 			if (spr.ID == curSelected)
 			{
-				spr.animation.play('selected');
-				camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
-				spr.offset.x = 0.15 * (spr.frameWidth / 2 + 180);
-				spr.offset.y = 0.15 * spr.frameHeight;
+				if (curTrophySelect || curExtrasSelect) {
+					spr.animation.play('idle');
+				} else {
+					spr.animation.play('selected');
+					camFollow.setPosition(spr.getGraphicMidpoint().x, spr.getGraphicMidpoint().y);
+					spr.offset.x = 0.15 * (spr.frameWidth / 2 + 180);
+					spr.offset.y = 0.15 * spr.frameHeight;
+				}
 			}
 		});
 	}
@@ -594,6 +675,27 @@ class MainMenuState extends MusicBeatState
 				FlxFlicker.flicker(trophy, 0.76, 0.06, false, false, function(flick:FlxFlicker)
 				{
 					MusicBeatState.switchState(new AchievementsMenuState());
+				});
+
+				if (versionShit != null) FlxTween.tween(versionShit, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
+				if (CheeseVersionShit != null) FlxTween.tween(CheeseVersionShit, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});
+			});
+		}
+		else if (curExtrasSelect)
+		{
+			menuItems.forEach(function(spr:FlxSprite)
+			{
+				FlxTween.tween(spr, {alpha: 0}, 0.4, {
+					ease: FlxEase.quadOut,
+					onComplete: function(twn:FlxTween)
+					{
+						spr.kill();
+					}
+				});
+				FlxFlicker.flicker(extras, 0.76, 0.06, false, false, function(flick:FlxFlicker)
+				{
+					FreeplaySelection.category = 'EXTRAS';
+					MusicBeatState.switchState(new FreeplaySelection());
 				});
 
 				if (versionShit != null) FlxTween.tween(versionShit, {alpha: 0}, 0.5, {ease: FlxEase.quadInOut});

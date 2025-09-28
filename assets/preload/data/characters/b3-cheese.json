@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "cheese idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				3,
+				0
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "cheese left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-25
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "cheese down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-10,
+				35
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "cheese up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-9,
+				-4
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "cheese right",
+			"indices": []
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/b3_cheese",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "b3",
+	"flip_x": false,
+	"healthbar_colors": [
+		81,
+		81,
+		81
+	],
+	"camera_position": [
+		330,
+		-80
+	],
+	"sing_duration": 6.1,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

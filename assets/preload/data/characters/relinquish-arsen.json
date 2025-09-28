@@ -1,0 +1,90 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "arsen idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				38,
+				-9
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "arsen left",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-10,
+				-27
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "arsen down",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				24,
+				22
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "arsen up",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				3
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "arsen right",
+			"indices": []
+		},
+		{
+			"offsets": [
+				0,
+				-1
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "done",
+			"loop": false,
+			"name": "arsen done"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/relinquish/RELINQUISH_ARSEN",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "relinquish",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		149,
+		35
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

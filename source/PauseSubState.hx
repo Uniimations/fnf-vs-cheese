@@ -66,10 +66,10 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			case 'below-zero' | 'frosted':
 				pauseSong = 'avi.';
-			case 'above-zero':
+			case 'cream-cheese' | 'above-zero':
 				pauseSong = 'afternoon';
 			default:
-				pauseSong = 'distant';
+				pauseSong = 'closing_time';
 		}
 
 		pauseMusic = new FlxSound().loadEmbedded(Paths.music(pauseSong), true, true);
@@ -89,6 +89,8 @@ class PauseSubState extends MusicBeatSubstate
 		{
 			case 'tutorial' | 'manager-strike-back':
 				endNum = 1;
+			case 'restaurante' | 'milkshake' | 'cultured':
+				if (CoolUtil.difficultyString() == 'VIP') endNum = 1;
 			case 'mozzarella':
 				endNum = 4;
 			case 'frosted':
@@ -115,30 +117,13 @@ class PauseSubState extends MusicBeatSubstate
 			case 'restaurante' | 'milkshake' | 'cultured':
 				if (CoolUtil.difficultyString() == 'VIP')
 				{
-					if (PlayState.SONG.song.toLowerCase() == 'cultured') {
-						switch (randomChance)
-						{
-							case 0:
-								newCharacter(740, 390, "vip-bluecheese", false, true);
-							case 1:
-								newCharacter(822, 420, "vip-bf", true);
-							case 2:
-								newCharacter(630, 150, "vip-gf-take-over");
-								hasNoPoses = true;
-								hasTwoDances = true;
-						}
-					} else {
-						switch (randomChance)
-						{
-							case 0:
-								newCharacter(740, 390, "vip-bluecheese", false, true);
-							case 1:
-								newCharacter(822, 420, "vip-bf", true);
-							case 2:
-								newCharacter(630, 150, "vip-gf");
-								hasNoPoses = true;
-								hasTwoDances = true;
-						}
+					switch (randomChance)
+					{
+						case 0:
+							newCharacter(740, 390, "vip-bluecheese", false, true);
+						case 1:
+							newCharacter(822, 0, "vip-bf", true);
+							hasTwoDances = true;
 					}
 				}
 				else
@@ -183,9 +168,9 @@ class PauseSubState extends MusicBeatSubstate
 				switch (randomChance)
 				{
 					case 0:
-						newCharacter(753, 120, "undertale-oisuzuki", false, true);
+						newCharacter(880, 180, "undertale-oisuzuki", false);
 					case 1:
-						newCharacter(822, 420, "undertale-bf", true);
+						newCharacter(822, 380, "undertale-bf", true);
 				}
 			case 'frosted':
 				switch (randomChance)

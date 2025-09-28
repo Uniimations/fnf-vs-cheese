@@ -1,0 +1,101 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				32,
+				-8
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "glitch left"
+		},
+		{
+			"offsets": [
+				-25,
+				-26
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "glitch down"
+		},
+		{
+			"offsets": [
+				3,
+				21
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "glitch up"
+		},
+		{
+			"offsets": [
+				-21,
+				4
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "glitch right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "glitch idle",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				114,
+				0
+			],
+			"anim": "idle",
+			"fps": 24,
+			"name": "glitch transform",
+			"indices": []
+		},
+		{
+			"offsets": [
+				114,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "transform",
+			"loop": false,
+			"name": "glitch transform"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/relinquish/arsen_corrupted",
+	"position": [
+		-50,
+		0
+	],
+	"healthicon": "relinquish",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		149,
+		35
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

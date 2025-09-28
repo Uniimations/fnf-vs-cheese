@@ -216,7 +216,15 @@
 				"lengthInSteps": 16,
 				"altAnim": false,
 				"typeOfSection": 0,
-				"sectionNotes": [],
+				"sectionNotes": [
+					[
+						33029.8913043478,
+						-1,
+						"Cinematics",
+						"1",
+						"1"
+					]
+				],
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
@@ -252,6 +260,27 @@
 						-1,
 						"Change CamZoom",
 						"6",
+						""
+					],
+					[
+						34769.0217391304,
+						-1,
+						"Cinematics",
+						"0",
+						"0"
+					],
+					[
+						34755.4347826087,
+						-1,
+						"Subtitles",
+						"null",
+						""
+					],
+					[
+						33369.5652173913,
+						-1,
+						"Subtitles",
+						"It's freestyle time!",
 						""
 					]
 				],
@@ -498,6 +527,20 @@
 						"Change CamZoom",
 						"8",
 						""
+					],
+					[
+						47717.3913043478,
+						-1,
+						"Cinematics",
+						"1",
+						"1"
+					],
+					[
+						47853.2608695652,
+						-1,
+						"Subtitles",
+						"Keep it up!",
+						""
 					]
 				],
 				"bpm": 0,
@@ -535,6 +578,20 @@
 						-1,
 						"Change CamZoom",
 						"7",
+						""
+					],
+					[
+						48913.0434782609,
+						-1,
+						"Cinematics",
+						"0",
+						"0"
+					],
+					[
+						48804.3478260869,
+						-1,
+						"Subtitles",
+						"null",
 						""
 					]
 				],
@@ -1990,66 +2047,12 @@
 				"bpm": 0,
 				"changeBPM": false,
 				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
-			},
-			{
-				"lengthInSteps": 16,
-				"altAnim": false,
-				"typeOfSection": 0,
-				"sectionNotes": [],
-				"bpm": 0,
-				"changeBPM": false,
-				"mustHitSection": false
 			}
 		],
-		"splashSkin": null,
+		"splashSkin": "note-splash-skins/noteSplashes_VIP",
 		"validScore": false,
 		"bpm": 138,
-		"arrowSkin": "NOTES_EX",
+		"arrowSkin": "noteskins/NOTE_assets_VIP",
 		"needsVoices": true,
 		"song": "Restaurante"
 	}

@@ -56,8 +56,6 @@ class LoadingStartup extends MusicBeatState
 		{
 			cache();
 		});
-
-		FlxG.sound.play(Paths.sound('cockbetter')); // this part is very important.
 	}
 
 	function cache()

@@ -2,9 +2,11 @@ package;
 
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.tweens.FlxTween;
 
 class BGSprite extends FlxSprite
 {
+	public var colorTween:FlxTween;
 	private var idleAnim:String;
 	public function new(image:String, x:Float = 0, y:Float = 0, ?scrollX:Float = 1, ?scrollY:Float = 1, ?animArray:Array<String> = null, ?loop:Bool = false, ?framerate:Int = 24)
 	{

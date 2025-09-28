@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="EXTRAS_MENU.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="LOCKED extras0000" x="0" y="0" width="486" height="409"/>
+	<SubTexture name="extras0000" x="506" y="0" width="486" height="409"/>
+	<SubTexture name="unselected extras0000" x="0" y="429" width="486" height="409"/>
+</TextureAtlas>

@@ -51,19 +51,7 @@ class LoadingState extends MusicBeatState
 
 		screen.max = 3;
 
-		initSongsManifest().onComplete
-		(
-			function (lib)
-			{
-				callbacks = new MultiCallback(onLoad);
-				if (PlayState.SONG != null)
-				{
-					checkLoadSong(getSongPath());
-					if (PlayState.SONG.needsVoices) checkLoadSong(getVocalPath());
-				}
-				checkLibrary("shared");
-			}
-		);
+		onLoad(); // loads immediately instead of loading unnecessary shit
 	}
 	
 	function checkLoadSong(path:String)

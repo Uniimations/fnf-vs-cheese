@@ -113,6 +113,11 @@ class OptionsState extends MusicBeatState
 				if (!inPause) {
 					MusicBeatState.switchState(new MainMenuState());
 				} else {
+					if (PlayState.SONG.song.toLowerCase() == 'manager-strike-back' && ClientPrefs.pussyMode)
+						PlayState.SONG = Song.loadFromJson('manager-strike-back-easy', 'manager-strike-back');
+					else if (PlayState.SONG.song.toLowerCase() == 'manager-strike-back' && !ClientPrefs.pussyMode)
+						PlayState.SONG = Song.loadFromJson('manager-strike-back-hard', 'manager-strike-back');
+
 					MusicBeatState.switchState(new PlayState());
 					FlxG.sound.music.volume = 0;
 					inPause = false;

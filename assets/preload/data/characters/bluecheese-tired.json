@@ -63,7 +63,6 @@
 		140
 	],
 	"healthicon": "bluecheese-tired",
-	"noteskin": "NOTES_BLUECHEESE",
 	"flip_x": false,
 	"healthbar_colors": [
 		125,
@@ -71,9 +70,10 @@
 		255
 	],
 	"camera_position": [
-		20,
-		173
+		-120,
+		143
 	],
 	"sing_duration": 4,
+	"noteskin": "NOTE_assets",
 	"scale": 1
 }

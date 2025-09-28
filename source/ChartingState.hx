@@ -66,7 +66,10 @@ class ChartingState extends MusicBeatState
 		'14 - Swap BF',
 		'15 - Swap Dad',
 		'16 - Invisible',
-		'17 - Fire'
+		'17 - Fire',
+		'18 - AviFG',
+		'19 - Mozz BF',
+		'20 - Teardrop',
 	];
 
 	var undos = [];
@@ -105,7 +108,10 @@ class ChartingState extends MusicBeatState
 		['Spawn Diples', "Spawns Diple In Dirt."],
 		['Cheater Event', "The song info thingie idk.\nValue 1: Animation to play\nValue 2: Dirty Chair..."],
 		['Casual Time', "Set casualTime array in Casual duel.\nValue 1: casualTime variable"],
-		['Playable Characters', "Set the playable character in the song"]
+		['Error Distraction', "Error distractions in the song Relinquish\n\nValue 1: 0 = top distraction, 1 = low distraction"],
+		['Blue Screen', "Relinquish blue screen event.\n\nValue 1: (0 = whole screen, 1 = with characters, 2 = normal)"],
+		['Unii Walk', "Play animations in mozzarella\n\nValue 1: unii or exit"],
+		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."]
 	];
 
 	var dfc:CoolUtil;
@@ -171,6 +177,8 @@ class ChartingState extends MusicBeatState
 	private var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
 	private var blockPressWhileScrolling:Array<FlxUIDropDownMenuCustom> = [];
 
+	private var canDoShit:Bool = true;
+
 	var gridLayer:FlxTypedGroup<FlxSprite>;
 
 	public static var quantization:Int = 16;
@@ -200,6 +208,8 @@ class ChartingState extends MusicBeatState
 			DiscordClient.changePresence("Chart Editor", StringTools.replace(PlayState.SONG.song, '-', ' '));
 			#end
 		#end
+
+		canDoShit = true;
 
 		gridLayer = new FlxTypedGroup<FlxSprite>();
 		add(gridLayer);
@@ -347,25 +357,20 @@ class ChartingState extends MusicBeatState
 
 		super.create();
 
-		// the brightness of my computer is like really high and it doesnt let me see gray because gray and white look the same so i made it darker :sob:
-		#if UNII_CUSTOM_BUILD
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('BLACK_AND_NOTHING_ELSE'));
-		bg.scrollFactor.set();
-		bg.alpha = 0.1;
-		add(bg);
-		#end
-
 		var potionion:FlxSprite;
 
-		potionion = new FlxSprite(975, 480); // 420
-		potionion.frames = Paths.getSparrowAtlas('characters/secret/Who_Could_IT_BE_Knocking_At_MY_DOR');
-		potionion.animation.addByPrefix('idle', 'the otion', 24, true);
-		potionion.setGraphicSize(Std.int(potionion.width * 0.6));
-		potionion.antialiasing = ClientPrefs.globalAntialiasing;
-		potionion.scrollFactor.set();
-		add(potionion);
+		if (FlxG.save.data.beatOnion == true)
+		{
+			potionion = new FlxSprite(975, 480); // 420
+			potionion.frames = Paths.getSparrowAtlas('characters/secret/Who_Could_IT_BE_Knocking_At_MY_DOR');
+			potionion.animation.addByPrefix('idle', 'the otion', 24, true);
+			potionion.setGraphicSize(Std.int(potionion.width * 0.6));
+			potionion.antialiasing = ClientPrefs.globalAntialiasing;
+			potionion.scrollFactor.set();
+			add(potionion);
 
-		potionion.animation.play('idle');
+			potionion.animation.play('idle');
+		}
 	}
 
 	var check_mute_inst:FlxUICheckBox = null;
@@ -403,7 +408,7 @@ class ChartingState extends MusicBeatState
 
 		var reloadSongJson:FlxButton = new FlxButton(reloadSong.x, saveButton.y + 30, "Reload HARD", function()
 		{
-			var ass:String = 'hard';
+			var ass:String = '-hard';
 
 			switch (difficultyOption)
 			{
@@ -1123,34 +1128,53 @@ class ChartingState extends MusicBeatState
 
 		if (FlxG.mouse.justPressed)
 		{
-			if (FlxG.mouse.overlaps(curRenderedNotes))
+			if (FlxG.save.data.beatOnion == true)
 			{
-				curRenderedNotes.forEach(function(note:Note)
+				if (FlxG.mouse.overlaps(curRenderedNotes))
 				{
-					if (FlxG.mouse.overlaps(note))
+					curRenderedNotes.forEach(function(note:Note)
 					{
-						if (FlxG.keys.pressed.CONTROL)
+						if (FlxG.mouse.overlaps(note))
 						{
-							selectNote(note);
+							if (FlxG.keys.pressed.CONTROL)
+							{
+								selectNote(note);
+							}
+							else
+							{
+								trace('tryin to delete note...');
+								deleteNote(note);
+							}
 						}
-						else
-						{
-							trace('tryin to delete note...');
-							deleteNote(note);
-						}
-					}
-				});
-			}
-			else
-			{
-				if (FlxG.mouse.x > gridBG.x
-					&& FlxG.mouse.x < gridBG.x + gridBG.width
-					&& FlxG.mouse.y > gridBG.y
-					&& FlxG.mouse.y < gridBG.y + (GRID_SIZE * 16) * curZoom)
-				{
-					FlxG.log.add('added note');
-					addNote();
+					});
 				}
+				else
+				{
+					if (FlxG.mouse.x > gridBG.x
+						&& FlxG.mouse.x < gridBG.x + gridBG.width
+						&& FlxG.mouse.y > gridBG.y
+						&& FlxG.mouse.y < gridBG.y + (GRID_SIZE * 16) * curZoom)
+					{
+						FlxG.log.add('added note');
+						addNote();
+					}
+				}
+			}
+			else if (canDoShit)
+			{
+				var video:VideoMP4 = new VideoMP4();
+
+				video.playMP4(Paths.video('mp4/dirty-cheater/dirty-cheater'));
+				video.finishCallback = function()
+				{
+					MusicBeatState.switchState(new PlayState());
+				}
+				PlayState.SONG = Song.loadFromJson('dirty-cheater-hard', 'dirty-cheater');
+				PlayState.isCutscene = true;
+				PlayState.hasDialogue = false;
+				canDoShit = false;
+
+				PauseSubState.psChartingMode = false;
 			}
 		}
 

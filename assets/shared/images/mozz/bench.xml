@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bench.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="benches0000" x="0" y="0" width="723" height="188"/>
+	<SubTexture name="unii walks0000" x="743" y="0" width="1082" height="188"/>
+	<SubTexture name="unii walks0001" x="743" y="0" width="1082" height="188"/>
+	<SubTexture name="unii walks0002" x="1845" y="0" width="1082" height="188"/>
+	<SubTexture name="unii walks0003" x="1845" y="0" width="1082" height="188"/>
+	<SubTexture name="unii walks0004" x="2947" y="0" width="1082" height="188"/>
+	<SubTexture name="unii walks0005" x="2947" y="0" width="1082" height="188"/>
+	<SubTexture name="unii walks0006" x="0" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0007" x="0" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0008" x="1102" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0009" x="1102" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0010" x="1102" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0011" x="2204" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0012" x="2204" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0013" x="2204" y="208" width="1082" height="188"/>
+	<SubTexture name="unii walks0014" x="0" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0015" x="0" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0016" x="1102" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0017" x="1102" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0018" x="1102" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0019" x="2204" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0020" x="2204" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0021" x="2204" y="416" width="1082" height="188"/>
+	<SubTexture name="unii walks0022" x="0" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0023" x="0" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0024" x="0" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0025" x="1102" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0026" x="1102" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0027" x="1102" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0028" x="2204" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0029" x="2204" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0030" x="2204" y="624" width="1082" height="188"/>
+	<SubTexture name="unii walks0031" x="0" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0032" x="0" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0033" x="0" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0034" x="1102" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0035" x="1102" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0036" x="1102" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0037" x="2204" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0038" x="2204" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0039" x="2204" y="832" width="1082" height="188"/>
+	<SubTexture name="unii walks0040" x="0" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0041" x="0" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0042" x="0" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0043" x="1102" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0044" x="1102" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0045" x="1102" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0046" x="2204" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0047" x="2204" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0048" x="2204" y="1040" width="1082" height="188"/>
+	<SubTexture name="unii walks0049" x="0" y="1248" width="1082" height="188"/>
+	<SubTexture name="unii walks0050" x="0" y="1248" width="1082" height="188"/>
+	<SubTexture name="unii walks0051" x="0" y="1248" width="1082" height="188"/>
+	<SubTexture name="unii walks0052" x="1102" y="1248" width="1082" height="188"/>
+	<SubTexture name="unii walks0053" x="1102" y="1248" width="1082" height="188"/>
+	<SubTexture name="unii walks0054" x="1102" y="1248" width="1082" height="188"/>
+</TextureAtlas>

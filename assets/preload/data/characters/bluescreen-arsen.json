@@ -1,0 +1,79 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "arsen idle"
+		},
+		{
+			"offsets": [
+				38,
+				-9
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "arsen left"
+		},
+		{
+			"offsets": [
+				-10,
+				-27
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "arsen down"
+		},
+		{
+			"offsets": [
+				24,
+				22
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "arsen up"
+		},
+		{
+			"offsets": [
+				0,
+				3
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "arsen right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/relinquish/bluescreen_ARSEN",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "relinquish",
+	"flip_x": false,
+	"healthbar_colors": [
+		255,
+		149,
+		35
+	],
+	"camera_position": [
+		0,
+		0
+	],
+	"sing_duration": 6.1,
+	"noteskin": "NOTE_assets",
+	"scale": 1
+}

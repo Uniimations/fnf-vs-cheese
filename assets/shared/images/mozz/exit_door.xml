@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="exit_door.png">
+	<!-- Created with Adobe Animate version 20.0.3.25487 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="exit door0000" x="0" y="0" width="586" height="273"/>
+	<SubTexture name="exit door open0000" x="0" y="293" width="586" height="273"/>
+	<SubTexture name="exit door open0001" x="0" y="293" width="586" height="273"/>
+	<SubTexture name="exit door open0002" x="0" y="586" width="586" height="273"/>
+	<SubTexture name="exit door open0003" x="0" y="586" width="586" height="273"/>
+	<SubTexture name="exit door open0004" x="0" y="586" width="586" height="273"/>
+	<SubTexture name="exit door open0005" x="0" y="586" width="586" height="273"/>
+	<SubTexture name="exit door open0006" x="0" y="586" width="586" height="273"/>
+</TextureAtlas>
